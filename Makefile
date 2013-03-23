@@ -19,3 +19,5 @@ blib/Perl6/P5Grammar.pbc: lib/Perl6/P5Grammar.pm
 
 clean:
 	$(RM_F) blib/Perl6/*.pbc blib/Perl6/*.pir
+test:
+	PERL6LIB=blib prove -e perl6 t/v5/basic.t
