@@ -2,9 +2,8 @@ use QRegex;
 use NQPP6QRegex;
 use NQPP5QRegex;
 use Perl6::P5Actions;
-use Perl6::World;
+use Perl6::P5World;
 use Perl6::Pod; # XXX do we need that?
-#use Perl6::Grammar;
 
 role startstop5[$start,$stop] {
     token starter { $start }
@@ -48,7 +47,7 @@ role STD5 {
         self.HOW.mixin(self, startstop5.HOW.curry(startstop5, $start, $stop));
     }
     method unbalanced($stop) {
-        self.HOW.mixin(self, stop.HOW.curry(stop, $stop));
+        self.HOW.mixin(self, stop5.HOW.curry(stop5, $stop));
     }
     
     token starter { <!> }
@@ -347,8 +346,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         my $file := nqp::getlexdyn('$?FILES');
         my $source_id := nqp::sha1(self.target());
         my $*W := nqp::isnull($file) ??
-            Perl6::World.new(:handle($source_id)) !!
-            Perl6::World.new(:handle($source_id), :description($file));
+            Perl6::P5World.new(:handle($source_id)) !!
+            Perl6::P5World.new(:handle($source_id), :description($file));
         $*W.add_initializations();
 
         my $cursor := self.comp_unit;
@@ -541,6 +540,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     ##################
     # Lexer routines #
     ##################
+
+    token end_keyword {
+        <!before <[ \( \\ ' \- ]> || \h* '=>'> »
+    }
 
     token ENDSTMT {
         [
@@ -1530,7 +1533,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        || <.panic: "Malformed $*SCOPE">
 #    }
     token scoped($*SCOPE) {
-        #<.end_keyword>
+        <.end_keyword>
         :dba('scoped declarator')
         [
 #        :my $*DOC := $*DECLARATOR_DOCS;
@@ -1551,8 +1554,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #          <DECL=multi_declarator>
 #        | <DECL=multi_declarator>
         ] <.ws>
-        || <.ws><typo_typename> <!>
-        || <.malformed($*SCOPE)>
+        #|| <.ws><typo_typename> <!>
+        #|| <.malformed($*SCOPE)>
         ]
     }
 
@@ -1561,10 +1564,15 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token scope_declarator:sym<our>       { <sym> <scoped('our')> }
     token scope_declarator:sym<state>     { <sym> <scoped('state')> }
 
-    rule package_declarator:sym<package> {
+    #rule package_declarator:sym<package> {
+    #    :my $*OUTERPACKAGE := $*PACKAGE;
+    #    :my $*PKGDECL := 'package';
+    #    <sym> <package_def>
+    #}
+    token package_declarator:sym<package> {
         :my $*OUTERPACKAGE := $*PACKAGE;
         :my $*PKGDECL := 'package';
-        <sym> <package_def>
+        <sym> <.end_keyword> <package_def>
     }
 
     rule package_declarator:sym<require> {   # here because of declarational aspects
@@ -1635,7 +1643,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         :my $*CURPAD;
         :my $*DOC := $*DECLARATOR_DOCS;
         :my $*DOCEE;
-        <.attach_docs>
+#        <.attach_docs>
         
         # Meta-object will live in here; also set default REPR (a trait
         # may override this, e.g. is repr('...')).
@@ -1834,7 +1842,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <declarator>
     }
 
-    rule routine_declarator:sym<sub>       { <sym> <routine_def> }
+    #rule routine_declarator:sym<sub>       { <sym> <routine_def> }
+    token routine_declarator:sym<sub>       { <sym> <.end_keyword> <routine_def> }
 
     rule parensig {
         :dba('signature')
@@ -1851,33 +1860,47 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         return self;
     }
 
+#    rule routine_def {
+#        :my $*CURLEX;
+#        :my $*IN_DECL := 1;
+#        :my $*DECLARAND;
+#        [
+#        ||  <deflongname>
+#            <.newlex(1)>
+#            <parensig>?
+#            <trait>*
+#            <!{
+#                $*IN_DECL := 0;
+#            }>
+#            <blockoid>:!s
+#            { @*MEMOS[self.pos]<endstmt> := 2; }
+#            <.checkyada>
+#            <.getsig>
+#        || <?before \W>
+#            <.newlex(1)>
+#            <parensig>?
+#            <trait>*
+#            <!{
+#                $*IN_DECL := 0;
+#            }>
+#            <blockoid>:!s
+#            <.checkyada>
+#            <.getsig>
+#        ] || <.panic: "Malformed routine">
+#    }
     rule routine_def {
-        :my $*CURLEX;
-        :my $*IN_DECL := 1;
-        :my $*DECLARAND;
-        [
-        ||  <deflongname>
-            <.newlex(1)>
-            <parensig>?
-            <trait>*
-            <!{
-                $*IN_DECL := 0;
-            }>
-            <blockoid>:!s
-            { @*MEMOS[self.pos]<endstmt> := 2; }
-            <.checkyada>
-            <.getsig>
-        || <?before \W>
-            <.newlex(1)>
-            <parensig>?
-            <trait>*
-            <!{
-                $*IN_DECL := 0;
-            }>
-            <blockoid>:!s
-            <.checkyada>
-            <.getsig>
-        ] || <.panic: "Malformed routine">
+        :my $*IN_DECL := 'sub';
+        :my $*METHODTYPE;
+        :my $*IMPLICIT := 0;
+        :my $*DOC := $*DECLARATOR_DOCS;
+        :my $*DOCEE;
+        :my $*DECLARAND := $*W.stub_code_object('Sub');
+        <deflongname>
+        <.newlex>
+        [ '(' <multisig> ')' ]?
+        <trait>*
+        { $*IN_DECL := 0; }
+        <blockoid>
     }
 
     rule trait {
@@ -2222,21 +2245,14 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token sigil:sym<*>  { <sym> }
     token sigil:sym<$#> { <sym> }
 
-#    token deflongname {
-#        :dba('new name to be defined')
-#        <name>
-#        { self.add_routine( ~$<name> ) if $*IN_DECL; }
-#    }
     token deflongname {
         :dba('new name to be defined')
-        <name> <colonpair>*
+        <name>
+#        { self.add_routine( ~$<name> ) if $*IN_DECL; }
     }
 
-#    token longname {
-#        <name>
-#    }
     token longname {
-        <name> {} [ <?before ':' <+alpha+[\< \[ \« ]>> <colonpair> ]*
+        <name>
     }
 
     token name {
@@ -2246,20 +2262,9 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         ]
     }
 
-    #token morename {
-    #    '::' <identifier>?
-    #}
     token morename {
         :my $*QSIGIL := '';
-        '::'
-        [
-        ||  <?before '(' | <alpha> >
-            [
-            | <identifier>
-            | :dba('indirect name') '(' ~ ')' <EXPR>
-            ]
-        || <?before '::'> <.typed_panic: "X::Syntax::Name::Null">
-        ]?
+        '::' <identifier>?
     }
 
     token subname {
