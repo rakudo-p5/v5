@@ -1,5 +1,6 @@
 NQP        = nqp
 PARROT     = parrot
+RM_F       = perl -MExtUtils::Command -e rm_f
 
 all: blib/perl5.pbc 
 
@@ -15,3 +16,6 @@ blib/Perl6/P5Actions.pbc: lib/Perl6/P5Actions.pm
 blib/Perl6/P5Grammar.pbc: lib/Perl6/P5Grammar.pm
 	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl6/P5Grammar.pir lib/Perl6/P5Grammar.pm
 	$(PARROT) -o blib/Perl6/P5Grammar.pbc blib/Perl6/P5Grammar.pir
+
+clean:
+	$(RM_F) blib/Perl6/*.pbc blib/Perl6/*.pir
