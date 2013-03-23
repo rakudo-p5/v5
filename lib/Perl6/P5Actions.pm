@@ -6,6 +6,11 @@ use Perl6::Ops;
 use QRegex;
 use QAST;
 
+sub p5disect_longname( $longname ) {
+    $longname<colonpair> := nqp::list();
+    $*W.disect_longname( $longname )
+}
+
 my role STDActions {
     method quibble($/) {
         make $<nibble>.ast;
@@ -203,30 +208,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method deflongname($/) {
-#        if $<colonpair> {
-#            my $name := ~$<name>;
-#            if $<colonpair>[0] {
-#                $name := $name ~ ':';
-#            }
-#            if $<colonpair>[0]<identifier> {
-#                $name := $name ~ ~$<colonpair>[0]<identifier>;
-#            }
-#            if $<colonpair>[0]<coloncircumfix> -> $cf {
-#                if $cf<circumfix> -> $op_name {
-#                    $name := $name ~ '<' ~ $*W.colonpair_nibble_to_str($/, $op_name<nibble>) ~ '>';
-#                }
-#                else {
-#                    $name := $name ~ '<>';
-#                }
-#            }
-#            make $name;
-#        }
-#        else {
-            make $*W.disect_deflongname($/).name(
-                :dba("$*IN_DECL declaration"),
-                :decl<routine>,
-            );
-#        }
+        make p5disect_longname($/).name(
+            :dba("$*IN_DECL declaration"),
+            :decl<routine>,
+        );
     }
 
     # Turn $code into "for lines() { $code }"
@@ -453,9 +438,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make $<pod_block>.ast;
     }
 
-#    method pod_configuration($/) {
-#        make Perl6::Pod::make_config($/);
-#    }
+    method pod_configuration($/) {
+        make Perl6::Pod::make_config($/);
+    }
 
     method pod_block:sym<delimited>($/) {
         make Perl6::Pod::any_block($/);
@@ -987,7 +972,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     method package_declarator:sym<require>($/) {
         my $past := QAST::Stmts.new(:node($/));
         my $name_past := $<module_name>
-                        ?? $*W.disect_longname($<module_name><longname>).name_past()
+                        ?? p5disect_longname($<module_name><longname>).name_past()
                         !! $<EXPR>[0].ast;
 
         $past.push(QAST::Op.new(
@@ -1224,30 +1209,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
 #    method colonpair($/) {
-#        if $*key {
-#            if $<var> {
-#                make make_pair($*key, $<var>.ast);
-#            }
-#            elsif $*value ~~ NQPMatch {
-#                my $val_ast := $*value.ast;
-#                if $val_ast.isa(QAST::Stmts) && +@($val_ast) == 1 {
-#                    $val_ast := $val_ast[0];
-#                }
-#                make make_pair($*key, $val_ast);
-#            }
-#            else {
-#                make make_pair($*key, QAST::Op.new(
-#                    :op('p6bool'),
-#                    QAST::IVal.new( :value($*value) ) 
-#                ));
-#            }
-#        }
-#        elsif $<fakesignature> {
-#            make $<fakesignature>.ast;
-#        }
-#        else {
-#            make $*value.ast;
-#        }
+#        make make_pair($*key, QAST::Op.new(
+#            :op('p6bool'),
+#            QAST::IVal.new( :value($*value) ) 
+#        ));
 #    }
     
 #    method colonpair_variable($/) {
@@ -1343,7 +1308,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         else {
             my $indirect;
             if $<desigilname> && $<desigilname><longname> {
-                my $longname := $*W.disect_longname($<desigilname><longname>);
+                my $longname := p5disect_longname($<desigilname><longname>);
                 if $longname.contains_indirect_lookup() {
                     if $*IN_DECL {
                         $*W.throw($/, ['X', 'Syntax', 'Variable', 'IndirectDeclaration']);
@@ -2408,16 +2373,16 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             );
         }
         my %sig_info;
-        if $<multisig> {
-            %sig_info := $<multisig>[0].ast;
-        }
-        else {
+#        if $<multisig> {
+#            %sig_info := $<multisig>[0].ast;
+#        }
+#        else {
             %sig_info<parameters> := $block<placeholder_sig> ?? $block<placeholder_sig> !!
                                                                 [];
-        }
+#        }
         my @params := %sig_info<parameters>;
         set_default_parameter_type(@params, 'Any');
-        my $signature := create_signature_object($<multisig> ?? $<multisig>[0] !! $/, %sig_info, $block);
+        my $signature := create_signature_object($/, %sig_info, $block);
         add_signature_binding_code($block, $signature, @params);
 
         # Finish code object, associating it with the routine body.
@@ -2611,12 +2576,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         0
     }
 
-#    method onlystar($/) {
-#        my $BLOCK := $*CURPAD;
-#        $BLOCK.push(QAST::Op.new( :op('p6multidispatch') ));
-#        $BLOCK.node($/);
-#        make $BLOCK;
-#    }
+    method onlystar($/) {
+        my $BLOCK := $*CURPAD;
+        $BLOCK.push(QAST::Op.new( :op('p6multidispatch') ));
+        $BLOCK.node($/);
+        make $BLOCK;
+    }
 
     method regex_declarator:sym<regex>($/, $key?) {
         make $<regex_def>.ast;
@@ -2727,7 +2692,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
         # Get, or find, enumeration base type and create type object with
         # correct base type.
-        my $longname  := $<longname> ?? $*W.disect_longname($<longname>) !! 0;
+        my $longname  := $<longname> ?? p5disect_longname($<longname>) !! 0;
         my $name      := $<longname> ?? $longname.name() !! $<variable><desigilname>;
 
         my $type_obj;
@@ -2874,7 +2839,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             QAST::Op.new( :op('p6bool'), QAST::IVal.new( :value(1) ) ));
 
         # Create the meta-object.
-        my $longname := $<longname> ?? $*W.disect_longname($<longname>[0]) !! 0;
+        my $longname := $<longname> ?? p5disect_longname($<longname>[0]) !! 0;
         my $subset := $<longname> ??
             $*W.create_subset(%*HOW<subset>, $refinee, $refinement, :name($longname.name())) !!
             $*W.create_subset(%*HOW<subset>, $refinee, $refinement);
@@ -2965,9 +2930,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make $<EXPR>.ast;
     }
 
-    method multisig($/) {
-        make $<signature>.ast;
-    }
+#    method multisig($/) {
+#        make $<signature>.ast;
+#    }
 
     method fakesignature($/) {
         my $fake_pad := $*W.pop_lexpad();
@@ -3227,16 +3192,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                     $/.CURSOR.panic("Type " ~ ~$<typename><longname> ~
                         " cannot be used as a nominal type on a parameter");
                 }
-#                for ($<typename><longname> ?? $<typename><longname><colonpair> !! $<typename><colonpair>) {
-#                    if $_<identifier> {
-#                        if $_<identifier>.Str eq 'D' {
-#                            %*PARAM_INFO<defined_only> := 1;
-#                        }
-#                        elsif $_<identifier>.Str eq 'U' {
-#                            %*PARAM_INFO<undefined_only> := 1;
-#                        }
-#                    }
-#                }
             }
         }
         elsif $<value> {
@@ -3348,7 +3303,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method trait($/) {
-#        make $<trait_mod> ?? $<trait_mod>.ast !! $<colonpair>.ast;
         make $<trait_mod>.ast;
     }
 
@@ -3376,7 +3330,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         
             # If we have a type name then we need to dispatch with that type; otherwise
             # we need to dispatch with it as a named argument.
-            my @name := $*W.disect_longname($<longname>).components();
+            my @name := p5disect_longname($<longname>).components();
             if $*W.is_name(@name) {
                 my $trait := $*W.find_symbol(@name);
                 make -> $declarand {
@@ -3481,7 +3435,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         # runs after CHECK time.
         my $past := $<methodop>.ast;
         if $<methodop><longname> {
-            my @parts   := $*W.disect_longname($<methodop><longname>).components();
+            my @parts   := p5disect_longname($<methodop><longname>).components();
             my $name    := @parts.pop;
             if @parts {
                 my $methpkg := $*W.find_symbol(@parts);
@@ -3524,7 +3478,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         if $<longname> {
             # May just be .foo, but could also be .Foo::bar. Also handle the
             # macro-ish cases.
-            my @parts := $*W.disect_longname($<longname>).components();
+            my @parts := p5disect_longname($<longname>).components();
             my $name := @parts.pop;
             if +@parts {
                 $past.unshift($*W.symbol_lookup(@parts, $/));
@@ -3895,9 +3849,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make $<capterm>.ast;
     }
     
-#    method term:sym<onlystar>($/) {
-#        make QAST::Op.new( :op('p6multidispatchlex') );
-#    }
+    method term:sym<onlystar>($/) {
+        make QAST::Op.new( :op('p6multidispatchlex') );
+    }
 
     method args($/) {
         my $past;
@@ -4246,22 +4200,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             }
         }
         if $key eq 'POSTFIX' {
-            # If may be an adverb.
-#            if $<colonpair> {
-#                my $target := $past := $/[0].ast;
-#                if nqp::istype($target, QAST::Op) && $target.op eq 'p6type' {
-#                    $target := $target[0];
-#                }
-#                unless nqp::istype($target, QAST::Op) && ($target.op eq 'call' || $target.op eq 'callmethod') {
-#                    $/.CURSOR.panic("You can't adverb that");
-#                }
-#                my $cpast := $<colonpair>.ast;
-#                $cpast[2].named(compile_time_value_str($cpast[1], 'LHS of pair', $/));
-#                $target.push($cpast[2]);
-#                make $past;
-#                return 1;
-#            }
-            
             # Method calls may be to a foreign language, and thus return
             # values may need type mapping into Perl 6 land.
             $past.unshift($/[0].ast);
@@ -5007,7 +4945,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         # GenericHOW, though whether/how it's used depends on context.
         if $<longname> {
             if nqp::substr(~$<longname>, 0, 2) ne '::' {
-                my $longname := $*W.disect_longname($<longname>);
+                my $longname := p5disect_longname($<longname>);
                 my $type := $*W.find_symbol($longname.type_name_parts('type name'));
                 if $<arglist> {
                     $type := $*W.parameterize_type($type, $<arglist>, $/);

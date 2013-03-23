@@ -2,7 +2,6 @@ use QRegex;
 use NQPP6QRegex;
 use NQPP5QRegex;
 use Perl6::P5Actions;
-use Perl6::P5World;
 use Perl6::Pod; # XXX do we need that?
 
 role startstop5[$start,$stop] {
@@ -307,7 +306,6 @@ role STD5 {
 }
 
 grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
-
 #    use DEBUG;
 
 #    method TOP ($STOP = 0) {
@@ -1654,7 +1652,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         { unless $*SCOPE { $*SCOPE := 'our'; } }
         
         [
-            [ <longname> { $longname := $*W.disect_longname($<longname>[0]); } ]?
+            [ <longname> { $longname := p5disect_longname($<longname>[0]); } ]?
             <.newlex>
             
             [ :dba('generic role')
@@ -1897,7 +1895,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         :my $*DECLARAND := $*W.stub_code_object('Sub');
         <deflongname>
         <.newlex>
-        [ '(' <multisig> ')' ]?
+        #[ '(' <multisig> ')' ]?
         <trait>*
         { $*IN_DECL := 0; }
         <blockoid>
@@ -2254,7 +2252,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token longname {
         <name>
     }
-
+    
     token name {
         [
         | <identifier> <morename>*
@@ -2699,9 +2697,9 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     token unitstopper { $ }
 
-    method balanced ($start,$stop) { self.mixin( Perl6::P5Grammar::startstop[$start,$stop] ); }
-    method unbalanced ($stop) { self.mixin( Perl6::P5Grammar::stop[$stop] ); }
-    method unitstop ($stop) { self.mixin( Perl6::P5Grammar::unitstop[$stop] ); }
+    method balanced ($start,$stop) { self.mixin( Perl6::P5Grammar::startstop5[$start,$stop] ); }
+    method unbalanced ($stop) { self.mixin( Perl6::P5Grammar::stop5[$stop] ); }
+    method unitstop ($stop) { self.mixin( Perl6::P5Grammar::unitstop5[$stop] ); }
 
     token charname {
         [
@@ -3568,7 +3566,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token term:sym<name> {
         <longname>
         :my $*longname;
-        { say("token term:sym<name> longname:" ~ ~$<longname>); $*longname := $*W.disect_longname($<longname>) }
+        { say("token term:sym<name> longname:" ~ ~$<longname>); $*longname := p5disect_longname($<longname>) }
         [
         ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::' || $*W.is_name($*longname.components()) }>
             <.unsp>?
