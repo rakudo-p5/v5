@@ -3485,8 +3485,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         { <sym> <O('%assignment')> }
 
     ## list item separator
-    token infix:sym<,>
-        { <sym> { $<O><fiddly> := 0; } <O('%comma')> }
+#    token infix:sym<,>
+#        { <sym> { $<O><fiddly> := 0; } <O('%comma')> }
+    token infix:sym<,>    {
+        <sym>  <O('%comma')>
+    }
 
     token infix:sym«=>»
         { <sym> { $<O><fiddly> := 0; } <O('%comma')> }

@@ -32,6 +32,7 @@ if 1 {
     say $s;
     #sub b ($x) { say $x }          # Method 'multisig' not found for invocant of class 'Perl6::P5Grammar'
     #for my $x (10..13) { say $x; } # scoped variables not yet implemented. Sorry.
+    say "16", 17;
 }
 
-say "16";
+say "18";
