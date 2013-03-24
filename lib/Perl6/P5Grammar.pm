@@ -3276,8 +3276,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token term:sym<setprotoent>
         { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<shift>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<shift>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
     token term:sym<sin>
         { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
