@@ -1940,36 +1940,32 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             }
 #        }
 
-        # Obtain parameters, create signature object and generate code to
-        # call binder.
-#        if $block<placeholder_sig> && $<multisig> {
-#            $*W.throw($/, ['X', 'Signature', 'Placeholder'],
-#                placeholder => $block<placeholder_sig>[0]<placeholder>,
-#            );
-#        }
+        # Add an slurpy @_ parameter by default.
         my %sig_info;
-#        if $<multisig> {
-#            %sig_info := $<multisig>[0].ast;
-#        }
-#        else {
-#            %sig_info<parameters> := $block<placeholder_sig> ?? $block<placeholder_sig> !!
-#                                                                [];
-            %sig_info<parameters> := [];
-#        }
+        %sig_info<parameters> := [];
         my @params := %sig_info<parameters>;
+
+        my $param_name := '@_';
+        @params.push( hash(
+            variable_name => $param_name,
+            pos_slurpy    => 1,
+            named_slurpy  => 0,
+            #placeholder   => $param_name,
+            sigil         => '@'
+        ) );
+
+        # Add variable declaration, and evaluate to a lookup of it.
+        unless $block.symbol($param_name) {
+            $block[0].push(QAST::Var.new( :name($param_name), :scope('lexical'), :decl('var') ));
+        }
+        $block.symbol($param_name, :scope('lexical'), :placeholder_parameter(0));
+
         set_default_parameter_type(@params, 'Any');
-#        my $signature := create_signature_object($<multisig> ?? $<multisig>[0] !! $/, %sig_info, $block);
         my $signature := create_signature_object($/, %sig_info, $block);
         add_signature_binding_code($block, $signature, @params);
 
         # Needs a slot that can hold a (potentially unvivified) dispatcher;
-        # if this is a multi then we'll need it to vivify to a MultiDispatcher.
-#        if $*MULTINESS eq 'multi' {
-#            $*W.install_lexical_symbol($block, '$*DISPATCHER', $*W.find_symbol(['MultiDispatcher']));
-#        }
-#        else {
-            add_implicit_var($block, '$*DISPATCHER');
-#        }
+        add_implicit_var($block, '$*DISPATCHER');
         $block[0].unshift(QAST::Op.new(:op('p6takedisp')));
 
         # Set name.
@@ -1981,25 +1977,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         my $code := $*DECLARAND;
         $*W.attach_signature($code, $signature);
         $*W.finish_code_object($code, $block, $*MULTINESS eq 'proto', :yada(is_yada($/)));
-
-        # attach return type
-#        if $*OFTYPE {
-#            my $sig := $code.signature;
-#            if $sig.has_returns {
-#                my $prev_returns := $sig.returns;
-#                $*W.throw($*OFTYPE, 'X::Redeclaration',
-#                    what    => 'return type for',
-#                    symbol  => $code,
-#                    postfix => " (previous return type was " 
-#                                ~ $prev_returns.HOW.name($prev_returns)
-#                                ~ ')',
-#                );
-#            }
-#            $sig.set_returns($*OFTYPE.ast);
-#        }
-
-        # Document it
-#        Perl6::Pod::document($/, $code, $*DOC);
 
         # Install PAST block so that it gets capture_lex'd correctly and also
         # install it in the lexpad.
@@ -2015,105 +1992,42 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             # proto.
             # XXX Also need to auto-multi things with a proto in scope.
             my $name := '&' ~ ~$<deflongname>.ast;
-#            if $*MULTINESS eq 'multi' {
-#                # Do we have a proto in the current scope?
-#                my $proto;
-#                if $outer.symbol($name) {
-#                    $proto := $outer.symbol($name)<value>;
-#                }
-#                else {
-#                    unless $*SCOPE eq '' || $*SCOPE eq 'my' {
-#                        $*W.throw($/, 'X::Declaration::Scope::Multi',
-#                            scope       => $*SCOPE,
-#                            declaration => 'multi',
-#                        );
-#                    }
-#                    # None; search outer scopes.
-#                    my $new_proto;
-#                    try {
-#                        $proto := $*W.find_symbol([$name]);
-#                    }
-#                    if $proto && $proto.is_dispatcher {
-#                        # Found in outer scope. Need to derive.
-#                        $new_proto := $*W.derive_dispatcher($proto);
-#                    }
-#                    else {
-#                        $new_proto := self.autogenerate_proto($/, $block.name, $outer[0]);
-#                    }
-#
-#                    # Install in current scope.
-#                    $*W.install_lexical_symbol($outer, $name, $new_proto, :clone(1));
-#                    $proto := $new_proto;
-#                }
-
-#                # Ensure it's actually a dispatcher.
-#                unless $proto.is_dispatcher {
-#                    $*W.throw($/, ['X', 'Redeclaration'],
-#                        what    => 'routine',
-#                        symbol  => ~$<deflongname>.ast,
-#                    );
-#                }
-
-#                # Install the candidate.
-#                $*W.add_dispatchee_to_proto($proto, $code);
-#            }
-#            else {
-                # Install.
-                if $outer.symbol($name) {
-                    $*W.throw($/, ['X', 'Redeclaration'],
-                            symbol => ~$<deflongname>.ast,
-                            what   => 'routine',
-                    );
-                }
-                if $*SCOPE eq '' || $*SCOPE eq 'my' {
-                    $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
-                }
-                elsif $*SCOPE eq 'our' {
-                    # Install in lexpad and in package, and set up code to
-                    # re-bind it per invocation of its outer.
-                    $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
-                    $*W.install_package_symbol($*PACKAGE, $name, $code);
-                    $outer[0].push(QAST::Op.new(
-                        :op('bindkey'),
-                        QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
-                        QAST::SVal.new( :value($name) ),
-                        QAST::Var.new( :name($name), :scope('lexical') )
-                    ));
-                }
-                elsif $*SCOPE eq 'anon' {
-                    # don't do anything
-                }
-                else {
-                    $*W.throw($/, 'X::Declaration::Scope',
-                            scope       => $*SCOPE,
-                            declaration => 'sub',
-                    );
-                }
-#            }
+            # Install.
+            if $outer.symbol($name) {
+                $*W.throw($/, ['X', 'Redeclaration'],
+                        symbol => ~$<deflongname>.ast,
+                        what   => 'routine',
+                );
+            }
+            if $*SCOPE eq '' || $*SCOPE eq 'my' {
+                $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
+            }
+            elsif $*SCOPE eq 'our' {
+                # Install in lexpad and in package, and set up code to
+                # re-bind it per invocation of its outer.
+                $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
+                $*W.install_package_symbol($*PACKAGE, $name, $code);
+                $outer[0].push(QAST::Op.new(
+                    :op('bindkey'),
+                    QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
+                    QAST::SVal.new( :value($name) ),
+                    QAST::Var.new( :name($name), :scope('lexical') )
+                ));
+            }
+            elsif $*SCOPE eq 'anon' {
+                # don't do anything
+            }
+            else {
+                $*W.throw($/, 'X::Declaration::Scope',
+                        scope       => $*SCOPE,
+                        declaration => 'sub',
+                );
+            }
         }
-#        elsif $*MULTINESS {
-#            $*W.throw($/, 'X::Anon::Multi', multiness => $*MULTINESS);
-#        }
-
-        # Apply traits.
-#        for $<trait> -> $t {
-#            if $t.ast { $*W.ex-handle($t, { ($t.ast)($code) }) }
-#        }
-#        if $<onlystar> {
-#            # Protect with try; won't work when declaring the initial
-#            # trait_mod proto in CORE.setting!
-#            try $*W.apply_trait($/, '&trait_mod:<is>', $*DECLARAND, :onlystar(1));
-#        }
         
-        # Add inlining information if it's inlinable; also mark soft if the
-        # appropriate pragma is in effect.
+        # Add inlining information if it's inlinable.
         if $<deflongname> {
-#            if $*SOFT {
-#                $*W.find_symbol(['&infix:<does>'])($code, $*W.find_symbol(['SoftRoutine']));
-#            }
-#            else {
-                self.add_inlining_info_if_possible($/, $code, $block, @params);
-#            }
+            self.add_inlining_info_if_possible($/, $code, $block, @params);
         }
 
         my $closure := block_closure(reference_to_code_object($code, $past));
