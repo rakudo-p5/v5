@@ -2,6 +2,7 @@ use QRegex;
 use NQPP6QRegex;
 use NQPP5QRegex;
 use Perl6::P5Actions;
+use Perl6::P5World;
 use Perl6::Pod; # XXX do we need that?
 
 role startstop5[$start,$stop] {
@@ -1652,7 +1653,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         { unless $*SCOPE { $*SCOPE := 'our'; } }
         
         [
-            [ <longname> { $longname := p5disect_longname($<longname>[0]); } ]?
+            [ <longname> { $longname := $*W.p5dissect_longname($<longname>[0]); } ]?
             <.newlex>
             
             [ :dba('generic role')
@@ -3566,7 +3567,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token term:sym<name> {
         <longname>
         :my $*longname;
-        { say("token term:sym<name> longname:" ~ ~$<longname>); $*longname := p5disect_longname($<longname>) }
+        { say("token term:sym<name> longname:" ~ ~$<longname>); $*longname := $*W.p5dissect_longname($<longname>) }
         [
         ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::' || $*W.is_name($*longname.components()) }>
             <.unsp>?
