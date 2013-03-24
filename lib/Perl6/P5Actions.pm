@@ -668,48 +668,27 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method sblock($/) {
-        say("method sblock($/)");
         if $<blockoid><you_are_here> {
-            say("method sblock($/) you_are_here");
             make $<blockoid>.ast;
         }
         else {
-            say("method sblock($/) else");
             # Locate or build a set of parameters.
             my %sig_info;
             my @params;
             my $block := $<blockoid>.ast;
-            if $block<placeholder_sig> && $<signature> {
-                say("method sblock($/) else placeholder_sig && signature");
-                $*W.throw($/, ['X', 'Signature', 'Placeholder'],
-                    placeholder => $block<placeholder_sig>[0]<placeholder>,
-                );
-            }
-            elsif $block<placeholder_sig> {
-                say("method sblock($/) else placeholder_sig");
-                @params := $block<placeholder_sig>;
-                %sig_info<parameters> := @params;
-            }
-            elsif $<signature> {
-                say("method sblock($/) else signature");
-                %sig_info := $<signature>.ast;
-                @params := %sig_info<parameters>;
-            }
-            else {
-                # XXX we will always end up here, because Perl 5's b sblock has no signature.
-                say("method sblock($/) else else");
-                unless $block.symbol('$_') {
-                    if $*IMPLICIT {
-                        @params.push(hash(
-                            :variable_name('$_'), :optional(1),
-                            :nominal_type($*W.find_symbol(['Mu'])),
-                            :default_from_outer(1), :is_parcel(1),
-                        ));
-                    }
-                    add_implicit_var($block, '$_');
+            my $name := ($*FOR_VARIABLE && ~$*FOR_VARIABLE[0].ast.name) || '$_';
+            unless $block.symbol($name) {
+                if $*IMPLICIT {
+                    @params.push(hash(
+                        :variable_name($name), :optional(1),
+                        :nominal_type($*W.find_symbol(['Mu'])),
+                        :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
+                    ));
                 }
-                %sig_info<parameters> := @params;
+                $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
+                $block.symbol($name, :scope('lexical'), :lazyinit($name eq '$_') );
             }
+            %sig_info<parameters> := @params;
 
             # Create signature object and set up binding.
             if $<lambda> eq '<->' {
@@ -858,22 +837,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make tweak_loop($past);
     }
 
-#    method statement_control:sym<for>($/) {
-#        my $xblock := $<xblock>.ast;
-#        my $past := QAST::Op.new(
-#                        :op<callmethod>, :name<map>, :node($/),
-#                        QAST::Op.new(:name('&infix:<,>'), :op('call'), $xblock[0]),
-#                        block_closure($xblock[1])
-#        );
-#        make $past;
-#    }
     method statement_control:sym<for>($/) {
-        #my $xblock := $<xblock>.ast;
-        # bind to $x if $x in signature, remember
+        my $block := $<sblock>.ast;
         my $past := QAST::Op.new(
                         :op<callmethod>, :name<map>, :node($/),
                         QAST::Op.new(:name('&infix:<,>'), :op('call'), $<EXPR>.ast),
-                        block_closure($<sblock>.ast)
+                        block_closure($block)
         );
         make $past;
     }
@@ -5219,17 +5188,17 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             $block);
     }
 
-    sub make_topic_block_ref($past, :$copy) {
+    sub make_topic_block_ref($past, :$copy, :$name = '$_') {
         my $block := QAST::Block.new(
             QAST::Stmts.new(
-                QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') )
+                QAST::Var.new( :name($name), :scope('lexical'), :decl('var') )
             ),
             $past);
         ($*W.cur_lexpad())[0].push($block);
-        my $param := hash( :variable_name('$_'), :nominal_type($*W.find_symbol(['Mu'])));
+        my $param := hash( :variable_name($name), :nominal_type($*W.find_symbol(['Mu'])));
         if $copy {
             $param<container_descriptor> := $*W.create_container_descriptor(
-                    $*W.find_symbol(['Mu']), 0, '$_'
+                    $*W.find_symbol(['Mu']), 0, $name
             );
         }
         my $param_obj := $*W.create_parameter($param);

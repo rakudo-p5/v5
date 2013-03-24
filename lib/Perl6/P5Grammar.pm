@@ -1336,6 +1336,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         [
         ||  'strict'   # noop
         ||  'warnings' # noop
+        ||  'feature' <arglist> # noop
         ||  'v6' [
                 {
                     say("P5 use v6");
@@ -1424,6 +1425,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        <sblock>
 #    }
     rule statement_control:sym<for> {
+        :my $*FOR_VARIABLE;
+        :my $*SCOPE;
         ['for'|'foreach']
 #        [
 #        ||  '('
@@ -1439,7 +1442,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        [ <?before '(' <.EXPR>? ';' <.EXPR>? ';' <.EXPR>? ')' >
 #            <.obs('C-style "for (;;)" loop', '"loop (;;)"')> ]?
 #        $<signature>=[ ['my' { $*SCOPE := 'my' } ]? <variable_declarator> ]?
-        [ ['my' { $*SCOPE := 'my' } ]? <variable_declarator> ]?
+        [
+        || [ <variable> { $*FOR_VARIABLE := $<variable>; } ]?
+        || [ ['my' { $*SCOPE := 'my' } ]? <variable_declarator> { $*FOR_VARIABLE := $<variable_declarator>; } ]?
+        ]
         '(' ~ ')' <EXPR>
         <sblock(1)>
     }

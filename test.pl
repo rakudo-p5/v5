@@ -31,8 +31,9 @@ if 1 {
     my $s = 15;
     say $s;
     sub b { say shift @_ }; b( 16 );
-    for my $x (10..13) { say $x; } # iterate is still $_
-    say "16\n", 17;
+    for my $x (17..22) { say $x; }
+    my $y; for $y (23..24) { say $y; }
+    say "25\n", 26;
 }
 
-say "18";
+say "27";
