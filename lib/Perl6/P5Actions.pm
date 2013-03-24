@@ -668,28 +668,36 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method sblock($/) {
+        say("method sblock($/)");
         if $<blockoid><you_are_here> {
+            say("method sblock($/) you_are_here");
             make $<blockoid>.ast;
         }
         else {
+            say("method sblock($/) else");
             # Locate or build a set of parameters.
             my %sig_info;
             my @params;
             my $block := $<blockoid>.ast;
             if $block<placeholder_sig> && $<signature> {
+                say("method sblock($/) else placeholder_sig && signature");
                 $*W.throw($/, ['X', 'Signature', 'Placeholder'],
                     placeholder => $block<placeholder_sig>[0]<placeholder>,
                 );
             }
             elsif $block<placeholder_sig> {
+                say("method sblock($/) else placeholder_sig");
                 @params := $block<placeholder_sig>;
                 %sig_info<parameters> := @params;
             }
             elsif $<signature> {
+                say("method sblock($/) else signature");
                 %sig_info := $<signature>.ast;
                 @params := %sig_info<parameters>;
             }
             else {
+                # XXX we will always end up here, because Perl 5's b sblock has no signature.
+                say("method sblock($/) else else");
                 unless $block.symbol('$_') {
                     if $*IMPLICIT {
                         @params.push(hash(
@@ -850,12 +858,22 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make tweak_loop($past);
     }
 
+#    method statement_control:sym<for>($/) {
+#        my $xblock := $<xblock>.ast;
+#        my $past := QAST::Op.new(
+#                        :op<callmethod>, :name<map>, :node($/),
+#                        QAST::Op.new(:name('&infix:<,>'), :op('call'), $xblock[0]),
+#                        block_closure($xblock[1])
+#        );
+#        make $past;
+#    }
     method statement_control:sym<for>($/) {
-        my $xblock := $<xblock>.ast;
+        #my $xblock := $<xblock>.ast;
+        # bind to $x if $x in signature, remember
         my $past := QAST::Op.new(
                         :op<callmethod>, :name<map>, :node($/),
-                        QAST::Op.new(:name('&infix:<,>'), :op('call'), $xblock[0]),
-                        block_closure($xblock[1])
+                        QAST::Op.new(:name('&infix:<,>'), :op('call'), $<EXPR>.ast),
+                        block_closure($<sblock>.ast)
         );
         make $past;
     }

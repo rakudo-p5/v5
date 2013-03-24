@@ -30,8 +30,8 @@ if 1 {
     sub a { say 14; }; a();
     my $s = 15;
     say $s;
-    sub b { say shift @_ }; b( 16 );          # Method 'multisig' not found for invocant of class 'Perl6::P5Grammar'
-    #for my $x (10..13) { say $x; } # scoped variables not yet implemented. Sorry.
+    sub b { say shift @_ }; b( 16 );
+    for my $x (10..13) { say $x; } # iterate is still $_
     say "16\n", 17;
 }
 

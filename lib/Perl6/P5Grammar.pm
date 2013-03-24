@@ -1438,8 +1438,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #            <.typed_panic: 'X::Syntax::P5'> ]?
 #        [ <?before '(' <.EXPR>? ';' <.EXPR>? ';' <.EXPR>? ')' >
 #            <.obs('C-style "for (;;)" loop', '"loop (;;)"')> ]?
-        ['my'? <variable_declarator>]?
-        <xblock(1)>
+#        $<signature>=[ ['my' { $*SCOPE := 'my' } ]? <variable_declarator> ]?
+        [ ['my' { $*SCOPE := 'my' } ]? <variable_declarator> ]?
+        '(' ~ ')' <EXPR>
+        <sblock(1)>
     }
 
     rule statement_control:sym<given> {
