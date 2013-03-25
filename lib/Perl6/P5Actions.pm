@@ -558,20 +558,15 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method termish($/) {
-        say("method P5 termish($/) $<prefixish> $<term> $<postfixish>");
         make $<term>.ast
     }
 
     method statementlist($/) {
-        say("method P5 statementlist($/)");
         my $past := QAST::Stmts.new( :node($/) );
         if $<statement> {
-            say("method P5 statementlist($/) if statement $<statement>");
             for $<statement> {
-                say("method P5 statementlist($/) if for statement $_");
                 my $ast := $_.ast;
                 if $ast {
-                    say("method P5 statementlist($/) if for statement ast");
                     if $ast<sink_past> {
                         $ast := QAST::Want.new($ast, 'v', $ast<sink_past>);
                     }
@@ -586,11 +581,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             }
         }
         if +$past.list < 1 {
-            say("method P5 statementlist($/) list < 1");
             $past.push(QAST::Var.new(:name('Nil'), :scope('lexical')));
         }
         else {
-            say("method P5 statementlist($/) list >= 1");
             $past.returns($past[+@($past) - 1].returns);
         }
         make $past;
@@ -608,21 +601,17 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method statement($/, $key?) {
-        say("method P5 statement($/, $key)");
         my $past;
         if $<EXPR> {
-            say("method P5 statement($/, $key) EXPR $<EXPR>");
             my $mc := $<statement_mod_cond>[0];
             my $ml := $<statement_mod_loop>[0];
             $past := $<EXPR>.ast;
             if $mc {
-                say("method P5 statement($/, $key) EXPR mc");
                 $mc.ast.push($past);
                 $mc.ast.push(QAST::Var.new(:name('Nil'), :scope('lexical')));
                 $past := $mc.ast;
             }
             if $ml {
-                say("method P5 statement($/, $key) EXPR ml");
                 my $cond := $ml<smexpr>.ast;
                 if ~$ml<sym> eq 'given' {
                     $past := QAST::Op.new(
@@ -647,10 +636,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             }
         }
         elsif $<statement_control> {
-            say("method P5 statement($/, $key) statement_control $<statement_control>");
             $past := $<statement_control>.ast;
         }
-        else { say("method P5 statement($/, $key) past=0"); $past := 0; }
+        else { $past := 0; }
         if $STATEMENT_PRINT && $past {
             $past := QAST::Stmts.new(:node($/),
                 QAST::Op.new(
@@ -765,12 +753,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make self.CTXSAVE();
     }
 
-    method newpad($/) {
+    method newlex($/) {
         my $new_block := $*W.cur_lexpad();
         $new_block<IN_DECL> := $*IN_DECL;
     }
 
-    method finishpad($/) {
+    method finishlex($/) {
         # Generate the $_, $/, and $! lexicals if they aren't already
         # declared. We don't actually give them a value, but rather the
         # Perl6LexPad will generate containers (and maybe fill them with
@@ -909,10 +897,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method statement_control:sym<use>($/) {
-        #say("method P5 statement_control:sym<use>($/)");
         my $past := QAST::Var.new( :name('Nil'), :scope('lexical') );
         if $<version> {
-            #say("method P5 statement_control:sym<use>($/) version $<version>");
             # TODO: replace this by code that doesn't always die with
             # a useless error message
 #            my $i := -1;
@@ -927,7 +913,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 #            }
         }
         elsif $<module_name> {
-            #say("method P5 statement_control:sym<use>($/) module_name $<module_name>");
             if ~$<module_name> eq 'fatal' {
                 my $*SCOPE := 'my';
                 declare_variable($/, QAST::Stmts.new(), '$', '*', 'FATAL', []);
@@ -945,7 +930,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             }
         }
         elsif $<statementlist> {
-            #say("method P5 statement_control:sym<use>($/) statementlist $<statementlist>");
             $past := $<statementlist>.ast;
         }
         make $past;
@@ -1171,7 +1155,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     method term:sym<type_declarator>($/)    { make $<type_declarator>.ast; }
     method term:sym<circumfix>($/)          { make $<circumfix>.ast; }
     method term:sym<statement_prefix>($/)   { make $<statement_prefix>.ast; }
-    method term:sym<value>($/)              { say("method P5 term:sym<value>($/) $<value>"); make $<value>.ast; }
+    method term:sym<value>($/)              { make $<value>.ast; }
     method term:sym<sigterm>($/)            { make $<sigterm>.ast; }
     method term:sym<unquote>($/) {
         make QAST::Unquote.new(:position(+@*UNQUOTE_ASTS));
@@ -1231,6 +1215,15 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         elsif $<postcircumfix> {
             $past := $<postcircumfix>.ast;
             $past.unshift( QAST::Var.new( :name('$/'), :scope('lexical') ) );
+        }
+        # ${ }, @{ }, %{ }
+        elsif $<block> {
+            $past := $<block>.ast;
+            my $name := ~$<sigil> eq '@' ?? 'list' !!
+                        ~$<sigil> eq '%' ?? 'hash' !!
+                                            'item';
+            $past := QAST::Op.new( :op('callmethod'), :name($name),
+                        QAST::Op.new( :op('call'), $past ) );
         }
         elsif $<semilist> {
             $past := $<semilist>.ast;
@@ -3496,10 +3489,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method term:sym<identifier>($/) {
-        say("method P5 term:sym<identifier>($/)");
         my $macro := find_macro_routine(['&' ~ ~$<identifier>]);
         if $macro {
-            say("method P5 term:sym<identifier>($/) macro");
             make expand_macro($macro, ~$<identifier>, $/, sub () {
                 my @argument_asts := [];
                 if $<args><semiarglist> {
@@ -3513,10 +3504,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             });
         }
         else {
-            say("method P5 term:sym<identifier>($/) !macro");
             my $past := capture_or_parcel($<args>.ast, ~$<identifier>);
             $past.name('&' ~ $<identifier>);
-            say("method P5 term:sym<identifier>($/) !macro &" ~ $<identifier>);
             $past.node($/);
             make $past;
         }
@@ -3563,7 +3552,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method term:sym<name>($/) {
-        say("method P5 term:sym<name>($/)");
         my $past;
         if $*longname.contains_indirect_lookup() {
             if $<args> {
@@ -3719,23 +3707,19 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method args($/) {
         my $past;
-        if    $<semiarglist> { say("method P5 args($/) semiarglist"); $past := $<semiarglist>.ast; }
-        elsif $<arglist>     { say("method P5 args($/) arglist"); $past := $<arglist>.ast; }
+        if    $<semiarglist> { $past := $<semiarglist>.ast; }
+        elsif $<arglist>     { $past := $<arglist>.ast; }
         else {
-            say("method P5 args($/) else");
             $past := QAST::Op.new( :op('call'), :node($/) );
         }
         make $past;
     }
 
     method semiarglist($/) {
-        say("method P5 semiarglist($/)");
         if +$<arglist> == 1 {
-            say("method P5 semiarglist($/) arglist=1 $<arglist>[0]");
             make $<arglist>[0].ast;
         }
         else {
-            say("method P5 semiarglist($/) arglist!=1");
             my $past := QAST::Op.new( :op('call'), :node($/) );
             for $<arglist> {
                 my $ast := $_.ast;
@@ -3747,11 +3731,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method arglist($/) {
-        say("method P5 arglist($/)");
         my $Pair := $*W.find_symbol(['Pair']);
         my $past := QAST::Op.new( :op('call'), :node($/) );        
         if $<EXPR> {
-            say("method P5 arglist($/) EXPR");
             # Make first pass over arguments, finding any duplicate named
             # arguments.
             my $expr := $<EXPR>.ast;
@@ -3925,7 +3907,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast) }
     );
     method EXPR($/, $key?) {
-        say("method P5 EXPR($/, $key)");
         unless $key { return 0; }
         my $past := $/.ast // $<OPER>.ast;
         my $sym := ~$<infix><sym>;
@@ -4434,7 +4415,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method prefixish($/) {
-        say("method P5 prefixish($/)");
         if $<prefix_postfix_meta_operator> {
             make QAST::Op.new( :node($/),
                      :name<&METAOP_HYPER_PREFIX>,
@@ -4546,9 +4526,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method postfixish($/) {
-        say("method P5 postfixish($/)");
         if $<postfix_prefix_meta_operator> {
-            say("method P5 postfixish($/) postfix_prefix_meta_operator");
             my $past := $<OPER>.ast || QAST::Op.new( :name('&postfix:<' ~ $<OPER>.Str ~ '>'),
                                                      :op<call> );
             if $past.isa(QAST::Op) && $past.op() eq 'callmethod' {
@@ -4621,7 +4599,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method postcircumfix:sym<( )>($/) {
-        say("method P5 postcircumfix:sym<( )>($/)");
         make $<arglist>.ast;
     }
 
@@ -4630,16 +4607,13 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method value:sym<number>($/) {
-        say("method P5 value:sym<number>($/) $<number>");
         make $<number>.ast;
     }
     method value:sym<version>($/) {
-        say("method P5 value:sym<version>($/)");
         make $<version>.ast;
     }
 
     method version($/) {
-        say("method P5 version($/)");
         my $v := $*W.find_symbol(['Version']).new(~$<vstr>);
         $*W.add_object($v);
         make QAST::WVal.new( :value($v) );
@@ -4658,14 +4632,11 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method number:sym<numish>($/) {
-        say("method P5 number:sym<numish>($/) $<numish>");
         make $<numish>.ast;
     }
 
     method numish($/) {
-        say("method P5 numish($/)");
         if $<integer> {
-            say("method P5 numish($/) integer $<integer>");
             make $*W.add_numeric_constant($/, 'Int', $<integer>.ast);
         }
         elsif $<dec_number> { make $<dec_number>.ast; }
@@ -4695,12 +4666,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method dec_number($/) {
-#        say("dec_number: $/");
         my $int  := $<int> ?? filter_number(~$<int>) !! "0";
         my $frac := $<frac> ?? filter_number(~$<frac>) !! "0";
         if $<escale> {
             my $e := nqp::islist($<escale>) ?? $<escale>[0] !! $<escale>;
-#            say('dec_number exponent: ' ~ ~$e.ast);
             make radcalc($/, 10, $<coeff>, 10, nqp::unbox_i($e.ast), :num);
         } else {
             make radcalc($/, 10, $<coeff>);

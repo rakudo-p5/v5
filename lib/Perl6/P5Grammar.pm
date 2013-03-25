@@ -872,14 +872,13 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                     my $module := $*W.load_module($/,
                                                     $longname,
                                                     $*GLOBALish);
-                    say("$/, $module, $longname");
                     do_import($/, $module, $longname);
                     $/.CURSOR.import_EXPORTHOW($module);
                 }
             }
         }
         
-        <.finishpad>
+        <.finishlex>
         <.bom>?
         <statementlist>
 
@@ -1108,7 +1107,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
         # May also need to add to the actions.
         if $category eq 'circumfix' {
-            say("add_categorical($category, $opname, $canname, $subname, $declarand) circumfix");
             my role CircumfixAction[$meth, $subname] {
                 method ::($meth)($/) {
                     make QAST::Op.new(
@@ -1121,7 +1119,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                 CircumfixAction.HOW.curry(CircumfixAction, $canname, $subname));
         }
         elsif $is_term {
-            say("add_categorical($category, $opname, $canname, $subname, $declarand) is_term");
             my role TermAction[$meth, $subname] {
                 method ::($meth)($/) {
                     make QAST::Op.new(
@@ -1174,6 +1171,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     token block {
         :my $*CURLEX;
+        :my $*DECLARAND := $*W.stub_code_object('Block');
         :dba('scoped block')
         [ <?before '{' > || <.panic: "Missing block"> ]
         <.newlex>
@@ -1873,7 +1871,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                     { $*IN_DECL := ''; }
                     <.finishlex>
                     <statementlist>     # whole rest of file, presumably
-                    { $*CURPAD := $*W.pop_lexpad() }
+                    { $*CURPAD := $*W.pop_lexpad(); }
                 || <.panic("Too late for semicolon form of $*PKGDECL definition")>
                 ]
             || <.panic("Unable to parse $*PKGDECL definition")>
@@ -2243,6 +2241,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token special_variable:sym<$?> {
         <sym>
     }
+    
+    token special_variable:sym<${ }> {
+        <!before { 1; }>
+    }
 
     # desigilname should only follow a sigil
 
@@ -2278,7 +2280,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
             | <sigil> <?{ $*IN_DECL }>
             | <?> {{
                 if $*QSIGIL {
-                    return ();
+                    #return ();
+                    0
                 }
                 else {
                     self.panic("Anonymous variable requires declarator");
@@ -3623,7 +3626,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token term:sym<name> {
         <longname>
         :my $*longname;
-        { say("token term:sym<name> longname:" ~ ~$<longname>); $*longname := $*W.p5dissect_longname($<longname>) }
+        { $*longname := $*W.p5dissect_longname($<longname>) }
         [
         ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::' || $*W.is_name($*longname.components()) }>
             <.unsp>?
