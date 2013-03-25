@@ -8,7 +8,7 @@ HAS_ICU    = 0
 
 # NOTE: eventually, we should remove --keep-exit-code and --fudge
 #       as the goal is that all tests must pass without fudge
-HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --icu=$(HAS_ICU)
+HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_stmt=perl5 --icu=$(HAS_ICU)
 
 all: blib/perl5.pbc 
 
