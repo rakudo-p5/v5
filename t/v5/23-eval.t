@@ -1,3 +1,4 @@
+use perl5;
 use strict;
 use feature 'say';
 

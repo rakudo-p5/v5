@@ -1,3 +1,4 @@
+use perl5;
 use Perlito5::Test;
 
 Perlito5::Test::plan 1;

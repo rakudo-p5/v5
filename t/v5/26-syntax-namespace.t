@@ -1,3 +1,4 @@
+use perl5;
 use feature 'say';
 
 print "1..9\n";
