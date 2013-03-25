@@ -3265,7 +3265,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make $<postfix> ?? $<postfix>.ast !! $<postcircumfix>.ast;
     }
 
-    method dotty:sym<.>($/) { make $<dottyop>.ast; }
+#    method dotty:sym<.>($/) { make $<dottyop>.ast; }
     method dotty:sym«->»($/) { make $<dottyop>.ast; }
     method postfix:sym«->»($/) { make $<dottyop>.ast; }
 
@@ -4001,7 +4001,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         'fff',  -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 0, 0, 1) },
         '^fff', -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 0, 1) },
         'fff^', -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 0, 1, 1) },
-        '^fff^',-> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 1, 1) }
+        '^fff^',-> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 1, 1) },
+        
+        # Perl 5
+        '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast) }
     );
     method EXPR($/, $key?) {
         say("method P5 EXPR($/, $key)");
@@ -4312,6 +4315,15 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                 $lhs_ast, $rhs_ast);
         }
         return $past;
+    }
+    
+    sub concat_op($/, $lhs_ast, $rhs_ast) {
+        my $past := QAST::Op.new(
+            :op('call'), :name('&infix:<~>'),
+            $lhs_ast,
+            $rhs_ast
+        );
+        $past
     }
     
     sub mixin_op($/, $sym) {

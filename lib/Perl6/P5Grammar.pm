@@ -3110,11 +3110,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
 
     ## additive
-#    token infix:sym<.>
-        #{ <sym> <O('%additive')> }
-#        { <sym> <O('%concatenation')> }
-    token infix:sym<.>    { <sym>  <O('%concatenation , :op<concat>')> }
-
+    token infix:sym<.>
+        { <sym> <O('%additive')> }
 
     token infix:sym<+>
         { <sym> <O('%additive')> }
