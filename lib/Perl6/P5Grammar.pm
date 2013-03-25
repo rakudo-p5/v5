@@ -3137,251 +3137,251 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     ## named unary examples
     # (need \s* to win LTM battle with listops)
-    token term:sym<abs>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<abs>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<alarm>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<alarm>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<chop>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<chop>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<chdir>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<chdir>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<close>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<close>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<closedir>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<closedir>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<caller>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<caller>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<chr>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<chr>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<cos>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<cos>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<chroot>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<chroot>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<defined>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<defined>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<delete>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<delete>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<dbmclose>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<dbmclose>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<exists>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<exists>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<int>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<int>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<exit>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<exit>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<try>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<try>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<eval>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<eval>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<eof>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<eof>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<exp>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<exp>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<each>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<each>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<fileno>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<fileno>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<gmtime>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<gmtime>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getc>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getc>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getpgrp>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getpgrp>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getpbyname>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getpbyname>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getpwnam>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getpwnam>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getpwuid>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getpwuid>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getpeername>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getpeername>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<gethostbyname>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<gethostbyname>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getnetbyname>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getnetbyname>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getsockname>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getsockname>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getgroupnam>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getgroupnam>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<getgroupgid>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<getgroupgid>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<hex>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<hex>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<keys>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<keys>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<lc>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<lc>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<lcfirst>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<lcfirst>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<length>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<length>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<localtime>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<localtime>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<log>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<log>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<lock>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<lock>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<lstat>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<lstat>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<ord>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<ord>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<oct>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<oct>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<prototype>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<prototype>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<pop>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<pop>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<pos>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<pos>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<quotemeta>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<quotemeta>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<reset>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<reset>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<rand>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<rand>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<rmdir>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<rmdir>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<readdir>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<readdir>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<readline>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<readline>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<backtick>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<backtick>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<rewinddir>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<rewinddir>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<readlink>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<readlink>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<ref>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<ref>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<chomp>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<chomp>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<scalar>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<scalar>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<sethostent>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<sethostent>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<setnetent>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<setnetent>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<setservent>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<setservent>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<setprotoent>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<setprotoent>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
 #    token term:sym<shift>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<sin>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<sin>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<sleep>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<sleep>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<sqrt>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<sqrt>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<srand>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<srand>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<stat>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<stat>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<study>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<study>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<tell>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<tell>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<telldir>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<telldir>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<tied>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<tied>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<uc>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<uc>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<ucfirst>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<ucfirst>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<undef>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<undef>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<untie>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<untie>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<values>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<values>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<write>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<write>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<local>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<local>
+#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<filetest>
-        { '-'<[a..zA..Z]> » <?before \s*> <.ws> <EXPR('q=')>? }
+#    token term:sym<filetest>
+#        { '-'<[a..zA..Z]> » <?before \s*> <.ws> <EXPR('q=')>? }
 
     ## comparisons
     token infix:sym«<=>»
