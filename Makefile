@@ -1,6 +1,14 @@
 NQP        = nqp
 PARROT     = parrot
-RM_F       = perl -MExtUtils::Command -e rm_f
+PERL       = perl
+RM_F       = $(PERL) -MExtUtils::Command -e rm_f
+
+# We need to tweak that some day
+HAS_ICU    = 0
+
+# NOTE: eventually, we should remove --keep-exit-code and --fudge
+#       as the goal is that all tests must pass without fudge
+HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --icu=$(HAS_ICU)
 
 all: blib/perl5.pbc 
 
@@ -26,3 +34,16 @@ clean:
 
 test:
 	PERL6LIB=blib prove -e perl6 t/v5/basic.t
+
+testable : all spectest_checkout spectest_update
+
+spectest_checkout : t/spec
+t/spec :
+	git clone git://github.com/rakudo-p5/roast5.git t/spec
+	-cd t/spec/ && git config remote.origin.pushurl git@github.com:rakudo-p5/roast5.git
+
+spectest_update :
+	-cd t/spec && git pull
+
+spectest: testable t/spectest.data
+	$(HARNESS_WITH_FUDGE) --tests-from-file=t/spectest.data
