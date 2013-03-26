@@ -16,7 +16,7 @@ base/while.t
 #bigmem/read.t
 #bigmem/vec.t
 
-#cmd/elsif.t
+cmd/elsif.t
 #cmd/for.t
 #cmd/lexsub.t
 #cmd/mod.t
