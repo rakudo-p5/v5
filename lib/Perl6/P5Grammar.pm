@@ -3489,17 +3489,15 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         '?'
         <.ws>
         <EXPR('h=')>
-        [ ':' ||
-            [
-            || <?before '='> <.panic: "Assignment not allowed within ?:">
-            || <?before '!!'> <.panic: "Please use : rather than !!">
-            || <?before <infixish>>    # Note: a tight infix would have parsed right
-                <.panic: "Precedence too loose within ?:; use ?(): instead ">
-            || <.panic: "Found ? but no :; possible precedence problem">
-            ]
+        [ ':'
+        || <?before '='> <.panic: "Assignment not allowed within ?:">
+        || <?before '!!'> <.panic: "Please use : rather than !!">
+        || <?before <infixish>>    # Note: a tight infix would have parsed right
+           <.panic: "Precedence too loose within ?:; use ?(): instead ">
+        || <.panic: "Found ? but no :; possible precedence problem">
         ]
-        { $<O><_reducecheck> := 'raise_middle'; }
-    <O('%conditional')> }
+        <O('%conditional, :reducecheck<ternary>, :pasttype<if>')>
+    }
 
     method raise_middle () {
         self<middle> := self<infix><EXPR>;
