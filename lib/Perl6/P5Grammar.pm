@@ -317,6 +317,11 @@ role STD5 {
 #        }
 #        self;
 #    }
+
+    my $is_strict := 0;
+    method set_strict( $strict ) {
+        $is_strict := $strict;
+    }
     method check_variable($var) {
         my $varast := $var.ast;
         if nqp::istype($varast, QAST::Op) && $varast.op eq 'ifnull' {
@@ -328,8 +333,25 @@ role STD5 {
             my $name := $varast.name;
             if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
-                    my @suggestions := $*W.suggest_lexicals($name);
-                    $*W.throw($var, ['X', 'Undeclared'], symbol => $varast.name(), suggestions => @suggestions);
+                    if $is_strict {
+                        my @suggestions := $*W.suggest_lexicals($name);
+                        $*W.throw($var, ['X', 'Undeclared'], symbol => $varast.name(), suggestions => @suggestions);
+                    }
+                    else {
+                        # Declare the variable if 'strict' is not in use.
+                        my $BLOCK := $*W.cur_lexpad();
+                        $varast.scope('lexical');
+
+                        my $lex := QAST::Var.new( :name($name), :scope('lexical') );
+                        unless $BLOCK.symbol($name) {
+                            $lex.decl('var');
+                            $BLOCK.symbol($name, :scope('lexical'));
+                        }
+                        $BLOCK[0].push(QAST::Op.new(
+                            :op('bind'),
+                            $lex,
+                            $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))));
+                    }
                 }
                 else {
                     $var.CURSOR.add_mystery($varast.name, $var.to, 'var');
@@ -772,7 +794,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         :my $*IN_REGEX_ASSERTION := 0;
         :my $*SOFT := 0;                           # is the soft pragma in effect
         :my $*IN_PROTO := 0;                       # are we inside a proto?
-        
+
         # Various interesting scopes we'd like to keep to hand.
         :my $*GLOBALish;
         :my $*PACKAGE;
@@ -1332,7 +1354,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         :my $*SCOPE   := 'use';
         <sym>
         [
-        ||  'strict'   # noop
+        ||  'strict' { self.set_strict(1); }
         ||  'warnings' # noop
         ||  'feature' <arglist> # noop
         ||  'v6' [
@@ -1367,7 +1389,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     rule statement_control:sym<no> {
         <sym>
-        <module_name>[<.spacey><arglist>]?
+        [
+        || 'strict' { self.set_strict(0); }
+        || <module_name>[<.spacey><arglist>]?
+        ]
     }
 
 
