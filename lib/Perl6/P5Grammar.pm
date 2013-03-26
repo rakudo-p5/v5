@@ -3463,13 +3463,12 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         { <sym> <O('%equality')> }
 
     ## tight and
-    token infix:sym<&&>
-        { <sym> <O('%tight_and')> }
-
+#    token infix:sym<&&>
+#        { <sym> <O('%tight_and')> }
 
     ## tight or
-    token infix:sym<||>
-        { <sym> <O('%tight_or')> }
+#    token infix:sym<||>
+#        { <sym> <O('%tight_or')> }
 
     token infix:sym<^^>
         { <sym> <O('%tight_or')> }
