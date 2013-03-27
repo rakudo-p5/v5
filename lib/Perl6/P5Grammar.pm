@@ -1908,11 +1908,16 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token declarator {
         [
         | <variable_declarator>
-        | '(' ~ ')' <signature> <trait>*
+        | '(' ~ ')' <signature> <trait>* <.ws> <initializer>?
         | <routine_declarator>
         | <regex_declarator>
         | <type_declarator>
         ]
+    }
+
+    proto token initializer { <...> }
+    token initializer:sym<=> {
+        <sym> <.ws> <EXPR('h=')>
     }
 
     token multi_declarator:sym<null> {
@@ -2828,8 +2833,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     rule param_sep { [','|':'|';'|';;'] }
 
-    rule signature {
-        <variable_declarator>+ % ','
+    token signature {
+        <variable_declarator>+ % [ <.ws> ',' <.ws> ]
     }
 
     token type_constraint {

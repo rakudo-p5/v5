@@ -557,10 +557,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         self.SET_BLOCK_OUTER_CTX($*UNIT_OUTER);
     }
 
-    method termish($/) {
-        make $<term>.ast
-    }
-
     method statementlist($/) {
         my $past := QAST::Stmts.new( :node($/) );
         if $<statement> {
@@ -2810,23 +2806,14 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         # with the --> syntax.
         my %signature;
         my @parameter_infos;
-        my int $param_idx := 0;
         my int $multi_invocant := 1;
-        for $<parameter> {
-            my %info := $_.ast;
+        for $<variable_declarator> {
+            my %info                 := $_.ast;
+            %info<variable_name>     := ~$_<variable>;
+            %info<sigil>             := ~$_<variable><sigil>;
+            %info<desigilname>       := ~$_<variable><desigilname>;
             %info<is_multi_invocant> := $multi_invocant;
-            my $sep := @*seps[$param_idx];
-            if ~$sep eq ':' {
-                if $param_idx != 0 {
-                    $*W.throw($/, 'X::Syntax::Signature::InvocantMarker')
-                }
-                %info<is_invocant> := 1;
-            }
-            elsif ~$sep eq ';;' {
-                $multi_invocant := 0;
-            }
             @parameter_infos.push(%info);
-            $param_idx := $param_idx + 1;
         }
         %signature<parameters> := @parameter_infos;
         if $<typename> {
