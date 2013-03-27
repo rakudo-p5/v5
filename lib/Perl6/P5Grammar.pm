@@ -2141,7 +2141,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$^X> {
-        <sigil> '^' $<letter> = [<[A..Z]>] <?before \W >
+        <sigil> '^' $<letter>=[<[A..Z]>] <?before \W || <.end_keyword> >
     }
 
     token special_variable:sym<$^> {
@@ -2310,7 +2310,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
             | <sigil> <?{ $*IN_DECL }>
             | <?> {{
                 if $*QSIGIL {
-                    #return ();
                     0
                 }
                 else {

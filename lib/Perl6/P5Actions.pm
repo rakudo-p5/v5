@@ -1158,6 +1158,51 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         @*UNQUOTE_ASTS.push($<statementlist>.ast);
     }
 
+    method special_variable:sym<$^X>($/) {
+        ## General Variables, see http://perldoc.perl.org/perlvar.html
+        # $OSNAME, $^O
+        if $<letter> eq 'O' {
+            make QAST::Op.new(
+                :op('call'), :name('&DYNAMIC'),
+                $*W.add_string_constant('$*OS'))
+        }
+        # $SYSTEM_FD_MAX, $^F
+        # $INPLACE_EDIT, $^I
+        # $BASETIME, $^T
+        # $PERL_VERSION, $^V
+        elsif $<letter> eq 'V' {
+            my $str := $*W.add_string_constant( 'v5.10.0' );
+            $str.named('value');
+            make QAST::Op.new(
+                :op('callmethod'), :name('new'), :returns($*W.find_symbol(['Str'])),
+                QAST::Var.new( :name('Str'), :scope('lexical') ),
+                $str
+            )
+        }
+        # $EXECUTABLE_NAME, $^X
+        # $^M, don't use
+        
+        ## Variables related to regular expressions
+        # $LAST_SUBMATCH_RESULT, $^N
+        # $LAST_REGEXP_CODE_RESULT, $^R
+        
+        ## Variables related to formats
+        # $ACCUMULATOR, $^A
+        # $FORMAT_FORMFEED, $^L
+        
+        ## Error Variables
+        # $EXTENDED_OS_ERROR, $^E
+        # $EXCEPTIONS_BEING_CAUGHT, $^S
+        # $WARNING, $^W
+        
+        ## Variables related to the interpreter state
+        # $COMPILING, $^C
+        # $DEBUGGING, $^D
+        # $^H, %^H
+        # $PERLDB, $^P
+        
+    }
+
     method name($/) { }
 
     method fatarrow($/) {
@@ -1243,6 +1288,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             $past.name(~$<sigil> eq '@' ?? 'list' !!
                        ~$<sigil> eq '%' ?? 'hash' !!
                                            'item');
+        }
+        elsif $<special_variable> {
+            $past := $<special_variable>.ast;
         }
         else {
             my $indirect;
