@@ -4,9 +4,9 @@
 
 base/cond.t
 base/if.t
-#base/lex.t
+base/lex.t
 base/num.t
-#base/pat.t
+base/pat.t
 #base/rs.t
 #base/term.t
 base/while.t

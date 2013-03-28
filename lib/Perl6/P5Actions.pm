@@ -2537,9 +2537,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                 $block[0].push(QAST::Var.new(:name<$/>, :scope<lexical>, :decl('var')));
                 $block.symbol('$/', :scope<lexical>, :lazyinit(1));
             }
-            $past := %*RX<P5>
-                ?? %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
-                !! %*LANG<Regex-actions>.qbuildsub($qast, $block, code_obj => $code);
+            #$past := %*RX<P5>
+            #    ?? %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
+            #    !! %*LANG<Regex-actions>.qbuildsub($qast, $block, code_obj => $code);
+            $past := %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
         }
         $past.name($name);
         $past.blocktype("declaration");

@@ -2696,9 +2696,14 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token circumfix:sym«< >»   { '<'
                                   <nibble(%*LANG<Q>)> '>' }
 
-    token quote:sym</ />   {
-        '/' <nibble(%*LANG<P5Regex>)> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
-        <rx_mods>?
+#    token quote:sym</ />   {
+#        '/' <nibble(%*LANG<P5Regex>)> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
+#        <rx_mods>?
+#    }
+    token quote:sym</ />  {
+        :my %*RX;
+        '/' <nibble(self.quote_lang(%*LANG<P5Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
+        <.old_rx_mods>?
     }
 
     # handle composite forms like qww
