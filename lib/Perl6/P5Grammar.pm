@@ -1423,7 +1423,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     rule statement_control:sym<unless> {
         <sym>
         <xblock>
-        [ <!before 'else'> || <.typed_panic: 'X::Syntax::UnlessElse'> ]
+        [ 'else' <else=.sblock> ]?
     }
 
     rule statement_control:sym<while> {

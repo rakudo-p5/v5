@@ -798,6 +798,11 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     method statement_control:sym<unless>($/) {
         my $past := xblock_immediate( $<xblock>.ast );
         $past.op('unless');
+        # push the else block if any
+        $past.push( $<else>
+                    ?? pblock_immediate( $<else>[0].ast )
+                    !!  QAST::Var.new(:name('Nil'), :scope('lexical'))
+        );
         make $past;
     }
 
