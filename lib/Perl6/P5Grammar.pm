@@ -2056,7 +2056,15 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         :my $*VAR;
         :dba('prefix or term')
         [
-        || <prefixish>* <term>
+            [
+            | <prefixish> [ <!{
+                    my $p   := $<prefixish>;
+                    $<term> := nqp::pop( $p ) if $p[-1]<O><term>;
+                }> <prefixish> ]*
+                [ <?{ $<term> }> || <term> ]
+            | <term>
+            ]
+            
             :dba('postfix')
             [
             || <?{ $*QSIGIL }>
@@ -2883,11 +2891,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     token prefixish { 
         :dba('prefix or meta-prefix')
-        [
-        | <OPER=prefix>
-        | <OPER=prefix_circumfix_meta_operator>
-        ]
-        <prefix_postfix_meta_operator>?
+        <OPER=prefix> { $<O> := $<OPER><O>; $<sym> := $<OPER><sym> }
         <.ws>
     }
 
@@ -2959,8 +2963,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         { $*LEFTSIGIL := '@'; }
     }
 
-    proto token prefix_circumfix_meta_operator { <...> }
-
     proto token infix_postfix_meta_operator { <...> }
 
     proto token infix_prefix_meta_operator { <...> }
@@ -2968,8 +2970,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     proto token infix_circumfix_meta_operator { <...> }
 
     proto token postfix_prefix_meta_operator { <...> }
-
-    proto token prefix_postfix_meta_operator { <...> }
 
     method copyO($from) {
         my $O   := $from<OPER><O>;
@@ -3415,8 +3415,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    token term:sym<local>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-#    token term:sym<filetest>
-#        { '-'<[a..zA..Z]> » <?before \s*> <.ws> <EXPR('q=')>? }
+    token term:sym<filetest> {
+        #'-'<[a..zA..Z]> » <?before \s*> <.ws> <EXPR('q=')>?
+        '-d' » <?before \s*> <.ws> <EXPR('q=')>?
+        #<O('%term')>
+    }
 
     ## comparisons
     token infix:sym«<=>»
