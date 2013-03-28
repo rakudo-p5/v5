@@ -1027,39 +1027,39 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Var.new( :name('Nil'), :scope('lexical') );
     }
 
-    method statement_prefix:sym<BEGIN>($/) { make $*W.add_phaser($/, 'BEGIN', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<CHECK>($/) { make $*W.add_phaser($/, 'CHECK', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<INIT>($/)  { make $*W.add_phaser($/, 'INIT', ($<blorst>.ast)<code_object>, ($<blorst>.ast)<past_block>); }
-    method statement_prefix:sym<START>($/) { make $*W.add_phaser($/, 'START', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<ENTER>($/) { make $*W.add_phaser($/, 'ENTER', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<FIRST>($/) { make $*W.add_phaser($/, 'FIRST', ($<blorst>.ast)<code_object>); }
+    method statement_prefix:sym<BEGIN>($/) { make $*W.add_phaser($/, 'BEGIN', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<CHECK>($/) { make $*W.add_phaser($/, 'CHECK', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<INIT>($/)  { make $*W.add_phaser($/, 'INIT', ($<sblock>.ast)<code_object>, ($<sblock>.ast)<past_block>); }
+    method statement_prefix:sym<START>($/) { make $*W.add_phaser($/, 'START', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<ENTER>($/) { make $*W.add_phaser($/, 'ENTER', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<FIRST>($/) { make $*W.add_phaser($/, 'FIRST', ($<sblock>.ast)<code_object>); }
     
-    method statement_prefix:sym<END>($/)   { make $*W.add_phaser($/, 'END', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<LEAVE>($/) { make $*W.add_phaser($/, 'LEAVE', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<KEEP>($/)  { make $*W.add_phaser($/, 'KEEP', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<UNDO>($/)  { make $*W.add_phaser($/, 'UNDO', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<NEXT>($/)  { make $*W.add_phaser($/, 'NEXT', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<LAST>($/)  { make $*W.add_phaser($/, 'LAST', ($<blorst>.ast)<code_object>); }
-    method statement_prefix:sym<PRE>($/)   { make $*W.add_phaser($/, 'PRE', ($<blorst>.ast)<code_object>, ($<blorst>.ast)<past_block>); }
-    method statement_prefix:sym<POST>($/)  { make $*W.add_phaser($/, 'POST', ($<blorst>.ast)<code_object>, ($<blorst>.ast)<past_block>); }
+    method statement_prefix:sym<END>($/)   { make $*W.add_phaser($/, 'END', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<LEAVE>($/) { make $*W.add_phaser($/, 'LEAVE', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<KEEP>($/)  { make $*W.add_phaser($/, 'KEEP', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<UNDO>($/)  { make $*W.add_phaser($/, 'UNDO', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<NEXT>($/)  { make $*W.add_phaser($/, 'NEXT', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<LAST>($/)  { make $*W.add_phaser($/, 'LAST', ($<sblock>.ast)<code_object>); }
+    method statement_prefix:sym<PRE>($/)   { make $*W.add_phaser($/, 'PRE', ($<sblock>.ast)<code_object>, ($<sblock>.ast)<past_block>); }
+    method statement_prefix:sym<POST>($/)  { make $*W.add_phaser($/, 'POST', ($<sblock>.ast)<code_object>, ($<sblock>.ast)<past_block>); }
 
     method statement_prefix:sym<DOC>($/)   {
-        $*W.add_phaser($/, ~$<phase>, ($<blorst>.ast)<code_object>)
+        $*W.add_phaser($/, ~$<phase>, ($<sblock>.ast)<code_object>)
             if %*COMPILING<%?OPTIONS><doc>;
     }
 
     method statement_prefix:sym<do>($/) {
-        make QAST::Op.new( :op('call'), $<blorst>.ast );
+        make QAST::Op.new( :op('call'), $<sblock>.ast );
     }
 
     method statement_prefix:sym<gather>($/) {
-        my $past := block_closure($<blorst>.ast);
+        my $past := block_closure($<sblock>.ast);
         $past<past_block>.push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
         make QAST::Op.new( :op('call'), :name('&GATHER'), $past );
     }
 
     method statement_prefix:sym<sink>($/) {
-        my $blast := QAST::Op.new( :op('call'), $<blorst>.ast );
+        my $blast := QAST::Op.new( :op('call'), $<sblock>.ast );
         make QAST::Stmts.new(
             QAST::Op.new( :name('&eager'), :op('call'), $blast ),
             QAST::Var.new( :name('Nil'), :scope('lexical')),
@@ -1068,7 +1068,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method statement_prefix:sym<try>($/) {
-        my $block := $<blorst>.ast;
+        my $block := $<sblock>.ast;
         my $past;
         if $block<past_block><handlers> && $block<past_block><handlers><CATCH> {
             # we already have a CATCH block, nothing to do here
@@ -1111,10 +1111,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             );
         }
         make $past;
-    }
-
-    method blorst($/) {
-        make $<block> ?? $<block>.ast !! make_thunk_ref($<statement>.ast, $/);
     }
 
     # Statement modifiers
