@@ -3416,9 +3416,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
     token term:sym<filetest> {
-        #'-'<[a..zA..Z]> » <?before \s*> <.ws> <EXPR('q=')>?
-        '-d' » <?before \s*> <.ws> <EXPR('q=')>?
-        #<O('%term')>
+        '-'$<letter>=[<[a..zA..Z]>] » <?before \s*> <.ws> <EXPR('q=')>?
     }
 
     ## comparisons

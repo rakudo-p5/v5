@@ -4747,13 +4747,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method term:sym<filetest>($/) {
         $DEBUG && say("term:sym<filetest>($/)");
-        ## General Variables, see http://perldoc.perl.org/perlvar.html
-        # $OSNAME, $^O
-        if $<letter> eq 'd' {
-            make QAST::Op.new(
-                :op('call'), :name('&DYNAMIC'),
-                $*W.add_string_constant('$*OS'))
-        }
+        make QAST::Op.new(
+                :op('callmethod'), :name($<letter>),
+                QAST::Op.new(
+                    :op('callmethod'), :name('IO'),
+                    $<EXPR> ?? $<EXPR>[0].ast
+                            !! QAST::Var.new( :name('$_'), :scope('lexical') ) ) )
     }
 
     method infix_circumfix_meta_operator:sym«<< >>»($/) {
