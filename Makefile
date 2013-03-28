@@ -47,3 +47,6 @@ spectest_update :
 
 spectest: testable t/spectest.data
 	$(HARNESS_WITH_FUDGE) --tests-from-file=t/spectest.data
+
+fulltest: testable t/spectest.data
+	$(HARNESS_WITH_FUDGE) t/*/*.t t/*/*/*.t
