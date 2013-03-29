@@ -1348,6 +1348,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$^>($/)");
     }
 
+    # $MATCH
     method special_variable:sym<$&>($/) {
         $DEBUG && say("special_variable:sym<\$&>($/)");
     }
@@ -1356,6 +1357,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$*>($/)");
     }
 
+    # $REAL_GROUP_ID, $GID
+    method special_variable:sym<$(>($/) {
+        $DEBUG && say("special_variable:sym<\$(>($/)");
+    }
+
+    # $EFFECTIVE_GROUP_ID, $EGID
     method special_variable:sym<$)>($/) {
         $DEBUG && say("special_variable:sym<\$)>($/)");
     }
@@ -1412,6 +1419,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$+>($/)");
     }
 
+    # ${^WIN32_SLOPPY_STAT}
     method special_variable:sym<${^ }>($/) {
         $DEBUG && say("special_variable:sym<\$\{^ }>($/)");
     }
@@ -1440,6 +1448,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$:>($/)");
     }
 
+    # $SUBSCRIPT_SEPARATOR, $SUBSEP
     method special_variable:sym<$;>($/) {
         $DEBUG && say("special_variable:sym<\$;>($/)");
     }
@@ -1457,10 +1466,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$,>($/)");
     }
 
+    # $REAL_USER_ID, $UID
     method special_variable:sym['$<']($/) {
         $DEBUG && say("special_variable:sym<\$<>($/)");
     }
 
+    # $EFFECTIVE_USER_ID, $EUID
     method special_variable:sym«\$>»($/) {
         $DEBUG && say("special_variable:sym<\$>>($/)");
     }

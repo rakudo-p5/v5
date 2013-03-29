@@ -2166,6 +2166,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <sym>
     }
 
+    token special_variable:sym<$(> {
+        <sym>
+    }
+
     token special_variable:sym<$)> {
         <sym>
     }
