@@ -2118,7 +2118,13 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <sym> | '$PROGRAM_NAME'
     }
 
-    token special_variable:sym<$!> { <sym> <!before \w> }
+    token special_variable:sym<$!> {
+        <sym> <!before \w> | '$OS_ERROR' | '$ERRNO'
+    }
+
+    token special_variable:sym<%!> {
+        <sym> <!before \w> | '%OS_ERROR' | '%ERRNO'
+    }
 
     token special_variable:sym<$!{ }> {
         '$!{' ~ '}' <EXPR>
@@ -2129,7 +2135,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$~> {
-        <sym>
+        <sym> | '$FORMAT_NAME'
     }
 
     token special_variable:sym<$`> {
@@ -2147,7 +2153,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <sym> <!alpha> | '$PROCESS_ID' | '$PID'
     }
     token special_variable:sym<$%> {
-        <sym>
+        <sym> | '$FORMAT_PAGE_NUMBER'
     }
 
     token special_variable:sym<$^X> {
@@ -2177,7 +2183,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$^> {
-        <sym>
+        <sym> | '$FORMAT_TOP_NAME'
     }
 
     token special_variable:sym<$&> {
@@ -2197,11 +2203,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$-> {
-        <sym>
+        <sym> | '$FORMAT_LINES_LEFT'
     }
 
     token special_variable:sym<$=> {
-        <sym>
+        <sym> | '$FORMAT_LINES_PER_PAGE'
     }
 
     token special_variable:sym<@+> {
@@ -2273,7 +2279,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$:> {
-        <sym>
+        <sym> | '$FORMAT_LINE_BREAK_CHARACTERS'
     }
 
     token special_variable:sym<$;> {
@@ -2305,7 +2311,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$?> {
-        <sym>
+        <sym> | '$CHILD_ERROR'
     }
     
     token special_variable:sym<${ }> {

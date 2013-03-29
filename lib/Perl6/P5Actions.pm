@@ -1266,6 +1266,14 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PROGRAM_NAME'))
     }
 
+    method special_variable:sym<$!>($/) {
+        $DEBUG && say("special_variable:sym<\$!>($/)");
+    }
+
+    method special_variable:sym<%!>($/) {
+        $DEBUG && say("special_variable:sym<\%!>($/)");
+    }
+
     method special_variable:sym<$!{ }>($/) {
         $DEBUG && say("special_variable:sym<\$!\{ }>($/)");
     }
@@ -1423,7 +1431,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$+>($/)");
     }
 
-    # ${^WIN32_SLOPPY_STAT}, ${^MATCH}, ${^PREMATCH}, ${^RE_DEBUG_FLAGS}, ${^RE_TRIE_MAXBUF}
+    # ${^WIN32_SLOPPY_STAT}, ${^MATCH}, ${^PREMATCH}, ${^RE_DEBUG_FLAGS}, ${^RE_TRIE_MAXBUF},
+    # {^CHILD_ERROR_NATIVE}, ${^WARNING_BITS} 
     method special_variable:sym<${^ }>($/) {
         $DEBUG && say("special_variable:sym<\$\{^ }>($/)");
     }
