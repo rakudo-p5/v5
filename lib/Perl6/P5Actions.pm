@@ -1267,10 +1267,20 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PROGRAM_NAME'))
     }
 
+    method special_variable:sym<$!{ }>($/) {
+        $DEBUG && say("special_variable:sym<\$!\{ }>($/)");
+    }
+
+    # $INPUT_RECORD_SEPARATOR, $RS
+    method special_variable:sym<$/>($/) {
+        $DEBUG && say("special_variable:sym<\$/>($/)");
+    }
+
     method special_variable:sym<$~>($/) {
         $DEBUG && say("special_variable:sym<\$~>($/)");
     }
 
+    # $PREMATCH
     method special_variable:sym<$`>($/) {
         $DEBUG && say("special_variable:sym<\$`>($/)");
     }
@@ -1376,14 +1386,17 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$=>($/)");
     }
 
+    # @LAST_MATCH_END
     method special_variable:sym<@+>($/) {
         $DEBUG && say("special_variable:sym<\@+>($/)");
     }
 
+    # %LAST_PAREN_MATCH
     method special_variable:sym<%+>($/) {
         $DEBUG && say("special_variable:sym<\%+>($/)");
     }
 
+    # $LAST_PAREN_MATCH
     method special_variable:sym<$+[ ]>($/) {
         $DEBUG && say("special_variable:sym<\%+[ ]>($/)");
     }
@@ -1396,10 +1409,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\@+{ }>($/)");
     }
 
+    # @LAST_MATCH_START
     method special_variable:sym<@->($/) {
         $DEBUG && say("special_variable:sym<\@->($/)");
     }
 
+    # %LAST_MATCH_START
     method special_variable:sym<%->($/) {
         $DEBUG && say("special_variable:sym<\%->($/)");
     }
@@ -1420,7 +1435,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$+>($/)");
     }
 
-    # ${^WIN32_SLOPPY_STAT}
+    # ${^WIN32_SLOPPY_STAT}, ${^MATCH}, ${^PREMATCH}, ${^RE_DEBUG_FLAGS}, ${^RE_TRIE_MAXBUF}
     method special_variable:sym<${^ }>($/) {
         $DEBUG && say("special_variable:sym<\$\{^ }>($/)");
     }
@@ -1454,6 +1469,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$;>($/)");
     }
 
+    # $POSTMATCH
     method special_variable:sym<$'>($/) { #'
         $DEBUG && say("special_variable:sym<\$'>($/)");
     }
@@ -1463,6 +1479,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$\">($/)");
     }
 
+    # $OUTPUT_FIELD_SEPARATOR, $OFS
     method special_variable:sym<$,>($/) {
         $DEBUG && say("special_variable:sym<\$,>($/)");
     }
@@ -1477,6 +1494,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$>>($/)");
     }
 
+    # $INPUT_LINE_NUMBER, $NR
     method special_variable:sym<$.>($/) {
         $DEBUG && say("special_variable:sym<\$.>($/)");
     }
