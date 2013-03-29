@@ -2115,7 +2115,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$0> {
-        <sym>
+        <sym> | '$PROGRAM_NAME'
     }
 
     token special_variable:sym<$!> { <sym> <!before \w> }
@@ -2125,7 +2125,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$/> {
-        <sym>
+        <sym> | '$INPUT_RECORD_SEPARATOR' | '$RS'
     }
 
     token special_variable:sym<$~> {
@@ -2133,7 +2133,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$`> {
-        <sym>
+        <sym> | '$PREMATCH'
     }
 
     token special_variable:sym<$@> {
@@ -2144,14 +2144,36 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <sym>
     }
     token special_variable:sym<$$> {
-        <sym> <!alpha>
+        <sym> <!alpha> | '$PROCESS_ID' | '$PID'
     }
     token special_variable:sym<$%> {
         <sym>
     }
 
     token special_variable:sym<$^X> {
-        <sigil> '^' $<letter>=[<[A..Z]>]
+        :my $*LETTER;
+        [
+        | $<sigil>='$'  [
+                        | '^' $<letter>=[<[A..Z]>]  { $*LETTER := $<letter> }
+                        | 'ACCUMULATOR'             { $*LETTER := 'A' }
+                        | 'COMPILING'               { $*LETTER := 'C' }
+                        | 'DEBUGGING'               { $*LETTER := 'D' }
+                        | 'EXTENDED_OS_ERROR'       { $*LETTER := 'E' }
+                        | 'SYSTEM_FD_MAX'           { $*LETTER := 'F' }
+                        | 'INPLACE_EDIT'            { $*LETTER := 'I' }
+                        | 'FORMAT_FORMFEED'         { $*LETTER := 'L' }
+                        | 'LAST_SUBMATCH_RESULT'    { $*LETTER := 'N' }
+                        | 'OSNAME'                  { $*LETTER := 'O' }
+                        | 'PERLDB'                  { $*LETTER := 'P' }
+                        | 'LAST_REGEXP_CODE_RESULT' { $*LETTER := 'R' }
+                        | 'EXCEPTIONS_BEING_CAUGHT' { $*LETTER := 'S' }
+                        | 'BASETIME'                { $*LETTER := 'T' }
+                        | 'PERL_VERSION'            { $*LETTER := 'V' }
+                        | 'EXECUTABLE_NAME'         { $*LETTER := 'X' }
+                        | 'WARNING'                 { $*LETTER := 'W' }
+                        ]
+        | $<sigil>='%' '^H' { $*LETTER := 'H' }
+        ]
     }
 
     token special_variable:sym<$^> {
@@ -2159,7 +2181,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$&> {
-        <sym>
+        <sym> | '$MATCH'
     }
 
     token special_variable:sym<$*> {
@@ -2167,11 +2189,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$(> {
-        <sym>
+        <sym> | '$REAL_GROUP_ID' | '$GID'
     }
 
     token special_variable:sym<$)> {
-        <sym>
+        <sym> | '$EFFECTIVE_GROUP_ID' | '$EGID'
     }
 
     token special_variable:sym<$-> {
@@ -2183,15 +2205,15 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<@+> {
-        <sym>
+        <sym> | '@LAST_MATCH_END'
     }
 
     token special_variable:sym<%+> {
-        <sym>
+        <sym> | '%LAST_PAREN_MATCH'
     }
 
     token special_variable:sym<$+[ ]> {
-        '$+['
+        '$+[' | '$LAST_PAREN_MATCH'
     }
 
     token special_variable:sym<@+[ ]> {
@@ -2203,11 +2225,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<@-> {
-        <sym>
+        <sym> | '@LAST_MATCH_START'
     }
 
     token special_variable:sym<%-> {
-        <sym>
+        <sym> | '%LAST_MATCH_START'
     }
 
     token special_variable:sym<$-[ ]> {
@@ -2243,11 +2265,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$\\> {
-        <sym>
+        <sym> | '$OUTPUT_RECORD_SEPARATOR' | '$ORS'
     }
 
     token special_variable:sym<$|> {
-        <sym>
+        <sym> | '$OUTPUT_AUTOFLUSH'
     }
 
     token special_variable:sym<$:> {
@@ -2255,31 +2277,31 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$;> {
-        <sym>
+        <sym> | '$SUBSCRIPT_SEPARATOR' | '$SUBSEP'
     }
 
     token special_variable:sym<$'> { #'
-        <sym>
+        <sym> | '$POSTMATCH'
     }
 
     token special_variable:sym<$"> {
-        <sym> <!{ $*QSIGIL }>
+        <sym> <!{ $*QSIGIL }> | '$LIST_SEPARATOR'
     }
 
     token special_variable:sym<$,> {
-        <sym>
+        <sym> | '$OUTPUT_FIELD_SEPARATOR' | '$OFS'
     }
 
     token special_variable:sym['$<'] {
-        <sym>
+        <sym> | '$REAL_USER_ID' | '$UID'
     }
 
     token special_variable:sym«\$>» {
-        <sym>
+        <sym> | '$EFFECTIVE_USER_ID' | '$EUID'
     }
 
     token special_variable:sym<$.> {
-        <sym>
+        <sym> | '$INPUT_LINE_NUMBER' | '$NR'
     }
 
     token special_variable:sym<$?> {

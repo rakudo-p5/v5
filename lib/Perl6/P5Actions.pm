@@ -1261,7 +1261,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         @*UNQUOTE_ASTS.push($<statementlist>.ast);
     }
 
-    # $PROGRAM_NAME
     method special_variable:sym<$0>($/) {
         $DEBUG && say("special_variable:sym<\$0>($/)");
         make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PROGRAM_NAME'))
@@ -1271,7 +1270,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$!\{ }>($/)");
     }
 
-    # $INPUT_RECORD_SEPARATOR, $RS
     method special_variable:sym<$/>($/) {
         $DEBUG && say("special_variable:sym<\$/>($/)");
     }
@@ -1280,7 +1278,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$~>($/)");
     }
 
-    # $PREMATCH
     method special_variable:sym<$`>($/) {
         $DEBUG && say("special_variable:sym<\$`>($/)");
     }
@@ -1294,7 +1291,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('die_s'), QAST::SVal.new( :value('$# is no longer supported' ) ) )
     }
 
-    # $PROCESS_ID, $PID
     method special_variable:sym<$$>($/) {
         $DEBUG && say("special_variable:sym<\$\$>($/)");
         make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PID'))
@@ -1307,7 +1303,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$^X>($/)");
         ## General Variables, see http://perldoc.perl.org/perlvar.html
         # $OSNAME, $^O
-        if $<letter> eq 'O' {
+        if $*LETTER eq 'O' {
             make QAST::Op.new(
                 :op('call'), :name('&DYNAMIC'),
                 $*W.add_string_constant('$*OS'))
@@ -1316,7 +1312,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         # $INPLACE_EDIT, $^I
         # $BASETIME, $^T
         # $PERL_VERSION, $^V
-        elsif $<letter> eq 'V' {
+        elsif $*LETTER eq 'V' {
             my $str := $*W.add_string_constant( 'v5.10.0' );
             $str.named('value');
             make QAST::Op.new(
@@ -1326,7 +1322,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             )
         }
         # $EXECUTABLE_NAME, $^X
-        elsif $<letter> eq 'X' {
+        elsif $*LETTER eq 'X' {
             make QAST::Op.new(
                 :op('call'), :name('&DYNAMIC'),
                 $*W.add_string_constant('$*EXECUTABLE_NAME'))
@@ -1358,7 +1354,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$^>($/)");
     }
 
-    # $MATCH
     method special_variable:sym<$&>($/) {
         $DEBUG && say("special_variable:sym<\$&>($/)");
         make QAST::Op.new( :op('callmethod'), :name('Stringy'), QAST::Var.new( :name('$/'), :scope('lexical') ) );
@@ -1368,12 +1363,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$*>($/)");
     }
 
-    # $REAL_GROUP_ID, $GID
     method special_variable:sym<$(>($/) {
         $DEBUG && say("special_variable:sym<\$(>($/)");
     }
 
-    # $EFFECTIVE_GROUP_ID, $EGID
     method special_variable:sym<$)>($/) {
         $DEBUG && say("special_variable:sym<\$)>($/)");
     }
@@ -1386,17 +1379,14 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$=>($/)");
     }
 
-    # @LAST_MATCH_END
     method special_variable:sym<@+>($/) {
         $DEBUG && say("special_variable:sym<\@+>($/)");
     }
 
-    # %LAST_PAREN_MATCH
     method special_variable:sym<%+>($/) {
         $DEBUG && say("special_variable:sym<\%+>($/)");
     }
 
-    # $LAST_PAREN_MATCH
     method special_variable:sym<$+[ ]>($/) {
         $DEBUG && say("special_variable:sym<\%+[ ]>($/)");
     }
@@ -1409,12 +1399,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\@+{ }>($/)");
     }
 
-    # @LAST_MATCH_START
     method special_variable:sym<@->($/) {
         $DEBUG && say("special_variable:sym<\@->($/)");
     }
 
-    # %LAST_MATCH_START
     method special_variable:sym<%->($/) {
         $DEBUG && say("special_variable:sym<\%->($/)");
     }
@@ -1464,37 +1452,30 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$:>($/)");
     }
 
-    # $SUBSCRIPT_SEPARATOR, $SUBSEP
     method special_variable:sym<$;>($/) {
         $DEBUG && say("special_variable:sym<\$;>($/)");
     }
 
-    # $POSTMATCH
     method special_variable:sym<$'>($/) { #'
         $DEBUG && say("special_variable:sym<\$'>($/)");
     }
 
-    # $LIST_SEPARATOR
     method special_variable:sym<$">($/) {
         $DEBUG && say("special_variable:sym<\$\">($/)");
     }
 
-    # $OUTPUT_FIELD_SEPARATOR, $OFS
     method special_variable:sym<$,>($/) {
         $DEBUG && say("special_variable:sym<\$,>($/)");
     }
 
-    # $REAL_USER_ID, $UID
     method special_variable:sym['$<']($/) {
         $DEBUG && say("special_variable:sym<\$<>($/)");
     }
 
-    # $EFFECTIVE_USER_ID, $EUID
     method special_variable:sym«\$>»($/) {
         $DEBUG && say("special_variable:sym<\$>>($/)");
     }
 
-    # $INPUT_LINE_NUMBER, $NR
     method special_variable:sym<$.>($/) {
         $DEBUG && say("special_variable:sym<\$.>($/)");
     }
