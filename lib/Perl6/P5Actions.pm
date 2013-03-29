@@ -1351,6 +1351,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     # $MATCH
     method special_variable:sym<$&>($/) {
         $DEBUG && say("special_variable:sym<\$&>($/)");
+        make QAST::Op.new( :op('callmethod'), :name('Stringy'), QAST::Var.new( :name('$/'), :scope('lexical') ) );
     }
 
     method special_variable:sym<$*>($/) {
