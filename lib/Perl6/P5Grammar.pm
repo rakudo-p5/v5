@@ -2114,7 +2114,9 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         '-'?<key=identifier> <?before \h* '=>' >
     }
 
-    # Most of these special variable rules are there simply to catch old p5 brainos
+    token special_variable:sym<$0> {
+        <sym>
+    }
 
     token special_variable:sym<$!> { <sym> <!before \w> }
 
@@ -2309,7 +2311,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         || [
             | <special_variable>
             | <sigil> <desigilname> { $name := ~$<desigilname> }
-            | <sigil> $<index> = [\d+]
+            | <sigil> <!before '0'> $<index> = [\d+]
             | <sigil> <?before '{'>
             [
             |	'{' ~ '}' [<name> <postop>?]

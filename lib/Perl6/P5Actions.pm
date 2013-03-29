@@ -1261,6 +1261,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         @*UNQUOTE_ASTS.push($<statementlist>.ast);
     }
 
+    # $PROGRAM_NAME
+    method special_variable:sym<$0>($/) {
+        $DEBUG && say("special_variable:sym<\$0>($/)");
+        make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PROGRAM_NAME'))
+    }
+
     method special_variable:sym<$~>($/) {
         $DEBUG && say("special_variable:sym<\$~>($/)");
     }
@@ -1277,11 +1283,11 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$#>($/)");
         make QAST::Op.new( :op('die_s'), QAST::SVal.new( :value('$# is no longer supported' ) ) )
     }
+
+    # $PROCESS_ID, $PID
     method special_variable:sym<$$>($/) {
         $DEBUG && say("special_variable:sym<\$\$>($/)");
-        make QAST::Op.new(
-            :op('call'), :name('&DYNAMIC'),
-            $*W.add_string_constant('$*PID'))
+        make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PID'))
     }
     method special_variable:sym<$%>($/) {
         $DEBUG && say("special_variable:sym<\$%>($/)");
@@ -1442,6 +1448,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("special_variable:sym<\$'>($/)");
     }
 
+    # $LIST_SEPARATOR
     method special_variable:sym<$">($/) {
         $DEBUG && say("special_variable:sym<\$\">($/)");
     }
