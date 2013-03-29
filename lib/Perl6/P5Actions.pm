@@ -1287,7 +1287,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         elsif $<letter> eq 'X' {
             make QAST::Op.new(
                 :op('call'), :name('&DYNAMIC'),
-                $*W.add_string_constant('$*PROGRAM_NAME'))
+                $*W.add_string_constant('$*EXECUTABLE_NAME'))
         }
         # $^M, don't use
         
