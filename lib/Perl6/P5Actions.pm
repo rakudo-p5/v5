@@ -5773,6 +5773,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     sub strip_trailing_zeros(str $n) {
+        $DEBUG && say("sub strip_trailing_zeros(str $n)");
         return $n if nqp::index($n, '.') < 0;
         while nqp::index('_0',nqp::substr($n, -1)) >= 0 {
             $n := nqp::substr($n, 0, nqp::chars($n) - 1);
@@ -5874,7 +5875,9 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 }
 
 class Perl6::P5QActions is HLL::Actions does STDActions {
+    my $DEBUG := 0;
     method nibbler($/) {
+        $DEBUG && say("method nibbler($/)");
         my @asts;
         my $lastlit := '';
         
@@ -5916,14 +5919,17 @@ class Perl6::P5QActions is HLL::Actions does STDActions {
     }
     
     method postprocess_null($/, $past) {
+        $DEBUG && say("method postprocess_null($/, $past)");
         $past
     }
     
     method postprocess_run($/, $past) {
+        $DEBUG && say("method postprocess_run($/, $past)");
         QAST::Op.new( :name('&QX'), :op('call'), :node($/), $past )
     }
     
     method postprocess_words($/, $past) {
+        $DEBUG && say("method postprocess_words($/, $past)");
         if $past.has_compile_time_value {
             my @words := HLL::Grammar::split_words($/,
                 nqp::unbox_s($past.compile_time_value));
@@ -5943,6 +5949,7 @@ class Perl6::P5QActions is HLL::Actions does STDActions {
     }
     
     method postprocess_quotewords($/, $past) {
+        $DEBUG && say("method postprocess_quotewords($/, $past)");
         my $result := QAST::Op.new( :op('call'), :name('&infix:<,>'), :node($/) );
         sub walk($node) {
             if $node<ww_atom> {
@@ -5965,6 +5972,7 @@ class Perl6::P5QActions is HLL::Actions does STDActions {
     }
 
     method postprocess_heredoc($/, $past) {
+        $DEBUG && say("method nibbler($/)");
         return QAST::Stmts.new(
             QAST::Op.new( :op<die_s>, QAST::SVal.new( :value("Premature heredoc consumption") ) ),
             $past);

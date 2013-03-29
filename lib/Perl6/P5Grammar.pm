@@ -2149,7 +2149,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$^X> {
-        <sigil> '^' $<letter>=[<[A..Z]>] <?before \W || <.end_keyword> >
+        <sigil> '^' $<letter>=[<[A..Z]>]
     }
 
     token special_variable:sym<$^> {
@@ -3839,7 +3839,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
             :my $*QSIGIL := '&';
             <?before '&'>
 #            [ :lang(%*LANG<MAIN>) <EXPR('%methodcall')> | <!> ]
-            <EXPR=.LANG('MAIN', 'EXPR', 'z=')>
+            <EXPR=.LANG('MAIN', 'EXPR', 'y=')>
         }
     } # end role
 

@@ -15,3 +15,5 @@ $*W.HOW.mixin( $*W, Perl6::P5World );
 
 %*LANG<MAIN> := $grammar;
 %*LANG<MAIN-actions> := Perl6::P5Actions;
+%*LANG<Q> := Perl6::P5QGrammar;
+%*LANG<Q-actions> := Perl6::P5QActions;
