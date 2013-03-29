@@ -2307,8 +2307,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
             | :dba('infix noun') '[' ~ ']' <infixish(1)>
             ]
         || [
-            | <sigil> <desigilname> { $name := ~$<desigilname> }
             | <special_variable>
+            | <sigil> <desigilname> { $name := ~$<desigilname> }
             | <sigil> $<index> = [\d+]
             | <sigil> <?before '{'>
             [

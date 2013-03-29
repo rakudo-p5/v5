@@ -1261,8 +1261,34 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         @*UNQUOTE_ASTS.push($<statementlist>.ast);
     }
 
+    method special_variable:sym<$~>($/) {
+        $DEBUG && say("special_variable:sym<\$~>($/)");
+    }
+
+    method special_variable:sym<$`>($/) {
+        $DEBUG && say("special_variable:sym<\$`>($/)");
+    }
+
+    method special_variable:sym<$@>($/) {
+        $DEBUG && say("special_variable:sym<\$@>($/)");
+    }
+
+    method special_variable:sym<$#>($/) {
+        $DEBUG && say("special_variable:sym<\$#>($/)");
+        make QAST::Op.new( :op('die_s'), QAST::SVal.new( :value('$# is no longer supported' ) ) )
+    }
+    method special_variable:sym<$$>($/) {
+        $DEBUG && say("special_variable:sym<\$\$>($/)");
+        make QAST::Op.new(
+            :op('call'), :name('&DYNAMIC'),
+            $*W.add_string_constant('$*PID'))
+    }
+    method special_variable:sym<$%>($/) {
+        $DEBUG && say("special_variable:sym<\$%>($/)");
+    }
+
     method special_variable:sym<$^X>($/) {
-        $DEBUG && say("special_variable:sym<$^X>($/)");
+        $DEBUG && say("special_variable:sym<\$^X>($/)");
         ## General Variables, see http://perldoc.perl.org/perlvar.html
         # $OSNAME, $^O
         if $<letter> eq 'O' {
@@ -1310,6 +1336,134 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         # $^H, %^H
         # $PERLDB, $^P
         
+    }
+
+    method special_variable:sym<$^>($/) {
+        $DEBUG && say("special_variable:sym<\$^>($/)");
+    }
+
+    method special_variable:sym<$&>($/) {
+        $DEBUG && say("special_variable:sym<\$&>($/)");
+    }
+
+    method special_variable:sym<$*>($/) {
+        $DEBUG && say("special_variable:sym<\$*>($/)");
+    }
+
+    method special_variable:sym<$)>($/) {
+        $DEBUG && say("special_variable:sym<\$)>($/)");
+    }
+
+    method special_variable:sym<$->($/) {
+        $DEBUG && say("special_variable:sym<\$->($/)");
+    }
+
+    method special_variable:sym<$=>($/) {
+        $DEBUG && say("special_variable:sym<\$=>($/)");
+    }
+
+    method special_variable:sym<@+>($/) {
+        $DEBUG && say("special_variable:sym<\@+>($/)");
+    }
+
+    method special_variable:sym<%+>($/) {
+        $DEBUG && say("special_variable:sym<\%+>($/)");
+    }
+
+    method special_variable:sym<$+[ ]>($/) {
+        $DEBUG && say("special_variable:sym<\%+[ ]>($/)");
+    }
+
+    method special_variable:sym<@+[ ]>($/) {
+        $DEBUG && say("special_variable:sym<\@+[ ]>($/)");
+    }
+
+    method special_variable:sym<@+{ }>($/) {
+        $DEBUG && say("special_variable:sym<\@+{ }>($/)");
+    }
+
+    method special_variable:sym<@->($/) {
+        $DEBUG && say("special_variable:sym<\@->($/)");
+    }
+
+    method special_variable:sym<%->($/) {
+        $DEBUG && say("special_variable:sym<\%->($/)");
+    }
+
+    method special_variable:sym<$-[ ]>($/) {
+        $DEBUG && say("special_variable:sym<\$-[ ]>($/)");
+    }
+
+    method special_variable:sym<@-[ ]>($/) {
+        $DEBUG && say("special_variable:sym<\@-[ ]>($/)");
+    }
+
+    method special_variable:sym<%-{ }>($/) {
+        $DEBUG && say("special_variable:sym<\%-{ }>($/)");
+    }
+
+    method special_variable:sym<$+>($/) {
+        $DEBUG && say("special_variable:sym<\$+>($/)");
+    }
+
+    method special_variable:sym<${^ }>($/) {
+        $DEBUG && say("special_variable:sym<\$\{^ }>($/)");
+    }
+
+    method special_variable:sym<::{ }>($/) {
+        $DEBUG && say("special_variable:sym<::{ }>($/)");
+    }
+
+    method special_variable:sym<$[>($/) {
+        $DEBUG && say("special_variable:sym<\$[>($/)");
+    }
+
+    method special_variable:sym<$]>($/) {
+        $DEBUG && say("special_variable:sym<\$]>($/)");
+    }
+
+    method special_variable:sym<$\\>($/) {
+        $DEBUG && say("special_variable:sym<\$\\>($/)");
+    }
+
+    method special_variable:sym<$|>($/) {
+        $DEBUG && say("special_variable:sym<\$|>($/)");
+    }
+
+    method special_variable:sym<$:>($/) {
+        $DEBUG && say("special_variable:sym<\$:>($/)");
+    }
+
+    method special_variable:sym<$;>($/) {
+        $DEBUG && say("special_variable:sym<\$;>($/)");
+    }
+
+    method special_variable:sym<$'>($/) { #'
+        $DEBUG && say("special_variable:sym<\$'>($/)");
+    }
+
+    method special_variable:sym<$">($/) {
+        $DEBUG && say("special_variable:sym<\$\">($/)");
+    }
+
+    method special_variable:sym<$,>($/) {
+        $DEBUG && say("special_variable:sym<\$,>($/)");
+    }
+
+    method special_variable:sym['$<']($/) {
+        $DEBUG && say("special_variable:sym<\$<>($/)");
+    }
+
+    method special_variable:sym«\$>»($/) {
+        $DEBUG && say("special_variable:sym<\$>>($/)");
+    }
+
+    method special_variable:sym<$.>($/) {
+        $DEBUG && say("special_variable:sym<\$.>($/)");
+    }
+
+    method special_variable:sym<$?>($/) {
+        $DEBUG && say("special_variable:sym<\$?>($/)");
     }
 
     method name($/) {
