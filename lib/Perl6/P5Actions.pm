@@ -1369,6 +1369,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$*>($/) {
         $DEBUG && say("special_variable:sym<\$*>($/)");
+        make QAST::Op.new( :op('die_s'), QAST::SVal.new( :value('$* is no longer supported' ) ) )
     }
 
     method special_variable:sym<$(>($/) {
@@ -1432,7 +1433,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     # ${^WIN32_SLOPPY_STAT}, ${^MATCH}, ${^PREMATCH}, ${^RE_DEBUG_FLAGS}, ${^RE_TRIE_MAXBUF},
-    # {^CHILD_ERROR_NATIVE}, ${^WARNING_BITS} 
+    # {^CHILD_ERROR_NATIVE}, ${^WARNING_BITS}, ${^ENCODING}, ${^GLOBAL_PHASE}, ${^OPEN},
+    # ${^TAINT}, ${^UNICODE}, ${^UTF8CACHE}, ${^UTF8LOCALE}
     method special_variable:sym<${^ }>($/) {
         $DEBUG && say("special_variable:sym<\$\{^ }>($/)");
     }

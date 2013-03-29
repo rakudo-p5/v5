@@ -2143,7 +2143,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$@> {
-        <sym>
+        <sym> | '$EVAL_ERROR'
     }
 
     token special_variable:sym<$#> {
