@@ -1130,6 +1130,45 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), $<sblock>.ast );
     }
 
+    method statement_prefix:sym<eval>($/) {
+        $DEBUG && say("statement_prefix:sym<eval>($/)");
+        my $block := QAST::Op.new(:op<call>, $<block>.ast); # XXX should be immediate
+        make QAST::Op.new(
+            :op('handle'),
+            
+            # Success path puts Any into $! and evaluates to the block.
+            QAST::Stmt.new(
+                :resultchild(0),
+                $block,
+                QAST::Op.new(
+                    :op('p6store'),
+                    QAST::Var.new( :name<$!>, :scope<lexical> ),
+                    QAST::Var.new( :name<Any>, :scope<lexical> )
+                )
+            ),
+
+            # On failure, capture the exception object into $!.
+            'CATCH', QAST::Stmts.new(
+                QAST::Op.new(
+                    :op('p6store'),
+                    QAST::Var.new(:name<$!>, :scope<lexical>),
+                    QAST::Op.new(
+                        :name<&EXCEPTION>, :op<call>,
+                        QAST::Op.new( :op('exception') )
+                    ),
+                ),
+                QAST::VM.new(
+                    pirop => 'perl6_invoke_catchhandler 1PP',
+                    QAST::Op.new( :op('null') ),
+                    QAST::Op.new( :op('exception') )
+                ),
+                QAST::WVal.new(
+                    :value( $*W.find_symbol(['Nil']) ),
+                ),
+            )
+        )
+    }
+
     method statement_prefix:sym<gather>($/) {
         $DEBUG && say("statement_prefix:sym<gather>($/)");
         my $past := block_closure($<sblock>.ast);
@@ -1292,6 +1331,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$@>($/) {
         $DEBUG && say("special_variable:sym<\$@>($/)");
+        make QAST::Var.new( :name('$!'), :scope('lexical') )
     }
 
     method special_variable:sym<$#>($/) {
