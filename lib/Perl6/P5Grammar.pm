@@ -2721,6 +2721,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token quote:sym<' '>  { :dba('single quotes') "'" ~ "'" <nibble(self.quote_lang(%*LANG<Q>, "'", "'", ['q']))> }
     token quote:sym<" ">  { :dba('double quotes') '"' ~ '"' <nibble(self.quote_lang(%*LANG<Q>, '"', '"', ['qq']))> }
     token quote:sym<` `>  { :dba('backticks')     '`' ~ '`' <nibble(self.quote_lang(%*LANG<Q>, '`', '`', ['qq']))> }
+    token quote:sym<__DATA__> { :dba('pseudo filehandle') ^^ [ '__DATA__' | '__END__' ] \h* $<text>=[.*] }
 
 # XXX why does this get picked up?
 #    token quote:sym«<<»   { '<<'

@@ -5316,6 +5316,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     method quote:sym<" ">($/)  { $DEBUG && say("method quote:sym<\" \">($/)"); make $<nibble>.ast; }
     method quote:sym<` `>($/)  { $DEBUG && say("method quote:sym<` `>($/)");
         make QAST::Op.new( :name('&QX'), :op('call'), :node($/), $<nibble>.ast ); }
+    method quote:sym<__DATA__>($/) {
+        $DEBUG && say("method quote:sym<__DATA__>($/)");
+        # do something with $<text>
+    }
     method quote:sym<qq>($/)   { $DEBUG && say("method quote:sym<qq>($/)");    make $<quibble>.ast; }
     method quote:sym<q>($/)    { $DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
     method quote:sym<Q>($/)    { $DEBUG && say("method quote:sym<Q>($/)");     make $<quibble>.ast; }
