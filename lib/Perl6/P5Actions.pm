@@ -3821,6 +3821,14 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
     }
 
+    method term:sym<length>($/) {
+        $DEBUG && say("term:sym<length>($/)");
+        make QAST::Op.new(
+            :op('callmethod'), :name('chars'),
+            $<EXPR> ?? $<EXPR>[0].ast
+                    !! QAST::Var.new( :name('$_'), :scope('lexical') ) )
+    }
+
     method term:sym<rand>($/) {
         $DEBUG && say("term:sym<rand>($/)");
         make QAST::Op.new( :op('call'), :name('&rand'), :node($/) );
