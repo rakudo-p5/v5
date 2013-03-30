@@ -3824,7 +3824,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     method term:sym<length>($/) {
         $DEBUG && say("term:sym<length>($/)");
         make QAST::Op.new(
-            :op('callmethod'), :name('chars'),
+            :op('callmethod'), :name('chars'), # TODO http://perldoc.perl.org/bytes.html
             $<EXPR> ?? $<EXPR>[0].ast
                     !! QAST::Var.new( :name('$_'), :scope('lexical') ) )
     }
