@@ -17,3 +17,5 @@ $*W.HOW.mixin( $*W, Perl6::P5World );
 %*LANG<MAIN-actions> := Perl6::P5Actions;
 %*LANG<Q> := Perl6::P5QGrammar;
 %*LANG<Q-actions> := Perl6::P5QActions;
+%*LANG<Regex> := Perl6::P5RegexGrammar;
+%*LANG<Regex-actions> := Perl6::P5RegexActions;

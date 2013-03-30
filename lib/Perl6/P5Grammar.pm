@@ -2746,7 +2746,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    }
     token quote:sym</ />  {
         :my %*RX;
-        '/' <nibble(self.quote_lang(%*LANG<P5Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
+        '/' <nibble(self.quote_lang(%*LANG<Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
         <.old_rx_mods>?
     }
 
@@ -2768,27 +2768,27 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token quote:sym<qr> {
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
-        <.quibble(%*LANG<P5Regex>)>
+        <.quibble(%*LANG<Regex>)>
         <rx_mods>?
     }
 
     token quote:sym<m>  {
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
-        <.quibble(%*LANG<P5Regex>)>
+        <.quibble(%*LANG<Regex>)>
         <rx_mods>?
     }
 
     token quote:sym<s> {
         <sym> »
         #<pat=sibble( self.cursor_fresh( %*LANG<P5Regex> ), self.cursor_fresh( %*LANG<Q> ).tweak(:qq))>
-        <pat=sibble(%*LANG<P5Regex>, %*LANG<Q>)>
+        <pat=sibble(%*LANG<Regex>, %*LANG<Q>)>
         <rx_mods>?
     }
 
     token quote:sym<tr> {
         #<sym> » <pat=tribble( self.cursor_fresh( %*LANG<P5Regex> ))>
-        <sym> » <pat=tribble(%*LANG<P5Regex>)>
+        <sym> » <pat=tribble(%*LANG<Regex>)>
         <tr_mods>?
     }
 
@@ -4044,7 +4044,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
 
     method tweak_regex($v) {
         self.truly($v, ':regex');
-        return %*LANG<P5Regex>;
+        return %*LANG<Regex>;
     }
 } # end grammar
 

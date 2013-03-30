@@ -2873,7 +2873,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             #$past := %*RX<P5>
             #    ?? %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
             #    !! %*LANG<Regex-actions>.qbuildsub($qast, $block, code_obj => $code);
-            $past := %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
+            $past := %*LANG<Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
         }
         $past.name($name);
         $past.blocktype("declaration");
@@ -4346,6 +4346,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         '==>>', -> $/, $sym { make_feed($/) },
         '<==',  -> $/, $sym { make_feed($/) },
         '<<==', -> $/, $sym { make_feed($/) },
+        '=~',   -> $/, $sym { make_match($/, 0) },
+        '!~',   -> $/, $sym { make_match($/, 1) },
         '~~',   -> $/, $sym { make_smartmatch($/, 0) },
         '!~~',  -> $/, $sym { make_smartmatch($/, 1) },
         '=',    -> $/, $sym { assign_op($/, $/[0].ast, $/[1].ast) },
@@ -4506,6 +4508,27 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         }
 
         return $result;
+    }
+
+    sub make_match($/, $negated) {
+        my $lhs := $/[0].ast;
+        my $rhs := $/[1].ast;
+
+        my $past := QAST::Op.new(
+            :node($/),
+            :op('callmethod'), :name( $rhs<is_subst> ?? 'subst' !! 'match' ),
+            $lhs,
+            $rhs
+        );
+
+        if $negated {
+            $past := QAST::Op.new( :op('call'), :name('&prefix:<!>'), $past );
+        }
+
+        make QAST::Op.new( :op('p6store'),
+            QAST::Var.new(:name('$/'), :scope('lexical')),
+            $past
+        );
     }
 
     sub make_smartmatch($/, $negated) {
