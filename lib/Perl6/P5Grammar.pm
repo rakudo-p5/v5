@@ -3259,8 +3259,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    token term:sym<try>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-#    token term:sym<eval>
-#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+    token term:sym<eval>
+        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
 #    token term:sym<eof>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }

@@ -3861,6 +3861,48 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
     }
 
+    method term:sym<eval>($/) {
+        $DEBUG && say("term:sym<eval>($/)");
+        my $block := QAST::Op.new(
+                    :op('callmethod'), :name('eval'),
+                    $<EXPR> ?? $<EXPR>[0].ast
+                            !! QAST::Var.new( :name('$_'), :scope('lexical') ) );
+        make QAST::Op.new(
+            :op('handle'),
+            
+            # Success path puts Any into $! and evaluates to the block.
+            QAST::Stmt.new(
+                :resultchild(0),
+                $block,
+                QAST::Op.new(
+                    :op('p6store'),
+                    QAST::Var.new( :name<$!>, :scope<lexical> ),
+                    QAST::Var.new( :name<Any>, :scope<lexical> )
+                )
+            ),
+
+            # On failure, capture the exception object into $!.
+            'CATCH', QAST::Stmts.new(
+                QAST::Op.new(
+                    :op('p6store'),
+                    QAST::Var.new(:name<$!>, :scope<lexical>),
+                    QAST::Op.new(
+                        :name<&EXCEPTION>, :op<call>,
+                        QAST::Op.new( :op('exception') )
+                    ),
+                ),
+                QAST::VM.new(
+                    pirop => 'perl6_invoke_catchhandler 1PP',
+                    QAST::Op.new( :op('null') ),
+                    QAST::Op.new( :op('exception') )
+                ),
+                QAST::WVal.new(
+                    :value( $*W.find_symbol(['Nil']) ),
+                ),
+            )
+        )
+    }
+
     method term:sym<length>($/) {
         $DEBUG && say("term:sym<length>($/)");
         make QAST::Op.new(
