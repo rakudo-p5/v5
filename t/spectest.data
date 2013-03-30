@@ -25,7 +25,7 @@ cmd/elsif.t
 #cmd/while.t
 
 #comp/bproto.t
-#comp/cmdopt.t
+comp/cmdopt.t
 #comp/colon.t
 #comp/decl.t
 #comp/final_line_num.t
@@ -504,3 +504,14 @@ cmd/elsif.t
 #win32/system.t
 
 #x2p/s2p.t
+
+# Test from Perlito repository
+../v5/01-sanity.t
+../v5/02-int.t
+../v5/03-num.t
+../v5/04-op.t
+../v5/05-bind.t
+../v5/05-if.t
+../v5/05-while.t
+../v5/16-var-redeclare.t
+../v5/basic.t
