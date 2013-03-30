@@ -3836,6 +3836,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make $*W.add_string_constant(nqp::getlexdyn('$?FILES') // '<unknown file>');
     }
 
+    method term:sym<__PACKAGE__>($/) {
+        $DEBUG && say("term:sym<__PACKAGE__>($/)");
+        # TODO stringify to 'main' for (GLOBAL)
+        make QAST::Var.new( :name('$?PACKAGE'), :scope('lexical') );
+    }
+
     sub make_yada($name, $/) {
 	    my $past := $<args>.ast;
 	    $past.name($name);
