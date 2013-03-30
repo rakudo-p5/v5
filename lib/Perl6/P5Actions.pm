@@ -3826,6 +3826,16 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), :name('&rand'), :node($/) );
     }
 
+    method term:sym<__LINE__>($/) {
+        $DEBUG && say("term:sym<__LINE__>($/)");
+        make $*W.add_constant('Int', 'int', HLL::Compiler.lineof($/.orig, $/.from, :cache(1)))
+    }
+
+    method term:sym<__FILE__>($/) {
+        $DEBUG && say("term:sym<__FILE__>($/)");
+        make $*W.add_string_constant(nqp::getlexdyn('$?FILES') // '<unknown file>');
+    }
+
     sub make_yada($name, $/) {
 	    my $past := $<args>.ast;
 	    $past.name($name);

@@ -3361,6 +3361,13 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    token term:sym<rand>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
+    token term:sym<__LINE__> {
+        <sym>
+    }
+    token term:sym<__FILE__> {
+        <sym>
+    }
+
 #    token term:sym<rmdir>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
