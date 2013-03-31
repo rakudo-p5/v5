@@ -4449,6 +4449,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         '|',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+|>'), $/[0].ast, $/[1].ast) },
         '&',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+&>'), $/[0].ast, $/[1].ast) },
         '^',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+^>'), $/[0].ast, $/[1].ast) },
+        '<<',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+<>'), $/[0].ast, $/[1].ast) },
+        '>>',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+>>'), $/[0].ast, $/[1].ast) },
     );
     method EXPR($/, $key?) {
         $DEBUG && say("EXPR($/, $key?)");
