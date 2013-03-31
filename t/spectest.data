@@ -192,7 +192,7 @@ comp/cmdopt.t
 #op/chr.t
 #op/closure.t
 #op/concat2.t
-#op/cond.t
+op/cond.t
 #op/context.t
 #op/coreamp.t
 #op/coresubs.t
