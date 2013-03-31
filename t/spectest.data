@@ -303,7 +303,7 @@ comp/cmdopt.t
 #op/setpgrpstack.t
 #op/sigdispatch.t
 #op/sigsystem.t
-#op/sleep.t
+op/sleep.t
 #op/smartkve.t
 #op/smartmatch.t
 #op/sort.t
