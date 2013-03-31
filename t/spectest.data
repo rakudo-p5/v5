@@ -8,7 +8,7 @@ base/if.t
 base/num.t
 base/pat.t
 #base/rs.t
-#base/term.t
+base/term.t
 base/while.t
 
 #benchmark/rt26188-speed-up-keys-on-empty-hash.t
