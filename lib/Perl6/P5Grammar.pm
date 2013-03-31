@@ -2489,7 +2489,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token escale {
-        <[Ee]> <[+\-]>? \d+[_\d+]*
+        #<[Ee]> <[+\-]>? \d+[_\d+]*
+        <[Ee]> $<sign>=[<[+\-]>?] <decint>
     }
 
     # careful to distinguish from both integer and 42.method

@@ -4445,7 +4445,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         '^fff^',-> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 1, 1) },
         
         # Perl 5
-        '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast) }
+        '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast) },
+        '|',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+|>'), $/[0].ast, $/[1].ast) },
+        '&',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+&>'), $/[0].ast, $/[1].ast) },
+        '^',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+^>'), $/[0].ast, $/[1].ast) },
     );
     method EXPR($/, $key?) {
         $DEBUG && say("EXPR($/, $key?)");
