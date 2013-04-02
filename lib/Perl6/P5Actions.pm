@@ -1300,6 +1300,11 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         @*UNQUOTE_ASTS.push($<statementlist>.ast);
     }
 
+    method special_variable:sym<@INC>($/) {
+        $DEBUG && say("special_variable:sym<\@INC>($/)");
+        make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('@*INC'))
+    }
+
     method special_variable:sym<$0>($/) {
         $DEBUG && say("special_variable:sym<\$0>($/)");
         make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PROGRAM_NAME'))

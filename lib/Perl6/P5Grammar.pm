@@ -2114,6 +2114,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         '-'?<key=identifier> <?before \h* '=>' >
     }
 
+    token special_variable:sym<@INC> {
+        <sym>
+    }
+
     token special_variable:sym<$0> {
         <sym> | '$PROGRAM_NAME'
     }
