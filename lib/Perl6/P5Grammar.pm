@@ -3839,6 +3839,18 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
 grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
 
+    token charspec {
+        [
+        | <[a..z @ A..Z \] ^ _]>
+        | '[' <!before \w>
+        | '\\\\'
+        | $<quest>=['?']
+        | :dba('character name') '[' ~ ']' <charnames=.LANG('MAIN','charnames')>
+        | $<number>=[\d+]
+        | <?> <.panic: 'Unrecognized \c character'>
+        ]
+    }
+
     proto token escape {*}
     proto token backslash {*}
 

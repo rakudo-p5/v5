@@ -186,7 +186,7 @@ comp/cmdopt.t
 #op/blocks.t
 #op/bop.t
 #op/caller.t
-#op/chars.t
+op/chars.t
 #op/chdir.t
 #op/chop.t
 #op/chr.t
@@ -424,7 +424,7 @@ op/sleep.t
 #re/regex_sets.t
 #re/reg_fold.t
 #re/reg_mesg.t
-#re/reg_namedcapture.t
+re/reg_namedcapture.t
 #re/reg_nc_tie.t
 #re/reg_pmod.t
 #re/reg_posixcc.t

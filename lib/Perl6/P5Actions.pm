@@ -6289,6 +6289,24 @@ class Perl6::P5QActions is HLL::Actions does STDActions {
             $past);
     }
 
+    sub string_to_int($src, $base) {
+        my $res := nqp::radix($base, $src, 0, 2);
+        $src.CURSOR.panic("'$src' is not a valid number")
+            unless nqp::atkey($res, 2) == nqp::chars($src);
+        nqp::atkey($res, 0);
+    }
+
+    method charspec($/) {
+        $DEBUG && say("charspec($/)");
+        make $<charnames>
+            ?? $<charnames>.ast
+            !! $<number>
+                ?? nqp::chr(string_to_int( $<number>, 10 ))
+                !! $<quest>
+                    ?? nqp::chr(127)
+                    !! nqp::chr(nqp::ord(nqp::uc($/)) - 64);
+    }
+
     method escape:sym<\\>($/) { make $<item>.ast; }
     method backslash:sym<qq>($/) { make $<quote>.ast; }
     method backslash:sym<\\>($/) { make $<text>.Str; }
