@@ -7,7 +7,7 @@ use QRegex;
 use QAST;
 
 my role STDActions {
-    my $DEBUG := 0;
+    my $DEBUG := 1;
     method quibble($/) {
         $DEBUG && say("quibble($/)");
         make $<nibble>.ast;
@@ -37,7 +37,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     our $FORBID_PIR;
     our $STATEMENT_PRINT;
-    my $DEBUG := 0;
+    my $DEBUG := 1;
 
     INIT {
         # If, e.g., we support Perl up to v6.1.2, set
@@ -2206,7 +2206,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                 }
             }
         }
-        elsif $*SCOPE eq 'our' {            
+        elsif $*SCOPE eq 'our' {
             # Twigil handling.
             if $twigil eq '.' {
                 add_lexical_accessor($/, $past, $desigilname, $*W.cur_lexpad());
@@ -2234,14 +2234,20 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                 $/.CURSOR.panic("Cannot have an anonymous 'our'-scoped variable");
             }
             
-            my $lex := QAST::Var.new( :name($name), :scope('lexical') );
-            unless $BLOCK.symbol($name) {
-                $lex.decl('var');
-                $BLOCK.symbol($name, :scope('lexical'));
+            # Search for the nearest package.
+            my $pkg := $BLOCK;
+            while !$pkg.symbol('$?PACKAGE') && $pkg<outer>.defined {
+                $pkg := $pkg<outer>;
+            }
+            
+            # Declare that variable within that package.
+            unless $pkg.symbol($name) {
+                $pkg.symbol($name, :scope('lexical'));
+                $pkg[0].push( QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ) );
             }
             $BLOCK[0].push(QAST::Op.new(
                 :op('bind'),
-                $lex,
+                QAST::Var.new( :name($name), :scope('lexical') ),
                 $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))));
         }
         else {
@@ -4435,8 +4441,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         '<<==', -> $/, $sym { make_feed($/) },
         '=~',   -> $/, $sym { make_match($/, 0) },
         '!~',   -> $/, $sym { make_match($/, 1) },
-        '~~',   -> $/, $sym { make_smartmatch($/, 0) },
-        '!~~',  -> $/, $sym { make_smartmatch($/, 1) },
         '=',    -> $/, $sym { assign_op($/, $/[0].ast, $/[1].ast) },
         ':=',   -> $/, $sym { bind_op($/, $/[0].ast, $/[1].ast, 0) },
         '::=',  -> $/, $sym { bind_op($/, $/[0].ast, $/[1].ast, 1) },
@@ -4603,27 +4607,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     sub make_match($/, $negated) {
-        my $lhs := $/[0].ast;
-        my $rhs := $/[1].ast;
-
-        my $past := QAST::Op.new(
-            :node($/),
-            :op('callmethod'), :name( $rhs<is_subst> ?? 'subst' !! 'match' ),
-            $lhs,
-            $rhs
-        );
-
-        if $negated {
-            $past := QAST::Op.new( :op('call'), :name('&prefix:<!>'), $past );
-        }
-
-        make QAST::Op.new( :op('p6store'),
-            QAST::Var.new(:name('$/'), :scope('lexical')),
-            $past
-        );
-    }
-
-    sub make_smartmatch($/, $negated) {
+        $DEBUG && say("make_match($/, $negated)");
         my $lhs := $/[0].ast;
         my $rhs := $/[1].ast;
         my $old_topic_var := $lhs.unique('old_topic');
@@ -5556,7 +5540,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             QAST::Var.new( :name('$_'), :scope('lexical') ),
             $rx_coderef, $closure
         );
-        self.handle_and_check_adverbs($/, %SUBST_ALLOWED_ADVERBS, 'substitution', $past);
+        # TODO handle modifier p
+#        self.handle_and_check_adverbs($/, %SUBST_ALLOWED_ADVERBS, 'substitution', $past);
         if $/[0] {
             $past.push(QAST::IVal.new(:named('samespace'), :value(1)));
         }
@@ -6201,7 +6186,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 }
 
 class Perl6::P5QActions is HLL::Actions does STDActions {
-    my $DEBUG := 0;
+    my $DEBUG := 1;
     method nibbler($/) {
         $DEBUG && say("method nibbler($/)");
         my @asts;

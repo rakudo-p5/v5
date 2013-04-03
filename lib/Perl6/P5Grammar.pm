@@ -2565,21 +2565,21 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    token starter { <!> }
     token escape:sym<none> { <!> }
 
-    token babble ($l) {
-        :my $lang := $l;
-
-        \h*
-        {
-            #($start,$stop) := self.peek_delimiters();
-            my $c      := $/.CURSOR;
-            my @delims := $c.peek_delimiters($c.target, $c.pos);
-            my $start  := @delims[0];
-            my $stop   := @delims[1];
-            $lang      := $start ne $stop ?? $lang.balanced($start,$stop)
-                                          !! $lang.unbalanced($stop);
-            $<B>       := [$lang,$start,$stop];
-        }
-    }
+#    token babble ($l) {
+#        :my $lang := $l;
+#
+#        \h*
+#        {
+#            #($start,$stop) := self.peek_delimiters();
+#            my $c      := $/.CURSOR;
+#            my @delims := $c.peek_delimiters($c.target, $c.pos);
+#            my $start  := @delims[0];
+#            my $stop   := @delims[1];
+#            $lang      := $start ne $stop ?? $lang.balanced($start,$stop)
+#                                          !! $lang.unbalanced($stop);
+#            $<B>       := [$lang,$start,$stop];
+#        }
+#    }
 
 #    token quibble ($l) {
 #        :my $lang;
@@ -2606,24 +2606,45 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        return self;
 #    }
 
-    token sibble ($l, $lang2) {
+#    token sibble ($l, $lang2) {
+#        :my $lang;
+#        :my $start;
+#        :my $stop;
+#        <babble($l)>
+#        {
+#            my $B  := $<babble><B>;
+#            $lang  := $B[0];
+#            $start := $B[1];
+#            $stop  := $B[2];
+#        }
+#
+#        $start <left=nibble($lang)> [ $stop || <.panic: "Couldn't find terminator $stop"> ]
+#        [ <?{ $start ne $stop }>
+#            <.ws> <quibble($lang2)>
+#        || 
+#            { $lang := $lang2.unbalanced($stop); }
+#            <right=nibble($lang)> $stop
+#        ]
+#    }
+    token sibble($l, $lang2, @lang2tweaks?) {
         :my $lang;
         :my $start;
         :my $stop;
         <babble($l)>
-        {
-            my $B  := $<babble><B>;
-            $lang  := $B[0];
-            $start := $B[1];
-            $stop  := $B[2];
-        }
+        { my $B := $<babble><B>.ast; $lang := $B[0]; $start := $B[1]; $stop := $B[2]; }
 
-        $start <left=nibble($lang)> [ $stop || <.panic: "Couldn't find terminator $stop"> ]
+        $start <left=.nibble($lang)> [ $stop || <.panic: "Couldn't find terminator $stop"> ]
         [ <?{ $start ne $stop }>
-            <.ws> <quibble($lang2)>
-        || 
-            { $lang := $lang2.unbalanced($stop); }
-            <right=nibble($lang)> $stop
+            <.ws>
+            [ <?[ \[ \{ \( \< ]> <.obs('brackets around replacement', 'assignment syntax')> ]?
+            [ <infixish> || <.missing: "assignment operator"> ]
+            [ <?{ $<infixish>.Str eq '=' }> || <.malformed: "assignment operator"> ]
+            # XXX When we support it, above check should add: || $<infixish><infix_postfix_meta_operator>[0]
+            <.ws>
+            [ <right=.EXPR('h')> || <.panic: "Assignment operator missing its expression"> ]
+        ||
+            { $lang := self.quote_lang($lang2, $stop, $stop, @lang2tweaks); }
+            <right=.nibble($lang)> $stop || <.panic: "Malformed replacement part; couldn't find final $stop">
         ]
     }
 
@@ -2786,8 +2807,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     token quote:sym<s> {
         <sym> »
-        #<pat=sibble( self.cursor_fresh( %*LANG<P5Regex> ), self.cursor_fresh( %*LANG<Q> ).tweak(:qq))>
-        <pat=sibble(%*LANG<Regex>, %*LANG<Q>)>
+        :my %*RX;
+        {
+            %*RX<s> := 1 if $/[0]
+        }
+        <sibble(%*LANG<Regex>, %*LANG<Q>, ['qq'])>
         <rx_mods>?
     }
 
@@ -2808,33 +2832,33 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     # assumes whitespace is eaten already
 
-    method peek_delimiters () {
-        my $pos      := self.pos;
-        my $startpos := $pos;
-        my $char     := nqp::substr($*ORIG, $pos, 1);
-        $pos         := $pos + 1;
-        if $char ~~ /^\s$/ {
-            self.panic("Whitespace character is not allowed as delimiter"); # "can't happen"
-        }
-        elsif $char ~~ /^\w$/ {
-            self.panic("Alphanumeric character is not allowed as delimiter");
-        }
-        elsif %STD::close2open{$char} {
-            self.panic("Use of a closing delimiter for an opener is reserved");
-        }
-
-        my $rightbrack := %STD::open2close{$char};
-        if !nqp::defined($rightbrack) {
-            return $char, $char;
-        }
-        while nqp::substr($*ORIG,$pos,1) eq $char {
-            $pos := $pos + 1;
-        }
-        my $len   := $pos - $startpos;
-        my $start := nqp::x($char, $len);
-        my $stop  := nqp::x($rightbrack, $len);
-        return $start, $stop;
-    }
+#    method peek_delimiters () {
+#        my $pos      := self.pos;
+#        my $startpos := $pos;
+#        my $char     := nqp::substr($*ORIG, $pos, 1);
+#        $pos         := $pos + 1;
+#        if $char ~~ /^\s$/ {
+#            self.panic("Whitespace character is not allowed as delimiter"); # "can't happen"
+#        }
+#        elsif $char ~~ /^\w$/ {
+#            self.panic("Alphanumeric character is not allowed as delimiter");
+#        }
+#        elsif %STD::close2open{$char} {
+#            self.panic("Use of a closing delimiter for an opener is reserved");
+#        }
+#
+#        my $rightbrack := %STD::open2close{$char};
+#        if !nqp::defined($rightbrack) {
+#            return $char, $char;
+#        }
+#        while nqp::substr($*ORIG,$pos,1) eq $char {
+#            $pos := $pos + 1;
+#        }
+#        my $len   := $pos - $startpos;
+#        my $start := nqp::x($char, $len);
+#        my $stop  := nqp::x($rightbrack, $len);
+#        return $start, $stop;
+#    }
 
     token unitstopper { $ }
 
