@@ -879,13 +879,32 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method statement_control:sym<for>($/) {
         $DEBUG && say("statement_control:sym<for>($/)");
-        my $block := $<sblock>.ast;
-        my $past := QAST::Op.new(
-                        :op<callmethod>, :name<map>, :node($/),
-                        QAST::Op.new(:name('&infix:<,>'), :op('call'), $<EXPR>.ast),
-                        block_closure($block)
-        );
-        make $past;
+        if $<EXPR> {
+            $DEBUG && say("statement_control:sym<for>($/) if");
+            my $block := $<sblock>.ast;
+            my $past := QAST::Op.new(
+                            :op<callmethod>, :name<map>, :node($/),
+                            QAST::Op.new(:name('&infix:<,>'), :op('call'), $<EXPR>.ast),
+                            block_closure($block)
+            );
+            make $past;
+        }
+        else {
+            $DEBUG && say("statement_control:sym<for>($/) else");
+            # C-stye for loop
+            my $block := pblock_immediate($<sblock>.ast);
+            my $cond := $<e2> ?? $<e2>[0].ast !! QAST::Var.new(:name<True>, :scope<lexical>);
+            my $loop := QAST::Op.new( $cond, :op('while'), :node($/) );
+            $loop.push($block);
+            if $<e3> {
+                $loop.push($<e3>[0].ast);
+            }
+            $loop := tweak_loop($loop);
+            if $<e1> {
+                $loop := QAST::Stmts.new( $<e1>[0].ast, $loop, :node($/) );
+            }
+            make $loop;
+        }
     }
 
     method statement_control:sym<loop>($/) {
