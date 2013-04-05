@@ -3111,12 +3111,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     token circumfix:sym<{ }> {
         <?before '{' >
-        <block>
-        <O('%term')>
-    }
-
-    token statement_control:sym<{ }> {
-        <?before '{' >
         <sblock>
         <O('%term')>
     }

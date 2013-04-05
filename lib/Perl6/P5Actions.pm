@@ -4382,7 +4382,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("circumfix:sym<« »>($/)"); make $<nibble>.ast; }
 
     method circumfix:sym<{ }>($/) {
-        $DEBUG && say("circumfix:sym<{ }>($/)");
+        $DEBUG && say("circumfix:sym<\{ }>($/)");
         # If it was {YOU_ARE_HERE}, nothing to do here.
         my $past := $<sblock>.ast;
         if ~$/ eq '{YOU_ARE_HERE}' {
