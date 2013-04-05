@@ -1188,7 +1188,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <.newlex>
         <blockoid>
         #{ @*MEMOS[self.pos]<endstmt> := 2; }
-        #<.ws>
+        <.ws>
     }
 
     token block {
@@ -2954,6 +2954,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <!infixstopper>
         :dba('infix or meta-infix')
         <OPER=infix> <![=]>
+    }
+
+    token dotty:sym<.> {
+        <!>
     }
 
     token dotty:sym«->» {
