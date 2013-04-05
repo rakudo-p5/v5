@@ -272,7 +272,7 @@ op/cond.t
 #op/not.t
 #op/numconvert.t
 #op/oct.t
-#op/ord.t
+op/ord.t
 #op/or.t
 #op/overload_integer.t
 #op/override.t
