@@ -1453,6 +1453,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <sblock(1)>
     }
 
+    token statement_control:sym<foreach> {
+        <!>
+    }
+
     rule statement_control:sym<given> {
         <sym> <xblock>
     }
