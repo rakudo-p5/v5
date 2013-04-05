@@ -1586,6 +1586,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 #    }
 
     sub make_pair($key_str, $value) {
+        $DEBUG && say("make_pair($key_str, $value)");
         my $key := $*W.add_string_constant($key_str);
         $key.named('key');
         $value.named('value');
@@ -1981,9 +1982,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                 }
                 elsif $<initializer>[0]<sym> eq '=' {
                     $past := assign_op($/, $past, $<initializer>[0].ast);
-                }
-                elsif $<initializer>[0]<sym> eq '.=' {
-                    $past := make_dot_equals($past, $<initializer>[0].ast);
                 }
                 else {
                     $past := bind_op($/, $past, $<initializer>[0].ast,
@@ -3222,10 +3220,10 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $DEBUG && say("initializer:sym<::=>($/)");
         make $<EXPR>.ast;
     }
-    method initializer:sym<.=>($/) {
-        $DEBUG && say("initializer:sym<.=>($/)");
-        make $<dottyopish><term>.ast;
-    }
+#    method initializer:sym<.=>($/) {
+#        $DEBUG && say("initializer:sym<.=>($/)");
+#        make $<dottyopish><term>.ast;
+#    }
 
     method capterm($/) {
         $DEBUG && say("capterm($/)");
@@ -4481,7 +4479,8 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         '^fff^',-> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 1, 1) },
         
         # Perl 5
-        '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast) },
+        '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast, 0) },
+        '.=',   -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast, 1) },
         '|',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+|>'), $/[0].ast, $/[1].ast) },
         '&',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+&>'), $/[0].ast, $/[1].ast) },
         '^',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+^>'), $/[0].ast, $/[1].ast) },
@@ -4494,11 +4493,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         my $past := $/.ast // $<OPER>.ast;
         my $sym := ~$<infix><sym>;
         my int $return_map := 0;
-        if !$past && $sym eq '.=' {
-            make make_dot_equals($/[0].ast, $/[1].ast);
-            return 1;
-        }
-        elsif $past && nqp::substr($past.name, 0, 19) eq '&METAOP_TEST_ASSIGN' {
+        if $past && nqp::substr($past.name, 0, 19) eq '&METAOP_TEST_ASSIGN' {
             $past.push($/[0].ast);
             $past.push(make_thunk_ref($/[1].ast, $/));
             make $past;
@@ -4800,12 +4795,13 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         return $past;
     }
     
-    sub concat_op($/, $lhs_ast, $rhs_ast) {
+    sub concat_op($/, $lhs_ast, $rhs_ast, $assign = 0) {
         my $past := QAST::Op.new(
             :op('call'), :name('&infix:<~>'),
             $lhs_ast,
             $rhs_ast
         );
+        $past := QAST::Op.new( :op('bind'), $lhs_ast, $past ) if $assign;
         $past
     }
     
@@ -5818,14 +5814,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                 QAST::Op.new( :op('exception') )
             )
         );
-    }
-
-    sub make_dot_equals($target, $call) {
-        $call.unshift($*W.add_string_constant($call.name));
-        $call.unshift($target);
-        $call.name('dispatch:<.=>');
-        $call.op('callmethod');
-        $call;
     }
 
     # XXX This isn't quite right yet... need to evaluate these semantics

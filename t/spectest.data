@@ -173,7 +173,7 @@ comp/cmdopt.t
 #op/64bitint.t
 #op/alarm.t
 #op/anonsub.t
-#op/append.t
+op/append.t
 #op/args.t
 #op/array_base.t
 #op/array.t

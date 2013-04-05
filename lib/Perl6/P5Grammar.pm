@@ -2069,7 +2069,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         $last eq ')' || $last eq '}' || $last eq ']' || $last eq '>'
     }
 
-    token term:sym<fatkey> { <fatkey> }
+    token term:sym<fatarrow> { <fatarrow> }
 
     token term:sym<variable> {
         <variable>
@@ -2090,8 +2090,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token term:sym<capterm>            { <capterm> }
     token term:sym<statement_prefix>   { <statement_prefix> }
 
-    token fatkey {
-        '-'?<key=identifier> <?before \h* '=>' >
+    token fatarrow {
+        '-'?<key=.identifier> \h* '=>' <.ws> <val=.EXPR('h=')>
     }
 
     token special_variable:sym<@INC> {
@@ -3626,14 +3626,13 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         { <sym> <O('%assignment')> }
 
     ## list item separator
-#    token infix:sym<,>
-#        { <sym> { $<O><fiddly> := 0; } <O('%comma')> }
     token infix:sym<,>    {
-        <sym>  <O('%comma')>
+        <sym> <O('%comma, :fiddly<0>')>
     }
 
-    token infix:sym«=>»
-        { <sym> { $<O><fiddly> := 0; } <O('%comma')> }
+    token infix:sym«=>» {
+        <sym> <O('%comma, :fiddly<0>')>
+    }
 
     token term:sym<blocklist>
     {
