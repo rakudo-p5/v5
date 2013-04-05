@@ -711,6 +711,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
                         :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
                     ));
                 }
+                # XXX TODO proper handling of our-variables --------------------v
                 $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
                 $block.symbol($name, :scope('lexical'), :lazyinit($name eq '$_') );
             }

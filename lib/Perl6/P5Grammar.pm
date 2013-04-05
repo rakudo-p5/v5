@@ -1446,7 +1446,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
             ')'
         ||  [
             || [ <variable> { $*FOR_VARIABLE := $<variable>; } ]?
-            || [ ['my' { $*SCOPE := 'my' } ]? <variable_declarator> { $*FOR_VARIABLE := $<variable_declarator>; } ]?
+            || [  [ 'my' { $*SCOPE := 'my' } || 'our' { $*SCOPE := 'our' } ]?
+                    <variable_declarator> { $*FOR_VARIABLE := $<variable_declarator>; } ]?
             ]
             '(' ~ ')' <EXPR>
         ]
