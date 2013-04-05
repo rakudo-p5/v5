@@ -7,7 +7,7 @@ use QRegex;
 use QAST;
 
 my role STDActions {
-    my $DEBUG := 1;
+    my $DEBUG := 0;
     method quibble($/) {
         $DEBUG && say("quibble($/)");
         make $<nibble>.ast;
@@ -37,7 +37,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     our $FORBID_PIR;
     our $STATEMENT_PRINT;
-    my $DEBUG := 1;
+    my $DEBUG := 0;
 
     INIT {
         # If, e.g., we support Perl up to v6.1.2, set
@@ -3891,6 +3891,14 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
     }
 
+    method term:sym<chr>($/) {
+        $DEBUG && say("term:sym<chr>($/)");
+        make QAST::Op.new(
+                    :op('callmethod'), :name('chr'),
+                    $<EXPR> ?? $<EXPR>[0].ast
+                            !! QAST::Var.new( :name('$_'), :scope('lexical') ) );
+    }
+
     method term:sym<eval>($/) {
         $DEBUG && say("term:sym<eval>($/)");
         my $block := QAST::Op.new(
@@ -6205,7 +6213,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 }
 
 class Perl6::P5QActions is HLL::Actions does STDActions {
-    my $DEBUG := 1;
+    my $DEBUG := 0;
     method nibbler($/) {
         $DEBUG && say("method nibbler($/)");
         my @asts;
