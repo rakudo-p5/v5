@@ -43,7 +43,7 @@ install: all
 	$(CP) blib/Perl6/*.pir $(LIB)/lib/Perl6/
 
 test:
-	PERL6LIB=blib prove -e perl6 t/perl5/basic.t
+	V5DEBUG=0 PERL6LIB=blib $(HARNESS_WITH_FUDGE) $(test_file)
 
 testable : all spectest_checkout spectest_update
 

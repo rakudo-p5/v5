@@ -1,12 +1,17 @@
 v5
 ==
 
-v5.pm for rakudo
+Perl5.pm for rakudo
 
-Currently v5.pm is compiled into perl5.pbc as 'use v5' is currently a noop in rakudo so temporarily use 'use perl5'.
+Currently Perl5.pm will only be imported if you do 'use Perl5'. In near future this module will be picked up
+for statements like 'use v5;' and 'use 5.10'.
+This module is not installable via panda yet, and can only be used if your Cwd is the repo's root directory
+and if you set PERL6LIB to 'blib'.
 
-make # build everything
-make spectest # run the tests form roast5 we pass
+make                             # build everything
+make spectest                    # run all tests form roast5 we pass
+make fulltest                    # run all tests form roast5, even those we do not pass yet
+make test test_file=t/v5/basic.t # run a single test file (using fudge)
 
 PERL6LIB=blib perl6 t/v5/basic.t # run a file
 
