@@ -3120,6 +3120,12 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <O('%term')>
     }
 
+    rule statement_control:sym<{ }> {
+        <?before '{' >
+        <sblock>
+        <O('%term')>
+    }
+
     ## methodcall
 
 #    token postfix:sym«->»
