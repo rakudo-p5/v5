@@ -8,13 +8,14 @@ and if you set PERL6LIB to 'blib'.
 
 USAGE
 --
-
+```
 make                             # build everything
 make spectest                    # run all tests form roast5 we pass
 make fulltest                    # run all tests form roast5, even those we do not pass yet
 make test test_file=t/v5/basic.t # run a single test file (using fudge)
 
 PERL6LIB=blib perl6 t/v5/basic.t # run a file
+```
 
 What v5 can't/won't support:
 --
