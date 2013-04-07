@@ -1,5 +1,24 @@
-v5 - Perl5.pm for rakudo
+v5 - Perl5 for rakudo
 ==
+v5 will let you run Perl 5 code besides Perl 6 code, like:
+```
+use v6;
+grammar Foo {
+    method bar { ... }
+}
+
+{
+    use v5;
+    if( $^OS eq 'MSWin32' ) {
+        say $0 # Perl 5's special variable for program name
+    }
+}
+
+say "Back to Perl 6 on a $*OS box." # $*OS is Perl 6's special variable
+```
+The goal is to be able to run all pure-Perl 5 code besides Perl 6. One benefit of this approach
+(reimplementing Perl 5 with Perl 6's object system) is to be able to pass between both languages.
+XS will not be supported, since it depends of Perl 5's internal structure.
 
 Currently Perl5.pm will only be imported if you do 'use Perl5'. In near future this module will be picked up
 for statements like 'use v5;' and 'use 5.10'.
