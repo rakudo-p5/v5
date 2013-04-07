@@ -17,12 +17,12 @@ base/while.t
 #bigmem/vec.t
 
 cmd/elsif.t
-#cmd/for.t
+#cmd/for.t                                        # labels NYI
 #cmd/lexsub.t
-#cmd/mod.t
+#cmd/mod.t                                        # open NYI
 #cmd/subval.t
 #cmd/switch.t
-#cmd/while.t
+#cmd/while.t                                      # open NYI
 
 #comp/bproto.t
 comp/cmdopt.t
