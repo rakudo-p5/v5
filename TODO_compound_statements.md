@@ -4,6 +4,7 @@ See http://perldoc.perl.org/perlsyn.html#Compound-Statements
 in rakudo and v5 at the same time.
 
 Done:
+
     if (EXPR) BLOCK
     if (EXPR) BLOCK else BLOCK
     if (EXPR) BLOCK elsif (EXPR) BLOCK ...
@@ -17,12 +18,14 @@ Done:
     LABEL foreach VAR (LIST) BLOCK
 
 Almost (LHF):
+
     given (EXPR) BLOCK
     unless (EXPR) BLOCK elsif (EXPR) BLOCK ...
     unless (EXPR) BLOCK elsif (EXPR) BLOCK ... else BLOCK
     LABEL until (EXPR) BLOCK
 
 Todo:
+
     LABEL while (EXPR) BLOCK continue BLOCK
     LABEL until (EXPR) BLOCK continue BLOCK
     LABEL for VAR (LIST) BLOCK continue BLOCK
