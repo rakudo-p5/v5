@@ -1423,6 +1423,13 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     rule statement_control:sym<unless> {
         <sym>
         <xblock>
+        [
+            [
+            | 'else'\h*'if' <.typed_panic: 'X::Syntax::Malformed::Elsif'>
+            | 'elif' { $/.CURSOR.typed_panic('X::Syntax::Malformed::Elsif', what => "elif") }
+            | 'elsif' <xblock>
+            ]
+        ]*
         [ 'else' <else=.sblock> ]?
     }
 

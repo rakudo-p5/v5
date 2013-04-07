@@ -11,6 +11,8 @@ Done:
     if (EXPR) BLOCK elsif (EXPR) BLOCK ... else BLOCK
     unless (EXPR) BLOCK
     unless (EXPR) BLOCK else BLOCK
+    unless (EXPR) BLOCK elsif (EXPR) BLOCK ...
+    unless (EXPR) BLOCK elsif (EXPR) BLOCK ... else BLOCK
     LABEL while (EXPR) BLOCK
     LABEL for (EXPR; EXPR; EXPR) BLOCK
     LABEL for VAR (LIST) BLOCK
@@ -20,8 +22,6 @@ Done:
 Almost (LHF):
 
     given (EXPR) BLOCK
-    unless (EXPR) BLOCK elsif (EXPR) BLOCK ...
-    unless (EXPR) BLOCK elsif (EXPR) BLOCK ... else BLOCK
     LABEL until (EXPR) BLOCK
 
 Todo:

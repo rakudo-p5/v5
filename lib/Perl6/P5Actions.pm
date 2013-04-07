@@ -822,36 +822,34 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
 
     ## Statement control
-
-    method statement_control:sym<if>($/) {
-        $*W.get_env('V5DEBUG') && say("statement_control:sym<if>($/)");
+    sub if_statement($/) {
         my $count := +$<xblock> - 1;
         my $past := xblock_immediate( $<xblock>[$count].ast );
-        # push the else block if any, otherwise 'if' returns C<Nil> (per S04)
+        # push the else block if any
         $past.push( $<else>
                     ?? pblock_immediate( $<else>[0].ast )
                     !!  QAST::Var.new(:name('Nil'), :scope('lexical'))
         );
-        # build if/then/elsif structure
+        # build if/unless + elsif + else structure
         while $count > 0 {
             $count--;
             my $else := $past;
             $past := xblock_immediate( $<xblock>[$count].ast );
             $past.push($else);
         }
-        make $past;
+        $past;
+    }
+
+    method statement_control:sym<if>($/) {
+        $*W.get_env('V5DEBUG') && say("statement_control:sym<if>($/)");
+        make if_statement($/)
     }
 
     method statement_control:sym<unless>($/) {
         $*W.get_env('V5DEBUG') && say("statement_control:sym<unless>($/)");
-        my $past := xblock_immediate( $<xblock>.ast );
+        my $past := if_statement($/);
         $past.op('unless');
-        # push the else block if any
-        $past.push( $<else>
-                    ?? pblock_immediate( $<else>[0].ast )
-                    !!  QAST::Var.new(:name('Nil'), :scope('lexical'))
-        );
-        make $past;
+        make $past
     }
 
     method statement_control:sym<while>($/) {
