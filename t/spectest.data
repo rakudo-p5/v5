@@ -4,10 +4,10 @@
 
 base/cond.t
 base/if.t
-#base/lex.t
+#base/lex.t                                       # heredocs, $ {^Quixote} special vars
 base/num.t
 base/pat.t
-#base/rs.t
+#base/rs.t                                        # open/binmode/close
 base/term.t
 base/while.t
 
@@ -18,35 +18,35 @@ base/while.t
 
 cmd/elsif.t
 #cmd/for.t                                        # labels NYI
-#cmd/lexsub.t
+#cmd/lexsub.t                                     # ohh no
 #cmd/mod.t                                        # open NYI
-#cmd/subval.t
-#cmd/switch.t
+#cmd/subval.t                                     # package, open, typeglobs, ...
+cmd/switch.t
 #cmd/while.t                                      # open NYI
 
 #comp/bproto.t
 comp/cmdopt.t
-#comp/colon.t
-#comp/decl.t
-#comp/final_line_num.t
-#comp/fold.t
-#comp/form_scope.t
+#comp/colon.t                                     # package
+#comp/decl.t                                      # goto
+#comp/final_line_num.t                            # $SIG{__DIE__}
+#comp/fold.t                                      # $SIG{__DIE__}
+#comp/form_scope.t                                # typeglobs, prototypes
 #comp/hints.t
-#comp/line_debug.t
-#comp/multiline.t
-#comp/opsubs.t
-#comp/our.t
+#comp/line_debug.t                                # open, do
+#comp/multiline.t                                 # open
+#comp/opsubs.t                                    # caller(), $main::var
+#comp/our.t                                       # caller(), AUTOLOAD, TIE
 #comp/package_block.t
 #comp/package.t
 #comp/parser.t
 #comp/proto.t
-#comp/redef.t
+#comp/redef.t                                     # $SIG{__WARN__}
 #comp/require.t
-#comp/retainedlines.t
-#comp/term.t
-#comp/uproto.t
-#comp/use.t
-#comp/utf.t
+#comp/retainedlines.t                             # prototypes
+#comp/term.t                                      # interpolate "@foo[0..1]b"
+#comp/uproto.t                                    # $SIG{__WARN__}
+#comp/use.t                                       # sprintf
+#comp/utf.t                                       # open
 
 #io/argv.t
 #io/binmode.t
