@@ -1435,10 +1435,12 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     rule statement_control:sym<while> {
         <sym> <xblock>
+        [ 'continue' <continue=.sblock> ]?
     }
 
     rule statement_control:sym<until> {
         <sym> <xblock>
+        [ 'continue' <continue=.sblock> ]?
     }
 
     rule statement_control:sym<for> {
@@ -1452,13 +1454,14 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                 <e3=.EXPR>?
             ')'
         ||  [
-            || [ <variable> { $*FOR_VARIABLE := $<variable>; } ]?
+            || [ <variable> { $*FOR_VARIABLE := ~$<variable>.ast.name; } ]?
             || [  [ 'my' { $*SCOPE := 'my' } || 'our' { $*SCOPE := 'our' } ]?
-                    <variable_declarator> { $*FOR_VARIABLE := $<variable_declarator>; } ]?
+                    <variable_declarator> { $*FOR_VARIABLE := ~$<variable_declarator>.ast.name; } ]?
             ]
             '(' ~ ')' <EXPR>
         ]
         <sblock(1)>
+        [ 'continue' <continue=.sblock> ]?
     }
 
     token statement_control:sym<foreach> {
@@ -3128,8 +3131,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     rule statement_control:sym<{ }> {
+        :my $*FOR_VARIABLE := QAST::Node.unique('dummy');
         <?before '{' >
-        <sblock>
+        <sblock(1)>
+        [ 'continue' <continue=.sblock(1)> ]?
         <O('%term')>
     }
 

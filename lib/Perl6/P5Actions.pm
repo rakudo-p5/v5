@@ -700,7 +700,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             my %sig_info;
             my @params;
             my $block := $<blockoid>.ast;
-            my $name := ($*FOR_VARIABLE && ~$*FOR_VARIABLE[0].ast.name) || '$_';
+            my $name := ($*FOR_VARIABLE && ~$*FOR_VARIABLE[0]) || '$_';
             unless $block.symbol($name) {
                 if $*IMPLICIT {
                     @params.push(hash(
@@ -855,6 +855,15 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     method statement_control:sym<while>($/) {
         $*W.get_env('V5DEBUG') && say("statement_control:sym<while>($/)");
         my $past := xblock_immediate( $<xblock>.ast );
+        $past.push( pblock_immediate( $<continue>[0].ast ) ) if $<continue>;
+        $past.op(~$<sym>);
+        make tweak_loop($past);
+    }
+
+    method statement_control:sym<until>($/) {
+        $*W.get_env('V5DEBUG') && say("statement_control:sym<while>($/)");
+        my $past := xblock_immediate( $<xblock>.ast );
+        $past.push( pblock_immediate( $<continue>[0].ast ) ) if $<continue>;
         $past.op(~$<sym>);
         make tweak_loop($past);
     }
@@ -4452,76 +4461,12 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method statement_control:sym<{ }>($/) {
         $*W.get_env('V5DEBUG') && say("statement_control:sym<\{ }>($/)");
-        # If it was {YOU_ARE_HERE}, nothing to do here.
-        my $past := $<sblock>.ast;
-        if ~$/ eq '{YOU_ARE_HERE}' {
-            make $past;
-            return 1;
-        }
-
-        # If it is completely empty or consists of a single list, the first
-        # element of which is either a hash or a pair, it's a hash constructor.
-        # Note that if it declares any symbols it is also not one.
-        my $Pair := $*W.find_symbol(['Pair']);
-        my int $is_hash := 0;
-        my $stmts := +$<sblock><blockoid><statementlist><statement>;
-        my $bast  := $<sblock><blockoid>.ast;
-        if $bast.symbol('$_')<used> || $bast<also_uses> && $bast<also_uses><$_> {
-            # Uses $_, so not a hash.
-        }
-        elsif $stmts == 0 {
-            # empty block, so a hash
-            $is_hash := 1;
-        }
-        elsif $stmts == 1 {
-            my $elem := $past<past_block>[1][0][0];
-            $elem := $elem[0] if $elem ~~ QAST::Want;
-            if $elem ~~ QAST::Op && $elem.name eq '&infix:<,>' {
-                # block contains a list, so test the first element
-                $elem := $elem[0];
-            }
-            if $elem ~~ QAST::Op
-                    && (istype($elem.returns, $Pair) || $elem.name eq '&infix:<=>>') {
-                # first item is a pair
-                $is_hash := 1;
-            }
-            elsif $elem ~~ QAST::Var
-                    && nqp::substr($elem.name, 0, 1) eq '%' {
-                # first item is a hash
-                $is_hash := 1;
-            }
-        }
-        if $is_hash {
-            for $past<past_block>.symtable() {
-                my $sym := $_.key;
-                if $sym ne 'call_sig' && $sym ne '$_' && $sym ne '$*DISPATCHER' {
-                    $is_hash := 0;
-                }
-            }
-        }
-        if $is_hash && $past<past_block>.arity == 0 {
-            my @children := @($past<past_block>[1]);
-            $past := QAST::Op.new(
-                :op('call'),
-                :name('&circumfix:<{ }>'),
-                :node($/)
-            );
-            for @children {
-                if nqp::istype($_, QAST::Stmt) {
-                    # Mustn't use QAST::Stmt here, as it will cause register
-                    # re-use within a statemnet, which is a problem.
-                    $_ := QAST::Stmts.new( |$_.list );
-                }
-                $past.push($_);
-            }
-        }
-        else {
-            $past := block_closure($past);
-            $past<bare_block> := QAST::Op.new(
-                :op('call'),
-                QAST::BVal.new( :value($past<past_block>) ));
-        }
-        make $past;
+        my $block := QAST::Stmts.new;
+        $block.push( pblock_immediate($<sblock>.ast) );
+        $block.push( pblock_immediate($<continue>[0].ast) ) if $<continue>;
+        make QAST::Op.new( :op<callmethod>, :name<map>,
+                QAST::IVal.new(:value(1)),
+                make_topic_block_ref( $block, :name($*FOR_VARIABLE) ) );
     }
 
     method circumfix:sym<[ ]>($/) {
