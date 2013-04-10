@@ -84,7 +84,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             'if',           1,
             'unless',       1,
             'handle',       1,
-            'p6type',       1,
+            'hllize',       1,
     );
     sub autosink($past) {
         $*W.get_env('V5DEBUG') && say("sub autosink($past)");
@@ -2957,7 +2957,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             :op('bind'),
             QAST::Var.new(:name<$?REGEX>, :scope<lexical>, :decl('var')),
             QAST::Op.new(
-                :op('p6vmcodetoobj'),
+                :op('getcodeobj'),
                 QAST::Op.new( :op('curcode') )
             )));
         $block.symbol('$?REGEX', :scope<lexical>);
@@ -4003,7 +4003,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $*W.get_env('V5DEBUG') && say("term:sym<dotty>($/)");
         my $past := $<dotty>.ast;
         $past.unshift(QAST::Var.new( :name('$_'), :scope('lexical') ) );
-        make QAST::Op.new( :op('p6type'), $past);
+        make QAST::Op.new( :op('hllize'), $past);
     }
 
     sub find_macro_routine(@symbol) {
@@ -4577,7 +4577,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             $past := whatever_curry($/, (my $orig := $past), $key eq 'INFIX' ?? 2 !! 1);
             if $return_map && $orig =:= $past {
                 $past := QAST::Op.new($past,
-                    :op('p6type'), :returns($past.returns()));
+                    :op('hllize'), :returns($past.returns()));
             }
         }
         make $past;
@@ -4754,7 +4754,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
             # Finally, just need to make a bind.
             make QAST::Op.new( :op('bind'), $target, $source );
         }
-        elsif $target.isa(QAST::Op) && $target.op eq 'p6type' &&
+        elsif $target.isa(QAST::Op) && $target.op eq 'hllize' &&
                 $target[0].isa(QAST::Op) && $target[0].op eq 'callmethod' &&
                 ($target[0].name eq 'postcircumfix:<[ ]>' || $target[0].name eq 'postcircumfix:<{ }>') {
             $source.named('BIND');
