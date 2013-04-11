@@ -350,7 +350,9 @@ role STD5 {
                         $BLOCK[0].push(QAST::Op.new(
                             :op('bind'),
                             $lex,
-                            $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))));
+                            $name eq '%ENV' ?? QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*ENV'))
+                                            !! $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
+                        ));
                     }
                 }
                 else {
