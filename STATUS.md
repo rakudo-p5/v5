@@ -1065,7 +1065,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/groups.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Cannot modify an immutable value
+Odd number of elements found where hash expected
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/gv.v5</td><td>0</td><td>245</td><td>0</td><td>0</td><td>245</td></tr>
         <tr><td colspan=5>===SORRY!===
