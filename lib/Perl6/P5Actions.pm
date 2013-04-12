@@ -5095,6 +5095,13 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make QAST::Op.new(:node($/), :op<call>, $metapast, $args);
     }
 
+    method term:sym<undef>($/) {
+        $*W.get_env('V5DEBUG') && say("term:sym<undef>($/)");
+        my $mu := QAST::WVal.new( :value($*W.find_symbol(['Mu'])) );
+        make $<EXPR>    ?? QAST::Op.new( :op('p6store'), $<EXPR>[0].ast, $mu )
+                        !! $mu
+    }
+
     method term:sym<filetest>($/) {
         $*W.get_env('V5DEBUG') && say("term:sym<filetest>($/)");
         make QAST::Op.new(
