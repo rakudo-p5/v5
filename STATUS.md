@@ -188,7 +188,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Missing block
 at t/spec/io/crlf_through.v5:12
 ------> do ⏏'./io/through.t' or die "no kid script";</td></tr>
-        <tr align=center><td align=left rowspan=2>io/data.v5</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
     run_multiple_progs used at line 20
@@ -321,7 +321,7 @@ called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-ve
 </td></tr>
         <tr align=center><td align=left rowspan=2>japh/abigail.v5</td><td>0</td><td>130</td><td>0</td><td>0</td><td>130</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &undef
+Cannot modify an immutable value
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -342,8 +342,7 @@ Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/mypragma.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Cannot call 'plan'; none of these signatures match:
-:($number_of_tests)
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/no_load.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -364,45 +363,39 @@ at t/spec/lib/proxy_constant_subs.v5:6
 ------> ip_all_without_dynamic_extension($_) for⏏each qw(B Fcntl);</td></tr>
         <tr align=center><td align=left rowspan=2>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Cannot call 'plan'; none of these signatures match:
-:($number_of_tests)
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic.v5:8
-------> BEGIN { require q(.⏏/test.pl); } plan(tests => 59);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/mro/basic.v5:15
+------>     ⏏our @ISA = qw//;</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_01_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/basic_01_c3.v5:54
+------> <BOL>⏏<EOL></td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_01_c3_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/basic_01_c3_utf8.v5:56
+------> <BOL>⏏<EOL></td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_01_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/basic_01_dfs.v5:54
+------> <BOL>⏏<EOL></td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_01_dfs_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/basic_01_dfs_utf8.v5:56
+------> <BOL>⏏<EOL></td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_02_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 10);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_02_c3.v5:13
+------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix . instead
@@ -811,7 +804,9 @@ at t/spec/op/args.v5:78
 ------> L⏏: { local2 }</td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+Preceding context expects a term, but found infix , instead
+at t/spec/op/array.v5:124
+------> (undef,⏏@foo) = @foo;
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -833,7 +828,7 @@ Could not find sub &skip_all_if_miniperl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>0</td><td>47</td><td>0</td><td>0</td><td>47</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n#    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -854,8 +849,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan=5>===SORRY!===
-Cannot call 'plan'; none of these signatures match:
-:($number_of_tests)
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
@@ -903,7 +897,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't';\n    @INC = qw(../lib);\n    require './test.pl';\n    plan (tests => 17);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't';\n    @INC = qw(../lib);\n    #require './test.pl';\n    plan (17);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1040,7 +1034,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require 'test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require 'test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1061,7 +1055,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/grep.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/groups.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1215,7 +1209,9 @@ at t/spec/op/mkdir.v5:29
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Preceding context expects a term, but found infix , instead
+at t/spec/op/my.v5:16
+------>     { my($a, undef,⏏ $c) = ("ok 9\n", "not ok 10\n", "ok 10\
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my_stash.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1235,9 +1231,9 @@ Undeclared routines:
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/not.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    undef used at lines 34, 54. Did you mean '&index'?
-
+Preceding context expects a term, but found infix , instead
+at t/spec/op/not.v5:34
+------>     ok($not1 == undef,⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1339,9 +1335,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null regex not allowed
-at t/spec/op/repeat.v5:64
-------> is(join('', (split(//⏏,"123")) x 2), '123123',       'split an
+Preceding context expects a term, but found infix , instead
+at t/spec/op/repeat.v5:21
+------> is('-' x undef,⏏ '',     '  x undef');
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_37033.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1460,7 +1456,9 @@ at t/spec/op/studytied.v5:18
 ------>     ⏏my $c = 0;</td></tr>
         <tr align=center><td align=left rowspan=2>op/sub.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Preceding context expects a term, but found infix , instead
+at t/spec/op/sub.v5:15
+------> is(empty_sub,undef,⏏"Is empty");
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sub_lval.v5</td><td>0</td><td>191</td><td>0</td><td>0</td><td>191</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1501,7 +1499,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n     chdir 't' if -d 't';\n     @INC = '../lib';\n     require './test.pl';\n     $| = 1;\n\n    ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/tie.v5</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
     run_multiple_progs used at line 20
@@ -1608,7 +1606,9 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/write.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Preceding context expects a term, but found infix , instead
+at t/spec/op/write.v5:1297
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1622,9 +1622,10 @@ at t/spec/opbasic/arith.v5:16
 ------> sub try ⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/opbasic/cmp.v5:70
-------> sub nok ⏏($$$$$$$$) {</td></tr>
+Preceding context expects a term, but found infix , instead
+at t/spec/opbasic/cmp.v5:52
+------> OO = ('s', 'N/A', 'a', 'NaN', -1, undef,⏏ 0, 1, 3.14, 1e37, 0.632120558, -.5,
+</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/concat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Redeclaration of routine ok
@@ -1710,7 +1711,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n\t#
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/manifest.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'p5cc' not found for invocant of class '<anon>'
+Preceding context expects a term, but found infix , instead
+at t/spec/porting/manifest.v5:86
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1818,7 +1821,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/qr_gc.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &undef
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/qrstack.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1862,9 +1865,10 @@ Could not find sub &skip_all_if_miniperl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_pmod.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '%SIG' is not declared
-at t/spec/re/reg_pmod.v5:25
-------> $SIG{__WARN__}⏏ = sub { $W.=join("",@_); };</td></tr>
+Preceding context expects a term, but found infix , instead
+at t/spec/re/reg_pmod.v5:18
+------>     [ '',     "(345)",  undef,⏏  undef,  undef ],
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1953,7 +1957,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
-        <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
@@ -2025,7 +2029,7 @@ at t/spec/run/switches.v5:84
 Cannot call 'plan'; none of these signatures match:
 :($number_of_tests)
 </td></tr>
-        <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>No such method 'subst' for invocant of type 'Any'
   in block  at t/spec/run/switchp.v5:17
 
@@ -2040,11 +2044,9 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/_num_to_alpha.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared name:
-    _num_to_alpha used at lines 10, 11, 12, 14, 15, 16, 18, 19, 20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 37, 38, 40, 41, 43, 44
-Undeclared routine:
-    undef used at lines 10, 38, 41, 44. Did you mean '&index'?
-
+Preceding context expects a term, but found infix , instead
+at t/spec/test_pl/_num_to_alpha.v5:10
+------> is( _num_to_alpha(-1), undef,⏏ 'Returns undef for negative numbers');
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
