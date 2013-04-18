@@ -5,7 +5,8 @@ PERL6      = perl6
 RM_F       = $(PERL) -MExtUtils::Command -e rm_f
 CP         = $(PERL) -MExtUtils::Command -e cp
 MKPATH     = $(PERL) -MExtUtils::Command -e mkpath
-LIB        = $(shell $(PERL6) -e 'print %*CUSTOM_LIB<home>')
+NQPLIB     = $(shell $(NQP) -e 'my %conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH]; print(%conf<libdir> ~ %conf<versiondir> ~ "/languages/nqp");')
+P6LIB      = $(shell $(PERL6) -e 'print %*CUSTOM_LIB<perl>')
 
 # We need to tweak that some day
 HAS_ICU    = 0
@@ -36,11 +37,9 @@ clean:
 	$(RM_F) blib/*.pbc blib/*.pir blib/Perl6/*.pbc blib/Perl6/*.pir
 
 install: all
-	$(MKPATH) $(LIB)/lib/Perl6
-	$(CP) blib/*.pbc $(LIB)/lib/
-	$(CP) blib/*.pir $(LIB)/lib/
-	$(CP) blib/Perl6/*.pbc $(LIB)/lib/Perl6/
-	$(CP) blib/Perl6/*.pir $(LIB)/lib/Perl6/
+	$(MKPATH) $(NQPLIB)/lib/Perl6
+	$(CP) blib/*.pbc $(P6LIB)/lib/
+	$(CP) blib/Perl6/*.pbc $(NQPLIB)/lib/Perl6/
 
 test:
 	V5DEBUG=0 PERL6LIB=blib $(HARNESS_WITH_FUDGE) $(test_file) --verbosity=9
