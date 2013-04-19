@@ -14,7 +14,7 @@ at t/spec/base/lex.v5:47
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>base/rs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
         <tr><td colspan=5>use of uninitialized variable $v of type Any in numeric context  in block  at t/spec/base/term.v5:32
@@ -41,7 +41,7 @@ at t/spec/bigmem/vec.v5:13
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -165,11 +165,11 @@ at t/spec/comp/use.v5:61
 ------> sub like ⏏($$;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>comp/utf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -230,7 +230,7 @@ at t/spec/io/fs.v5:32
 ------>      ⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/iofile.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -238,7 +238,7 @@ Could not find sub &skip_all_if_miniperl
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -246,7 +246,7 @@ Could not find sub &skip_all_without_perlio
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -310,11 +310,11 @@ at t/spec/io/through.v5:23
         <tr align=center><td align=left rowspan=2>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
@@ -325,20 +325,25 @@ Cannot modify an immutable value
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file '../t/lib/common.pl' for module ../t/lib/common.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/lib/croak.v5:9
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/mypragma.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -363,51 +368,28 @@ at t/spec/lib/proxy_constant_subs.v5:6
 ------> ip_all_without_dynamic_extension($_) for⏏each qw(B Fcntl);</td></tr>
         <tr align=center><td align=left rowspan=2>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic.v5:15
------->     ⏏our @ISA = qw//;</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Operators '<' and '>' are non-associative and require parenthesis
-at t/spec/mro/basic_01_c3.v5:54
-------> <BOL>⏏<EOL></td></tr>
+        <tr align=center><td align=left>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
+        <tr align=center><td align=left>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Operators '<' and '>' are non-associative and require parenthesis
 at t/spec/mro/basic_01_c3_utf8.v5:56
 ------> <BOL>⏏<EOL></td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Operators '<' and '>' are non-associative and require parenthesis
-at t/spec/mro/basic_01_dfs.v5:54
-------> <BOL>⏏<EOL></td></tr>
+        <tr align=center><td align=left>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Operators '<' and '>' are non-associative and require parenthesis
 at t/spec/mro/basic_01_dfs_utf8.v5:56
 ------> <BOL>⏏<EOL></td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr align=center><td align=left>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
-at t/spec/mro/basic_02_c3.v5:13
+at t/spec/mro/basic_02_c3_utf8.v5:15
 ------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_02_c3_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 10);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_02_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 10);
-</td></tr>
+        <tr align=center><td align=left>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix . instead
@@ -566,11 +548,11 @@ at t/spec/mro/inconsistent_c3_utf8.v5:17
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -832,7 +814,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -845,7 +827,7 @@ at t/spec/op/blocks.v5:150
 ------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -854,7 +836,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    # We're not going to chdir() into 't' because we don't know if\n    # chdir() works!  Instead..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>0</td><td>143</td><td>0</td><td>0</td><td>143</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -901,7 +883,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1013,12 +995,11 @@ at t/spec/op/filetest_t.v5:15
 ------> my($dev_tty⏏, $dev_null) = qw(/dev/tty /dev/null);</td></tr>
         <tr align=center><td align=left rowspan=2>op/flip.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Bogus statement
-at t/spec/op/flip.v5:70
-------> <BOL>⏏<EOL></td></tr>
+Could not find file 'test.pl' for module test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1047,7 +1028,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/goto_xs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &sub
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1096,22 +1077,27 @@ at t/spec/op/inc.v5:57
 ------> $b⏏ = -$a;</td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require 'test.pl';\n    skip_all_if_minip..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require 'test.pl';\n    skip_all_if_mini..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$a' is not declared
 at t/spec/op/index.v5:68
 ------> $a⏏ = "foo \x{1234}bar";</td></tr>
-        <tr align=center><td align=left>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/op/index_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
@@ -1126,16 +1112,16 @@ at t/spec/op/join.v5:18
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
@@ -1149,20 +1135,14 @@ at t/spec/op/leaky-magic.v5:39
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Variable '$yow' is not declared
-at t/spec/op/lex.v5:18
------->     my $yow⏏ = "ok 2";</td></tr>
+        <tr align=center><td align=left>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align=center><td align=left rowspan=2>op/lex_assign.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lfs.v5:14
-
-===SORRY!===
-Could not find sub &skip_all
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1179,7 +1159,7 @@ at t/spec/op/localref.v5:21
 ------> { local ${$x x⏏2};$aa = 6; is($aa,6); undef $x; is($aa,</td></tr>
         <tr align=center><td align=left rowspan=2>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/loopctl.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1187,7 +1167,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1195,7 +1175,7 @@ Could not find sub &sub
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic.v5</td><td>0</td><td>178</td><td>0</td><td>0</td><td>178</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    require './test.pl';\n    plan (..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    #require './test.pl';\n    plan ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/method.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1203,9 +1183,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
-Unsupported use of /i; in Perl 6 please use :i
-at t/spec/op/mkdir.v5:29
-------> ! =~ /cannot move|exist|denied|unknown/i⏏);
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1281,9 +1259,8 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/print.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/op/print.v5:15
-------> SKIP⏏: {</td></tr>
+Could not find file 'test.pl' for module test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1295,7 +1272,7 @@ at t/spec/op/push.v5:116
 ------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/qr.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1311,19 +1288,19 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/range.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1346,7 +1323,7 @@ at t/spec/op/require_37033.v5:14
 ------>     delete $INC{'test_use_14937.pm'}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/reset.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1376,9 +1353,8 @@ Could not find sub &skip_all_without_config
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '%SIG' is not declared
-at t/spec/op/sigdispatch.v5:19
-------> $SIG{ALRM}⏏ = sub {</td></tr>
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n      require './test.pl';\n      skip_all_if_miniperl();\n      skip_all_without_config(qw(d_for..."): Error while compiling op call (source text: "skip_all_without_config(qw(d_fork))"): Unknown QAST node type NQPMu
@@ -1401,7 +1377,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1411,7 +1387,7 @@ at t/spec/op/split.v5:27
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1436,9 +1412,8 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/op/stat.v5:73
-------> SKIP⏏: {</td></tr>
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1468,10 +1443,15 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
-        <tr align=center><td align=left>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/op/substr_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/svleak.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/switch.v5</td><td>0</td><td>201</td><td>0</td><td>0</td><td>201</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1493,7 +1473,7 @@ Could not find sub &skip_all_if_miniperl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n     chdir 't' if -d 't';\n     @INC = '../lib';\n     require './test.pl';\n     $| = 1;\n\n    ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1520,13 +1500,12 @@ Could not locate compile-time value for symbol fail
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '%SIG' is not declared
-at t/spec/op/time_loop.v5:16
-------> local $SIG{__WARN__}⏏ = sub {};</td></tr>
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/tr.v5</td><td>0</td><td>132</td><td>0</td><td>0</td><td>132</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'p5cc' not found for invocant of class '<anon>'
@@ -1548,9 +1527,7 @@ Undeclared routine:
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unshift.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    cmp_ok used at lines 20, 22, 27, 30, 34, 37, 41, 44, 49, 52, 59, 62
-
+Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/upgrade.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1574,11 +1551,11 @@ at t/spec/op/utf8magic.v5:31
         <tr align=center><td align=left rowspan=2>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
@@ -1655,14 +1632,10 @@ Unsupported use of /i; in Perl 6 please use :i
 at t/spec/porting/authors.v5:16
 ------> my $quote = $^O =~ /^mswin/i⏏ ? q(") : q(');
 </td></tr>
-        <tr align=center><td align=left rowspan=2>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/porting/bincompat.v5:15
-------> my @V = map {s/^ //⏏r} Internals::V();</td></tr>
+        <tr align=center><td align=left>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1734,7 +1707,7 @@ Undeclared routine:
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/podcheck.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Could not find file '../regen/regen_lib.pl' for module ../regen/regen_lib.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1745,15 +1718,11 @@ at t/spec/porting/regen.v5:15
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
-        <tr align=center><td align=left rowspan=2>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+        <tr align=center><td align=left>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align=center><td align=left rowspan=2>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '&POSIX::LC_ALL' is not declared
-at t/spec/re/charset.v5:42
-------> ocale = POSIX::setlocale( &POSIX::LC_ALL⏏, "C") // "";</td></tr>
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all_if_miniperl
@@ -1779,32 +1748,62 @@ at t/spec/re/pat.v5:13
 Missing block
 at t/spec/re/pat_advanced.v5:14
 ------> sub run_tests⏏;</td></tr>
-        <tr align=center><td align=left>re/pat_advanced_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>re/pat_advanced_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/pat_advanced_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_psycho.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
 at t/spec/re/pat_psycho.v5:17
 ------> sub run_tests⏏;</td></tr>
-        <tr align=center><td align=left>re/pat_psycho_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>re/pat_psycho_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/pat_psycho_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
 at t/spec/re/pat_re_eval.v5:15
 ------> sub run_tests⏏;</td></tr>
-        <tr align=center><td align=left>re/pat_re_eval_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>re/pat_re_eval_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/pat_re_eval_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
 at t/spec/re/pat_rt_report.v5:14
 ------> sub run_tests⏏;</td></tr>
-        <tr align=center><td align=left>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/pat_rt_report_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
 at t/spec/re/pat_special_cc.v5:14
 ------> sub run_tests⏏;</td></tr>
-        <tr align=center><td align=left>re/pat_special_cc_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr align=center><td align=left>re/pat_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>re/pat_special_cc_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/pat_special_cc_thr.v5:5
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>re/pat_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/pat_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pos.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unsupported use of /g; in Perl 6 please use :g
@@ -1841,10 +1840,15 @@ at t/spec/re/reg_60508.v5:37
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
-        <tr align=center><td align=left>re/reg_email_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>re/reg_email_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/reg_email_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1879,7 +1883,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1887,7 +1891,7 @@ Could not find sub &prefix:<|>
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1895,19 +1899,15 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    skip_all_if_miniperl used at line 9
-    skip_all_without_config used at line 8
-    useithreads used at line 8
-
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1917,7 +1917,12 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all_if_miniperl
 </td></tr>
-        <tr align=center><td align=left>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
+  in any load_module at src/Perl6/ModuleLoader.pm:123
+  in block  at t/spec/re/regexp_unicode_prop_thr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/rxcode.v5</td><td>0</td><td>39</td><td>0</td><td>0</td><td>39</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -1928,7 +1933,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1938,7 +1943,7 @@ at t/spec/re/subst_amp.v5:22
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1963,7 +1968,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2050,9 +2055,8 @@ at t/spec/test_pl/_num_to_alpha.v5:10
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '%Bar' is not declared
-at t/spec/test_pl/can_isa_ok.v5:24
------->     local %Bar::⏏;</td></tr>
+Could not find file 'test.pl' for module test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$skip' is not declared
@@ -2077,11 +2081,11 @@ Cannot call 'plan'; none of these signatures match:
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_dynamic_extension
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_dynamic_extension
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/class.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2089,34 +2093,32 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Unrecognized backslash sequence: '\3'
-at t/spec/uni/eval.v5:33
------->     isnt eval "q!\⏏360\237\220\252!", eval "q!\x{1f42a}!";</td></tr>
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Error while reading from file: Invalid character in UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Unrecognized backslash sequence: '\3'
-at t/spec/uni/goto.v5:23
------->     goto &{"\⏏345\225\217\351\241\214\343\201\256\345\</td></tr>
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
@@ -2133,11 +2135,11 @@ at t/spec/uni/labels.v5:22
         <tr align=center><td align=left rowspan=2>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
@@ -2164,12 +2166,11 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/package.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan=5>===SORRY!===
-Too late for semicolon form of package definition
-at t/spec/uni/package.v5:31
------->     ⏏sub ニュー {bless [];}</td></tr>
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
-ResizablePMCArray: index out of bounds!
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2192,26 +2193,24 @@ at t/spec/uni/stash.v5:26
 ------>         ⏏1;</td></tr>
         <tr align=center><td align=left rowspan=2>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/uni/tie.v5:15
------->     ⏏sub TIESCALAR {</td></tr>
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib uni .);\n    require \"case.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_dynamic_extension
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
@@ -2219,18 +2218,18 @@ called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-ve
         <tr align=center><td align=left rowspan=2>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32255 (src/stage2/gen/NQPHLL.pir:12727) (src/stage2/gen/NQPHLL.pm:1313)
-called from Sub 'evalfiles' pc 31758 (src/stage2/gen/NQPHLL.pir:12548) (src/stage2/gen/NQPHLL.pm:1296)
-called from Sub 'command_eval' pc 30559 (src/stage2/gen/NQPHLL.pir:12065) (src/stage2/gen/NQPHLL.pm:1255)
+current instr.: '' pc 32306 (src/stage2/gen/NQPHLL.pir:12729) (src/stage2/gen/NQPHLL.pm:1314)
+called from Sub 'evalfiles' pc 31802 (src/stage2/gen/NQPHLL.pir:12551) (src/stage2/gen/NQPHLL.pm:1301)
+called from Sub 'command_eval' pc 30591 (src/stage2/gen/NQPHLL.pir:12067) (src/stage2/gen/NQPHLL.pm:1256)
 called from Sub 'command_eval' pc 369 (src/gen/perl6-compiler.pir:194) (src/Perl6/Compiler.nqp:17)
-called from Sub 'command_line' pc 29582 (src/stage2/gen/NQPHLL.pir:11660) (src/stage2/gen/NQPHLL.pm:1205)
+called from Sub 'command_line' pc 29614 (src/stage2/gen/NQPHLL.pir:11662) (src/stage2/gen/NQPHLL.pm:1206)
 called from Sub 'MAIN' pc 362 (src/gen/perl6.pir:141) (src/main.nqp src/gen/main-version.nqp:41)
 called from Sub '' pc 77 (src/gen/perl6.pir:56) (src/main.nqp src/gen/main-version.nqp:1)
 called from Sub '' pc 1127 (src/gen/perl6.pir:404) (src/main.nqp src/gen/main-version.nqp:52)
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_dynamic_extension
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/universal.v5</td><td>0</td><td>93</td><td>0</td><td>0</td><td>93</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2295,7 +2294,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2332,11 +2331,11 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-bind-method-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-bless.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Method 'ast' not found for invocant of class 'QRPA'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-class-open.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2378,7 +2377,7 @@ Error while compiling, type X::Comp::AdHoc
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find symbol '&plan'
-  in method <anon> at src/gen/CORE.setting:10771
+  in method <anon> at src/gen/CORE.setting:10840
   in any  at src/gen/Metamodel.pm:2504
   in any find_method_fallback at src/gen/Metamodel.pm:2492
   in any find_method at src/gen/Metamodel.pm:939
