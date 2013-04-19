@@ -1650,12 +1650,14 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <sym> <.end_keyword> <package_def>
     }
 
-    rule package_declarator:sym<require> {   # here because of declarational aspects
+    rule statement_control:sym<require> {   # here because of declarational aspects
         <sym>
         [
-        || <module_name> <EXPR>?
-        || <EXPR>
+        | <module_name>
+        | <file=.variable>
+        | <!before <sigil>> <file=.term>
         ]
+        [ <EXPR> ]?
     }
 
 #    rule package_def {

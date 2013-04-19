@@ -1017,23 +1017,35 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         make $past;
     }
 
-    method package_declarator:sym<require>($/) {
+    method statement_control:sym<require>($/) {
         $*W.get_env('V5DEBUG') && say("package_declarator:sym<require>($/)");
         my $past := QAST::Stmts.new(:node($/));
         my $name_past := $<module_name>
-                        ?? $*W.p5dissect_longname($<module_name><longname>).name_past()
-                        !! $<EXPR>[0].ast;
-
-        $past.push(QAST::Op.new(
+                        ?? $*W.dissect_longname($<module_name><longname>).name_past()
+                        !! $<file>.ast;
+        my $op := QAST::Op.new(
             :op('callmethod'), :name('load_module'),
             QAST::Op.new( :op('getcurhllsym'),
                 QAST::SVal.new( :value('ModuleLoader') ) ),
-            $name_past, $*W.symbol_lookup(['GLOBAL'], $/)
-        ));
+            $name_past,
+            $*W.symbol_lookup(['GLOBAL'], $/),
+        );
+        if $<module_name> {
+            for $<module_name><longname><colonpair> -> $colonpair {
+                $op.push(
+                    QAST::Op.new( :named(~$colonpair<identifier>), :op<callmethod>, :name<value>,
+                        $colonpair.ast
+                    )
+                );
+            }
+        }
+        else {
+            $op.push( QAST::Op.new( :named<file>, :op<callmethod>, :name<Stringy>, $<file>.ast ) );
+        }
+        $past.push($op);
 
-        if $<module_name> && $<EXPR> {
+        if $<EXPR> {
             my $p6_arglist  := $*W.compile_time_evaluate($/, $<EXPR>[0].ast).list.eager;
-            # XXX Error while compiling op getattr: Operation 'getattr' requires 3 operands, but got 2
             my $arglist     := nqp::getattr($p6_arglist, $*W.find_symbol(['List']), '$!items');
             my $lexpad      := $*W.cur_lexpad();
             my $*SCOPE      := 'my';
