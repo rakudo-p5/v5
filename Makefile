@@ -41,6 +41,12 @@ install: all
 	$(CP) blib/*.pbc $(P6LIB)/lib/
 	$(CP) blib/Perl6/*.pbc $(NQPLIB)/lib/Perl6/
 
+uninstall:
+	$(RM_F) $(P6LIB)/lib/Perl5.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl6/P5Actions.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl6/P5Grammar.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl6/P5World.pbc
+
 test:
 	V5DEBUG=0 PERL6LIB=blib $(HARNESS_WITH_FUDGE) $(test_file) --verbosity=9
 
