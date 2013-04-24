@@ -7,7 +7,14 @@
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:48
+
+</td></tr>
+        <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -18,6 +25,14 @@
 use of uninitialized value of type Any in string context  in block  at t/spec/base/term.v5:32
 
 </td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>Potential difficulties:
+    Redeclaration of symbol $x
+    at t/v5/16-var-redeclare.v5:14
+    ------>     my $x ⏏= 1;
+</td></tr>
+        <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>op/append.v5</td><td>2</td><td>11</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>Cannot assign into a PMCNULL container
   in block  at t/spec/op/append.v5:23
@@ -25,6 +40,7 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
 </td></tr>
         <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find utf8 in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
@@ -584,7 +600,7 @@ Undeclared routine:
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/podcheck.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: ../lib, blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Could not find Carp in any of: ../lib, blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -839,81 +855,63 @@ Cannot modify an immutable value
         <tr><td colspan=5>===SORRY!===
 Could not find File::Copy in any of: ../lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/01-sanity.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/02-int.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/03-num.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-string.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Variable '${v[1]}' is not declared
+at t/v5/04-string.v5:66
+------> $r = "-${v[1]}⏏-";</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-anon-sub-lex-block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Word 'sub' interpreted as 'sub()' function call; please use whitespace around the parens
+at t/v5/05-anon-sub-lex-block.v5:8
+------>     my $a = sub ⏏() { 
+Unexpected block in infix position (two terms in a row)
+at t/v5/05-anon-sub-lex-block.v5:8
+------>     my $a = sub () ⏏{ 
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-anon-sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-array.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-bind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-if.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-lex-block-if.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-lex-block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-while.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/06-bool.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/09-namespace.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Too late for semicolon form of package definition
+at t/v5/09-namespace.v5:13
+------> <BOL>⏏sub subr { $_[0] + $_[1] + 1 }</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/10-bind-sub-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+CHECK FAILED:
+Calling proto of 'shift' will never work with no arguments (lines 11, 12, 58)
+    Expected: :()
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-accessor.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>base/rs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -921,43 +919,39 @@ Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-bind-method-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-bless.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-class-open.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Too late for semicolon form of package definition
+at t/v5/11-class-open.v5:22
+------> <BOL>⏏sub subr2 {</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-class.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/12-context.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/13-op-context.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/16-var-redeclare.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Two terms in a row
+at t/v5/13-op-context.v5:11
+------>     my $result = wantarray ? "LIST" ⏏: defined wantarray ? "SCALAR" : "VOID";</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/17-hash-autovivify.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/18-array-autovivify.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Error while compiling, type X::Comp::AdHoc
+  payload: Too late for semicolon form of package definition
+ at line 11, near "say '1..7'"
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -965,7 +959,7 @@ Could not find Perlito5::Test in any of: blib, ., /home/froggs/dev/nqp/install/l
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/23-eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/24-strict.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -980,20 +974,26 @@ at t/v5/25-syntax-defined-or.v5:9
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/26-syntax-namespace.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Could not locate compile-time value for symbol A
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/30-tie-array.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/v5/30-tie-array.v5:9
+------>     ⏏sub TIEARRAY {</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/31-autoload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/v5/31-autoload.v5:12
+------>     ⏏our $AUTOLOAD;</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/32-autoload-method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find feature in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/v5/32-autoload-method.v5:12
+------>     ⏏our $AUTOLOAD;</td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Perl6::Grammar in any of: ../lib
@@ -1266,6 +1266,10 @@ Could not find file './test.pl' for module ./test.pl
         <tr align=center><td align=left rowspan=2>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 hangs
+</td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/12-context.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>WARNINGS:
+Useless use of "," in expression "= 6, 7" in sink context (lines 22, 23)
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/proxy_constant_subs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1571,8 +1575,9 @@ at t/spec/mro/basic_02_dfs.v5:13
 ------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find v5 in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Missing block
+at t/spec/op/array_base.v5:13
+------>  is(eval⏏('$[ = 1; 123'), undef);</td></tr>
         <tr align=center><td align=left rowspan=2>op/flip.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file 'test.pl' for module test.pl
@@ -2263,7 +2268,8 @@ Could not find Perl6::Grammar in any of: ../lib
         <tr><td colspan=5>===SORRY!===
 Confused
 at t/spec/op/substr.v5:11
-------> use warnings⏏ ;</td></tr>
+------> use warnings⏏ ;
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: blib, ., /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
