@@ -7,6 +7,7 @@
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
+        <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:48
 
@@ -25,6 +26,7 @@
 use of uninitialized value of type Any in string context  in block  at t/spec/base/term.v5:32
 
 </td></tr>
+        <tr align=center><td align=left>op/append.v5</td><td>3</td><td>0</td><td>0</td><td>10</td><td>13</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>Potential difficulties:
     Redeclaration of symbol $x
@@ -33,11 +35,7 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
 </td></tr>
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align=center><td align=left rowspan=2>op/append.v5</td><td>2</td><td>11</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan=5>Cannot assign into a PMCNULL container
-  in block  at t/spec/op/append.v5:23
-
-</td></tr>
+        <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -552,7 +550,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -608,7 +606,7 @@ Could not find TestInit in any of: blib, ., /home/froggs/dev/nqp/install/lib/par
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/test_bootstrap.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -794,7 +792,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/_num_to_alpha.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -802,7 +800,7 @@ Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1136,7 +1134,7 @@ Could not find sub &sub
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1153,11 +1151,6 @@ Could not find Config in any of: blib, ., /home/froggs/dev/nqp/install/lib/parro
         <tr align=center><td align=left rowspan=2>re/qr_gc.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
-</td></tr>
-        <tr align=center><td align=left rowspan=2>base/pat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>Cannot assign into a PMCNULL container
-  in block  at t/spec/base/pat.v5:9
-
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1220,7 +1213,7 @@ Could not find Perl6::Grammar in any of: ../lib
 Could not find Perl6::Grammar in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>Null PMC access in find_method('subst')
+        <tr><td colspan=5>No such method 'subst' for invocant of type 'Any'
   in block  at t/spec/run/switchp.v5:17
 
 </td></tr>
@@ -1305,7 +1298,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1509,7 +1502,7 @@ at t/spec/op/heredoc.v5:21
 ------>     my $code⏏ = "<<'HEREDOC';\n${string}HEREDOC";  #</td></tr>
         <tr align=center><td align=left rowspan=2>op/select.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1589,7 +1582,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1754,12 +1747,6 @@ get_iter() not implemented in class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>cmd/switch.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
-        <tr><td colspan=5>Cannot assign into a PMCNULL container
-  in sub foo1 at t/spec/cmd/switch.v5:8
-  in block  at t/spec/cmd/switch.v5:22
-
-</td></tr>
         <tr align=center><td align=left rowspan=2>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Perl6::Grammar in any of: ../lib
@@ -1774,7 +1761,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/exec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1823,7 +1810,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/reverse.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1871,7 +1858,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/qr.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
-Merging GLOBAL symbols failed: duplicate definition of symbol QAST
+Missing or wrong version of dependency 'src/Perl6/Actions.nqp'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
