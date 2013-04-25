@@ -1349,45 +1349,103 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     # statement control #
     #####################
 
-    rule statement_control:sym<use> {
+    token statement_control:sym<use> {
         :my $longname;
         :my $*IN_DECL := 'use';
         :my $*HAS_SELF := '';
         :my $*SCOPE   := 'use';
-        <sym>
+        <sym> <.ws>
         [
         ||  'strict' { self.set_strict(1); }
+        ||  'utf8' # noop
         ||  'warnings' # noop
         ||  'feature' <arglist> # noop
-        ||  'v6' [
-                {
-                    say("P5 use v6");
-                    %*LANG<MAIN>         := Perl6::Grammar;
-                    %*LANG<MAIN-actions> := Perl6::Actions;
-                    %*LANG<Q>            := Perl6::QGrammar;
-                    %*LANG<Q-actions>    := Perl6::QActions;
-                    $*ACTIONS            := %*LANG<MAIN-actions>;
+        || <version=versionish> #<?{ ~$<version><vnum>[0] eq '5' }>
+        #| 'v'? <?before '5'> {} $<vstr>=[<vnum>+ % '.' '+'?] {
+        #        my $module := $*W.load_module($/, 'Perl5', $*GLOBALish);
+        #        do_import($/, $module, 'Perl5');
+        #        $/.CURSOR.import_EXPORTHOW($module);
+        #    }
+        || <module_name> <version=versionish>?
+            {
+                $longname := $<module_name><longname>;
+                
+                if $longname.Str eq 'strict' {
+                    self.set_strict(1);
+                    $longname := "";
                 }
-                <.ws> ';'
-                [ <statementlist> || <.panic: "Bad P6 code"> ]
-                #[ <statementlist=.LANG('MAIN','statementlist')> || <.panic: "Bad P6 code"> ]
-            ]
-        || <version=versionish>
-        || <module_name>
-            { $longname := $<module_name><longname>; }
-            <version=versionish>?
+                elsif $longname.Str eq 'warnings' ||
+                      $longname.Str eq 'feature' {
+                    $longname := "";
+                }
+            }
             [
-            <arglist>?
-    #            {
-    #                $¢.do_use($longname, $<arglist>);
-    #            }
-    #        || {
-    #		$¢.do_use($longname, '');
-    #	   }
+            #|| <.spacey> <arglist> <?{ $<arglist><EXPR> }>
+            #    {
+            #        my $arglist := $*W.compile_time_evaluate($/,
+            #                $<arglist><EXPR>.ast);
+            #        $arglist := nqp::getattr($arglist.list.eager,
+            #                $*W.find_symbol(['List']), '$!items');
+            #        my $module := $*W.load_module($/,
+            #                                        ~$longname,
+            #                                        $*GLOBALish,
+            #                                       :from<Perl5>);
+            #        do_import($/, $module, ~$longname, $arglist);
+            #        $/.CURSOR.import_EXPORTHOW($module);
+            #    }
+            || { 
+                    if $longname {
+                        my $module := $*W.load_module($/,
+                                                      ~$longname,
+                                                       $*GLOBALish,
+                                                       :from<Perl5>);
+                        do_import($/, $module, ~$longname);
+                        $/.CURSOR.import_EXPORTHOW($module);
+                    }
+                }
             ]
         ]
     }
 
+    sub do_import($/, $module, $package_source_name, $arglist?) {
+        if nqp::existskey($module, 'EXPORT') {
+            my $EXPORT := $module<EXPORT>.WHO;
+            my @to_import := ['MANDATORY'];
+            my @positional_imports := [];
+            if nqp::defined($arglist) {
+                my $Pair := $*W.find_symbol(['Pair']);
+                for $arglist -> $tag {
+                    if nqp::istype($tag, $Pair) {
+                        $tag := nqp::unbox_s($tag.key);
+                        if nqp::existskey($EXPORT, $tag) {
+                            $*W.import($/, $EXPORT{$tag}, $package_source_name);
+                        }
+                        else {
+                            nqp::die("Error while importing from '$package_source_name': no such tag '$tag'");
+
+                        }
+                    }
+                    else {
+                        nqp::push(@positional_imports, $tag);
+                    }
+                }
+            }
+            else {
+                nqp::push(@to_import, 'DEFAULT');
+            }
+            for @to_import -> $tag {
+                if nqp::existskey($EXPORT, $tag) {
+                    $*W.import($/, $EXPORT{$tag}, $package_source_name);
+                }
+            }
+            if nqp::existskey($module, '&EXPORT') {
+                $module<&EXPORT>(|@positional_imports);
+            }
+            elsif +@positional_imports {
+                nqp::die("Error while importing from '$package_source_name': no EXPORT sub, but you provided positional argument in the 'use' statement");
+            }
+        }
+    }
 
     rule statement_control:sym<no> {
         <sym>
@@ -1654,7 +1712,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <sym>
         [
         | <module_name>
-        | <file=.variable>
+        #| <file=.variable>
         | <!before <sigil>> <file=.term>
         ]
         [ <EXPR> ]?
