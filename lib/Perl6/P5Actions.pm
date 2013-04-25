@@ -1018,30 +1018,35 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method statement_control:sym<require>($/) {
-        $*W.get_env('V5DEBUG') && say("package_declarator:sym<require>($/)");
+        $*W.get_env('V5DEBUG') && say("statement_control:sym<require>($/) module_name") if $<module_name>;
+        $*W.get_env('V5DEBUG') && say("statement_control:sym<require>($/) file") if $<file>;
+        $*W.get_env('V5DEBUG') && say("statement_control:sym<require>($/) EXPR") if $<EXPR>;
         my $past := QAST::Stmts.new(:node($/));
         my $name_past := $<module_name>
                         ?? $*W.dissect_longname($<module_name><longname>).name_past()
                         !! $<file>.ast;
+                        #!! QAST::SVal.new( :value('main') );
         my $op := QAST::Op.new(
             :op('callmethod'), :name('load_module'),
             QAST::Op.new( :op('getcurhllsym'),
                 QAST::SVal.new( :value('ModuleLoader') ) ),
             $name_past,
             $*W.symbol_lookup(['GLOBAL'], $/),
+            QAST::SVal.new( :named<from>, :value<Perl5> )
         );
-        if $<module_name> {
-            for $<module_name><longname><colonpair> -> $colonpair {
-                $op.push(
-                    QAST::Op.new( :named(~$colonpair<identifier>), :op<callmethod>, :name<value>,
-                        $colonpair.ast
-                    )
-                );
-            }
-        }
-        else {
+        #if $<module_name> {
+        #    for $<module_name><longname><colonpair> -> $colonpair {
+        #        $op.push(
+        #            QAST::Op.new( :named(~$colonpair<identifier>), :op<callmethod>, :name<value>,
+        #                $colonpair.ast
+        #            )
+        #        );
+        #    }
+        #}
+        #else {
+            #nqp::say($<file>.ast.dump);
             $op.push( QAST::Op.new( :named<file>, :op<callmethod>, :name<Stringy>, $<file>.ast ) );
-        }
+        #}
         $past.push($op);
 
         if $<EXPR> {
@@ -1339,7 +1344,11 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<@INC>($/) {
         $*W.get_env('V5DEBUG') && say("special_variable:sym<\@INC>($/)");
-        make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('@*INC'))
+        
+        make QAST::Op.new( :op('callmethod'), :name('at_key'),
+            QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*CUSTOM_LIB') ),
+            QAST::SVal.new( :value('Perl5') )
+        );
     }
 
     method special_variable:sym<$0>($/) {
