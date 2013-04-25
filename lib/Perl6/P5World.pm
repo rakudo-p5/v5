@@ -1,5 +1,5 @@
 
-# This will be mixed in within v5.pm.
+# This will be mixed in within Perl5.pm.
 role Perl6::P5World {
     method p5dissect_longname( $longname ) {
         $longname<colonpair> := nqp::list();
@@ -7,7 +7,7 @@ role Perl6::P5World {
     }
 
     my %ENV;
-    my $env := pir::new__Ps('Env');
+    my $env := nqp::getenvhash();
     my $enviter := nqp::iterator($env);
     my $key;
     while $enviter {
