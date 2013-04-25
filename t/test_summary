@@ -104,6 +104,10 @@ print STATUS "<table align=center>
     </thead>
     <tbody>
 ";
+
+my %status_rows;
+my $row_count = 0;
+
 for my $tfile (@tfiles) {
     my $th;
     open($th, '<', $tfile) || die "Can't read $tfile: $!\n";
@@ -167,6 +171,7 @@ for my $tfile (@tfiles) {
             $pass++; $testnumber = $1; $test_comment = "";
         }
     }
+    
     my $test = $pass + $fail + $todo + $skip;
     if ($plan > $test) {
         $abort = $plan - $test;
@@ -182,18 +187,19 @@ for my $tfile (@tfiles) {
     }
 
     if( $stderr ) {
-        # no colors yet
-        # $stderr =~ s|(.*------>)(.*)....\[31m(.*)|$1<font color=green>$2</font><font color=yellow>&#x23CF;</font><font color=red>$3</font>|s;
         $stderr =~ s/.\[\d+m//g;
         $stderr =~ s/\s+expecting any of:.+$//s;
-        printf STATUS "        <tr align=center><td align=left rowspan=2>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
-                    . "        <tr><td colspan=5>%s</td></tr>\n",
+        $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
+        = sprintf "        <tr align=center><td align=left rowspan=2>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
+                . "        <tr><td colspan=5>%s</td></tr>\n",
             $tname, $pass, $fail, $todo, $skip, $plan, $stderr;
     }
     else {
-        printf STATUS "        <tr align=center><td align=left>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
+        $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
+        = sprintf "        <tr align=center><td align=left>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
             $tname, $pass, $fail, $todo, $skip, $plan;
     }
+    $row_count++;
     
     printf "%4d %4d %4d %4d %4d\n",
         $pass, $fail, $todo, $skip, $plan;
@@ -224,6 +230,10 @@ for my $tfile (@tfiles) {
     }
     defined $benchmark && $benchmark->log_script_times($tfile,\@times,\@comments);
 } # for my $tfile (@tfiles)
+
+for ( reverse sort { $a <=> $b } keys %status_rows ) {
+    print STATUS $status_rows{$_};
+}
 print STATUS "    </tbody>\n</table>\n";
 close STATUS;
 
