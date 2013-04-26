@@ -47,8 +47,8 @@ uninstall:
 	$(RM_F) $(NQPLIB)/lib/Perl6/P5Grammar.pbc
 	$(RM_F) $(NQPLIB)/lib/Perl6/P5World.pbc
 
-test:
-	V5DEBUG=0 PERL6LIB=blib $(HARNESS_WITH_FUDGE) $(test_file) --verbosity=9
+test: install
+	V5DEBUG=0 $(HARNESS_WITH_FUDGE) $(test_file) --verbosity=9
 
 testable : all spectest_checkout spectest_update
 
@@ -60,8 +60,8 @@ t/spec :
 spectest_update :
 	-cd t/spec && git pull
 
-spectest: testable t/spectest.data
-	V5DEBUG=0 PERL6LIB=blib $(HARNESS_WITH_FUDGE) --tests-from-file=t/spectest.data
+spectest: install testable t/spectest.data
+	V5DEBUG=0 $(HARNESS_WITH_FUDGE) --tests-from-file=t/spectest.data
 
-fulltest: testable t/spectest.data
-	V5DEBUG=0 PERL6LIB=blib $(HARNESS_WITH_FUDGE) t/*/*.t t/*/*/*.t
+fulltest: install testable t/spectest.data
+	V5DEBUG=0 $(HARNESS_WITH_FUDGE) t/*/*.t t/*/*/*.t
