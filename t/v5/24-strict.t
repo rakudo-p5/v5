@@ -1,4 +1,3 @@
-use perl5;
 print "1..4\n";
 eval('use strict;my $x = "ok 1";print $x,"\n"');
 eval('my $x = "ok 2";print $x,"\n"');

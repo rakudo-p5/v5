@@ -1,4 +1,3 @@
-use perl5;
 use feature 'say';
 
 say '1..13';
