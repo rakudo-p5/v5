@@ -1360,6 +1360,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         ||  'integer'           # http://perldoc.perl.org/integer.html
         ||  'warnings' # noop
         ||  'feature' <arglist> # noop
+        ||  'open' <arglist>    # http://perldoc.perl.org/open.html
         || <version=versionish> #<?{ ~$<version><vnum>[0] eq '5' }>
         #| 'v'? <?before '5'> {} $<vstr>=[<vnum>+ % '.' '+'?] {
         #        my $module := $*W.load_module($/, 'Perl5', $*GLOBALish);

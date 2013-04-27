@@ -41,7 +41,9 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_04_c3_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -51,7 +53,9 @@ at t/spec/mro/basic_04_dfs.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_04_dfs_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -61,7 +65,9 @@ at t/spec/mro/basic_05_c3.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_05_c3_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 2);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -71,11 +77,15 @@ at t/spec/mro/basic_05_dfs.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_05_dfs_utf8.v5:11
+------> require q(.⏏/test.pl); plan(tests => 2);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_utf8.v5:10
+------> BEGIN { require q(.⏏/test.pl); } plan(tests => 53);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -97,7 +107,9 @@ at t/spec/mro/complex_c3.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/complex_c3_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 12);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -107,7 +119,9 @@ at t/spec/mro/complex_dfs.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/complex_dfs_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 11);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -117,7 +131,9 @@ at t/spec/mro/dbic_c3.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/dbic_c3_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -127,7 +143,9 @@ at t/spec/mro/dbic_dfs.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/dbic_dfs_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -137,7 +155,9 @@ at t/spec/mro/inconsistent_c3.v5:14
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/inconsistent_c3_utf8.v5:17
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -149,7 +169,7 @@ Could not find mro in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Could not find mro in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -158,8 +178,9 @@ at t/spec/mro/isa_dfs.v5:24
 ------> <BOL>⏏@urkkk::ISA = 'klonk';</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
-</td></tr>
+Too late for semicolon form of package definition
+at t/spec/mro/isa_dfs_utf8.v5:26
+------> <BOL>⏏@urḲḵｋ::ISA = 'kഌoんḰ';</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Confused
@@ -167,8 +188,10 @@ at t/spec/mro/method_caching.v5:6
 ------> no strict ⏏'refs'; # we do a lot of this</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/mro/method_caching_utf8.v5:23
+------>     ⏏sub ᕘ { return $_[1]+1 };</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_goto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix . instead
@@ -177,7 +200,9 @@ at t/spec/mro/next_goto.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_goto_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/next_goto_utf8.v5:9
+------> require q(.⏏/test.pl); plan(tests => 4);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -187,7 +212,9 @@ at t/spec/mro/next_inanon.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/next_inanon_utf8.v5:9
+------> require q(.⏏/test.pl); plan(tests => 2);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -197,7 +224,9 @@ at t/spec/mro/next_ineval.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/next_ineval_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -211,7 +240,9 @@ at t/spec/mro/next_method.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/next_method_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 5);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_skip.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -233,7 +264,9 @@ at t/spec/mro/overload_c3.v5:14
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/overload_c3_utf8.v5:17
+------> require q(.⏏/test.pl); plan(tests => 7);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -253,7 +286,9 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/pkg_gen_utf8.v5:11
+------> require q(.⏏/test.pl); plan(tests => 7);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -263,7 +298,9 @@ at t/spec/mro/vulcan_c3.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/vulcan_c3_utf8.v5:9
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -273,7 +310,9 @@ at t/spec/mro/vulcan_dfs.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/vulcan_dfs_utf8.v5:9
+------> require q(.⏏/test.pl); plan(tests => 1);
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/64bitint.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1059,7 +1098,9 @@ Method 'is_composed' not found for invocant of class 'NQPClassHOW'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_02_dfs_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 10);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1069,7 +1110,9 @@ at t/spec/mro/basic_03_c3.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_03_c3_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 4);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1079,7 +1122,9 @@ at t/spec/mro/basic_03_dfs.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+Preceding context expects a term, but found infix . instead
+at t/spec/mro/basic_03_dfs_utf8.v5:10
+------> require q(.⏏/test.pl); plan(tests => 4);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1089,7 +1134,7 @@ at t/spec/mro/basic_04_c3.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/final_line_num.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1303,8 +1348,9 @@ at t/spec/mro/basic_01_c3.v5:54
 ------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/basic_01_c3_utf8.v5:56
+------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Operators '<' and '>' are non-associative and require parenthesis
@@ -1312,8 +1358,9 @@ at t/spec/mro/basic_01_dfs.v5:54
 ------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/basic_01_dfs_utf8.v5:56
+------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -1351,12 +1398,13 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
-</td></tr>
+Two terms in a row
+at t/spec/uni/select.v5:28
+------> TODO⏏: {</td></tr>
         <tr align=center><td align=left rowspan=2>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in shell-quote words; couldn't find final '>>'
@@ -1455,7 +1503,7 @@ at t/spec/opbasic/magic_phase.v5:16
 ------> sub ok ⏏($$) {</td></tr>
         <tr align=center><td align=left rowspan=2>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/fflush.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1468,8 +1516,9 @@ at t/spec/mro/recursion_c3.v5:16
 ------> m has no SIGALRM") if !exists $SIG{ALRM}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/recursion_c3_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/mro/recursion_c3_utf8.v5:18
+------> m has no SIGALRM") if !exists $SIG{ALRM}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/recursion_dfs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '%SIG' is not declared
@@ -1477,8 +1526,9 @@ at t/spec/mro/recursion_dfs.v5:16
 ------> m has no SIGALRM") if !exists $SIG{ALRM}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/recursion_dfs_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/mro/recursion_dfs_utf8.v5:18
+------> m has no SIGALRM") if !exists $SIG{ALRM}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/evalbytes.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -1553,7 +1603,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Could not find charnames in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/hash.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1594,8 +1644,9 @@ at t/spec/mro/basic_02_c3.v5:13
 ------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_02_c3_utf8.v5:15
+------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -1632,7 +1683,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2029,7 +2080,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Could not find constant in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2111,7 +2162,7 @@ at t/spec/op/oct.v5:35
 ------> 	['0b'.(  '0'x⏏10).'1_0101', 0b101_01],</td></tr>
         <tr align=center><td align=left rowspan=2>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/undef.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2277,7 +2328,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/gv.v5</td><td>0</td><td>212</td><td>0</td><td>0</td><td>212</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find open in any of: ../lib
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/overload.v5</td><td>0</td><td>215</td><td>0</td><td>0</td><td>215</td></tr>
         <tr><td colspan=5>===SORRY!===
