@@ -515,7 +515,9 @@ at t/spec/opbasic/arith.v5:16
 ------> sub try ⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find integer in any of: ../lib
+Preceding context expects a term, but found infix , instead
+at t/spec/opbasic/cmp.v5:52
+------> OO = ('s', 'N/A', 'a', 'NaN', -1, undef,⏏ 0, 1, 3.14, 1e37, 0.632120558, -.5,
 </td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/concat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1705,11 +1707,13 @@ Could not find mypragma in any of: lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find integer in any of: ../lib
+Undeclared routine:
+    cmp_ok used at lines 24, 25, 28, 43, 71, 75
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find integer in any of: ../lib
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1959,7 +1963,11 @@ Could not find vars in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/negate.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find integer in any of: ../lib
+Undeclared routines:
+    bareword used at lines 33, 34, 88, 90
+    bless used at line 53. Did you mean '&elems'?
+    tie used at line 57. Did you mean '&die'?
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===

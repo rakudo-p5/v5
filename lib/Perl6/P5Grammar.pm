@@ -1357,6 +1357,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         [
         ||  'strict' { self.set_strict(1); }
         ||  'utf8' # noop
+        ||  'integer'           # http://perldoc.perl.org/integer.html
         ||  'warnings' # noop
         ||  'feature' <arglist> # noop
         || <version=versionish> #<?{ ~$<version><vnum>[0] eq '5' }>
