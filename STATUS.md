@@ -317,9 +317,10 @@ at t/spec/op/die_except.v5:10
 ------>     ⏏sub DESTROY { $_[0]->() }</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '%ENV' is not declared
-at t/spec/op/die_exit.v5:49
-------> _rpt = $ENV{'DECC$FILENAME_UNIX_REPORT'}⏏ || '';</td></tr>
+Unsupported use of /i; in Perl 6 please use :i
+at t/spec/op/die_exit.v5:51
+------> y $unix_rpt = $env_unix_rpt =~ /^[ET1]/i⏏; 
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Semicolon form of package definition not allowed in subscope;
@@ -1708,9 +1709,8 @@ Could not find integer in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '%ENV' is not declared
-at t/spec/op/numconvert.v5:48
-------> $max_chain = $ENV{PERL_TEST_NUMCONVERTS}⏏ || 2;</td></tr>
+Could not find integer in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row

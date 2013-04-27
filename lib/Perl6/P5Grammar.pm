@@ -333,12 +333,7 @@ role STD5 {
             my $name := $varast.name;
             if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
-                    if $is_strict {
-                        my @suggestions := $*W.suggest_lexicals($name);
-                        $*W.throw($var, ['X', 'Undeclared'], symbol => $varast.name(), suggestions => @suggestions);
-                    }
-                    else {
-                        # Declare the variable if 'strict' is not in use.
+                    if $name eq '%ENV' || !$is_strict {
                         my $BLOCK := $*W.cur_lexpad();
                         $varast.scope('lexical');
 
@@ -353,6 +348,10 @@ role STD5 {
                             $name eq '%ENV' ?? QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*ENV'))
                                             !! $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
                         ));
+                    }
+                    else  {
+                        my @suggestions := $*W.suggest_lexicals($name);
+                        $*W.throw($var, ['X', 'Undeclared'], symbol => $varast.name(), suggestions => @suggestions);
                     }
                 }
                 else {
