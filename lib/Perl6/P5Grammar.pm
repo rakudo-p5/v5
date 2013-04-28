@@ -1712,8 +1712,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     rule statement_control:sym<require> {   # here because of declarational aspects
         <sym>
         [
-        | <module_name>
-        #| <file=.variable>
+        | <module_name> <!['(']>
+        | <file=.variable>
         | <!before <sigil>> <file=.term>
         ]
         [ <EXPR> ]?
@@ -3118,7 +3118,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        { :dba('argument list') '(' ~ ')' <semiarglist> <O('%methodcall')> }
     token postcircumfix:sym<( )> {
         :dba('argument list')
-        <!before [ 'm' || 'q' || 'qq' || 'qr' || 'qw' ]>
         '(' ~ ')' [ <.ws> <arglist> ]
         <O('%methodcall')>
     }
@@ -3746,7 +3745,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    }
     token term:sym<identifier> {
         :my $name;
-        <identifier>
+        <identifier> <!{ ~$<identifier> ~~ /^ 'm' || 'q' || 'qq' || 'qr' || 'qw' $/; }>
         { $name := ~$<identifier>; }
         [\h+ <?[(]>]?
         <args( $*W.is_type($name) )>

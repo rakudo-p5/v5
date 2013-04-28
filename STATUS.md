@@ -48,123 +48,102 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_04_c3_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_04_c3_utf8.v5:18
+------>    ⏏C     D</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_04_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_04_dfs.v5:16
+------>    ⏏C     D</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_04_dfs_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_04_dfs_utf8.v5:18
+------>    ⏏ƈ     Ḋ</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_05_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 2);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_05_c3.v5:13
+------> while building DBIx::Class. Thanks Matt⏏!!!!</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_05_c3_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 2);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_05_c3_utf8.v5:15
+------> while building DBIx::Class. Thanks Matt⏏!!!!</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_05_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 2);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_05_dfs.v5:13
+------> while building DBIx::Class. Thanks Matt⏏!!!!</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_05_dfs_utf8.v5:11
-------> require q(.⏏/test.pl); plan(tests => 2);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_05_dfs_utf8.v5:16
+------> while building DBIx::Class. Thanks Matt⏏!!!!</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_utf8.v5:10
-------> BEGIN { require q(.⏏/test.pl); } plan(tests => 53);
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/c3_with_overload.v5:8
-------> require q(.⏏/test.pl); plan(tests => 7);
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/mro/c3_with_overload.v5:12
+------>     ⏏use strict;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/c3_with_overload_utf8.v5:8
-------> require q(.⏏/test.pl); plan(tests => 7);
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/mro/c3_with_overload_utf8.v5:12
+------>     ⏏use strict;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/complex_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 12);
-</td></tr>
+Two terms in a row
+at t/spec/mro/complex_c3.v5:12
+------> This example is taken from⏏: http://rt.cpan.org/Public/Bug/Display.</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/complex_c3_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 12);
-</td></tr>
+Two terms in a row
+at t/spec/mro/complex_c3_utf8.v5:14
+------> This example is taken from⏏: http://rt.cpan.org/Public/Bug/Display.</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/complex_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 11);
-</td></tr>
+Two terms in a row
+at t/spec/mro/complex_dfs.v5:12
+------> This example is taken from⏏: http://rt.cpan.org/Public/Bug/Display.</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/complex_dfs_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 11);
-</td></tr>
+Two terms in a row
+at t/spec/mro/complex_dfs_utf8.v5:14
+------> This example is taken from⏏: http://rt.cpan.org/Public/Bug/Display.</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/dbic_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/dbic_c3.v5:12
+------> BIx::Class::Core in DBIx::Class v0.07002⏏:</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/dbic_c3_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/dbic_c3_utf8.v5:14
+------> BIx::Class::Core in DBIx::Class v0.07002⏏:</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/dbic_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/dbic_dfs.v5:12
+------> BIx::Class::Core in DBIx::Class v0.07002⏏:</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/dbic_dfs_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/dbic_dfs_utf8.v5:14
+------> DBIx::Class::Coﾚ in DBIx::Class v0.07002⏏:</td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/inconsistent_c3.v5:14
-------> require q(.⏏/test.pl); plan(tests => 1);
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/inconsistent_c3_utf8.v5:17
-------> require q(.⏏/test.pl); plan(tests => 1);
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -201,91 +180,79 @@ at t/spec/mro/method_caching_utf8.v5:23
 ------>     ⏏sub ᕘ { return $_[1]+1 };</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_goto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_goto.v5:8
-------> require q(.⏏/test.pl); plan(tests => 4);
+Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_goto_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_goto_utf8.v5:9
-------> require q(.⏏/test.pl); plan(tests => 4);
+Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_inanon.v5:8
-------> require q(.⏏/test.pl); plan(tests => 2);
+Preceding context expects a term, but found infix = instead
+at t/spec/mro/next_inanon.v5:15
+------> =⏏cut
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_inanon_utf8.v5:9
-------> require q(.⏏/test.pl); plan(tests => 2);
+Preceding context expects a term, but found infix = instead
+at t/spec/mro/next_inanon_utf8.v5:16
+------> =⏏cut
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_ineval.v5:8
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/next_ineval.v5:12
+------> This tests the use of an eval{} ⏏block to wrap a next::method call.</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_ineval_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/next_ineval_utf8.v5:14
+------> This tests the use of an eval{} ⏏block to wrap a next::method call.</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_method.v5:8
-------> require q(.⏏/test.pl); plan(tests => 5);
-</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/next_method.v5:71
+------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_method_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 5);
-</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/next_method_utf8.v5:73
+------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_skip.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_skip.v5:8
-------> require q(.⏏/test.pl); plan(tests => 10);
-</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/next_skip.v5:81
+------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_skip_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_skip_utf8.v5:8
-------> require q(.⏏/test.pl); plan(tests => 10);
-</td></tr>
+Operators '<' and '>' are non-associative and require parenthesis
+at t/spec/mro/next_skip_utf8.v5:83
+------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/overload_c3.v5:14
-------> require q(.⏏/test.pl); plan(tests => 7);
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/mro/overload_c3.v5:18
+------>     ⏏use strict;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/overload_c3_utf8.v5:17
-------> require q(.⏏/test.pl); plan(tests => 7);
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/mro/overload_c3_utf8.v5:21
+------>     ⏏use strict;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/overload_dfs.v5:14
-------> require q(.⏏/test.pl); plan(tests => 7);
-</td></tr>
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/mro/overload_dfs.v5:18
+------>     ⏏use strict;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/pkg_gen.v5:9
-------> require q(.⏏/test.pl); plan(tests => 7);
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/subval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -293,34 +260,28 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/pkg_gen_utf8.v5:11
-------> require q(.⏏/test.pl); plan(tests => 7);
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/vulcan_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/vulcan_c3.v5:12
+------> example taken from⏏: L<http://www.opendylan.org/books/drm/M</td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/vulcan_c3_utf8.v5:9
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/vulcan_c3_utf8.v5:13
+------> example taken from⏏: L<http://www.opendylan.org/books/drm/M</td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/vulcan_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/vulcan_dfs.v5:12
+------> example taken from⏏: L<http://www.opendylan.org/books/drm/M</td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/vulcan_dfs_utf8.v5:9
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/vulcan_dfs_utf8.v5:14
+------> example taken from⏏: L<http://www.opendylan.org/books/drm/M</td></tr>
         <tr align=center><td align=left rowspan=2>op/64bitint.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 
@@ -1106,40 +1067,34 @@ Method 'is_composed' not found for invocant of class 'NQPClassHOW'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_02_dfs_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 10);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_02_dfs_utf8.v5:14
+------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_03_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_03_c3.v5:12
+------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_03_c3_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_03_c3_utf8.v5:14
+------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_03_dfs.v5:8
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_03_dfs.v5:12
+------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_03_dfs_utf8.v5:10
-------> require q(.⏏/test.pl); plan(tests => 4);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_03_dfs_utf8.v5:14
+------> This example is take from⏏: http://www.python.org/2.3/mro.html</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/basic_04_c3.v5:8
-------> require q(.⏏/test.pl); plan(tests => 1);
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_04_c3.v5:16
+------>    ⏏C     D</td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -1695,15 +1650,11 @@ Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_edgecases.v5:8
-------> BEGIN { chdir 't'; require q(.⏏/test.pl); @INC = qw "../lib lib" }
+Error while compiling block : Error while compiling block  (source text: "{ chdir 't'; require q(./test.pl); @INC = qw \"../lib lib\" }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_edgecases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/next_edgecases_utf8.v5:8
-------> BEGIN { chdir 't'; require q(.⏏/test.pl); @INC = qw "../lib lib" }
+Error while compiling block : Error while compiling block  (source text: "{ chdir 't'; require q(./test.pl); @INC = qw \"../lib lib\" }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1901,15 +1852,11 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/isarev.v5:10
------->     require q(.⏏/test.pl);
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isarev_utf8.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/isarev_utf8.v5:10
------->     require q(.⏏/test.pl);
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2055,9 +2002,7 @@ at t/spec/op/filetest.v5:34
 ------> SKIP⏏: {</td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/package_aliases_utf8.v5:11
------->     require q(.⏏/test.pl);
+Odd number of elements found where hash expected
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/sprintf.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2069,9 +2014,7 @@ Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix . instead
-at t/spec/mro/package_aliases.v5:10
------->     require q(.⏏/test.pl);
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
