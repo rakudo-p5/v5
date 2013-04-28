@@ -16,8 +16,6 @@ sub EXPORT(*@a) {
 
     %*LANG<MAIN> := $grammar;
     %*LANG<MAIN-actions> := Perl6::P5Actions;
-    %*LANG<Perl5> := $grammar;
-    %*LANG<Perl5-actions> := Perl6::P5Actions;
     %*LANG<Q> := Perl6::P5QGrammar;
     %*LANG<Q-actions> := Perl6::P5QActions;
     %*LANG<Regex> := Perl6::P5RegexGrammar;
