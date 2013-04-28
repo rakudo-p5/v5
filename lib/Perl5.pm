@@ -3,24 +3,15 @@ use Perl6::P5Grammar;
 use Perl6::P5World;
 
 sub EXPORT(*@a) {
-    # we use the MOP because that's the only way nqp supports multiple inheritance 
-    grammar Foo {
-    }
-    my $grammar := Foo.HOW.new_type();
-    $grammar.HOW.add_parent($grammar,Perl6::P5Grammar);
-    # we need to add that so that the rebless of the cursor works, we don't use it otherwise
-    $grammar.HOW.add_parent($grammar,Perl6::Grammar);
-    $grammar.HOW.compose($grammar);
-
     $*W.HOW.mixin( $*W, Perl6::P5World );
 
-    %*LANG<MAIN> := $grammar;
-    %*LANG<MAIN-actions> := Perl6::P5Actions;
-    %*LANG<Q> := Perl6::P5QGrammar;
-    %*LANG<Q-actions> := Perl6::P5QActions;
-    %*LANG<Regex> := Perl6::P5RegexGrammar;
-    %*LANG<Regex-actions> := Perl6::P5RegexActions;
-    $*ACTIONS := %*LANG<MAIN-actions>;
+    %*LANG<Perl5> := Perl6::P5Grammar;
+    %*LANG<Perl5-actions> := Perl6::P5Actions;
+    %*LANG<P5Q> := Perl6::P5QGrammar;
+    %*LANG<P5Q-actions> := Perl6::P5QActions;
+    %*LANG<P5Regex> := Perl6::P5RegexGrammar;
+    %*LANG<P5Regex-actions> := Perl6::P5RegexActions;
+    $*ACTIONS := %*LANG<Perl5-actions>;
 
     my $PROCESS := nqp::gethllsym('perl6', 'PROCESS');
     if !nqp::isnull($PROCESS) && nqp::existskey($PROCESS.WHO, '%CUSTOM_LIB') {

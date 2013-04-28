@@ -101,21 +101,21 @@ role STD5 {
         :my @extra_tweaks;
 
         <.ws>
-        [ <quotepair> <.ws>
-            {
-                my $kv := $<quotepair>[-1].ast;
-                my $k  := $kv.named;
-                if nqp::istype($kv, QAST::Stmts) || nqp::istype($kv, QAST::Stmt) && +@($kv) == 1 {
-                    $kv := $kv[0];
-                }
-                my $v := nqp::istype($kv, QAST::IVal)
-                    ?? $kv.value
-                    !! $kv.has_compile_time_value
-                        ?? $kv.compile_time_value
-                        !! self.panic("Invalid adverb value for " ~ $<quotepair>[-1].Str);
-                nqp::push(@extra_tweaks, [$k, $v]);
-            }
-        ]*
+        #~ [ <quotepair> <.ws>
+            #~ {
+                #~ my $kv := $<quotepair>[-1].ast;
+                #~ my $k  := $kv.named;
+                #~ if nqp::istype($kv, QAST::Stmts) || nqp::istype($kv, QAST::Stmt) && +@($kv) == 1 {
+                    #~ $kv := $kv[0];
+                #~ }
+                #~ my $v := nqp::istype($kv, QAST::IVal)
+                    #~ ?? $kv.value
+                    #~ !! $kv.has_compile_time_value
+                        #~ ?? $kv.compile_time_value
+                        #~ !! self.panic("Invalid adverb value for " ~ $<quotepair>[-1].Str);
+                #~ nqp::push(@extra_tweaks, [$k, $v]);
+            #~ }
+        #~ ]*
 
         $<B>=[<?>]
         {
@@ -638,7 +638,13 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 
     token unsp {
-        <!>
+        #~ <!>
+        \\ <?before [\s|'#'] >
+        :dba('unspace')
+        [
+        | <.vws>
+        | <.unv>
+        ]*
     }
 
     token vws {
@@ -673,8 +679,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token identifier {
         <.alpha> \w*
     }
-
-    # XXX We need to parse the pod eventually to support $= variables.
 
     token pod_comment {
         ^^ \h* '=' <.unsp>?
@@ -1110,7 +1114,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
             my role Circumfix[$meth_name, $starter, $stopper] {
                 token ::($meth_name) {
                     :my $*GOAL := $stopper;
-                    :my $stub := %*LANG<MAIN> := nqp::getlex('$¢').unbalanced($stopper);
+                    :my $stub := %*LANG<Perl5> := nqp::getlex('$¢').unbalanced($stopper);
                     $starter ~ $stopper <semilist>
                 }
             }
@@ -1118,7 +1122,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         }
 
         # This also becomes the current MAIN. Also place it in %?LANG.
-        %*LANG<MAIN> := self.WHAT;
+        %*LANG<Perl5> := self.WHAT;
         $*W.install_lexical_symbol($*W.cur_lexpad(), '%?LANG', $*W.p6ize_recursive(%*LANG));
         
         # Declarand should get precedence traits.
@@ -1138,7 +1142,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                     );
                 }
             };
-            %*LANG<MAIN-actions> := $*ACTIONS.HOW.mixin($*ACTIONS,
+            %*LANG<Perl5-actions> := $*ACTIONS.HOW.mixin($*ACTIONS,
                 CircumfixAction.HOW.curry(CircumfixAction, $canname, $subname));
         }
         elsif $is_term {
@@ -1149,7 +1153,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                     );
                 }
             };
-            %*LANG<MAIN-actions> := $*ACTIONS.HOW.mixin($*ACTIONS,
+            %*LANG<Perl5-actions> := $*ACTIONS.HOW.mixin($*ACTIONS,
                 TermAction.HOW.curry(TermAction, $canname, $subname));
         }
 
@@ -1305,10 +1309,10 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     token statement {
         :my $*QSIGIL := '';
         :my $*SCOPE := '';
-        :my $*ACTIONS := %*LANG<MAIN-actions>;
+        :my $*ACTIONS := %*LANG<Perl5-actions>;
         <!before <[\])}]> | $ >
         <!stopper>
-        <!!{ nqp::rebless($/.CURSOR, %*LANG<MAIN>) }>
+        <!!{ nqp::rebless($/.CURSOR, %*LANG<Perl5>) }>
         [
         | <label> <statement>
         | <statement_control>
@@ -2486,6 +2490,26 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <.ws> [ 'of' <.ws> <typename> ]?
     }
 
+    #~ token quotepair($*purpose = 'quoteadverb') {
+        #~ :my $*key;
+        #~ :my $*value;
+        #~ ':'
+        #~ :dba('colon pair (restricted)')
+        #~ [
+        #~ | '!' <identifier> [ <?before '('> <.sorry('Argument not allowed on negated pair')> ]?
+            #~ { $*key := ~$<identifier>; $*value := 0; }
+        #~ | <identifier> 
+            #~ { $*key := ~$<identifier> }
+            #~ [
+            #~ || <?before '('> <circumfix> { $*value := $<circumfix>.ast; }
+            #~ || { $*value := 1; }
+            #~ ]
+        #~ | (\d+) <identifier>
+            #~ [ <?before '('> <.circumfix> <.sorry('2nd argument not allowed on pair')> ]?
+            #~ { $*key := ~$<identifier>; $*value := +~$/[0] }
+        #~ ]
+    #~ }
+
     token numish {
         [
         | <integer>
@@ -2800,29 +2824,29 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        self.cursor_fresh($lang).nibbler;
 #    }
 
-    #token quote:sym<' '>   { "'" <nibble(%*LANG<Q>)> "'" }
-    #token quote:sym<" ">   { '"' <nibble(%*LANG<Q>)> '"' }
-    token quote:sym<' '>  { :dba('single quotes') "'" ~ "'" <nibble(self.quote_lang(%*LANG<Q>, "'", "'", ['q']))> }
-    token quote:sym<" ">  { :dba('double quotes') '"' ~ '"' <nibble(self.quote_lang(%*LANG<Q>, '"', '"', ['qq']))> }
-    token quote:sym<` `>  { :dba('backticks')     '`' ~ '`' <nibble(self.quote_lang(%*LANG<Q>, '`', '`', ['qq']))> }
+    #token quote:sym<' '>   { "'" <nibble(%*LANG<P5Q>)> "'" }
+    #token quote:sym<" ">   { '"' <nibble(%*LANG<P5Q>)> '"' }
+    token quote:sym<' '>  { :dba('single quotes') "'" ~ "'" <nibble(self.quote_lang(%*LANG<P5Q>, "'", "'", ['q']))> }
+    token quote:sym<" ">  { :dba('double quotes') '"' ~ '"' <nibble(self.quote_lang(%*LANG<P5Q>, '"', '"', ['qq']))> }
+    token quote:sym<` `>  { :dba('backticks')     '`' ~ '`' <nibble(self.quote_lang(%*LANG<P5Q>, '`', '`', ['qq']))> }
     token quote:sym<__DATA__> { :dba('pseudo filehandle') ^^ [ '__DATA__' | '__END__' ] \h* $<text>=[.*] }
 
 # XXX why does this get picked up?
 #    token quote:sym«<<»   { '<<'
 #        [
-#        #| <?before '"'> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:qq).cursor_herelang)>
-#        | <?before '"'> <quibble(%*LANG<Q>)>
-#        #| <?before "'"> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:q).cursor_herelang)>
-#        | <?before "'"> <quibble(%*LANG<Q>)>
+#        #| <?before '"'> <quibble(self.cursor_fresh( %*LANG<P5Q> ).tweak(:qq).cursor_herelang)>
+#        | <?before '"'> <quibble(%*LANG<P5Q>)>
+#        #| <?before "'"> <quibble(self.cursor_fresh( %*LANG<P5Q> ).tweak(:q).cursor_herelang)>
+#        | <?before "'"> <quibble(%*LANG<P5Q>)>
 #        | <identifier>
-#            <.queue_heredoc( $<identifier>.Str, %*LANG<Q> )>
+#            <.queue_heredoc( $<identifier>.Str, %*LANG<P5Q> )>
 #        | \\ <identifier>
-#            <.queue_heredoc( $<identifier>.Str, %*LANG<Q> )>
-#        ] || <.panic: "Couldn't parse heredoc constrüct">
+#            <.queue_heredoc( $<identifier>.Str, %*LANG<P5Q> )>
+#        ] || <.panic: "Couldn't parse heredoc construct">
 #    }
 
     token circumfix:sym«< >»   { '<'
-                                  <nibble(%*LANG<Q>)> '>' }
+                                  <nibble(%*LANG<P5Q>)> '>' }
 
 #    token quote:sym</ />   {
 #        '/' <nibble(%*LANG<P5Regex>)> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
@@ -2830,36 +2854,36 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    }
     token quote:sym</ />  {
         :my %*RX;
-        '/' <nibble(self.quote_lang(%*LANG<Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
-        <.old_rx_mods>?
+        '/' <nibble(self.quote_lang(%*LANG<P5Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
+        <rx_mods>*
     }
 
     # handle composite forms like qww
     token quote:sym<qq> {
         #'qq' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:qq))>
-        'qq' <?before \W> <.ws> <quibble(%*LANG<Q>)>
+        'qq' <?before \W> <.ws> <quibble(%*LANG<P5Q>)>
     }
     token quote:sym<q> {
         #'q' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:q))>
-        'q' <?before \W> <.ws> <quibble(%*LANG<Q>)>
+        'q' <?before \W> <.ws> <quibble(%*LANG<P5Q>)>
     }
 
     token quote:sym<qw> {
         #'qw' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:q))>
-        'qw' <?before \W> <.ws> <quibble(%*LANG<Q>)>
+        'qw' <?before \W> <.ws> <quibble(%*LANG<P5Q>)>
     }
 
     token quote:sym<qr> {
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
-        <quibble(%*LANG<Regex>)>
+        <quibble(%*LANG<P5Regex>)>
         <rx_mods>?
     }
 
     token quote:sym<m>  {
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
-        <quibble(%*LANG<Regex>)>
+        <quibble(%*LANG<P5Regex>)>
         <rx_mods>?
     }
 
@@ -2869,13 +2893,13 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         {
             %*RX<s> := 1 if $/[0]
         }
-        <sibble(%*LANG<Regex>, %*LANG<Q>, ['qq'])>
+        <sibble(%*LANG<P5Regex>, %*LANG<P5Q>, ['qq'])>
         <rx_mods>?
     }
 
     token quote:sym<tr> {
         #<sym> » <pat=tribble( self.cursor_fresh( %*LANG<P5Regex> ))>
-        <sym> » <pat=tribble(%*LANG<Regex>)>
+        <sym> » <pat=tribble(%*LANG<P5Regex>)>
         <tr_mods>?
     }
 
@@ -3612,18 +3636,18 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         { <sym> <O('%equality')> }
 
     ## tight and
-#    token infix:sym<&&>
-#        { <sym> <O('%tight_and')> }
+    token infix:sym<&&>
+        { <sym>  <O('%tight_and, :pasttype<if>')> }
 
     ## tight or
-#    token infix:sym<||>
-#        { <sym> <O('%tight_or')> }
+    token infix:sym<||>
+        { <sym> <O('%tight_or, :assoc<left>, :pasttype<unless>')> }
 
     token infix:sym<^^>
-        { <sym> <O('%tight_or')> }
+        { <sym> <O('%tight_or, :pasttype<xor>')> }
 
     token infix:sym<//>
-        { <sym> <O('%tight_or')> }
+        { <sym> <O('%tight_or, :assoc<left>, :pasttype<defor>')> }
 
     ## range
     token infix:sym<..>
@@ -3908,7 +3932,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
         | '[' <!before \w>
         | '\\\\'
         | $<quest>=['?']
-        | :dba('character name') '[' ~ ']' <charnames=.LANG('MAIN','charnames')>
+        | :dba('character name') '[' ~ ']' <charnames=.LANG('Perl5','charnames')>
         | $<number>=[\d+]
         | <?> <.panic: 'Unrecognized \c character'>
         ]
@@ -3919,7 +3943,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
 
     role b1 {
         token escape:sym<\\> { <sym> <item=backslash> }
-        token backslash:sym<qq> { <?before 'q'> { $<quote> := <quibble(%*LANG<Q>, 'qq')> } }
+        token backslash:sym<qq> { <?before 'q'> { $<quote> := <quibble(%*LANG<P5Q>, 'qq')> } }
         token backslash:sym<\\> { <text=sym> }
         token backslash:sym<stopper> { <text=stopper> }
         token backslash:sym<a> { <sym> }
@@ -3941,7 +3965,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
     } # end role
 
     role c1 {
-        token escape:sym<{ }> { <?before '{'> [ <block=.LANG('MAIN','block')> ] }
+        token escape:sym<{ }> { <?before '{'> [ <block=.LANG('Perl5','block')> ] }
     } # end role
 
     role c0 {
@@ -3953,7 +3977,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
             :my $*QSIGIL := '$';
             <?before '$'>
 #            [ <termish=.LANG('MAIN','termish')> ] || <.panic: "Non-variable \$ must be backslashed">
-            [ <EXPR=.LANG('MAIN', 'EXPR', 'z=')> || { $*W.throw($/, 'X::Backslash::NonVariableDollar') } ]
+            [ <EXPR=.LANG('Perl5', 'EXPR', 'z=')> || { $*W.throw($/, 'X::Backslash::NonVariableDollar') } ]
         }
     } # end role
 
@@ -3965,7 +3989,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
         token escape:sym<@> {
             :my $*QSIGIL := '@';
             <?before '@'>
-            [ <termish=.LANG('MAIN','termish')> | <!> ] # trap ABORTBRANCH from variable's ::
+            [ <termish=.LANG('Perl5','termish')> | <!> ] # trap ABORTBRANCH from variable's ::
         }
     } # end role
 
@@ -3977,7 +4001,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
         token escape:sym<%> {
             :my $*QSIGIL := '%';
             <?before '%'>
-            [ <termish=.LANG('MAIN','termish')> | <!> ]
+            [ <termish=.LANG('Perl5','termish')> | <!> ]
         }
     } # end role
 
@@ -3990,7 +4014,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
             :my $*QSIGIL := '&';
             <?before '&'>
 #            [ :lang(%*LANG<MAIN>) <EXPR('%methodcall')> | <!> ]
-            <EXPR=.LANG('MAIN', 'EXPR', 'y=')>
+            <EXPR=.LANG('Perl5', 'EXPR', 'y=')>
         }
     } # end role
 
@@ -4027,8 +4051,8 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
 
         token escape:sym<\\> { <sym> <item=backslash> }
 
-        #token backslash:sym<qq> { <?before 'q'> { $<quote> := <quibble(%*LANG<Q>, 'qq')>: } }
-        token backslash:sym<qq> { <?before 'q'> <quote=.LANG('MAIN','quote')> }
+        #token backslash:sym<qq> { <?before 'q'> { $<quote> := <quibble(%*LANG<P5Q>, 'qq')>: } }
+        token backslash:sym<qq> { <?before 'q'> <quote=.LANG('Perl5','quote')> }
         token backslash:sym<\\> { <text=sym> }
         token backslash:sym<stopper> { <text=stopper> }
 
@@ -4144,13 +4168,13 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
 
     method tweak_to($v) {
         self.truly($v, ':to');
-        %*LANG<Q>.HOW.mixin(%*LANG<Q>, to.HOW.curry(to, self))
+        %*LANG<P5Q>.HOW.mixin(%*LANG<P5Q>, to.HOW.curry(to, self))
     }
     method tweak_heredoc($v)    { self.tweak_to($v) }
 
     method tweak_regex($v) {
         self.truly($v, ':regex');
-        return %*LANG<Regex>;
+        return %*LANG<P5Regex>;
     }
 } # end grammar
 

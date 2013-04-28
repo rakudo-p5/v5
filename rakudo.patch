@@ -1,8 +1,20 @@
+diff --git a/src/Perl6/Actions.nqp b/src/Perl6/Actions.nqp
+index 058c661..cece303 100644
+--- a/src/Perl6/Actions.nqp
++++ b/src/Perl6/Actions.nqp
+@@ -945,6 +945,7 @@ class Perl6::Actions is HLL::Actions does STDActions {
+ #                    $/.CURSOR.panic("Perl $<version> required--this is only v$mpv")
+ #                }
+ #            }
++            $past := $<statementlist>[0].ast if $<statementlist>;
+         } elsif $<module_name> {
+             if ~$<module_name> eq 'fatal' {
+                 my $*SCOPE := 'my';
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 42dde04..5aeed52 100644
+index 42dde04..87d2dd3 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
-@@ -1156,10 +1156,14 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1156,10 +1156,16 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          $<doc>=[ 'DOC' \h+ ]?
          <sym> <.ws>
          [
@@ -11,7 +23,9 @@ index 42dde04..5aeed52 100644
 +                        my $module := $*W.load_module($/, 'Perl5', $*GLOBALish);
 +                        do_import($/, $module, 'Perl5');
 +                        $/.CURSOR.import_EXPORTHOW($module);
-+                    } ]?
++                        $*IN_DECL := '';
++                        $*SCOPE := '';
++                    } <statementlist=.LANG('Perl5', 'statementlist')> ]?
          | <module_name>
              {
 -                $longname := $<module_name><longname>;
@@ -19,7 +33,7 @@ index 42dde04..5aeed52 100644
                  
                  # Some modules are handled in the actions are just turn on a
                  # setting of some kind.
-@@ -1195,9 +1199,22 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1195,9 +1201,22 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
              || { 
                      unless ~$<doc> && !%*COMPILING<%?OPTIONS><doc> {
                          if $longname {
@@ -43,7 +57,7 @@ index 42dde04..5aeed52 100644
                              do_import($/, $module, ~$longname);
                              $/.CURSOR.import_EXPORTHOW($module);
                          }
-@@ -1239,13 +1256,11 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1239,13 +1258,11 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                      $*W.import($/, $EXPORT{$tag}, $package_source_name);
                  }
              }

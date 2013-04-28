@@ -993,6 +993,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 #                    $/.CURSOR.panic("Perl $<version> required--this is only v$mpv")
 #                }
 #            }
+            $past := $<statementlist>[0].ast if $<statementlist>;
         }
         elsif $<module_name> {
             if ~$<module_name> eq 'fatal' {
@@ -4074,25 +4075,25 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     method term:sym<identifier>($/) {
         $*W.get_env('V5DEBUG') && say("term:sym<identifier>($/)");
         my $macro := find_macro_routine(['&' ~ ~$<identifier>]);
-        if $macro {
-            make expand_macro($macro, ~$<identifier>, $/, sub () {
-                my @argument_asts := [];
-                if $<args><semiarglist> {
-                    for $<args><semiarglist><arglist> {
-                        if $_<EXPR> {
-                            add_macro_arguments($_<EXPR>.ast, @argument_asts);
-                        }
-                    }
-                }
-                return @argument_asts;
-            });
-        }
-        else {
+        #~ if $macro {
+            #~ make expand_macro($macro, ~$<identifier>, $/, sub () {
+                #~ my @argument_asts := [];
+                #~ if $<args><semiarglist> {
+                    #~ for $<args><semiarglist><arglist> {
+                        #~ if $_<EXPR> {
+                            #~ add_macro_arguments($_<EXPR>.ast, @argument_asts);
+                        #~ }
+                    #~ }
+                #~ }
+                #~ return @argument_asts;
+            #~ });
+        #~ }
+        #~ else {
             my $past := capture_or_parcel($<args>.ast, ~$<identifier>);
             $past.name('&' ~ $<identifier>);
             $past.node($/);
             make $past;
-        }
+        #~ }
     }
 
     sub add_macro_arguments($expr, @argument_asts) {
@@ -5446,61 +5447,61 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
 
-    method quotepair($/) {
-        $*W.get_env('V5DEBUG') && say("method quotepair($/)");
-        unless $*value ~~ QAST::Node {
-            if $*purpose eq 'rxadverb' && ($*key eq 'c' || $*key eq 'continue'
-            || $*key eq 'p' || $*key eq 'pos') && $*value == 1 {
-                $*value := QAST::Op.new(
-                    :node($/),
-                    :op<if>,
-                    QAST::Var.new(:name('$/'), :scope('lexical')),
-                    QAST::Op.new(:op('callmethod'),
-                        QAST::Var.new(:name('$/'), :scope<lexical>),
-                        :name<to>
-                    ),
-                    QAST::IVal.new(:value(0)),
-                );
-            } else {
-                $*value := QAST::IVal.new( :value($*value) );
-            }
-        }
-        $*value.named(~$*key);
-        make $*value;
-    }
+    #~ method quotepair($/) {
+        #~ $*W.get_env('V5DEBUG') && say("method quotepair($/)");
+        #~ unless $*value ~~ QAST::Node {
+            #~ if $*purpose eq 'rxadverb' && ($*key eq 'c' || $*key eq 'continue'
+            #~ || $*key eq 'p' || $*key eq 'pos') && $*value == 1 {
+                #~ $*value := QAST::Op.new(
+                    #~ :node($/),
+                    #~ :op<if>,
+                    #~ QAST::Var.new(:name('$/'), :scope('lexical')),
+                    #~ QAST::Op.new(:op('callmethod'),
+                        #~ QAST::Var.new(:name('$/'), :scope<lexical>),
+                        #~ :name<to>
+                    #~ ),
+                    #~ QAST::IVal.new(:value(0)),
+                #~ );
+            #~ } else {
+                #~ $*value := QAST::IVal.new( :value($*value) );
+            #~ }
+        #~ }
+        #~ $*value.named(~$*key);
+        #~ make $*value;
+    #~ }
 
     method rx_adverbs($/) {
         $*W.get_env('V5DEBUG') && say("method rx_adverbs($/)");
         my @pairs;
-        for $<quotepair> {
-            nqp::push(@pairs, $_.ast);
-        }
+        #~ for $<quotepair> {
+            #~ nqp::push(@pairs, $_.ast);
+        #~ }
         make @pairs;
     }
 
-    method setup_quotepair($/) {
-        $*W.get_env('V5DEBUG') && say("method setup_quotepair($/)");
-        my %h;
-        my $key := $*ADVERB.ast.named;
-        my $value := $*ADVERB.ast;
-        if $value ~~ QAST::IVal || $value ~~ QAST::SVal {
-            $value := $value.value;
-        }
-        elsif $value.has_compile_time_value {
-            $value := $value.compile_time_value;
-        }
-        else {
-            if %SHARED_ALLOWED_ADVERBS{$key} {
-                $*W.throw($/, ['X', 'Value', 'Dynamic'], what => "Adverb $key");
-            }
-        }
-        $key := %REGEX_ADVERBS_CANONICAL{$key} // $key;
-        %*RX{$key} := $value;
-        if %REGEX_ADVERB_IMPLIES{$key} {
-            %*RX{%REGEX_ADVERB_IMPLIES{$key}} := $value
-        }
-        $value;
-    }
+    #~ method setup_quotepair($/) {
+        #~ $*W.get_env('V5DEBUG') && say("method setup_quotepair($/)");
+        #~ my %h;
+        #~ my $key := $*ADVERB.ast.named;
+        #~ my $value := $*ADVERB.ast;
+        #~ if $value ~~ QAST::IVal || $value ~~ QAST::SVal {
+            #~ $value := $value.value;
+        #~ }
+        #~ elsif $value.has_compile_time_value {
+            #~ $value := $value.compile_time_value;
+        #~ }
+        #~ else {
+            #~ if %SHARED_ALLOWED_ADVERBS{$key} {
+                #~ $*W.throw($/, ['X', 'Value', 'Dynamic'], what => "Adverb $key");
+            #~ }
+        #~ }
+        #~ $key := %REGEX_ADVERBS_CANONICAL{$key} // $key;
+        #~ %*RX{$key} := $value;
+        #~ if %REGEX_ADVERB_IMPLIES{$key} {
+            #~ %*RX{%REGEX_ADVERB_IMPLIES{$key}} := $value
+        #~ }
+        #~ $value;
+    #~ }
 
     method quote:sym<' '>($/)  { $*W.get_env('V5DEBUG') && say("method quote:sym<' '>($/)");   make $<nibble>.ast; }
     method quote:sym<" ">($/)  { $*W.get_env('V5DEBUG') && say("method quote:sym<\" \">($/)"); make $<nibble>.ast; }
