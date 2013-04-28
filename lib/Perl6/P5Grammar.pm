@@ -2837,29 +2837,29 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     # handle composite forms like qww
     token quote:sym<qq> {
         #'qq' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:qq))>
-        'qq' <?before \W> <.ws> <.quibble(%*LANG<Q>)>
+        'qq' <?before \W> <.ws> <quibble(%*LANG<Q>)>
     }
     token quote:sym<q> {
         #'q' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:q))>
-        'q' <?before \W> <.ws> <.quibble(%*LANG<Q>)>
+        'q' <?before \W> <.ws> <quibble(%*LANG<Q>)>
     }
 
     token quote:sym<qw> {
         #'qw' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:q))>
-        'qw' <?before \W> <.ws> <.quibble(%*LANG<Q>)>
+        'qw' <?before \W> <.ws> <quibble(%*LANG<Q>)>
     }
 
     token quote:sym<qr> {
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
-        <.quibble(%*LANG<Regex>)>
+        <quibble(%*LANG<Regex>)>
         <rx_mods>?
     }
 
     token quote:sym<m>  {
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
-        <.quibble(%*LANG<Regex>)>
+        <quibble(%*LANG<Regex>)>
         <rx_mods>?
     }
 
@@ -3118,6 +3118,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #        { :dba('argument list') '(' ~ ')' <semiarglist> <O('%methodcall')> }
     token postcircumfix:sym<( )> {
         :dba('argument list')
+        <!before [ 'm' || 'q' || 'qq' || 'qr' || 'qw' ]>
         '(' ~ ')' [ <.ws> <arglist> ]
         <O('%methodcall')>
     }

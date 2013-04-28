@@ -18,6 +18,12 @@
         <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/bproto.v5</td><td>4</td><td>15</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
+
+use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
+
+</td></tr>
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
@@ -336,10 +342,6 @@ Could not find sub &skip_all_if_miniperl
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/bproto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
@@ -436,8 +438,9 @@ at t/spec/comp/form_scope.v5:8
 ------> sub f ⏏($);</td></tr>
         <tr align=center><td align=left rowspan=2>op/lex_assign.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Unrecognized backslash sequence: '\u'
+at t/spec/op/lex_assign.v5:345
+------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    @INC = qw(. ../lib);\n    chdir 't';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -505,7 +508,9 @@ at t/spec/comp/package.v5:18
 ------>     ⏏$blurfl = 5;</td></tr>
         <tr align=center><td align=left rowspan=2>comp/package_block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Unsupported use of /x; in Perl 6 please use normal default whitespace
+at t/spec/comp/package_block.v5:92
+------>     \z/x⏏ ? "ok 7\n" : "not ok 7\n";
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
@@ -565,8 +570,9 @@ at t/spec/opbasic/concat.v5:27
 ------> <BOL>⏏print "1..30\n";</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/qq.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Redeclaration of routine is
+at t/spec/opbasic/qq.v5:43
+------> <BOL>⏏is ("\x53", chr 83);</td></tr>
         <tr align=center><td align=left rowspan=2>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '@ARGV' is not declared
@@ -1013,8 +1019,9 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/23-eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Two terms in a row
+at t/v5/23-eval.v5:38
+------>     my $result = wantarray ? "LIST" ⏏: defined wantarray ? "SCALAR" : "VOID";</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/24-strict.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -1398,7 +1405,7 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2174,8 +2181,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Unexpected block in infix position (two terms in a row, or previous statement missing semicolon?)
+at t/spec/op/caller.v5:28
+------> sub { @c = caller(0) } ⏏-> ();</td></tr>
         <tr align=center><td align=left rowspan=2>uni/universal.v5</td><td>0</td><td>93</td><td>0</td><td>0</td><td>93</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    $| = 1;\n    require \"./test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -2247,8 +2255,9 @@ at t/spec/op/array.v5:124
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Missing block
+at t/spec/cmd/lexsub.v5:35
+------>   is do ⏏foo(), 42, 'calling our sub from same pa</td></tr>
         <tr align=center><td align=left rowspan=2>op/eval.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
