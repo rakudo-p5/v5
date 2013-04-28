@@ -189,6 +189,7 @@ for my $tfile (@tfiles) {
     if( $stderr ) {
         $stderr =~ s/.\[\d+m//g;
         $stderr =~ s/\s+expecting any of:.+$//s;
+        $stderr =~ s/\s*called from Sub.+$//s;
         $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
         = sprintf "        <tr align=center><td align=left rowspan=2>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
                 . "        <tr><td colspan=5>%s</td></tr>\n",
