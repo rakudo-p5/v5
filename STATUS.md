@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>235</td><td>34178</td><td>4</td><td>28</td><td>34442</td></tr>
+        <tr align=center><td align=left>summary</td><td>239</td><td>34178</td><td>4</td><td>28</td><td>34446</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -34,6 +34,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
     at t/v5/16-var-redeclare.v5:14
     ------>     my $x ⏏= 1;
 </td></tr>
+        <tr align=center><td align=left>t/v5/05-lex-block.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align=center><td align=left>t/v5/05-lex-block-if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
@@ -162,7 +164,129 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Undeclared routines:
+    a used at line 667
+    b used at line 667
+    bless used at line 95. Did you mean '&elems'?
+    delete used at line 96
+    local used at lines 655, 665
+
+Other potential difficulties:
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:177
+    ------> for my $i ⏏(@array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:182
+    ------> for my $i ⏏(1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:187
+    ------> for my $i ⏏(map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:192
+    ------> for my $i ⏏(map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:197
+    ------> for my $i ⏏(1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:202
+    ------> for my $i ⏏('A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:208
+    ------> for my $i ⏏(reverse @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:213
+    ------> for my $i ⏏(reverse 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:218
+    ------> for my $i ⏏(reverse map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:223
+    ------> for my $i ⏏(reverse map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:228
+    ------> for my $i ⏏(reverse 1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:233
+    ------> for my $i ⏏(reverse 'A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:304
+    ------> for our $i ⏏(reverse @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:309
+    ------> for our $i ⏏(reverse 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:314
+    ------> for our $i ⏏(reverse map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:319
+    ------> for our $i ⏏(reverse map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:324
+    ------> for our $i ⏏(reverse 1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:329
+    ------> for our $i ⏏(reverse 'A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:464
+    ------> for my $i ⏏(1, reverse @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:469
+    ------> for my $i ⏏('A', reverse 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:474
+    ------> for my $i ⏏(1, reverse map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:479
+    ------> for my $i ⏏('A', reverse map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:484
+    ------> for my $i ⏏('A', reverse 1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:489
+    ------> for my $i ⏏(1, reverse 'A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:495
+    ------> for my $i ⏏(reverse (@array), 1) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:500
+    ------> for my $i ⏏(reverse (1,2,3), 'A') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:505
+    ------> for my $i ⏏(reverse (map {$_} @array), 1) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:510
+    ------> for my $i ⏏(reverse (map {$_} 1,2,3), 'A') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:515
+    ------> for my $i ⏏(reverse (1 .. 3), 'A') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:520
+    ------> for my $i ⏏(reverse ('A' .. 'C'), 1) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:612
+    ------> for my $i ⏏(reverse 1, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:617
+    ------> for my $i ⏏(reverse map {$_} 1, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:622
+    ------> for my $i ⏏(reverse 1 .. 3, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:627
+    ------> for my $i ⏏(reverse 'X' .. 'Z', @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:632
+    ------> for my $i ⏏(reverse map {$_} 1 .. 3, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:637
+    ------> for my $i ⏏(reverse map {$_} 'X' .. 'Z', @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:643
+    ------> for my $i ⏏(reverse (@array, 1)) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:648
+    ------> for my $i ⏏(reverse (map {$_} @array, 1)) {
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -227,8 +351,9 @@ at t/spec/mro/next_ineval_utf8.v5:20
 ------>     ⏏use mro 'c3';</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Confused
+at t/spec/cmd/mod.v5:30
+------> $y[$_] = $_ * 2 for⏏each @x;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Semicolon form of package definition not allowed in subscope;
@@ -277,8 +402,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/subval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Two terms in a row
+at t/spec/cmd/subval.v5:111
+------> &main⏏'somesub(28, 'foo', __FILE__, __LINE__);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -345,8 +471,9 @@ at t/spec/op/die_except.v5:10
 ------>     ⏏sub DESTROY { $_[0]->() }</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Variable '$bang' is not declared
+at t/spec/op/die_exit.v5:66
+------>     my($bang⏏, $query, $code) = @$test;</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Semicolon form of package definition not allowed in subscope;
@@ -748,8 +875,9 @@ hangs
         <tr align=center><td align=left>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align=center><td align=left rowspan=2>comp/utf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Two terms in a row
+at t/spec/comp/utf.v5:41
+------>     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix || instead
@@ -762,8 +890,9 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Missing block
+at t/spec/re/regex_sets_compat.v5:13
+------> 	do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix || instead
@@ -772,20 +901,23 @@ at t/spec/re/regexp.v5:53
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Missing block
+at t/spec/re/regexp_noamp.v5:10
+------>     do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    ${^RE_TRIE_MAXBUF}=-1;\n    #${^RE_DEBUG_FLAGS}=0;\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Missing block
+at t/spec/re/regexp_qr.v5:8
+------> 	do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Missing block
+at t/spec/re/regexp_qr_embed.v5:9
+------> 	do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -806,8 +938,9 @@ Could not find sub &skip_all_if_miniperl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Missing block
+at t/spec/re/substT.v5:7
+------>     do ⏏"./$file";</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix = instead
@@ -816,8 +949,9 @@ at t/spec/re/subst_amp.v5:22
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Missing block
+at t/spec/re/subst_wamp.v5:8
+------>     do ⏏"./$file";</td></tr>
         <tr align=center><td align=left rowspan=2>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -925,23 +1059,18 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Lexical symbol '$v' is already bound to an outer symbol;
+the implicit outer binding must be rewritten as OUTER::<$v>
+before you can unambiguously declare a new '$v' in this scope
+at t/v5/05-for.v5:20
+------>     for my $v ⏏(@b) {</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-lex-block-if.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-lex-block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/06-bool.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/09-namespace.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1049,12 +1178,15 @@ Could not find sub &skip_all_without_perlio
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Preceding context expects a term, but found infix < instead
+at t/spec/io/nargv.v5:80
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
-</td></tr>
+Variable '$TODO' is not declared
+at t/spec/io/perlio_leaks.v5:26
+------> 	    local $::TODO⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/print.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 
@@ -1236,15 +1368,18 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Variable '@ARGV' is not declared
+at t/spec/io/iprefix.v5:23
+------> @ARGV⏏ = @tfiles;</td></tr>
         <tr align=center><td align=left rowspan=2>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+Preceding context expects a term, but found infix << instead
+at t/spec/op/concat2.v5:61
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1324,7 +1459,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchI.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Undeclared routine:
+    fresh_perl_is used at lines 25, 30
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1377,7 +1514,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Undeclared routine:
+    scalar used at lines 16, 22
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1407,7 +1546,14 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+Undeclared names:
+    DÙP used at lines 20, 25
+    STDOUT used at line 36
+Undeclared routines:
+    local used at lines 29, 35
+    select used at lines 25, 26, 30, 33, 36
+    둪 used at lines 22, 30
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1417,7 +1563,9 @@ at t/spec/op/blocks.v5:150
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Preceding context expects a term, but found infix , instead
+at t/spec/op/kill0.v5:37
+------>     [ undef ,⏏ 'undef'         ],
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1448,8 +1596,9 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12731) (src/stage2/gen/NQ
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12731) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Variable '@ARGV' is not declared
+at t/spec/io/inplace.v5:21
+------> @ARGV⏏ = @tfiles;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all_without_perlio
@@ -1664,7 +1813,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1725,7 +1874,9 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Preceding context expects a term, but found infix << instead
+at t/spec/lib/universal.v5:68
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1755,12 +1906,13 @@ Undeclared routine:
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
-</td></tr>
+Variable '$a' is not declared
+at t/spec/op/utf8cache.v5:23
+------>     $a⏏ = "hello \x{1234}";</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_psycho.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -1834,7 +1986,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Preceding context expects a term, but found infix , instead
+at t/spec/op/lop.v5:17
+------> for my $i (undef,⏏ 0 .. 2, "", "0 but true") {
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1874,7 +2028,14 @@ Could not find sub &skip_all_without_config
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+Undeclared name:
+    L used at line 77
+Undeclared routines:
+    bless used at lines 15, 105. Did you mean '&elems'?
+    delete used at line 101
+    goto used at lines 31, 39
+    local used at lines 72, 77, 86. Did you mean '&local1', '&local2'?
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2032,7 +2193,7 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest.v5</td><td>0</td><td>49</td><td>0</td><td>0</td><td>49</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2114,8 +2275,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Confused
+at t/spec/op/time.v5:76
+------> ok( grep({ $day_diff == $_ } ⏏(0, 1, -1, 364, 365, -364, -365)),</td></tr>
         <tr align=center><td align=left rowspan=2>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'

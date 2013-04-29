@@ -1277,7 +1277,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         ]?
 
         # add label as a pseudo type
-        {{ self.add_my_name($label); }}
+        # {{ self.add_my_name($label); }} # XXX How do we do that?
 
     }
 
@@ -1519,9 +1519,9 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                 <e3=.EXPR>?
             ')'
         ||  [
-            || [ <variable> { $*FOR_VARIABLE := ~$<variable>.ast.name; } ]?
+            || [ <variable> { $*FOR_VARIABLE := ~$<variable>[0].ast.name; } ]?
             || [  [ 'my' { $*SCOPE := 'my' } || 'our' { $*SCOPE := 'our' } ]?
-                    <variable_declarator> { $*FOR_VARIABLE := ~$<variable_declarator>.ast.name; } ]?
+                    <variable_declarator> { $*FOR_VARIABLE := ~$<variable_declarator>[0].ast.name; } ]?
             ]
             '(' ~ ')' <EXPR>
         ]
@@ -2475,15 +2475,12 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         [
         | '::?'<identifier>                 # parse ::?CLASS as special case
         | <longname>
-          <?{{
-            my $longname := ~$<longname>;
-            if nqp::substr($longname, 0, 2) eq '::' {
-                self.add_my_name( nqp::substr($longname, 2) );
-            }
-            else {
-                $*W.is_name($longname)
-            }
-          }}>
+          <?{
+            my $longname := $*W.dissect_longname($<longname>);
+            nqp::substr(~$<longname>, 0, 2) eq '::' ??
+                1 !! # ::T introduces a type, so always is one
+                $*W.is_name($longname.type_name_parts('type name'))
+          }>
         ]
         # parametric type?
         <.unsp>? [ <?before '['> <postcircumfix> ]?
