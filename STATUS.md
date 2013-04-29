@@ -50,110 +50,84 @@ use of uninitialized value of type Any in string context  in any !cursor_init at
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_04_c3_utf8.v5:26
------->     package Ƭ::ŁiƁ::ଅ; ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_04_dfs.v5:24
------->     package t::lib::A; ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_04_dfs_utf8.v5:26
------->     package Ƭ::ŁiƁ::ଅ; ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_05_c3.v5:25
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_05_c3_utf8.v5:27
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_05_dfs.v5:25
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_05_dfs_utf8.v5:28
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/c3_with_overload.v5:12
------->     ⏏use strict;</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/c3_with_overload_utf8.v5:12
------->     ⏏use strict;</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/complex_c3.v5:55
------->     package Test::A; ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/complex_c3_utf8.v5:57
------->     package 텟Ṱ::ᐊ; ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/complex_dfs.v5:55
------->     package Test::A; ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/complex_dfs_utf8.v5:57
------->     package 텟Ṱ::ᐊ; ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/dbic_c3.v5:20
------->     package xx::DBIx::Class::Core; ⏏use mro 'c3';</td></tr>
+Undeclared routine:
+    eq_array used at line 95
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/dbic_c3_utf8.v5:22
------->     package Ẋẋ::ḐʙIＸ::Cl았::Coﾚ; ⏏use mro 'c3';</td></tr>
+Undeclared routine:
+    eq_array used at line 97
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/dbic_dfs.v5:20
------->     package xx::DBIx::Class::Core; ⏏use mro 'dfs';</td></tr>
+Undeclared routine:
+    eq_array used at line 95
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/dbic_dfs_utf8.v5:22
------->     package Ẋẋ::ḐʙIＸ::Cl았::Coﾚ; ⏏use mro 'dfs';</td></tr>
+Undeclared routine:
+    eq_array used at line 97
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -290,11 +264,17 @@ Other potential difficulties:
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find mro in any of: ../lib
+Undeclared routines:
+    bless used at line 64. Did you mean '&elems'?
+    object_ok used at line 69
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find mro in any of: ../lib
+Undeclared routines:
+    bless used at line 66. Did you mean '&elems'?
+    object_ok used at line 71
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -311,42 +291,35 @@ at t/spec/mro/method_caching.v5:6
 ------> no strict ⏏'refs'; # we do a lot of this</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/method_caching_utf8.v5:23
------->     ⏏sub ᕘ { return $_[1]+1 };</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/method_caching_utf8.v5:33
+------>     sub { is(MC텟ᵀ::ድ리ᭉᛞ->ᕘ(⏏0), 1); },</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_goto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Variable '&next::method' is not declared
+at t/spec/mro/next_goto.v5:15
+------>     sub next_proxy { goto &next::method⏏ }</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_goto_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
-</td></tr>
+Variable '&next::method' is not declared
+at t/spec/mro/next_goto_utf8.v5:16
+------>     sub next_prxᔬ { goto &next::method⏏ }</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_inanon.v5:19
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_inanon_utf8.v5:20
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_ineval.v5:18
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_ineval_utf8.v5:20
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -355,46 +328,32 @@ at t/spec/cmd/mod.v5:61
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_method.v5:24
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_method_utf8.v5:26
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_skip.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_skip.v5:24
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_skip_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/next_skip_utf8.v5:27
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/overload_c3.v5:18
------->     ⏏use strict;</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/overload_c3_utf8.v5:21
------->     ⏏use strict;</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/overload_dfs.v5:18
------->     ⏏use strict;</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -410,28 +369,20 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/vulcan_c3.v5:38
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/vulcan_c3_utf8.v5:39
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/vulcan_dfs.v5:38
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/vulcan_dfs_utf8.v5:40
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/64bitint.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 
@@ -463,10 +414,8 @@ Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_except.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/op/die_except.v5:10
------->     ⏏sub DESTROY { $_[0]->() }</td></tr>
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$bang' is not declared
@@ -474,10 +423,8 @@ at t/spec/op/die_exit.v5:66
 ------>     my($bang⏏, $query, $code) = @$test;</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/op/die_unwind.v5:20
------->     ⏏sub DESTROY { $_[0]->() }</td></tr>
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -1133,11 +1080,11 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling, type X::Undeclared::Symbols
-  post_types: Hash[0xf583dd8]
-  unk_types: Hash[0xf583e00]
-  unk_routines: Hash[0xf583e28]
-  routine_suggestion: Hash[0xf583f18]
-  type_suggestion: Hash[0xf583fb8]
+  post_types: Hash[0xe648f38]
+  unk_types: Hash[0xe648f60]
+  unk_routines: Hash[0xe648f88]
+  routine_suggestion: Hash[0xe649078]
+  type_suggestion: Hash[0xe649118]
  at line 2, near "use Test;\n"
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1166,22 +1113,20 @@ Could not locate compile-time value for symbol A
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/30-tie-array.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/v5/30-tie-array.v5:9
------->     ⏏sub TIEARRAY {</td></tr>
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/31-autoload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/v5/31-autoload.v5:12
------->     ⏏our $AUTOLOAD;</td></tr>
+Preceding context expects a term, but found infix ? ( 4, 5 ) : instead
+at t/v5/31-autoload.v5:21
+------>         return wantarray ? ( 4, 5 ) :⏏ 456;
+</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/32-autoload-method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/v5/32-autoload-method.v5:12
------->     ⏏our $AUTOLOAD;</td></tr>
+Preceding context expects a term, but found infix ? ( 4, 5 ) : instead
+at t/v5/32-autoload-method.v5:23
+------>         return wantarray ? ( 4, 5 ) :⏏ 456;
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all_without_perlio
@@ -1237,40 +1182,28 @@ Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_02_dfs_utf8.v5:52
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_03_c3.v5:54
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_03_c3_utf8.v5:56
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_03_dfs.v5:54
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_03_dfs_utf8.v5:56
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_04_c3.v5:24
------->     package t::lib::A; ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -1491,28 +1424,20 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_01_c3.v5:25
------->     ⏏sub hello { 'Diamond_A::hello' }</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_01_c3_utf8.v5:27
------->     ⏏sub hèllò { 'Ｄiᚪၚd_A::hèllò' }</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_01_dfs.v5:25
------->     ⏏sub hello { 'Diamond_A::hello' }</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_01_dfs_utf8.v5:27
------->     ⏏sub hèllò { 'Ｄiᚪၚd_A::hèllò' }</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -1791,22 +1716,16 @@ Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_02_c3.v5:51
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_02_c3_utf8.v5:53
------->     ⏏use mro 'c3';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/mro/basic_02_dfs.v5:51
------->     ⏏use mro 'dfs';</td></tr>
+Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -1891,10 +1810,12 @@ at t/spec/lib/universal.v5:68
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/op/studytied.v5:18
------->     ⏏my $c = 0;</td></tr>
+Undeclared routines:
+    bless used at line 20. Did you mean '&elems'?
+    study used at line 34
+    tie used at line 31. Did you mean '&die'?
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all_if_miniperl
@@ -2024,10 +1945,9 @@ Could not find vmsish in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/join.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling, type X::Comp::AdHoc
-  payload: Semicolon form of package definition not allowed in subscope;
-  please use block form
- at line 35, near "sub TIESCA"
+Preceding context expects a term, but found infix , instead
+at t/spec/op/join.v5:46
+------>   my $r = join ':', 'a', undef,⏏ $s, 'b', undef, $s, 'c';
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2084,10 +2004,8 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-Semicolon form of package definition not allowed in subscope;
-  please use block form
-at t/spec/op/override.v5:18
-------> BEGIN { package Foo; ⏏*main::getlogin = sub { "kilroy"; } }</td></tr>
+Could not find sub &sub
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require \"test.pl\";\n    plan(tests => 2..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
