@@ -1562,7 +1562,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 #    rule statement_mod_loop:sym<given> {<sym> <modifier_expr> }
     token statement_mod_loop:sym<while> { <sym> :s <smexpr=.EXPR> }
     token statement_mod_loop:sym<until> { <sym> :s <smexpr=.EXPR> }
-    token statement_mod_loop:sym<for>   { <sym> :s <smexpr=.EXPR> }
+    token statement_mod_loop:sym<for>   { <sym> 'each'? :s <smexpr=.EXPR> }
     token statement_mod_loop:sym<given> { <sym> :s <smexpr=.EXPR> }
 
     ################

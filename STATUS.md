@@ -351,9 +351,10 @@ at t/spec/mro/next_ineval_utf8.v5:20
 ------>     ⏏use mro 'c3';</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/cmd/mod.v5:30
-------> $y[$_] = $_ * 2 for⏏each @x;</td></tr>
+Preceding context expects a term, but found infix < instead
+at t/spec/cmd/mod.v5:61
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Semicolon form of package definition not allowed in subscope;
@@ -444,9 +445,8 @@ at t/spec/op/anonsub.v5:12
 ------> run_multiple_progs('', \*DATA⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>op/assignwarn.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/op/assignwarn.v5:21
-------> ++$should_warn{$_} for⏏each qw(* / x & ** << >>);</td></tr>
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all_if_miniperl
@@ -1477,9 +1477,8 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 22, 23)
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/proxy_constant_subs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/lib/proxy_constant_subs.v5:6
-------> ip_all_without_dynamic_extension($_) for⏏each qw(B Fcntl);</td></tr>
+Error while compiling block : Error while compiling block  (source text: "{\n    require './test.pl';\n    skip_all_without_dynamic_extension($_) foreach qw(B Fcntl);\n    # ..."): Error while compiling op bind: Error while compiling op callmethod (source text: "skip_all_without_dynamic_extension($_) foreach qw(B Fcntl)"): Error while compiling op call: Unknown QAST node type NQPMu
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Semicolon form of package definition not allowed in subscope;
