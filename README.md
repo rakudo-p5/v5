@@ -1,6 +1,6 @@
 v5 - Perl5 for rakudo
 ==
-v5 will let you run Perl 5 code besides Perl 6 code, like:
+v5 will let you run Perl 5 code beside Perl 6 code, like:
 ```perl
 use v6;
 grammar Foo {
