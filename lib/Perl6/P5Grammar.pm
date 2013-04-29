@@ -1797,105 +1797,49 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
             [ <longname> { $longname := $*W.p5dissect_longname($<longname>[0]); } ]?
             <.newlex>
             
-            [ :dba('generic role')
-            <?{ ($*PKGDECL//'') eq 'role' }>
-            { $*PACKAGE := $*OUTERPACKAGE } # in case signature tries to declare a package
-            '[' ~ ']' <signature>
-            { $*IN_DECL := ''; }
-            ]?
+            #~ [ :dba('generic role')
+            #~ <?{ ($*PKGDECL//'') eq 'role' }>
+            #~ { $*PACKAGE := $*OUTERPACKAGE } # in case signature tries to declare a package
+            #~ '[' ~ ']' <signature>
+            #~ { $*IN_DECL := ''; }
+            #~ ]?
             
             <trait>*
             
             {
-                # Unless we're augmenting...
-                if $*SCOPE ne 'augment' {
-                    # Locate any existing symbol. Note that it's only a match
-                    # with "my" if we already have a declaration in this scope.
-                    my $exists := 0;
-                    my @name := $longname ??
-                        $longname.type_name_parts('package name', :decl(1)) !!
-                        [];
-                    if @name && $*SCOPE ne 'anon' {
-                        if @name && $*W.already_declared($*SCOPE, $*OUTERPACKAGE, $outer, @name) {
-                            $*PACKAGE := $*W.find_symbol(@name);
-                            $exists := 1;
-                        }
-                    }
-
-                    # If it exists already, then it's either uncomposed (in which
-                    # case we just stubbed it), a role (in which case multiple
-                    # variants are OK) or else an illegal redecl.
-                    if $exists && ($*PKGDECL ne 'role' || !nqp::can($*PACKAGE.HOW, 'configure_punning')) {
-                        if $*PKGDECL eq 'role' || $*PACKAGE.HOW.is_composed($*PACKAGE) {
-                            $*W.throw($/, ['X', 'Redeclaration'],
-                                symbol => $longname.name(),
-                            );
-                        }
-                    }
-                    
-                    # If it's not a role, or it is a role but one with no name,
-                    # then just needs meta-object construction and installation.
-                    elsif $*PKGDECL ne 'role' || !@name {
-                        # Construct meta-object for this package.
-                        my %args;
-                        if @name {
-                            %args<name> := $longname.name();
-                        }
-                        if $*REPR ne '' {
-                            %args<repr> := $*REPR;
-                        }
-                        $*PACKAGE := $*W.pkg_create_mo($/, %*HOW{$*PKGDECL}, |%args);
-                        
-                        # Install it in the symbol table if needed.
-                        if @name {
-                            $*W.install_package($/, @name, $*SCOPE, $*PKGDECL, $*OUTERPACKAGE, $outer, $*PACKAGE);
-                        }
-                    }
-                    
-                    # If it's a named role, a little trickier. We need to make
-                    # a parametric role group for it (unless we got one), and
-                    # then install it in that.
-                    else {
-                        # If the group doesn't exist, create it.
-                        my $group;
-                        if $exists {
-                            $group := $*PACKAGE;
-                        }
-                        else {
-                            $group := $*W.pkg_create_mo($/, %*HOW{'role-group'}, :name($longname.name()));                            
-                            $*W.install_package($/, @name, $*SCOPE, $*PKGDECL, $*OUTERPACKAGE, $outer, $group);
-                        }
-
-                        # Construct role meta-object with group.
-                        $*PACKAGE := $*W.pkg_create_mo($/, %*HOW{$*PKGDECL}, :name($longname.name()),
-                            :group($group), :signatured($<signature> ?? 1 !! 0));
+                # Locate any existing symbol. Note that it's only a match
+                # with "my" if we already have a declaration in this scope.
+                my $exists := 0;
+                my @name := $longname ??
+                    $longname.type_name_parts('package name', :decl(1)) !!
+                    [];
+                if @name && $*SCOPE ne 'anon' {
+                    if @name && $*W.already_declared($*SCOPE, $*OUTERPACKAGE, $outer, @name) {
+                        $*PACKAGE := $*W.find_symbol(@name);
+                        $exists := 1;
                     }
                 }
-                else {
-                    # Augment. Ensure we can.
-                    my @name := $longname ??
-                        $longname.type_name_parts('package name', :decl(1)) !!
-                        [];
-                    unless $*MONKEY_TYPING {
-                        $/.CURSOR.typed_panic('X::Syntax::Augment::WithoutMonkeyTyping');
-                    }
-                    unless @name {
-                        $*W.throw($/, 'X::Anon::Augment', package-kind => $*PKGDECL);
-                    }
-                    
-                    # Locate type.
-                    my $found;
-                    try { $*PACKAGE := $*W.find_symbol(@name); $found := 1 }
-                    unless $found {
-                        $*W.throw($/, 'X::Augment::NoSuchType',
-                            package-kind => $*PKGDECL,
-                            package      => $longname.text(),
-                        );
-                    }
-                    unless $*PACKAGE.HOW.archetypes.augmentable {
-                        $/.CURSOR.typed_panic('X::Syntax::Augment::Illegal',
-                            package      => $longname.text);
-                    }
+
+                # If it exists already it is an illegal redecl.
+                if $exists && $*PACKAGE.HOW.is_composed($*PACKAGE) {
+                    $*W.throw($/, ['X', 'Redeclaration'],
+                        symbol => $longname.name(),
+                    );
+                }
+                
+                # Construct meta-object for this package.
+                my %args;
+                if @name {
+                    %args<name> := $longname.name();
+                }
+                if $*REPR ne '' {
+                    %args<repr> := $*REPR;
+                }
+                $*PACKAGE := $*W.pkg_create_mo($/, %*HOW{$*PKGDECL}, |%args);
+                
+                # Install it in the symbol table if needed.
+                if @name {
+                    $*W.install_package($/, @name, $*SCOPE, $*PKGDECL, $*OUTERPACKAGE, $outer, $*PACKAGE);
                 }
                 
                 # Install $?PACKAGE, $?ROLE, $?CLASS, and :: variants as needed.
@@ -1903,18 +1847,8 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                 unless $curpad.symbol('$?PACKAGE') {
                     $*W.install_lexical_symbol($curpad, '$?PACKAGE', $*PACKAGE);
                     $*W.install_lexical_symbol($curpad, '::?PACKAGE', $*PACKAGE);
-                    #if $*PKGDECL eq 'class' || $*PKGDECL eq 'grammar' {
-                    #    $*W.install_lexical_symbol($curpad, '$?CLASS', $*PACKAGE);
-                    #    $*W.install_lexical_symbol($curpad, '::?CLASS', $*PACKAGE);
-                    #}
-                    #elsif $*PKGDECL eq 'role' {
-                    #    $*W.install_lexical_symbol($curpad, '$?ROLE', $*PACKAGE);
-                    #    $*W.install_lexical_symbol($curpad, '::?ROLE', $*PACKAGE);
-                    #    $*W.install_lexical_symbol($curpad, '$?CLASS',
-                    #        $*W.pkg_create_mo($/, %*HOW<generic>, :name('$?CLASS')));
-                    #    $*W.install_lexical_symbol($curpad, '::?CLASS',
-                    #        $*W.pkg_create_mo($/, %*HOW<generic>, :name('::?CLASS')));
-                    #}
+                    $*W.install_lexical_symbol($curpad, '$?CLASS', $*PACKAGE);
+                    $*W.install_lexical_symbol($curpad, '::?CLASS', $*PACKAGE);
                 }
                 
                 # Set declarand as the package.
@@ -1941,8 +1875,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                 ]
             
             || ';'
-                [
-                || <?{ $*begin_compunit }>
+                [ <?{ $*begin_compunit }>
                     {
                         unless $longname {
                             $/.CURSOR.panic("Compilation unit cannot be anonymous");
@@ -1955,12 +1888,11 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                         #}
                         $*begin_compunit := 0;
                     }
-                    { $*IN_DECL := ''; }
-                    <.finishlex>
-                    <statementlist>     # whole rest of file, presumably
-                    { $*CURPAD := $*W.pop_lexpad(); }
-                || <.panic("Too late for semicolon form of $*PKGDECL definition")>
-                ]
+                ] ?
+                { $*IN_DECL := ''; }
+                <.finishlex>
+                <statementlist>     # whole rest of file, presumably
+                { $*CURPAD := $*W.pop_lexpad(); }
             || <.panic("Unable to parse $*PKGDECL definition")>
             ]
             { nqp::pop(@*PACKAGES); }

@@ -298,14 +298,12 @@ Could not find mro in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Too late for semicolon form of package definition
-at t/spec/mro/isa_dfs.v5:24
-------> <BOL>⏏@urkkk::ISA = 'klonk';</td></tr>
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Too late for semicolon form of package definition
-at t/spec/mro/isa_dfs_utf8.v5:26
-------> <BOL>⏏@urḲḵｋ::ISA = 'kഌoんḰ';</td></tr>
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Confused
@@ -609,17 +607,18 @@ Could not find vars in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/splice.v5:88
+------> ok( ! Foo->isa(⏏'Bar'), 'Foo is not a Bar');</td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find version in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/package.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Too late for semicolon form of package definition
-at t/spec/comp/package.v5:18
------->     ⏏$blurfl = 5;</td></tr>
+Two terms in a row
+at t/spec/comp/package.v5:19
+------>     $main⏏'a = $'b;</td></tr>
         <tr align=center><td align=left rowspan=2>comp/package_block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
@@ -1070,13 +1069,15 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/06-bool.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Unexpected closing bracket
+at t/v5/06-bool.v5:55
+------>     say +( Main->new()  ? "" : "not " ⏏), "ok 19 - object";
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/09-namespace.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Too late for semicolon form of package definition
-at t/v5/09-namespace.v5:13
-------> <BOL>⏏sub subr { $_[0] + $_[1] + 1 }</td></tr>
+Variable '*subr4' is not declared
+at t/v5/09-namespace.v5:47
+------> *subr4⏏ = sub { 123 };</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/10-bind-sub-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 CHECK FAILED:
@@ -1095,17 +1096,22 @@ at t/spec/base/rs.v5:250
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-bind-method-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Unexpected closing bracket
+at t/v5/11-bind-method-param.v5:18
+------> $x = Main->subr( 1, 2 ⏏);
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-bless.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
+Unexpected closing bracket
+at t/v5/11-bless.v5:31
+------> my $other = Other->new(⏏);
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-class-open.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Too late for semicolon form of package definition
-at t/v5/11-class-open.v5:22
-------> <BOL>⏏sub subr2 {</td></tr>
+Unexpected closing bracket
+at t/v5/11-class-open.v5:34
+------>     my $other = Other->new(⏏);
+</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-class.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1126,9 +1132,13 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling, type X::Comp::AdHoc
-  payload: Too late for semicolon form of package definition
- at line 11, near "say '1..7'"
+Error while compiling, type X::Undeclared::Symbols
+  post_types: Hash[0xf583dd8]
+  unk_types: Hash[0xf583e00]
+  unk_routines: Hash[0xf583e28]
+  routine_suggestion: Hash[0xf583f18]
+  type_suggestion: Hash[0xf583fb8]
+ at line 2, near "use Test;\n"
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1828,8 +1838,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Two terms in a row
+at t/spec/mro/isa_aliases_utf8.v5:16
+------> ok 'ฟ옥ʮ'->isa(⏏"Ｂᐊㄗ"),</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{ chdir 't'; require q(./test.pl); @INC = qw \"../lib lib\" }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1852,8 +1863,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'ResizablePMCArray'
-</td></tr>
+Two terms in a row
+at t/spec/mro/isa_aliases.v5:13
+------> ok 'Foogh'->isa(⏏"Baz"),</td></tr>
         <tr align=center><td align=left rowspan=2>op/pow.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'

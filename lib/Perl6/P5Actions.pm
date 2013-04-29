@@ -1882,94 +1882,22 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         }
         $block.blocktype('immediate');
 
-        if $*PKGDECL ne 'role' && $block<placeholder_sig> {
-            my $name := $block<placeholder_sig>[0]<variable_name>;
-            unless $name eq '%_' || $name eq '@_' {
-                $name := nqp::concat_s(nqp::substr($name, 0, 1),
-                        nqp::concat_s('^', nqp::substr($name, 1)));
-            }
-            $*W.throw( $/, ['X', 'Placeholder', 'Block'],
-                placeholder => $name,
-            );
-        }
-
         # If it's a stub, add it to the "must compose at some point" list,
         # then just evaluate to the type object. Don't need to do any more
         # just yet.
         if nqp::substr($<blockoid><statementlist><statement>[0], 0, 3) eq '...' {
-            unless $*PKGDECL eq 'role' {
-                $*W.add_stub_to_check($*PACKAGE);
-            }
+            $*W.add_stub_to_check($*PACKAGE);
             $block.blocktype('declaration');
             make QAST::Stmts.new( $block, QAST::WVal.new( :value($*PACKAGE) ) );
             return 1;
         }
 
-        # Handle parametricism for roles.
-        if $*PKGDECL eq 'role' {
-            # Set up signature. Needs to have $?CLASS as an implicit
-            # parameter, since any mention of it is generic.
-            my %sig_info := $<signature> ?? $<signature>[0].ast !! hash(parameters => []);
-            my @params := %sig_info<parameters>;
-            @params.unshift(hash(
-                is_multi_invocant => 1,
-                type_captures     => ['$?CLASS', '::?CLASS']
-            ));
-            set_default_parameter_type(@params, 'Mu');
-            my $sig := create_signature_object($<signature>, %sig_info, $block);
-            add_signature_binding_code($block, $sig, @params);
-            $block.blocktype('declaration');
-
-            # Need to ensure we get lexical outers fixed up properly. To
-            # do this we make a list of closures, which each point to the
-            # outer context. These surive serialization and thus point at
-            # what has to be fixed up.
-            my $throwaway_block_past := QAST::Block.new( 
-                :blocktype('declaration'),
-                QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') )
-            );
-            $throwaway_block_past<outer> := $block;
-            $block[0].push($throwaway_block_past);
-            my $throwaway_block := $*W.create_code_object($throwaway_block_past,
-                'Block', $*W.create_signature(nqp::hash('parameters', [])));
-            my $fixup := $*W.create_lexical_capture_fixup();
-            $fixup.push(QAST::Op.new(
-                :op('callmethod'), :name('clone'),
-                QAST::WVal.new( :value($throwaway_block) )
-            ));
-            $block[1].push($fixup);
-
-            # As its last act, it should grab the current lexpad so that
-            # we have the type environment, and also return the parametric
-            # role we're in (because if we land it through a multi-dispatch,
-            # we won't know).
-            $block[1].push(QAST::Op.new(
-                :op('list'),
-                QAST::WVal.new( :value($*PACKAGE) ),
-                QAST::Op.new( :op('curlexpad') )));
-
-            # Create code object and add it as the role's body block.
-            my $code := $*W.create_code_object($block, 'Sub', $sig);
-            $*W.pkg_set_role_body_block($/, $*PACKAGE, $code, $block);
-            
-            # Compose before we add the role to the group, so the group sees
-            # it composed.
-            $*W.pkg_compose($*PACKAGE);
-            
-            # Add this role to the group if needed.
-            my $group := $*PACKAGE.HOW.group($*PACKAGE);
-            unless $group =:= $*PACKAGE {
-                $*W.pkg_add_role_group_possibility($/, $group, $*PACKAGE);
-            }
-        }
-        else {
-            # Compose.
-            $*W.pkg_compose($*PACKAGE);
-            
-            # Make a code object for the block.
-            $*W.create_code_object($block, 'Block',
-                $*W.create_signature(nqp::hash('parameters', [])));
-        }
+        # Compose.
+        $*W.pkg_compose($*PACKAGE);
+        
+        # Make a code object for the block.
+        $*W.create_code_object($block, 'Block',
+            $*W.create_signature(nqp::hash('parameters', [])));
 
         # Document
         Perl6::Pod::document($/, $*PACKAGE, $*DOC);
@@ -3833,7 +3761,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method methodop($/) {
         $V5DEBUG && say("methodop($/)");
-        my $past := $<args> ?? $<args>.ast !! QAST::Op.new( :node($/) );
+        my $past := $<args> ?? $<args>[0].ast !! QAST::Op.new( :node($/) );
         $past.op('callmethod');
         if $<longname> {
             # May just be .foo, but could also be .Foo::bar. Also handle the
