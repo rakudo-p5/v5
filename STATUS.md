@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>237</td><td>34176</td><td>4</td><td>28</td><td>34442</td></tr>
+        <tr align=center><td align=left>summary</td><td>235</td><td>34178</td><td>4</td><td>28</td><td>34442</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -19,12 +19,6 @@
         <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/bproto.v5</td><td>4</td><td>15</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
-
-use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
-
-</td></tr>
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
@@ -43,6 +37,12 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/bproto.v5</td><td>2</td><td>17</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
+
+use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
+
+</td></tr>
         <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -165,17 +165,23 @@ get_iter() not implemented in class 'NQPMu'
 Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find mro in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find mro in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Too late for semicolon form of package definition
+at t/spec/mro/isa_dfs.v5:24
+------> <BOL>⏏@urkkk::ISA = 'klonk';</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Too late for semicolon form of package definition
+at t/spec/mro/isa_dfs_utf8.v5:26
+------> <BOL>⏏@urḲḵｋ::ISA = 'kഌoんḰ';</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Confused
@@ -316,11 +322,13 @@ Confused
 at t/spec/op/assignwarn.v5:21
 ------> ++$should_warn{$_} for⏏each qw(* / x & ** << >>);</td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_if_miniperl
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Config in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
@@ -346,8 +354,10 @@ Semicolon form of package definition not allowed in subscope;
 at t/spec/op/die_unwind.v5:20
 ------>     ⏏sub DESTROY { $_[0]->() }</td></tr>
         <tr align=center><td align=left rowspan=2>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Missing block
+at t/spec/op/do.v5:31
+------>     $result = do ⏏foo1(1);</td></tr>
         <tr align=center><td align=left rowspan=2>comp/colon.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Redeclaration of routine ok
@@ -360,8 +370,10 @@ at t/spec/base/lex.v5:408
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Missing block
+at t/spec/op/exists_sub.v5:11
+------> sub t1⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>comp/decl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix = instead
@@ -373,8 +385,10 @@ at t/spec/comp/decl.v5:10
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$Level' is not declared
+at t/spec/op/gmagic.v5:17
+------>     local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align=center><td align=left rowspan=2>op/groups.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Odd number of elements found where hash expected
@@ -409,18 +423,25 @@ Malformed block
 at t/spec/comp/form_scope.v5:8
 ------> sub f ⏏($);</td></tr>
         <tr align=center><td align=left rowspan=2>op/lex_assign.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/op/lex_assign.v5:345
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    @INC = qw(. ../lib);\n    chdir 't';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix , instead
+at t/spec/op/my.v5:16
+------>     { my($a, undef,⏏ $c) = ("ok 9\n", "not ok 10\n", "ok 10\
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/mydef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'p5cc' not found for invocant of class 'Perl6::P5Grammar'
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/line_debug.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Redeclaration of routine ok
@@ -432,8 +453,9 @@ Redeclaration of routine is
 at t/spec/comp/multiline.v5:45
 ------> <BOL>⏏my $filename = "multiline$$";</td></tr>
         <tr align=center><td align=left rowspan=2>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find vars in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/opsubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
@@ -455,11 +477,13 @@ Redeclaration of routine is
 at t/spec/comp/our.v5:28
 ------> <BOL>⏏{</td></tr>
         <tr align=center><td align=left rowspan=2>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find vars in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find version in any of: ../lib
@@ -493,23 +517,28 @@ Redeclaration of routine is
 at t/spec/comp/parser.v5:55
 ------> <BOL>⏏eval '%@x=0;';</td></tr>
         <tr align=center><td align=left rowspan=2>op/upgrade.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'named' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/proto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
 at t/spec/comp/proto.v5:27
 ------> sub testing ⏏(&$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find bytes in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &sub
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/write.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/op/write.v5:1297
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
@@ -564,8 +593,10 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 Error while compiling block : Error while compiling block  (source text: "{\n        # This test script uses a slightly atypical invocation of the 'standard'\n        # core ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '@ARGV' is not declared
+at t/spec/porting/diag.v5:22
+------> my $make_exceptions_list = ($ARGV[0]⏏||'') eq '--make-exceptions-list';</td></tr>
         <tr align=center><td align=left rowspan=2>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
@@ -620,8 +651,11 @@ Could not find Carp in any of: ../lib
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/test_bootstrap.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/porting/test_bootstrap.v5:81
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
@@ -631,11 +665,13 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_if_miniperl
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -688,8 +724,9 @@ Malformed block
 at t/spec/comp/use.v5:61
 ------> sub like ⏏($$;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_email_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:136
@@ -701,8 +738,9 @@ current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (sr
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_if_miniperl
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 hangs
@@ -719,8 +757,9 @@ at t/spec/re/reg_posixcc.v5:53
 ------>     my $fmt= shift ||⏏ '%d';
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'ResizablePMCArray'
@@ -770,8 +809,11 @@ Could not find sub &skip_all_if_miniperl
 Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix = instead
+at t/spec/re/subst_amp.v5:22
+------> pos =⏏ 1;
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'ResizablePMCArray'
@@ -786,11 +828,15 @@ at t/spec/re/uniprops.v5:9
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/run/fresh_perl.v5:882
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchF1.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -802,18 +848,24 @@ at t/spec/run/switchF1.v5:43
 Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/_num_to_alpha.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix , instead
+at t/spec/test_pl/_num_to_alpha.v5:10
+------> is( _num_to_alpha(-1), undef,⏏ 'Returns undef for negative numbers');
+</td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$skip' is not declared
+at t/spec/test_pl/tempfile.v5:14
+------>     my($skip⏏,$to,$next) = @_;</td></tr>
         <tr align=center><td align=left rowspan=2>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_if_miniperl
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -992,14 +1044,17 @@ Semicolon form of package definition not allowed in subscope;
 at t/v5/32-autoload-method.v5:12
 ------>     ⏏our $AUTOLOAD;</td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_without_perlio
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/print.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 
@@ -1009,11 +1064,17 @@ current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (sr
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/tell.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/io/tell.v5:189
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/io/through.v5:151
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file '../t/lib/common.pl' for module ../t/lib/common.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:136
@@ -1069,19 +1130,22 @@ Semicolon form of package definition not allowed in subscope;
 at t/spec/mro/basic_04_c3.v5:24
 ------>     package t::lib::A; ⏏use mro 'c3';</td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/final_line_num.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse regex; couldn't find final '/'
 at t/spec/comp/final_line_num.v5:8
 ------> =~ /\Asyntax error at [^ ]+ line ([0-9]+⏏), at EOF/ or exit 1;</td></tr>
         <tr align=center><td align=left rowspan=2>op/hash-rt85026.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_without_dynamic_extension
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/no_utf8_pm.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
@@ -1099,8 +1163,11 @@ at t/spec/re/reg_60508.v5:46
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+CHECK FAILED:
+Calling 'ord' will never work with argument types (Int, Str) (lines 13, 13)
+    Expected: :(Cool $s)
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1114,8 +1181,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find File::Spec::Functions in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -1129,11 +1197,13 @@ Could not find Config in any of: ../lib
 Could not find sub &sub
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1147,11 +1217,15 @@ Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-d
 Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchd-78586.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    $^P = 0x122;\n    chdir 't';\n    @INC = ('../lib', 'lib');\n    require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1169,8 +1243,9 @@ Method 'ast' not found for invocant of class 'ResizablePMCArray'
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib);\n    #require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1184,21 +1259,32 @@ get_iter() not implemented in class 'NQPMu'
 Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/setpgrpstack.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_without_config
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routines:
+    or used at line 22. Did you mean '&ok'?
+    tempfile used at line 14
+    try used at lines 20, 21, 22
+    which_perl used at line 12
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>No such method 'subst' for invocant of type 'Any'
   in block  at t/spec/run/switchp.v5:17
@@ -1225,8 +1311,9 @@ Could not find sub &skip_all_if_miniperl
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_if_miniperl
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n      require './test.pl';\n      skip_all_if_miniperl();\n      skip_all_without_config(qw(d_for..."): Error while compiling op call (source text: "skip_all_without_config(qw(d_fork))"): Unknown QAST node type NQPMu
@@ -1236,8 +1323,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchI.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1288,8 +1376,9 @@ Could not find Config in any of: ../lib
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find overload in any of: ../lib
@@ -1299,8 +1388,11 @@ Could not find overload in any of: ../lib
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix ... instead
+at t/spec/op/yadayada.v5:17
+------> eval { ...⏏ };
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/qr.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -1310,11 +1402,13 @@ Null PMC access in get_iter()
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1330,11 +1424,16 @@ Method 'ast' not found for invocant of class 'ResizablePMCArray'
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    tempfile used at line 15
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$stored' is not declared
+at t/spec/op/utf8magic.v5:31
+------> sub STORE     { $::stored⏏ = pop }</td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1368,8 +1467,10 @@ Could not find Config in any of: ../lib
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$dev_tty' is not declared
+at t/spec/op/filetest_t.v5:15
+------> my($dev_tty⏏, $dev_null) = qw(/dev/tty /dev/null);</td></tr>
         <tr align=center><td align=left rowspan=2>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1377,19 +1478,26 @@ at t/spec/op/lex.v5:81
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my_stash.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find constant in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/packagev.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/op/packagev.v5:194
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
 at t/spec/opbasic/magic_phase.v5:16
 ------> sub ok ⏏($$) {</td></tr>
         <tr align=center><td align=left rowspan=2>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/uni/readline.v5:72
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/fflush.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -1440,8 +1548,10 @@ at t/spec/op/or.v5:17
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir \"t\" if -d \"t\";\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pos.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix , instead
@@ -1468,8 +1578,10 @@ at t/spec/op/heredoc.v5:91
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/select.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Confused
+at t/spec/op/select.v5:21
+------> is ref\⏏select, 'SCALAR', 'and STDOUT is a plain</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -1484,8 +1596,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n\n    skip_all_without_config(\"u..."): Error while compiling op if (source text: "&&"): Operation 'if' needs either 2 or 3 operands
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find charnames in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/hash.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find constant in any of: ../lib
@@ -1550,8 +1663,9 @@ Could not find file 'test.pl' for module test.pl
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
 hangs
@@ -1565,8 +1679,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n\n    require './test.pl';\n    skip_all_if_miniperl(\"no dynamic loading on miniper..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{ chdir 't'; require q(./test.pl); @INC = qw \"../lib lib\" }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1576,8 +1691,9 @@ Error while compiling block : Error while compiling block  (source text: "{ chdi
 Error while compiling block : Error while compiling block  (source text: "{ chdir 't'; require q(./test.pl); @INC = qw \"../lib lib\" }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1587,27 +1703,36 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n#    require \"./test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/pow.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$Level' is not declared
+at t/spec/op/wantarray.v5:16
+------>   local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_without_perlio
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/op/studytied.v5:18
+------>     ⏏my $c = 0;</td></tr>
         <tr align=center><td align=left rowspan=2>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find sub &skip_all_if_miniperl
@@ -1623,22 +1748,28 @@ at t/spec/re/reg_pmod.v5:18
 Could not find mypragma in any of: lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    cmp_ok used at lines 24, 25, 28, 43, 71, 75
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_psycho.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
 at t/spec/re/pat_psycho.v5:17
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_without_perlio
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -1654,14 +1785,23 @@ Undeclared routine:
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/not.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix , instead
+at t/spec/op/not.v5:34
+------>     ok($not1 == undef,⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/op/push.v5:116
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sub.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix , instead
+at t/spec/op/sub.v5:15
+------> is(empty_sub,undef,⏏"Is empty");
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n#    require \"test.pl\";\n    skip_all_witho..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1697,8 +1837,10 @@ get_iter() not implemented in class 'NQPMu'
 Method 'ast' not found for invocant of class 'ResizablePMCArray'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/package.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1708,8 +1850,9 @@ Could not find file './test.pl' for module ./test.pl
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/exec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find vmsish in any of: ../lib
@@ -1722,11 +1865,13 @@ Error while compiling, type X::Comp::AdHoc
  at line 35, near "sub TIESCA"
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_without_config
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'add_my_name' not found for invocant of class 'Perl6::P5Grammar'
@@ -1748,11 +1893,15 @@ Could not find file './test.pl' for module ./test.pl
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/cmd/while.v5:221
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/reverse.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Tie::Array in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/threads.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n     chdir 't' if -d 't';\n     @INC = '../lib';\n     require './test.pl';\n     $| = 1;\n\n    ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1762,8 +1911,11 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    $SIG{__WARN__} = sub { $warns++; warn $_[..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Semicolon form of package definition not allowed in subscope;
+  please use block form
+at t/spec/op/override.v5:18
+------> BEGIN { package Foo; ⏏*main::getlogin = sub { "kilroy"; } }</td></tr>
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require \"test.pl\";\n    plan(tests => 2..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1777,21 +1929,29 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/op/readline.v5:285
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/reset.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix =~ instead
+at t/spec/op/reset.v5:17
+------>     (shift =~⏏ m?zlopp?) ? 1 : 0;
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/warn.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/dor.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/qr.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1839,11 +1999,17 @@ at t/spec/op/repeat.v5:21
 ------> is('-' x undef,⏏ '',     '  x undef');
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/study.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find vars in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/negate.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routines:
+    bareword used at lines 33, 34, 88, 90
+    bless used at line 53. Did you mean '&elems'?
+    tie used at line 57. Did you mean '&die'?
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -1857,8 +2023,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1897,8 +2064,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    $SIG{'__WARN__'} = sub { warn $_[0] if $D..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find constant in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -1945,11 +2113,13 @@ at t/spec/op/localref.v5:21
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'ResizablePMCArray'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
@@ -1960,11 +2130,13 @@ Bogus statement
 at t/spec/op/oct.v5:35
 ------> 	['0b'.(  '0'x⏏10).'1_0101', 0b101_01],</td></tr>
         <tr align=center><td align=left rowspan=2>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/undef.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find vars in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/goto.v5</td><td>0</td><td>89</td><td>0</td><td>0</td><td>89</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1992,11 +2164,13 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12731) (src/stage2/gen/NQ
 
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12731) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Config in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$a' is not declared
@@ -2007,18 +2181,24 @@ at t/spec/op/index.v5:68
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/op/split.v5:85
+------> foo =~ /DEBUGGING/ || $foo =~ /const\n?\⏏Q(IV(3))\E/);</td></tr>
         <tr align=center><td align=left rowspan=2>run/switches.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Config in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix , instead
+at t/spec/op/array.v5:124
+------> (undef,⏏@foo) = @foo;
+</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -2037,11 +2217,13 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12731) (src/stage2/gen/NQ
 Cannot modify an immutable value
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/tr.v5</td><td>0</td><td>132</td><td>0</td><td>0</td><td>132</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'p5cc' not found for invocant of class 'Perl6::P5Grammar'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/universal.v5</td><td>0</td><td>139</td><td>0</td><td>0</td><td>139</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    $| = 1;\n    require \"./test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -2079,21 +2261,26 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    #require './test.pl';\n    plan ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sub_lval.v5</td><td>0</td><td>191</td><td>0</td><td>0</td><td>191</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/switch.v5</td><td>0</td><td>201</td><td>0</td><td>0</td><td>201</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Two terms in a row
+at t/spec/op/switch.v5:22
+------> CORE::given(3) ⏏{</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst.v5</td><td>0</td><td>206</td><td>0</td><td>0</td><td>206</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/gv.v5</td><td>0</td><td>212</td><td>0</td><td>0</td><td>212</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/overload.v5</td><td>0</td><td>215</td><td>0</td><td>0</td><td>215</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/ref.v5</td><td>0</td><td>230</td><td>0</td><td>0</td><td>230</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require 'test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -2118,11 +2305,14 @@ at t/spec/op/hashassign.v5:134
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tie_fetch_count.v5</td><td>0</td><td>312</td><td>0</td><td>0</td><td>312</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/smartmatch.v5</td><td>0</td><td>349</td><td>0</td><td>0</td><td>349</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Tie::Array in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan=5>===SORRY!===
 Confused
@@ -2139,20 +2329,24 @@ Missing block
 at t/spec/re/pat.v5:13
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find sub &skip_all_if_miniperl
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Config in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.03-122-gef73eb9/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
-        <tr><td colspan=5>Method 'Stringy' not found for invocant of class 'NQPMu'
-current instr.: 'print_exception' pc 111585 (src/gen/CORE.setting.pir:50152) (src/gen/CORE.setting:9741)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'returns' not found for invocant of class 'NQPMu'
+</td></tr>
     </tbody>
 </table>
