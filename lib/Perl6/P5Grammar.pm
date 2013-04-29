@@ -1880,12 +1880,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
                         unless $longname {
                             $/.CURSOR.panic("Compilation unit cannot be anonymous");
                         }
-                        unless $outer =:= $*UNIT {
-                            $/.CURSOR.panic("Semicolon form of " ~ $*PKGDECL ~ " definition not allowed in subscope;\n  please use block form");
-                        }
-                        #if $*PKGDECL eq 'package' {
-                        #    $/.CURSOR.panic('This appears to be Perl 5 code. If you intended it to be Perl 6 code, please use a Perl 6 style package block like "package Foo { ... }", or "module Foo; ...".');
-                        #}
                         $*begin_compunit := 0;
                     }
                 ] ?
