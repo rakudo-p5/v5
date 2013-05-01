@@ -43,3 +43,47 @@ sub EXPORT(*@a) {
         }
     }
 }
+
+    my $module := Perl6::ModuleLoader.load_module('Cool', $*GLOBALish);
+    do_import($/, $module, 'Cool');
+    #~ $/.CURSOR.import_EXPORTHOW($module);
+
+    sub do_import($/, $module, $package_source_name, $arglist?) {
+        if nqp::existskey($module, 'EXPORT') {
+            my $EXPORT := $module<EXPORT>.WHO;
+            my @to_import := ['MANDATORY'];
+            my @positional_imports := [];
+            if nqp::defined($arglist) {
+                my $Pair := $*W.find_symbol(['Pair']);
+                for $arglist -> $tag {
+                    if nqp::istype($tag, $Pair) {
+                        $tag := nqp::unbox_s($tag.key);
+                        if nqp::existskey($EXPORT, $tag) {
+                            $*W.import($/, $EXPORT{$tag}, $package_source_name);
+                        }
+                        else {
+                            nqp::die("Error while importing from '$package_source_name': no such tag '$tag'");
+
+                        }
+                    }
+                    else {
+                        nqp::push(@positional_imports, $tag);
+                    }
+                }
+            }
+            else {
+                nqp::push(@to_import, 'DEFAULT');
+            }
+            for @to_import -> $tag {
+                if nqp::existskey($EXPORT, $tag) {
+                    $*W.import($/, $EXPORT{$tag}, $package_source_name);
+                }
+            }
+            if nqp::existskey($module, '&EXPORT') {
+                $module<&EXPORT>(|@positional_imports);
+            }
+            elsif +@positional_imports {
+                nqp::die("Error while importing from '$package_source_name': no EXPORT sub, but you provided positional argument in the 'use' statement");
+            }
+        }
+    }

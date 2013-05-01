@@ -271,6 +271,15 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         my $unit := $*UNIT;
         my $mainline := QAST::Stmts.new(
             $*POD_PAST,
+            
+            #~ QAST::Op.new(
+                #~ :op('callmethod'), :name('load_module'),
+                #~ QAST::Op.new( :op('getcurhllsym'),
+                    #~ QAST::SVal.new( :value('ModuleLoader') ) ),
+                #~ QAST::SVal.new( :value<Perl5::Setting> ),
+                #~ $*W.symbol_lookup(['GLOBAL'], $/),
+            #~ ),
+
             $<statementlist>.ast,
         );
 
