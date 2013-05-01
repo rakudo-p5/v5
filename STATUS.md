@@ -1080,11 +1080,11 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling, type X::Undeclared::Symbols
-  post_types: Hash[0x9f1cd70]
-  unk_types: Hash[0x9f1cd48]
-  unk_routines: Hash[0x9f1cd20]
-  routine_suggestion: Hash[0x9f19aa0]
-  type_suggestion: Hash[0x9f199d8]
+  post_types: Hash[0x9833fa0]
+  unk_types: Hash[0x9833f78]
+  unk_routines: Hash[0x9833f50]
+  routine_suggestion: Hash[0x9833e38]
+  type_suggestion: Hash[0x9833d98]
  at line 2, near "use Test;\n"
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -2331,9 +2331,12 @@ Could not find Config in any of: ../lib, .
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>0</td><td>143</td><td>0</td><td>0</td><td>143</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/op/chop.v5:242
------->     map chop(+()), ('')x⏏68;</td></tr>
+Undeclared routines:
+    latin1_to_native used at line 188
+    local used at line 191
+    ref used at lines 142, 147
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require 'test.pl';\n    skip_all_if_mini..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
