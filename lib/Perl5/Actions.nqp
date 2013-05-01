@@ -982,7 +982,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method statement_control:sym<use>($/) {
         $V5DEBUG && say("statement_control:sym<use>($/)");
-        my $past := QAST::Var.new( :name('Nil'), :scope('lexical') );
+        my $past := $<statementlist>    ?? $<statementlist>[0].ast
+                                        !! QAST::Var.new( :name('Nil'), :scope('lexical') );
         if $<version> {
             # TODO: replace this by code that doesn't always die with
             # a useless error message
@@ -996,7 +997,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
 #                    $/.CURSOR.panic("Perl $<version> required--this is only v$mpv")
 #                }
 #            }
-            $past := $<statementlist>[0].ast if $<statementlist>;
         }
         elsif $<module_name> {
             if ~$<module_name> eq 'fatal' {

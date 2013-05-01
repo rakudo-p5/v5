@@ -1,17 +1,19 @@
 diff --git a/src/Perl6/Actions.nqp b/src/Perl6/Actions.nqp
-index 058c661..cece303 100644
+index 058c661..4a5d500 100644
 --- a/src/Perl6/Actions.nqp
 +++ b/src/Perl6/Actions.nqp
-@@ -945,6 +945,7 @@ class Perl6::Actions is HLL::Actions does STDActions {
- #                    $/.CURSOR.panic("Perl $<version> required--this is only v$mpv")
- #                }
- #            }
-+            $past := $<statementlist>[0].ast if $<statementlist>;
-         } elsif $<module_name> {
-             if ~$<module_name> eq 'fatal' {
-                 my $*SCOPE := 'my';
+@@ -931,7 +931,8 @@ class Perl6::Actions is HLL::Actions does STDActions {
+     }
+ 
+     method statement_control:sym<use>($/) {
+-        my $past := QAST::Var.new( :name('Nil'), :scope('lexical') );
++        my $past := $<statementlist>    ?? $<statementlist>[0].ast
++                                        !! QAST::Var.new( :name('Nil'), :scope('lexical') );
+         if $<version> {
+             # TODO: replace this by code that doesn't always die with
+             # a useless error message
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 42dde04..e1b8f5d 100644
+index 42dde04..b108d08 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
 @@ -759,6 +759,8 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
@@ -33,7 +35,21 @@ index 42dde04..e1b8f5d 100644
              
              # Install unless we've no setting, in which case we've likely no
              # static lexpad class yet either. Also, UNIT needs a code object.
-@@ -848,7 +853,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -837,9 +842,12 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+             my $M := %*COMPILING<%?OPTIONS><M>;
+             if nqp::defined($M) {
+                 for nqp::islist($M) ?? $M !! [$M] -> $longname {
++                    my $from;
++                    $from := 'nqp' if $longname eq 'Perl5'; # hack needed becase we cant do: perl6 -MPerl5:from<nqp> -e '...'
+                     my $module := $*W.load_module($/,
+                                                     $longname,
+-                                                    $*GLOBALish);
++                                                    $*GLOBALish,
++                                                    :$from);
+                     do_import($/, $module, $longname);
+                     $/.CURSOR.import_EXPORTHOW($module);
+                 }
+@@ -848,7 +856,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          <.finishpad>
          <.bom>?
@@ -42,7 +58,11 @@ index 42dde04..e1b8f5d 100644
  
          <.install_doc_phaser>
          
-@@ -1156,10 +1161,16 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1153,13 +1161,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+         :my $*IN_DECL := 'use';
+         :my $*HAS_SELF := '';
+         :my $*SCOPE   := 'use';
++        :my $OLD_MAIN := ~$*MAIN;
          $<doc>=[ 'DOC' \h+ ]?
          <sym> <.ws>
          [
@@ -51,9 +71,7 @@ index 42dde04..e1b8f5d 100644
 +                        my $module := $*W.load_module($/, 'Perl5', $*GLOBALish, :from<nqp>);
 +                        do_import($/, $module, 'Perl5');
 +                        $/.CURSOR.import_EXPORTHOW($module);
-+                        $*IN_DECL := '';
-+                        $*SCOPE := '';
-+                    } <statementlist=.LANG($*MAIN, 'statementlist')> ]?
++                    } ]?
          | <module_name>
              {
 -                $longname := $<module_name><longname>;
@@ -61,7 +79,7 @@ index 42dde04..e1b8f5d 100644
                  
                  # Some modules are handled in the actions are just turn on a
                  # setting of some kind.
-@@ -1195,9 +1206,22 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1195,9 +1208,22 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
              || { 
                      unless ~$<doc> && !%*COMPILING<%?OPTIONS><doc> {
                          if $longname {
@@ -85,7 +103,18 @@ index 42dde04..e1b8f5d 100644
                              do_import($/, $module, ~$longname);
                              $/.CURSOR.import_EXPORTHOW($module);
                          }
-@@ -1239,13 +1263,11 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1205,6 +1231,10 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+                 }
+             ]
+         ]
++        [ <?{ $*MAIN ne $OLD_MAIN }> {
++            $*IN_DECL := '';
++            $*SCOPE := '';
++        } <statementlist=.LANG($*MAIN, 'statementlist')> ]?
+         <.ws>
+     }
+     
+@@ -1239,13 +1269,11 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                      $*W.import($/, $EXPORT{$tag}, $package_source_name);
                  }
              }
