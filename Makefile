@@ -37,7 +37,7 @@ blib:
 	$(MKPATH) blib/Perl5
 
 clean:
-	$(RM_F) blib/*.pbc blib/*.pir blib/Perl6/*.pbc blib/Perl6/*.pir
+	$(RM_F) blib/*.pbc blib/*.pir blib/Perl5/*.pbc blib/Perl5/*.pir
 
 install: all
 	$(MKPATH) $(NQPLIB)/lib/Perl5
