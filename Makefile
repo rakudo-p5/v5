@@ -15,37 +15,41 @@ HAS_ICU    = 0
 #       as the goal is that all tests must pass without fudge
 HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(HAS_ICU)
 
-all: blib/Perl5.pbc
+all: blib blib/Perl5.pbc
 
-blib/Perl5.pbc: lib/Perl5.pm blib/Perl6/P5World.pbc blib/Perl6/P5Actions.pbc blib/Perl6/P5Grammar.pbc
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5.pir lib/Perl5.pm
+blib/Perl5/World.pbc: lib/Perl5/World.nqp
+	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
+	$(PARROT) -o blib/Perl5/World.pbc blib/Perl5/World.pir
+
+blib/Perl5/Actions.pbc: blib/Perl5/World.pbc lib/Perl5/Actions.nqp
+	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5/Actions.pir lib/Perl5/Actions.nqp
+	$(PARROT) -o blib/Perl5/Actions.pbc blib/Perl5/Actions.pir
+
+blib/Perl5/Grammar.pbc: blib/Perl5/Actions.pbc lib/Perl5/Grammar.nqp
+	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5/Grammar.pir lib/Perl5/Grammar.nqp
+	$(PARROT) -o blib/Perl5/Grammar.pbc blib/Perl5/Grammar.pir
+
+blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/Perl5/Grammar.pbc
+	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5.pir lib/Perl5.nqp
 	$(PARROT) -o blib/Perl5.pbc blib/Perl5.pir
 
-blib/Perl6/P5World.pbc: lib/Perl6/P5World.pm
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl6/P5World.pir lib/Perl6/P5World.pm
-	$(PARROT) -o blib/Perl6/P5World.pbc blib/Perl6/P5World.pir
-
-blib/Perl6/P5Actions.pbc: lib/Perl6/P5World.pm lib/Perl6/P5Actions.pm
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl6/P5Actions.pir lib/Perl6/P5Actions.pm
-	$(PARROT) -o blib/Perl6/P5Actions.pbc blib/Perl6/P5Actions.pir
-
-blib/Perl6/P5Grammar.pbc: lib/Perl6/P5Actions.pm lib/Perl6/P5Grammar.pm
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl6/P5Grammar.pir lib/Perl6/P5Grammar.pm
-	$(PARROT) -o blib/Perl6/P5Grammar.pbc blib/Perl6/P5Grammar.pir
+blib:
+	$(MKPATH) blib/Perl5
 
 clean:
 	$(RM_F) blib/*.pbc blib/*.pir blib/Perl6/*.pbc blib/Perl6/*.pir
 
 install: all
-	$(MKPATH) $(NQPLIB)/lib/Perl6
-	$(CP) blib/*.pbc $(P6LIB)/lib/
-	$(CP) blib/Perl6/*.pbc $(NQPLIB)/lib/Perl6/
+	$(MKPATH) $(NQPLIB)/lib/Perl5
+	$(CP) blib/*.pbc $(NQPLIB)/lib/
+	$(CP) blib/Perl5/*.pbc $(NQPLIB)/lib/Perl5/
+	$(CP) lib/*.pm $(P6LIB)/lib/
 
 uninstall:
-	$(RM_F) $(P6LIB)/lib/Perl5.pbc
-	$(RM_F) $(NQPLIB)/lib/Perl6/P5Actions.pbc
-	$(RM_F) $(NQPLIB)/lib/Perl6/P5Grammar.pbc
-	$(RM_F) $(NQPLIB)/lib/Perl6/P5World.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl5.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl5/Actions.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl5/Grammar.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl5/World.pbc
 
 test: install
 	V5DEBUG=0 $(HARNESS_WITH_FUDGE) $(test_file) --verbosity=9

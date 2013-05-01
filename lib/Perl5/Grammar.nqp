@@ -1,8 +1,8 @@
 use QRegex;
 use NQPP6QRegex;
 use NQPP5QRegex;
-use Perl6::P5Actions;
-use Perl6::P5World;
+use Perl5::Actions;
+use Perl5::World;
 use Perl6::Pod; # XXX do we need that?
 
 role startstop5[$start,$stop] {
@@ -377,7 +377,7 @@ role STD5 {
     }
 }
 
-grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
+grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    use DEBUG;
 
 #    method TOP ($STOP = 0) {
@@ -463,33 +463,33 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     
     
     INIT {
-        Perl6::P5Grammar.O(':prec<z=>',                                                   '%term');
-        Perl6::P5Grammar.O(':prec<y=>, :assoc<unary>, :uassoc<left>, :fiddly<1>',         '%methodcall');
-        Perl6::P5Grammar.O(':prec<x=>, :assoc<unary>, :uassoc<non>',                      '%autoincrement');
-        Perl6::P5Grammar.O(':prec<w=>, :assoc<right>',                                    '%exponentiation');
-        Perl6::P5Grammar.O(':prec<v=>, :assoc<unary>, :uassoc<left>',                     '%symbolic_unary');
-        Perl6::P5Grammar.O(':prec<u=>, :assoc<non>',                                      '%binding');
-        Perl6::P5Grammar.O(':prec<t=>, :assoc<left>',                                     '%multiplicative');
-        Perl6::P5Grammar.O(':prec<s=>, :assoc<left>',                                     '%additive');
-        Perl6::P5Grammar.O(':prec<r=>, :assoc<left>',                                     '%shift');
-        Perl6::P5Grammar.O(':prec<q=>, :assoc<unary>, :uassoc<left>',                     '%named_unary');
-        Perl6::P5Grammar.O(':prec<p=>, :assoc<non>, :diffy<1>',                           '%comparison');
-        Perl6::P5Grammar.O(':prec<o=>, :assoc<chain>, :diffy<1>, :iffy<1>',               '%equality');
-        Perl6::P5Grammar.O(':prec<n=>, :assoc<left>',                                     '%bitwise_and');
-        Perl6::P5Grammar.O(':prec<m=>, :assoc<left>',                                     '%bitwise_or');
-        Perl6::P5Grammar.O(':prec<l=>, :assoc<left>',                                     '%tight_and');
-        Perl6::P5Grammar.O(':prec<k=>, :assoc<left>',                                     '%tight_or');
-        Perl6::P5Grammar.O(':prec<j=>, :assoc<right>, :fiddly<1>',                        '%range');
-        Perl6::P5Grammar.O(':prec<i=>, :assoc<right>, :fiddly<1>',                        '%conditional');
-        Perl6::P5Grammar.O(':prec<h=>, :assoc<right>',                                    '%assignment');
-        #Perl6::P5Grammar.O(':prec<g=>, :assoc<left>, :nextterm<nulltermish>, :fiddly<1>', '%comma');
-        Perl6::P5Grammar.O(':prec<g=>, :assoc<list>, :nextterm<nulltermish>, :fiddly<1>',  '%comma');
-        Perl6::P5Grammar.O(':prec<f=>, :assoc<unary>, :uassoc<left>',                     '%listop');
-        Perl6::P5Grammar.O(':prec<e=>, :assoc<unary>, :uassoc<left>',                     '%loose_not');
-        Perl6::P5Grammar.O(':prec<d=>, :assoc<left>',                                     '%loose_and');
-        Perl6::P5Grammar.O(':prec<c=>, :assoc<left>',                                     '%loose_or');
-        Perl6::P5Grammar.O(':prec<a=!>',                                                  '%LOOSEST');
-        Perl6::P5Grammar.O(':prec<a=>, :assoc<list>',                                     '%terminator');
+        Perl5::Grammar.O(':prec<z=>',                                                   '%term');
+        Perl5::Grammar.O(':prec<y=>, :assoc<unary>, :uassoc<left>, :fiddly<1>',         '%methodcall');
+        Perl5::Grammar.O(':prec<x=>, :assoc<unary>, :uassoc<non>',                      '%autoincrement');
+        Perl5::Grammar.O(':prec<w=>, :assoc<right>',                                    '%exponentiation');
+        Perl5::Grammar.O(':prec<v=>, :assoc<unary>, :uassoc<left>',                     '%symbolic_unary');
+        Perl5::Grammar.O(':prec<u=>, :assoc<non>',                                      '%binding');
+        Perl5::Grammar.O(':prec<t=>, :assoc<left>',                                     '%multiplicative');
+        Perl5::Grammar.O(':prec<s=>, :assoc<left>',                                     '%additive');
+        Perl5::Grammar.O(':prec<r=>, :assoc<left>',                                     '%shift');
+        Perl5::Grammar.O(':prec<q=>, :assoc<unary>, :uassoc<left>',                     '%named_unary');
+        Perl5::Grammar.O(':prec<p=>, :assoc<non>, :diffy<1>',                           '%comparison');
+        Perl5::Grammar.O(':prec<o=>, :assoc<chain>, :diffy<1>, :iffy<1>',               '%equality');
+        Perl5::Grammar.O(':prec<n=>, :assoc<left>',                                     '%bitwise_and');
+        Perl5::Grammar.O(':prec<m=>, :assoc<left>',                                     '%bitwise_or');
+        Perl5::Grammar.O(':prec<l=>, :assoc<left>',                                     '%tight_and');
+        Perl5::Grammar.O(':prec<k=>, :assoc<left>',                                     '%tight_or');
+        Perl5::Grammar.O(':prec<j=>, :assoc<right>, :fiddly<1>',                        '%range');
+        Perl5::Grammar.O(':prec<i=>, :assoc<right>, :fiddly<1>',                        '%conditional');
+        Perl5::Grammar.O(':prec<h=>, :assoc<right>',                                    '%assignment');
+        #Perl5::Grammar.O(':prec<g=>, :assoc<left>, :nextterm<nulltermish>, :fiddly<1>', '%comma');
+        Perl5::Grammar.O(':prec<g=>, :assoc<list>, :nextterm<nulltermish>, :fiddly<1>', '%comma');
+        Perl5::Grammar.O(':prec<f=>, :assoc<unary>, :uassoc<left>',                     '%listop');
+        Perl5::Grammar.O(':prec<e=>, :assoc<unary>, :uassoc<left>',                     '%loose_not');
+        Perl5::Grammar.O(':prec<d=>, :assoc<left>',                                     '%loose_and');
+        Perl5::Grammar.O(':prec<c=>, :assoc<left>',                                     '%loose_or');
+        Perl5::Grammar.O(':prec<a=!>',                                                  '%LOOSEST');
+        Perl5::Grammar.O(':prec<a=>, :assoc<list>',                                     '%terminator');
     }
 
     # "epsilon" tighter than terminator
@@ -2862,9 +2862,9 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
 
     token unitstopper { $ }
 
-    method balanced ($start,$stop) { self.mixin( Perl6::P5Grammar::startstop5[$start,$stop] ); }
-    method unbalanced ($stop) { self.mixin( Perl6::P5Grammar::stop5[$stop] ); }
-    method unitstop ($stop) { self.mixin( Perl6::P5Grammar::unitstop5[$stop] ); }
+    method balanced ($start,$stop) { self.mixin( Perl5::Grammar::startstop5[$start,$stop] ); }
+    method unbalanced ($stop)      { self.mixin( Perl5::Grammar::stop5[$stop] ); }
+    method unitstop ($stop)        { self.mixin( Perl5::Grammar::unitstop5[$stop] ); }
 
     token charname {
         [
@@ -3842,7 +3842,7 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
     }
 }
 
-grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
+grammar Perl5::QGrammar is HLL::Grammar does STD5 {
 
     token charspec {
         [
@@ -4059,9 +4059,9 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
         self;
     }
     
-    method tweak_q($v)          { self.truly($v, ':q'); self.HOW.mixin(self, Perl6::P5QGrammar::q) }
+    method tweak_q($v)          { self.truly($v, ':q'); self.HOW.mixin(self, Perl5::QGrammar::q) }
     method tweak_single($v)     { self.tweak_q($v) }
-    method tweak_qq($v)         { self.truly($v, ':qq'); self.HOW.mixin(self, Perl6::P5QGrammar::qq); }
+    method tweak_qq($v)         { self.truly($v, ':qq'); self.HOW.mixin(self, Perl5::QGrammar::qq); }
     method tweak_double($v)     { self.tweak_qq($v) }
 
     method tweak_b($v)          { self.HOW.mixin(self, $v ?? b1 !! b0) }

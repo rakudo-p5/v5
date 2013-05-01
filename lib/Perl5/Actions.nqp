@@ -3,7 +3,7 @@ use NQPP5QRegex;
 use Perl6::Pod;
 use Perl6::ConstantFolder;
 use Perl6::Ops;
-use Perl6::P5World;
+use Perl5::World;
 use QRegex;
 use QAST;
 
@@ -33,7 +33,7 @@ my role STDActions {
     }
 }
 
-class Perl6::P5Actions is HLL::Actions does STDActions {
+class Perl5::Actions is HLL::Actions does STDActions {
     our @MAX_PERL_VERSION;
 
     our $FORBID_PIR;
@@ -256,7 +256,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 
     method comp_unit($/) {
-        $*W.HOW.mixin( $*W, Perl6::P5World );
+        $*W.HOW.mixin( $*W, Perl5::World );
         $V5DEBUG && say("comp_unit($/)");
         # Finish up code object for the mainline.
         if $*DECLARAND {
@@ -271,15 +271,6 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         my $unit := $*UNIT;
         my $mainline := QAST::Stmts.new(
             $*POD_PAST,
-            
-            #~ QAST::Op.new(
-                #~ :op('callmethod'), :name('load_module'),
-                #~ QAST::Op.new( :op('getcurhllsym'),
-                    #~ QAST::SVal.new( :value('ModuleLoader') ) ),
-                #~ QAST::SVal.new( :value<Perl5::Setting> ),
-                #~ $*W.symbol_lookup(['GLOBAL'], $/),
-            #~ ),
-
             $<statementlist>.ast,
         );
 
@@ -6261,7 +6252,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
     }
 }
 
-class Perl6::P5QActions is HLL::Actions does STDActions {
+class Perl5::QActions is HLL::Actions does STDActions {
     method nibbler($/) {
         $V5DEBUG && say("method nibbler($/)");
         my @asts;
