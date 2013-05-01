@@ -41,9 +41,10 @@ clean:
 
 install: all
 	$(MKPATH) $(NQPLIB)/lib/Perl5
+	$(MKPATH) $(P6LIB)/lib/Perl5
 	$(CP) blib/*.pbc $(NQPLIB)/lib/
 	$(CP) blib/Perl5/*.pbc $(NQPLIB)/lib/Perl5/
-	$(CP) lib/*.pm $(P6LIB)/lib/
+	$(CP) lib/Perl5/*.pm $(P6LIB)/lib/Perl5/
 
 uninstall:
 	$(RM_F) $(NQPLIB)/lib/Perl5.pbc
