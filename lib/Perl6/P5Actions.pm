@@ -3847,21 +3847,100 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("term:sym<time>($/)");
         make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
     }
+    
+    sub expr_or_topic( $/ ) {
+        QAST::Op.new( :op('if'),
+            # condition
+            QAST::Op.new( :op('callmethod'), :name('Bool'),
+                $<EXPR> ?? $<EXPR>[0].ast
+                        !! QAST::Var.new( :name('$_'), :scope('lexical') ) ),
+            # when true
+            $<EXPR> ?? $<EXPR>[0].ast
+                    !! QAST::Var.new( :name('$_'), :scope('lexical') ),
+            # else
+            QAST::SVal.new( :value("") )
+            #~ QAST::Op.new( :op('callmethod'), :name('new'), :returns($*W.find_symbol(['Str'])),
+                #~ QAST::Var.new( :name('Str'), :scope('lexical') ) )
+        )
+    }
+
+    sub call_expr_or_topic( $/, $name ) {
+        QAST::Op.new( :op('callmethod'), :$name,
+            # like: $string // Str.new
+            expr_or_topic( $/ )
+        );
+        
+        #~ QAST::Op.new(
+                    #~ :op('callmethod'), :$name,
+                    #~ $<EXPR> ?? $<EXPR>[0].ast
+                            #~ !! QAST::Var.new( :name('$_'), :scope('lexical') ) );
+    }
+
+    method term:sym<chop>($/) {
+        $V5DEBUG && say("term:sym<chop>($/)");
+        my $exorto     := QAST::Node.unique('exorto');
+        my $chopped    := QAST::Node.unique('chopped');
+        my $chopped_of := QAST::Node.unique('chopped_of');
+        
+        #~ $exorto.chars ?? {
+            #~ my $chopped = chop($exorto);
+            #~ my $chopped_of = $exorto.substr($chopped.chars);
+            #~ $exorto = $chopped;
+            #~ $chopped_of
+        #~ }()
+        #~ !! ""
+        my $chopped_var := QAST::Var.new( :name($chopped), :scope('lexical') );
+        my $bind := $<EXPR> ?? bind_op($/, $<EXPR>[0], $chopped_var, '$')
+                            !! QAST::Op.new( :op('bind'),
+                                    QAST::Var.new( :name('$_'), :scope('lexical') ),
+                                    QAST::Var.new( :name($chopped), :scope('lexical') ) );
+        
+        make QAST::Stmts.new(
+                # $exorto = $<EXPR> // $_
+                QAST::Op.new( :op('bind'),
+                    QAST::Var.new( :name($exorto), :scope('lexical'), :decl('var') ),
+                    expr_or_topic( $/ ) ),
+                    
+                QAST::Op.new( :op('unless'),
+                    # condition
+                    QAST::Op.new( :op('callmethod'), :name('chars'),
+                        QAST::Var.new( :name($exorto), :scope('lexical') ) ),
+                    # noop, if input string is empty, return an empty string
+                    QAST::Op.new( :op('callmethod'), :name('new'), :returns($*W.find_symbol(['Str'])),
+                        QAST::Var.new( :name('Str'), :scope('lexical') ) ),
+                    # else, input string has a length
+                    QAST::Stmts.new(
+                        # $chopped = chop($exporto)
+                        QAST::Op.new( :op('bind'),
+                            QAST::Var.new( :name($chopped), :scope('lexical'), :decl('var') ),
+                            QAST::Op.new( :op('callmethod'), :name('chop'),
+                                QAST::Var.new( :name($exorto), :scope('lexical') ) ) ),
+                        # $chopped_of = $exorto.substr($chopped.chars);
+                        QAST::Op.new( :op('bind'),
+                            QAST::Var.new( :name($chopped_of), :scope('lexical'), :decl('var') ),
+                            QAST::Op.new( :op('callmethod'), :name('substr'),
+                                QAST::Var.new( :name($exorto), :scope('lexical') ),
+                                QAST::Op.new( :op('callmethod'), :name('chars'),
+                                    QAST::Var.new( :name($chopped), :scope('lexical') ) ) ) ),
+                        # $exorto = $chopped;
+                        $bind,
+                            
+                            
+                        # return $chopped_of
+                        QAST::Var.new( :name($chopped_of), :scope('lexical') )
+                    )
+                )
+            );
+    }
 
     method term:sym<chr>($/) {
         $V5DEBUG && say("term:sym<chr>($/)");
-        make QAST::Op.new(
-                    :op('callmethod'), :name('chr'),
-                    $<EXPR> ?? $<EXPR>[0].ast
-                            !! QAST::Var.new( :name('$_'), :scope('lexical') ) );
+        make call_expr_or_topic( $/, 'chr' )
     }
 
     method term:sym<eval>($/) {
         $V5DEBUG && say("term:sym<eval>($/)");
-        my $block := QAST::Op.new(
-                    :op('callmethod'), :name('eval'),
-                    $<EXPR> ?? $<EXPR>[0].ast
-                            !! QAST::Var.new( :name('$_'), :scope('lexical') ) );
+        my $block := call_expr_or_topic( $/, 'eval' );
         make QAST::Op.new(
             :op('handle'),
             
@@ -3900,10 +3979,7 @@ class Perl6::P5Actions is HLL::Actions does STDActions {
 
     method term:sym<length>($/) {
         $V5DEBUG && say("term:sym<length>($/)");
-        make QAST::Op.new(
-            :op('callmethod'), :name('chars'), # TODO http://perldoc.perl.org/bytes.html
-            $<EXPR> ?? $<EXPR>[0].ast
-                    !! QAST::Var.new( :name('$_'), :scope('lexical') ) )
+        make call_expr_or_topic( $/, 'chars' ) # TODO http://perldoc.perl.org/bytes.html
     }
 
     method term:sym<rand>($/) {
