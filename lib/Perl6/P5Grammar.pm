@@ -2520,12 +2520,6 @@ grammar Perl6::P5Grammar is HLL::Grammar does STD5 {
         <[ 0..7 ]>+ [ _ <[ 0..7 ]>+ ]*
     }
 
-    token hexints { [<.ws><hexint><.ws>] +% ',' }
-
-    token hexint {
-        <.xdigit>+ [ _ <.xdigit>+ ]*
-    }
-
     ##########
     # Quotes #
     ##########
@@ -3879,7 +3873,7 @@ grammar Perl6::P5QGrammar is HLL::Grammar does STD5 {
         token backslash:sym<N> { <sym> '{' ~ '}' $<charname>=[.*?] }
         token backslash:sym<r> { <sym> }
         token backslash:sym<t> { <sym> }
-        token backslash:sym<x> { :dba('hex character') <sym> [ <.xdigit> <.xdigit>? | '{' ~ '}' <hexints> ] }
+        token backslash:sym<x> { :dba('hex character') <sym> [ <hexint> | '{' ~ '}' <hexints> ] }
         # XXX viv doesn't support ** quantifiers yet
         token backslash:sym<0> { :dba('octal character') <sym> [ [<[0..7]> [<[0..7]> <[0..7]>?]?]? | '{' ~ '}' <octints> ] }
     } # end role
