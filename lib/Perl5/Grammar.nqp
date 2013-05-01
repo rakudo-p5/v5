@@ -1357,6 +1357,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*IN_DECL := 'use';
         :my $*HAS_SELF := '';
         :my $*SCOPE   := 'use';
+        :my $OLD_MAIN := ~$*MAIN;
         <sym> <.ws>
         [
         ||  'strict' { self.set_strict(1); }
@@ -1366,12 +1367,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         ||  'feature' <arglist> # noop
         ||  'mro' <arglist>     # http://perldoc.perl.org/mro.html
         ||  'open' <arglist>    # http://perldoc.perl.org/open.html
-        || <version=versionish> #<?{ ~$<version><vnum>[0] eq '5' }>
-        #| 'v'? <?before '5'> {} $<vstr>=[<vnum>+ % '.' '+'?] {
-        #        my $module := $*W.load_module($/, 'Perl5', $*GLOBALish);
-        #        do_import($/, $module, 'Perl5');
-        #        $/.CURSOR.import_EXPORTHOW($module);
-        #    }
+        || <version=versionish> [ <?{ ~$<version><vnum>[0] eq '6' }> {
+                                    $*MAIN := 'MAIN';
+                                } ]?
         || <module_name> <version=versionish>?
             {
                 $longname := $<module_name><longname>;
@@ -1411,6 +1409,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 }
             ]
         ]
+        [ <?{ $*MAIN ne $OLD_MAIN }> {
+            $*IN_DECL := '';
+            $*SCOPE := '';
+        } <statementlist=.LANG($*MAIN, 'statementlist')> ]?
+        <.ws>
     }
 
     sub do_import($/, $module, $package_source_name, $arglist?) {
