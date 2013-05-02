@@ -1,5 +1,5 @@
 diff --git a/src/Perl6/Actions.nqp b/src/Perl6/Actions.nqp
-index 058c661..4a5d500 100644
+index 058c661..170ad3c 100644
 --- a/src/Perl6/Actions.nqp
 +++ b/src/Perl6/Actions.nqp
 @@ -931,7 +931,8 @@ class Perl6::Actions is HLL::Actions does STDActions {
@@ -7,13 +7,13 @@ index 058c661..4a5d500 100644
  
      method statement_control:sym<use>($/) {
 -        my $past := QAST::Var.new( :name('Nil'), :scope('lexical') );
-+        my $past := $<statementlist>    ?? $<statementlist>[0].ast
++        my $past := $<statementlist>    ?? $<statementlist>.ast
 +                                        !! QAST::Var.new( :name('Nil'), :scope('lexical') );
          if $<version> {
              # TODO: replace this by code that doesn't always die with
              # a useless error message
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 42dde04..219facd 100644
+index 38ca9f8..2cb61db 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
 @@ -759,6 +759,8 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
@@ -63,7 +63,7 @@ index 42dde04..219facd 100644
          :my $*HAS_SELF := '';
          :my $*SCOPE   := 'use';
 +        :my $OLD_MAIN := ~$*MAIN;
-         $<doc>=[ 'DOC' \h+ ]?
+         $<doc>=[ 'DOC' \h+ ]**0..1
          <sym> <.ws>
          [
 -        | <version>
@@ -142,7 +142,7 @@ index 42dde04..219facd 100644
          }
      }
 diff --git a/src/Perl6/ModuleLoader.nqp b/src/Perl6/ModuleLoader.nqp
-index 9cf8cc4..4025a42 100644
+index 9cf8cc4..4027553 100644
 --- a/src/Perl6/ModuleLoader.nqp
 +++ b/src/Perl6/ModuleLoader.nqp
 @@ -16,14 +16,31 @@ class Perl6::ModuleLoader {
@@ -173,7 +173,7 @@ index 9cf8cc4..4025a42 100644
                  if +@INC {
 +                    if $from eq 'nqp' {
 +                        my %conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH];
-+                        @INC.push(%conf<libdir> ~ %conf<versiondir> ~ '/languages/nqp/lib');
++                        nqp::push(@INC, %conf<libdir> ~ %conf<versiondir> ~ '/languages/nqp/lib');
 +                    }
                      return @INC;
                  }
