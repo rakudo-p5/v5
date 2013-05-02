@@ -982,7 +982,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method statement_control:sym<use>($/) {
         $V5DEBUG && say("statement_control:sym<use>($/)");
-        my $past := $<statementlist>    ?? $<statementlist>[0].ast
+        my $past := $<statementlist>    ?? $<statementlist>.ast
                                         !! QAST::Var.new( :name('Nil'), :scope('lexical') );
         if $<version> {
             # TODO: replace this by code that doesn't always die with
