@@ -1,7 +1,9 @@
 
 class Perl5::Terms;
 
-sub _chop(*@s is rw) {
+
+multi sub chop()          is export { chop(CALLER::<$_>) }
+multi sub chop(*@s is rw) is export {
     my $chopped_of = '';
     for @s -> $s is rw {
         if $s && $s.chars {
@@ -11,10 +13,10 @@ sub _chop(*@s is rw) {
     }
     $chopped_of
 }
-multi sub chop(*@s is rw) is export { _chop(@s)           }
-multi sub chop()          is export { _chop(CALLER::<$_>) }
 
-sub _chomp(*@s is rw) {
+
+multi sub chomp()          is export { chomp(CALLER::<$_>) }
+multi sub chomp(*@s is rw) is export {
     my $so_chomped = 0;
     for @s -> $s is rw {
         if $s && $s.chars {
@@ -25,8 +27,7 @@ sub _chomp(*@s is rw) {
     }
     $so_chomped
 }
-multi sub chomp(*@s is rw) is export { _chomp(@s)           }
-multi sub chomp()          is export { _chomp(CALLER::<$_>) }
+
 
 sub ref($o) is export {
     $o.^name
