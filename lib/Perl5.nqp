@@ -42,4 +42,5 @@ sub EXPORT(*@a) {
             }
         }
     }
+    $*W.p6ize_recursive( nqp::hash() )
 }
