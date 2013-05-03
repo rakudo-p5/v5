@@ -13,7 +13,7 @@ index 058c661..170ad3c 100644
              # TODO: replace this by code that doesn't always die with
              # a useless error message
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 38ca9f8..2cb61db 100644
+index 375b15e..3e6251f 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
 @@ -759,6 +759,8 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
@@ -122,27 +122,8 @@ index 38ca9f8..2cb61db 100644
          <.ws>
      }
      
-@@ -1239,13 +1277,11 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
-                     $*W.import($/, $EXPORT{$tag}, $package_source_name);
-                 }
-             }
--            if +@positional_imports {
--                if nqp::existskey($module, '&EXPORT') {
--                    $module<&EXPORT>(|@positional_imports);
--                }
--                else {
--                    nqp::die("Error while importing from '$package_source_name': no EXPORT sub, but you provided positional argument in the 'use' statement");
--                }
-+            if nqp::existskey($module, '&EXPORT') {
-+                $module<&EXPORT>(|@positional_imports);
-+            }
-+            elsif +@positional_imports {
-+                nqp::die("Error while importing from '$package_source_name': no EXPORT sub, but you provided positional argument in the 'use' statement");
-             }
-         }
-     }
 diff --git a/src/Perl6/ModuleLoader.nqp b/src/Perl6/ModuleLoader.nqp
-index 9cf8cc4..4027553 100644
+index 9cf8cc4..14bc418 100644
 --- a/src/Perl6/ModuleLoader.nqp
 +++ b/src/Perl6/ModuleLoader.nqp
 @@ -16,14 +16,31 @@ class Perl6::ModuleLoader {
@@ -171,9 +152,9 @@ index 9cf8cc4..4027553 100644
              if nqp::defined($INC) {
                  my @INC := $INC.FLATTENABLE_LIST();
                  if +@INC {
-+                    if $from eq 'nqp' {
++                    if $from {
 +                        my %conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH];
-+                        nqp::push(@INC, %conf<libdir> ~ %conf<versiondir> ~ '/languages/nqp/lib');
++                        nqp::push(@INC, %conf<libdir> ~ %conf<versiondir> ~ '/languages/' ~ nqp::lc($from) ~ '/lib');
 +                    }
                      return @INC;
                  }
@@ -241,7 +222,7 @@ index 9cf8cc4..4027553 100644
          # overlap. Otherwise, we need to recurse.
          my %known_symbols;
 diff --git a/src/Perl6/World.nqp b/src/Perl6/World.nqp
-index 6e81501..5ceeded 100644
+index 79f70a8..33b2c1d 100644
 --- a/src/Perl6/World.nqp
 +++ b/src/Perl6/World.nqp
 @@ -355,22 +355,28 @@ class Perl6::World is HLL::World {
