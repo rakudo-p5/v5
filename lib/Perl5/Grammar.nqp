@@ -1523,9 +1523,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 <e3=.EXPR>?
             ')'
         ||  [
-            || [ <variable> { $*FOR_VARIABLE := ~$<variable>[0].ast.name; } ]?
+            || [ <variable> { $*FOR_VARIABLE := ~$<variable>.ast.name; } ]?
             || [  [ 'my' { $*SCOPE := 'my' } || 'our' { $*SCOPE := 'our' } ]?
-                    <variable_declarator> { $*FOR_VARIABLE := ~$<variable_declarator>[0].ast.name; } ]?
+                    <variable_declarator> { $*FOR_VARIABLE := ~$<variable_declarator>.ast.name; } ]?
             ]
             '(' ~ ')' <EXPR>
         ]
@@ -1691,7 +1691,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #            if +$<typename> > 1 {
 #                $/.CURSOR.NYI('Multiple prefix constraints');
 #            }
-#            $*OFTYPE := $<typename>[0];
+#            $*OFTYPE := $<typename>;
 #          }
 #          <DECL=multi_declarator>
 #        | <DECL=multi_declarator>
@@ -1740,7 +1740,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 ##        { $*SCOPE := $*SCOPE || 'our'; }
 #        '' # XXX
 #        [
-#            [ <longname> { $longname := $<longname>[0]; self.add_name( ~$longname<name> ); } ]?
+#            [ <longname> { $longname := $<longname>; self.add_name( ~$longname<name> ); } ]?
 #            <.newlex>
 #            <trait>*
 #            <.getdecl>
@@ -1798,7 +1798,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { unless $*SCOPE { $*SCOPE := 'our'; } }
         
         [
-            [ <longname> { $longname := $*W.p5dissect_longname($<longname>[0]); } ]?
+            [ <longname> { $longname := $*W.p5dissect_longname($<longname>); } ]?
             <.newlex>
             
             #~ [ :dba('generic role')
