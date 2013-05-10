@@ -3959,11 +3959,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method term:sym<print>($/) {
         $V5DEBUG && say("term:sym<print>($/)");
-        my @args := $<args> ?? $<args>.ast.list !! [ QAST::Var.new( :name('$_'), :scope('lexical') ) ];
+        my @args := $<arglist> ?? $<arglist>.ast.list !! [ QAST::Var.new( :name('$_'), :scope('lexical') ) ];
         my $past := QAST::Op.new( :op('call'), :name('&print'),
-            |@args
-        );
-        $past.unshift( QAST::Var.new( :named('fh'), :name(~$<fh>), :scope('lexical') ) ) if $<fh>;
+            |@args );
+        $past.push( QAST::Var.new( :named('fh'), :name(~$<fh>), :scope('lexical') ) ) if $<fh>;
         make $past
     }
 
