@@ -28,6 +28,15 @@ multi sub chomp(*@s is rw) is export {
     $so_chomped
 }
 
+multi sub open( $fh is rw, $expr )             is export { open( $fh, $expr.substr(0, 1), $expr.substr(1) ) }
+multi sub open( $fh is rw, $m, $expr, *@list ) is export {
+    # ($path, :r(:$r), :w(:$w), :a(:$a), :p(:$p), :bin(:$bin), :chomp(:$chomp) = { ... }, :enc(:encoding(:$encoding)) = { ... })
+    $fh = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) );
+}
+
+multi sub print( :$fh, *@text ) is export { ($fh || $*OUT).print( @text.join('') ) }
+
+sub close( IO::Handle $fh ) is export { $fh.close }
 
 sub ref($o) is export {
     $o.^name

@@ -3957,6 +3957,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make call_expr_or_topic( $/, 'chars' ) # TODO http://perldoc.perl.org/bytes.html
     }
 
+    method term:sym<print>($/) {
+        $V5DEBUG && say("term:sym<print>($/)");
+        my @args := $<args> ?? $<args>.ast.list !! [ QAST::Var.new( :name('$_'), :scope('lexical') ) ];
+        my $past := QAST::Op.new( :op('call'), :name('&print'),
+            |@args
+        );
+        $past.unshift( QAST::Var.new( :named('fh'), :name(~$<fh>), :scope('lexical') ) ) if $<fh>;
+        make $past
+    }
+
     method term:sym<rand>($/) {
         $V5DEBUG && say("term:sym<rand>($/)");
         make QAST::Op.new( :op('call'), :name('&rand'), :node($/) );

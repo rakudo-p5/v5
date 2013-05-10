@@ -3381,6 +3381,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<oct>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
+    token term:sym<print>
+        { <sym> » <?before \s*> <.ws> [ <fh=.EXPR('z=')> <?before \s+> <.ws> <args=.EXPR('g=')> | <args=.EXPR('g=')> ]? }
+
 #    token term:sym<prototype>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
