@@ -1,5 +1,5 @@
 diff --git a/src/Perl6/Actions.nqp b/src/Perl6/Actions.nqp
-index 058c661..170ad3c 100644
+index fe476d4..83da55c 100644
 --- a/src/Perl6/Actions.nqp
 +++ b/src/Perl6/Actions.nqp
 @@ -931,7 +931,8 @@ class Perl6::Actions is HLL::Actions does STDActions {
@@ -13,7 +13,7 @@ index 058c661..170ad3c 100644
              # TODO: replace this by code that doesn't always die with
              # a useless error message
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 375b15e..3e6251f 100644
+index 4686b04..1b131a3 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
 @@ -759,6 +759,8 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
@@ -222,10 +222,10 @@ index 9cf8cc4..14bc418 100644
          # overlap. Otherwise, we need to recurse.
          my %known_symbols;
 diff --git a/src/Perl6/World.nqp b/src/Perl6/World.nqp
-index 79f70a8..33b2c1d 100644
+index 7bbd058..c21bf2a 100644
 --- a/src/Perl6/World.nqp
 +++ b/src/Perl6/World.nqp
-@@ -355,22 +355,28 @@ class Perl6::World is HLL::World {
+@@ -355,25 +355,31 @@ class Perl6::World is HLL::World {
      
      # Loads a module immediately, and also makes sure we load it
      # during the deserialization.
@@ -260,4 +260,8 @@ index 79f70a8..33b2c1d 100644
 +                )));
          }
  
-         return nqp::ctxlexpad($module);
+-        return nqp::ctxlexpad($module);
++        return nqp::ctxlexpad($module)
+     }
+     
+     # Uses the NQP module loader to load Perl6::ModuleLoader, which
