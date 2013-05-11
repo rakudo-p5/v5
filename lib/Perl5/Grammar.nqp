@@ -1364,6 +1364,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         ||  'utf8' # noop
         ||  'integer'           # http://perldoc.perl.org/integer.html
         ||  'warnings' # noop
+        ||  'base' <arglist>    # http://perldoc.perl.org/base.html
         ||  'feature' <arglist> # noop
         ||  'mro' <arglist>     # http://perldoc.perl.org/mro.html
         ||  'open' <arglist>    # http://perldoc.perl.org/open.html
@@ -3381,8 +3382,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<oct>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<print>
-        { <sym> » <?before \s*> <.ws> [ <fh=.EXPR('z=')> <?before \s+> <.ws> <arglist> | <arglist> ]? }
+    #~ token term:sym<print>
+        #~ { <sym> » <?before \s*> <.ws> [ <fh=.EXPR('z=')> <?before \s+> <.ws> <arglist> | <arglist> ]? }
 
 #    token term:sym<prototype>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
