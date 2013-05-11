@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>246</td><td>34173</td><td>4</td><td>38</td><td>34458</td></tr>
+        <tr align=center><td align=left>summary</td><td>254</td><td>34195</td><td>4</td><td>39</td><td>34489</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -14,8 +14,15 @@
 
 </td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align=center><td align=left>op/chop.v5</td><td>8</td><td>124</td><td>0</td><td>11</td><td>143</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr align=center><td align=left>op/chop.v5</td><td>5</td><td>128</td><td>0</td><td>10</td><td>143</td></tr>
+        <tr align=center><td align=left rowspan=2>op/chr.v5</td><td>5</td><td>37</td><td>0</td><td>0</td><td>42</td></tr>
+        <tr><td colspan=5>Invalid character for UTF-8 encoding
+
+  in method chr at src/gen/CORE.setting:3248
+  in block  at t/spec/op/chr.v5:25
+
+</td></tr>
         <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -298,13 +305,33 @@ get_iter() not implemented in class 'NQPMu'
 Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'flat' not found for invocant of class 'NQPMu'
-</td></tr>
+        <tr><td colspan=5>No such symbol '&bless'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/isa_c3.v5:64
+  in block  at t/spec/mro/isa_c3.v5:48
+  in block  at t/spec/mro/isa_c3.v5:38
+  in block  at t/spec/mro/isa_c3.v5:23
+  in block  at t/spec/mro/isa_c3.v5:13
+
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
+current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'flat' not found for invocant of class 'NQPMu'
-</td></tr>
+        <tr><td colspan=5>No such symbol '&bless'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/isa_c3_utf8.v5:66
+  in block  at t/spec/mro/isa_c3_utf8.v5:50
+  in block  at t/spec/mro/isa_c3_utf8.v5:40
+  in block  at t/spec/mro/isa_c3_utf8.v5:25
+  in block  at t/spec/mro/isa_c3_utf8.v5:15
+
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
+current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -545,10 +572,6 @@ Preceding context expects a term, but found infix < instead
 at t/spec/op/lex_assign.v5:345
 ------> <BOL>⏏<EOL>
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    @INC = qw(. ../lib);\n    chdir 't';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix , instead
@@ -641,7 +664,9 @@ at t/spec/comp/proto.v5:27
 ------> sub testing ⏏(&$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find bytes in any of: ../lib
+Preceding context expects a term, but found infix < instead
+at t/spec/op/utf8decode.v5:189
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -704,7 +729,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n        # This test script uses a slightly atypical invocation of the 'standard'\n        # core ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -736,7 +761,7 @@ at t/spec/comp/retainedlines.v5:29
 ------> sub is⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n\t# This test script uses a slightly atypical invocation of the 'standard'\n\t# core testing setu..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Maintainers in any of: lib Porting
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/manifest.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -949,7 +974,7 @@ at t/spec/re/uniprops.v5:9
 ------> do ⏏'../lib/unicore/TestProp.pl';</td></tr>
         <tr align=center><td align=left rowspan=2>run/exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1001,7 +1026,7 @@ at t/spec/io/crlf_through.v5:12
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib uni .);\n    require \"case.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find file 'case.pl' for module case.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1009,11 +1034,11 @@ Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n# te
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib uni .);\n    require \"case.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find file 'case.pl' for module case.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib uni .);\n    require \"case.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find file 'case.pl' for module case.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1196,7 +1221,9 @@ at t/spec/io/through.v5:151
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/no_load.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Preceding context expects a term, but found infix << instead
+at t/spec/lib/no_load.v5:39
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1292,11 +1319,11 @@ at t/spec/re/reg_60508.v5:46
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib .);\n    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1369,7 +1396,7 @@ at t/spec/op/concat2.v5:61
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib);\n    #require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1385,7 +1412,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1429,7 +1456,7 @@ No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Config in any of: . ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1437,7 +1464,7 @@ No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n      require './test.pl';\n      skip_all_if_miniperl();\n      skip_all_without_config(qw(d_for..."): Error while compiling op call (source text: "qw(d_fork)"): Unknown QAST node type NQPMu
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1466,7 +1493,7 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 22, 23)
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/proxy_constant_subs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    require './test.pl';\n    skip_all_without_dynamic_extension($_) foreach qw(B Fcntl);\n    # ..."): Error while compiling op bind: Error while compiling op callmethod (source text: "skip_all_without_dynamic_extension($_) foreach qw(B Fcntl)"): Error while compiling op call: Unknown QAST node type NQPMu
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1508,7 +1535,7 @@ Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1602,8 +1629,14 @@ Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.
 Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/context.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&curr_test'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in sub foo at t/spec/op/context.v5:16
+  in block  at t/spec/op/context.v5:19
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1671,7 +1704,7 @@ Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\nBEGI
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/getppid.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/or.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1681,7 +1714,7 @@ at t/spec/op/or.v5:17
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir \"t\" if -d \"t\";\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Config in any of: . ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1723,10 +1756,7 @@ at t/spec/op/select.v5:21
 Missing block
 at t/spec/re/pat_special_cc.v5:14
 ------> sub run_tests⏏;</td></tr>
-        <tr align=center><td align=left rowspan=2>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n#    require './test.pl';\n    eval 'use Errn..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+        <tr align=center><td align=left>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left rowspan=2>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n\n    skip_all_without_config(\"u..."): Error while compiling op if (source text: "&&"): Operation 'if' needs either 2 or 3 operands
@@ -1741,15 +1771,15 @@ Could not find constant in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/srand.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    die 'hangs';\n    chdir \"t\" if -d \"t\";\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+hangs
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/FindExt.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    @INC = qw(../win32 ../lib);\n    require './test.pl';\n    skip_all('FindExt not portable')\n..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchd.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1805,8 +1835,9 @@ hangs
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/class.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib .);\n    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/uni/class.v5:13
+------> is(($str =~ /(\⏏p{IsMyUniClass}+)/)[0], '0123456789:;<=></td></tr>
         <tr align=center><td align=left rowspan=2>uni/lex_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n\n    require './test.pl';\n    skip_all_if_miniperl(\"no dynamic loading on miniper..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1818,23 +1849,26 @@ at t/spec/mro/isa_aliases_utf8.v5:16
 ------> ok 'ฟ옥ʮ'->isa(⏏"Ｂᐊㄗ"),</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{ chdir 't'; require q(./test.pl); @INC = qw \"../lib lib\" }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_edgecases.v5:25
+------>     my $foo = Foo->new(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_edgecases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{ chdir 't'; require q(./test.pl); @INC = qw \"../lib lib\" }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_edgecases_utf8.v5:28
+------>     my $foo = ᕘ->new(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/dup.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n#    require \"./test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Config in any of: . ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1918,7 +1952,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find vars in any of: . ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/not.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1940,7 +1974,7 @@ at t/spec/op/sub.v5:15
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n#    require \"test.pl\";\n    skip_all_witho..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&skip_all_without_perlio'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/defout.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1958,11 +1992,15 @@ No such symbol '&skip_all'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't';\n    @INC = qw(../lib);\n    #require './test.pl';\n    plan (17);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Preceding context expects a term, but found infix , instead
+at t/spec/op/current_sub.v5:16
+------>     is __SUB__, undef,⏏ '__SUB__ under use v5.16';
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require 'test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Preceding context expects a term, but found infix < instead
+at t/spec/op/glob.v5:118
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2045,7 +2083,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defins.v5</td><td>0</td><td>27</td><td>0</td><td>0</td><td>27</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    $SIG{__WARN__} = sub { $warns++; warn $_[..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2053,11 +2091,12 @@ No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require \"test.pl\";\n    plan(tests => 2..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/pvbm.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require \"./test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{ $| = 1 }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2083,17 +2122,21 @@ Null PMC access in get_iter()
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'returns' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/qr.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't';\n    @INC = qw(lib ../lib);\n    require './test.pl';\n    skip_all_if_miniperl(\"..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unshift.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2109,7 +2152,7 @@ No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/rxcode.v5</td><td>0</td><td>39</td><td>0</td><td>0</td><td>39</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2121,11 +2164,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/length.v5</td><td>0</td><td>41</td><td>0</td><td>0</td><td>41</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find bytes in any of: ../lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/chr.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib); # ../lib needed for test.deparse\n    #require..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2149,8 +2188,13 @@ Could not find vars in any of: ../lib
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>0</td><td>47</td><td>0</td><td>0</td><td>47</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n#    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&cmp_ok'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/auto.v5:14
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2174,7 +2218,7 @@ Odd number of elements found where hash expected
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/sprintf.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib .);\n    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2191,11 +2235,11 @@ at t/spec/op/each.v5:55
 ------> 	$key =~ y/a-z/A-Z/⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/stash.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/ver.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    $SIG{'__WARN__'} = sub { warn $_[0] if $D..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2207,7 +2251,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Config in any of: . ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2219,11 +2263,12 @@ get_iter() not implemented in class 'NQPMu'
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>op/grep.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Confused
+at t/spec/op/grep.v5:33
+------>     @res = map({$_} ⏏("geronimo"));</td></tr>
         <tr align=center><td align=left rowspan=2>uni/method.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not locate compile-time value for symbol 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/each_array.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2235,7 +2280,9 @@ Could not locate compile-time value for symbol
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Preceding context expects a term, but found infix , instead
+at t/spec/op/list.v5:136
+------>     my @a = (0, undef,⏏ undef, 3);
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/localref.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2243,8 +2290,15 @@ Bogus statement
 at t/spec/op/localref.v5:21
 ------> { local ${$x x⏏2};$aa = 6; is($aa,6); undef $x; is($aa,</td></tr>
         <tr align=center><td align=left rowspan=2>op/loopctl.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>Potential difficulties:
+    Redeclaration of symbol $x
+    at t/spec/op/loopctl.v5:959
+    ------>     until (! (my $x ⏏= $i)) {
+    Redeclaration of symbol $x
+    at t/spec/op/loopctl.v5:965
+    ------>     for ($i = 1; my $x ⏏= $i; ) {
+===SORRY!===
+Could not find sub cuid_120_1368310959.71434
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2274,8 +2328,9 @@ Could not find vars in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/goto.v5</td><td>0</td><td>89</td><td>0</td><td>0</td><td>89</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/op/goto.v5:19
+------> local $SIG{__WARN__}⏏ = sub { if ($_[0] =~ m/jump into a cons</td></tr>
         <tr align=center><td align=left rowspan=2>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix > instead
@@ -2365,15 +2420,16 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/method.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib lib);\n    require \"test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/method.v5:31
+------> is(Pack->method(⏏"a","b","c"), "method,a,b,c");</td></tr>
         <tr align=center><td align=left rowspan=2>op/range.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib, .
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    #require 'test.pl';\n    skip_all_if_mini..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2385,8 +2441,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require 'test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Confused
+at t/spec/op/sort.v5:22
+------>     map scalar(sort(+())), ('')x⏏68;</td></tr>
         <tr align=center><td align=left rowspan=2>op/magic.v5</td><td>0</td><td>178</td><td>0</td><td>0</td><td>178</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    #require './test.pl';\n    plan ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -2414,8 +2471,9 @@ Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/ref.v5</td><td>0</td><td>230</td><td>0</td><td>0</td><td>230</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require 'test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Confused
+at t/spec/op/ref.v5:11
+------> use strict ⏏qw(refs subs);</td></tr>
         <tr align=center><td align=left rowspan=2>op/gv.v5</td><td>0</td><td>245</td><td>0</td><td>0</td><td>245</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -2433,7 +2491,7 @@ at t/spec/op/hashassign.v5:134
 ------> ok (main->in_method ⏏(%names), "pass hash into a method");</td></tr>
         <tr align=center><td align=left rowspan=2>op/local.v5</td><td>0</td><td>310</td><td>0</td><td>0</td><td>310</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n    require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tie_fetch_count.v5</td><td>0</td><td>312</td><td>0</td><td>0</td><td>312</td></tr>
         <tr><td colspan=5>===SORRY!===

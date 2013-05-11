@@ -1381,6 +1381,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [
         ||  'strict' { self.set_strict(1); }
         ||  'utf8' # noop
+        ||  'bytes'             # http://perldoc.perl.org/bytes.html
         ||  'integer'           # http://perldoc.perl.org/integer.html
         ||  'warnings' # noop
         ||  'base' <arglist>    # http://perldoc.perl.org/base.html
