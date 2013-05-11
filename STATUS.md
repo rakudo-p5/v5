@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>249</td><td>34162</td><td>4</td><td>34</td><td>34446</td></tr>
+        <tr align=center><td align=left>summary</td><td>249</td><td>34158</td><td>4</td><td>38</td><td>34446</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -13,7 +13,7 @@
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:48
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>10</td><td>127</td><td>0</td><td>6</td><td>143</td></tr>
+        <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>10</td><td>123</td><td>0</td><td>10</td><td>143</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/chop.v5:32
 
 </td></tr>
@@ -54,31 +54,51 @@ use of uninitialized value of type Any in string context  in any !cursor_init at
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 34
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 32
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 34
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared name:
+    Diamond_D used at line 55. Did you mean 'Diamond_A', 'Diamond_B', 'Diamond_C'?
+Undeclared routine:
+    eq_array used at line 50
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routines:
+    eq_array used at line 52
+    Ｄiᚪၚd_D used at line 57
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared name:
+    Diamond_D used at line 55. Did you mean 'Diamond_A', 'Diamond_B', 'Diamond_C'?
+Undeclared routine:
+    eq_array used at line 50
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routines:
+    eq_array used at line 53
+    Ｄiᚪၚd_D used at line 58
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -86,27 +106,35 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Unexpected closing bracket
+at t/spec/mro/complex_c3.v5:144
+------> th(), "right", 'next::method working ok'⏏);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Unexpected closing bracket
+at t/spec/mro/complex_c3_utf8.v5:146
+------> th(), "right", 'next::method working ok'⏏);
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at lines 86, 91, 96, 101, 106, 111, 116, 121, 126, 131, 136
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at lines 88, 93, 98, 103, 108, 113, 118, 123, 128, 133, 138
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -310,20 +338,24 @@ at t/spec/mro/next_goto_utf8.v5:16
 ------>     sub next_prxᔬ { goto &next::method⏏ }</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_inanon.v5:37
+------> rn 'B::foo => ' . (shift)->next::method(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_inanon_utf8.v5:38
+------> turn 'Ḃ::ᕘ => ' . (shift)->next::method(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_ineval.v5:33
+------> rn 'B::foo => ' . (shift)->next::method(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_ineval_utf8.v5:35
+------> urn 'ｂ::ຟǫ => ' . (shift)->next::method(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -332,31 +364,35 @@ at t/spec/cmd/mod.v5:61
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_method.v5:32
+------> ond_B::foo => ' . (shift)->next::method(⏏) }</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_method_utf8.v5:34
+------> mond_B::fಓ => ' . (shift)->next::method(⏏) }</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_skip.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_skip.v5:32
+------> ond_B::baz => ' . (shift)->next::method(⏏) }</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_skip_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_skip_utf8.v5:35
+------> iᚪၚd_B::바ź => ' . (shift)->next::method(⏏) }</td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -373,19 +409,27 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 65
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 66
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 65
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 67
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/64bitint.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -476,7 +520,7 @@ at t/spec/op/inc.v5:57
 ------> $b⏏ = -$a;</td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -645,7 +689,7 @@ at t/spec/porting/args_assert.v5:66
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -659,11 +703,11 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -676,7 +720,7 @@ at t/spec/porting/diag.v5:22
 ------> my $make_exceptions_list = ($ARGV[0]⏏||'') eq '--make-exceptions-list';</td></tr>
         <tr align=center><td align=left rowspan=2>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/exec-bit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -690,7 +734,7 @@ Could not find File::Basename in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/globvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/retainedlines.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -703,15 +747,15 @@ Error while compiling block : Error while compiling block  (source text: "{\n\t#
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/manifest.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -725,7 +769,7 @@ Could not find Carp in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/test_bootstrap.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -735,7 +779,7 @@ at t/spec/porting/test_bootstrap.v5:81
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/term.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1084,16 +1128,16 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling, type X::Undeclared::Symbols
-  post_types: Hash[0x1078c5b0]
-  unk_types: Hash[0x1078c5d8]
-  unk_routines: Hash[0x1078c600]
-  routine_suggestion: Hash[0x1078c6f0]
-  type_suggestion: Hash[0x1078c790]
+  post_types: Hash[0xd9d6cf8]
+  unk_types: Hash[0xd9d6cd0]
+  unk_routines: Hash[0xd9d6ca8]
+  routine_suggestion: Hash[0xd9d6bb8]
+  type_suggestion: Hash[0xd9d6b18]
  at line 2, near "use Test;\n"
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/23-eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1178,35 +1222,46 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_dfs_utf8.v5:117
+------> is(텟ţ::ଅ->can(⏏'ƈ_or_Ḋ')->(), '텟ţ::Ḋ', '... can got the</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 91
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 93
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 91
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 93
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Undeclared routine:
+    eq_array used at line 32
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1291,7 +1346,7 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/qr_gc.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1380,11 +1435,11 @@ Could not find sub &skip_all_if_miniperl
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_NEXT.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_NEXT_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1430,20 +1485,24 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_c3.v5:49
+------> is(Diamond_D->can(⏏'hello')->(), 'Diamond_C::hello', '... c</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_c3_utf8.v5:51
+------> is(Ｄiᚪၚd_D->can(⏏'hèllò')->(), 'Ｄiᚪၚd_C::hèllò', '... can</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_dfs.v5:49
+------> is(Diamond_D->can(⏏'hello')->(), 'Diamond_A::hello', '... c</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_dfs_utf8.v5:51
+------> is(Ｄiᚪၚd_D->can(⏏'hèllò')->(), 'Ｄiᚪၚd_A::hèllò', '... can</td></tr>
         <tr align=center><td align=left rowspan=2>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -1545,7 +1604,7 @@ Could not find sub &skip_all_without_perlio
 </td></tr>
         <tr align=center><td align=left rowspan=2>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>bigmem/vec.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1718,20 +1777,23 @@ Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_c3.v5:116
+------> is(Test::A->can(⏏'C_or_D')->(), 'Test::C', '... can got t</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_c3_utf8.v5:118
+------> is(텟ţ::ଅ->can(⏏'ƈ_or_Ḋ')->(), '텟ţ::ƈ', '... can got the</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find base in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_dfs.v5:116
+------> is(Test::A->can(⏏'C_or_D')->(), 'Test::D', '... can got t</td></tr>
         <tr align=center><td align=left rowspan=2>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -1904,7 +1966,7 @@ at t/spec/io/defout.v5:32
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/errno.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2412,7 +2474,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat.v5</td><td>0</td><td>466</td><td>0</td><td>0</td><td>466</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2429,7 +2491,7 @@ Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-32-gc66c428/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan=5>===SORRY!===
