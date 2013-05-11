@@ -3,37 +3,17 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>306</td><td>34186</td><td>4</td><td>38</td><td>34458</td></tr>
+        <tr align=center><td align=left>summary</td><td>244</td><td>34175</td><td>4</td><td>38</td><td>34458</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
-        <tr align=center><td align=left rowspan=2>base/lex.v5</td><td>22</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix << instead
-at t/spec/base/lex.v5:408
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
-        <tr align=center><td align=left rowspan=2>io/data.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n# tests for DATA filehandle operations\n\nBEGIN {\n    chdir 't' if ..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/tie.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n# Add new tests to the end with format:\n# ########\n#\n# # test des..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:48
 
 </td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/run/fresh_perl.v5:882
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
@@ -63,12 +43,6 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align=center><td align=left rowspan=2>op/lex.v5</td><td>2</td><td>5</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix << instead
-at t/spec/op/lex.v5:81
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/exp.v5</td><td>2</td><td>14</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>No such symbol '&cmp_ok'
   in method <anon> at src/gen/CORE.setting:10027
@@ -509,6 +483,12 @@ at t/spec/op/do.v5:31
 Redeclaration of routine ok
 at t/spec/comp/colon.v5:24
 ------> <BOL>⏏$SIG{__WARN__} = sub { 1; }; # avoid som</td></tr>
+        <tr align=center><td align=left rowspan=2>base/lex.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/base/lex.v5:408
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -643,6 +623,10 @@ Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\nprin
   in any load_module at src/Perl6/ModuleLoader.nqp:141
   in block  at t/spec/op/substr_thr.v5:5
 
+</td></tr>
+        <tr align=center><td align=left rowspan=2>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n# Add new tests to the end with format:\n# ########\n#\n# # test des..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/parser.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -970,6 +954,12 @@ at t/spec/re/uniprops.v5:9
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
+        <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/run/fresh_perl.v5:882
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -1015,6 +1005,10 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQ
         <tr align=center><td align=left rowspan=2>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib uni .);\n    require \"case.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+</td></tr>
+        <tr align=center><td align=left rowspan=2>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n# tests for DATA filehandle operations\n\nBEGIN {\n    chdir 't' if ..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1415,7 +1409,7 @@ Cannot call 'plan'; none of these signatures match:
 Cannot call 'plan'; none of these signatures match:
 :($number_of_tests)
 </td></tr>
-        <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>No such method 'subst' for invocant of type 'Any'
   in block  at t/spec/run/switchp.v5:17
 
@@ -1619,6 +1613,12 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Variable '$dev_tty' is not declared
 at t/spec/op/filetest_t.v5:15
 ------> my($dev_tty⏏, $dev_null) = qw(/dev/tty /dev/null);</td></tr>
+        <tr align=center><td align=left rowspan=2>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/op/lex.v5:81
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/my_stash.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find constant in any of: ../lib
