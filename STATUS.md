@@ -3,21 +3,37 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>249</td><td>34158</td><td>4</td><td>38</td><td>34446</td></tr>
+        <tr align=center><td align=left>summary</td><td>306</td><td>34186</td><td>4</td><td>38</td><td>34458</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
+        <tr align=center><td align=left rowspan=2>base/lex.v5</td><td>22</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/base/lex.v5:408
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
+        <tr align=center><td align=left rowspan=2>io/data.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n# tests for DATA filehandle operations\n\nBEGIN {\n    chdir 't' if ..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+</td></tr>
+        <tr align=center><td align=left rowspan=2>op/tie.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n# Add new tests to the end with format:\n# ########\n#\n# # test des..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:48
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>10</td><td>123</td><td>0</td><td>10</td><td>143</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/chop.v5:32
-
-</td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/run/fresh_perl.v5:882
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
@@ -29,6 +45,10 @@
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/base/term.v5:32
 
 use of uninitialized value of type Any in string context  in block  at t/spec/base/term.v5:32
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>3</td><td>130</td><td>0</td><td>10</td><td>143</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/chop.v5:32
 
 </td></tr>
         <tr align=center><td align=left>op/append.v5</td><td>3</td><td>0</td><td>0</td><td>10</td><td>13</td></tr>
@@ -43,15 +63,40 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/bproto.v5</td><td>2</td><td>17</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr align=center><td align=left rowspan=2>op/lex.v5</td><td>2</td><td>5</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/op/lex.v5:81
+------> <BOL>⏏<EOL>
+</td></tr>
+        <tr align=center><td align=left rowspan=2>op/exp.v5</td><td>2</td><td>14</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan=5>No such symbol '&cmp_ok'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/exp.v5:21
+
+</td></tr>
+        <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>No such symbol '&local'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/v5/19-local.v5:20
+  in block  at t/v5/19-local.v5:8
+
+</td></tr>
+        <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
 
 use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
 
 </td></tr>
-        <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
@@ -72,32 +117,26 @@ Undeclared routine:
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared name:
-    Diamond_D used at line 55. Did you mean 'Diamond_A', 'Diamond_B', 'Diamond_C'?
 Undeclared routine:
     eq_array used at line 50
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routines:
+Undeclared routine:
     eq_array used at line 52
-    Ｄiᚪၚd_D used at line 57
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared name:
-    Diamond_D used at line 55. Did you mean 'Diamond_A', 'Diamond_B', 'Diamond_C'?
 Undeclared routine:
     eq_array used at line 50
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routines:
+Undeclared routine:
     eq_array used at line 53
-    Ｄiᚪၚd_D used at line 58
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -169,15 +208,7 @@ get_iter() not implemented in class 'NQPMu'
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    a used at line 667
-    b used at line 667
-    bless used at line 95. Did you mean '&elems'?
-    delete used at line 96
-    local used at lines 655, 665
-
-Other potential difficulties:
+        <tr><td colspan=5>Potential difficulties:
     Redeclaration of symbol $i
     at t/spec/cmd/for.v5:177
     ------> for my $i ⏏(@array) {
@@ -292,21 +323,16 @@ Other potential difficulties:
     Redeclaration of symbol $i
     at t/spec/cmd/for.v5:648
     ------> for my $i ⏏(reverse (map {$_} @array, 1)) {
-
+===SORRY!===
+Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    bless used at line 64. Did you mean '&elems'?
-    object_ok used at line 69
-
+Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    bless used at line 66. Did you mean '&elems'?
-    object_ok used at line 71
-
+Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -446,7 +472,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -483,12 +509,6 @@ at t/spec/op/do.v5:31
 Redeclaration of routine ok
 at t/spec/comp/colon.v5:24
 ------> <BOL>⏏$SIG{__WARN__} = sub { 1; }; # avoid som</td></tr>
-        <tr align=center><td align=left rowspan=2>base/lex.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix << instead
-at t/spec/base/lex.v5:408
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -587,9 +607,7 @@ at t/spec/op/require_37033.v5:14
 ------>     delete $INC{'test_use_14937.pm'}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    run_multiple_progs used at line 17
-
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\n##\n## Many of these tests are originally from Michael Schroeder\n##..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/our.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -615,21 +633,15 @@ Two terms in a row
 at t/spec/comp/package.v5:19
 ------>     $main⏏'a = $'b;</td></tr>
         <tr align=center><td align=left rowspan=2>comp/package_block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    sub used at line 63
-
+        <tr><td colspan=5>WARNINGS:
+Useless use of constant integer 1 in sink context (line 94)
+===SORRY!===
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\nprint \"1..7\\n\";\n\n$main::result = \"\";\neval q{\n    $main::res..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{ $main::warning .= $_[0]; }"): Error while compiling op bind: First child of a 'bind' op must be a QAST::Var
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:141
   in block  at t/spec/op/substr_thr.v5:5
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    run_multiple_progs used at line 20
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/parser.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -652,7 +664,7 @@ Could not find bytes in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &sub
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/write.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -758,9 +770,12 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    runperl used at line 13
+        <tr><td colspan=5>No such symbol '&runperl'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/porting/pod_rules.v5:15
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/podcheck.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -787,7 +802,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -860,7 +875,7 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -922,7 +937,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
@@ -955,12 +970,6 @@ at t/spec/re/uniprops.v5:9
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(. ../lib);\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
-        <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/run/fresh_perl.v5:882
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -992,7 +1001,7 @@ at t/spec/test_pl/tempfile.v5:14
 ------>     my($skip⏏,$to,$next) = @_;</td></tr>
         <tr align=center><td align=left rowspan=2>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1006,12 +1015,6 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQ
         <tr align=center><td align=left rowspan=2>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = qw(../lib uni .);\n    require \"case.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
-        <tr align=center><td align=left rowspan=2>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    run_multiple_progs used at line 20
-
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1073,12 +1076,6 @@ at t/v5/06-bool.v5:55
 Variable '*subr4' is not declared
 at t/v5/09-namespace.v5:47
 ------> *subr4⏏ = sub { 123 };</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/10-bind-sub-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-CHECK FAILED:
-Calling proto of 'shift' will never work with no arguments (lines 11, 12, 58)
-    Expected: :()
-</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-accessor.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1125,16 +1122,6 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling, type X::Undeclared::Symbols
-  post_types: Hash[0xd9d6cf8]
-  unk_types: Hash[0xd9d6cd0]
-  unk_routines: Hash[0xd9d6ca8]
-  routine_suggestion: Hash[0xd9d6bb8]
-  type_suggestion: Hash[0xd9d6b18]
- at line 2, near "use Test;\n"
-</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
@@ -1177,7 +1164,7 @@ at t/v5/32-autoload-method.v5:23
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_perlio
+No such symbol '&skip_all_without_perlio'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1274,7 +1261,7 @@ at t/spec/comp/final_line_num.v5:8
 ------> =~ /\Asyntax error at [^ ]+ line ([0-9]+⏏), at EOF/ or exit 1;</td></tr>
         <tr align=center><td align=left rowspan=2>op/hash-rt85026.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_dynamic_extension
+No such symbol '&skip_all_without_dynamic_extension'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1297,15 +1284,19 @@ at t/spec/re/reg_60508.v5:46
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-CHECK FAILED:
-Calling 'ord' will never work with argument types (Int, Str) (lines 13, 13)
-    Expected: :(Cool $s)
+        <tr><td colspan=5>Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+  in sub plan at lib/Test.pm:34
+  in block  at t/spec/run/switch0.v5:11
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    fresh_perl_is used at line 16
+        <tr><td colspan=5>No such symbol '&fresh_perl_is'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/io/bom.v5:16
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1330,7 +1321,7 @@ Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &sub
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1399,7 +1390,7 @@ Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/setpgrpstack.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_config
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1411,12 +1402,12 @@ Cannot call 'plan'; none of these signatures match:
 :($number_of_tests)
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    or used at line 22. Did you mean '&ok'?
-    tempfile used at line 14
-    try used at lines 20, 21, 22
-    which_perl used at line 12
+        <tr><td colspan=5>No such symbol '&which_perl'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/run/script.v5:12
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1424,14 +1415,14 @@ Undeclared routines:
 Cannot call 'plan'; none of these signatures match:
 :($number_of_tests)
 </td></tr>
-        <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>No such method 'subst' for invocant of type 'Any'
   in block  at t/spec/run/switchp.v5:17
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/iofile.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_NEXT.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1443,7 +1434,7 @@ Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-dev
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1451,20 +1442,23 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n      require './test.pl';\n      skip_all_if_miniperl();\n      skip_all_without_config(qw(d_for..."): Error while compiling op call (source text: "skip_all_without_config(qw(d_fork))"): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n      require './test.pl';\n      skip_all_if_miniperl();\n      skip_all_without_config(qw(d_for..."): Error while compiling op call (source text: "qw(d_fork)"): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchI.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    fresh_perl_is used at lines 25, 30
+        <tr><td colspan=5>No such symbol '&fresh_perl_is'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/run/switchI.v5:26
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -1512,9 +1506,9 @@ Could not find Config in any of: ../lib
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    scalar used at lines 16, 22
+        <tr><td colspan=5>Too many positional parameters passed; got 2 but expected 1
+  in sub defined at src/gen/CORE.setting:1169
+  in block  at t/spec/op/defined.v5:15
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1544,14 +1538,17 @@ Could not find file './test.pl' for module ./test.pl
 Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared names:
-    DÙP used at lines 20, 25
-    STDOUT used at line 36
-Undeclared routines:
-    local used at lines 29, 35
-    select used at lines 25, 26, 30, 33, 36
-    둪 used at lines 22, 30
+        <tr><td colspan=5>Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+  in sub plan at lib/Test.pm:34
+  in block  at t/spec/uni/select.v5:18
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/10-bind-sub-param.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan=5>Not enough positional parameters passed; got 0 but expected 1
+  in sub shift at src/gen/CORE.setting:6387
+  in sub subr at t/v5/10-bind-sub-param.v5:11
+  in block  at t/v5/10-bind-sub-param.v5:17
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
@@ -1571,9 +1568,12 @@ at t/spec/op/kill0.v5:37
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    tempfile used at line 15
+        <tr><td colspan=5>No such symbol '&tempfile'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/unlink.v5:15
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
@@ -1600,7 +1600,7 @@ at t/spec/io/inplace.v5:21
 ------> @ARGV⏏ = @tfiles;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_perlio
+No such symbol '&skip_all_without_perlio'
 </td></tr>
         <tr align=center><td align=left rowspan=2>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1619,12 +1619,6 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 Variable '$dev_tty' is not declared
 at t/spec/op/filetest_t.v5:15
 ------> my($dev_tty⏏, $dev_null) = qw(/dev/tty /dev/null);</td></tr>
-        <tr align=center><td align=left rowspan=2>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix << instead
-at t/spec/op/lex.v5:81
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/my_stash.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find constant in any of: ../lib
@@ -1676,10 +1670,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    fileno used at line 17
-    select used at line 20
-
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\nBEGIN {\n    chdir 't';\n    @INC = '../lib';\n    #require './test...."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/getppid.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1864,7 +1855,7 @@ at t/spec/op/wantarray.v5:16
 ------>   local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_perlio
+No such symbol '&skip_all_without_perlio'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1877,16 +1868,15 @@ at t/spec/lib/universal.v5:68
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    bless used at line 20. Did you mean '&elems'?
-    study used at line 34
-    tie used at line 31. Did you mean '&die'?
+        <tr><td colspan=5>Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+  in sub plan at lib/Test.pm:34
+  in block  at t/spec/op/studytied.v5:14
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_pmod.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1899,9 +1889,12 @@ at t/spec/re/reg_pmod.v5:18
 Could not find mypragma in any of: lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    cmp_ok used at lines 24, 25, 28, 43, 71, 75
+        <tr><td colspan=5>No such symbol '&int'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/int.v5:16
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
@@ -1920,17 +1913,11 @@ at t/spec/re/pat_psycho.v5:17
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_perlio
+No such symbol '&skip_all_without_perlio'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/exp.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    cmp_ok used at lines 21, 33, 46, 47, 48, 49, 50, 53, 54, 55, 56, 57
-
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1970,7 +1957,7 @@ Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-d
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all
+No such symbol '&skip_all'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2023,18 +2010,11 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_without_config
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
-Undeclared name:
-    L used at line 77
-Undeclared routines:
-    bless used at lines 15, 105. Did you mean '&elems'?
-    delete used at line 101
-    goto used at lines 31, 39
-    local used at lines 72, 77, 86. Did you mean '&local1', '&local2'?
-
+Error while compiling block  (source text: "use Test;\nuse v5;\n#!./perl\n\nBEGIN {\n    chdir 't' if -d 't';\n    @INC = '../lib';\n}\n\n#requi..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2072,7 +2052,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &sub
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2124,11 +2104,11 @@ Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2161,11 +2141,10 @@ at t/spec/op/repeat.v5:21
 Could not find vars in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/negate.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routines:
-    bareword used at lines 33, 34, 88, 90
-    bless used at line 53. Did you mean '&elems'?
-    tie used at line 57. Did you mean '&die'?
+        <tr><td colspan=5>Cannot call 'plan'; none of these signatures match:
+:($number_of_tests)
+  in sub plan at lib/Test.pm:34
+  in block  at t/spec/op/negate.v5:11
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
@@ -2483,7 +2462,7 @@ at t/spec/re/pat.v5:13
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find sub &skip_all_if_miniperl
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan=5>===SORRY!===

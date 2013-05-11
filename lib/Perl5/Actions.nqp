@@ -4065,26 +4065,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method term:sym<identifier>($/) {
         $V5DEBUG && say("term:sym<identifier>($/)");
-        my $macro := find_macro_routine(['&' ~ ~$<identifier>]);
-        #~ if $macro {
-            #~ make expand_macro($macro, ~$<identifier>, $/, sub () {
-                #~ my @argument_asts := [];
-                #~ if $<args><semiarglist> {
-                    #~ for $<args><semiarglist><arglist> {
-                        #~ if $_<EXPR> {
-                            #~ add_macro_arguments($_<EXPR>.ast, @argument_asts);
-                        #~ }
-                    #~ }
-                #~ }
-                #~ return @argument_asts;
-            #~ });
-        #~ }
-        #~ else {
-            my $past := capture_or_parcel($<args>.ast, ~$<identifier>);
-            $past.name('&' ~ $<identifier>);
-            $past.node($/);
-            make $past;
-        #~ }
+        my $past := $<args>.ast;
+        $past.unshift( self.make_indirect_lookup(['&' ~ $<identifier>]) );
+        make $past;
     }
 
     sub add_macro_arguments($expr, @argument_asts) {

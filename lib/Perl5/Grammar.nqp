@@ -3698,7 +3698,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { $name := ~$<identifier>; }
         [\h+ <?[(]>]?
         <args( $*W.is_type($name) )>
-        { self.add_mystery($<identifier>, $<args>.from, nqp::substr(~$<args>, 0, 1)) unless $<args><invocant>; }
+        # no compile-time checking for subs
+        # { self.add_mystery($<identifier>, $<args>.from, nqp::substr(~$<args>, 0, 1)) unless $<args><invocant>; }
     }
     
 
