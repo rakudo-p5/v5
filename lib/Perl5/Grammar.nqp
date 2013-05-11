@@ -322,7 +322,7 @@ role STD5 {
     method set_strict( $strict ) {
         $is_strict := $strict;
     }
-    method check_variable($var) {
+    method check_variable($/, $var) {
         my $varast := $var.ast;
         if nqp::istype($varast, QAST::Op) && $varast.op eq 'ifnull' {
             $varast := $varast[0];
@@ -334,20 +334,39 @@ role STD5 {
             if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
                     if $name eq '%ENV' || !$is_strict {
+                        
                         my $BLOCK := $*W.cur_lexpad();
-                        $varast.scope('lexical');
+                        
+                        # Create a container descriptor. Default to rw and set a
+                        # type if we have one; a trait may twiddle with that later.
+                        my %cont_info := $*W.container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE.ast] !! []);
+                        my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
-                        my $lex := QAST::Var.new( :name($name), :scope('lexical') );
-                        unless $BLOCK.symbol($name) {
-                            $lex.decl('var');
-                            $BLOCK.symbol($name, :scope('lexical'));
+                        $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
+                            :scope($*SCOPE), :package($*PACKAGE));
+                        
+                        # Set scope and type on container, and if needed emit code to
+                        # reify a generic type.
+                        if $varast.isa(QAST::Var) {
+                            $varast.name($name);
+                            $varast.scope('lexical');
+                            $varast.returns(%cont_info<bind_constraint>);
+                            if %cont_info<bind_constraint>.HOW.archetypes.generic {
+                                $varast := QAST::Op.new(
+                                    :op('callmethod'), :name('instantiate_generic'),
+                                    QAST::Op.new( :op('p6var'), $varast ),
+                                    QAST::Op.new( :op('curlexpad') ));
+                            }
+                            
+                            if $*SCOPE eq 'our' {
+                                $BLOCK[0].push(QAST::Op.new(
+                                    :op('bind'),
+                                    $varast,
+                                    $name eq '%ENV' ?? QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*ENV'))
+                                                    !! $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
+                                ));
+                            }
                         }
-                        $BLOCK[0].push(QAST::Op.new(
-                            :op('bind'),
-                            $lex,
-                            $name eq '%ENV' ?? QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*ENV'))
-                                            !! $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
-                        ));
                     }
                     else  {
                         my @suggestions := $*W.suggest_lexicals($name);
@@ -2072,7 +2091,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             $/.CURSOR.typed_panic('X::Syntax::InfixInTermPosition', infix => ~$<infixish>); } >
         || <!>
         ]
-        { self.check_variable($*VAR) if $*VAR; }
+        { self.check_variable($/, $*VAR) if $*VAR; }
     }
 
     sub bracket_ending($matches) {

@@ -135,84 +135,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $block;
     }
 
-    # Given a sigil and the the value type specified, works out the
-    # container type (what should we instantiate and bind into the
-    # attribute/lexpad), bind constraint (what could we bind to this
-    # slot later), and if specified a constraint on the inner value
-    # and a default value.
-    sub container_type_info($/, $sigil, @value_type, $shape?) {
-        my %info;
-        if $sigil eq '@' {
-            %info<container_base>  := $*W.find_symbol(['Array']);
-            %info<bind_constraint> := $*W.find_symbol(['Positional']);
-            if @value_type {
-                %info<container_type>  := $*W.parameterize_type_with_args(
-                    %info<container_base>, [@value_type[0]], nqp::hash());
-                %info<bind_constraint> := $*W.parameterize_type_with_args(
-                    %info<bind_constraint>, [@value_type[0]], nqp::hash());
-                %info<value_type>      := @value_type[0];
-            }
-            else {
-                %info<container_type> := %info<container_base>;
-                %info<value_type>     := $*W.find_symbol(['Mu']);
-            }
-            if $shape {
-                $*W.throw($/, 'X::Comp::NYI', feature => 'Shaped arrays');
-            }
-        }
-        elsif $sigil eq '%' {
-            %info<container_base>  := $*W.find_symbol(['Hash']);
-            %info<bind_constraint> := $*W.find_symbol(['Associative']);
-            if $shape {
-                @value_type[0] := $*W.find_symbol(['Mu']) unless +@value_type;
-                my $shape_ast := $shape.ast;
-                if $shape_ast.isa(QAST::Stmts) && +@($shape_ast) == 1 && $shape_ast[0].has_compile_time_value {
-                    @value_type[1] := $shape_ast[0].compile_time_value;
-                }
-                else {
-                    nqp::die("Invalid hash shape; type expected");
-                }
-            }
-            if @value_type {
-                %info<container_type>  := $*W.parameterize_type_with_args(
-                    %info<container_base>, @value_type, nqp::hash());
-                %info<bind_constraint> := $*W.parameterize_type_with_args(
-                    %info<bind_constraint>, @value_type, nqp::hash());
-                %info<value_type>      := @value_type[0];
-            }
-            else {
-                %info<container_type> := %info<container_base>;
-                %info<value_type>     := $*W.find_symbol(['Mu']);
-            }
-        }
-        elsif $sigil eq '&' {
-            %info<container_base>  := $*W.find_symbol(['Scalar']);
-            %info<container_type>  := %info<container_base>;
-            %info<bind_constraint> := $*W.find_symbol(['Callable']);
-            if @value_type {
-                %info<bind_constraint> := $*W.parameterize_type_with_args(
-                    %info<bind_constraint>, [@value_type[0]], nqp::hash());
-            }
-            %info<value_type>     := %info<bind_constraint>;
-            %info<default_value>   := $*W.find_symbol(['Any']);
-        }
-        else {
-            %info<container_base>     := $*W.find_symbol(['Scalar']);
-            %info<container_type>     := %info<container_base>;
-            if @value_type {
-                %info<bind_constraint> := @value_type[0];
-                %info<value_type>      := @value_type[0];
-                %info<default_value>   := @value_type[0];
-            }
-            else {
-                %info<bind_constraint> := $*W.find_symbol(['Mu']);
-                %info<value_type>      := $*W.find_symbol(['Mu']);
-                %info<default_value>   := $*W.find_symbol(['Any']);
-            }
-        }
-        %info
-    }
-
     method deflongname($/) {
         $V5DEBUG && say("deflongname($/)");
         make $*W.p5dissect_longname($/).name(
@@ -1971,7 +1893,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     }
                 }
                 else {
-                    my %cont_info := container_type_info($/, $_<sigil> || '$', []);
+                    my %cont_info := $*W.container_type_info($/, $_<sigil> || '$', []);
                     $list.push($*W.build_container_past(
                         %cont_info,
                         $*W.create_container_descriptor(%cont_info<value_type>, 1, 'anon')));
@@ -2109,7 +2031,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $/.CURSOR.panic("Cannot declare an anonymous attribute");
             }
             my $attrname   := ~$sigil ~ '!' ~ $desigilname;
-            my %cont_info  := container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
+            my %cont_info  := $*W.container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
             my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $attrname);
 
             # Create meta-attribute and add it.
@@ -2169,7 +2091,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
             # Create a container descriptor. Default to rw and set a
             # type if we have one; a trait may twiddle with that later.
-            my %cont_info := container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
+            my %cont_info := $*W.container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
             my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
             # Install the container.
@@ -5487,15 +5409,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
     method quote:sym<qq>($/)   { $V5DEBUG && say("method quote:sym<qq>($/)");    make $<quibble>.ast; }
     method quote:sym<q>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
-    method quote:sym<Q>($/)    { $V5DEBUG && say("method quote:sym<Q>($/)");     make $<quibble>.ast; }
-    method quote:sym<Q:PIR>($/) {
-        $V5DEBUG && say("method quote:sym<Q:PIR>($/)");
-        #if $FORBID_PIR {
-        #    nqp::die("Q:PIR forbidden in safe mode\n");
-        #}
-        my $pir := compile_time_value_str($<quibble>.ast, "Q:PIR", $/);
-        make QAST::VM.new( :pir($pir), :node($/) );
-    }
+    method quote:sym<qw>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
+    method quote:sym<qr>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
     method quote:sym</ />($/) {
         $V5DEBUG && say("method quote:sym</ />($/)");
         my %sig_info := hash(parameters => []);

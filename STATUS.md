@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>244</td><td>34175</td><td>4</td><td>38</td><td>34458</td></tr>
+        <tr align=center><td align=left>summary</td><td>246</td><td>34173</td><td>4</td><td>38</td><td>34458</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -15,6 +15,7 @@
 </td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr align=center><td align=left>op/chop.v5</td><td>5</td><td>128</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -25,10 +26,6 @@
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/base/term.v5:32
 
 use of uninitialized value of type Any in string context  in block  at t/spec/base/term.v5:32
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>3</td><td>130</td><td>0</td><td>10</td><td>143</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/chop.v5:32
 
 </td></tr>
         <tr align=center><td align=left>op/append.v5</td><td>3</td><td>0</td><td>0</td><td>10</td><td>13</td></tr>
