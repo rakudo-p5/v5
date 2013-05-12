@@ -2239,35 +2239,31 @@ class Perl5::Actions is HLL::Actions does STDActions {
                         what   => 'routine',
                 );
             }
-            if $*SCOPE eq '' || $*SCOPE eq 'my' {
-                $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
-            }
-            elsif $*SCOPE eq 'our' {
-                # Install in lexpad and in package, and set up code to
-                # re-bind it per invocation of its outer.
-                $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
-                $*W.install_package_symbol($*PACKAGE, $name, $code);
-                $outer[0].push(QAST::Op.new(
-                    :op('bindkey'),
-                    QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
-                    QAST::SVal.new( :value($name) ),
-                    QAST::Var.new( :name($name), :scope('lexical') )
-                ));
-            }
-            elsif $*SCOPE eq 'anon' {
-                # don't do anything
-            }
-            else {
-                $*W.throw($/, 'X::Declaration::Scope',
-                        scope       => $*SCOPE,
-                        declaration => 'sub',
-                );
-            }
-        }
-        
-        # Add inlining information if it's inlinable.
-        if $<deflongname> {
+
+            # Install in lexpad and in package, and set up code to
+            # re-bind it per invocation of its outer.
+            $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
+            $*W.install_package_symbol($*PACKAGE, $name, $code);
+            $outer[0].push(QAST::Op.new(
+                :op('bindkey'),
+                QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
+                QAST::SVal.new( :value($name) ),
+                QAST::Var.new( :name($name), :scope('lexical') )
+            ));
+            
+            # Add inlining information if it's inlinable.
             self.add_inlining_info_if_possible($/, $code, $block, @params);
+
+            #~ # implicit 'is export' trait, maybe for 'use Exporter' later?
+            #~ $outer[0].push( QAST::Op.new( :op('call'), :name('&EXPORT_SYMBOL'),
+                #~ QAST::SVal.new( :value(~$name) ),
+                #~ QAST::Op.new( :op('callmethod'), :name('new'),
+                    #~ QAST::WVal.new( :value($*W.find_symbol(['Array'])),
+                        #~ QAST::SVal.new( :value('ALL') ),
+                        #~ QAST::SVal.new( :value('DEFAULT') ),
+                #~ ) ),
+                #~ QAST::Var.new( :name($name), :scope('lexical') )
+            #~ ) );
         }
 
         my $closure := block_closure(reference_to_code_object($code, $past));
