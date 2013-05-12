@@ -1517,7 +1517,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method fatarrow($/) {
         $V5DEBUG && say("fatarrow($/)");
-        make make_pair($<key>.Str, $<val>.ast);
+        #~ make make_pair($<key>.Str, $<val>.ast);
+        make QAST::Op.new( :op('call'), :name('&infix:<,>'),  $<key>.Str, $<val>.ast);
     }
     
     method coloncircumfix($/) {
@@ -4416,6 +4417,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         '^',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+^>'), $/[0].ast, $/[1].ast) },
         '<<',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+<>'), $/[0].ast, $/[1].ast) },
         '>>',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+>>'), $/[0].ast, $/[1].ast) },
+        '=>',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<,>'),  $/[0].ast, $/[1].ast) },
     );
     method EXPR($/, $key?) {
         $V5DEBUG && say("EXPR($/, $key?)");

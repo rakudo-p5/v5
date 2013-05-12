@@ -2410,7 +2410,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token morename {
         :my $*QSIGIL := '';
-        '::' <identifier>?
+        '::' <identifier>**0..1
     }
 
     token subname {
