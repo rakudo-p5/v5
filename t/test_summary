@@ -115,7 +115,7 @@ for my $tfile (@tfiles) {
     my $no_plan = 0; # planless works, but is unhelpful for statistics
     # http://www.shadowcat.co.uk/blog/matt-s-trout/a-cunning-no_plan/
     while (<$th>) {                # extract the number of tests planned
-        if (/^\s*plan\D*(\d+)/) { $plan = $1; last; }
+        if (/\s*(plan\D*|print\D*1\.\.)(\d+)/) { $plan = $2; last; }
         elsif (/^\s*plan\s+\*;/) { $no_plan = 1; last; }
     }
     close $th or die $!;
