@@ -1837,6 +1837,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method scope_declarator:sym<my>($/)      {
         $V5DEBUG && say("scope_declarator:sym<my>($/)     "); make $<scoped>.ast; }
+    method scope_declarator:sym<local>($/)   {
+        $V5DEBUG && say("scope_declarator:sym<local>($/)  "); make $<scoped>.ast; }
     method scope_declarator:sym<our>($/)     {
         $V5DEBUG && say("scope_declarator:sym<our>($/)    "); make $<scoped>.ast; }
     method scope_declarator:sym<has>($/)     {

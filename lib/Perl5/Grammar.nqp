@@ -1724,6 +1724,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
 
     token scope_declarator:sym<my>        { <sym> <scoped('my')> }
+    token scope_declarator:sym<local>     { <sym> <scoped('my')> }
     token scope_declarator:sym<our>       { <sym> <scoped('our')> }
     token scope_declarator:sym<state>     { <sym> <scoped('state')> }
 
