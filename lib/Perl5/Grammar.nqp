@@ -3319,7 +3319,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
     token term:sym<eval>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+        { <sym> » <?before \s*> <.ws> <!before '{'> <EXPR('q=')>? }
 
 #    token term:sym<eof>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
