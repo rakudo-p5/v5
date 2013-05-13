@@ -1,6 +1,8 @@
 
 class Perl5::Terms;
 
+my $INPUT_RECORD_SEPARATOR = 7;
+sub INPUT_RECORD_SEPARATOR is export is rw { $INPUT_RECORD_SEPARATOR }
 
 multi sub chop()          is export { chop(CALLER::<$_>) }
 multi sub chop(*@s is rw) is export {
@@ -34,7 +36,7 @@ multi sub open( $fh is rw, $m, $expr, *@list ) is export {
     $fh = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) );
 }
 
-multi sub print( :$fh, *@text ) is export { ($fh || $*OUT).print( @text.join('') ) }
+multi sub print( *@text ) is export { $*OUT.print( @text.join('') ) }
 
 sub close( IO::Handle $fh ) is export { $fh.close }
 
