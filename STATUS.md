@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>259</td><td>34092</td><td>4</td><td>39</td><td>34391</td></tr>
+        <tr align=center><td align=left>summary</td><td>262</td><td>39883</td><td>4</td><td>39</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -36,6 +36,13 @@
   in block  at t/spec/op/negate.v5:21
 
 </td></tr>
+        <tr align=center><td align=left rowspan=2>op/exp.v5</td><td>4</td><td>12</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan=5>Not enough positional parameters passed; got 0 but expected 1
+  in sub shift at src/gen/CORE.setting:6387
+  in sub round at t/spec/op/exp.v5:40
+  in block  at t/spec/op/exp.v5:46
+
+</td></tr>
         <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -57,15 +64,6 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align=center><td align=left rowspan=2>op/exp.v5</td><td>2</td><td>14</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>No such symbol '&cmp_ok'
-  in method <anon> at src/gen/CORE.setting:10027
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/op/exp.v5:20
-
-</td></tr>
         <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
@@ -94,234 +92,11 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
 use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 33
+        <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>1</td><td>46</td><td>0</td><td>0</td><td>47</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_04_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 31
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 33
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 49
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 51
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 49
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 52
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/c3_with_overload_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/complex_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unexpected closing bracket
-at t/spec/mro/complex_c3.v5:143
-------> th(), "right", 'next::method working ok'⏏);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/complex_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unexpected closing bracket
-at t/spec/mro/complex_c3_utf8.v5:145
-------> th(), "right", 'next::method working ok'⏏);
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/complex_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at lines 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/complex_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at lines 87, 92, 97, 102, 107, 112, 117, 122, 127, 132, 137
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/dbic_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 94
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/dbic_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 96
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/dbic_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 94
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/dbic_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 96
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/inconsistent_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Potential difficulties:
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:176
-    ------> for my $i ⏏(@array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:181
-    ------> for my $i ⏏(1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:186
-    ------> for my $i ⏏(map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:191
-    ------> for my $i ⏏(map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:196
-    ------> for my $i ⏏(1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:201
-    ------> for my $i ⏏('A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:207
-    ------> for my $i ⏏(reverse @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:212
-    ------> for my $i ⏏(reverse 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:217
-    ------> for my $i ⏏(reverse map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:222
-    ------> for my $i ⏏(reverse map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:227
-    ------> for my $i ⏏(reverse 1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:232
-    ------> for my $i ⏏(reverse 'A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:303
-    ------> for our $i ⏏(reverse @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:308
-    ------> for our $i ⏏(reverse 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:313
-    ------> for our $i ⏏(reverse map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:318
-    ------> for our $i ⏏(reverse map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:323
-    ------> for our $i ⏏(reverse 1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:328
-    ------> for our $i ⏏(reverse 'A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:463
-    ------> for my $i ⏏(1, reverse @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:468
-    ------> for my $i ⏏('A', reverse 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:473
-    ------> for my $i ⏏(1, reverse map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:478
-    ------> for my $i ⏏('A', reverse map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:483
-    ------> for my $i ⏏('A', reverse 1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:488
-    ------> for my $i ⏏(1, reverse 'A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:494
-    ------> for my $i ⏏(reverse (@array), 1) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:499
-    ------> for my $i ⏏(reverse (1,2,3), 'A') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:504
-    ------> for my $i ⏏(reverse (map {$_} @array), 1) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:509
-    ------> for my $i ⏏(reverse (map {$_} 1,2,3), 'A') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:514
-    ------> for my $i ⏏(reverse (1 .. 3), 'A') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:519
-    ------> for my $i ⏏(reverse ('A' .. 'C'), 1) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:611
-    ------> for my $i ⏏(reverse 1, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:616
-    ------> for my $i ⏏(reverse map {$_} 1, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:621
-    ------> for my $i ⏏(reverse 1 .. 3, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:626
-    ------> for my $i ⏏(reverse 'X' .. 'Z', @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:631
-    ------> for my $i ⏏(reverse map {$_} 1 .. 3, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:636
-    ------> for my $i ⏏(reverse map {$_} 'X' .. 'Z', @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:642
-    ------> for my $i ⏏(reverse (@array, 1)) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:647
-    ------> for my $i ⏏(reverse (map {$_} @array, 1)) {
-===SORRY!===
-Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>No such symbol '&bless'
@@ -369,111 +144,6 @@ at t/spec/mro/method_caching.v5:5
 Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/mro/method_caching_utf8.v5:32
 ------>     sub { is(MC텟ᵀ::ድ리ᭉᛞ->ᕘ(⏏0), 1); },</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_goto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Variable '&next::method' is not declared
-at t/spec/mro/next_goto.v5:14
------->     sub next_proxy { goto &next::method⏏ }</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_goto_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Variable '&next::method' is not declared
-at t/spec/mro/next_goto_utf8.v5:15
------->     sub next_prxᔬ { goto &next::method⏏ }</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_inanon.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_inanon.v5:36
-------> rn 'B::foo => ' . (shift)->next::method(⏏);</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_inanon_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_inanon_utf8.v5:37
-------> turn 'Ḃ::ᕘ => ' . (shift)->next::method(⏏);</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_ineval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_ineval.v5:32
-------> rn 'B::foo => ' . (shift)->next::method(⏏);</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_ineval_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_ineval_utf8.v5:34
-------> urn 'ｂ::ຟǫ => ' . (shift)->next::method(⏏);</td></tr>
-        <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/cmd/mod.v5:60
-------> <BOL>⏏<EOL>
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_method.v5:31
-------> ond_B::foo => ' . (shift)->next::method(⏏) }</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_method_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_method_utf8.v5:33
-------> mond_B::fಓ => ' . (shift)->next::method(⏏) }</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_skip.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_skip.v5:31
-------> ond_B::baz => ' . (shift)->next::method(⏏) }</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/next_skip_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block; couldn't find final '}'
-at t/spec/mro/next_skip_utf8.v5:34
-------> iᚪၚd_B::바ź => ' . (shift)->next::method(⏏) }</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/overload_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>cmd/subval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/cmd/subval.v5:110
-------> &main⏏'somesub(28, 'foo', __FILE__, __LINE__);</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/pkg_gen_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/vulcan_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 64
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/vulcan_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 65
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/vulcan_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 64
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 66
-
-</td></tr>
         <tr align=center><td align=left>op/64bitint.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align=center><td align=left rowspan=2>op/anonsub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -518,29 +188,11 @@ Method 'ast' not found for invocant of class 'NQPMu'
 Missing block
 at t/spec/op/do.v5:30
 ------>     $result = do ⏏foo1(1);</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/colon.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    my used at line 18
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>base/lex.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix << instead
-at t/spec/base/lex.v5:407
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
 at t/spec/op/exists_sub.v5:10
 ------> sub t1⏏;</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/decl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix = instead
-at t/spec/comp/decl.v5:9
-------> format one =⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -550,10 +202,6 @@ get_iter() not implemented in class 'NQPMu'
 Variable '$Level' is not declared
 at t/spec/op/gmagic.v5:16
 ------>     local $::Level⏏ = $::Level + 1;</td></tr>
-        <tr align=center><td align=left rowspan=2>op/groups.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Odd number of elements found where hash expected
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/inc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$b' is not declared
@@ -562,10 +210,6 @@ at t/spec/op/inc.v5:56
         <tr align=center><td align=left rowspan=2>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
@@ -576,17 +220,6 @@ Null PMC access in get_iter()
         <tr align=center><td align=left rowspan=2>op/leaky-magic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find tests in any of: ../lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/form_scope.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/form_scope.v5:7
-------> sub f ⏏($);</td></tr>
-        <tr align=center><td align=left rowspan=2>op/lex_assign.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/op/lex_assign.v5:344
-------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -604,19 +237,9 @@ Preceding context expects a term, but found infix < instead
 at t/spec/comp/line_debug.v5:36
 ------> <BOL>⏏<EOL>
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/multiline.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/comp/multiline.v5:95
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find vars in any of: ../lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/opsubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_37033.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -640,17 +263,6 @@ at t/spec/op/splice.v5:87
         <tr><td colspan=5>===SORRY!===
 Could not find version in any of: ../lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/package.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/comp/package.v5:18
------->     $main⏏'a = $'b;</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/package_block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>WARNINGS:
-Useless use of constant integer 1 in sink context (line 93)
-===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nprint \"1..7\\n\";\n\n$main::result = \"\";\neval q{\n    $main::result .= \"a(..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{ $main::warning .= $_[0]; }"): Error while compiling op bind: First child of a 'bind' op must be a QAST::Var
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:141
@@ -661,28 +273,15 @@ Error while compiling block  (source text: "use v5;\n#!./perl\n\nprint \"1..7\\n
         <tr><td colspan=5>===SORRY!===
 Error while compiling block  (source text: "use v5;\n#!./perl\n\n# Add new tests to the end with format:\n# ########\n#\n# # test description\n#..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/parser.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/upgrade.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/proto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/proto.v5:26
-------> sub testing ⏏(&$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
 at t/spec/op/utf8decode.v5:188
 ------> <BOL>⏏<EOL>
-</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/write.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -690,27 +289,12 @@ Preceding context expects a term, but found infix < instead
 at t/spec/op/write.v5:1296
 ------> <BOL>⏏<EOL>
 </td></tr>
-        <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/opbasic/arith.v5:15
-------> sub try ⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix , instead
 at t/spec/opbasic/cmp.v5:51
 ------> OO = ('s', 'N/A', 'a', 'NaN', -1, undef,⏏ 0, 1, 3.14, 1e37, 0.632120558, -.5,
 </td></tr>
-        <tr align=center><td align=left rowspan=2>opbasic/concat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/opbasic/concat.v5:157
------->     my $x = eval⏏"qr/\x{fff}/";</td></tr>
-        <tr align=center><td align=left rowspan=2>opbasic/qq.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unrecognized backslash sequence: '\x'
-at t/spec/opbasic/qq.v5:45
-------> is ("\⏏xh", chr (0) . 'h');	# This will warn</td></tr>
         <tr align=center><td align=left rowspan=2>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -766,11 +350,6 @@ Could not find File::Basename in any of: ../lib
         <tr><td colspan=5>===SORRY!===
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/retainedlines.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/retainedlines.v5:28
-------> sub is⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Maintainers in any of: lib Porting
@@ -796,10 +375,6 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
   in block  at t/spec/porting/pod_rules.v5:14
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>porting/podcheck.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find Carp in any of: ../lib
-</td></tr>
         <tr align=center><td align=left rowspan=2>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
@@ -813,10 +388,6 @@ at t/spec/porting/test_bootstrap.v5:80
         <tr align=center><td align=left rowspan=2>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/term.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -849,11 +420,6 @@ at t/spec/re/pat_advanced.v5:13
   in block  at t/spec/re/pat_re_eval_thr.v5:4
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/uproto.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/uproto.v5:52
-------> sub f⏏($$_) { my $x = shift; is("@_", $x) }</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:141
@@ -872,11 +438,6 @@ at t/spec/comp/uproto.v5:52
   in block  at t/spec/re/pat_thr.v5:4
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/use.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/use.v5:60
-------> sub like ⏏($$;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -891,17 +452,8 @@ Null PMC access in get_iter()
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
-        <tr align=center><td align=left rowspan=2>re/reg_fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
-</td></tr>
         <tr align=center><td align=left>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align=center><td align=left>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/utf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/comp/utf.v5:40
------->     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix || instead
@@ -994,12 +546,6 @@ at t/spec/run/fresh_perl.v5:881
         <tr align=center><td align=left rowspan=2>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>run/switchF1.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix << instead
-at t/spec/run/switchF1.v5:42
-------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1105,12 +651,6 @@ at t/v5/09-namespace.v5:46
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>base/rs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/base/rs.v5:249
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/11-bind-method-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unexpected closing bracket
@@ -1133,12 +673,6 @@ at t/v5/11-class-open.v5:33
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/13-op-context.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix ? "LIST" : instead
-at t/v5/13-op-context.v5:10
------->     my $result = wantarray ? "LIST" :⏏ defined wantarray ? "SCALAR" : "VOID";
-</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/17-hash-autovivify.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1146,30 +680,6 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left rowspan=2>t/v5/18-array-autovivify.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/23-eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix ? "LIST" : instead
-at t/v5/23-eval.v5:37
------->     my $result = wantarray ? "LIST" :⏏ defined wantarray ? "SCALAR" : "VOID";
-</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/24-strict.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/v5/24-strict.v5:3
-------> eval⏏('use strict;my $x = "ok 1";print $x,"\n</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/25-syntax-defined-or.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/v5/25-syntax-defined-or.v5:8
------->     print "not " unless (shift // ⏏2) == 5;</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/26-syntax-namespace.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not locate compile-time value for symbol A
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/30-tie-array.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1191,25 +701,12 @@ at t/v5/32-autoload-method.v5:22
         <tr><td colspan=5>===SORRY!===
 No such symbol '&skip_all_without_perlio'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/io/nargv.v5:79
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$TODO' is not declared
 at t/spec/io/perlio_leaks.v5:25
 ------> 	    local $::TODO⏏;</td></tr>
-        <tr align=center><td align=left>io/print.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align=center><td align=left>io/say.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr align=center><td align=left rowspan=2>io/tell.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/io/tell.v5:188
-------> <BOL>⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>io/through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1236,78 +733,88 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
         <tr><td colspan=5>===SORRY!===
 Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_01_c3.v5:47
-------> is(Diamond_D->can(⏏'hello')->(), 'Diamond_C::hello', '... c</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_01_c3_utf8.v5:49
-------> is(Ｄiᚪၚd_D->can(⏏'hèllò')->(), 'Ｄiᚪၚd_C::hèllò', '... can</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_01_dfs.v5:47
-------> is(Diamond_D->can(⏏'hello')->(), 'Diamond_A::hello', '... c</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_01_dfs_utf8.v5:49
-------> is(Ｄiᚪၚd_D->can(⏏'hèllò')->(), 'Ｄiᚪၚd_A::hèllò', '... can</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_02_c3.v5:114
-------> is(Test::A->can(⏏'C_or_D')->(), 'Test::C', '... can got t</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_02_c3_utf8.v5:116
-------> is(텟ţ::ଅ->can(⏏'ƈ_or_Ḋ')->(), '텟ţ::ƈ', '... can got the</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_02_dfs.v5:114
-------> is(Test::A->can(⏏'C_or_D')->(), 'Test::D', '... can got t</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/mro/basic_02_dfs_utf8.v5:116
-------> is(텟ţ::ଅ->can(⏏'ƈ_or_Ḋ')->(), '텟ţ::Ḋ', '... can got the</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_03_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
-    eq_array used at line 90
+    eq_array used at line 33
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_03_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 92
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_03_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 90
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 92
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
     eq_array used at line 31
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 33
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 95
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 97
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 95
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 97
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_ineval.v5:32
+------> rn 'B::foo => ' . (shift)->next::method(⏏);</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_ineval_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_ineval_utf8.v5:34
+------> urn 'ｂ::ຟǫ => ' . (shift)->next::method(⏏);</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 64
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 65
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 64
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 66
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1322,6 +829,10 @@ at t/spec/comp/final_line_num.v5:7
         <tr align=center><td align=left rowspan=2>op/hash-rt85026.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&skip_all_without_dynamic_extension'
+</td></tr>
+        <tr align=center><td align=left rowspan=2>porting/podcheck.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Carp in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1342,6 +853,10 @@ at t/spec/re/qrstack.v5:12
 Preceding context expects a term, but found infix << instead
 at t/spec/re/reg_60508.v5:45
 ------> <BOL>⏏<EOL>
+</td></tr>
+        <tr align=center><td align=left rowspan=2>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>Too many positional parameters passed; got 2 but expected 1
@@ -1366,6 +881,10 @@ No such symbol '&sub'
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find File::Spec::Functions in any of: ../lib
@@ -1377,6 +896,50 @@ get_iter() not implemented in class 'NQPMu'
         <tr align=center><td align=left rowspan=2>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 31
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 49
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 51
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 49
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 52
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_inanon.v5:36
+------> rn 'B::foo => ' . (shift)->next::method(⏏);</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_inanon_utf8.v5:37
+------> turn 'Ḃ::ᕘ => ' . (shift)->next::method(⏏);</td></tr>
+        <tr align=center><td align=left rowspan=2>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Odd number of elements found where hash expected
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1487,6 +1050,16 @@ Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-dev
         <tr><td colspan=5>===SORRY!===
 Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
 </td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '&next::method' is not declared
+at t/spec/mro/next_goto.v5:14
+------>     sub next_proxy { goto &next::method⏏ }</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_goto_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '&next::method' is not declared
+at t/spec/mro/next_goto_utf8.v5:15
+------>     sub next_prxᔬ { goto &next::method⏏ }</td></tr>
         <tr align=center><td align=left rowspan=2>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&skip_all_if_miniperl'
@@ -1516,10 +1089,74 @@ Could not find file './test.pl' for module ./test.pl
         <tr><td colspan=5>WARNINGS:
 Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)
 </td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/24-strict.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Missing block
+at t/v5/24-strict.v5:3
+------> eval⏏('use strict;my $x = "ok 1";print $x,"\n</td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/25-syntax-defined-or.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Two terms in a row
+at t/v5/25-syntax-defined-or.v5:8
+------>     print "not " unless (shift // ⏏2) == 5;</td></tr>
         <tr align=center><td align=left rowspan=2>lib/proxy_constant_subs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_c3.v5:47
+------> is(Diamond_D->can(⏏'hello')->(), 'Diamond_C::hello', '... c</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_c3_utf8.v5:49
+------> is(Ｄiᚪၚd_D->can(⏏'hèllò')->(), 'Ｄiᚪၚd_C::hèllò', '... can</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_dfs.v5:47
+------> is(Diamond_D->can(⏏'hello')->(), 'Diamond_A::hello', '... c</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_01_dfs_utf8.v5:49
+------> is(Ｄiᚪၚd_D->can(⏏'hèllò')->(), 'Ｄiᚪၚd_A::hèllò', '... can</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 90
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_03_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 92
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_03_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 90
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at line 92
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_method.v5:31
+------> ond_B::foo => ' . (shift)->next::method(⏏) }</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_method_utf8.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_method_utf8.v5:33
+------> mond_B::fಓ => ' . (shift)->next::method(⏏) }</td></tr>
         <tr align=center><td align=left rowspan=2>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -1552,6 +1189,12 @@ at t/spec/op/yadayada.v5:16
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
+        <tr align=center><td align=left rowspan=2>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/run/switchF1.v5:42
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1576,6 +1219,12 @@ Null PMC access in get_iter()
   in block  at t/v5/10-bind-sub-param.v5:16
 
 </td></tr>
+        <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/io/nargv.v5:79
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1587,6 +1236,12 @@ at t/spec/op/blocks.v5:149
 Preceding context expects a term, but found infix , instead
 at t/spec/op/kill0.v5:36
 ------>     [ undef ,⏏ 'undef'         ],
+</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/multiline.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/comp/multiline.v5:95
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1635,6 +1290,34 @@ Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
 </td></tr>
+        <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/site/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/vendor/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib, /home/froggs/.perl6/2013.04-56-gbfd8508/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/nqp/lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl5/lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/pkg_gen_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>===SORRY!===
+get_iter() not implemented in class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/context.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>No such symbol '&curr_test'
   in method <anon> at src/gen/CORE.setting:10027
@@ -1674,6 +1357,12 @@ at t/spec/op/packagev.v5:193
   in any find_method at src/gen/Metamodel.nqp:939
   in block  at t/spec/comp/our.v5:46
 
+</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/package_block.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan=5>WARNINGS:
+Useless use of constant integer 1 in sink context (line 93)
+===SORRY!===
+Error while compiling block  (source text: "use v5;\n#!./perl\n\nprint \"1..7\\n\";\n\n$main::result = \"\";\neval q{\n    $main::result .= \"a(..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{ $main::warning .= $_[0]; }"): Error while compiling op bind: First child of a 'bind' op must be a QAST::Var
 </td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1756,6 +1445,12 @@ Could not find file './test.pl' for module ./test.pl
 Variable '$IS_EBCDIC' is not declared
 at t/spec/uni/write.v5:7
 ------> "EBCDIC porting needed") if $::IS_EBCDIC⏏;</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/decl.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix = instead
+at t/spec/comp/decl.v5:9
+------> format one =⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/heredoc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1781,6 +1476,20 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
         <tr><td colspan=5>===SORRY!===
 Could not find charnames in any of: ../lib
 </td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/26-syntax-namespace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not locate compile-time value for symbol A
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_skip.v5:31
+------> ond_B::baz => ' . (shift)->next::method(⏏) }</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/next_skip_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in block; couldn't find final '}'
+at t/spec/mro/next_skip_utf8.v5:34
+------> iᚪၚd_B::바ź => ' . (shift)->next::method(⏏) }</td></tr>
         <tr align=center><td align=left rowspan=2>op/hash.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find constant in any of: ../lib
@@ -1806,6 +1515,12 @@ Could not find file './test.pl' for module ./test.pl
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
 </td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/23-eval.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix ? "LIST" : instead
+at t/v5/23-eval.v5:37
+------>     my $result = wantarray ? "LIST" :⏏ defined wantarray ? "SCALAR" : "VOID";
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -1813,6 +1528,38 @@ Could not find Config in any of: ../lib
         <tr align=center><td align=left rowspan=2>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_c3.v5:114
+------> is(Test::A->can(⏏'C_or_D')->(), 'Test::C', '... can got t</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_c3_utf8.v5:116
+------> is(텟ţ::ଅ->can(⏏'ƈ_or_Ḋ')->(), '텟ţ::ƈ', '... can got the</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_dfs.v5:114
+------> is(Test::A->can(⏏'C_or_D')->(), 'Test::D', '... can got t</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/basic_02_dfs_utf8.v5:116
+------> is(텟ţ::ଅ->can(⏏'ƈ_or_Ḋ')->(), '텟ţ::Ḋ', '... can got the</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at lines 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    eq_array used at lines 87, 92, 97, 102, 107, 112, 117, 122, 127, 132, 137
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1841,6 +1588,18 @@ at t/spec/uni/class.v5:12
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n\n    require './test.pl';\n    skip_all_if_miniperl(\"no dynamic loading on miniper..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
+        <tr align=center><td align=left rowspan=2>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unexpected closing bracket
+at t/spec/mro/complex_c3.v5:143
+------> th(), "right", 'next::method working ok'⏏);
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/complex_c3_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unexpected closing bracket
+at t/spec/mro/complex_c3_utf8.v5:145
+------> th(), "right", 'next::method working ok'⏏);
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -1868,11 +1627,23 @@ Could not find vars in any of: . ../lib
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: . ../lib
 </td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix ? "LIST" : instead
+at t/v5/13-op-context.v5:10
+------>     my $result = wantarray ? "LIST" :⏏ defined wantarray ? "SCALAR" : "VOID";
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
 at t/spec/mro/isa_aliases.v5:12
 ------> ok 'Foogh'->isa(⏏"Baz"),</td></tr>
+        <tr align=center><td align=left rowspan=2>cmd/mod.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/cmd/mod.v5:60
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/pow.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1896,6 +1667,16 @@ Preceding context expects a term, but found infix << instead
 at t/spec/lib/universal.v5:67
 ------> <BOL>⏏<EOL>
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/form_scope.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Malformed block
+at t/spec/comp/form_scope.v5:7
+------> sub f ⏏($);</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/package.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Two terms in a row
+at t/spec/comp/package.v5:18
+------>     $main⏏'a = $'b;</td></tr>
         <tr align=center><td align=left rowspan=2>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>No such symbol '&tie'
   in method <anon> at src/gen/CORE.setting:10027
@@ -2028,6 +1809,10 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
+        <tr><td colspan=5>===SORRY!===
+No such symbol '&sub'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/exec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find vmsish in any of: ../lib
@@ -2050,6 +1835,10 @@ No such symbol '&skip_all_without_config'
         <tr><td colspan=5>===SORRY!===
 Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't' if -d 't';\n    @INC = '../lib';\n}\n\nrequire './test.p..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/term.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -2066,11 +1855,22 @@ Could not find file './test.pl' for module ./test.pl
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
+        <tr align=center><td align=left>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
 at t/spec/cmd/while.v5:220
 ------> <BOL>⏏<EOL>
+</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Undeclared routine:
+    my used at line 18
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/reverse.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2091,6 +1891,17 @@ No such symbol '&sub'
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
+        <tr align=center><td align=left rowspan=2>opbasic/qq.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Unrecognized backslash sequence: '\x'
+at t/spec/opbasic/qq.v5:45
+------> is ("\⏏xh", chr (0) . 'h');	# This will warn</td></tr>
+        <tr align=center><td align=left rowspan=2>base/rs.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/base/rs.v5:249
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/pvbm.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2116,6 +1927,11 @@ at t/spec/op/reset.v5:16
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
 </td></tr>
+        <tr align=center><td align=left rowspan=2>opbasic/concat.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Missing block
+at t/spec/opbasic/concat.v5:157
+------>     my $x = eval⏏"qr/\x{fff}/";</td></tr>
         <tr align=center><td align=left rowspan=2>op/dor.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -2135,6 +1951,21 @@ Null PMC access in get_iter()
         <tr align=center><td align=left rowspan=2>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&skip_all_if_miniperl'
+</td></tr>
+        <tr align=center><td align=left rowspan=2>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/io/tell.v5:188
+------> <BOL>⏏<EOL>
+</td></tr>
+        <tr align=center><td align=left rowspan=2>cmd/subval.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Two terms in a row
+at t/spec/cmd/subval.v5:110
+------> &main⏏'somesub(28, 'foo', __FILE__, __LINE__);</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/opsubs.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unshift.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2174,18 +2005,14 @@ at t/spec/op/repeat.v5:20
         <tr><td colspan=5>===SORRY!===
 Could not find vars in any of: ../lib
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/uproto.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Malformed block
+at t/spec/comp/uproto.v5:52
+------> sub f⏏($$_) { my $x = shift; is("@_", $x) }</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>0</td><td>47</td><td>0</td><td>0</td><td>47</td></tr>
-        <tr><td colspan=5>No such symbol '&cmp_ok'
-  in method <anon> at src/gen/CORE.setting:10027
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/op/auto.v5:13
-
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2215,6 +2042,10 @@ Method 'flat' not found for invocant of class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
 </td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -2235,6 +2066,10 @@ No such symbol '&sub'
         <tr align=center><td align=left rowspan=2>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find constant in any of: ../lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2285,7 +2120,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_121_1368396049.88592
+Could not find sub cuid_121_1368433335.40169
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2300,14 +2135,30 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Malformed block
+at t/spec/comp/retainedlines.v5:28
+------> sub is⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/oct.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
         <tr><td colspan=5>===SORRY!===
 Bogus statement
 at t/spec/op/oct.v5:34
 ------> 	['0b'.(  '0'x⏏10).'1_0101', 0b101_01],</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/use.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Malformed block
+at t/spec/comp/use.v5:60
+------> sub like ⏏($$;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
+</td></tr>
+        <tr align=center><td align=left rowspan=2>base/lex.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/base/lex.v5:407
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/undef.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2340,6 +2191,12 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQ
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+        <tr align=center><td align=left rowspan=2>op/lex_assign.v5</td><td>0</td><td>100</td><td>0</td><td>0</td><td>100</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/op/lex_assign.v5:344
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -2365,6 +2222,125 @@ at t/spec/op/split.v5:84
         <tr align=center><td align=left rowspan=2>run/switches.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
+</td></tr>
+        <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>118</td><td>0</td><td>0</td><td>118</td></tr>
+        <tr><td colspan=5>Potential difficulties:
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:176
+    ------> for my $i ⏏(@array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:181
+    ------> for my $i ⏏(1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:186
+    ------> for my $i ⏏(map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:191
+    ------> for my $i ⏏(map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:196
+    ------> for my $i ⏏(1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:201
+    ------> for my $i ⏏('A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:207
+    ------> for my $i ⏏(reverse @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:212
+    ------> for my $i ⏏(reverse 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:217
+    ------> for my $i ⏏(reverse map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:222
+    ------> for my $i ⏏(reverse map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:227
+    ------> for my $i ⏏(reverse 1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:232
+    ------> for my $i ⏏(reverse 'A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:303
+    ------> for our $i ⏏(reverse @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:308
+    ------> for our $i ⏏(reverse 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:313
+    ------> for our $i ⏏(reverse map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:318
+    ------> for our $i ⏏(reverse map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:323
+    ------> for our $i ⏏(reverse 1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:328
+    ------> for our $i ⏏(reverse 'A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:463
+    ------> for my $i ⏏(1, reverse @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:468
+    ------> for my $i ⏏('A', reverse 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:473
+    ------> for my $i ⏏(1, reverse map {$_} @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:478
+    ------> for my $i ⏏('A', reverse map {$_} 1,2,3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:483
+    ------> for my $i ⏏('A', reverse 1 .. 3) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:488
+    ------> for my $i ⏏(1, reverse 'A' .. 'C') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:494
+    ------> for my $i ⏏(reverse (@array), 1) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:499
+    ------> for my $i ⏏(reverse (1,2,3), 'A') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:504
+    ------> for my $i ⏏(reverse (map {$_} @array), 1) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:509
+    ------> for my $i ⏏(reverse (map {$_} 1,2,3), 'A') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:514
+    ------> for my $i ⏏(reverse (1 .. 3), 'A') {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:519
+    ------> for my $i ⏏(reverse ('A' .. 'C'), 1) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:611
+    ------> for my $i ⏏(reverse 1, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:616
+    ------> for my $i ⏏(reverse map {$_} 1, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:621
+    ------> for my $i ⏏(reverse 1 .. 3, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:626
+    ------> for my $i ⏏(reverse 'X' .. 'Z', @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:631
+    ------> for my $i ⏏(reverse map {$_} 1 .. 3, @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:636
+    ------> for my $i ⏏(reverse map {$_} 'X' .. 'Z', @array) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:642
+    ------> for my $i ⏏(reverse (@array, 1)) {
+    Redeclaration of symbol $i
+    at t/spec/cmd/for.v5:647
+    ------> for my $i ⏏(reverse (map {$_} @array, 1)) {
+===SORRY!===
+Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2423,6 +2399,15 @@ No such symbol '&skip_all_if_miniperl'
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Null PMC access in get_iter()
+</td></tr>
+        <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>0</td><td>167</td><td>0</td><td>0</td><td>167</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Malformed block
+at t/spec/opbasic/arith.v5:15
+------> sub try ⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -2436,6 +2421,11 @@ at t/spec/op/sort.v5:21
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    require './test.pl';\n    plan (..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/proto.v5</td><td>0</td><td>180</td><td>0</td><td>0</td><td>180</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Malformed block
+at t/spec/comp/proto.v5:26
+------> sub testing ⏏(&$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/sub_lval.v5</td><td>0</td><td>191</td><td>0</td><td>0</td><td>191</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -2520,6 +2510,11 @@ Could not find Config in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-d
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
+        <tr align=center><td align=left rowspan=2>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Two terms in a row
+at t/spec/comp/utf.v5:40
+------>     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
         <tr align=center><td align=left rowspan=2>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
