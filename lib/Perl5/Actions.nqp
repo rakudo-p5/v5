@@ -1309,7 +1309,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$@>($/) {
         $V5DEBUG && say("special_variable:sym<\$@>($/)");
-        make QAST::Op.new( :op('call'), :name('Stringy'), QAST::Var.new( :name('$!'), :scope('lexical') ) )
+        make QAST::Op.new( :op('callmethod'), :name('Stringy'), QAST::Var.new( :name('$!'), :scope('lexical') ) )
     }
 
     method special_variable:sym<$#>($/) {
