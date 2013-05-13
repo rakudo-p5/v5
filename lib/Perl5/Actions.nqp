@@ -1111,7 +1111,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 QAST::Op.new(
                     :op('p6store'),
                     QAST::Var.new( :name<$!>, :scope<lexical> ),
-                    QAST::Var.new( :name<Any>, :scope<lexical> )
+                    QAST::Op.new( :op('callmethod'), :name('new'),
+                        QAST::Var.new( :name<Str>, :scope<lexical> ) )
                 )
             ),
 
@@ -1120,10 +1121,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 QAST::Op.new(
                     :op('p6store'),
                     QAST::Var.new(:name<$!>, :scope<lexical>),
-                    QAST::Op.new(
-                        :name<&EXCEPTION>, :op<call>,
-                        QAST::Op.new( :op('exception') )
-                    ),
+                    QAST::Op.new( :op('callmethod'), :name('Stringy'),
+                        QAST::Op.new(
+                            :name<&EXCEPTION>, :op<call>,
+                            QAST::Op.new( :op('exception') )
+                    )),
                 ),
                 QAST::VM.new(
                     pirop => 'perl6_invoke_catchhandler 1PP',
@@ -1173,7 +1175,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     QAST::Op.new(
                         :op('p6store'),
                         QAST::Var.new( :name<$!>, :scope<lexical> ),
-                        QAST::Var.new( :name<Any>, :scope<lexical> )
+                        QAST::Op.new( :op('callmethod'), :name('new'),
+                            QAST::Var.new( :name<Str>, :scope<lexical> ) )
                     )
                 ),
 
@@ -1182,10 +1185,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     QAST::Op.new(
                         :op('p6store'),
                         QAST::Var.new(:name<$!>, :scope<lexical>),
-                        QAST::Op.new(
-                            :name<&EXCEPTION>, :op<call>,
-                            QAST::Op.new( :op('exception') )
-                        ),
+                        QAST::Op.new( :op('callmethod'), :name('Stringy'),
+                            QAST::Op.new(
+                                :name<&EXCEPTION>, :op<call>,
+                                QAST::Op.new( :op('exception') )
+                        )),
                     ),
                     QAST::VM.new(
                         pirop => 'perl6_invoke_catchhandler 1PP',
@@ -1309,7 +1313,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$@>($/) {
         $V5DEBUG && say("special_variable:sym<\$@>($/)");
-        make QAST::Op.new( :op('callmethod'), :name('Stringy'), QAST::Var.new( :name('$!'), :scope('lexical') ) )
+        make QAST::Var.new( :name('$!'), :scope('lexical') )
     }
 
     method special_variable:sym<$#>($/) {
@@ -3846,7 +3850,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 QAST::Op.new(
                     :op('p6store'),
                     QAST::Var.new( :name<$!>, :scope<lexical> ),
-                    QAST::Var.new( :name<Any>, :scope<lexical> )
+                    QAST::Op.new( :op('callmethod'), :name('new'),
+                        QAST::Var.new( :name<Str>, :scope<lexical> ) )
                 )
             ),
 
@@ -3855,10 +3860,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 QAST::Op.new(
                     :op('p6store'),
                     QAST::Var.new(:name<$!>, :scope<lexical>),
-                    QAST::Op.new(
-                        :name<&EXCEPTION>, :op<call>,
-                        QAST::Op.new( :op('exception') )
-                    ),
+                    QAST::Op.new( :op('callmethod'), :name('Stringy'),
+                        QAST::Op.new(
+                            :name<&EXCEPTION>, :op<call>,
+                            QAST::Op.new( :op('exception') )
+                    )),
                 ),
                 QAST::VM.new(
                     pirop => 'perl6_invoke_catchhandler 1PP',
