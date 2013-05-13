@@ -49,4 +49,8 @@ sub _done()                { done()                }
     sub cmp_ok        { _is_deeply($_[0], $_[1], $_[2]) }
     sub done_testing  { _done_testing()    }
     sub done          { _done()            }
+    
+    # so that these tests don't die, see https://github.com/mirrors/perl/blob/blead/t/test.pl#L1587
+    sub native_to_latin1 { $_[0] }
+    sub latin1_to_native { $_[0] }
 }
