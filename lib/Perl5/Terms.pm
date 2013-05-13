@@ -43,3 +43,5 @@ sub close( IO::Handle $fh ) is export { $fh.close }
 sub ref($o) is export {
     $o.^name
 }
+
+sub scalar( @array ) is export { +@array }
