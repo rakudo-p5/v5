@@ -2491,7 +2491,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
              ]
         || <VALUE=decint>
         ]
-        '.'?
+        [ '.' <!before '.'> ]?
         [ <?before '_' '_'+\d> <.sorry: "Only isolated underscores are allowed inside numbers"> ]?
     }
 
