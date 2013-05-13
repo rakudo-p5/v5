@@ -1,7 +1,7 @@
 
 class Perl5::Terms;
 
-my $INPUT_RECORD_SEPARATOR = 7;
+my $INPUT_RECORD_SEPARATOR = "\n";
 sub INPUT_RECORD_SEPARATOR is export is rw { $INPUT_RECORD_SEPARATOR }
 
 multi sub chop()          is export { chop(CALLER::<$_>) }
