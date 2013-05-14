@@ -17,7 +17,7 @@ multi sub chop(*@s is rw) is export {
 }
 
 # http://perldoc.perl.org/functions/chomp.html
-multi sub chomp()        is export { chomp(CALLER::DYNAMIC::<$_>) }
+multi sub chomp()          is export { chomp(CALLER::DYNAMIC::<$_>) }
 multi sub chomp(*@s is rw) is export {
     my $nr_chomped = 0;
     return 0 unless $INPUT_RECORD_SEPARATOR.defined;
@@ -50,3 +50,7 @@ sub ref($o) is export {
 }
 
 sub scalar( @array ) is export { +@array }
+
+proto sub shift(|) {*}
+multi sub shift()   is export { shift(CALLER::DYNAMIC::<@_>) }
+multi sub shift(@a) is export { @a.shift                     }

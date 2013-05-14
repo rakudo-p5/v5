@@ -3,48 +3,11 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>304</td><td>39842</td><td>4</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>357</td><td>39788</td><td>5</td><td>38</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
-        <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
-        <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
-        <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:47
-
-</td></tr>
-        <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr align=center><td align=left rowspan=2>op/chr.v5</td><td>5</td><td>37</td><td>0</td><td>0</td><td>42</td></tr>
-        <tr><td colspan=5>Invalid character for UTF-8 encoding
-
-  in method chr at src/gen/CORE.setting:3248
-  in block  at t/spec/op/chr.v5:24
-
-</td></tr>
-        <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align=center><td align=left rowspan=2>op/negate.v5</td><td>4</td><td>41</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr><td colspan=5>Cannot convert string to number: trailing characters after number in '10⏏foo' (indicated by ⏏)
-  in method Numeric at src/gen/CORE.setting:10020
-  in sub prefix:<-> at src/gen/CORE.setting:2818
-  in sub prefix:<-> at src/gen/CORE.setting:2817
-  in sub prefix:<-> at src/gen/CORE.setting:2818
-  in sub prefix:<-> at src/gen/CORE.setting:2817
-  in block  at t/spec/op/negate.v5:21
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/exp.v5</td><td>4</td><td>12</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>Not enough positional parameters passed; got 0 but expected 1
-  in sub shift at src/gen/CORE.setting:6387
-  in sub round at t/spec/op/exp.v5:40
-  in block  at t/spec/op/exp.v5:46
-
-</td></tr>
-        <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>4</td><td>43</td><td>0</td><td>0</td><td>47</td></tr>
+        <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
@@ -62,6 +25,38 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
 </td></tr>
+        <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
+        <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
+        <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
+        <tr align=center><td align=left>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:47
+
+</td></tr>
+        <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr align=center><td align=left rowspan=2>op/chr.v5</td><td>5</td><td>37</td><td>0</td><td>0</td><td>42</td></tr>
+        <tr><td colspan=5>Invalid character for UTF-8 encoding
+
+  in method chr at src/gen/CORE.setting:3248
+  in block  at t/spec/op/chr.v5:24
+
+</td></tr>
+        <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align=center><td align=left>t/v5/10-bind-sub-param.v5</td><td>4</td><td>0</td><td>1</td><td>0</td><td>5</td></tr>
+        <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
+        <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align=center><td align=left rowspan=2>op/negate.v5</td><td>4</td><td>41</td><td>0</td><td>0</td><td>45</td></tr>
+        <tr><td colspan=5>Cannot convert string to number: trailing characters after number in '10⏏foo' (indicated by ⏏)
+  in method Numeric at src/gen/CORE.setting:10020
+  in sub prefix:<-> at src/gen/CORE.setting:2818
+  in sub prefix:<-> at src/gen/CORE.setting:2817
+  in sub prefix:<-> at src/gen/CORE.setting:2818
+  in sub prefix:<-> at src/gen/CORE.setting:2817
+  in block  at t/spec/op/negate.v5:21
+
+</td></tr>
+        <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
@@ -1210,13 +1205,6 @@ Null PMC access in get_iter()
   in block  at t/spec/uni/select.v5:19
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/10-bind-sub-param.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>Not enough positional parameters passed; got 0 but expected 1
-  in sub shift at src/gen/CORE.setting:6387
-  in sub subr at t/v5/10-bind-sub-param.v5:10
-  in block  at t/v5/10-bind-sub-param.v5:16
-
-</td></tr>
         <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
@@ -2116,7 +2104,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_124_1368543130.17999
+Could not find sub cuid_127_1368546373.36381
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
