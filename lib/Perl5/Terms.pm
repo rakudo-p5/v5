@@ -20,11 +20,15 @@ multi sub chop(*@s is rw) is export {
 multi sub chomp()        is export { chomp(CALLER::DYNAMIC::<$_>) }
 multi sub chomp(*@s is rw) is export {
     my $nr_chomped = 0;
-    #~ return 0 unless $INPUT_RECORD_SEPARATOR;
+    return 0 unless $INPUT_RECORD_SEPARATOR.defined;
+    # TODO When in slurp mode ($/ = undef ) or fixed-length record mode
+    #      ($/ is a reference to an integer or the like; see perlvar) chomp() won't remove anything
     for @s -> $s is rw {
         if $s && $s.chars {
-            my $chomped  = $s.subst(/$INPUT_RECORD_SEPARATOR$/, '');
-            $nr_chomped += $INPUT_RECORD_SEPARATOR.chars if $s ne $chomped;
+            my $chomped  = $INPUT_RECORD_SEPARATOR eq ''
+                        ?? $s.subst(/\n+$/, '')
+                        !! $s.subst(/$INPUT_RECORD_SEPARATOR$/, '');
+            $nr_chomped += $s.chars - $chomped.chars;
             $s           = $chomped;
         }
     }
