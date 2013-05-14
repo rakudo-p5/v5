@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>262</td><td>39883</td><td>4</td><td>39</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>264</td><td>39881</td><td>4</td><td>39</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -52,6 +52,7 @@
 use of uninitialized value of type Any in string context  in block  at t/spec/base/term.v5:32
 
 </td></tr>
+        <tr align=center><td align=left>t/v5/19-local.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align=center><td align=left>op/append.v5</td><td>3</td><td>0</td><td>0</td><td>10</td><td>13</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>Potential difficulties:
@@ -66,16 +67,6 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/19-local.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>No such symbol '&local'
-  in method <anon> at src/gen/CORE.setting:10027
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/v5/19-local.v5:19
-  in block  at t/v5/19-local.v5:7
-
-</td></tr>
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchI.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>No such symbol '&fresh_perl_is'
@@ -86,12 +77,7 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
   in block  at t/spec/run/switchI.v5:24
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
-
-use of uninitialized value of type Any in string context  in any !cursor_init at src/stage2/QRegex.nqp:528
-
-</td></tr>
+        <tr align=center><td align=left>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>1</td><td>46</td><td>0</td><td>0</td><td>47</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
@@ -859,7 +845,7 @@ at t/spec/re/reg_60508.v5:45
 No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>Too many positional parameters passed; got 2 but expected 1
+        <tr><td colspan=5>Too many positional parameters passed; got 3 but expected 1
   in sub ord at src/gen/CORE.setting:2527
   in block  at t/spec/run/switch0.v5:12
 
@@ -1221,9 +1207,7 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix < instead
-at t/spec/io/nargv.v5:79
-------> <BOL>⏏<EOL>
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2120,7 +2104,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_121_1368433335.40169
+Could not find sub cuid_122_1368518073.13785
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
