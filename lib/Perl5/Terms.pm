@@ -4,7 +4,7 @@ class Perl5::Terms;
 my $INPUT_RECORD_SEPARATOR = "\n";
 sub INPUT_RECORD_SEPARATOR is export is rw { $INPUT_RECORD_SEPARATOR }
 
-multi sub chop()          is export { chop(CALLER::<$_>) }
+multi sub chop()          is export { chop(CALLER::DYNAMIC::<$_>) }
 multi sub chop(*@s is rw) is export {
     my $chopped_of = '';
     for @s -> $s is rw {
@@ -16,18 +16,19 @@ multi sub chop(*@s is rw) is export {
     $chopped_of
 }
 
-
-multi sub chomp()          is export { chomp(CALLER::<$_>) }
+# http://perldoc.perl.org/functions/chomp.html
+multi sub chomp()        is export { chomp(CALLER::DYNAMIC::<$_>) }
 multi sub chomp(*@s is rw) is export {
-    my $so_chomped = 0;
+    my $nr_chomped = 0;
+    #~ return 0 unless $INPUT_RECORD_SEPARATOR;
     for @s -> $s is rw {
         if $s && $s.chars {
-            my $chomped = $s.chomp;
-            $so_chomped = +?($s ne $chomped);
-            $s          = $chomped;
+            my $chomped  = $s.subst(/$INPUT_RECORD_SEPARATOR$/, '');
+            $nr_chomped += $INPUT_RECORD_SEPARATOR.chars if $s ne $chomped;
+            $s           = $chomped;
         }
     }
-    $so_chomped
+    $nr_chomped
 }
 
 multi sub open( $fh is rw, $expr )             is export { open( $fh, $expr.substr(0, 1), $expr.substr(1) ) }
@@ -41,7 +42,7 @@ multi sub print( *@text ) is export { $*OUT.print( @text.join('') ) }
 sub close( IO::Handle $fh ) is export { $fh.close }
 
 sub ref($o) is export {
-    $o.^name
+    $o.^name.uc
 }
 
 sub scalar( @array ) is export { +@array }
