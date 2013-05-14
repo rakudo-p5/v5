@@ -1724,7 +1724,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
 
     token scope_declarator:sym<my>        { <sym> <scoped('my')> }
-    token scope_declarator:sym<local>     { <sym> <scoped('my')> }
     token scope_declarator:sym<our>       { <sym> <scoped('our')> }
     token scope_declarator:sym<state>     { <sym> <scoped('state')> }
 
@@ -3525,6 +3524,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
 #    token term:sym<local>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+    token prefix:sym<local> { <sym> \s+ <O('%named_unary')> { $*W.give_cur_block_temp($/) } }
 
     token term:sym<filetest> {
         '-'$<letter>=[<[a..zA..Z]>] » <?before \s*> <.ws> <EXPR('q=')>?

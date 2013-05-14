@@ -1837,8 +1837,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method scope_declarator:sym<my>($/)      {
         $V5DEBUG && say("scope_declarator:sym<my>($/)     "); make $<scoped>.ast; }
-    method scope_declarator:sym<local>($/)   {
-        $V5DEBUG && say("scope_declarator:sym<local>($/)  "); make $<scoped>.ast; }
     method scope_declarator:sym<our>($/)     {
         $V5DEBUG && say("scope_declarator:sym<our>($/)    "); make $<scoped>.ast; }
     method scope_declarator:sym<has>($/)     {
@@ -4469,7 +4467,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
             my $name;
             if $past.isa(QAST::Op) && !$past.name {
                 if $key eq 'LIST' { $key := 'infix'; }
-                $name := nqp::lc($key) ~ ':<' ~ $<OPER><sym> ~ '>';
+                my $sym := $<OPER><sym>;
+                $sym := 'temp' if $sym eq 'local';
+                $name := nqp::lc($key) ~ ':<' ~ $sym ~ '>';
                 $past.name('&' ~ $name);
             }
             my $macro := find_macro_routine(['&' ~ $name]);
