@@ -3,10 +3,10 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>295</td><td>39850</td><td>5</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>304</td><td>39842</td><td>4</td><td>38</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
+        <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
-        <tr align=center><td align=left>op/chop.v5</td><td>39</td><td>93</td><td>1</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
@@ -44,6 +44,24 @@
 
 </td></tr>
         <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>4</td><td>43</td><td>0</td><td>0</td><td>47</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+</td></tr>
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
@@ -78,12 +96,6 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
 
 </td></tr>
         <tr align=center><td align=left>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>1</td><td>46</td><td>0</td><td>0</td><td>47</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>No such symbol '&bless'
   in method <anon> at src/gen/CORE.setting:10027
@@ -338,7 +350,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Maintainers in any of: lib Porting
+Could not find Maintainers in any of: lib, Porting
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/manifest.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1052,7 +1064,7 @@ No such symbol '&skip_all_if_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: . ../lib
+Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1403,7 +1415,7 @@ at t/spec/op/or.v5:16
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: . ../lib
+Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1605,11 +1617,11 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: . ../lib
+Could not find vars in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/dup.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: . ../lib
+Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1717,7 +1729,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: . ../lib
+Could not find vars in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/not.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2057,7 +2069,7 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: . ../lib
+Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2104,7 +2116,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_123_1368536323.09291
+Could not find sub cuid_124_1368543130.17999
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===

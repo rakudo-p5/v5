@@ -5416,8 +5416,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
     method quote:sym<qq>($/)   { $V5DEBUG && say("method quote:sym<qq>($/)");    make $<quibble>.ast; }
     method quote:sym<q>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
-    method quote:sym<qw>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
-    method quote:sym<qr>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
+    method quote:sym<qw>($/)   { $V5DEBUG && say("method quote:sym<qw>($/)");    make $<quibble>.ast; }
+    method quote:sym<qr>($/)   { $V5DEBUG && say("method quote:sym<qr>($/)");    make $<quibble>.ast; }
     method quote:sym</ />($/) {
         $V5DEBUG && say("method quote:sym</ />($/)");
         my %sig_info := hash(parameters => []);

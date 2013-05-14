@@ -2812,7 +2812,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token quote:sym<qw> {
         #'qw' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:q))>
-        'qw' <?before \W> <.ws> <quibble(%*LANG<P5Q>)>
+        'qw' <?before \W> <.ws> <quibble(%*LANG<P5Q>, 'w')>
     }
 
     token quote:sym<qr> {
@@ -3905,19 +3905,19 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
         token backslash:sym<x> { :dba('hex character') <sym> [ <hexint> | '{' ~ '}' <hexints> ] }
         # XXX viv doesn't support ** quantifiers yet
         token backslash:sym<0> { :dba('octal character') <sym> [ [<[0..7]> [<[0..7]> <[0..7]>?]?]? | '{' ~ '}' <octints> ] }
-    } # end role
+    }
 
     role b0 {
         token escape:sym<\\> { <!> }
-    } # end role
+    }
 
     role c1 {
         token escape:sym<{ }> { <?before '{'> [ <block=.LANG('Perl5','block')> ] }
-    } # end role
+    }
 
     role c0 {
         token escape:sym<{ }> { <!> }
-    } # end role
+    }
 
     role s1 {
         token escape:sym<$> {
@@ -3926,11 +3926,11 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
 #            [ <termish=.LANG('MAIN','termish')> ] || <.panic: "Non-variable \$ must be backslashed">
             [ <EXPR=.LANG('Perl5', 'EXPR', 'z=')> || { $*W.throw($/, 'X::Backslash::NonVariableDollar') } ]
         }
-    } # end role
+    }
 
     role s0 {
         token escape:sym<$> { <!> }
-    } # end role
+    }
 
     role a1 {
         token escape:sym<@> {
@@ -3938,11 +3938,11 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
             <?before '@'>
             [ <termish=.LANG('Perl5','termish')> | <!> ] # trap ABORTBRANCH from variable's ::
         }
-    } # end role
+    }
 
     role a0 {
         token escape:sym<@> { <!> }
-    } # end role
+    }
 
     role h1 {
         token escape:sym<%> {
@@ -3950,48 +3950,47 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
             <?before '%'>
             [ <termish=.LANG('Perl5','termish')> | <!> ]
         }
-    } # end role
+    }
 
     role h0 {
         token escape:sym<%> { <!> }
-    } # end role
+    }
 
     role f1 {
         token escape:sym<&> {
             :my $*QSIGIL := '&';
             <?before '&'>
-#            [ :lang(%*LANG<MAIN>) <EXPR('%methodcall')> | <!> ]
             <EXPR=.LANG('Perl5', 'EXPR', 'y=')>
         }
-    } # end role
+    }
 
     role f0 {
         token escape:sym<&> { <!> }
-    } # end role
+    }
 
     role w1 {
-        method postprocess ($s) { $s.words }
-    } # end role
+        method postprocessor () { 'words' }
+    }
 
     role w0 {
-        method postprocess ($s) { $s }
-    } # end role
+        method postprocessor () { 'null' }
+    }
 
     role ww1 {
-        method postprocess ($s) { $s.words }
-    } # end role
+        method postprocessor () { 'words' }
+    }
 
     role ww0 {
-        method postprocess ($s) { $s }
-    } # end role
+        method postprocessor () { 'null' }
+    }
 
     role x1 {
-        method postprocess ($s) { $s.run }
-    } # end role
+        method postprocessor () { 'run' }
+    }
 
     role x0 {
-        method postprocess ($s) { $s }
-    } # end role
+        method postprocessor () { 'null' }
+    }
 
     role q {
         token stopper { \' }
