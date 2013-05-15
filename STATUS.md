@@ -129,9 +129,8 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/mro/method_caching.v5:5
-------> no strict ⏏'refs'; # we do a lot of this</td></tr>
+Could not find file './test.pl' for module ./test.pl
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -694,7 +693,7 @@ at t/v5/32-autoload-method.v5:22
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_without_perlio'
+No such symbol '&exists'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -823,7 +822,7 @@ at t/spec/comp/final_line_num.v5:7
 ------> =~ /\Asyntax error at [^ ]+ line ([0-9]+⏏), at EOF/ or exit 1;</td></tr>
         <tr align=center><td align=left rowspan=2>op/hash-rt85026.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_without_dynamic_extension'
+Could not find Devel::Peek in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/podcheck.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1276,7 +1275,7 @@ at t/spec/io/inplace.v5:20
 ------> @ARGV⏏ = @tfiles;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_without_perlio'
+Could not find Fcntl in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1657,7 +1656,7 @@ at t/spec/op/wantarray.v5:15
 ------>   local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_without_perlio'
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1727,7 +1726,7 @@ at t/spec/re/pat_psycho.v5:16
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_without_perlio'
+Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1757,7 +1756,7 @@ at t/spec/op/sub.v5:14
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_without_perlio'
+Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/defout.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2131,7 +2130,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368620495.13535
+Could not find sub cuid_97_1368648095.52097
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2404,7 +2403,7 @@ Could not find Config in any of: ../lib, .
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_without_perlio'
+Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2460,9 +2459,9 @@ Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/ref.v5</td><td>0</td><td>230</td><td>0</td><td>0</td><td>230</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '$bar' is not declared
-at t/spec/op/ref.v5:16
-------> $bar⏏ = "one";</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/ref.v5:48
+------>     is ($$⏏$foo, 'valid');</td></tr>
         <tr align=center><td align=left rowspan=2>op/gv.v5</td><td>0</td><td>245</td><td>0</td><td>0</td><td>245</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()
@@ -2494,7 +2493,7 @@ Could not find Tie::Array in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===

@@ -40,6 +40,7 @@ sub _done()                  { done()                }
     sub skip_all                { _skip_rest(@_)                      }
     sub skip_all_if_miniperl    {                                     }
     sub skip_all_without_perlio {                                     }
+    sub skip_all_without_dynamic_extension {                          }
     sub diag                    { _diag(@_)                           }
     sub flunk                   { _flunk(@_)                          }
     sub isa_ok                  { _isa_ok(@_)                         }
