@@ -318,9 +318,10 @@ role STD5 {
 #        self;
 #    }
 
-    my $is_strict := 0;
-    method set_strict( $strict ) {
-        $is_strict := $strict;
+    my %pragmas;
+    method pragma( $name, $args, $set ) {
+        %pragmas{$name} := nqp::hash();
+        %pragmas{$name}{$_} := $set for $args;
     }
     method check_variable($/, $var) {
         my $varast := $var.ast;
@@ -333,7 +334,7 @@ role STD5 {
             my $name := $varast.name;
             if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
-                    if !$is_strict {
+                    if !%pragmas<strict><vars> {
                         
                         my $BLOCK := $*W.cur_lexpad();
                         
@@ -1370,65 +1371,55 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     # statement control #
     #####################
 
+    my %pragma_defaults := nqp::hash(
+        'base',      [],                       # http://perldoc.perl.org/base.html
+        'bytes',     [],                       # http://perldoc.perl.org/bytes.html
+        'charnames', [],                       # http://perldoc.perl.org/charnames.html
+        'feature',   [],                       # http://perldoc.perl.org/feature.html
+        'integer',   [],                       # http://perldoc.perl.org/integer.html
+        'mro',       [],                       # http://perldoc.perl.org/mro.html
+        'open',      [],                       # http://perldoc.perl.org/open.html
+        'strict',    ['vars', 'refs', 'subs'], # http://perldoc.perl.org/strict.html
+        'utf8',      [],                       # http://perldoc.perl.org/utf8.html
+        'warnings',  [],                       # http://perldoc.perl.org/warnings.html
+    );
     token statement_control:sym<use> {
-        :my $longname;
         :my $*IN_DECL := 'use';
         :my $*HAS_SELF := '';
         :my $*SCOPE   := 'use';
         :my $OLD_MAIN := ~$*MAIN;
         <sym> <.ws>
         [
-        ||  'strict' <arglist> { self.set_strict(1); } # http://perldoc.perl.org/strict.html
-        ||  'utf8'                # http://perldoc.perl.org/utf8.html
-        ||  'bytes'               # http://perldoc.perl.org/bytes.html
-        ||  'charnames' <arglist> # http://perldoc.perl.org/charnames.html
-        ||  'integer'             # http://perldoc.perl.org/integer.html
-        ||  'warnings' <arglist>? # http://perldoc.perl.org/warnings.html
-        ||  'base' <arglist>      # http://perldoc.perl.org/base.html
-        ||  'feature' <arglist>   # http://perldoc.perl.org/feature.html
-        ||  'mro' <arglist>       # http://perldoc.perl.org/mro.html
-        ||  'open' <arglist>      # http://perldoc.perl.org/open.html
         || <version=versionish> [ <?{ ~$<version><vnum>[0] eq '6' }> {
                                     $*MAIN := 'MAIN';
                                 } ]?
         || <module_name> <version=versionish>?
+            [ <.spacey> <arglist> <?{ $<arglist><EXPR> }> ]?
             {
-                $longname := $<module_name><longname>;
+                my $longname := ~$<module_name><longname>;
+                my $arglist;
                 
-                if $longname.Str eq 'strict' {
-                    self.set_strict(1);
-                    $longname := "";
-                }
-                elsif $longname.Str eq 'warnings' ||
-                      $longname.Str eq 'feature' {
-                    $longname := "";
-                }
-            }
-            [
-            || <.spacey> <arglist> <?{ $<arglist><EXPR> }>
-                {
-                    my $arglist := $*W.compile_time_evaluate($/,
+                if $<arglist> {
+                    $arglist := $*W.compile_time_evaluate($/,
                             $<arglist><EXPR>.ast);
                     $arglist := nqp::getattr($arglist.list.eager,
                             $*W.find_symbol(['List']), '$!items');
+                }
+                
+                if nqp::existskey(%pragma_defaults, $longname) {
+                    self.pragma($longname, $<arglist>
+                        ?? $arglist
+                        !! %pragma_defaults{$longname}, 1);
+                }
+                else {
                     my $module := $*W.load_module($/,
-                                                    ~$longname,
+                                                    $longname,
                                                     $*GLOBALish,
                                                    :from<Perl5>);
-                    do_import($/, $module, ~$longname, $arglist);
+                    do_import($/, $module, $longname, $arglist);
                     $/.CURSOR.import_EXPORTHOW($module);
                 }
-            || { 
-                    if $longname {
-                        my $module := $*W.load_module($/,
-                                                      ~$longname,
-                                                       $*GLOBALish,
-                                                       :from<Perl5>);
-                        do_import($/, $module, ~$longname);
-                        $/.CURSOR.import_EXPORTHOW($module);
-                    }
-                }
-            ]
+            }
         ]
         [ <?{ $*MAIN ne $OLD_MAIN }> {
             $*IN_DECL := '';
@@ -1487,12 +1478,27 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         }
     }
 
-    rule statement_control:sym<no> {
-        <sym>
-        [
-        || 'strict' { self.set_strict(0); }
-        || <module_name>[<.spacey><arglist>]?
-        ]
+    token statement_control:sym<no> {
+        <sym> <.ws>
+        <module_name>
+        [ <.spacey> <arglist> <?{ $<arglist><EXPR> }> ]?
+        {
+            my $longname := ~$<module_name><longname>;
+            my $arglist;
+            
+            if $<arglist> {
+                $arglist := $*W.compile_time_evaluate($/,
+                        $<arglist><EXPR>.ast);
+                $arglist := nqp::getattr($arglist.list.eager,
+                        $*W.find_symbol(['List']), '$!items');
+            }
+            
+            if nqp::existskey(%pragma_defaults, $longname) {
+                self.pragma($longname, $<arglist>
+                    ?? $arglist
+                    !! %pragma_defaults{$longname}, 0);
+            }
+        }
     }
 
 
