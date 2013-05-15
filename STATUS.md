@@ -149,8 +149,9 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
-</td></tr>
+Malformed block
+at t/spec/op/attrs.v5:17
+------> sub eval_ok ⏏($;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -384,7 +385,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find charnames in any of: ../lib
+Could not find Encode in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1044,7 +1045,7 @@ Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/iofile.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_NEXT.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1066,7 +1067,7 @@ at t/spec/mro/next_goto_utf8.v5:15
 ------>     sub next_prxᔬ { goto &next::method⏏ }</td></tr>
         <tr align=center><td align=left rowspan=2>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+Could not find Attribute::Handlers in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1074,7 +1075,7 @@ Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+Could not find FileHandle in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1475,7 +1476,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find charnames in any of: ../lib
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/26-syntax-namespace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2130,7 +2131,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368618701.0125
+Could not find sub cuid_97_1368620495.13535
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2403,7 +2404,7 @@ Could not find Config in any of: ../lib, .
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+No such symbol '&skip_all_without_perlio'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2459,9 +2460,9 @@ Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/ref.v5</td><td>0</td><td>230</td><td>0</td><td>0</td><td>230</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/op/ref.v5:10
-------> use strict ⏏qw(refs subs);</td></tr>
+Variable '$bar' is not declared
+at t/spec/op/ref.v5:16
+------> $bar⏏ = "one";</td></tr>
         <tr align=center><td align=left rowspan=2>op/gv.v5</td><td>0</td><td>245</td><td>0</td><td>0</td><td>245</td></tr>
         <tr><td colspan=5>===SORRY!===
 Null PMC access in get_iter()

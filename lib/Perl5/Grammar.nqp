@@ -1378,15 +1378,16 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $OLD_MAIN := ~$*MAIN;
         <sym> <.ws>
         [
-        ||  'strict' { self.set_strict(1); }
-        ||  'utf8' # noop
-        ||  'bytes'             # http://perldoc.perl.org/bytes.html
-        ||  'integer'           # http://perldoc.perl.org/integer.html
-        ||  'warnings' # noop
-        ||  'base' <arglist>    # http://perldoc.perl.org/base.html
-        ||  'feature' <arglist> # noop
-        ||  'mro' <arglist>     # http://perldoc.perl.org/mro.html
-        ||  'open' <arglist>    # http://perldoc.perl.org/open.html
+        ||  'strict' <arglist> { self.set_strict(1); } # http://perldoc.perl.org/strict.html
+        ||  'utf8'                # http://perldoc.perl.org/utf8.html
+        ||  'bytes'               # http://perldoc.perl.org/bytes.html
+        ||  'charnames' <arglist> # http://perldoc.perl.org/charnames.html
+        ||  'integer'             # http://perldoc.perl.org/integer.html
+        ||  'warnings' <arglist>? # http://perldoc.perl.org/warnings.html
+        ||  'base' <arglist>      # http://perldoc.perl.org/base.html
+        ||  'feature' <arglist>   # http://perldoc.perl.org/feature.html
+        ||  'mro' <arglist>       # http://perldoc.perl.org/mro.html
+        ||  'open' <arglist>      # http://perldoc.perl.org/open.html
         || <version=versionish> [ <?{ ~$<version><vnum>[0] eq '6' }> {
                                     $*MAIN := 'MAIN';
                                 } ]?
