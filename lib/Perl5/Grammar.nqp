@@ -1404,19 +1404,19 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 }
             }
             [
-            #|| <.spacey> <arglist> <?{ $<arglist><EXPR> }>
-            #    {
-            #        my $arglist := $*W.compile_time_evaluate($/,
-            #                $<arglist><EXPR>.ast);
-            #        $arglist := nqp::getattr($arglist.list.eager,
-            #                $*W.find_symbol(['List']), '$!items');
-            #        my $module := $*W.load_module($/,
-            #                                        ~$longname,
-            #                                        $*GLOBALish,
-            #                                       :from<Perl5>);
-            #        do_import($/, $module, ~$longname, $arglist);
-            #        $/.CURSOR.import_EXPORTHOW($module);
-            #    }
+            || <.spacey> <arglist> <?{ $<arglist><EXPR> }>
+                {
+                    my $arglist := $*W.compile_time_evaluate($/,
+                            $<arglist><EXPR>.ast);
+                    $arglist := nqp::getattr($arglist.list.eager,
+                            $*W.find_symbol(['List']), '$!items');
+                    my $module := $*W.load_module($/,
+                                                    ~$longname,
+                                                    $*GLOBALish,
+                                                   :from<Perl5>);
+                    do_import($/, $module, ~$longname, $arglist);
+                    $/.CURSOR.import_EXPORTHOW($module);
+                }
             || { 
                     if $longname {
                         my $module := $*W.load_module($/,

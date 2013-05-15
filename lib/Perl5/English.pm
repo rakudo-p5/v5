@@ -1,5 +1,5 @@
 
-use 6.0.0;
+use v6.0.0;
 
 sub EXPORT(|) {
     use Perl5::Terms;

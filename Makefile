@@ -15,7 +15,7 @@ HAS_ICU    = 0
 #       as the goal is that all tests must pass without fudge
 HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(HAS_ICU)
 
-all: blib blib/Perl5.pbc
+all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
@@ -33,6 +33,18 @@ blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/P
 	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5.pir lib/Perl5.nqp
 	$(PARROT) -o blib/Perl5.pbc blib/Perl5.pir
 
+blib/Perl5/Config.pbc:
+	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Config.pir lib/Perl5/Config.pm
+	$(PARROT) -o blib/Perl5/Config.pbc blib/Perl5/Config.pir
+
+blib/Perl5/Terms.pbc: blib/Perl5.pbc
+	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Terms.pir lib/Perl5/Terms.pm
+	$(PARROT) -o blib/Perl5/Terms.pbc blib/Perl5/Terms.pir
+
+blib/Perl5/English.pbc: blib/Perl5/Terms.pbc
+	$(PERL6) --target=pir --stagestats --output=blib/Perl5/English.pir lib/Perl5/English.pm
+	$(PARROT) -o blib/Perl5/English.pbc blib/Perl5/English.pir
+
 blib:
 	$(MKPATH) blib/Perl5
 
@@ -43,8 +55,12 @@ install: all
 	$(MKPATH) $(NQPLIB)/lib/Perl5
 	$(MKPATH) $(P6LIB)/lib/Perl5
 	$(CP) blib/*.pbc $(NQPLIB)/lib/
-	$(CP) blib/Perl5/*.pbc $(NQPLIB)/lib/Perl5/
+	$(CP) blib/Perl5/Actions.pbc $(NQPLIB)/lib/Perl5/
+	$(CP) blib/Perl5/World.pbc $(NQPLIB)/lib/Perl5/
+	$(CP) blib/Perl5/Grammar.pbc $(NQPLIB)/lib/Perl5/
 	$(CP) lib/Perl5/*.pm $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/Config.pbc $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/Terms.pbc $(P6LIB)/lib/Perl5/
 
 uninstall:
 	$(RM_F) $(NQPLIB)/lib/Perl5.pbc
