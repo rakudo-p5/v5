@@ -1272,15 +1272,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         @*UNQUOTE_ASTS.push($<statementlist>.ast);
     }
 
-    method special_variable:sym<@INC>($/) {
-        $V5DEBUG && say("special_variable:sym<\@INC>($/)");
-        
-        make QAST::Op.new( :op('callmethod'), :name('at_key'),
-            QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*CUSTOM_LIB') ),
-            QAST::SVal.new( :value('Perl5') )
-        );
-    }
-
     method special_variable:sym<$0>($/) {
         $V5DEBUG && say("special_variable:sym<\$0>($/)");
         make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PROGRAM_NAME'))
@@ -1300,7 +1291,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$/>($/) {
         $V5DEBUG && say("special_variable:sym<\$/>($/)");
-        make QAST::Op.new( :op('call'), :name('&INPUT_RECORD_SEPARATOR') )
+        make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*INPUT_RECORD_SEPARATOR'))
     }
 
     method special_variable:sym<$~>($/) {

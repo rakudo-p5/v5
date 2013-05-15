@@ -1,8 +1,21 @@
 
-class Perl5::Terms;
-
 my $INPUT_RECORD_SEPARATOR = "\n";
-sub INPUT_RECORD_SEPARATOR is export is rw { $INPUT_RECORD_SEPARATOR }
+
+sub EXPORT(|) {
+    my %ex;
+    %ex<%ENV>                     := %*ENV;
+    %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
+    %ex<$$>                       := $*PID;
+
+    # Because Perl6 already has variables like $/ and $! built in, we can't ex-/import them directly.
+    # So we need an accessor, the grammar token '$/' can use, and a way to support the English module.
+    # I choosed $*-vars, because they can't be used from Perl5 directly because of its grammar.
+    %ex<$*INPUT_RECORD_SEPARATOR> := $INPUT_RECORD_SEPARATOR;
+
+    %ex
+}
+
+class Perl5::Terms;
 
 multi sub chop()          is export { chop(CALLER::DYNAMIC::<$_>) }
 multi sub chop(*@s is rw) is export {

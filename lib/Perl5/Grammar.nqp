@@ -333,7 +333,7 @@ role STD5 {
             my $name := $varast.name;
             if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
-                    if $name eq '%ENV' || !$is_strict {
+                    if !$is_strict {
                         
                         my $BLOCK := $*W.cur_lexpad();
                         
@@ -362,8 +362,7 @@ role STD5 {
                                 $BLOCK[0].push(QAST::Op.new(
                                     :op('bind'),
                                     $varast,
-                                    $name eq '%ENV' ?? QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*ENV'))
-                                                    !! $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
+                                    $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
                                 ));
                             }
                         }
@@ -1448,7 +1447,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                     if nqp::istype($tag, $Pair) {
                         $tag := nqp::unbox_s($tag.key);
                         if nqp::existskey($EXPORT, $tag) {
-                            $*W.import($/, $EXPORT{$tag}, $package_source_name);
+                            $*W.import($/, $EXPORT{$tag}.WHO, $package_source_name);
                         }
                         else {
                             nqp::die("Error while importing from '$package_source_name': no such tag '$tag'");
@@ -1465,14 +1464,24 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             }
             for @to_import -> $tag {
                 if nqp::existskey($EXPORT, $tag) {
-                    $*W.import($/, $EXPORT{$tag}, $package_source_name);
+                    $*W.import($/, $EXPORT{$tag}.WHO, $package_source_name);
                 }
             }
             if nqp::existskey($module, '&EXPORT') {
-                $module<&EXPORT>(|@positional_imports);
+                my $result := $module<&EXPORT>(|@positional_imports);
+                my $EnumMap := $*W.find_symbol(['EnumMap']);
+                if nqp::istype($result, $EnumMap) {
+                    my $storage := $result.hash.FLATTENABLE_HASH();
+                    $*W.import($/, $storage, $package_source_name);
+                }
+                else {
+                    nqp::die("&EXPORT sub did not return an EnumMap");
+                }
             }
-            elsif +@positional_imports {
-                nqp::die("Error while importing from '$package_source_name': no EXPORT sub, but you provided positional argument in the 'use' statement");
+            else {
+                if +@positional_imports {
+                    nqp::die("Error while importing from '$package_source_name': no EXPORT sub, but you provided positional argument in the 'use' statement");
+                }
             }
         }
     }
@@ -2127,10 +2136,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         '-'?<key=.identifier> \h* '=>' <.ws> <val=.EXPR('h=')>
     }
 
-    token special_variable:sym<@INC> {
-        <sym>
-    }
-
     token special_variable:sym<$0> {
         <sym> | '$PROGRAM_NAME'
     }
@@ -2148,7 +2153,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$/> {
-        <sym> | '$INPUT_RECORD_SEPARATOR' | '$RS'
+        <sym>
     }
 
     token special_variable:sym<$~> {
