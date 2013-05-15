@@ -384,11 +384,11 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+Could not find charnames in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: ../lib
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -561,8 +561,9 @@ at t/spec/test_pl/tempfile.v5:13
 ------>     my($skip⏏,$to,$next) = @_;</td></tr>
         <tr align=center><td align=left rowspan=2>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
-</td></tr>
+Malformed block
+at t/spec/uni/attrs.v5:20
+------> sub eval_ok ⏏($;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -849,7 +850,7 @@ at t/spec/re/reg_60508.v5:45
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+Could not find Unicode::UCD in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>Too many positional parameters passed; got 3 but expected 1
@@ -887,10 +888,18 @@ Could not find File::Spec::Functions in any of: ../lib
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/bigmem/read.v5:11
-------> use Config ⏏qw(%Config);</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+No such symbol '&DATA'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/bigmem/read.v5:22
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Undeclared routine:
@@ -1168,7 +1177,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: ../lib
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1273,29 +1282,34 @@ No such symbol '&skip_all_without_perlio'
 Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>bigmem/vec.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/bigmem/vec.v5:11
-------> use Config ⏏qw(%Config);</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+Nominal type check failed for parameter '@array'; expected Positional but got Nil instead
+  in sub scalar at lib/Perl5/Terms.pm:65
+  in block  at t/spec/bigmem/vec.v5:23
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1756,8 +1770,12 @@ Variable '$TODO' is not declared
 at t/spec/io/errno.v5:38
 ------> 			local $::TODO⏏ = "We get RMS\$_IOP at EOF on VMS when</td></tr>
         <tr align=center><td align=left rowspan=2>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all'
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/lib/cygwin.v5:77
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1938,7 +1956,9 @@ Null PMC access in get_iter()
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+Preceding context expects a term, but found infix << instead
+at t/spec/re/reg_eval_scope.v5:289
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1961,12 +1981,14 @@ Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
-</td></tr>
+Two terms in a row
+at t/spec/re/recompile.v5:54
+------>     print $tf ⏏$prog;</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
-</td></tr>
+quantifier quantifies nothing
+at t/spec/re/reg_nc_tie.v5:21
+------>     (?⏏<a>.)</td></tr>
         <tr align=center><td align=left rowspan=2>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -2108,7 +2130,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_127_1368608160.08055
+Could not find sub cuid_97_1368618701.0125
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2485,7 +2507,7 @@ at t/spec/re/pat.v5:12
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&skip_all_if_miniperl'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan=5>===SORRY!===

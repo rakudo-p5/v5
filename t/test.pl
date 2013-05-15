@@ -29,27 +29,28 @@ sub _done()                  { done()                }
         my %args = scalar(@_) == 2 ? @_ : tests => $_[0];
         _plan( $args{'tests'} )
     }
-    sub pass          { _pass(@_)          }
-    sub ok            { _ok(@_)            }
-    sub nok           { _nok(@_)           }
-    sub is            { _is(@_)            }
-    sub isnt          { _isnt(@_)          }
-    sub is_approx     { _is_approx(@_)     }
-    sub todo          { _todo(@_)          }
-    sub skip          { _skip(@_)          }
-    sub skip_rest     { _skip_rest(@_)     }
-    sub diag          { _diag(@_)          }
-    sub flunk         { _flunk(@_)         }
-    sub isa_ok        { _isa_ok(@_)        }
-    sub dies_ok       { _dies_ok(@_)       }
-    sub lives_ok      { _lives_ok(@_)      }
-    sub eval_dies_ok  { _eval_dies_ok(@_)  }
-    sub eval_lives_ok { _eval_lives_ok(@_) }
-    sub is_deeply     { _is_deeply($_[0], $_[1], $_[2])     }
-    sub eq_array      { _is_deeply($_[0], $_[1], $_[2])     }
-    sub cmp_ok        { _cmp_ok($_[0], $_[1], $_[2], $_[3]) }
-    sub done_testing  { _done_testing()    }
-    sub done          { _done()            }
+    sub pass                 { _pass(@_)                           }
+    sub ok                   { _ok(@_)                             }
+    sub nok                  { _nok(@_)                            }
+    sub is                   { _is(@_)                             }
+    sub isnt                 { _isnt(@_)                           }
+    sub is_approx            { _is_approx(@_)                      }
+    sub todo                 { _todo(@_)                           }
+    sub skip                 { _skip(@_)                           }
+    sub skip_all             { _skip_rest(@_)                      }
+    sub skip_all_if_miniperl {                                     }
+    sub diag                 { _diag(@_)                           }
+    sub flunk                { _flunk(@_)                          }
+    sub isa_ok               { _isa_ok(@_)                         }
+    sub dies_ok              { _dies_ok(@_)                        }
+    sub lives_ok             { _lives_ok(@_)                       }
+    sub eval_dies_ok         { _eval_dies_ok(@_)                   }
+    sub eval_lives_ok        { _eval_lives_ok(@_)                  }
+    sub is_deeply            { _is_deeply($_[0], $_[1], $_[2])     }
+    sub eq_array             { _is_deeply($_[0], $_[1], $_[2])     }
+    sub cmp_ok               { _cmp_ok($_[0], $_[1], $_[2], $_[3]) }
+    sub done_testing         { _done_testing()                     }
+    sub done                 { _done()                             }
     
     # so that these tests don't die, see https://github.com/mirrors/perl/blob/blead/t/test.pl#L1587
     sub native_to_latin1 { $_[0] }
