@@ -1392,7 +1392,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [
         || <versionish> [ <?{ ~$<versionish><version><vnum>[0] eq '6' }> {
                             $*MAIN := 'MAIN';
-                            nqp::say($*MAIN);
                         } ]?
         || <module_name> <version=versionish>?
             [ <.spacey> <arglist> <?{ $<arglist><EXPR> }> ]?
@@ -1423,7 +1422,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             }
         ]
         [ <?{ $*MAIN ne $OLD_MAIN }> {
-            nqp::say($*MAIN);
             $*IN_DECL := '';
             $*SCOPE := '';
         } <statementlist=.LANG($*MAIN, 'statementlist')> ]?
@@ -3100,8 +3098,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token postcircumfix:sym<[ ]>
         { :dba('subscript') '[' ~ ']' <semilist>  <O('%methodcall')> }
 
-    token postcircumfix:sym<{ }>
-        { :dba('subscript') '{' ~ '}' <semilist> <O('%methodcall')> }
+    token postcircumfix:sym<{ }> {
+        :dba('subscript')
+        '{' ~ '}'
+            [
+            || <nibble(self.quote_lang(%*LANG<P5Q>, '{', '}', ['q']))> <?{ ~$<nibble> ~~ /^\s*\w+\s*$/ }>
+            || <semilist>
+            ]
+        <O('%methodcall')> }
 
     token postop {
         | <postfix>        { $<O> := $<postfix><O>;       $<sym> := $<postfix><sym>; }

@@ -144,7 +144,9 @@ at t/spec/op/anonsub.v5:11
 ------> run_multiple_progs('', \*DATA⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>op/assignwarn.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Preceding context expects a term, but found infix , instead
+at t/spec/op/assignwarn.v5:44
+------> 	warning_is($sub, undef,⏏ "$op_seq$tie$int does not warn");
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -433,8 +435,9 @@ at t/spec/re/pat_advanced.v5:13
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+quantifier quantifies nothing
+at t/spec/re/reg_email.v5:16
+------>     (?⏏(DEFINE)</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_email_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:141
@@ -455,8 +458,9 @@ at t/spec/re/reg_posixcc.v5:52
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+quantifier quantifies nothing
+at t/spec/re/regex_sets.v5:23
+------> like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -542,8 +546,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/run/switchx.v5:25
+------>      qr/^No Perl script found in input\⏏r?\n\z/,</td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/_num_to_alpha.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix , instead
@@ -813,8 +818,9 @@ Undeclared routine:
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/fresh_perl_utf8.v5:21
+------> Can't localize lexical variable \$ᨕ at /⏏u, q!"Can't localize lexical" error is i</td></tr>
         <tr align=center><td align=left rowspan=2>comp/final_line_num.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse regex; couldn't find final '/'
@@ -888,7 +894,9 @@ Could not find File::Spec::Functions in any of: ../lib
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/read.v5:14
+
+use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
@@ -942,7 +950,7 @@ at t/spec/mro/next_inanon_utf8.v5:37
 ------> turn 'Ḃ::ᕘ => ' . (shift)->next::method(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Odd number of elements found where hash expected
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -967,8 +975,9 @@ at t/spec/porting/bincompat.v5:14
 ------> my @V = map {s/^ //⏏r} Internals::V();</td></tr>
         <tr align=center><td align=left rowspan=2>re/qr_gc.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+quantifier quantifies nothing
+at t/spec/re/qr_gc.v5:28
+------>     my $rx = qr/(?⏏{ $var })/;</td></tr>
         <tr align=center><td align=left>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/run/switcha.v5:12
@@ -1191,7 +1200,7 @@ at t/spec/op/yadayada.v5:16
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/qr.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Method 'unique' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1205,8 +1214,9 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/uni/opcroak.v5:21
+------>  $@, qr/Not enough arguments for main::\⏏x{30cb}/u, "Not enough arguments croak i</td></tr>
         <tr align=center><td align=left rowspan=2>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>No such symbol '&DÙP'
   in method <anon> at src/gen/CORE.setting:10027
@@ -1282,12 +1292,14 @@ Could not find Fcntl in any of: ../lib
 Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>bigmem/vec.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/vec.v5:14
+
+use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
 Nominal type check failed for parameter '@array'; expected Positional but got Nil instead
-  in sub scalar at lib/Perl5/Terms.pm:65
+  in sub scalar at lib/Perl5/Terms.pm:74
   in block  at t/spec/bigmem/vec.v5:23
 
 </td></tr>
@@ -1402,7 +1414,7 @@ at t/spec/mro/recursion_dfs_utf8.v5:17
 ------> m has no SIGALRM") if !exists $SIG{ALRM}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/evalbytes.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n}\n\np..."): Error while compiling op call: Error while compiling block : Error while compiling op bind: Error while compiling op call (source text: "(my $upcode = $code) .= chr 256"): Error while compiling op bind: First child of a 'bind' op must be a QAST::Var
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1506,8 +1518,9 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchd.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/run/switchd.v5:85
+------>   qr "1\⏏r?\n2\r?\n",</td></tr>
         <tr align=center><td align=left rowspan=2>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1577,8 +1590,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/op/require_errors.v5:45
+------>     like $@, qr/^Can't locate \⏏Q$file\E in \@INC \(change \.h to \.ph m</td></tr>
         <tr align=center><td align=left>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align=center><td align=left rowspan=2>uni/class.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1617,8 +1631,13 @@ Unable to parse expression in block; couldn't find final '}'
 at t/spec/mro/next_edgecases_utf8.v5:27
 ------>     my $foo = ᕘ->new(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+        <tr><td colspan=5>No such symbol '&pos'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/pos.v5:14
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1656,11 +1675,12 @@ at t/spec/op/wantarray.v5:15
 ------>   local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/run/switchC.v5:27
+------> like( $r, qr/^$b(?:\⏏r?\n)?$/s, '-CO: no warning on UTF-8 out</td></tr>
         <tr align=center><td align=left rowspan=2>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1726,7 +1746,7 @@ at t/spec/re/pat_psycho.v5:16
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    require \"../t/tes..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1876,8 +1896,9 @@ Undeclared routine:
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Two terms in a row
+at t/spec/comp/fold.v5:117
+------>  ok scalar $jing =~ (1 ? y/fo// ⏏: /bar/),</td></tr>
         <tr align=center><td align=left rowspan=2>op/reverse.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Tie::Array in any of: ../lib
@@ -1931,8 +1952,9 @@ at t/spec/op/reset.v5:16
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/warn.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/op/warn.v5:118
+------>   qr/^\⏏xee(?:\r?\n\xee){3}/,</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/concat.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -1940,7 +1962,9 @@ at t/spec/opbasic/concat.v5:157
 ------>     my $x = eval⏏"qr/\x{fff}/";</td></tr>
         <tr align=center><td align=left rowspan=2>op/dor.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Preceding context expects a term, but found infix , instead
+at t/spec/op/dor.v5:40
+------> @ARGV = (undef,⏏ 0, 3);
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1948,11 +1972,13 @@ Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/qr.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unable to parse expression in variable; couldn't find final '}'
+at t/spec/op/qr.v5:73
+------>     my $x = 1.1; $x = ${qr⏏//};</td></tr>
         <tr align=center><td align=left rowspan=2>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+CHECK FAILED:
+Undefined routine '&prefix:<\>' called (line 96)
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1995,8 +2021,9 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/rxcode.v5</td><td>0</td><td>39</td><td>0</td><td>0</td><td>39</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+quantifier quantifies nothing
+at t/spec/re/rxcode.v5:13
+------> like( 'a',  qr/^a(?⏏{1})(?:b(?{2}))?/, 'a =~ ab?' );</td></tr>
         <tr align=center><td align=left rowspan=2>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -2030,8 +2057,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Couldn't find terminator $stop
+at t/spec/op/sysio.v5:70
+------> ok(!-s $outfile⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -2042,7 +2070,7 @@ Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
-Odd number of elements found where hash expected
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/sprintf.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2067,8 +2095,9 @@ at t/spec/op/each.v5:54
 ------> 	$key =~ y/a-z/A-Z/⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/stash.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Variable '%pig' is not declared
+at t/spec/op/stash.v5:79
+------>     ok( defined %pig::⏏, q(referencing a non-existent stash doe</td></tr>
         <tr align=center><td align=left rowspan=2>op/ver.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&sub'
@@ -2130,7 +2159,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368648095.52097
+Could not find sub cuid_97_1368720625.04255
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2162,8 +2191,9 @@ at t/spec/comp/use.v5:60
 ------> sub like ⏏($$;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/uni/bless.v5:18
+------>     my $r = qr/^\⏏Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/u;</td></tr>
         <tr align=center><td align=left rowspan=2>base/lex.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -2209,8 +2239,9 @@ at t/spec/op/lex_assign.v5:344
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/op/bless.v5:16
+------>     my $r = qr/^\⏏Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/;</td></tr>
         <tr align=center><td align=left rowspan=2>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -2369,7 +2400,9 @@ at t/spec/cmd/lexsub.v5:34
 ------>   is do ⏏foo(), 42, 'calling our sub from same pa</td></tr>
         <tr align=center><td align=left rowspan=2>op/eval.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Preceding context expects a term, but found infix , instead
+at t/spec/op/eval.v5:29
+------> is scalar(eval '++'), undef,⏏ 'eval syntax error in scalar context';
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
@@ -2411,8 +2444,9 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
-</td></tr>
+Unrecognized backslash sequence: '\Q'
+at t/spec/comp/parser.v5:115
+------> is( "\⏏Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Qa", "a", "PL_le</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>0</td><td>167</td><td>0</td><td>0</td><td>167</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
@@ -2451,7 +2485,7 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/gv.v5</td><td>0</td><td>212</td><td>0</td><td>0</td><td>212</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+ResizablePMCArray: index out of bounds!
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/overload.v5</td><td>0</td><td>215</td><td>0</td><td>0</td><td>215</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2464,7 +2498,7 @@ at t/spec/op/ref.v5:48
 ------>     is ($$⏏$foo, 'valid');</td></tr>
         <tr align=center><td align=left rowspan=2>op/gv.v5</td><td>0</td><td>245</td><td>0</td><td>0</td><td>245</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+ResizablePMCArray: index out of bounds!
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/cproto.v5</td><td>0</td><td>254</td><td>0</td><td>0</td><td>254</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2479,7 +2513,7 @@ at t/spec/op/hashassign.v5:133
 ------> ok (main->in_method ⏏(%names), "pass hash into a method");</td></tr>
         <tr align=center><td align=left rowspan=2>op/local.v5</td><td>0</td><td>310</td><td>0</td><td>0</td><td>310</td></tr>
         <tr><td colspan=5>===SORRY!===
-Null PMC access in get_iter()
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tie_fetch_count.v5</td><td>0</td><td>312</td><td>0</td><td>0</td><td>312</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2529,7 +2563,8 @@ at t/spec/comp/utf.v5:40
 ------>     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
         <tr align=center><td align=left rowspan=2>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
-</td></tr>
+Variable '${size}' is not declared. Did you mean '$size'?
+at t/spec/op/pack.v5:47
+------>   if (defined $Config{"u${size}size⏏"} and ($Config{"u${size}size"}||0) != (</td></tr>
     </tbody>
 </table>

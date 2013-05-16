@@ -5083,11 +5083,19 @@ class Perl5::Actions is HLL::Actions does STDActions {
     method postcircumfix:sym<{ }>($/) {
         $V5DEBUG && say("postcircumfix:sym<\{ }>($/)");
         my $past := QAST::Op.new( :name('postcircumfix:<{ }>'), :op('callmethod'), :node($/) );
-        if $<semilist><statement> {
-            if +$<semilist><statement> > 1 {
-                $*W.throw($/, 'X::Comp::NYI', feature => 'multi-dimensional indexes');
+        if $<nibble> {
+            $past.push( QAST::Op.new( :name('Stringy'), :op('callmethod'), :node($/), $<nibble>.ast ) );
+        }
+        elsif +$<semilist><statement> > 1 {
+            my $op := QAST::Op.new( :name('join'), :op('callmethod'), :node($/),
+                QAST::Var.new( :name('$;'), :scope('lexical') ) );
+            for $<semilist><statement> -> $statement {
+                $op.push( $statement );
             }
-            $past.push($<semilist>.ast);
+            $past.push( $op );
+        }
+        else {
+            $past.push( QAST::Op.new( :name('Stringy'), :op('callmethod'), :node($/), $<semilist><statement>[0].ast ) );
         }
         make $past;
     }
