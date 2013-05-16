@@ -33,15 +33,15 @@ blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/P
 	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5.pir lib/Perl5.nqp
 	$(PARROT) -o blib/Perl5.pbc blib/Perl5.pir
 
-blib/Perl5/Config.pbc:
+blib/Perl5/Config.pbc: lib/Perl5/Config.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Config.pir lib/Perl5/Config.pm
 	$(PARROT) -o blib/Perl5/Config.pbc blib/Perl5/Config.pir
 
-blib/Perl5/Terms.pbc: blib/Perl5.pbc
+blib/Perl5/Terms.pbc: blib/Perl5.pbc lib/Perl5/Terms.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Terms.pir lib/Perl5/Terms.pm
 	$(PARROT) -o blib/Perl5/Terms.pbc blib/Perl5/Terms.pir
 
-blib/Perl5/English.pbc: blib/Perl5/Terms.pbc
+blib/Perl5/English.pbc: blib/Perl5/Terms.pbc lib/Perl5/English.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/English.pir lib/Perl5/English.pm
 	$(PARROT) -o blib/Perl5/English.pbc blib/Perl5/English.pir
 
