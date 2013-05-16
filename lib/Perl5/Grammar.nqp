@@ -2179,7 +2179,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym>
     }
     token special_variable:sym<$$> {
-        <sym> <!alpha> | '$PROCESS_ID' | '$PID'
+        <sym> <!alpha>
     }
     token special_variable:sym<$%> {
         <sym> | '$FORMAT_PAGE_NUMBER'
@@ -2295,10 +2295,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym>
     }
 
-    token special_variable:sym<$]> {
-        <sym>
-    }
-
     token special_variable:sym<$\\> {
         <sym> | '$OUTPUT_RECORD_SEPARATOR' | '$ORS'
     }
@@ -2353,6 +2349,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [
         | <?before '$' > <variable> { $*VAR := $<variable>; }
         | <longname>
+        | <[\W]-[{]>
         ]
     }
 

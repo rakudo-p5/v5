@@ -1,16 +1,23 @@
 
 my $INPUT_RECORD_SEPARATOR = "\n";
+my $VERSION_MAJOR          = 5;  # well, we have to say something
+my $VERSION_MINOR          = 16;
+my $VERSION_PATCH          = 0;
+my $VERSION_V              = "v$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH";
+my $VERSION_FLOAT          = $VERSION_MAJOR + $VERSION_MINOR/1000 + $VERSION_PATCH/1000000;
 
 sub EXPORT(|) {
     my %ex;
     %ex<%ENV>                     := %*ENV;
     %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
     %ex<$$>                       := $*PID;
+    %ex<$]>                       := $VERSION_FLOAT;
 
     # Because Perl6 already has variables like $/ and $! built in, we can't ex-/import them directly.
     # So we need an accessor, the grammar token '$/' can use, and a way to support the English module.
     # I choosed $*-vars, because they can't be used from Perl5 directly because of its grammar.
     %ex<$*INPUT_RECORD_SEPARATOR> := $INPUT_RECORD_SEPARATOR;
+    %ex<$*VERSION_V>              := $VERSION_V;
 
     %ex
 }

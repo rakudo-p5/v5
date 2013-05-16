@@ -1334,19 +1334,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # $BASETIME, $^T
         # $PERL_VERSION, $^V
         elsif $*LETTER eq 'V' {
-            my $str := $*W.add_string_constant( 'v5.10.0' );
-            $str.named('value');
-            make QAST::Op.new(
-                :op('callmethod'), :name('new'), :returns($*W.find_symbol(['Str'])),
-                QAST::Var.new( :name('Str'), :scope('lexical') ),
-                $str
-            )
+            make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*VERSION_V'))
         }
         # $EXECUTABLE_NAME, $^X
         elsif $*LETTER eq 'X' {
-            make QAST::Op.new(
-                :op('call'), :name('&DYNAMIC'),
-                $*W.add_string_constant('$*EXECUTABLE_NAME'))
+            make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*EXECUTABLE_NAME'))
         }
         # $^M, don't use
         
@@ -1458,10 +1450,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$[>($/) {
         $V5DEBUG && say("special_variable:sym<\$[>($/)");
-    }
-
-    method special_variable:sym<$]>($/) {
-        $V5DEBUG && say("special_variable:sym<\$]>($/)");
     }
 
     method special_variable:sym<$\\>($/) {
