@@ -1,5 +1,5 @@
 
-use 6.0.0;
+use v6.0.0;
 use Test;
 sub _plan(*@args)            { plan(|@args)          }
 sub _pass(*@args)            { pass(|@args)          }
