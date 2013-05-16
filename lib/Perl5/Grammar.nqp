@@ -331,6 +331,7 @@ role STD5 {
         if !$*IN_DECL && nqp::istype($varast, QAST::Var) && $varast.scope eq 'lexical' {
             # Change the sigil if needed.
             $varast.name( ~$var<really> ~ ~$var<desigilname> ) if $var<really>;
+            $varast.name( ~$var<sigil>  ~ ~$var<name> )        if $var<name>;
             my $name := $varast.name;
             if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
