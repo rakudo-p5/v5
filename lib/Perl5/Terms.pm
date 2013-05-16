@@ -76,3 +76,7 @@ sub scalar( @array ) is export { +@array }
 proto sub shift(|) {*}
 multi sub shift()   is export { shift(CALLER::DYNAMIC::<@_>) }
 multi sub shift(@a) is export { @a.shift                     }
+
+# http://perldoc.perl.org/functions/undef.html
+multi sub undef()         is export { Mu              }
+multi sub undef($a is rw) is export { undefine $a; Mu }

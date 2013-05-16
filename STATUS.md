@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>357</td><td>39788</td><td>5</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>358</td><td>39788</td><td>5</td><td>38</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
@@ -90,6 +90,15 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
   in block  at t/spec/run/switchI.v5:24
 
 </td></tr>
+        <tr align=center><td align=left rowspan=2>op/not.v5</td><td>1</td><td>15</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan=5>Cannot call 'is'; none of these signatures match:
+:(Mu $got, Mu $expected, $desc = { ... })
+  in sub is at lib/Test.pm:78
+  in sub _is at ./test.pl:8
+  in sub is at ./test.pl:35
+  in block  at t/spec/op/not.v5:14
+
+</td></tr>
         <tr align=center><td align=left>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>No such symbol '&bless'
@@ -142,11 +151,20 @@ at t/spec/mro/method_caching_utf8.v5:32
 Variable '*DATA' is not declared
 at t/spec/op/anonsub.v5:11
 ------> run_multiple_progs('', \*DATA⏏);</td></tr>
-        <tr align=center><td align=left rowspan=2>op/assignwarn.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/assignwarn.v5:44
-------> 	warning_is($sub, undef,⏏ "$op_seq$tie$int does not warn");
+        <tr align=center><td align=left rowspan=2>op/assignwarn.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>No such symbol '&warning_is'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in sub test_op at t/spec/op/assignwarn.v5:44
+  in block  at t/spec/op/assignwarn.v5:51
+  in method reify at src/gen/CORE.setting:5742
+  in method reify at src/gen/CORE.setting:5637
+  in method gimme at src/gen/CORE.setting:6058
+  in method sink at src/gen/CORE.setting:6359
+  in block  at t/spec/op/assignwarn.v5:49
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -155,8 +173,9 @@ at t/spec/op/attrs.v5:17
 ------> sub eval_ok ⏏($;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/closure.v5:79
+------> is(&{$foo[0]}⏏(), 0);</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
@@ -218,9 +237,26 @@ Could not find tests in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/my.v5:15
------->     { my($a, undef,⏏ $c) = ("ok 9\n", "not ok 10\n", "ok 10\
+Preceding context expects a term, but found infix > instead
+at t/spec/op/my.v5:132
+------>     ++my $x->⏏{foo};
+Other potential difficulties:
+    Redeclaration of symbol $i
+    at t/spec/op/my.v5:71
+    ------> if (my $i ⏏= "inner") {
+    Redeclaration of symbol $i
+    at t/spec/op/my.v5:75
+    ------> if ((my $i ⏏= 1) == 0) {
+    Redeclaration of symbol $i
+    at t/spec/op/my.v5:83
+    ------> while (my $i ⏏= --$j) {
+    Redeclaration of symbol $i
+    at t/spec/op/my.v5:92
+    ------> for (my $i ⏏= 0; (my $k = $i) < $j; ++$i) {
+    Redeclaration of symbol $i
+    at t/spec/op/my.v5:99
+    ------> foreach my $i ⏏(30, 31) {
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/mydef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -286,9 +322,7 @@ at t/spec/op/write.v5:1296
 </td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/opbasic/cmp.v5:51
-------> OO = ('s', 'N/A', 'a', 'NaN', -1, undef,⏏ 0, 1, 3.14, 1e37, 0.632120558, -.5,
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -550,10 +584,13 @@ Unrecognized Perl 5 regex backslash sequence
 at t/spec/run/switchx.v5:25
 ------>      qr/^No Perl script found in input\⏏r?\n\z/,</td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/_num_to_alpha.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/test_pl/_num_to_alpha.v5:9
-------> is( _num_to_alpha(-1), undef,⏏ 'Returns undef for negative numbers');
+        <tr><td colspan=5>No such symbol '&_num_to_alpha'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/test_pl/_num_to_alpha.v5:9
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -608,9 +645,8 @@ Could not find File::Copy in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-string.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '${v[1]}' is not declared
-at t/v5/04-string.v5:65
-------> $r = "-${v[1]}⏏-";</td></tr>
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-anon-sub-lex-block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -1440,10 +1476,16 @@ Variable '%main::' is not declared
 at t/spec/op/symbolcache.v5:17
 ------> delete $main::{removed}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>re/pos.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/re/pos.v5:29
-------> 	is(pos($str), undef,⏏ 'pos undef after failed match');
+        <tr><td colspan=5>   [   3   1   m   =   =   =      [   0   m   S   O   R   R   Y   !      [   3   1   m   =   =   =      [   0   m   
+   C   o   u   l   d   n   '   t       f   i   n   d       t   e   r   m   i   n   a   t   o   r       ?   
+   a   t       t   /   s   p   e   c   /   r   e   /   p   o   s   .   v   5   :   5   2   
+   -   -   -   -   -   -   >          [   3   2   m   	   	   i   f       (   $   s   t   r       =   ~       m   ?   b   i   r   d   ?   g      [   3   3   m   �#     [   3   1   m   )       {      [   0   m   
+                   e   x   p   e   c   t   i   n   g       a   n   y       o   f   :   
+                                   p   o   s   t   f   i   x   
+                                   s   t   a   n   d   a   r   d       s   t   o   p   p   e   r   
+                                   i   n   f   i   x       s   t   o   p   p   e   r   
+                                   i   n   f   i   x       o   r       m   e   t   a   -   i   n   f   i   x   
+                                   p   r   e   f   i   x       o   r       t   e   r   m   
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1713,10 +1755,9 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_pmod.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/re/reg_pmod.v5:17
------->     [ '',     "(345)",  undef,⏏  undef,  undef ],
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/re/reg_pmod.v5:24
+------> $SIG{__WARN__}⏏ = sub { $W.=join("",@_); };</td></tr>
         <tr align=center><td align=left rowspan=2>lib/mypragma.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
@@ -1756,12 +1797,6 @@ get_iter() not implemented in class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Could not find vars in any of: ., ../lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/not.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/not.v5:33
------->     ok($not1 == undef,⏏<EOL>
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1770,10 +1805,9 @@ at t/spec/op/push.v5:115
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sub.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/sub.v5:14
-------> is(empty_sub,undef,⏏"Is empty");
-</td></tr>
+Two terms in a row
+at t/spec/op/sub.v5:27
+------>     push @a, 4, 5, main->import(⏏6,7);</td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ., ../lib
@@ -1799,9 +1833,7 @@ at t/spec/lib/cygwin.v5:77
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/current_sub.v5:15
------->     is __SUB__, undef,⏏ '__SUB__ under use v5.16';
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1814,10 +1846,15 @@ at t/spec/op/glob.v5:117
 get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/lop.v5:16
-------> for my $i (undef,⏏ 0 .. 2, "", "0 but true") {
+        <tr><td colspan=5>Potential difficulties:
+    Redeclaration of symbol $i
+    at t/spec/op/lop.v5:40
+    ------> my $i ⏏= 0;
+===SORRY!===
+CHECK FAILED:
+Undefined routine '&infix:<&&=>' called (lines 20, 20, 41, 41)
+Undefined routine '&infix:<||=>' called (lines 26, 26, 41, 41)
+Undefined routine '&infix:<+=>' called (lines 41, 41)
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1845,10 +1882,9 @@ Could not find vmsish in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/join.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/join.v5:45
------->   my $r = join ':', 'a', undef,⏏ $s, 'b', undef, $s, 'c';
-</td></tr>
+Unrecognized backslash sequence: '\3'
+at t/spec/op/join.v5:68
+------>   my $b = "abc\⏏304";</td></tr>
         <tr align=center><td align=left rowspan=2>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -1962,10 +1998,9 @@ at t/spec/opbasic/concat.v5:157
 ------>     my $x = eval⏏"qr/\x{fff}/";</td></tr>
         <tr align=center><td align=left rowspan=2>op/dor.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/dor.v5:40
-------> @ARGV = (undef,⏏ 0, 3);
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/dor.v5:41
+------> is(shift       // ⏏7, 7,	'shift // ... works');</td></tr>
         <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
@@ -2034,10 +2069,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/repeat.v5:20
-------> is('-' x undef,⏏ '',     '  x undef');
-</td></tr>
+Confused
+at t/spec/op/repeat.v5:130
+------> my ($x, $y) = scalar ((1,2)x⏏2);</td></tr>
         <tr align=center><td align=left rowspan=2>op/study.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find vars in any of: ../lib
@@ -2141,9 +2175,8 @@ Could not locate compile-time value for symbol fail
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/list.v5:135
------->     my @a = (0, undef,⏏ undef, 3);
+CHECK FAILED:
+Undefined routine '&infix:<||=>' called (lines 183, 183)
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/localref.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2159,7 +2192,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368720625.04255
+Could not find sub cuid_97_1368736070.39966
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2389,9 +2422,7 @@ Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/array.v5:123
-------> (undef,⏏@foo) = @foo;
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2400,10 +2431,9 @@ at t/spec/cmd/lexsub.v5:34
 ------>   is do ⏏foo(), 42, 'calling our sub from same pa</td></tr>
         <tr align=center><td align=left rowspan=2>op/eval.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix , instead
-at t/spec/op/eval.v5:29
-------> is scalar(eval '++'), undef,⏏ 'eval syntax error in scalar context';
-</td></tr>
+Missing block
+at t/spec/op/eval.v5:52
+------> do ⏏"./$tempfile"; print $@;</td></tr>
         <tr align=center><td align=left rowspan=2>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
@@ -2563,8 +2593,8 @@ at t/spec/comp/utf.v5:40
 ------>     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
         <tr align=center><td align=left rowspan=2>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '${size}' is not declared. Did you mean '$size'?
-at t/spec/op/pack.v5:47
------->   if (defined $Config{"u${size}size⏏"} and ($Config{"u${size}size"}||0) != (</td></tr>
+Malformed block
+at t/spec/op/pack.v5:75
+------> sub list_eq ⏏($$) {</td></tr>
     </tbody>
 </table>

@@ -3524,9 +3524,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<ucfirst>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<undef>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
-
 #    token term:sym<untie>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
