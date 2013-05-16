@@ -2825,6 +2825,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token quote:sym<qr> {
+        :my %*RX;
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
         <quibble(%*LANG<P5Regex>)>
@@ -2832,8 +2833,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token quote:sym<m>  {
+        :my %*RX;
         <sym> »
-        #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
+        { %*RX<s> := 1 if $/[0] }
         <quibble(%*LANG<P5Regex>)>
         <rx_mods>?
     }

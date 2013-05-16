@@ -5396,7 +5396,17 @@ class Perl5::Actions is HLL::Actions does STDActions {
     method quote:sym<qq>($/)   { $V5DEBUG && say("method quote:sym<qq>($/)");    make $<quibble>.ast; }
     method quote:sym<q>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
     method quote:sym<qw>($/)   { $V5DEBUG && say("method quote:sym<qw>($/)");    make $<quibble>.ast; }
-    method quote:sym<qr>($/)   { $V5DEBUG && say("method quote:sym<qr>($/)");    make $<quibble>.ast; }
+    method quote:sym<qr>($/)   {
+        $V5DEBUG && say("method quote:sym<qr>($/)");
+        my $block := QAST::Block.new(QAST::Stmts.new, QAST::Stmts.new, :node($/));
+        #~ self.handle_and_check_adverbs($/, %SHARED_ALLOWED_ADVERBS, 'rx', $block);
+        my %sig_info := hash(parameters => []);
+        my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
+            $<quibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
+        my $past := block_closure($coderef);
+        $past<sink_past> := QAST::Op.new(:op<callmethod>, :name<Bool>, $past);
+        make $past;
+    }
     method quote:sym</ />($/) {
         $V5DEBUG && say("method quote:sym</ />($/)");
         my %sig_info := hash(parameters => []);
@@ -5409,17 +5419,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make $closure;
     }
 
-    method quote:sym<rx>($/) {
-        $V5DEBUG && say("method quote:sym<rx>($/)");
-        my $block := QAST::Block.new(QAST::Stmts.new, QAST::Stmts.new, :node($/));
-        self.handle_and_check_adverbs($/, %SHARED_ALLOWED_ADVERBS, 'rx', $block);
-        my %sig_info := hash(parameters => []);
-        my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
-            $<quibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
-        my $past := block_closure($coderef);
-        $past<sink_past> := QAST::Op.new(:op<callmethod>, :name<Bool>, $past);
-        make $past;
-    }
     method quote:sym<m>($/) {
         $V5DEBUG && say("method quote:sym<m>($/)");
         my $block := QAST::Block.new(QAST::Stmts.new, QAST::Stmts.new, :node($/));
@@ -5433,16 +5432,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
             QAST::Var.new( :name('$_'), :scope('lexical') ),
             block_closure($coderef)
         );
-        if self.handle_and_check_adverbs($/, %MATCH_ALLOWED_ADVERBS, 'm', $past) {
-            # if this match returns a list of matches instead of a single
-            # match, don't assing to $/ (which imposes item context)
-            make $past;
-        } else {
+        #~ if self.handle_and_check_adverbs($/, %MATCH_ALLOWED_ADVERBS, 'm', $past) {
+            #~ # if this match returns a list of matches instead of a single
+            #~ # match, don't assing to $/ (which imposes item context)
+            #~ make $past;
+        #~ } else {
             make QAST::Op.new( :op('p6store'),
                 QAST::Var.new(:name('$/'), :scope('lexical')),
                 $past
             );
-        }
+        #~ }
     }
 
     # returns 1 if the adverbs indicate that the return value of the
