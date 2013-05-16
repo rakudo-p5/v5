@@ -9,5 +9,10 @@ sub EXPORT(|) {
     %ex<$RS>                     := $*INPUT_RECORD_SEPARATOR;
     %ex<$PROCESS_ID>             := $*PID;
     %ex<$PID>                    := $*PID;
+    {
+        use v5;
+        $ex{'$SUBSCRIPT_SEPARATOR'} = $;; # XXX do binding instead of assignment
+        $ex{'$SUBSEP'}              = $;;
+    }
     %ex
 }

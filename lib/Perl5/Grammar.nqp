@@ -1390,9 +1390,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $OLD_MAIN := ~$*MAIN;
         <sym> <.ws>
         [
-        || <version=versionish> [ <?{ ~$<version><vnum>[0] eq '6' }> {
-                                    $*MAIN := 'MAIN';
-                                } ]?
+        || <versionish> [ <?{ ~$<versionish><version><vnum>[0] eq '6' }> {
+                            $*MAIN := 'MAIN';
+                            nqp::say($*MAIN);
+                        } ]?
         || <module_name> <version=versionish>?
             [ <.spacey> <arglist> <?{ $<arglist><EXPR> }> ]?
             {
@@ -1422,6 +1423,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             }
         ]
         [ <?{ $*MAIN ne $OLD_MAIN }> {
+            nqp::say($*MAIN);
             $*IN_DECL := '';
             $*SCOPE := '';
         } <statementlist=.LANG($*MAIN, 'statementlist')> ]?
@@ -2307,10 +2309,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym> | '$FORMAT_LINE_BREAK_CHARACTERS'
     }
 
-    token special_variable:sym<$;> {
-        <sym> | '$SUBSCRIPT_SEPARATOR' | '$SUBSEP'
-    }
-
     token special_variable:sym<$'> { #'
         <sym> | '$POSTMATCH'
     }
@@ -3103,7 +3101,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { :dba('subscript') '[' ~ ']' <semilist>  <O('%methodcall')> }
 
     token postcircumfix:sym<{ }>
-        { :dba('subscript') '{' ~ '}' [<identifier><?before '}'>|<semilist>] <O('%methodcall')> }
+        { :dba('subscript') '{' ~ '}' <semilist> <O('%methodcall')> }
 
     token postop {
         | <postfix>        { $<O> := $<postfix><O>;       $<sym> := $<postfix><sym>; }

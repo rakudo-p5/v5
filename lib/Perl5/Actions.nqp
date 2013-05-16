@@ -1464,10 +1464,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("special_variable:sym<\$:>($/)");
     }
 
-    method special_variable:sym<$;>($/) {
-        $V5DEBUG && say("special_variable:sym<\$;>($/)");
-    }
-
     method special_variable:sym<$'>($/) { #'
         $V5DEBUG && say("special_variable:sym<\$'>($/)");
     }
@@ -5085,7 +5081,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
     method postcircumfix:sym<{ }>($/) {
-        $V5DEBUG && say("postcircumfix:sym<{ }>($/)");
+        $V5DEBUG && say("postcircumfix:sym<\{ }>($/)");
         my $past := QAST::Op.new( :name('postcircumfix:<{ }>'), :op('callmethod'), :node($/) );
         if $<semilist><statement> {
             if +$<semilist><statement> > 1 {

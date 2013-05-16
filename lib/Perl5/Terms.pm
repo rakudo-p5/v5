@@ -1,5 +1,6 @@
 
 my $INPUT_RECORD_SEPARATOR = "\n";
+my $SUBSCRIPT_SEPARATOR    = chr(28);
 my $VERSION_MAJOR          = 5;  # well, we have to say something
 my $VERSION_MINOR          = 16;
 my $VERSION_PATCH          = 0;
@@ -12,6 +13,7 @@ sub EXPORT(|) {
     %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
     %ex<$$>                       := $*PID;
     %ex<$]>                       := $VERSION_FLOAT;
+    %ex<$;>                       := $SUBSCRIPT_SEPARATOR;
 
     # Because Perl6 already has variables like $/ and $! built in, we can't ex-/import them directly.
     # So we need an accessor, the grammar token '$/' can use, and a way to support the English module.
