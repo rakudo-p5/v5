@@ -335,7 +335,7 @@ role STD5 {
             my $name := $varast.name;
             if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
-                    if !%pragmas<strict><vars> {
+                    if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) {
                         
                         my $BLOCK := $*W.cur_lexpad();
                         
@@ -3701,14 +3701,13 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym> <O('%comma, :fiddly<0>')>
     }
 
-    token term:sym<blocklist>
-    {
-    #    :my $name;
-    #    :my $pos;
-        $<identifier> = ['map'|'grep'|'sort'] <.ws>
-        [ :my $*IN_SORT := $<identifier>.Str eq 'sort'; <?before '{'> <block> <.ws>]?
-        <arglist>
-    #    { self.add_mystery($name,$pos,substr($*ORIG,$pos,1)) unless $<args><invocant>; }
+    token term:sym<blocklist> {
+        :my $*IN_SORT := 0;
+        $<identifier> = [ 'map' |'grep' | 'sort' { $*IN_SORT := 1; } ] <.ws>
+        [
+        | '(' ~ ')' [ [ <?before '{'> <block> <.ws> ]? <arglist> ]
+        |           [ [ <?before '{'> <block> <.ws> ]? <arglist> ]
+        ]
         <O('%term')>
     }
 
@@ -4135,8 +4134,8 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
     }
 } # end grammar
 
-#grammar Perl6::P5RegexGrammar is QRegex::P5Regex::Grammar does STD {
-#    token rxstopper { <stopper> }
-#}
+grammar Perl5::RegexGrammar is QRegex::P5Regex::Grammar does STD5 {
+    token rxstopper { <stopper> }
+}
 
 ## vim: expandtab sw=4 ft=perl6

@@ -3964,6 +3964,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
         return $past;
     }
 
+    method term:sym<blocklist>($/) {
+        $V5DEBUG && say("term:sym<blocklist>($/)");
+#        my $past := $<args>.ast;
+#        $past.unshift( self.make_indirect_lookup(['&' ~ $<identifier>]) );
+#        make $past;
+    }
+
     method term:sym<identifier>($/) {
         $V5DEBUG && say("term:sym<identifier>($/)");
         my $past := $<args>.ast;
@@ -6279,15 +6286,15 @@ class Perl5::QActions is HLL::Actions does STDActions {
     }
 }
 
-#class Perl6::P5RegexActions is QRegex::P5Regex::Actions does STDActions {
-#    method create_regex_code_object($block) {
-#        $*W.create_code_object($block, 'Regex',
-#            $*W.create_signature(nqp::hash('parameters', [])))
-#    }
-#
-#    method store_regex_nfa($code_obj, $block, $nfa) {
-#        $code_obj.SET_NFA($nfa.save);
-#    }
-#}
+class Perl5::RegexActions is QRegex::P5Regex::Actions does STDActions {
+    method create_regex_code_object($block) {
+        $*W.create_code_object($block, 'Regex',
+            $*W.create_signature(nqp::hash('parameters', [])))
+    }
+
+    method store_regex_nfa($code_obj, $block, $nfa) {
+        $code_obj.SET_NFA($nfa.save);
+    }
+}
 
 # vim: ft=perl6
