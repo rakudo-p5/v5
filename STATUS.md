@@ -1476,16 +1476,18 @@ Variable '%main::' is not declared
 at t/spec/op/symbolcache.v5:17
 ------> delete $main::{removed}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>re/pos.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan=5>   [   3   1   m   =   =   =      [   0   m   S   O   R   R   Y   !      [   3   1   m   =   =   =      [   0   m   
-   C   o   u   l   d   n   '   t       f   i   n   d       t   e   r   m   i   n   a   t   o   r       ?   
-   a   t       t   /   s   p   e   c   /   r   e   /   p   o   s   .   v   5   :   5   2   
-   -   -   -   -   -   -   >          [   3   2   m   	   	   i   f       (   $   s   t   r       =   ~       m   ?   b   i   r   d   ?   g      [   3   3   m   �#     [   3   1   m   )       {      [   0   m   
-                   e   x   p   e   c   t   i   n   g       a   n   y       o   f   :   
-                                   p   o   s   t   f   i   x   
-                                   s   t   a   n   d   a   r   d       s   t   o   p   p   e   r   
-                                   i   n   f   i   x       s   t   o   p   p   e   r   
-                                   i   n   f   i   x       o   r       m   e   t   a   -   i   n   f   i   x   
-                                   p   r   e   f   i   x       o   r       t   e   r   m   
+        <tr><td colspan=5>No such symbol '&pos'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/re/pos.v5:25
+  in method reify at src/gen/CORE.setting:5742
+  in method reify at src/gen/CORE.setting:5637
+  in method gimme at src/gen/CORE.setting:6058
+  in method sink at src/gen/CORE.setting:6359
+  in block  at t/spec/re/pos.v5:15
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2192,7 +2194,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368736070.39966
+Could not find sub cuid_97_1368800267.75873
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
