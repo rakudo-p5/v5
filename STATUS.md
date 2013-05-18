@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>371</td><td>39775</td><td>5</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>405</td><td>39741</td><td>5</td><td>38</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
@@ -23,6 +23,12 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
+
+</td></tr>
+        <tr align=center><td align=left rowspan=2>op/unshift.v5</td><td>34</td><td>2</td><td>0</td><td>0</td><td>36</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/test.pl:22
+
+use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/test.pl:22
 
 </td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
@@ -153,8 +159,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/method_caching.v5:30
+------>     sub { is(MCTest::Derived->foo(⏏0), 1); },</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -357,7 +364,7 @@ at t/spec/comp/require.v5:58
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -369,7 +376,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file 'test.pl' for module test.pl
+Could not find Digest in any of: lib, Porting, t
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -388,7 +395,7 @@ at t/spec/porting/exec-bit.v5:67
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/filenames.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find File::Basename in any of: ../lib
+Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/globvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -495,7 +502,9 @@ at t/spec/re/reg_email.v5:16
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Preceding context expects a term, but found infix << instead
+at t/spec/re/reg_eval.v5:90
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align=center><td align=left>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -550,8 +559,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Missing block
+at t/spec/re/regexp_unicode_prop.v5:17
+------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:141
@@ -609,7 +619,7 @@ at t/spec/run/switchx.v5:25
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file 'test.pl' for module test.pl
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -784,45 +794,66 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 33
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_04_c3_utf8.v5:33
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 31
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_04_dfs.v5:31
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 33
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_04_dfs_utf8.v5:33
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 95
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/dbic_c3.v5:95
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 97
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/dbic_c3_utf8.v5:97
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 95
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/dbic_dfs.v5:95
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 97
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/dbic_dfs_utf8.v5:97
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -844,27 +875,39 @@ Unable to parse expression in block; couldn't find final '}'
 at t/spec/mro/next_ineval_utf8.v5:34
 ------> urn 'ｂ::ຟǫ => ' . (shift)->next::method(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 64
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/vulcan_c3.v5:64
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 65
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/vulcan_c3_utf8.v5:65
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 64
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/vulcan_dfs.v5:64
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 66
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/vulcan_dfs_utf8.v5:66
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -960,33 +1003,48 @@ No such symbol '&DATA'
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 31
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_04_c3.v5:31
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 49
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_05_c3.v5:49
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 51
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_05_c3_utf8.v5:51
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 49
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_05_dfs.v5:49
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 52
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_05_dfs_utf8.v5:52
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1017,8 +1075,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/op/time_loop.v5:15
+------> local $SIG{__WARN__}⏏ = sub {};</td></tr>
         <tr align=center><td align=left rowspan=2>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -1044,7 +1103,7 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find Encode in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1068,7 +1127,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/print.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file 'test.pl' for module test.pl
+Preceding context expects a term, but found infix << instead
+at t/spec/op/print.v5:33
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/setpgrpstack.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1138,7 +1199,7 @@ Could not find FileHandle in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1146,8 +1207,9 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Unrecognized backslash sequence: '\3'
+at t/spec/uni/goto.v5:22
+------>     goto &{"\⏏345\225\217\351\241\214\343\201\256\345\</td></tr>
         <tr align=center><td align=left>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/12-context.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>WARNINGS:
@@ -1165,7 +1227,7 @@ at t/v5/25-syntax-defined-or.v5:8
 ------>     print "not " unless (shift // ⏏2) == 5;</td></tr>
         <tr align=center><td align=left rowspan=2>lib/proxy_constant_subs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1188,27 +1250,39 @@ Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/mro/basic_01_dfs_utf8.v5:49
 ------> is(Ｄiᚪၚd_D->can(⏏'hèllò')->(), 'Ｄiᚪၚd_A::hèllò', '... can</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 90
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_03_c3.v5:90
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 92
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_03_c3_utf8.v5:92
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 90
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_03_dfs.v5:90
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at line 92
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/basic_03_dfs_utf8.v5:92
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_method.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1261,8 +1335,9 @@ at t/spec/run/switchF1.v5:42
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Unrecognized backslash sequence: '\3'
+at t/spec/uni/eval.v5:32
+------>     isnt eval "q!\⏏360\237\220\252!", eval "q!\x{1f42a}!";</td></tr>
         <tr align=center><td align=left rowspan=2>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
@@ -1319,7 +1394,7 @@ at t/spec/op/utf8magic.v5:30
 ------> sub STORE     { $::stored⏏ = pop }</td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
@@ -1506,11 +1581,11 @@ at t/spec/op/symbolcache.v5:17
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1573,7 +1648,7 @@ at t/spec/op/srand.v5:74
 ------> 	local $SIG{__WARN__}⏏ = sub {</td></tr>
         <tr align=center><td align=left rowspan=2>porting/FindExt.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find FindExt in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchd.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1582,7 +1657,7 @@ at t/spec/run/switchd.v5:85
 ------>   qr "1\⏏r?\n2\r?\n",</td></tr>
         <tr align=center><td align=left rowspan=2>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1600,7 +1675,7 @@ Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1623,15 +1698,21 @@ Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/mro/basic_02_dfs_utf8.v5:116
 ------> is(텟ţ::ଅ->can(⏏'ƈ_or_Ḋ')->(), '텟ţ::Ḋ', '... can got the</td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at lines 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/complex_dfs.v5:85
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at lines 87, 92, 97, 102, 107, 112, 117, 122, 127, 132, 137
+        <tr><td colspan=5>Could not find symbol '&get_linear_isa'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/mro/complex_dfs_utf8.v5:87
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
@@ -1641,7 +1722,7 @@ at t/spec/op/array_base.v5:12
 ------>  is(eval⏏('$[ = 1; 123'), undef);</td></tr>
         <tr align=center><td align=left rowspan=2>op/flip.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file 'test.pl' for module test.pl
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/goto_xs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1768,7 +1849,7 @@ at t/spec/comp/package.v5:18
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find Scalar::Util in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_pmod.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1777,7 +1858,7 @@ at t/spec/re/reg_pmod.v5:24
 ------> $SIG{__WARN__}⏏ = sub { $W.=join("",@_); };</td></tr>
         <tr align=center><td align=left rowspan=2>lib/mypragma.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Could not find mypragma in any of: lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>No such symbol '&int'
@@ -1879,8 +1960,9 @@ Could not locate compile-time value for symbol like
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/package.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Two terms in a row
+at t/spec/uni/package.v5:37
+------>     $압Ƈ⏏'d읯ⱪ = 6;        #'</td></tr>
         <tr align=center><td align=left rowspan=2>op/die.v5</td><td>0</td><td>19</td><td>0</td><td>0</td><td>19</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1924,12 +2006,14 @@ get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Unable to parse expression in variable; couldn't find final '}'
+at t/spec/mro/isarev.v5:22
+------>      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isarev_utf8.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Unable to parse expression in variable; couldn't find final '}'
+at t/spec/mro/isarev_utf8.v5:25
+------>      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align=center><td align=left rowspan=2>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
 get_iter() not implemented in class 'NQPMu'
@@ -1942,9 +2026,12 @@ at t/spec/cmd/while.v5:220
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    my used at line 18
+        <tr><td colspan=5>No such symbol '&sub'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/comp/colon.v5:23
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
@@ -1989,8 +2076,9 @@ Error while compiling block : Error while compiling block  (source text: "{ $| =
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/op/sigdispatch.v5:18
+------> $SIG{ALRM}⏏ = sub {</td></tr>
         <tr align=center><td align=left rowspan=2>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -2053,10 +2141,6 @@ at t/spec/cmd/subval.v5:110
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/unshift.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find file 'test.pl' for module test.pl
-</td></tr>
         <tr align=center><td align=left rowspan=2>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2113,7 +2197,7 @@ at t/spec/op/sysio.v5:70
 ------> ok(!-s $outfile⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+ResizablePMCArray: index out of bounds!
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest.v5</td><td>0</td><td>49</td><td>0</td><td>0</td><td>49</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2121,20 +2205,23 @@ Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/package_aliases_utf8.v5:35
+------> ok (ऑlㄉ->isa(⏏Ｎeẁ::), 'ऑlㄉ inherits from Ｎeẁ');</td></tr>
         <tr align=center><td align=left rowspan=2>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic_utf8.v5:9
+------> BEGIN { require q(t/test.pl); } ⏏plan(tests => 53);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/mro/package_aliases.v5:31
+------> ok (Old->isa ⏏(New::), 'Old inherits from New');</td></tr>
         <tr align=center><td align=left rowspan=2>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
 Bogus statement
@@ -2155,8 +2242,9 @@ Could not find constant in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Two terms in a row
+at t/spec/mro/basic.v5:7
+------> BEGIN { require q(t/test.pl); } ⏏plan(tests => 59);</td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ., ../lib
@@ -2204,12 +2292,15 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368866919.56125
+Could not find sub cuid_97_1368906688.07085
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Undeclared routine:
-    eq_array used at lines 112, 136
+        <tr><td colspan=5>No such symbol '&watchdog'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/time.v5:16
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
@@ -2485,7 +2576,9 @@ Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Unable to parse expression in backslash:sym<N>; couldn't find final '}'
+at t/spec/op/split_unicode.v5:28
+------> 	ord("\N{⏏NEL}"), # Cc       <control-0085>
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
         <tr><td colspan=5>===SORRY!===
