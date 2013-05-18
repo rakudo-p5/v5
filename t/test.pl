@@ -5,7 +5,7 @@ sub _plan(*@args)            { plan(|@args)          }
 sub _pass(*@args)            { pass(|@args)          }
 sub _ok(*@args)              { ok(|@args)            }
 sub _nok(*@args)             { nok(|@args)           }
-sub _is(*@args)              { is(|@args)            }
+sub _is($a, $b, $c)          { is($a, $b, $c)            }
 sub _isnt(*@args)            { isnt(|@args)          }
 sub _is_approx(*@args)       { is_approx(|@args)     }
 sub _todo(*@args)            { todo(|@args)          }
@@ -32,7 +32,7 @@ sub _done()                  { done()                }
     sub pass                    { _pass(@_)                           }
     sub ok                      { _ok(@_)                             }
     sub nok                     { _nok(@_)                            }
-    sub is                      { _is(@_)                             }
+    sub is                      { _is($_[0], $_[1], $_[2])            }
     sub isnt                    { _isnt(@_)                           }
     sub is_approx               { _is_approx(@_)                      }
     sub todo                    { _todo(@_)                           }
