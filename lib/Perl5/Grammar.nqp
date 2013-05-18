@@ -3548,10 +3548,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     ## comparisons
     token infix:sym«<=>»
-        { <sym> <?{ $<O><returns> := "Order"; }> <O('%comparison')> }
+        { <sym> <O('%comparison')> }
 
     token infix:sym<cmp>
-        { <sym> <?{ $<O><returns> := "Order"; }> <O('%comparison')> }
+        { <sym> <O('%comparison')> }
 
 
     token infix:sym«<»
