@@ -78,5 +78,5 @@ multi sub shift()   is export { shift(CALLER::DYNAMIC::<@_>) }
 multi sub shift(@a) is export { @a.shift                     }
 
 # http://perldoc.perl.org/functions/undef.html
-multi sub undef()         is export { Mu              }
-multi sub undef($a is rw) is export { undefine $a; Mu }
+multi sub undef()         is export { Nil              }
+multi sub undef($a is rw) is export { undefine $a; Nil }

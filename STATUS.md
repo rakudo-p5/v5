@@ -3,9 +3,56 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>405</td><td>39741</td><td>5</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>416</td><td>39730</td><td>5</td><td>38</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
-        <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
+        <tr align=center><td align=left rowspan=2>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
@@ -48,6 +95,28 @@ use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/t
   in block  at t/spec/uni/sprintf.v5:14
 
 </td></tr>
+        <tr align=center><td align=left rowspan=2>op/not.v5</td><td>12</td><td>4</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:85
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:85
+
+parens needed around second argument in next two tests
+to preserve list context inside function call
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Nil in numeric context  in block  at t/spec/op/not.v5:33
+
+use of uninitialized value of type Nil in numeric context  in block  at t/spec/op/not.v5:53
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:47
 
@@ -55,7 +124,19 @@ use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/t
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>op/chr.v5</td><td>5</td><td>37</td><td>0</td><td>0</td><td>42</td></tr>
-        <tr><td colspan=5>Invalid character for UTF-8 encoding
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+Invalid character for UTF-8 encoding
 
   in method chr at src/gen/CORE.setting:3248
   in block  at t/spec/op/chr.v5:24
@@ -109,15 +190,6 @@ No such symbol '&fresh_perl_is'
   in any find_method_fallback at src/gen/Metamodel.nqp:2492
   in any find_method at src/gen/Metamodel.nqp:939
   in block  at t/spec/run/switchI.v5:24
-
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/not.v5</td><td>1</td><td>15</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>Cannot call 'is'; none of these signatures match:
-:(Mu $got, Mu $expected, $desc = { ... })
-  in sub is at lib/Test.pm:78
-  in sub _is at ./test.pl:8
-  in sub is at ./test.pl:35
-  in block  at t/spec/op/not.v5:14
 
 </td></tr>
         <tr align=center><td align=left>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
@@ -1088,7 +1160,10 @@ at t/spec/porting/bincompat.v5:14
 quantifier quantifies nothing
 at t/spec/re/qr_gc.v5:28
 ------>     my $rx = qr/(?⏏{ $var })/;</td></tr>
-        <tr align=center><td align=left>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align=center><td align=left rowspan=2>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/run/switcha.v5:12
 
@@ -2292,7 +2367,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368906688.07085
+Could not find sub cuid_97_1368910813.4647
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
