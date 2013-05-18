@@ -3730,7 +3730,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    }
     token term:sym<identifier> {
         :my $name;
-        <identifier> <!{ ~$<identifier> ~~ /^ 'm' || 'q' || 'qq' || 'qr' || 'qw' $/; }>
+        <identifier> <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' ] $/; }>
         { $name := ~$<identifier>; }
         [\h+ <?[(]>]?
         <args( $*W.is_type($name) )>
