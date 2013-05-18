@@ -615,6 +615,21 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make QAST::Op.new( $<EXPR>.ast, $<sblock>.ast, :op('if'), :node($/) );
     }
 
+    sub add_param($block, @params, $name) {
+        unless $block.symbol($name) {
+            if $*IMPLICIT {
+                @params.push(hash(
+                    :variable_name($name), :optional(1),
+                    :nominal_type($*W.find_symbol(['Mu'])),
+                    :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
+                ));
+            }
+            # XXX TODO proper handling of our-variables --------------------v
+            $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
+            $block.symbol($name, :scope('lexical'), :lazyinit($name eq '$_') );
+        }
+    }
+
     method sblock($/) {
         $V5DEBUG && say("sblock($/)");
         if $<blockoid><you_are_here> {
@@ -625,18 +640,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
             my %sig_info;
             my @params;
             my $block := $<blockoid>.ast;
-            my $name := ($*FOR_VARIABLE && ~$*FOR_VARIABLE) || '$_';
-            unless $block.symbol($name) {
-                if $*IMPLICIT {
-                    @params.push(hash(
-                        :variable_name($name), :optional(1),
-                        :nominal_type($*W.find_symbol(['Mu'])),
-                        :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
-                    ));
-                }
-                # XXX TODO proper handling of our-variables --------------------v
-                $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
-                $block.symbol($name, :scope('lexical'), :lazyinit($name eq '$_') );
+            if $*IN_SORT {
+                add_param($block, @params, '$a');
+                add_param($block, @params, '$b');
+            }
+            else {
+                add_param($block, @params, ($*FOR_VARIABLE && ~$*FOR_VARIABLE) || '$_');
             }
             %sig_info<parameters> := @params;
 
@@ -3966,9 +3975,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method term:sym<blocklist>($/) {
         $V5DEBUG && say("term:sym<blocklist>($/)");
-#        my $past := $<args>.ast;
-#        $past.unshift( self.make_indirect_lookup(['&' ~ $<identifier>]) );
-#        make $past;
+        my $past := $<arglist>.ast;
+        $past.name('&' ~ $<identifier>);
+        $past.unshift( $<sblock>.ast ) if $<sblock>;
+        make $past;
     }
 
     method term:sym<identifier>($/) {

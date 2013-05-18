@@ -328,7 +328,12 @@ role STD5 {
         if nqp::istype($varast, QAST::Op) && $varast.op eq 'ifnull' {
             $varast := $varast[0];
         }
-        if !$*IN_DECL && nqp::istype($varast, QAST::Var) && $varast.scope eq 'lexical' {
+        my $ok := 0;
+        $ok    := $ok || $*IN_DECL;
+        $ok    := $ok || !nqp::istype($varast, QAST::Var);
+        $ok    := $ok || $varast.scope ne 'lexical';
+        $ok    := $ok || ($*IN_SORT && ($varast.name eq '$a' || $varast.name eq '$b'));
+        if !$ok {
             # Change the sigil if needed.
             $varast.name( ~$var<really> ~ ~$var<desigilname> ) if $var<really>;
             $varast.name( ~$var<sigil>  ~ ~$var<name> )        if $var<name>;
@@ -3705,8 +3710,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*IN_SORT := 0;
         $<identifier> = [ 'map' |'grep' | 'sort' { $*IN_SORT := 1; } ] <.ws>
         [
-        | '(' ~ ')' [ [ <?before '{'> <block> <.ws> ]? <arglist> ]
-        |           [ [ <?before '{'> <block> <.ws> ]? <arglist> ]
+        | '(' ~ ')' [ [ <?before '{'> <sblock(1)> <.ws> ]? <arglist> ]
+        |           [ [ <?before '{'> <sblock(1)> <.ws> ]? <arglist> ]
         ]
         <O('%term')>
     }

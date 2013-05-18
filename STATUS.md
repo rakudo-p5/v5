@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>358</td><td>39788</td><td>5</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>371</td><td>39775</td><td>5</td><td>38</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
@@ -29,6 +29,19 @@ use of uninitialized value of type Any in string context  in sub is at lib/Test.
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align=center><td align=left>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr align=center><td align=left rowspan=2>uni/sprintf.v5</td><td>13</td><td>39</td><td>0</td><td>0</td><td>52</td></tr>
+        <tr><td colspan=5>Cannot convert string to number: trailing characters after number in '512⏏Büf' (indicated by ⏏)
+  in method Int at src/gen/CORE.setting:10018
+  in method Int at src/gen/CORE.setting:4003
+  in method chr at src/gen/CORE.setting:2424
+  in block  at t/spec/uni/sprintf.v5:83
+  in method reify at src/gen/CORE.setting:5742
+  in method reify at src/gen/CORE.setting:5637
+  in method gimme at src/gen/CORE.setting:6058
+  in method sink at src/gen/CORE.setting:6359
+  in block  at t/spec/uni/sprintf.v5:14
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:47
 
@@ -82,7 +95,9 @@ use of uninitialized value of type Any in string context  in block  at t/spec/ba
         <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchI.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>No such symbol '&fresh_perl_is'
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/run/switchI.v5:15
+
+No such symbol '&fresh_perl_is'
   in method <anon> at src/gen/CORE.setting:10027
   in any  at src/gen/Metamodel.nqp:2504
   in any find_method_fallback at src/gen/Metamodel.nqp:2492
@@ -614,7 +629,7 @@ at t/spec/io/crlf_through.v5:11
         <tr align=center><td align=left rowspan=2>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Error while reading from file: Invalid character in UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file 'case.pl' for module case.pl
@@ -1309,11 +1324,11 @@ Could not find file './test.pl' for module ./test.pl
         <tr align=center><td align=left rowspan=2>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '@ARGV' is not declared
@@ -2108,10 +2123,6 @@ Method 'returns' not found for invocant of class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Could not find file './test.pl' for module ./test.pl
 </td></tr>
-        <tr align=center><td align=left rowspan=2>uni/sprintf.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'flat' not found for invocant of class 'NQPMu'
-</td></tr>
         <tr align=center><td align=left rowspan=2>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -2157,12 +2168,11 @@ get_iter() not implemented in class 'NQPMu'
         <tr align=center><td align=left rowspan=2>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>op/grep.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/op/grep.v5:32
------->     @res = map({$_} ⏏("geronimo"));</td></tr>
+Method 'ast' not found for invocant of class 'NQPMu'
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/method.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not locate compile-time value for symbol is
@@ -2194,13 +2204,14 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368800267.75873
+Could not find sub cuid_97_1368866919.56125
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
-at t/spec/op/time.v5:75
-------> ok( grep({ $day_diff == $_ } ⏏(0, 1, -1, 364, 365, -364, -365)),</td></tr>
+Undeclared routine:
+    eq_array used at lines 112, 136
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -2208,7 +2219,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left rowspan=2>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
@@ -2261,11 +2272,11 @@ get_iter() not implemented in class 'NQPMu'
         <tr align=center><td align=left rowspan=2>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>op/lex_assign.v5</td><td>0</td><td>100</td><td>0</td><td>0</td><td>100</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -2416,7 +2427,9 @@ Could not find Config in any of: ../lib
     at t/spec/cmd/for.v5:647
     ------> for my $i ⏏(reverse (map {$_} @array, 1)) {
 ===SORRY!===
-Method 'flat' not found for invocant of class 'NQPMu'
+CHECK FAILED:
+Undefined routine '&infix:<*=>' called (lines 29, 29)
+Undefined routine '&infix:<+=>' called (lines 66, 66)
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2439,7 +2452,7 @@ at t/spec/op/eval.v5:52
         <tr align=center><td align=left rowspan=2>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
         <tr align=center><td align=left rowspan=2>japh/abigail.v5</td><td>0</td><td>130</td><td>0</td><td>0</td><td>130</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
