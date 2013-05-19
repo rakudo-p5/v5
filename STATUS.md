@@ -222,13 +222,25 @@ current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (sr
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
 current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+        <tr><td colspan=5>Could not find mro in any of: ../lib
+  in any load_module at src/Perl6/ModuleLoader.nqp:144
+  in block  at t/spec/mro/isa_dfs.v5:45
+  in block  at t/spec/mro/isa_dfs.v5:37
+  in block  at t/spec/mro/isa_dfs.v5:28
+  in block  at t/spec/mro/isa_dfs.v5:20
+
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
+current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+        <tr><td colspan=5>Could not find mro in any of: ../lib
+  in any load_module at src/Perl6/ModuleLoader.nqp:144
+  in block  at t/spec/mro/isa_dfs_utf8.v5:47
+  in block  at t/spec/mro/isa_dfs_utf8.v5:39
+  in block  at t/spec/mro/isa_dfs_utf8.v5:30
+  in block  at t/spec/mro/isa_dfs_utf8.v5:22
+
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
+current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -303,7 +315,7 @@ at t/spec/op/exists_sub.v5:10
 ------> sub t1⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -622,8 +634,13 @@ Missing block
 at t/spec/re/regexp_qr_embed.v5:8
 ------> 	do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+        <tr><td colspan=5>No such symbol '&useithreads'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/re/regexp_qr_embed_thr.v5:7
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -663,7 +680,7 @@ at t/spec/re/uniprops.v5:8
 ------> do ⏏'../lib/unicore/TestProp.pl';</td></tr>
         <tr align=center><td align=left rowspan=2>run/exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -673,8 +690,9 @@ at t/spec/run/fresh_perl.v5:881
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+Two terms in a row
+at t/spec/run/locale.v5:17
+------>     eval { require POSIX; POSIX->import(⏏"locale_h") };</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
@@ -691,8 +709,9 @@ at t/spec/run/switchx.v5:25
 </td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+Variable '%Bar' is not declared
+at t/spec/test_pl/can_isa_ok.v5:23
+------>     local %Bar::⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$skip' is not declared
@@ -711,7 +730,7 @@ at t/spec/io/crlf_through.v5:11
         <tr align=center><td align=left rowspan=2>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Error while reading from file: Invalid character in UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find file 'case.pl' for module case.pl
@@ -730,7 +749,7 @@ Could not find file 'case.pl' for module case.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -929,12 +948,16 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+        <tr><td colspan=5>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+  in any load_module at src/Perl6/ModuleLoader.nqp:144
+  in block  at t/spec/mro/inconsistent_c3.v5:15
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+        <tr><td colspan=5>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+  in any load_module at src/Perl6/ModuleLoader.nqp:144
+  in block  at t/spec/mro/inconsistent_c3_utf8.v5:18
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1002,8 +1025,9 @@ Could not find Carp in any of: ../lib, /home/froggs/dev/nqp/install/lib/parrot/5
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+Variable '&POSIX::LC_ALL' is not declared
+at t/spec/re/charset.v5:41
+------> ocale = POSIX::setlocale( &POSIX::LC_ALL⏏, "C") // "";</td></tr>
         <tr align=center><td align=left rowspan=2>re/no_utf8_pm.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
@@ -1045,7 +1069,7 @@ No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1056,8 +1080,10 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 Could not find File::Spec::Functions in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+        <tr><td colspan=5>Could not find Config in any of: ../lib
+  in any load_module at src/Perl6/ModuleLoader.nqp:144
+  in block  at t/spec/lib/commonsense.v5:12
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/read.v5:14
@@ -1143,7 +1169,9 @@ Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Preceding context expects a term, but found infix < instead
+at t/spec/op/pwent.v5:254
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1198,7 +1226,9 @@ Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Preceding context expects a term, but found infix < instead
+at t/spec/op/grent.v5:193
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/print.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1278,7 +1308,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1374,10 +1404,7 @@ at t/spec/mro/next_method_utf8.v5:33
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+        <tr align=center><td align=left>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>Too many positional parameters passed; got 2 but expected 1
   in sub defined at src/gen/CORE.setting:1169
@@ -1451,7 +1478,7 @@ at t/spec/comp/multiline.v5:95
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Error while compiling block : Error while compiling block  (source text: "{\n     chdir 't' if -d 't';\n     @INC = '../lib';\n     require './test.pl';\n     $| = 1;\n\n    ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>No such symbol '&tempfile'
@@ -1474,11 +1501,11 @@ Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
         <tr align=center><td align=left rowspan=2>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '@ARGV' is not declared
@@ -1526,12 +1553,14 @@ No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+Variable '%Foo' is not declared
+at t/spec/mro/pkg_gen.v5:35
+------> undef %Foo::⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+Variable '%ᕘ' is not declared
+at t/spec/mro/pkg_gen_utf8.v5:37
+------> undef %ᕘ::⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/context.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>No such symbol '&curr_test'
   in method <anon> at src/gen/CORE.setting:10027
@@ -1696,8 +1725,9 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+Two terms in a row
+at t/spec/uni/labels.v5:49
+------>  $@, qr/Label not found for "last Ｅ" at/⏏u, "last's error is UTF-8 clean";</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/26-syntax-namespace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not locate compile-time value for symbol A
@@ -1801,7 +1831,7 @@ Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/goto_xs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1946,7 +1976,7 @@ Could not find mypragma in any of: lib, /home/froggs/dev/nqp/install/lib/parrot/
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'p5cc' not found for invocant of class 'Perl5::Grammar'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1964,7 +1994,7 @@ Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    ch
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2016,7 +2046,7 @@ at t/spec/op/glob.v5:117
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>Potential difficulties:
@@ -2061,7 +2091,7 @@ at t/spec/op/join.v5:68
 ------>   my $b = "abc\⏏304";</td></tr>
         <tr align=center><td align=left rowspan=2>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'unique' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2077,7 +2107,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'returns' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2091,7 +2121,7 @@ at t/spec/mro/isarev_utf8.v5:25
 ------>      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align=center><td align=left rowspan=2>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
@@ -2237,11 +2267,11 @@ at t/spec/re/rxcode.v5:13
 ------> like( 'a',  qr/^a(?⏏{1})(?:b(?{2}))?/, 'a =~ ab?' );</td></tr>
         <tr align=center><td align=left rowspan=2>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/length.v5</td><td>0</td><td>41</td><td>0</td><td>0</td><td>41</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2259,11 +2289,11 @@ at t/spec/comp/uproto.v5:52
 ------> sub f⏏($$_) { my $x = shift; is("@_", $x) }</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find file 'test.pl' for module test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2326,12 +2356,12 @@ Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib, .
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>op/grep.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -2367,7 +2397,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368910813.4647
+Could not find sub cuid_97_1368960358.27885
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2385,7 +2415,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left rowspan=2>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
@@ -2433,16 +2463,16 @@ Error while compiling block : Error while compiling block  (source text: "{\n   
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/runenv.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>op/lex_assign.v5</td><td>0</td><td>100</td><td>0</td><td>0</td><td>100</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -2465,8 +2495,9 @@ at t/spec/op/index.v5:67
 ------> $a⏏ = "foo \x{1234}bar";</td></tr>
         <tr align=center><td align=left rowspan=2>op/svleak.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
-</td></tr>
+Two terms in a row
+at t/spec/op/svleak.v5:13
+------> equire XS::APItest; XS::APItest->import(⏏'sv_count'); 1 }</td></tr>
         <tr align=center><td align=left rowspan=2>op/split.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
@@ -2618,7 +2649,7 @@ at t/spec/op/eval.v5:52
         <tr align=center><td align=left rowspan=2>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
-current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1317)</td></tr>
+current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>japh/abigail.v5</td><td>0</td><td>130</td><td>0</td><td>0</td><td>130</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2667,7 +2698,7 @@ at t/spec/opbasic/arith.v5:15
 ------> sub try ⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2694,7 +2725,7 @@ at t/spec/op/switch.v5:21
 ------> CORE::given(3) ⏏{</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst.v5</td><td>0</td><td>206</td><td>0</td><td>0</td><td>206</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/gv.v5</td><td>0</td><td>212</td><td>0</td><td>0</td><td>212</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2767,7 +2798,7 @@ at t/spec/re/pat_rt_report.v5:13
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'p5cc' not found for invocant of class 'Perl5::Grammar'
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan=5>===SORRY!===

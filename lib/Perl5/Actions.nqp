@@ -958,7 +958,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("statement_control:sym<require>($/) EXPR") if $<EXPR>;
         my $past := QAST::Stmts.new(:node($/));
         my $name_past := $<module_name>
-                        ?? $*W.dissect_longname($<module_name><longname>).name_past()
+                        ?? $*W.p5dissect_longname($<module_name><longname>).name_past()
                         !! $<file>.ast;
                         #!! QAST::SVal.new( :value('main') );
         my $op := QAST::Op.new(
@@ -969,19 +969,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $*W.symbol_lookup(['GLOBAL'], $/),
             QAST::SVal.new( :named<from>, :value<Perl5> )
         );
-        #if $<module_name> {
-        #    for $<module_name><longname><colonpair> -> $colonpair {
-        #        $op.push(
-        #            QAST::Op.new( :named(~$colonpair<identifier>), :op<callmethod>, :name<value>,
-        #                $colonpair.ast
-        #            )
-        #        );
-        #    }
-        #}
-        #else {
-            #nqp::say($<file>.ast.dump);
+        if $<file> {
             $op.push( QAST::Op.new( :named<file>, :op<callmethod>, :name<Stringy>, $<file>.ast ) );
-        #}
+        }
         $past.push($op);
 
         if $<EXPR> {
@@ -2434,7 +2424,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         
         my $name;
         if $<longname> {
-            my $longname := $*W.dissect_longname($<longname>);
+            my $longname := $*W.p5dissect_longname($<longname>);
             $name := $longname.name(:dba('method name'),
                             :decl<routine>, :with_adverbs);
         }

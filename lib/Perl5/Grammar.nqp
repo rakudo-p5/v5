@@ -2438,7 +2438,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | '::?'<identifier>                 # parse ::?CLASS as special case
         | <longname>
           <?{
-            my $longname := $*W.dissect_longname($<longname>);
+            my $longname := $*W.p5dissect_longname($<longname>);
             nqp::substr(~$<longname>, 0, 2) eq '::' ??
                 1 !! # ::T introduces a type, so always is one
                 $*W.is_name($longname.type_name_parts('type name'))
