@@ -105,6 +105,11 @@ augment class Any {
     }
 }
 
+augment class Bool {
+    multi method P5Str(Bool:U:) { '' }
+    multi method P5Str(Bool:D:) { ?self ?? 1 !! '' }
+}
+
 augment class Array {
     multi method P5Str(Array:U:) { '' }
     multi method P5Str(Array:D:) { join '', map { $_ ?? $_.P5Str !! '' }, @(self) }
