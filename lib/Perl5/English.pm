@@ -13,6 +13,8 @@ sub EXPORT(|) {
         use v5;
         $ex{'$SUBSCRIPT_SEPARATOR'} = $;; # XXX do binding instead of assignment
         $ex{'$SUBSEP'}              = $;;
+        $ex{'$OUTPUT_AUTOFLUSH'}    = $|;
+        $ex{'$CHILD_ERROR'}         = $?;
     }
     %ex
 }

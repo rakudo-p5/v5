@@ -2318,10 +2318,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym> | '$INPUT_LINE_NUMBER' | '$NR'
     }
 
-    token special_variable:sym<$?> {
-        <sym> | '$CHILD_ERROR'
-    }
-    
     token special_variable:sym<${ }> {
         <!before { 1; }>
     }

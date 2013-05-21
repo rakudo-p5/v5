@@ -1483,10 +1483,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("special_variable:sym<\$.>($/)");
     }
 
-    method special_variable:sym<$?>($/) {
-        $V5DEBUG && say("special_variable:sym<\$?>($/)");
-    }
-
     method name($/) {
         $V5DEBUG && say("name($/)"); }
 
