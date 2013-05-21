@@ -6,6 +6,11 @@ my $VERSION_MINOR          = 16;
 my $VERSION_PATCH          = 0;
 my $VERSION_V              = "v$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH";
 my $VERSION_FLOAT          = $VERSION_MAJOR + $VERSION_MINOR/1000 + $VERSION_PATCH/1000000;
+my $OUTPUT_AUTOFLUSH       = 0;
+my $OUTPUT_AUTOFLUSH_P    := Proxy.new(
+    FETCH => method ()   { $OUTPUT_AUTOFLUSH },
+    STORE => method ($n) { $OUTPUT_AUTOFLUSH = $n; try $*OUT.autoflush( ?$n ); } # XXX there is no IO::Handle.autoflush (yet)
+);
 
 sub EXPORT(|) {
     my %ex;
@@ -14,6 +19,7 @@ sub EXPORT(|) {
     %ex<$$>                       := $*PID;
     %ex<$]>                       := $VERSION_FLOAT;
     %ex<$;>                       := $SUBSCRIPT_SEPARATOR;
+    %ex<$|>                       := $OUTPUT_AUTOFLUSH_P;
 
     # Because Perl6 already has variables like $/ and $! built in, we can't ex-/import them directly.
     # So we need an accessor, the grammar token '$/' can use, and a way to support the English module.

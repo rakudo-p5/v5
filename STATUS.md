@@ -3,8 +3,19 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>416</td><td>39730</td><td>5</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>462</td><td>39684</td><td>5</td><td>38</td><td>40185</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
+        <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
+  in sub scalar at lib/Perl5/Terms.pm:80
+  in block  at t/spec/op/list.v5:145
+  in method reify at src/gen/CORE.setting:5742
+  in method reify at src/gen/CORE.setting:5637
+  in method gimme at src/gen/CORE.setting:6058
+  in method sink at src/gen/CORE.setting:6359
+  in block  at t/spec/op/list.v5:132
+
+</td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
@@ -226,8 +237,7 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-CHECK FAILED:
-Undefined routine '&infix:<||=>' called (lines 66, 66)
+Error while compiling block  (source text: "use v5;\n#!./perl -w\n\n#\n# Verify that C<die> return the return code\n#\t-- Robin Barker \n#\n\nBE..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{\n    my($bang, $query, $code) = @$test;\n    $code ||= 'die;';\n    if ($^O eq 'MSWin32' || $^O eq..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -296,8 +306,13 @@ Variable '%INC' is not declared
 at t/spec/op/require_37033.v5:13
 ------>     delete $INC{'test_use_14937.pm'}⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\n##\n## Many of these tests are originally from Michael Schroeder\n## <Michael.S..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&run_multiple_progs'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/runlevel.v5:16
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -319,8 +334,13 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\n# Add new tests to the end with format:\n# ########\n#\n# # test description\n#..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&run_multiple_progs'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/tie.v5:19
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/upgrade.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -653,8 +673,13 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQ
 Could not find file 'case.pl' for module case.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\n# tests for DATA filehandle operations\n\nBEGIN {\n    chdir 't' if -d 't';\n  ..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&run_multiple_progs'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/io/data.v5:19
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1391,7 +1416,7 @@ at t/spec/comp/multiline.v5:95
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n     chdir 't' if -d 't';\n     @INC = '../lib';\n     require './test.pl';\n     $| = 1;\n\n    ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find Config in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>No such symbol '&tempfile'
@@ -1440,7 +1465,7 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
 Nominal type check failed for parameter '@array'; expected Positional but got Nil instead
-  in sub scalar at lib/Perl5/Terms.pm:74
+  in sub scalar at lib/Perl5/Terms.pm:80
   in block  at t/spec/bigmem/vec.v5:23
 
 </td></tr>
@@ -1556,8 +1581,13 @@ at t/spec/mro/recursion_dfs_utf8.v5:17
 Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n}\n\np..."): Error while compiling op call: Error while compiling block : Error while compiling op bind: Error while compiling op call (source text: "(my $upcode = $code) .= chr 256"): Error while compiling op bind: First child of a 'bind' op must be a QAST::Var
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n}\n\np..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&fileno'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/fh.v5:16
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/getppid.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1756,7 +1786,7 @@ at t/spec/uni/class.v5:12
 ------> is(($str =~ /(\⏏p{IsMyUniClass}+)/)[0], '0123456789:;<=></td></tr>
         <tr align=center><td align=left rowspan=2>uni/lex_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n\n    require './test.pl';\n    skip_all_if_miniperl(\"no dynamic loading on miniper..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1966,7 +1996,6 @@ Could not find Config in any of: ../lib
 ===SORRY!===
 CHECK FAILED:
 Undefined routine '&infix:<&&=>' called (lines 20, 20, 41, 41)
-Undefined routine '&infix:<||=>' called (lines 26, 26, 41, 41)
 Undefined routine '&infix:<+=>' called (lines 41, 41)
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
@@ -2008,8 +2037,19 @@ Method 'unique' not found for invocant of class 'NQPMu'
 No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't' if -d 't';\n    @INC = '../lib';\n}\n\nrequire './test.p..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&bless'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in sub new1 at t/spec/op/args.v5:14
+  in block  at t/spec/op/args.v5:16
+  in method reify at src/gen/CORE.setting:5742
+  in method reify at src/gen/CORE.setting:5637
+  in method gimme at src/gen/CORE.setting:6058
+  in method sink at src/gen/CORE.setting:6359
+  in block  at t/spec/op/args.v5:10
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/term.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2060,7 +2100,7 @@ Could not find Tie::Array in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n     chdir 't' if -d 't';\n     @INC = '../lib';\n     require './test.pl';\n     $| = 1;\n\n    ..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defins.v5</td><td>0</td><td>27</td><td>0</td><td>0</td><td>27</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2087,8 +2127,9 @@ at t/spec/base/rs.v5:249
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/pvbm.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{ $| = 1 }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Malformed block
+at t/spec/io/pvbm.v5:17
+------> sub PVBM ⏏() { 'foo' }</td></tr>
         <tr align=center><td align=left rowspan=2>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '%SIG' is not declared
@@ -2154,8 +2195,9 @@ at t/spec/cmd/subval.v5:110
 ------> &main⏏'somesub(28, 'foo', __FILE__, __LINE__);</td></tr>
         <tr align=center><td align=left rowspan=2>comp/opsubs.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
-</td></tr>
+Two terms in a row
+at t/spec/comp/opsubs.v5:83
+------>     if (eval { $class->can(⏏$method) }) {</td></tr>
         <tr align=center><td align=left rowspan=2>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2288,11 +2330,6 @@ Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-dev
         <tr><td colspan=5>===SORRY!===
 Could not locate compile-time value for symbol fail
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/list.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
-        <tr><td colspan=5>===SORRY!===
-CHECK FAILED:
-Undefined routine '&infix:<||=>' called (lines 183, 183)
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/localref.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>===SORRY!===
 Bogus statement
@@ -2307,7 +2344,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369141476.81593
+Could not find sub cuid_97_1369150586.60994
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2369,8 +2406,9 @@ at t/spec/op/caller.v5:27
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/universal.v5</td><td>0</td><td>93</td><td>0</td><td>0</td><td>93</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    $| = 1;\n    require \"./test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Two terms in a row
+at t/spec/uni/universal.v5:21
+------> ok $a->isa(⏏"Bòb");</td></tr>
         <tr align=center><td align=left rowspan=2>run/runenv.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Config in any of: ../lib
@@ -2576,8 +2614,9 @@ Method 'p5cc' not found for invocant of class 'Perl5::Grammar'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/universal.v5</td><td>0</td><td>139</td><td>0</td><td>0</td><td>139</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    $| = 1;\n    require \"./test.pl\";\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Two terms in a row
+at t/spec/op/universal.v5:18
+------> ok $a->isa(⏏"Bob");</td></tr>
         <tr align=center><td align=left rowspan=2>op/method.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -2618,7 +2657,7 @@ at t/spec/op/sort.v5:21
 ------>     map scalar(sort(+())), ('')x⏏68;</td></tr>
         <tr align=center><td align=left rowspan=2>op/magic.v5</td><td>0</td><td>178</td><td>0</td><td>0</td><td>178</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    $| = 1;\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    require './test.pl';\n    plan (..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block : Error while compiling block  (source text: "{\n    $ENV{PATH} = '/bin' if ${^TAINT};\n    $SIG{__WARN__} = sub { die \"Dying on warning: \", @_ ..."): Error while compiling op bind: Error while compiling op if (source text: "if ${^TAINT}"): Method 'arity' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/proto.v5</td><td>0</td><td>180</td><td>0</td><td>0</td><td>180</td></tr>
         <tr><td colspan=5>===SORRY!===

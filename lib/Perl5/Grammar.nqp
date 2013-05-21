@@ -2290,10 +2290,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym> | '$OUTPUT_RECORD_SEPARATOR' | '$ORS'
     }
 
-    token special_variable:sym<$|> {
-        <sym> | '$OUTPUT_AUTOFLUSH'
-    }
-
     token special_variable:sym<$:> {
         <sym> | '$FORMAT_LINE_BREAK_CHARACTERS'
     }
