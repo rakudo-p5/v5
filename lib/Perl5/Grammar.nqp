@@ -1720,29 +1720,12 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #        || <.panic: "Malformed $*SCOPE">
 #    }
     token scoped($*SCOPE) {
-        <.end_keyword>
         :dba('scoped declarator')
-        [
-#        :my $*DOC := $*DECLARATOR_DOCS;
-#        :my $*DOCEE;
-#        <.attach_docs>
         <.ws>
         [
         | <DECL=declarator>
         | <DECL=regex_declarator>
         | <DECL=package_declarator>
-#        | [<typename><.ws>]+
-#          {
-#            if +$<typename> > 1 {
-#                $/.CURSOR.NYI('Multiple prefix constraints');
-#            }
-#            $*OFTYPE := $<typename>;
-#          }
-#          <DECL=multi_declarator>
-#        | <DECL=multi_declarator>
-        ] <.ws>
-        #|| <.ws><typo_typename> <!>
-        #|| <.malformed($*SCOPE)>
         ]
     }
 
@@ -3732,7 +3715,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    }
     token term:sym<identifier> {
         :my $name;
-        <identifier> <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' ] $/; }>
+        <identifier> <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/; }>
         { $name := ~$<identifier>; }
         [\h+ <?[(]>]?
         <args( $*W.is_type($name) )>

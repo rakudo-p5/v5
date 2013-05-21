@@ -226,9 +226,9 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '$bang' is not declared
-at t/spec/op/die_exit.v5:65
------->     my($bang⏏, $query, $code) = @$test;</td></tr>
+CHECK FAILED:
+Undefined routine '&infix:<||=>' called (lines 66, 66)
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -273,27 +273,9 @@ Could not find tests in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix > instead
-at t/spec/op/my.v5:132
------->     ++my $x->⏏{foo};
-Other potential difficulties:
-    Redeclaration of symbol $i
-    at t/spec/op/my.v5:71
-    ------> if (my $i ⏏= "inner") {
-    Redeclaration of symbol $i
-    at t/spec/op/my.v5:75
-    ------> if ((my $i ⏏= 1) == 0) {
-    Redeclaration of symbol $i
-    at t/spec/op/my.v5:83
-    ------> while (my $i ⏏= --$j) {
-    Redeclaration of symbol $i
-    at t/spec/op/my.v5:92
-    ------> for (my $i ⏏= 0; (my $k = $i) < $j; ++$i) {
-    Redeclaration of symbol $i
-    at t/spec/op/my.v5:99
-    ------> foreach my $i ⏏(30, 31) {
-
-</td></tr>
+Unable to parse expression in declarator; couldn't find final ')'
+at t/spec/op/my.v5:15
+------>     { my($a, ⏏undef, $c) = ("ok 9\n", "not ok 10\n", "</td></tr>
         <tr align=center><td align=left rowspan=2>op/mydef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'p5cc' not found for invocant of class 'Perl5::Grammar'
@@ -643,10 +625,15 @@ Variable '%Bar' is not declared
 at t/spec/test_pl/can_isa_ok.v5:23
 ------>     local %Bar::⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Variable '$skip' is not declared
-at t/spec/test_pl/tempfile.v5:13
------->     my($skip⏏,$to,$next) = @_;</td></tr>
+        <tr><td colspan=5>skipping the first filename because it is taken for use by _fresh_perl()
+No such symbol '&tempfile'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/test_pl/tempfile.v5:41
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
@@ -1497,11 +1484,7 @@ at t/spec/mro/pkg_gen_utf8.v5:37
   in block  at t/spec/op/context.v5:18
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Variable '$dev_tty' is not declared
-at t/spec/op/filetest_t.v5:14
-------> my($dev_tty⏏, $dev_null) = qw(/dev/tty /dev/null);</td></tr>
+        <tr align=center><td align=left>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align=center><td align=left rowspan=2>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -2324,7 +2307,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369133004.63915
+Could not find sub cuid_97_1369141476.81593
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
