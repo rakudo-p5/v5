@@ -1,27 +1,27 @@
 
 use v6.0.0;
 use Test;
-sub _plan(*@args)            { plan(|@args)          }
-sub _pass(*@args)            { pass(|@args)          }
-sub _ok(*@args)              { ok(|@args)            }
-sub _nok(*@args)             { nok(|@args)           }
-sub _is($a, $b, $c)          { is($a, $b, $c // '')  }
-sub _isnt(*@args)            { isnt(|@args)          }
-sub _is_approx(*@args)       { is_approx(|@args)     }
-sub _todo(*@args)            { todo(|@args)          }
-sub _skip(*@args)            { skip(|@args)          }
-sub _skip_rest(*@args)       { skip_rest(|@args)     }
-sub _diag(*@args)            { diag(|@args)          }
-sub _flunk(*@args)           { flunk(|@args)         }
-sub _isa_ok(*@args)          { isa_ok(|@args)        }
-sub _dies_ok(*@args)         { dies_ok(|@args)       }
-sub _lives_ok(*@args)        { lives_ok(|@args)      }
-sub _eval_dies_ok(*@args)    { eval_dies_ok(|@args)  }
-sub _eval_lives_ok(*@args)   { eval_lives_ok(|@args) }
-sub _is_deeply($a, $b, $c)   { is_deeply($a, $b, $c) }
+sub _plan(*@args)            { plan(|@args)                       }
+sub _pass(*@args)            { pass(|@args)                       }
+sub _ok(*@args)              { ok(|@args)                         }
+sub _nok(*@args)             { nok(|@args)                        }
+sub _is($a, $b, $c)          { is($a // '', $b // '', $c // '')   }
+sub _isnt(*@args)            { isnt(|@args)                       }
+sub _is_approx(*@args)       { is_approx(|@args)                  }
+sub _todo(*@args)            { todo(|@args)                       }
+sub _skip(*@args)            { skip(|@args)                       }
+sub _skip_rest(*@args)       { skip_rest(|@args)                  }
+sub _diag(*@args)            { diag(|@args)                       }
+sub _flunk(*@args)           { flunk(|@args)                      }
+sub _isa_ok(*@args)          { isa_ok(|@args)                     }
+sub _dies_ok(*@args)         { dies_ok(|@args)                    }
+sub _lives_ok(*@args)        { lives_ok(|@args)                   }
+sub _eval_dies_ok(*@args)    { eval_dies_ok(|@args)               }
+sub _eval_lives_ok(*@args)   { eval_lives_ok(|@args)              }
+sub _is_deeply($a, $b, $c)   { is_deeply($a, $b, $c)              }
 sub _cmp_ok($a, $b, $c, $d?) { _ok(::("&infix:<$b>")($a, $c), $d) }
-sub _done_testing()          { done_testing()        }
-sub _done()                  { done()                }
+sub _done_testing()          { done_testing()                     }
+sub _done()                  { done()                             }
 
 {
     use v5;
