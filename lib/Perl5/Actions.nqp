@@ -1368,7 +1368,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$&>($/) {
         $V5DEBUG && say("special_variable:sym<\$&>($/)");
-        make QAST::Op.new( :op('callmethod'), :name('P5Stringy'), QAST::Var.new( :name('$/'), :scope('lexical') ) );
+        make QAST::Op.new( :op('callmethod'), :name('P5Str'), QAST::Var.new( :name('$/'), :scope('lexical') ) );
     }
 
     method special_variable:sym<$*>($/) {
@@ -6138,7 +6138,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
                     }
                     @asts.push($_.ast<ww_atom>
                         ?? $_.ast
-                        !! QAST::Op.new( :op('callmethod'), :name('P5Stringy'),  $_.ast ));
+                        !! QAST::Op.new( :op('callmethod'), :name('P5Str'),  $_.ast ));
                 }
                 else {
                     $lastlit := $lastlit ~ $_.ast;
@@ -6154,7 +6154,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
         
         my $past := @asts.shift();
         for @asts {
-            $past := QAST::Op.new( :op('call'), :name('&infix:<~>'), $past, $_ );
+            $past := QAST::Op.new( :op('call'), :name('&infix:<P5~>'), $past, $_ );
         }
         
         if nqp::can($/.CURSOR, 'postprocessor') {
@@ -6204,7 +6204,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
                 $result.push($node);
             }
             elsif nqp::istype($node, QAST::Op) && $node.name eq '&infix:<.>' {
-                $node.name('&infix:<~>');
+                $node.name('&infix:<P5~>');
                 walk($node[0]);
                 walk($node[1]);
             }
