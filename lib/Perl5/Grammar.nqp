@@ -1387,7 +1387,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'open',      [],                       # http://perldoc.perl.org/open.html
         'strict',    ['vars', 'refs', 'subs'], # http://perldoc.perl.org/strict.html
         'utf8',      [],                       # http://perldoc.perl.org/utf8.html
-        'warnings',  [],                       # http://perldoc.perl.org/warnings.html
+        'warnings',  ['all'],                  # http://perldoc.perl.org/warnings.html
     );
     token statement_control:sym<use> {
         :my $*IN_DECL := 'use';
@@ -1413,11 +1413,12 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 }
                 
                 if nqp::existskey(%pragma_defaults, $longname) {
-                    self.pragma($longname, $<arglist>
-                        ?? $arglist
-                        !! %pragma_defaults{$longname}, 1);
+                    $arglist := %pragma_defaults{$longname} unless $<arglist>;
+                    self.pragma($longname, $arglist, 1);
+                    $longname := '' unless $longname eq 'warnings';
                 }
-                else {
+                
+                if $longname {
                     my $module := $*W.load_module($/,
                                                     $longname,
                                                     $*GLOBALish,
@@ -1466,7 +1467,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 }
             }
             if nqp::existskey($module, '&EXPORT') {
-                my $result := $module<&EXPORT>(|@positional_imports);
+                @positional_imports := $*W.p6ize_recursive( @positional_imports );
+                my $result := $module<&EXPORT>(@positional_imports);
                 my $EnumMap := $*W.find_symbol(['EnumMap']);
                 if nqp::istype($result, $EnumMap) {
                     my $storage := $result.hash.FLATTENABLE_HASH();

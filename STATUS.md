@@ -117,10 +117,7 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
 use of uninitialized value of type Nil in numeric context  in block  at t/spec/op/not.v5:53
 
 </td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/v5/04-op.v5:47
-
-</td></tr>
+        <tr align=center><td align=left>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>op/chr.v5</td><td>5</td><td>37</td><td>0</td><td>0</td><td>42</td></tr>
@@ -161,8 +158,6 @@ Invalid character for UTF-8 encoding
         <tr align=center><td align=left>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/base/term.v5:32
-
-use of uninitialized value of type Any in string context  in block  at t/spec/base/term.v5:32
 
 </td></tr>
         <tr align=center><td align=left>t/v5/19-local.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
@@ -376,7 +371,7 @@ at t/spec/comp/line_debug.v5:36
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ../lib
+Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_37033.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -389,7 +384,7 @@ Error while compiling block  (source text: "use v5;\n#!./perl\n\n##\n## Many of 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ../lib
+Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -398,7 +393,7 @@ at t/spec/op/splice.v5:87
 ------> ok( ! Foo->isa(⏏'Bar'), 'Foo is not a Bar');</td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find version in any of: ../lib
+Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
@@ -460,7 +455,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Digest in any of: lib, Porting, t
+Could not find Digest in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -487,7 +482,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Maintainers in any of: lib, Porting
+Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>porting/manifest.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -526,7 +521,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Encode in any of: ../lib
+Could not find Encode in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1046,7 +1041,7 @@ at t/spec/re/reg_60508.v5:45
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Unicode::UCD in any of: ../lib
+Could not find Unicode::UCD in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>Too many positional parameters passed; got 3 but expected 1
@@ -1077,7 +1072,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find File::Spec::Functions in any of: ../lib
+Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>Could not find Config in any of: ../lib
@@ -1193,9 +1188,7 @@ at t/spec/re/qr_gc.v5:28
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/run/switcha.v5:12
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
 
 use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
 
@@ -1270,8 +1263,9 @@ Method 'flat' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/iofile.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Two terms in a row
+at t/spec/io/iofile.v5:25
+------>     ok( eval { STDOUT->autoflush(⏏1); 1 }, 'STDOUT->autoflush(1) lives' );</td></tr>
         <tr align=center><td align=left rowspan=2>mro/next_NEXT.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
@@ -1513,7 +1507,7 @@ at t/spec/io/inplace.v5:20
 ------> @ARGV⏏ = @tfiles;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Fcntl in any of: ../lib
+Could not find Fcntl in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1766,8 +1760,9 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/io/eintr.v5:76
+------> $SIG{PIPE}⏏ = 'IGNORE';</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/23-eval.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix ? "LIST" : instead
@@ -1886,7 +1881,7 @@ at t/spec/mro/next_edgecases_utf8.v5:27
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ., ../lib
+Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/dup.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1990,7 +1985,7 @@ at t/spec/re/pat_psycho.v5:16
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't' if -d 't';\n    @INC = '../lib';\n    require \"../t/tes..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't' if -d 't';\n    #@INC = '../lib';\n    require \"../t/te..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1998,7 +1993,7 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ., ../lib
+Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2372,7 +2367,7 @@ Could not locate compile-time value for symbol is
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/each_array.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ../lib
+Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tiehandle.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2397,7 +2392,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1368960358.27885
+Could not find sub cuid_97_1369127563.78716
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2630,8 +2625,9 @@ Undefined routine '&infix:<+=>' called (lines 66, 66)
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Two terms in a row
+at t/spec/io/open.v5:27
+------>     ok( (print $f ⏏"SomeData\n"),  '       we can print to</td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'returns' not found for invocant of class 'NQPMu'
@@ -2767,7 +2763,7 @@ at t/spec/op/tie_fetch_count.v5:25
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/smartmatch.v5</td><td>0</td><td>349</td><td>0</td><td>0</td><td>349</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Tie::Array in any of: ../lib
+Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2807,8 +2803,7 @@ at t/spec/comp/utf.v5:40
 ------>     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
         <tr align=center><td align=left rowspan=2>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/pack.v5:75
-------> sub list_eq ⏏($$) {</td></tr>
+Unknown warnings category 'FATAL'
+</td></tr>
     </tbody>
 </table>

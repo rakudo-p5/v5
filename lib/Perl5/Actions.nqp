@@ -1368,7 +1368,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$&>($/) {
         $V5DEBUG && say("special_variable:sym<\$&>($/)");
-        make QAST::Op.new( :op('callmethod'), :name('Stringy'), QAST::Var.new( :name('$/'), :scope('lexical') ) );
+        make QAST::Op.new( :op('callmethod'), :name('P5Stringy'), QAST::Var.new( :name('$/'), :scope('lexical') ) );
     }
 
     method special_variable:sym<$*>($/) {
@@ -4720,7 +4720,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     
     sub concat_op($/, $lhs_ast, $rhs_ast, $assign = 0) {
         my $past := QAST::Op.new(
-            :op('call'), :name('&infix:<~>'),
+            :op('call'), :name('&infix:<P5~>'),
             $lhs_ast,
             $rhs_ast
         );
@@ -6138,7 +6138,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
                     }
                     @asts.push($_.ast<ww_atom>
                         ?? $_.ast
-                        !! QAST::Op.new( :op('callmethod'), :name('Stringy'),  $_.ast ));
+                        !! QAST::Op.new( :op('callmethod'), :name('P5Stringy'),  $_.ast ));
                 }
                 else {
                     $lastlit := $lastlit ~ $_.ast;

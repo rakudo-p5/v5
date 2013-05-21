@@ -80,3 +80,56 @@ multi sub shift(@a) is export { @a.shift                     }
 # http://perldoc.perl.org/functions/undef.html
 multi sub undef()         is export { Nil              }
 multi sub undef($a is rw) is export { undefine $a; Nil }
+
+multi infix:<P5~>(\a = '') is export { a.P5Stringy }
+multi infix:<P5~>(\a, \b)  is export { a.P5Stringy ~ b.P5Stringy }
+
+use Perl5::warnings ();
+use MONKEY_TYPING;
+
+augment class Any {
+    method P5Str(Any:U:) is hidden_from_backtrace {
+        if warnings::enabled('all') || warnings::enabled('uninitialized') {
+            warn 'Use of uninitialized value in string'
+        }
+        ""
+    }
+    method P5gist(Any:) { self.P5Str }
+    method P5Stringy(Any:) { self.P5Str }
+}
+
+augment class Array {
+    multi method P5Str(Array:D:) { self.Str }
+    multi method P5gist(Array:) { self.P5Str }
+    multi method P5Stringy(Array:) { self.P5Str }
+}
+
+augment class Str {
+    multi method P5Str(Str:D:) { self.Str }
+    multi method P5gist(Str:) { self.Str }
+    multi method P5Stringy(Str:) { self.Str }
+}
+
+augment class Int {
+    multi method P5Str(Int:D:) { self.Int }
+    multi method P5gist(Int:) { self.Str }
+    multi method P5Stringy(Int:) { self.Str }
+}
+
+augment class Capture {
+    multi method P5Str(Capture:D:) { self.Str }
+    multi method P5gist(Capture:) { self.Str }
+    multi method P5Stringy(Capture:) { self.Str }
+}
+
+augment class Rat {
+    multi method P5Str(Rat:D:) { self.Str }
+    multi method P5gist(Rat:) { self.Str }
+    multi method P5Stringy(Rat:) { self.Str }
+}
+
+augment class Parcel {
+    multi method P5Str(Parcel:D:) { self.Int }
+    multi method P5gist(Parcel:) { self.P5Str }
+    multi method P5Stringy(Parcel:) { self.P5Str }
+}

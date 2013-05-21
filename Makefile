@@ -1,7 +1,7 @@
 NQP        = nqp
 PARROT     = parrot
 PERL       = perl
-PERL6      = perl6
+PERL6      = PERL6LIB=blib perl6
 RM_F       = $(PERL) -MExtUtils::Command -e rm_f
 CP         = $(PERL) -MExtUtils::Command -e cp
 MKPATH     = $(PERL) -MExtUtils::Command -e mkpath
@@ -37,7 +37,11 @@ blib/Perl5/Config.pbc: lib/Perl5/Config.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Config.pir lib/Perl5/Config.pm
 	$(PARROT) -o blib/Perl5/Config.pbc blib/Perl5/Config.pir
 
-blib/Perl5/Terms.pbc: blib/Perl5.pbc lib/Perl5/Terms.pm
+blib/Perl5/warnings.pbc: blib/Perl5.pbc lib/Perl5/warnings.pm
+	$(PERL6) --target=pir --stagestats --output=blib/Perl5/warnings.pir lib/Perl5/warnings.pm
+	$(PARROT) -o blib/Perl5/warnings.pbc blib/Perl5/warnings.pir
+
+blib/Perl5/Terms.pbc: blib/Perl5/warnings.pbc lib/Perl5/Terms.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Terms.pir lib/Perl5/Terms.pm
 	$(PARROT) -o blib/Perl5/Terms.pbc blib/Perl5/Terms.pir
 
@@ -53,14 +57,16 @@ clean:
 
 install: all
 	$(MKPATH) $(NQPLIB)/lib/Perl5
-	$(MKPATH) $(P6LIB)/lib/Perl5
+	$(MKPATH) $(P6LIB)/lib/Perl5/warnings
 	$(CP) blib/*.pbc $(NQPLIB)/lib/
 	$(CP) blib/Perl5/Actions.pbc $(NQPLIB)/lib/Perl5/
 	$(CP) blib/Perl5/World.pbc $(NQPLIB)/lib/Perl5/
 	$(CP) blib/Perl5/Grammar.pbc $(NQPLIB)/lib/Perl5/
 	$(CP) lib/Perl5/*.pm $(P6LIB)/lib/Perl5/
+	$(CP) lib/Perl5/warnings/*.pm $(P6LIB)/lib/Perl5/warnings/
 	$(CP) blib/Perl5/Config.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/Terms.pbc $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/warnings.pbc $(P6LIB)/lib/Perl5/
 
 uninstall:
 	$(RM_F) $(NQPLIB)/lib/Perl5.pbc
