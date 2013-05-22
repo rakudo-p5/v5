@@ -3,11 +3,11 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>462</td><td>39684</td><td>5</td><td>38</td><td>40185</td></tr>
+        <tr align=center><td align=left>summary</td><td>462</td><td>39701</td><td>5</td><td>38</td><td>40202</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
-  in sub scalar at lib/Perl5/Terms.pm:80
+  in sub scalar at lib/Perl5/Terms.pm:82
   in block  at t/spec/op/list.v5:145
   in method reify at src/gen/CORE.setting:5742
   in method reify at src/gen/CORE.setting:5637
@@ -18,24 +18,7 @@
 </td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
-        <tr align=center><td align=left rowspan=2>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-</td></tr>
+        <tr align=center><td align=left>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align=center><td align=left rowspan=2>op/unshift.v5</td><td>34</td><td>2</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/test.pl:22
 
@@ -60,15 +43,7 @@ use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/t
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/not.v5</td><td>12</td><td>4</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:85
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:85
-
-parens needed around second argument in next two tests
+        <tr><td colspan=5>parens needed around second argument in next two tests
 to preserve list context inside function call
 use of uninitialized value of type Nil in numeric context  in block  at t/spec/op/not.v5:33
 
@@ -234,10 +209,6 @@ Method 'returns' not found for invocant of class 'NQPMu'
         <tr align=center><td align=left rowspan=2>op/die_except.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
-        <tr align=center><td align=left rowspan=2>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl -w\n\n#\n# Verify that C<die> return the return code\n#\t-- Robin Barker \n#\n\nBE..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{\n    my($bang, $query, $code) = @$test;\n    $code ||= 'die;';\n    if ($^O eq 'MSWin32' || $^O eq..."): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1131,12 +1102,7 @@ quantifier quantifies nothing
 at t/spec/re/qr_gc.v5:28
 ------>     my $rx = qr/(?⏏{ $var })/;</td></tr>
         <tr align=center><td align=left>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align=center><td align=left rowspan=2>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:81
-
-use of uninitialized value of type Any in string context  in sub is at lib/Test.pm:84
-
-</td></tr>
+        <tr align=center><td align=left>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchd-78586.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
 Error while compiling block : Error while compiling block  (source text: "{\n    $^P = 0x122;\n    chdir 't';\n    @INC = ('../lib', 'lib');\n    require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
@@ -1465,7 +1431,7 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
 Nominal type check failed for parameter '@array'; expected Positional but got Nil instead
-  in sub scalar at lib/Perl5/Terms.pm:80
+  in sub scalar at lib/Perl5/Terms.pm:82
   in block  at t/spec/bigmem/vec.v5:23
 
 </td></tr>
@@ -1660,7 +1626,7 @@ at t/spec/re/pat_special_cc.v5:13
         <tr align=center><td align=left>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left rowspan=2>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n\n    skip_all_without_config(\"u..."): Error while compiling op if (source text: "&&"): Operation 'if' needs either 2 or 3 operands
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1978,6 +1944,15 @@ at t/spec/lib/cygwin.v5:77
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
+        <tr align=center><td align=left rowspan=2>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
+        <tr><td colspan=5>No such symbol '&tempfile'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/die_exit.v5:61
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -2057,7 +2032,9 @@ Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+Preceding context expects a term, but found infix < instead
+at t/spec/io/argv.v5:158
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2344,7 +2321,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369150586.60994
+Could not find sub cuid_97_1369169412.93397
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
