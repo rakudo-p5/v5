@@ -92,6 +92,9 @@ multi sub undef($a is rw) is export { undefine $a; Nil }
 multi infix:<P5~>(\a = '') is export { a.P5Str           }
 multi infix:<P5~>(\a, \b)  is export { a.P5Str ~ b.P5Str }
 multi infix:<||=>(\a, \b)  is export { a = b unless a    }
+multi infix:<&&=>(\a, \b)  is export { a = b if a        }
+multi infix:<+=> (\a, \b)  is export { a = a + b         }
+multi infix:<*=> (\a, \b)  is export { a = a * b         }
 
 sub say(*@a) is export { @a.P5Str.say }; # XXX $*MAIN eq 'Perl5' ?? @a.P5Str.say !! @a.say
 
