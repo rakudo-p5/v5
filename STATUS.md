@@ -138,7 +138,7 @@ current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (sr
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
 current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Could not find mro in any of: ../lib
+        <tr><td colspan=5>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
   in any load_module at src/Perl6/ModuleLoader.nqp:144
   in block  at t/spec/mro/isa_dfs.v5:45
   in block  at t/spec/mro/isa_dfs.v5:37
@@ -148,7 +148,7 @@ current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (sr
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
 current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Could not find mro in any of: ../lib
+        <tr><td colspan=5>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
   in any load_module at src/Perl6/ModuleLoader.nqp:144
   in block  at t/spec/mro/isa_dfs_utf8.v5:47
   in block  at t/spec/mro/isa_dfs_utf8.v5:39
@@ -225,8 +225,15 @@ Missing block
 at t/spec/op/exists_sub.v5:10
 ------> sub t1⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+No such symbol '&run_multiple_progs'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/fork.v5:17
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -331,8 +338,9 @@ at t/spec/op/write.v5:1296
 </td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Malformed block
+at t/spec/opbasic/cmp.v5:69
+------> sub nok ⏏($$$$$$$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -662,7 +670,7 @@ Could not find file 'case.pl' for module case.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&Config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1070,7 +1078,7 @@ at t/spec/mro/next_inanon_utf8.v5:37
 ------> turn 'Ḃ::ᕘ => ' . (shift)->next::method(⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+Could not find POSIX in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1125,7 +1133,7 @@ at t/spec/op/concat2.v5:60
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1145,8 +1153,9 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Malformed block
+at t/spec/op/utftaint.v5:14
+------> sub any_tainted ⏏(@) {</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -1199,8 +1208,13 @@ at t/spec/mro/next_goto_utf8.v5:15
 Could not find Attribute::Handlers in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ., ../lib
+        <tr><td colspan=5>No such symbol '&like'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/crypt.v5:40
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1212,7 +1226,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&Config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1305,8 +1319,13 @@ Unable to parse expression in block; couldn't find final '}'
 at t/spec/mro/next_method_utf8.v5:33
 ------> mond_B::fಓ => ' . (shift)->next::method(⏏) }</td></tr>
         <tr align=center><td align=left rowspan=2>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+        <tr><td colspan=5>No such symbol '&which_perl'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/alarm.v5:18
+
 </td></tr>
         <tr align=center><td align=left>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1382,7 +1401,7 @@ at t/spec/comp/multiline.v5:95
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>No such symbol '&tempfile'
@@ -1520,7 +1539,9 @@ at t/spec/uni/readline.v5:71
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/fflush.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+Preceding context expects a term, but found infix < instead
+at t/spec/io/fflush.v5:137
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1567,8 +1588,9 @@ at t/spec/op/or.v5:16
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ., ../lib
-</td></tr>
+Malformed block
+at t/spec/op/rand.v5:35
+------> sub bits ⏏($) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '%main::' is not declared
@@ -1682,7 +1704,9 @@ at t/v5/23-eval.v5:37
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+Preceding context expects a term, but found infix < instead
+at t/spec/io/openpid.v5:89
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1752,7 +1776,9 @@ at t/spec/uni/class.v5:12
 ------> is(($str =~ /(\⏏p{IsMyUniClass}+)/)[0], '0123456789:;<=></td></tr>
         <tr align=center><td align=left rowspan=2>uni/lex_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
+Unable to parse expression in backslash:sym<N>; couldn't find final '}'
+at t/spec/uni/lex_utf8.v5:25
+------> my $name_first = "b\N{⏏MICRO SIGN}Ɓ";
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1796,7 +1822,9 @@ Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-dev
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/dup.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ., ../lib
+Preceding context expects a term, but found infix < instead
+at t/spec/io/dup.v5:149
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1919,7 +1947,9 @@ at t/spec/op/sub.v5:27
 ------>     push @a, 4, 5, main->import(⏏6,7);</td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ., ../lib
+Preceding context expects a term, but found infix < instead
+at t/spec/io/crlf.v5:85
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/defout.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1960,8 +1990,14 @@ at t/spec/op/glob.v5:117
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lfs.v5:13
+
+use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+===SORRY!===
+Preceding context expects a term, but found infix << instead
+at t/spec/op/lfs.v5:245
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan=5>Potential difficulties:
@@ -2048,7 +2084,7 @@ at t/spec/mro/isarev_utf8.v5:25
 ------>      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align=center><td align=left rowspan=2>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&Config'
 </td></tr>
         <tr align=center><td align=left>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
@@ -2218,11 +2254,11 @@ at t/spec/comp/uproto.v5:52
 ------> sub f⏏($$_) { my $x = shift; is("@_", $x) }</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&Config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file 'test.pl' for module test.pl
+No such symbol '&is_miniperl'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2244,8 +2280,9 @@ at t/spec/mro/package_aliases_utf8.v5:35
 ------> ok (ऑlㄉ->isa(⏏Ｎeẁ::), 'ऑlㄉ inherits from Ｎeẁ');</td></tr>
         <tr align=center><td align=left rowspan=2>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Use of a closing delimiter for an opener is reserved
+at t/spec/io/fs.v5:31
+------>      ⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/basic_utf8.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2281,11 +2318,12 @@ at t/spec/mro/basic.v5:7
 ------> BEGIN { require q(t/test.pl); } ⏏plan(tests => 59);</td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ., ../lib
-</td></tr>
+Two terms in a row
+at t/spec/op/inccode.v5:30
+------>     print $fh ⏏"package ".substr($_[0],0,-3).";\n1;\n";</td></tr>
         <tr align=center><td align=left rowspan=2>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib, .
+No such symbol '&Config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
@@ -2321,7 +2359,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369169412.93397
+Could not find sub cuid_97_1369207219.68507
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2388,7 +2426,7 @@ at t/spec/uni/universal.v5:21
 ------> ok $a->isa(⏏"Bòb");</td></tr>
         <tr align=center><td align=left rowspan=2>run/runenv.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&Config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
@@ -2411,7 +2449,7 @@ at t/spec/op/bless.v5:16
 ------>     my $r = qr/^\⏏Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/;</td></tr>
         <tr align=center><td align=left rowspan=2>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+This type does not support associative operations
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2430,7 +2468,7 @@ at t/spec/op/split.v5:84
 ------> foo =~ /DEBUGGING/ || $foo =~ /const\n?\⏏Q(IV(3))\E/);</td></tr>
         <tr align=center><td align=left rowspan=2>run/switches.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+Could not find Errno in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>118</td><td>0</td><td>0</td><td>118</td></tr>
         <tr><td colspan=5>Potential difficulties:
@@ -2601,11 +2639,11 @@ at t/spec/op/method.v5:30
 ------> is(Pack->method(⏏"a","b","c"), "method,a,b,c");</td></tr>
         <tr align=center><td align=left rowspan=2>op/range.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib, .
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ., ../lib
+Could not find Filter::Util::Call in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2625,8 +2663,9 @@ at t/spec/opbasic/arith.v5:15
 ------> sub try ⏏($$$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Malformed block
+at t/spec/op/bop.v5:68
+------> sub _and⏏($) { $_[0] & "+0" }</td></tr>
         <tr align=center><td align=left rowspan=2>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan=5>===SORRY!===
 Confused
@@ -2652,7 +2691,7 @@ at t/spec/op/switch.v5:21
 ------> CORE::given(3) ⏏{</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst.v5</td><td>0</td><td>206</td><td>0</td><td>0</td><td>206</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+No such symbol '&Config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/gv.v5</td><td>0</td><td>212</td><td>0</td><td>0</td><td>212</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2712,12 +2751,13 @@ at t/spec/re/pat.v5:12
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
+Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ../lib
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/op/sprintf2.v5:65
+------>     local $SIG{__WARN__}⏏ = sub {</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
