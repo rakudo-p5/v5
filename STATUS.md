@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>462</td><td>39701</td><td>5</td><td>38</td><td>40202</td></tr>
+        <tr align=center><td align=left>summary</td><td>475</td><td>39700</td><td>5</td><td>38</td><td>40215</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
@@ -29,6 +29,7 @@ use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/t
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align=center><td align=left>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr align=center><td align=left>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align=center><td align=left rowspan=2>uni/sprintf.v5</td><td>13</td><td>39</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>Cannot convert string to number: trailing characters after number in '512⏏Büf' (indicated by ⏏)
   in method Int at src/gen/CORE.setting:10018
@@ -110,53 +111,25 @@ No such symbol '&fresh_perl_is'
 </td></tr>
         <tr align=center><td align=left>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>No such symbol '&bless'
-  in method <anon> at src/gen/CORE.setting:10027
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/mro/isa_c3.v5:63
-  in block  at t/spec/mro/isa_c3.v5:47
-  in block  at t/spec/mro/isa_c3.v5:37
-  in block  at t/spec/mro/isa_c3.v5:22
-  in block  at t/spec/mro/isa_c3.v5:12
-
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
-current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$package' is not declared
+at t/spec/mro/isa_c3.v5:68
+------> 	object_ok($ref, $class, $package⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>No such symbol '&bless'
-  in method <anon> at src/gen/CORE.setting:10027
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/mro/isa_c3_utf8.v5:65
-  in block  at t/spec/mro/isa_c3_utf8.v5:49
-  in block  at t/spec/mro/isa_c3_utf8.v5:39
-  in block  at t/spec/mro/isa_c3_utf8.v5:24
-  in block  at t/spec/mro/isa_c3_utf8.v5:14
-
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
-current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$package' is not declared
+at t/spec/mro/isa_c3_utf8.v5:70
+------> 	object_ok($ref, $class, $package⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
-  in any load_module at src/Perl6/ModuleLoader.nqp:144
-  in block  at t/spec/mro/isa_dfs.v5:45
-  in block  at t/spec/mro/isa_dfs.v5:37
-  in block  at t/spec/mro/isa_dfs.v5:28
-  in block  at t/spec/mro/isa_dfs.v5:20
-
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
-current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$package' is not declared
+at t/spec/mro/isa_dfs.v5:64
+------> 	object_ok($ref, $class, $package⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
-  in any load_module at src/Perl6/ModuleLoader.nqp:144
-  in block  at t/spec/mro/isa_dfs_utf8.v5:47
-  in block  at t/spec/mro/isa_dfs_utf8.v5:39
-  in block  at t/spec/mro/isa_dfs_utf8.v5:30
-  in block  at t/spec/mro/isa_dfs_utf8.v5:22
-
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)
-current instr.: 'print_exception' pc 102605 (src/gen/CORE.setting.pir:46357) (src/gen/CORE.setting:8934)</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$package' is not declared
+at t/spec/mro/isa_dfs_utf8.v5:66
+------> 	object_ok($ref, $class, $package⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -173,21 +146,11 @@ at t/spec/mro/method_caching_utf8.v5:32
 Variable '*DATA' is not declared
 at t/spec/op/anonsub.v5:11
 ------> run_multiple_progs('', \*DATA⏏);</td></tr>
-        <tr align=center><td align=left rowspan=2>op/assignwarn.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>No such symbol '&warning_is'
-  in method <anon> at src/gen/CORE.setting:10027
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in sub test_op at t/spec/op/assignwarn.v5:44
-  in block  at t/spec/op/assignwarn.v5:51
-  in method reify at src/gen/CORE.setting:5742
-  in method reify at src/gen/CORE.setting:5637
-  in method gimme at src/gen/CORE.setting:6058
-  in method sink at src/gen/CORE.setting:6359
-  in block  at t/spec/op/assignwarn.v5:49
-
-</td></tr>
+        <tr align=center><td align=left rowspan=2>op/assignwarn.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Variable '$tie' is not declared
+at t/spec/op/assignwarn.v5:51
+------> 	test_op($tie⏏, $integer, $_, 0) foreach qw($x++ $x--</td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Malformed block
@@ -697,13 +660,6 @@ Method 'ast' not found for invocant of class 'NQPMu'
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-for.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Lexical symbol '$v' is already bound to an outer symbol;
-the implicit outer binding must be rewritten as OUTER::<$v>
-before you can unambiguously declare a new '$v' in this scope
-at t/v5/05-for.v5:19
------->     for my $v ⏏(@b) {</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
@@ -1959,9 +1915,9 @@ at t/spec/io/defout.v5:31
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/errno.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '$TODO' is not declared
-at t/spec/io/errno.v5:38
-------> 			local $::TODO⏏ = "We get RMS\$_IOP at EOF on VMS when</td></tr>
+Variable '$perlio' is not declared
+at t/spec/io/errno.v5:32
+------> nbsd' && $Config{useithreads} && $perlio⏏ eq 'stdio';</td></tr>
         <tr align=center><td align=left rowspan=2>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
@@ -2000,11 +1956,7 @@ at t/spec/op/lfs.v5:245
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan=5>Potential difficulties:
-    Redeclaration of symbol $i
-    at t/spec/op/lop.v5:40
-    ------> my $i ⏏= 0;
-===SORRY!===
+        <tr><td colspan=5>===SORRY!===
 CHECK FAILED:
 Undefined routine '&infix:<&&=>' called (lines 20, 20, 41, 41)
 Undefined routine '&infix:<+=>' called (lines 41, 41)
@@ -2125,8 +2077,9 @@ No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Variable '$x' is not declared
+at t/spec/op/recurse.v5:69
+------> 	my $a = ackermann($x⏏, $y);</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/qq.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized backslash sequence: '\x'
@@ -2359,7 +2312,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369207219.68507
+Could not find sub cuid_97_1369258469.2739
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2471,122 +2424,7 @@ at t/spec/op/split.v5:84
 Could not find Errno in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>118</td><td>0</td><td>0</td><td>118</td></tr>
-        <tr><td colspan=5>Potential difficulties:
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:176
-    ------> for my $i ⏏(@array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:181
-    ------> for my $i ⏏(1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:186
-    ------> for my $i ⏏(map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:191
-    ------> for my $i ⏏(map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:196
-    ------> for my $i ⏏(1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:201
-    ------> for my $i ⏏('A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:207
-    ------> for my $i ⏏(reverse @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:212
-    ------> for my $i ⏏(reverse 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:217
-    ------> for my $i ⏏(reverse map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:222
-    ------> for my $i ⏏(reverse map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:227
-    ------> for my $i ⏏(reverse 1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:232
-    ------> for my $i ⏏(reverse 'A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:303
-    ------> for our $i ⏏(reverse @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:308
-    ------> for our $i ⏏(reverse 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:313
-    ------> for our $i ⏏(reverse map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:318
-    ------> for our $i ⏏(reverse map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:323
-    ------> for our $i ⏏(reverse 1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:328
-    ------> for our $i ⏏(reverse 'A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:463
-    ------> for my $i ⏏(1, reverse @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:468
-    ------> for my $i ⏏('A', reverse 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:473
-    ------> for my $i ⏏(1, reverse map {$_} @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:478
-    ------> for my $i ⏏('A', reverse map {$_} 1,2,3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:483
-    ------> for my $i ⏏('A', reverse 1 .. 3) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:488
-    ------> for my $i ⏏(1, reverse 'A' .. 'C') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:494
-    ------> for my $i ⏏(reverse (@array), 1) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:499
-    ------> for my $i ⏏(reverse (1,2,3), 'A') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:504
-    ------> for my $i ⏏(reverse (map {$_} @array), 1) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:509
-    ------> for my $i ⏏(reverse (map {$_} 1,2,3), 'A') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:514
-    ------> for my $i ⏏(reverse (1 .. 3), 'A') {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:519
-    ------> for my $i ⏏(reverse ('A' .. 'C'), 1) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:611
-    ------> for my $i ⏏(reverse 1, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:616
-    ------> for my $i ⏏(reverse map {$_} 1, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:621
-    ------> for my $i ⏏(reverse 1 .. 3, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:626
-    ------> for my $i ⏏(reverse 'X' .. 'Z', @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:631
-    ------> for my $i ⏏(reverse map {$_} 1 .. 3, @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:636
-    ------> for my $i ⏏(reverse map {$_} 'X' .. 'Z', @array) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:642
-    ------> for my $i ⏏(reverse (@array, 1)) {
-    Redeclaration of symbol $i
-    at t/spec/cmd/for.v5:647
-    ------> for my $i ⏏(reverse (map {$_} @array, 1)) {
-===SORRY!===
+        <tr><td colspan=5>===SORRY!===
 CHECK FAILED:
 Undefined routine '&infix:<*=>' called (lines 29, 29)
 Undefined routine '&infix:<+=>' called (lines 66, 66)
@@ -2673,7 +2511,7 @@ at t/spec/op/sort.v5:21
 ------>     map scalar(sort(+())), ('')x⏏68;</td></tr>
         <tr align=center><td align=left rowspan=2>op/magic.v5</td><td>0</td><td>178</td><td>0</td><td>0</td><td>178</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    $ENV{PATH} = '/bin' if ${^TAINT};\n    $SIG{__WARN__} = sub { die \"Dying on warning: \", @_ ..."): Error while compiling op bind: Error while compiling op if (source text: "if ${^TAINT}"): Method 'arity' not found for invocant of class 'NQPMu'
+Nominal type check failed for parameter 'key'; expected Any but got Mu instead
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/proto.v5</td><td>0</td><td>180</td><td>0</td><td>0</td><td>180</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2755,9 +2593,9 @@ Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-dev
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan=5>===SORRY!===
-Variable '%SIG' is not declared
-at t/spec/op/sprintf2.v5:65
------->     local $SIG{__WARN__}⏏ = sub {</td></tr>
+Variable '$i' is not declared
+at t/spec/op/sprintf2.v5:41
+------>     my $format = "%$i.${i}⏏s";</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -2765,8 +2603,9 @@ at t/spec/re/pat_rt_report.v5:13
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'p5cc' not found for invocant of class 'Perl5::Grammar'
-</td></tr>
+Variable '$value' is not declared. Did you mean '@values'?
+at t/spec/op/read.v5:49
+------> 	if ($value⏏ !~ tr/\0-\377//c) {</td></tr>
         <tr align=center><td align=left rowspan=2>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row

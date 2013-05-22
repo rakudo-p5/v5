@@ -333,6 +333,7 @@ role STD5 {
         $ok    := $ok || !nqp::istype($varast, QAST::Var);
         $ok    := $ok || $varast.scope ne 'lexical';
         $ok    := $ok || ($*IN_SORT && ($varast.name eq '$a' || $varast.name eq '$b'));
+        $ok    := $ok || ($*FOR_VARIABLE && $varast.name eq $*FOR_VARIABLE);
         if !$ok {
             # Change the sigil if needed.
             $varast.name( ~$var<really> ~ ~$var<desigilname> ) if $var<really>;
@@ -1210,7 +1211,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <.ws> <sblock($*IMPLICIT)>
     }
 
-    token sblock($*IMPLICIT = 0) {
+    token sblock($*IMPLICIT = 0, $*FOR_VARIABLE = '') {
         :my $*DECLARAND := $*W.stub_code_object('Block');
 #        :my $*CURLEX;
         :dba('statement block')
@@ -1222,7 +1223,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token block {
-        :my $*CURLEX;
+        :my $*CURPAD;
         :my $*DECLARAND := $*W.stub_code_object('Block');
         :dba('scoped block')
         [ <?before '{' > || <.panic: "Missing block"> ]
@@ -1558,7 +1559,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     rule statement_control:sym<for> {
-        :my $*FOR_VARIABLE;
+        :my $var := '$_';
         :my $*SCOPE;
         ['for'|'foreach']
         [
@@ -1568,13 +1569,12 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 <e3=.EXPR>?
             ')'
         ||  [
-            || [ <variable> { $*FOR_VARIABLE := ~$<variable>.ast.name; } ]?
-            || [  [ 'my' { $*SCOPE := 'my' } || 'our' { $*SCOPE := 'our' } ]?
-                    <variable_declarator> { $*FOR_VARIABLE := ~$<variable_declarator>.ast.name; } ]?
-            ]
+                [ 'my' { $*SCOPE := 'my' } || 'our' { $*SCOPE := 'our' } ]?
+                <variable> { $var := $<variable>.ast.name }
+            ]?
             '(' ~ ')' <EXPR>
         ]
-        <sblock(1)>
+        <sblock(1, $var)>
         [ 'continue' <continue=.sblock> ]?
     }
 

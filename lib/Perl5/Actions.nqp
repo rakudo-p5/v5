@@ -616,6 +616,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
     sub add_param($block, @params, $name) {
+        $V5DEBUG && say("add_param($block, $name)");
         unless $block.symbol($name) {
             if $*IMPLICIT {
                 @params.push(hash(
@@ -645,7 +646,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 add_param($block, @params, '$b');
             }
             else {
-                add_param($block, @params, ($*FOR_VARIABLE && ~$*FOR_VARIABLE) || '$_');
+                add_param($block, @params, $*FOR_VARIABLE);
             }
             %sig_info<parameters> := @params;
 
