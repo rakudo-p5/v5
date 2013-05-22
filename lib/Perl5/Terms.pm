@@ -114,12 +114,12 @@ augment class Bool {
 
 augment class Array {
     multi method P5Str(Array:U:) { '' }
-    multi method P5Str(Array:D:) { join '', map { $_ ?? $_.P5Str !! '' }, @(self) }
+    multi method P5Str(Array:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
 }
 
 augment class List {
     multi method P5Str(List:U:) { '' }
-    multi method P5Str(List:D:) { join '', map { $_ ?? $_.P5Str !! '' }, @(self) }
+    multi method P5Str(List:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
 }
 
 augment class Str {
