@@ -588,6 +588,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                             QAST::Op.new(:op('call'), :name('&infix:<,>'), $cond),
                             block_closure($past)
                         );
+                    $past := QAST::Op.new(
+                        :op<callmethod>, :name<eager>, $past
+                    );
                 }
                 else {
                     $past := QAST::Op.new($cond, $past, :op(~$ml<sym>), :node($/) );
@@ -828,6 +831,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                             QAST::Op.new(:name('&infix:<,>'), :op('call'), $<EXPR>.ast),
                             block_closure($block)
             );
+            $past := QAST::Op.new(
+                :op<callmethod>, :name<eager>, $past
+            ); 
             make $past;
         }
         else {
@@ -844,6 +850,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
             if $<e1> {
                 $loop := QAST::Stmts.new( $<e1>.ast, $loop, :node($/) );
             }
+            $loop := QAST::Op.new(
+                :op<callmethod>, :name<eager>, $loop
+            );
             make $loop;
         }
     }
