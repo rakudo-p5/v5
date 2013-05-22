@@ -351,7 +351,7 @@ role STD5 {
                         my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
                         $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
-                            :scope($*SCOPE), :package($*PACKAGE));
+                            :scope('our'), :package($*PACKAGE));
                         
                         # Set scope and type on container, and if needed emit code to
                         # reify a generic type.
@@ -366,13 +366,11 @@ role STD5 {
                                     QAST::Op.new( :op('curlexpad') ));
                             }
                             
-                            if $*SCOPE eq 'our' {
-                                $BLOCK[0].push(QAST::Op.new(
-                                    :op('bind'),
-                                    $varast,
-                                    $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
-                                ));
-                            }
+                            $BLOCK[0].push(QAST::Op.new(
+                                :op('bind'),
+                                $varast,
+                                $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
+                            ));
                         }
                     }
                     else  {
