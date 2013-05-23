@@ -1288,14 +1288,17 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$!>($/) {
         $V5DEBUG && say("special_variable:sym<\$!>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<%!>($/) {
         $V5DEBUG && say("special_variable:sym<\%!>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$!{ }>($/) {
         $V5DEBUG && say("special_variable:sym<\$!\{ }>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$/>($/) {
@@ -1305,10 +1308,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$~>($/) {
         $V5DEBUG && say("special_variable:sym<\$~>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$`>($/) {
         $V5DEBUG && say("special_variable:sym<\$`>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$@>($/) {
@@ -1323,7 +1328,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$$>($/) {
         $V5DEBUG && say("special_variable:sym<\$\$>($/)");
-        make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*PID'))
+        make make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
     method special_variable:sym<$%>($/) {
         $V5DEBUG && say("special_variable:sym<\$%>($/)");
@@ -1331,49 +1336,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$^X>($/) {
         $V5DEBUG && say("special_variable:sym<\$^X>($/)");
-        ## General Variables, see http://perldoc.perl.org/perlvar.html
-        # $OSNAME, $^O
-        if $*LETTER eq 'O' {
-            make QAST::Op.new(
-                :op('call'), :name('&DYNAMIC'),
-                $*W.add_string_constant('$*OS'))
-        }
-        # $SYSTEM_FD_MAX, $^F
-        # $INPLACE_EDIT, $^I
-        # $BASETIME, $^T
-        # $PERL_VERSION, $^V
-        elsif $*LETTER eq 'V' {
-            make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*VERSION_V'))
-        }
-        # $EXECUTABLE_NAME, $^X
-        elsif $*LETTER eq 'X' {
-            make QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('$*EXECUTABLE_NAME'))
-        }
-        # $^M, don't use
-        
-        ## Variables related to regular expressions
-        # $LAST_SUBMATCH_RESULT, $^N
-        # $LAST_REGEXP_CODE_RESULT, $^R
-        
-        ## Variables related to formats
-        # $ACCUMULATOR, $^A
-        # $FORMAT_FORMFEED, $^L
-        
-        ## Error Variables
-        # $EXTENDED_OS_ERROR, $^E
-        # $EXCEPTIONS_BEING_CAUGHT, $^S
-        # $WARNING, $^W
-        
-        ## Variables related to the interpreter state
-        # $COMPILING, $^C
-        # $DEBUGGING, $^D
-        # $^H, %^H
-        # $PERLDB, $^P
-        
+        make QAST::Var.new( :name($<sigil> ~ '^' ~ $<letter>), :scope('lexical') )
     }
 
     method special_variable:sym<$^>($/) {
         $V5DEBUG && say("special_variable:sym<\$^>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$&>($/) {
@@ -1388,62 +1356,77 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method special_variable:sym<$(>($/) {
         $V5DEBUG && say("special_variable:sym<\$(>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$)>($/) {
         $V5DEBUG && say("special_variable:sym<\$)>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$->($/) {
         $V5DEBUG && say("special_variable:sym<\$->($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$=>($/) {
         $V5DEBUG && say("special_variable:sym<\$=>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<@+>($/) {
         $V5DEBUG && say("special_variable:sym<\@+>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<%+>($/) {
         $V5DEBUG && say("special_variable:sym<\%+>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$+[ ]>($/) {
         $V5DEBUG && say("special_variable:sym<\%+[ ]>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<@+[ ]>($/) {
         $V5DEBUG && say("special_variable:sym<\@+[ ]>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<@+{ }>($/) {
         $V5DEBUG && say("special_variable:sym<\@+{ }>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<@->($/) {
         $V5DEBUG && say("special_variable:sym<\@->($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<%->($/) {
         $V5DEBUG && say("special_variable:sym<\%->($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$-[ ]>($/) {
         $V5DEBUG && say("special_variable:sym<\$-[ ]>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<@-[ ]>($/) {
         $V5DEBUG && say("special_variable:sym<\@-[ ]>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<%-{ }>($/) {
         $V5DEBUG && say("special_variable:sym<\%-{ }>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$+>($/) {
         $V5DEBUG && say("special_variable:sym<\$+>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     # ${^WIN32_SLOPPY_STAT}, ${^MATCH}, ${^PREMATCH}, ${^RE_DEBUG_FLAGS}, ${^RE_TRIE_MAXBUF},
@@ -1451,46 +1434,57 @@ class Perl5::Actions is HLL::Actions does STDActions {
     # ${^TAINT}, ${^UNICODE}, ${^UTF8CACHE}, ${^UTF8LOCALE}
     method special_variable:sym<${^ }>($/) {
         $V5DEBUG && say("special_variable:sym<\$\{^ }>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<::{ }>($/) {
         $V5DEBUG && say("special_variable:sym<::{ }>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$[>($/) {
         $V5DEBUG && say("special_variable:sym<\$[>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$\\>($/) {
         $V5DEBUG && say("special_variable:sym<\$\\>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$:>($/) {
         $V5DEBUG && say("special_variable:sym<\$:>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$'>($/) { #'
         $V5DEBUG && say("special_variable:sym<\$'>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$">($/) {
         $V5DEBUG && say("special_variable:sym<\$\">($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$,>($/) {
         $V5DEBUG && say("special_variable:sym<\$,>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym['$<']($/) {
         $V5DEBUG && say("special_variable:sym<\$<>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym«\$>»($/) {
         $V5DEBUG && say("special_variable:sym<\$>>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method special_variable:sym<$.>($/) {
         $V5DEBUG && say("special_variable:sym<\$.>($/)");
+        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
     method name($/) {

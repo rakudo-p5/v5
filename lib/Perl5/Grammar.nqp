@@ -2175,28 +2175,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token special_variable:sym<$^X> {
-        :my $*LETTER;
         [
-        | $<sigil>='$'  [
-                        | '^' $<letter>=[<[A..Z]>]  { $*LETTER := $<letter> }
-                        | 'ACCUMULATOR'             { $*LETTER := 'A' }
-                        | 'COMPILING'               { $*LETTER := 'C' }
-                        | 'DEBUGGING'               { $*LETTER := 'D' }
-                        | 'EXTENDED_OS_ERROR'       { $*LETTER := 'E' }
-                        | 'SYSTEM_FD_MAX'           { $*LETTER := 'F' }
-                        | 'INPLACE_EDIT'            { $*LETTER := 'I' }
-                        | 'FORMAT_FORMFEED'         { $*LETTER := 'L' }
-                        | 'LAST_SUBMATCH_RESULT'    { $*LETTER := 'N' }
-                        | 'OSNAME'                  { $*LETTER := 'O' }
-                        | 'PERLDB'                  { $*LETTER := 'P' }
-                        | 'LAST_REGEXP_CODE_RESULT' { $*LETTER := 'R' }
-                        | 'EXCEPTIONS_BEING_CAUGHT' { $*LETTER := 'S' }
-                        | 'BASETIME'                { $*LETTER := 'T' }
-                        | 'PERL_VERSION'            { $*LETTER := 'V' }
-                        | 'EXECUTABLE_NAME'         { $*LETTER := 'X' }
-                        | 'WARNING'                 { $*LETTER := 'W' }
-                        ]
-        | $<sigil>='%' '^H' { $*LETTER := 'H' }
+        | $<sigil>='$' '^' $<letter>=[<[A..Z]>]
+        | $<sigil>='%' '^' $<letter>='H'
         ]
     }
 

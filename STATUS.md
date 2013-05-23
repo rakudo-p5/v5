@@ -3,11 +3,11 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>487</td><td>39688</td><td>5</td><td>38</td><td>40215</td></tr>
+        <tr align=center><td align=left>summary</td><td>488</td><td>39687</td><td>5</td><td>38</td><td>40215</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
-  in sub scalar at lib/Perl5/Terms.pm:82
+  in sub scalar at lib/Perl5/Terms.pm:124
   in block  at t/spec/op/list.v5:145
   in method reify at src/gen/CORE.setting:5742
   in method reify at src/gen/CORE.setting:5637
@@ -118,6 +118,7 @@ No such symbol '&fresh_perl_is'
   in block  at t/spec/run/switchI.v5:24
 
 </td></tr>
+        <tr align=center><td align=left>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -171,12 +172,17 @@ Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/op/closure.v5:79
 ------> is(&{$foo[0]}⏏(), 0);</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
-</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:136
+
+===SORRY!===
+Malformed block
+at t/spec/op/coreamp.v5:18
+------> sub lis⏏($$;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:136
+
+===SORRY!===
+Could not find B::Deparse in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/die_except.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -504,8 +510,9 @@ at t/spec/re/regexp_noamp.v5:9
 ------>     do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    ${^RE_TRIE_MAXBUF}=-1;\n    #${^RE_DEBUG_FLAGS}=0;\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Missing block
+at t/spec/re/regexp_notrie.v5:12
+------> 	do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -527,8 +534,9 @@ at t/spec/re/regexp_qr_embed.v5:8
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n        ${^RE_TRIE_MAXBUFF}=0;\n        #${^RE_DEBUG_FLAGS}=0;\n      }"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
-</td></tr>
+Missing block
+at t/spec/re/regexp_trielist.v5:12
+------> 	do ⏏$file or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -562,8 +570,19 @@ Missing block
 at t/spec/re/uniprops.v5:8
 ------> do ⏏'../lib/unicore/TestProp.pl';</td></tr>
         <tr align=center><td align=left rowspan=2>run/exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+        <tr><td colspan=5>WARNINGS:
+Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)
+use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42
+
+No such symbol '&system'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in sub run at t/spec/run/exit.v5:16
+  in block  at t/spec/run/exit.v5:51
+
+use of uninitialized value of type Any in numeric context
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -954,8 +973,10 @@ Could not find Unicode::UCD in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+        <tr><td colspan=5>Could not find Config in any of: ., ../lib
+  in any load_module at src/Perl6/ModuleLoader.nqp:144
+  in block  at t/spec/io/errnosig.v5:9
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1074,11 +1095,10 @@ at t/spec/porting/bincompat.v5:14
 quantifier quantifies nothing
 at t/spec/re/qr_gc.v5:28
 ------>     my $rx = qr/(?⏏{ $var })/;</td></tr>
-        <tr align=center><td align=left>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchd-78586.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Error while compiling block : Error while compiling block  (source text: "{\n    $^P = 0x122;\n    chdir 't';\n    @INC = ('../lib', 'lib');\n    require './test.pl';\n}"): Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+Could not find warnings in any of: ../lib, lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1137,8 +1157,9 @@ at t/spec/run/noswitch.v5:21
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'flat' not found for invocant of class 'NQPMu'
+        <tr><td colspan=5>No such method 'subst' for invocant of type 'Any'
+  in block  at t/spec/run/switchn.v5:19
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>No such method 'subst' for invocant of type 'Any'
@@ -1314,8 +1335,10 @@ at t/spec/op/yadayada.v5:16
 ------> eval { ...⏏ };
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/qr.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'unique' not found for invocant of class 'NQPMu'
+        <tr><td colspan=5>Too many positional parameters passed; got 3 but expected 1
+  in sub ref at lib/Perl5/Terms.pm:120
+  in block  at t/spec/re/qr.v5:14
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1344,7 +1367,9 @@ at t/spec/uni/opcroak.v5:21
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+Preceding context expects a term, but found infix < instead
+at t/spec/io/nargv.v5:79
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1415,7 +1440,7 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
 Nominal type check failed for parameter '@array'; expected Positional but got Nil instead
-  in sub scalar at lib/Perl5/Terms.pm:82
+  in sub scalar at lib/Perl5/Terms.pm:124
   in block  at t/spec/bigmem/vec.v5:23
 
 </td></tr>
@@ -1722,7 +1747,9 @@ at t/spec/op/array_base.v5:12
 ------>  is(eval⏏('$[ = 1; 123'), undef);</td></tr>
         <tr align=center><td align=left rowspan=2>op/flip.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+Preceding context expects a term, but found infix < instead
+at t/spec/op/flip.v5:69
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/goto_xs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1824,8 +1851,9 @@ at t/spec/run/switchC.v5:27
 ------> like( $r, qr/^$b(?:\⏏r?\n)?$/s, '-CO: no warning on UTF-8 out</td></tr>
         <tr align=center><td align=left rowspan=2>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
-</td></tr>
+Missing block
+at t/spec/run/switcht.v5:58
+------>     $test =  do ⏏'.\ttdir/ttest.pl';</td></tr>
         <tr align=center><td align=left rowspan=2>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1888,8 +1916,13 @@ Missing block
 at t/spec/re/pat_psycho.v5:16
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't' if -d 't';\n    #@INC = '../lib';\n    require \"../t/te..."): Error while compiling op call: Error while compiling block : Error while compiling op p6store (source text: "="): Unknown QAST node type NQPMu
+        <tr><td colspan=5>No such symbol '&sub'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/io/perlio_fail.v5:15
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2022,8 +2055,12 @@ Unrecognized backslash sequence: '\3'
 at t/spec/op/join.v5:68
 ------>   my $b = "abc\⏏304";</td></tr>
         <tr align=center><td align=left rowspan=2>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'unique' not found for invocant of class 'NQPMu'
+        <tr><td colspan=5>Failed to create directory 'blurfl' with mode '0o777': mkdir failed: File exists
+  in block  at src/gen/CORE.setting:11422
+  in sub mkdir at src/gen/CORE.setting:11417
+  in sub mkdir at src/gen/CORE.setting:11413
+  in block  at t/spec/op/mkdir.v5:26
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2160,7 +2197,7 @@ at t/spec/op/dor.v5:41
 ------> is(shift       // ⏏7, 7,	'shift // ... works');</td></tr>
         <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+Method 'postcircumfix:<{ }>' not found for invocant of class 'Mu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/qr.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2254,7 +2291,9 @@ ResizablePMCArray: index out of bounds!
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest.v5</td><td>0</td><td>49</td><td>0</td><td>0</td><td>49</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+Preceding context expects a term, but found infix , instead
+at t/spec/op/filetest.v5:60
+------> is( "@{[grep -r,⏏ qw(foo io noo op zoo)]}", "io op",
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2342,7 +2381,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369262690.03013
+Could not find sub cuid_97_1369297764.97207
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2432,8 +2471,9 @@ at t/spec/op/bless.v5:16
 ------>     my $r = qr/^\⏏Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/;</td></tr>
         <tr align=center><td align=left rowspan=2>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan=5>===SORRY!===
-This type does not support associative operations
-</td></tr>
+Two terms in a row
+at t/spec/op/stat.v5:119
+------>         my $cwd = File::Spec->rel2abs(⏏$Curdir);</td></tr>
         <tr align=center><td align=left rowspan=2>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$a' is not declared
@@ -2460,7 +2500,7 @@ at t/spec/io/open.v5:27
 ------>     ok( (print $f ⏏"SomeData\n"),  '       we can print to</td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'returns' not found for invocant of class 'NQPMu'
+Could not find vars in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===

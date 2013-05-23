@@ -11,7 +11,21 @@ my $OUTPUT_AUTOFLUSH_P    := Proxy.new(
     FETCH => method ()   { $OUTPUT_AUTOFLUSH },
     STORE => method ($n) { $OUTPUT_AUTOFLUSH = $n; try $*OUT.autoflush( ?$n ); } # XXX there is no IO::Handle.autoflush (yet)
 );
-my $CHILD_ERROR            = 0;
+my $CHILD_ERROR;
+my $FORMAT_TOP_NAME;
+my $SYSTEM_FD_MAX;
+my $INPLACE_EDIT;
+my $BASETIME;
+my $LAST_SUBMATCH_RESULT;
+my $LAST_REGEXP_CODE_RESULT;
+my $ACCUMULATOR;
+my $FORMAT_FORMFEED;
+my $EXTENDED_OS_ERROR;
+my $EXCEPTIONS_BEING_CAUGHT;
+my $WARNING;
+my $COMPILING;
+my $DEBUGGING;
+my $PERLDB;
 
 sub EXPORT(|) {
     my %ex;
@@ -23,11 +37,39 @@ sub EXPORT(|) {
     %ex<$|>                       := $OUTPUT_AUTOFLUSH_P;
     %ex<$?>                       := $CHILD_ERROR;
 
+    %ex<$^>                       := $FORMAT_TOP_NAME;
+    %ex<$^O>                      := $*OS;
+    %ex<$^F>                      := $SYSTEM_FD_MAX;
+    %ex<$^I>                      := $INPLACE_EDIT;
+    %ex<$^T>                      := $BASETIME;
+    %ex<$^V>                      := $VERSION_V;
+    %ex<$^X>                      := $*EXECUTABLE_NAME;
+    %ex<$^M>                       = Mu;
+        
+    ## Variables related to regular expressions
+    %ex<$^N>                      := $LAST_SUBMATCH_RESULT;
+    %ex<$^R>                      := $LAST_REGEXP_CODE_RESULT;
+        
+    ## Variables related to formats
+    %ex<$^A>                      := $ACCUMULATOR;
+    %ex<$^L>                      := $FORMAT_FORMFEED;
+        
+    ## Error Variables
+    %ex<$^E>                      := $EXTENDED_OS_ERROR;
+    %ex<$^S>                      := $EXCEPTIONS_BEING_CAUGHT;
+    %ex<$^W>                      := $WARNING;
+        
+    ## Variables related to the interpreter state
+    %ex<$^C>                      := $COMPILING;
+    %ex<$^D>                      := $DEBUGGING;
+    %ex<$^H>                      := Mu;
+    %ex<%^H>                      := Mu;
+    %ex<$^P>                      := $PERLDB;
+
     # Because Perl6 already has variables like $/ and $! built in, we can't ex-/import them directly.
     # So we need an accessor, the grammar token '$/' can use, and a way to support the English module.
     # I choosed $*-vars, because they can't be used from Perl5 directly because of its grammar.
     %ex<$*INPUT_RECORD_SEPARATOR> := $INPUT_RECORD_SEPARATOR;
-    %ex<$*VERSION_V>              := $VERSION_V;
 
     %ex
 }
@@ -91,6 +133,8 @@ multi sub undef($a is rw) is export { undefine $a; Nil }
 
 multi infix:<P5~>(\a = '') is export { a.P5Str           }
 multi infix:<P5~>(\a, \b)  is export { a.P5Str ~ b.P5Str }
+multi infix:<|=> (\a, \b)  is export { a = a +& b        }
+multi infix:<&=> (\a, \b)  is export { a = a +| b        }
 multi infix:<||=>(\a, \b)  is export { a = b unless a    }
 multi infix:<&&=>(\a, \b)  is export { a = b if a        }
 multi infix:<+=> (\a, \b)  is export { a = a + b         }
