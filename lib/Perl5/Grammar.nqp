@@ -1634,12 +1634,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | <?before \d+'.'\d+> <vnum> +% '.'
     }
 
-    #token version {
-    #    | 'v' <?before \d+ > <vnum> +% '.'
-    #    | <?before \d+'.'\d+'.'\d+> <vnum> +% '.'
-    #}
     token version {
-        'v' <?before \d> {} $<vstr>=[<vnum>+ % '.' '+'?]
+        [
+        | 'v' <?before \d> {} $<vstr>=[<vnum>+ % '.']
+        | <?before \d+'.'\d+'.'\d+> {} $<vstr>=[<vnum>+ % '.']
+        ]
         <!before '-'|\'> # cheat because of LTM fail
     }
 
@@ -1746,6 +1745,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     rule statement_control:sym<require> {   # here because of declarational aspects
         <sym>
         [
+        | <versionish>
         | <module_name> <!['(']>
         | <file=.variable>
         | <!before <sigil>> <file=.term>

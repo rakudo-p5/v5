@@ -331,10 +331,9 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Number contains two decimal points (missing 'v' for version number?)
-at t/spec/comp/require.v5:58
-------> eval { require v5.5.⏏630; };
-</td></tr>
+Missing block
+at t/spec/comp/require.v5:170
+------> do ⏏"bleah.do" or die $@;</td></tr>
         <tr align=center><td align=left rowspan=2>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
@@ -2381,7 +2380,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369297764.97207
+Could not find sub cuid_97_1369315737.91092
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'

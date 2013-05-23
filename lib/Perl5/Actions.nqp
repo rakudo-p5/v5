@@ -967,41 +967,43 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("statement_control:sym<require>($/) file") if $<file>;
         $V5DEBUG && say("statement_control:sym<require>($/) EXPR") if $<EXPR>;
         my $past := QAST::Stmts.new(:node($/));
-        my $name_past := $<module_name>
-                        ?? $*W.p5dissect_longname($<module_name><longname>).name_past()
-                        !! $<file>.ast;
-                        #!! QAST::SVal.new( :value('main') );
-        my $op := QAST::Op.new(
-            :op('callmethod'), :name('load_module'),
-            QAST::Op.new( :op('getcurhllsym'),
-                QAST::SVal.new( :value('ModuleLoader') ) ),
-            $name_past,
-            $*W.symbol_lookup(['GLOBAL'], $/),
-            QAST::SVal.new( :named<from>, :value<Perl5> )
-        );
-        if $<file> {
-            $op.push( QAST::Op.new( :named<file>, :op<callmethod>, :name<Stringy>, $<file>.ast ) );
-        }
-        $past.push($op);
-
-        if $<EXPR> {
-            my $p6_arglist  := $*W.compile_time_evaluate($/, $<EXPR>.ast).list.eager;
-            my $arglist     := nqp::getattr($p6_arglist, $*W.find_symbol(['List']), '$!items');
-            my $lexpad      := $*W.cur_lexpad();
-            my $*SCOPE      := 'my';
-            my $import_past := QAST::Op.new(:node($/), :op<call>,
-                               :name<&REQUIRE_IMPORT>,
-                               $name_past);
-            for $arglist {
-                my $symbol := nqp::unbox_s($_.Str());
-                $*W.throw($/, ['X', 'Redeclaration'], :$symbol)
-                    if $lexpad.symbol($symbol);
-                declare_variable($/, $past,
-                        nqp::substr($symbol, 0, 1), '', nqp::substr($symbol, 1),
-                        []);
-                $import_past.push($*W.add_string_constant($symbol));
+        
+        if $<module_name> || $<file> {
+            my $name_past := $<module_name>
+                            ?? $*W.p5dissect_longname($<module_name><longname>).name_past()
+                            !! $<file>.ast;
+            my $op := QAST::Op.new(
+                :op('callmethod'), :name('load_module'),
+                QAST::Op.new( :op('getcurhllsym'),
+                    QAST::SVal.new( :value('ModuleLoader') ) ),
+                $name_past,
+                $*W.symbol_lookup(['GLOBAL'], $/),
+                QAST::SVal.new( :named<from>, :value<Perl5> )
+            );
+            if $<file> {
+                $op.push( QAST::Op.new( :named<file>, :op<callmethod>, :name<Stringy>, $<file>.ast ) );
             }
-            $past.push($import_past);
+            $past.push($op);
+
+            if $<EXPR> {
+                my $p6_arglist  := $*W.compile_time_evaluate($/, $<EXPR>.ast).list.eager;
+                my $arglist     := nqp::getattr($p6_arglist, $*W.find_symbol(['List']), '$!items');
+                my $lexpad      := $*W.cur_lexpad();
+                my $*SCOPE      := 'my';
+                my $import_past := QAST::Op.new(:node($/), :op<call>,
+                                   :name<&REQUIRE_IMPORT>,
+                                   $name_past);
+                for $arglist {
+                    my $symbol := nqp::unbox_s($_.Str());
+                    $*W.throw($/, ['X', 'Redeclaration'], :$symbol)
+                        if $lexpad.symbol($symbol);
+                    declare_variable($/, $past,
+                            nqp::substr($symbol, 0, 1), '', nqp::substr($symbol, 1),
+                            []);
+                    $import_past.push($*W.add_string_constant($symbol));
+                }
+                $past.push($import_past);
+            }
         }
         
         $past.push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
