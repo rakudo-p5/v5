@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>475</td><td>39700</td><td>5</td><td>38</td><td>40215</td></tr>
+        <tr align=center><td align=left>summary</td><td>487</td><td>39688</td><td>5</td><td>38</td><td>40215</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
@@ -19,12 +19,7 @@
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
-        <tr align=center><td align=left rowspan=2>op/unshift.v5</td><td>34</td><td>2</td><td>0</td><td>0</td><td>36</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/test.pl:22
-
-use of uninitialized value of type Any in numeric context  in sub _cmp_ok at t/test.pl:22
-
-</td></tr>
+        <tr align=center><td align=left>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr align=center><td align=left>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
@@ -52,6 +47,20 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
 
 </td></tr>
         <tr align=center><td align=left>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>10</td><td>108</td><td>0</td><td>0</td><td>118</td></tr>
+        <tr><td colspan=5>No such symbol '&bless'
+  in method <anon> at src/gen/CORE.setting:10027
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/cmd/for.v5:94
+  in method reify at src/gen/CORE.setting:5742
+  in method reify at src/gen/CORE.setting:5637
+  in method gimme at src/gen/CORE.setting:6058
+  in method sink at src/gen/CORE.setting:6359
+  in block  at t/spec/cmd/for.v5:79
+
+</td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>op/chr.v5</td><td>5</td><td>37</td><td>0</td><td>0</td><td>42</td></tr>
@@ -1956,10 +1965,31 @@ at t/spec/op/lfs.v5:245
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan=5>===SORRY!===
-CHECK FAILED:
-Undefined routine '&infix:<&&=>' called (lines 20, 20, 41, 41)
-Undefined routine '&infix:<+=>' called (lines 41, 41)
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
+
+use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
+
+use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
+
+use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
+
+use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
+
+Cannot convert string to number: trailing characters after number in '0⏏ but true' (indicated by ⏏)
+  in method Numeric at src/gen/CORE.setting:10020
+  in sub infix:<==> at src/gen/CORE.setting:3008
+  in sub infix:<==> at src/gen/CORE.setting:3006
+  in sub infix:<==> at src/gen/CORE.setting:3008
+  in sub infix:<==> at src/gen/CORE.setting:3006
+  in sub infix:<!=> at src/gen/CORE.setting:3012
+  in sub infix:<!=> at src/gen/CORE.setting:3010
+  in block  at t/spec/op/lop.v5:30
+  in method reify at src/gen/CORE.setting:5742
+  in method reify at src/gen/CORE.setting:5637
+  in method gimme at src/gen/CORE.setting:6058
+  in method eager at src/gen/CORE.setting:6037
+  in block  at t/spec/op/lop.v5:16
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2312,7 +2342,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369258469.2739
+Could not find sub cuid_97_1369262690.03013
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2423,12 +2453,6 @@ at t/spec/op/split.v5:84
         <tr><td colspan=5>===SORRY!===
 Could not find Errno in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
-        <tr align=center><td align=left rowspan=2>cmd/for.v5</td><td>0</td><td>118</td><td>0</td><td>0</td><td>118</td></tr>
-        <tr><td colspan=5>===SORRY!===
-CHECK FAILED:
-Undefined routine '&infix:<*=>' called (lines 29, 29)
-Undefined routine '&infix:<+=>' called (lines 66, 66)
-</td></tr>
         <tr align=center><td align=left rowspan=2>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2454,9 +2478,8 @@ at t/spec/op/eval.v5:52
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>japh/abigail.v5</td><td>0</td><td>130</td><td>0</td><td>0</td><td>130</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/japh/abigail.v5:87
------->         &$sub ⏏(( 1  x $num) !~ /^1?$|^(11+?)\1+$/,</td></tr>
+Merging GLOBAL symbols failed: duplicate definition of symbol &skip
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
