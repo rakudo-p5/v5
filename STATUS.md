@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>521</td><td>39705</td><td>5</td><td>38</td><td>40266</td></tr>
+        <tr align=center><td align=left>summary</td><td>522</td><td>39703</td><td>6</td><td>38</td><td>40266</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
@@ -63,16 +63,8 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
 
 </td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align=center><td align=left>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/17-hash-autovivify.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan=5>No such symbol '&exists'
-  in method <anon> at src/gen/CORE.setting:10070
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/v5/17-hash-autovivify.v5:28
-
-</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan=5>Cannot modify an immutable value
@@ -188,14 +180,14 @@ Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/op/closure.v5:79
 ------> is(&{$foo[0]}⏏(), 0);</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:136
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
 
 ===SORRY!===
 Malformed block
 at t/spec/op/coreamp.v5:18
 ------> sub lis⏏($$;$) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:136
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
 
 ===SORRY!===
 Could not find B::Deparse in any of: ., ../lib
@@ -765,8 +757,9 @@ at t/v5/32-autoload-method.v5:22
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&exists'
-</td></tr>
+Malformed block
+at t/spec/io/layers.v5:42
+------> sub PerlIO::F_UTF8 ⏏() { 0x00008000 } # from perliol.h</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$TODO' is not declared
@@ -2407,7 +2400,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369437870.93831
+Could not find sub cuid_97_1369482275.31348
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'

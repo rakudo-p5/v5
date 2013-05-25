@@ -122,6 +122,7 @@ sub ref($o) is export {
 }
 
 sub scalar( @array ) is export { +@array }
+sub exists( \a ) is export { a:exists ?? 1 !! '' }
 
 proto sub shift(|) {*}
 multi sub shift()   is export { shift(CALLER::DYNAMIC::<@_>) }
