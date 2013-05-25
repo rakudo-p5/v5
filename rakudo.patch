@@ -1,17 +1,3 @@
-diff --git a/src/Perl6/Actions.nqp b/src/Perl6/Actions.nqp
-index fe476d4..83da55c 100644
---- a/src/Perl6/Actions.nqp
-+++ b/src/Perl6/Actions.nqp
-@@ -931,7 +931,8 @@ class Perl6::Actions is HLL::Actions does STDActions {
-     }
- 
-     method statement_control:sym<use>($/) {
--        my $past := QAST::Var.new( :name('Nil'), :scope('lexical') );
-+        my $past := $<statementlist>    ?? $<statementlist>.ast
-+                                        !! QAST::Var.new( :name('Nil'), :scope('lexical') );
-         if $<version> {
-             # TODO: replace this by code that doesn't always die with
-             # a useless error message
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
 index 4686b04..1b131a3 100644
 --- a/src/Perl6/Grammar.nqp
