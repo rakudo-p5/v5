@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>522</td><td>39703</td><td>6</td><td>38</td><td>40266</td></tr>
+        <tr align=center><td align=left>summary</td><td>537</td><td>39712</td><td>6</td><td>38</td><td>40290</td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
@@ -63,7 +63,9 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
 
 </td></tr>
         <tr align=center><td align=left>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align=center><td align=left>op/die_except.v5</td><td>8</td><td>4</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align=center><td align=left>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
+        <tr align=center><td align=left>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align=center><td align=left>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
@@ -171,9 +173,8 @@ at t/spec/op/assignwarn.v5:51
 ------> 	test_op($tie⏏, $integer, $_, 0) foreach qw($x++ $x--</td></tr>
         <tr align=center><td align=left rowspan=2>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/attrs.v5:17
-------> sub eval_ok ⏏($;$) {</td></tr>
+Could not locate compile-time value for symbol pass
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -183,25 +184,14 @@ at t/spec/op/closure.v5:79
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
 
 ===SORRY!===
-Malformed block
-at t/spec/op/coreamp.v5:18
-------> sub lis⏏($$;$) {</td></tr>
+No such symbol '&sub'
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
 
 ===SORRY!===
 Could not find B::Deparse in any of: ., ../lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>op/die_except.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/die_except.v5:10
------->     sub main::end⏏(&) {</td></tr>
-        <tr align=center><td align=left rowspan=2>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/die_unwind.v5:20
------->     sub main::end⏏(&) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -326,10 +316,23 @@ at t/spec/op/write.v5:1296
 ------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/opbasic/cmp.v5:69
-------> sub nok ⏏($$$$$$$$) {</td></tr>
+        <tr><td colspan=5>Potential difficulties:
+    Redeclaration of symbol $i
+    at t/spec/opbasic/cmp.v5:290
+    ------> while (my ($i⏏, $v) = each @utf8) {
+    Redeclaration of symbol $v
+    at t/spec/opbasic/cmp.v5:290
+    ------> while (my ($i, $v⏏) = each @utf8) {
+WARNINGS:
+Useless use of "," in expression "my @raw, @upgraded, @utf8" in sink context (line 38)
+Could not find symbol '&upgrade'
+  in method <anon> at src/gen/CORE.setting:10070
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/opbasic/cmp.v5:45
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -637,9 +640,8 @@ No such symbol '&tempfile'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/uni/attrs.v5:20
-------> sub eval_ok ⏏($;$) {</td></tr>
+Could not locate compile-time value for symbol pass
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -694,9 +696,9 @@ at t/v5/05-anon-sub.v5:18
 ------>     $a = ( sub () ⏏{ sub { 5 } } )->();</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
+Two terms in a row
 at t/v5/05-hash.v5:60
-------> sub x1 ⏏() { 1230 } $v{x1()} = 120;        # '12</td></tr>
+------> sub x1 () { 1230 } ⏏$v{x1()} = 120;        # '1230'     => 1</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/06-bool.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unexpected closing bracket
@@ -757,9 +759,10 @@ at t/v5/32-autoload-method.v5:22
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/io/layers.v5:42
-------> sub PerlIO::F_UTF8 ⏏() { 0x00008000 } # from perliol.h</td></tr>
+Preceding context expects a term, but found infix << instead
+at t/spec/io/layers.v5:258
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$TODO' is not declared
@@ -1141,9 +1144,9 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/utftaint.v5:14
-------> sub any_tainted ⏏(@) {</td></tr>
+Placeholder variable H^ash[0x1129aaf8] may not be used here because the surrounding block takes no signature
+at t/spec/op/utftaint.v5:15
+------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -1521,9 +1524,9 @@ Error while compiling block  (source text: "use v5;\n#!./perl\n\nprint \"1..7\\n
 </td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/opbasic/magic_phase.v5:15
-------> sub ok ⏏($$) {</td></tr>
+Variable '' is not declared
+at t/spec/opbasic/magic_phase.v5:23
+------>     ok ${^GLOBAL_PHASE}⏏ eq 'START', 'START';</td></tr>
         <tr align=center><td align=left rowspan=2>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -1581,9 +1584,10 @@ at t/spec/op/or.v5:16
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/rand.v5:35
-------> sub bits ⏏($) {</td></tr>
+Preceding context expects a term, but found infix << instead
+at t/spec/op/rand.v5:249
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '%main::' is not declared
@@ -1871,9 +1875,9 @@ at t/spec/lib/universal.v5:67
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/form_scope.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
+Missing block
 at t/spec/comp/form_scope.v5:7
-------> sub f ⏏($);</td></tr>
+------> sub f ($)⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>comp/package.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2048,10 +2052,21 @@ Unrecognized Perl 5 regex backslash sequence
 at t/spec/op/die.v5:86
 ------>     like( $@, qr/Global symbol "\$\⏏x{3b1}"/, 'utf8 symbol names show up in</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/die_keeperr.v5:12
-------> sub end⏏(&) {</td></tr>
+        <tr><td colspan=5>WARNINGS:
+Useless use of constant integer 1 in sink context (line 46)
+No such symbol '&sub'
+  in method <anon> at src/gen/CORE.setting:10070
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/die_keeperr.v5:20
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method eager at src/gen/CORE.setting:6080
+  in block  at t/spec/op/die_keeperr.v5:17
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&sub'
@@ -2171,9 +2186,10 @@ at t/spec/base/rs.v5:249
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/pvbm.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/io/pvbm.v5:17
-------> sub PVBM ⏏() { 'foo' }</td></tr>
+Preceding context expects a term, but found infix < instead
+at t/spec/io/pvbm.v5:89
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '%SIG' is not declared
@@ -2286,9 +2302,8 @@ Could not find vars in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/uproto.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/uproto.v5:52
-------> sub f⏏($$_) { my $x = shift; is("@_", $x) }</td></tr>
+No such symbol '&sub'
+</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&Config'
@@ -2400,7 +2415,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369482275.31348
+Could not find sub cuid_97_1369498400.51609
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2421,9 +2436,8 @@ Method 'ast' not found for invocant of class 'NQPMu'
 current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQPHLL.nqp:1315)</td></tr>
         <tr align=center><td align=left rowspan=2>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/retainedlines.v5:28
-------> sub is⏏($$$) {</td></tr>
+ResizablePMCArray: index out of bounds!
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/oct.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
         <tr><td colspan=5>===SORRY!===
 Bogus statement
@@ -2431,9 +2445,9 @@ at t/spec/op/oct.v5:34
 ------> 	['0b'.(  '0'x⏏10).'1_0101', 0b101_01],</td></tr>
         <tr align=center><td align=left rowspan=2>comp/use.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/use.v5:60
-------> sub like ⏏($$;$) {</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/comp/use.v5:100
+------> r/Perl v6\.0\.0 required--this is only \⏏Q$^V\E, stopped/);</td></tr>
         <tr align=center><td align=left rowspan=2>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
@@ -2579,14 +2593,13 @@ at t/spec/comp/parser.v5:115
 ------> is( "\⏏Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Qa", "a", "PL_le</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>0</td><td>167</td><td>0</td><td>0</td><td>167</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/opbasic/arith.v5:15
-------> sub try ⏏($$$) {</td></tr>
+Could not find vars in any of: ../lib
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/op/bop.v5:68
-------> sub _and⏏($) { $_[0] & "+0" }</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/bop.v5:104
+------> is (sprintf("%vd", v4095 & ⏏v801), 801);</td></tr>
         <tr align=center><td align=left rowspan=2>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan=5>===SORRY!===
 Confused
@@ -2598,9 +2611,10 @@ Nominal type check failed for parameter 'key'; expected Any but got Mu instead
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/proto.v5</td><td>0</td><td>180</td><td>0</td><td>0</td><td>180</td></tr>
         <tr><td colspan=5>===SORRY!===
-Malformed block
-at t/spec/comp/proto.v5:26
-------> sub testing ⏏(&$) {</td></tr>
+Cannot use placeholder parameter @_ in the mainline
+at t/spec/comp/proto.v5:39
+------> @_⏏ = qw(a b c d);
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/sub_lval.v5</td><td>0</td><td>191</td><td>0</td><td>0</td><td>191</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'ast' not found for invocant of class 'NQPMu'
