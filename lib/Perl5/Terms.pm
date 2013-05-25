@@ -139,7 +139,9 @@ multi infix:<&=> (\a, \b)  is export { a = a +| b        }
 multi infix:<||=>(\a, \b)  is export { a = b unless a    }
 multi infix:<&&=>(\a, \b)  is export { a = b if a        }
 multi infix:<+=> (\a, \b)  is export { a = a + b         }
+multi infix:<-=> (\a, \b)  is export { a = a - b         }
 multi infix:<*=> (\a, \b)  is export { a = a * b         }
+multi infix:</=> (\a, \b)  is export { a = a / b         }
 
 sub say(*@a) is export { @a.P5Str.say }; # XXX $*MAIN eq 'Perl5' ?? @a.P5Str.say !! @a.say
 
