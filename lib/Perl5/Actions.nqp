@@ -3577,7 +3577,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $<methodop> {
             make $<methodop>.ast;
         } else {
-            make $<postop>.ast;
+            make $<postcircumfix>.ast;
         }
     }
 
