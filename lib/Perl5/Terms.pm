@@ -121,7 +121,8 @@ sub ref($o) is export {
     $o.^name.uc
 }
 
-sub scalar( @array ) is export { +@array }
+multi sub scalar( Positional \a ) is export { +a }
+multi sub scalar( Mu \a )         is export { a.item }
 sub exists( \a ) is export { a:exists ?? 1 !! '' }
 
 proto sub shift(|) {*}

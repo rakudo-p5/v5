@@ -3,19 +3,22 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>537</td><td>39712</td><td>6</td><td>38</td><td>40290</td></tr>
-        <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
-        <tr align=center><td align=left rowspan=2>op/list.v5</td><td>46</td><td>18</td><td>0</td><td>0</td><td>64</td></tr>
-        <tr><td colspan=5>Nominal type check failed for parameter '@array'; expected Positional but got Failure instead
-  in sub scalar at lib/Perl5/Terms.pm:124
-  in block  at t/spec/op/list.v5:145
-  in method reify at src/gen/CORE.setting:5775
-  in method reify at src/gen/CORE.setting:5670
-  in method gimme at src/gen/CORE.setting:6101
-  in method sink at src/gen/CORE.setting:6402
-  in block  at t/spec/op/list.v5:132
+        <tr align=center><td align=left>summary</td><td>549</td><td>39700</td><td>6</td><td>38</td><td>40290</td></tr>
+        <tr align=center><td align=left rowspan=2>op/list.v5</td><td>57</td><td>7</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:146
+
+use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
+
+use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
+
+use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
+
+use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
+
+use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
 
 </td></tr>
+        <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align=center><td align=left>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
@@ -129,6 +132,10 @@ No such symbol '&fresh_perl_is'
 
 </td></tr>
         <tr align=center><td align=left>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>1</td><td>30</td><td>0</td><td>0</td><td>31</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Nominal type check failed for parameter ''; expected Any but got Mu instead
+</td></tr>
         <tr align=center><td align=left>comp/bproto.v5</td><td>1</td><td>18</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align=center><td align=left rowspan=2>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -181,13 +188,13 @@ Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/op/closure.v5:79
 ------> is(&{$foo[0]}⏏(), 0);</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:138
 
 ===SORRY!===
 No such symbol '&sub'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:138
 
 ===SORRY!===
 Could not find B::Deparse in any of: ., ../lib
@@ -1144,7 +1151,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x1129aaf8] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x12643a08] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1445,7 +1452,9 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
-Nominal type check failed for parameter '@array'; expected Positional but got Nil instead
+Cannot call 'scalar'; none of these signatures match:
+:(Positional \a)
+:(Mu \a)
   in sub scalar at lib/Perl5/Terms.pm:124
   in block  at t/spec/bigmem/vec.v5:23
 
@@ -2222,10 +2231,6 @@ at t/spec/opbasic/concat.v5:157
 Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/op/dor.v5:41
 ------> is(shift       // ⏏7, 7,	'shift // ... works');</td></tr>
-        <tr align=center><td align=left rowspan=2>comp/hints.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'postcircumfix:<{ }>' not found for invocant of class 'Mu'
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/qr.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in variable; couldn't find final '}'
@@ -2415,7 +2420,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369498400.51609
+Could not find sub cuid_97_1369502765.67695
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
