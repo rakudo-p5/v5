@@ -2437,7 +2437,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $past.name($name ?? $name !! '<anon>');
 
         # Do the various tasks to trun the block into a method code object.
-        my %sig_info := $<multisig> ?? $<multisig>.ast !! hash(parameters => []);
+        my %sig_info := $<parensig> ?? $<parensig>.ast !! hash(parameters => []);
         my $inv_type  := $*W.find_symbol([
             $<longname> && $*W.is_lexical('$?CLASS') ?? '$?CLASS' !! 'Mu']);
         my $code := methodize_block($/, $*DECLARAND, $past, %sig_info, $inv_type, :yada(is_yada($/)));
@@ -2494,19 +2494,19 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
         # Obtain parameters, create signature object and generate code to
         # call binder.
-        if $block<placeholder_sig> && $<multisig> {
+        if $block<placeholder_sig> && $<parensig> {
             $*W.throw($/, 'X::Signature::Placeholder',
                 placeholder => $block<placeholder_sig><placeholder>,
             );
         }
         my %sig_info;
-#        if $<multisig> {
-#            %sig_info := $<multisig>.ast;
-#        }
-#        else {
+        if $<parensig> {
+            %sig_info := $<parensig>.ast;
+        }
+        else {
             %sig_info<parameters> := $block<placeholder_sig> ?? $block<placeholder_sig> !!
                                                                 [];
-#        }
+        }
         my @params := %sig_info<parameters>;
         set_default_parameter_type(@params, 'Any');
         my $signature := create_signature_object($/, %sig_info, $block);
@@ -3072,9 +3072,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make $<EXPR>.ast;
     }
 
-#    method multisig($/) {
-#        make $<signature>.ast;
-#    }
+    method parensig($/) {
+        make $<signature>.ast;
+    }
 
     method fakesignature($/) {
         $V5DEBUG && say("fakesignature($/)");
@@ -3098,17 +3098,22 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my %signature;
         my @parameter_infos;
         my int $multi_invocant := 1;
-        for $<variable_declarator> {
-            my %info                 := $_.ast;
-            %info<variable_name>     := ~$_<variable>;
-            %info<sigil>             := ~$_<variable><sigil>;
-            %info<desigilname>       := ~$_<variable><desigilname>;
-            %info<is_multi_invocant> := $multi_invocant;
-            @parameter_infos.push(%info);
+        if $*PROTOTYPE {
+            # XXX translate things like '$;@' to a perl6 signature
         }
-        %signature<parameters> := @parameter_infos;
-        if $<typename> {
-            %signature<returns> := $<typename>.ast;
+        else {
+            for $<variable_declarator> {
+                my %info                 := $_.ast;
+                %info<variable_name>     := ~$_<variable>;
+                %info<sigil>             := ~$_<variable><sigil>;
+                %info<desigilname>       := ~$_<variable><desigilname>;
+                %info<is_multi_invocant> := $multi_invocant;
+                @parameter_infos.push(%info);
+            }
+            %signature<parameters> := @parameter_infos;
+            if $<typename> {
+                %signature<returns> := $<typename>.ast;
+            }
         }
 
         # Mark current block as having a signature.

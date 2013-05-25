@@ -1998,6 +1998,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*DECLARAND := $*W.stub_code_object('Sub');
         <deflongname>
         <.newlex>
+        <parensig>?
         #[ '(' <multisig> ')' ]?
         <trait>*
         { $*IN_DECL := 0; }
@@ -2901,8 +2902,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     rule param_sep { [','|':'|';'|';;'] }
 
-    token signature {
-        <variable_declarator>+ % [ <.ws> ',' <.ws> ]
+    token signature($*PROTOTYPE = 0) {
+        || <?{ $*PROTOTYPE }> $<params>=['$'|'@'|'%'|'&'|'*'|'+'|';'|'_']*
+        || <!{ $*PROTOTYPE }> <variable_declarator>+ % [ <.ws> ',' <.ws> ]
     }
 
     token type_constraint {
