@@ -2113,7 +2113,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token term:sym<variable> {
         <variable>
         [
-        || <?{ ~$<variable><sigil> ne '$' }>
+#        || <?{ ~$<variable><sigil> ne '$' }>
         || <?before '['> { $<variable><really> := '@' }
         || <?before '{'> { $<variable><really> := '%' }
         ]?
