@@ -2246,7 +2246,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
         my $closure := block_closure(reference_to_code_object($code, $past));
         $closure<sink_past> := QAST::Op.new( :op('null') );
-        make $closure;
+        # an anonymous sub can be called already
+        if $<arglist><arg>[0]<EXPR> {
+            make QAST::Op.new( :op('call'), $closure, $<arglist><arg>[0]<EXPR>.ast );
+        }
+        elsif $<arglist> {
+            make QAST::Op.new( :op('call'), $closure );
+        }
+        else {
+            make $closure;
+        }
     }
     
     method autogenerate_proto($/, $name, $install_in) {

@@ -1998,12 +1998,21 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*DOCEE;
         :my $*DECLARAND := $*W.stub_code_object('Sub');
         :my $*PROTOTYPE;
-        <deflongname>
-        <.newlex>
-        [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
-        <trait>*
-        { $*IN_DECL := 0; }
-        <blockoid>
+        [
+        ||  <deflongname>
+            <.newlex>
+            [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
+            <trait>*
+            { $*IN_DECL := 0; }
+            <blockoid>
+        ||  <?before \W>
+            <.newlex>
+            [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
+            <trait>*
+            { $*IN_DECL := 0; }
+            <blockoid>
+            [ '->' '(' ~ ')' <arglist> ]?
+        ]
     }
 
     rule trait {

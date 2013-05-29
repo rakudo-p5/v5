@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>549</td><td>39700</td><td>6</td><td>38</td><td>40290</td></tr>
+        <tr align=center><td align=left>summary</td><td>556</td><td>39700</td><td>6</td><td>38</td><td>40297</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>57</td><td>7</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:146
 
@@ -85,6 +85,7 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
 </td></tr>
         <tr align=center><td align=left>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>t/v5/10-bind-sub-param.v5</td><td>4</td><td>0</td><td>1</td><td>0</td><td>5</td></tr>
+        <tr align=center><td align=left>t/v5/05-anon-sub.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>op/sleep.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left rowspan=2>op/negate.v5</td><td>4</td><td>41</td><td>0</td><td>0</td><td>45</td></tr>
@@ -105,6 +106,7 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
 
 </td></tr>
         <tr align=center><td align=left>t/v5/19-local.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr align=center><td align=left>t/v5/05-anon-sub-lex-block.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align=center><td align=left>op/append.v5</td><td>3</td><td>0</td><td>0</td><td>10</td><td>13</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>Potential difficulties:
@@ -191,7 +193,7 @@ at t/spec/op/closure.v5:79
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:138
 
 ===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:138
@@ -440,7 +442,7 @@ Could not find Encode in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-d
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -691,16 +693,6 @@ Cannot modify an immutable value
         <tr><td colspan=5>===SORRY!===
 Could not find File::Copy in any of: ../lib
 </td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-anon-sub-lex-block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/v5/05-anon-sub-lex-block.v5:7
------->     my $a = sub () ⏏{</td></tr>
-        <tr align=center><td align=left rowspan=2>t/v5/05-anon-sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/v5/05-anon-sub.v5:18
------->     $a = ( sub () ⏏{ sub { 5 } } )->();</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -983,8 +975,9 @@ Could not find Unicode::UCD in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
-</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/uni/cache.v5:29
+------> $s =~ m/[\⏏p{Hiragana}\x{101}]/;</td></tr>
         <tr align=center><td align=left rowspan=2>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>Could not find Config in any of: ., ../lib
   in any load_module at src/Perl6/ModuleLoader.nqp:144
@@ -1081,7 +1074,7 @@ Could not find POSIX in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-de
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1151,7 +1144,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x10f8fb70] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x128f0950] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1335,7 +1328,7 @@ at t/spec/mro/next_method_utf8.v5:33
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1461,23 +1454,23 @@ Cannot call 'scalar'; none of these signatures match:
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1529,7 +1522,7 @@ at t/spec/op/packagev.v5:193
         <tr><td colspan=5>WARNINGS:
 Useless use of constant integer 1 in sink context (line 93)
 ===SORRY!===
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nprint \"1..7\\n\";\n\n$main::result = \"\";\neval q{\n    $main::result .= \"a(..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{ $main::warning .= $_[0]; }"): Error while compiling op bind: First child of a 'bind' op must be a QAST::Var
+Error while compiling block  (source text: "use v5;\n#!./perl\n\nprint \"1..7\\n\";\n\n$main::result = \"\";\neval q{\n    $main::result .= \"a(..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{ $main::warning .= $_[0]; }"): Error while compiling op p6typecheckrv: Error while compiling op lexotic: Error while compiling op p6decontrv: Error while compiling op bind: First child of a 'bind' op must be a QAST::Var
 </td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1770,7 +1763,7 @@ at t/spec/op/flip.v5:69
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/goto_xs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find Fcntl in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1938,12 +1931,12 @@ Missing block
 at t/spec/re/pat_psycho.v5:16
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan=5>No such symbol '&sub'
+        <tr><td colspan=5>No such symbol '&FH'
   in method <anon> at src/gen/CORE.setting:10070
   in any  at src/gen/Metamodel.nqp:2504
   in any find_method_fallback at src/gen/Metamodel.nqp:2492
   in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/io/perlio_fail.v5:15
+  in block  at t/spec/io/perlio_fail.v5:19
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
@@ -2067,8 +2060,9 @@ at t/spec/op/die_keeperr.v5:23
 ------> 	    my $e = end ⏏{ die $inx if $inx };</td></tr>
         <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
-</td></tr>
+Redeclaration of routine sub0
+at t/spec/comp/redef.v5:22
+------> <BOL>⏏ok 1, $warn =~ s/Subroutine sub0 redefin</td></tr>
         <tr align=center><td align=left rowspan=2>op/exec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find vmsish in any of: ../lib
@@ -2136,15 +2130,7 @@ Preceding context expects a term, but found infix < instead
 at t/spec/cmd/while.v5:220
 ------> <BOL>⏏<EOL>
 </td></tr>
-        <tr align=center><td align=left rowspan=2>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
-        <tr><td colspan=5>No such symbol '&sub'
-  in method <anon> at src/gen/CORE.setting:10070
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/comp/colon.v5:23
-
-</td></tr>
+        <tr align=center><td align=left>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
         <tr align=center><td align=left rowspan=2>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2160,12 +2146,15 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/defins.v5</td><td>0</td><td>27</td><td>0</td><td>0</td><td>27</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Preceding context expects a term, but found infix < instead
+at t/spec/op/defins.v5:232
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
-</td></tr>
+Two terms in a row
+at t/spec/op/override.v5:69
+------>         CORE::require ⏏warnings;</td></tr>
         <tr align=center><td align=left rowspan=2>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$x' is not declared
@@ -2283,7 +2272,7 @@ at t/spec/op/avhv.v5:167
 ------> $a = [{key => 1}⏏, 'a'];</td></tr>
         <tr align=center><td align=left rowspan=2>op/length.v5</td><td>0</td><td>41</td><td>0</td><td>0</td><td>41</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2354,7 +2343,7 @@ at t/spec/op/stash.v5:79
 ------>     ok( defined %pig::⏏, q(referencing a non-existent stash doe</td></tr>
         <tr align=center><td align=left rowspan=2>op/ver.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
+Could not find Config in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2410,7 +2399,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369819366.93229
+Could not find sub cuid_97_1369834592.33451
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2465,9 +2454,7 @@ at t/spec/op/goto.v5:18
 ------> local $SIG{__WARN__}⏏ = sub { if ($_[0] =~ m/jump into a cons</td></tr>
         <tr align=center><td align=left rowspan=2>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix > instead
-at t/spec/op/caller.v5:27
-------> sub { @c = caller(0) } ->⏏ ();
+ResizablePMCArray: index out of bounds!
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/universal.v5</td><td>0</td><td>93</td><td>0</td><td>0</td><td>93</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2667,7 +2654,7 @@ Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan=5>===SORRY!===
-get_iter() not implemented in class 'NQPMu'
+Method 'ast' not found for invocant of class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===
