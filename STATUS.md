@@ -1151,7 +1151,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x12643a08] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x10f8fb70] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -2061,21 +2061,10 @@ Unrecognized Perl 5 regex backslash sequence
 at t/spec/op/die.v5:86
 ------>     like( $@, qr/Global symbol "\$\⏏x{3b1}"/, 'utf8 symbol names show up in</td></tr>
         <tr align=center><td align=left rowspan=2>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
-        <tr><td colspan=5>WARNINGS:
-Useless use of constant integer 1 in sink context (line 46)
-No such symbol '&sub'
-  in method <anon> at src/gen/CORE.setting:10070
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/op/die_keeperr.v5:20
-  in method reify at src/gen/CORE.setting:5775
-  in method reify at src/gen/CORE.setting:5670
-  in method gimme at src/gen/CORE.setting:6101
-  in method eager at src/gen/CORE.setting:6080
-  in block  at t/spec/op/die_keeperr.v5:17
-
-</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Two terms in a row
+at t/spec/op/die_keeperr.v5:23
+------> 	    my $e = end ⏏{ die $inx if $inx };</td></tr>
         <tr align=center><td align=left rowspan=2>comp/redef.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&sub'
@@ -2307,8 +2296,9 @@ Could not find vars in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/uproto.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&sub'
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/comp/uproto.v5:58
+------> f("FOO xy", $foo, ⏏"xy");</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&Config'
@@ -2420,7 +2410,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369502765.67695
+Could not find sub cuid_97_1369819366.93229
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2677,7 +2667,7 @@ Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+get_iter() not implemented in class 'NQPMu'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===

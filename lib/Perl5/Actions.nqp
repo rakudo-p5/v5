@@ -3110,10 +3110,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 %info<is_multi_invocant> := $multi_invocant;
                 @parameter_infos.push(%info);
             }
-            %signature<parameters> := @parameter_infos;
-            if $<typename> {
-                %signature<returns> := $<typename>.ast;
-            }
+        }
+        %signature<parameters> := @parameter_infos;
+        if $<typename> {
+            %signature<returns> := $<typename>.ast;
         }
 
         # Mark current block as having a signature.
@@ -4040,6 +4040,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             if nqp::substr($final, 0, 1) ne '&' {
                 @name[+@name - 1] := '&' ~ $final;
             }
+            # XXX do we have macros?
             my $macro := find_macro_routine(@name);
             if $macro {
                 $past := expand_macro($macro, $*longname.text, $/, sub () {
@@ -4051,9 +4052,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                             }
                         }
                     }
-                    elsif $<args><arglist> {
-                        if $<args><arglist><EXPR> {
-                            add_macro_arguments($<args><arglist><EXPR>.ast, @argument_asts);
+                    elsif $<args><arglist><arg> {
+                        if $<args><arglist><arg>[0]<EXPR> {
+                            add_macro_arguments($<args><arglist><arg>[0]<EXPR>.ast, @argument_asts);
                         }
                     }
                     return @argument_asts;
@@ -4079,9 +4080,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 
                 # Do we know all the arguments at compile time?
                 my int $all_compile_time := 1;
-                for @($<arglist>.ast) {
-                    unless $_.has_compile_time_value {
-                        $all_compile_time := 0;
+                if $<arglist><arg> {
+                    for @($<arglist><arg>.ast) {
+                        unless $_.has_compile_time_value {
+                            $all_compile_time := 0;
+                        }
                     }
                 }
                 if $all_compile_time {
@@ -4213,52 +4216,17 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method arglist($/) {
         $V5DEBUG && say("arglist($/)");
-        my $Pair := $*W.find_symbol(['Pair']);
-        my $past := QAST::Op.new( :op('call'), :node($/) );        
-        if $<EXPR> {
-            # Make first pass over arguments, finding any duplicate named
-            # arguments.
-            my $expr := $<EXPR>.ast;
-            my @args := nqp::istype($expr, QAST::Op) && $expr.name eq '&infix:<,>'
-                ?? $expr.list
-                !! [$expr];
-            my %named_counts;
-            for @args {
-                if nqp::istype($_, QAST::Op) && istype($_.returns, $Pair) {
-                    my $name := compile_time_value_str($_[1], 'LHS of pair', $/);
-                    %named_counts{$name} := +%named_counts{$name} + 1;
-                    $_[2].named($name);
-                }
-            }
-
-            # Make result.
-            for @args {
-                if nqp::istype($_, QAST::Op) && istype($_.returns, $Pair) {
-                    my $name := $_[2].named();
-                    if %named_counts{$name} == 1 {
-                        $past.push($_[2]);
-                        $_[2]<before_promotion> := $_;
+        my $past := QAST::Op.new( :op('call'), :node($/) );
+        if $<arg> {
+            for $<arg> -> $arg {
+                if $arg<EXPR> {
+                    my $expr := $arg<EXPR>.ast;
+                    my @args := nqp::istype($expr, QAST::Op) && $expr.name eq '&infix:<,>'
+                        ?? $expr.list
+                        !! [$expr];
+                    for @args {
+                        $past.push($_);
                     }
-                    else {
-                        %named_counts{$name} := %named_counts{$name} - 1;
-                    }
-                }
-                elsif nqp::istype($_, QAST::Op) && $_.name eq '&prefix:<|>' {
-                    my $reg := $past.unique('flattening_');
-                    $past.push(QAST::Op.new(
-                        :op('callmethod'), :name('FLATTENABLE_LIST'),
-                        QAST::Op.new(
-                            :op('bind'),
-                            QAST::Var.new( :name($reg), :scope('local'), :decl('var') ),
-                            $_[0]),
-                        :flat(1) ));
-                    $past.push(QAST::Op.new(
-                        :op('callmethod'), :name('FLATTENABLE_HASH'),
-                        QAST::Var.new( :name($reg), :scope('local') ),
-                        :flat(1), :named(1) ));
-                }
-                else {
-                    $past.push($_);
                 }
             }
         }

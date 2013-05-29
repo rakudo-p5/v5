@@ -1399,14 +1399,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                             $*MAIN := 'MAIN';
                         } ]?
         || <module_name> <version=versionish>?
-            [ <.spacey> <arglist> <?{ $<arglist><EXPR> }> ]?
+            [ <.spacey> <arglist> <?{ $<arglist><arg>[0]<EXPR> }> ]?
             {
                 my $longname := ~$<module_name><longname>;
                 my $arglist;
                 
-                if $<arglist> {
+                if $<arglist><arg>[0]<EXPR> {
                     $arglist := $*W.compile_time_evaluate($/,
-                            $<arglist><EXPR>.ast);
+                            $<arglist><arg>[0]<EXPR>.ast);
                     $arglist := nqp::getattr($arglist.list.eager,
                             $*W.find_symbol(['List']), '$!items');
                 }
@@ -1488,14 +1488,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token statement_control:sym<no> {
         <sym> <.ws>
         <module_name>
-        [ <.spacey> <arglist> <?{ $<arglist><EXPR> }> ]?
+        [ <.spacey> <arglist> <?{ $<arglist><arg>[0]<EXPR> }> ]?
         {
             my $longname := ~$<module_name><longname>;
             my $arglist;
             
-            if $<arglist> {
+            if $<arglist><arg>[0]<EXPR> {
                 $arglist := $*W.compile_time_evaluate($/,
-                        $<arglist><EXPR>.ast);
+                        $<arglist><arg>[0]<EXPR>.ast);
                 $arglist := nqp::getattr($arglist.list.eager,
                         $*W.find_symbol(['List']), '$!items');
             }
@@ -1948,7 +1948,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     rule parensig {
         :dba('signature')
-        '(' ~ ')' <signature(1)>
+        '(' ~ ')' <signature>
     }
 
     method checkyada () {
@@ -1989,6 +1989,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #            <.getsig>
 #        ] || <.panic: "Malformed routine">
 #    }
+    my %prototype;
     rule routine_def {
         :my $*IN_DECL := 'sub';
         :my $*METHODTYPE;
@@ -1996,10 +1997,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*DOC := $*DECLARATOR_DOCS;
         :my $*DOCEE;
         :my $*DECLARAND := $*W.stub_code_object('Sub');
+        :my $*PROTOTYPE;
         <deflongname>
         <.newlex>
-        <parensig>?
-        #[ '(' <multisig> ')' ]?
+        [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
         <trait>*
         { $*IN_DECL := 0; }
         <blockoid>
@@ -2902,9 +2903,13 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     rule param_sep { [','|':'|';'|';;'] }
 
-    token signature($*PROTOTYPE = 0) {
-        || <?{ $*PROTOTYPE }> $<params>=['$'|'@'|'%'|'&'|'*'|'+'|';'|'_']*
-        || <!{ $*PROTOTYPE }> <variable_declarator>+ % [ <.ws> ',' <.ws> ]
+    token proto_arg {
+        $<arg>=['$'|'@'|'%'|'&'|'*'|'+'|';'|'_']
+    }
+
+    token signature {
+        || <?{ $*IN_DECL eq 'sub' }> $<params>=['$'|'@'|'%'|'&'|'*'|'+'|';'|'_']* { $*PROTOTYPE := ~$<params> }
+        || <?{ $*IN_DECL ne 'sub' }> <variable_declarator>+ % [ <.ws> ',' <.ws> ]
     }
 
     token type_constraint {
@@ -3093,8 +3098,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         ]?
     }
 
-    token semiarglist {
-        <arglist> +% ';'
+    token semiarglist($prototype = '@') {
+        <arglist($prototype)> +% ';'
         <.ws>
     }
 
@@ -3118,14 +3123,29 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #            }}
 #        ]
 #    }
-    token arglist {
+    
+    token arg($*PROTOTYPE = '@') {
+        :dba('argument')
+        [
+        #| <?stdstopper>
+        | <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')>
+        | <?{ $*PROTOTYPE eq '$' }> <EXPR('h=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
+        | <?{ $*PROTOTYPE eq ';' }> # TODO last arg has lower prec (to allow lvalue sub call)
+        #| <?>
+        ]
+    }
+
+    token arglist($prototype = '@') {
         :my $*GOAL := 'endargs';
         :my $*QSIGIL := '';
+        :my $s := $prototype;
+        :my $n := '';
+        :my $i := 0;
         <.ws>
         :dba('argument list')
         [
         | <?stdstopper>
-        | <EXPR('f=')>
+        | [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
         #| <?>
         ]
     }
@@ -3688,10 +3708,12 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    }
     token term:sym<identifier> {
         :my $name;
+        :my $*ARGUMENT_WANT := 0;
+        :my $*ARGUMENT_HAVE := 0;
         <identifier> <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/; }>
-        { $name := ~$<identifier>; }
+        { $name := ~$<identifier>; %prototype{$name} := '@' unless nqp::defined(%prototype{$name}) }
         [\h+ <?[(]>]?
-        <args( $*W.is_type($name) )>
+        <args(%prototype{$name})>
         # no compile-time checking for subs
         # { self.add_mystery($<identifier>, $<args>.from, nqp::substr(~$<args>, 0, 1)) unless $<args><invocant>; }
     }
@@ -3710,14 +3732,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #        ]
 #        { $<invocant> := $*INVOCANT_IS; }
 #    }
-    token args($istype = 0) {
+    token args($prototype = '@') {
         :my $*GOAL := '';
         :dba('argument list')
         [
-        | '(' ~ ')' <semiarglist>
+        | '(' ~ ')' <semiarglist($prototype)>
         #| <.unsp> '(' ~ ')' <semiarglist>
         #| [<?before \s> <!{ $istype }> <.ws> <!infixstopper> <arglist>]?
-        | [ \s <arglist> ]
+        | \s <arglist($prototype)>
         | <?>
         ]
     }
