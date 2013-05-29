@@ -1412,7 +1412,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 }
                 
                 if nqp::existskey(%pragma_defaults, $longname) {
-                    $arglist := %pragma_defaults{$longname} unless $<arglist>;
+                    $arglist := %pragma_defaults{$longname} unless $<arglist><arg>[0]<EXPR>;
                     self.pragma($longname, $arglist, 1);
                     $longname := '' unless $longname eq 'warnings';
                 }
@@ -1501,7 +1501,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             }
             
             if nqp::existskey(%pragma_defaults, $longname) {
-                self.pragma($longname, $<arglist>
+                self.pragma($longname, $<arglist><arg>[0]<EXPR>
                     ?? $arglist
                     !! %pragma_defaults{$longname}, 0);
             }
