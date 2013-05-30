@@ -1,0 +1,10 @@
+
+echo -n "Perl5: "
+eval "perl -E '$@'" | perl -CSDL -E 'while(<>) { s/[\r\n]/\x{2424}/g; print }'
+
+echo
+
+echo -n "v5:    "
+eval "perl6 -e '$@'" | perl -CSDL -E 'while(<>) { s/[\r\n]/\x{2424}/g; print }'
+
+echo
