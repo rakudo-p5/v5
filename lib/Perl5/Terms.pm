@@ -125,7 +125,7 @@ multi sub scalar( Positional \a ) is export { +a }
 multi sub scalar( Mu \a )         is export { a.item }
 sub exists( \a ) is export { a:exists ?? 1 !! '' }
 
-proto sub shift() {*}
+proto sub shift(|) {*}
 multi sub shift()   is export { CALLER::DYNAMIC::<@_> ?? CALLER::DYNAMIC::<@_>.shift !! Nil }
 multi sub shift(@a) is export { @a ?? @a.shift !! Nil                                       }
 

@@ -3158,7 +3158,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :dba('argument list')
         [
         | <?stdstopper>
-        | <?infix>
+        | <?[=]>
         | [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
         #| <?>
         ]
@@ -3753,7 +3753,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | '(' ~ ')' <semiarglist($prototype)>
         #| <.unsp> '(' ~ ')' <semiarglist>
         #| [<?before \s> <!{ $istype }> <.ws> <!infixstopper> <arglist>]?
-        | \s <arglist($prototype)>
+        | [ <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] <arglist($prototype)> ]?
         | <?>
         ]
     }
