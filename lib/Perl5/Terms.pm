@@ -144,6 +144,10 @@ multi infix:<-=> (\a, \b)  is export { a = a - b         }
 multi infix:<*=> (\a, \b)  is export { a = a * b         }
 multi infix:</=> (\a, \b)  is export { a = a / b         }
 
+multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
+    $r.set_rw();
+}
+
 sub say(*@a) is export { @a.P5Str.say }; # XXX $*MAIN eq 'Perl5' ?? @a.P5Str.say !! @a.say
 
 use Perl5::warnings ();

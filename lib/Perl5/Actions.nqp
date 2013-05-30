@@ -2244,6 +2244,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
             #~ ) );
         }
 
+        # Apply traits.
+        for $<trait> -> $t {
+            if $t.ast { $*W.ex-handle($t, { ($t.ast)($code) }) }
+        }
+
         my $closure := block_closure(reference_to_code_object($code, $past));
         $closure<sink_past> := QAST::Op.new( :op('null') );
         # an anonymous sub can be called already
@@ -3461,106 +3466,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method trait($/) {
         $V5DEBUG && say("trait($/)");
-        make $<trait_mod>.ast;
-    }
-
-    method trait_mod:sym<is>($/) {
-        $V5DEBUG && say("trait_mod:sym<is>($/)");
-        # Handle is repr specially.
-        if ~$<longname> eq 'repr' {
-            if $<circumfix> {
-                $*REPR := compile_time_value_str($<circumfix>.ast[0], "is repr(...) trait", $/);
-            }
-            else {
-                $/.CURSOR.panic("is repr(...) trait needs a parameter");
-            }
+        for $<identifier> {
+            my %arg;
+            %arg{~$_} := $*W.find_symbol(['Bool', 'True']);
+            make -> $declarand, *%additional {
+                $*W.apply_trait($/, '&trait_mod:<is>', $declarand, |%arg, |%additional);
+            };
         }
-        else
-        {
-            # If we have an argument, get its compile time value or
-            # evaluate it to get that.
-            my @trait_arg;
-            if $<circumfix> {
-                my $arg := $<circumfix>.ast[0];
-                @trait_arg[0] := $arg.has_compile_time_value ??
-                    $arg.compile_time_value !!
-                    $*W.create_thunk($/, $<circumfix>.ast)();
-            }
-        
-            # If we have a type name then we need to dispatch with that type; otherwise
-            # we need to dispatch with it as a named argument.
-            my @name := $*W.p5dissect_longname($<longname>).components();
-            if $*W.is_name(@name) {
-                my $trait := $*W.find_symbol(@name);
-                make -> $declarand {
-                    $*W.apply_trait($/, '&trait_mod:<is>', $declarand, $trait, |@trait_arg);
-                };
-            }
-            else {
-                my %arg;
-                %arg{~$<longname>} := @trait_arg ?? @trait_arg[0] !!
-                    $*W.find_symbol(['Bool', 'True']);
-                make -> $declarand, *%additional {
-                    $*W.apply_trait($/, '&trait_mod:<is>', $declarand, |%arg, |%additional);
-                };
-            }
-        }
-    }
-
-    method trait_mod:sym<hides>($/) {
-        $V5DEBUG && say("trait_mod:sym<hides>($/)");
-        make -> $declarand {
-            $*W.apply_trait($/, '&trait_mod:<hides>', $declarand, $<typename>.ast);
-        };
-    }
-
-    method trait_mod:sym<does>($/) {
-        $V5DEBUG && say("trait_mod:sym<does>($/)");
-        make -> $declarand {
-            $*W.apply_trait($/, '&trait_mod:<does>', $declarand, $<typename>.ast);
-        };
-    }
-
-    method trait_mod:sym<will>($/) {
-        $V5DEBUG && say("trait_mod:sym<will>($/)");
-        my %arg;
-        %arg{~$<identifier>} := ($*W.add_constant('Int', 'int', 1)).compile_time_value;
-        make -> $declarand {
-            $*W.apply_trait($/, '&trait_mod:<will>', $declarand,
-                ($<sblock>.ast)<code_object>, |%arg);
-        };
-    }
-
-    method trait_mod:sym<of>($/) {
-        $V5DEBUG && say("trait_mod:sym<of>($/)");
-        make -> $declarand {
-            $*W.apply_trait($/, '&trait_mod:<of>', $declarand, $<typename>.ast);
-        };
-    }
-
-    method trait_mod:sym<as>($/) {
-        $V5DEBUG && say("trait_mod:sym<as>($/)");
-        make -> $declarand {
-            $*W.apply_trait($/, '&trait_mod:<as>', $declarand, $<typename>.ast);
-        };
-    }
-
-    method trait_mod:sym<returns>($/) {
-        $V5DEBUG && say("trait_mod:sym<returns>($/)");
-        make -> $declarand {
-            $*W.apply_trait($/, '&trait_mod:<returns>', $declarand, $<typename>.ast);
-        };
-    }
-
-    method trait_mod:sym<handles>($/) {
-        $V5DEBUG && say("trait_mod:sym<handles>($/)");
-        # The term may be fairly complex. Thus we make it into a thunk
-        # which the trait handler can use to get the term and work with
-        # it.
-        my $thunk := $*W.create_thunk($/, $<term>.ast);
-        make -> $declarand {
-            $*W.apply_trait($/, '&trait_mod:<handles>', $declarand, $thunk);
-        };
     }
 
     method postop($/) {

@@ -2017,7 +2017,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     rule trait {
         :my $*IN_DECL := 0;
-        ':' <EXPR('g=')>
+        ':' <identifier>+ % <.ws>
     }
 
     #########

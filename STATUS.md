@@ -1144,7 +1144,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x128f0950] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x11c8d790] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1331,8 +1331,13 @@ at t/spec/mro/next_method_utf8.v5:33
 Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+        <tr><td colspan=5>No such symbol '&lock'
+  in method <anon> at src/gen/CORE.setting:10070
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/lock.v5:11
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2343,8 +2348,9 @@ at t/spec/op/stash.v5:79
 ------>     ok( defined %pig::⏏, q(referencing a non-existent stash doe</td></tr>
         <tr align=center><td align=left rowspan=2>op/ver.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find Config in any of: ., ../lib
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')'
+at t/spec/op/ver.v5:110
+------> 			 ⏏unpack 'U*', pack('U*',2001,2002,2003)))</td></tr>
         <tr align=center><td align=left rowspan=2>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find constant in any of: ../lib
@@ -2399,7 +2405,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369834592.33451
+Could not find sub cuid_97_1369898422.49807
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2412,8 +2418,9 @@ Could not find sub cuid_97_1369834592.33451
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
-</td></tr>
+Missing block
+at t/spec/op/tiearray.v5:252
+------>     do ⏏'/dev/null';</td></tr>
         <tr align=center><td align=left rowspan=2>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
@@ -2599,7 +2606,9 @@ at t/spec/comp/proto.v5:39
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sub_lval.v5</td><td>0</td><td>191</td><td>0</td><td>0</td><td>191</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Preceding context expects a term, but found infix = instead
+at t/spec/op/sub_lval.v5:42
+------> get_st =⏏ 7;
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/switch.v5</td><td>0</td><td>201</td><td>0</td><td>0</td><td>201</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2654,7 +2663,15 @@ Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan=5>===SORRY!===
-Method 'ast' not found for invocant of class 'NQPMu'
+Lexical symbol '$a' is already bound to an outer symbol;
+the implicit outer binding must be rewritten as OUTER::<$a>
+before you can unambiguously declare a new '$a' in this scope
+at t/spec/op/substr.v5:197
+------> my $a ⏏= 'zxcvbnm';
+Preceding context expects a term, but found infix = instead
+at t/spec/op/substr.v5:692
+------>     bar =⏏ "XXX";
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===
