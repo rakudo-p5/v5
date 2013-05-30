@@ -3138,8 +3138,12 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [
         #| <?stdstopper>
         | <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')>
-        | <?{ $*PROTOTYPE eq '$' }> <EXPR('h=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
-        | <?{ $*PROTOTYPE eq ';' }> # TODO last arg has lower prec (to allow lvalue sub call)
+        | <?{ $*PROTOTYPE eq '$' }>
+            [
+            || <?{ $*ARGUMENT_HAVE }> <EXPR('h=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
+            ||                        <EXPR('i=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
+            ]
+        | <?{ $*PROTOTYPE eq ';' }>
         #| <?>
         ]
     }
@@ -3154,6 +3158,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :dba('argument list')
         [
         | <?stdstopper>
+        | <?infix>
         | [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
         #| <?>
         ]
