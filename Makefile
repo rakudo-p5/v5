@@ -37,7 +37,7 @@ blib/Perl5/Config.pbc: lib/Perl5/Config.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Config.pir lib/Perl5/Config.pm
 	$(PARROT) -o blib/Perl5/Config.pbc blib/Perl5/Config.pir
 
-blib/Perl5/warnings.pbc: blib/Perl5.pbc lib/Perl5/warnings.pm
+blib/Perl5/warnings.pbc: lib/Perl5/warnings.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/warnings.pir lib/Perl5/warnings.pm
 	$(PARROT) -o blib/Perl5/warnings.pbc blib/Perl5/warnings.pir
 
