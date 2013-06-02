@@ -92,3 +92,6 @@ spectest: install testable t/spectest.data
 
 fulltest: install testable t/spectest.data
 	V5DEBUG=0 $(HARNESS_WITH_FUDGE) t/*/*.t t/*/*/*.t
+
+t/*/*.t t/*/*/*.t:
+	V5DEBUG=0 $(HARNESS_WITH_FUDGE) --verbosity=1 $@
