@@ -1398,6 +1398,44 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         || <versionish> [ <?{ ~$<versionish><version><vnum>[0] eq '6' }> {
                             $*MAIN := 'MAIN';
                         } ]?
+        || 'vars' <.ws>? <quote>
+            {
+                my $vars := $*W.compile_time_evaluate($/, $<quote>.ast);
+                $vars := nqp::getattr($vars.list.eager,
+                        $*W.find_symbol(['List']), '$!items');
+                my $*IN_DECL := 'variable';
+                my $*SCOPE := 'our';
+                for $vars {
+                    my $name := $_;
+                    my $sigil := nqp::substr($name, 0, 1);
+                    my $varast := QAST::Var.new( :name($name), :node($/), :scope<lexical> );
+                    my $BLOCK := $*W.cur_lexpad();
+                    
+                    # Create a container descriptor. Default to rw and set a
+                    # type if we have one; a trait may twiddle with that later.
+                    my %cont_info := $*W.container_type_info($/, $sigil, []);
+                    my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
+
+                    $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
+                        :scope('our'), :package($*PACKAGE));
+                    
+                    # Set scope and type on container, and if needed emit code to
+                    # reify a generic type.
+                    $varast.returns(%cont_info<bind_constraint>);
+                    if %cont_info<bind_constraint>.HOW.archetypes.generic {
+                        $varast := QAST::Op.new(
+                            :op('callmethod'), :name('instantiate_generic'),
+                            QAST::Op.new( :op('p6var'), $varast ),
+                            QAST::Op.new( :op('curlexpad') ));
+                    }
+                    
+                    $BLOCK[0].push(QAST::Op.new(
+                        :op('bind'),
+                        $varast,
+                        $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
+                    ));
+                }
+            }
         || <module_name> <version=versionish>?
             [ <.spacey> <arglist> <?{ $<arglist><arg>[0]<EXPR> }> ]?
             {

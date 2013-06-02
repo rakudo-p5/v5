@@ -3,7 +3,41 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>556</td><td>39705</td><td>6</td><td>38</td><td>40302</td></tr>
+        <tr align=center><td align=left>summary</td><td>684</td><td>39577</td><td>6</td><td>38</td><td>40302</td></tr>
+        <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>128</td><td>39</td><td>0</td><td>0</td><td>167</td></tr>
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+
+Cannot convert string to number: radix point must be followed by one or more valid digits in '20.⏏' (indicated by ⏏)
+  in method Numeric at src/gen/CORE.setting:10063
+  in sub infix:</> at src/gen/CORE.setting:2996
+  in sub infix:</> at src/gen/CORE.setting:2993
+  in sub infix:</> at src/gen/CORE.setting:2996
+  in sub infix:</> at src/gen/CORE.setting:2993
+  in block  at t/spec/opbasic/arith.v5:294
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>57</td><td>7</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:146
 
@@ -203,9 +237,9 @@ Could not find B::Deparse in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/op/do.v5:30
------->     $result = do ⏏foo1(1);</td></tr>
+Two terms in a row
+at t/spec/op/do.v5:73
+------>     print $do ⏏"isnt(wantarray, undef, 'do in scalar co</td></tr>
         <tr align=center><td align=left rowspan=2>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -244,7 +278,7 @@ Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/leaky-magic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find tests in any of: ../lib
+Could not find tests in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -263,8 +297,9 @@ at t/spec/comp/line_debug.v5:36
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
-</td></tr>
+Variable '*OP' is not declared
+at t/spec/op/readdir.v5:18
+------>     local *OP⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/require_37033.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '%INC' is not declared
@@ -281,7 +316,7 @@ at t/spec/op/require_37033.v5:13
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -535,34 +570,64 @@ quantifier quantifies nothing
 at t/spec/re/regex_sets.v5:23
 ------> like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/regex_sets_compat.v5:12
-------> 	do ⏏$file or die $@;</td></tr>
+        <tr><td colspan=5>Null filename used
+  in sub _P5do at lib/Perl5/Terms.pm:169
+  in block  at t/spec/re/regex_sets_compat.v5:11
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method eager at src/gen/CORE.setting:6080
+  in block  at t/spec/re/regex_sets_compat.v5:10
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find warnings in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/regexp_noamp.v5:9
------->     do ⏏$file or die $@;</td></tr>
+        <tr><td colspan=5>Null filename used
+  in sub _P5do at lib/Perl5/Terms.pm:169
+  in block  at t/spec/re/regexp_noamp.v5:8
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method eager at src/gen/CORE.setting:6080
+  in block  at t/spec/re/regexp_noamp.v5:7
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/regexp_notrie.v5:12
-------> 	do ⏏$file or die $@;</td></tr>
+        <tr><td colspan=5>Null filename used
+  in sub _P5do at lib/Perl5/Terms.pm:169
+  in block  at t/spec/re/regexp_notrie.v5:11
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method eager at src/gen/CORE.setting:6080
+  in block  at t/spec/re/regexp_notrie.v5:10
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/regexp_qr.v5:7
-------> 	do ⏏$file or die $@;</td></tr>
+        <tr><td colspan=5>Null filename used
+  in sub _P5do at lib/Perl5/Terms.pm:169
+  in block  at t/spec/re/regexp_qr.v5:6
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method eager at src/gen/CORE.setting:6080
+  in block  at t/spec/re/regexp_qr.v5:5
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/regexp_qr_embed.v5:8
-------> 	do ⏏$file or die $@;</td></tr>
+        <tr><td colspan=5>Null filename used
+  in sub _P5do at lib/Perl5/Terms.pm:169
+  in block  at t/spec/re/regexp_qr_embed.v5:7
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method eager at src/gen/CORE.setting:6080
+  in block  at t/spec/re/regexp_qr_embed.v5:6
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>No such symbol '&useithreads'
   in method <anon> at src/gen/CORE.setting:10070
@@ -573,10 +638,16 @@ at t/spec/re/regexp_qr_embed.v5:8
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/regexp_trielist.v5:12
-------> 	do ⏏$file or die $@;</td></tr>
+        <tr><td colspan=5>Null filename used
+  in sub _P5do at lib/Perl5/Terms.pm:169
+  in block  at t/spec/re/regexp_trielist.v5:12
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method eager at src/gen/CORE.setting:6080
+  in block  at t/spec/re/regexp_trielist.v5:11
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -589,25 +660,22 @@ at t/spec/re/regexp_unicode_prop.v5:17
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/substT.v5:6
------->     do ⏏"./$file";</td></tr>
+        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:163
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
 at t/spec/re/subst_amp.v5:22
 ------> s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/subst_wamp.v5:7
------->     do ⏏"./$file";</td></tr>
+        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:163
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/uniprops.v5:8
-------> do ⏏'../lib/unicore/TestProp.pl';</td></tr>
+        <tr><td colspan=5>WARNINGS:
+Useless use of constant integer 0 in sink context (line 10)
+</td></tr>
         <tr align=center><td align=left rowspan=2>run/exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>WARNINGS:
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)
@@ -668,10 +736,10 @@ No such symbol '&tempfile'
 Could not locate compile-time value for symbol pass
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/io/crlf_through.v5:11
-------> do ⏏'./io/through.t' or die "no kid script";</td></tr>
+        <tr><td colspan=5>no kid script
+  in block  at t/spec/io/crlf_through.v5:11
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Error while reading from file: Invalid character in UTF-8 string
 
@@ -1151,7 +1219,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x122cc7c8] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x115e77c0] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1850,8 +1918,9 @@ at t/spec/mro/next_edgecases_utf8.v5:27
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/op/protowarn.v5:35
+------>     $SIG{'__WARN__'}⏏ = sub { push @warnings, @_ };</td></tr>
         <tr align=center><td align=left rowspan=2>io/dup.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix < instead
@@ -1898,11 +1967,7 @@ at t/spec/op/wantarray.v5:15
 Unrecognized Perl 5 regex backslash sequence
 at t/spec/run/switchC.v5:27
 ------> like( $r, qr/^$b(?:\⏏r?\n)?$/s, '-CO: no warning on UTF-8 out</td></tr>
-        <tr align=center><td align=left rowspan=2>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/run/switcht.v5:58
------->     $test =  do ⏏'.\ttdir/ttest.pl';</td></tr>
+        <tr align=center><td align=left>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align=center><td align=left rowspan=2>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -1979,8 +2044,9 @@ Could not find file './test.pl' for module ./test.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
-</td></tr>
+Variable '%SIG' is not declared
+at t/spec/op/hashwarn.v5:18
+------>     $SIG{'__WARN__'}⏏ = sub { push @warnings, @_ };</td></tr>
         <tr align=center><td align=left rowspan=2>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix << instead
@@ -2321,8 +2387,15 @@ Confused
 at t/spec/op/repeat.v5:130
 ------> my ($x, $y) = scalar ((1,2)x⏏2);</td></tr>
         <tr align=center><td align=left rowspan=2>op/study.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ../lib
+        <tr><td colspan=5>   [   3   1   m   =   =   =      [   0   m   S   O   R   R   Y   !      [   3   1   m   =   =   =      [   0   m   
+   C   o   u   l   d   n   '   t       f   i   n   d       t   e   r   m   i   n   a   t   o   r       |   
+   a   t       t   /   s   p   e   c   /   o   p   /   s   t   u   d   y   .   v   5   :   6   9   
+   -   -   -   -   -   -   >          [   3   2   m   o   k   (   m   |   b   c   /   *   d   |      [   3   3   m   �#     [   3   1   m   )   ;      [   0   m   
+                   e   x   p   e   c   t   i   n   g       a   n   y       o   f   :   
+                                   a   r   g   u   m   e   n   t       l   i   s   t   
+                                   s   t   a   n   d   a   r   d       s   t   o   p   p   e   r   
+                                   a   r   g   u   m   e   n   t   
+                                   p   r   e   f   i   x       o   r       t   e   r   m   
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/uproto.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2425,8 +2498,13 @@ at t/spec/op/grep.v5:57
 Could not locate compile-time value for symbol is
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/each_array.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
+        <tr><td colspan=5>No such symbol '&each'
+  in method <anon> at src/gen/CORE.setting:10070
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/each_array.v5:17
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tiehandle.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2446,7 +2524,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1369922638.43936
+Could not find sub cuid_97_1370211556.01168
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2458,10 +2536,30 @@ Could not find sub cuid_97_1369922638.43936
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/op/tiearray.v5:252
------->     do ⏏'/dev/null';</td></tr>
+        <tr><td colspan=5>Potential difficulties:
+    Redeclaration of symbol @dummy
+    at t/spec/op/tiearray.v5:295
+    ------>     tie my @dummy⏏, "NegFetchsize";
+No such symbol '&tie'
+  in method <anon> at src/gen/CORE.setting:10070
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/tiearray.v5:155
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method sink at src/gen/CORE.setting:6402
+  in block  at t/spec/op/tiearray.v5:153
+  in method reify at src/gen/CORE.setting:5775
+  in method reify at src/gen/CORE.setting:5670
+  in method gimme at src/gen/CORE.setting:6101
+  in method sink at src/gen/CORE.setting:6402
+  in block  at t/spec/op/tiearray.v5:151
+  in block  at t/spec/op/tiearray.v5:107
+  in block  at t/spec/op/tiearray.v5:1
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
@@ -2492,8 +2590,9 @@ at t/spec/base/lex.v5:407
 ------> <BOL>⏏<EOL></td></tr>
         <tr align=center><td align=left rowspan=2>op/undef.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ../lib
-</td></tr>
+Variable '$a' is not declared
+at t/spec/op/undef.v5:16
+------> ok !defined($a⏏);</td></tr>
         <tr align=center><td align=left rowspan=2>op/goto.v5</td><td>0</td><td>89</td><td>0</td><td>0</td><td>89</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '%SIG' is not declared
@@ -2562,18 +2661,18 @@ at t/spec/io/open.v5:27
 ------>     ok( (print $f ⏏"SomeData\n"),  '       we can print to</td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ., ../lib
+Could not locate compile-time value for symbol is
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
-at t/spec/cmd/lexsub.v5:34
------->   is do ⏏foo(), 42, 'calling our sub from same pa</td></tr>
+at t/spec/cmd/lexsub.v5:59
+------>   our sub b⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/eval.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
-at t/spec/op/eval.v5:52
-------> do ⏏"./$tempfile"; print $@;</td></tr>
+at t/spec/op/eval.v5:92
+------>      is(eval⏏('"$b"'), $b);</td></tr>
         <tr align=center><td align=left rowspan=2>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
 
@@ -2620,10 +2719,6 @@ at t/spec/op/split_unicode.v5:28
 Unrecognized backslash sequence: '\Q'
 at t/spec/comp/parser.v5:115
 ------> is( "\⏏Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Qa", "a", "PL_le</td></tr>
-        <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>0</td><td>167</td><td>0</td><td>0</td><td>167</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: ../lib
-</td></tr>
         <tr align=center><td align=left rowspan=2>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -2717,8 +2812,9 @@ at t/spec/re/pat.v5:12
 ------> sub run_tests⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find vars in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
-</td></tr>
+Two terms in a row
+at t/spec/op/taint.v5:41
+------> 	  IPC::SysV->import(⏏qw(IPC_PRIVATE IPC_RMID IPC_CREAT S_IRWX</td></tr>
         <tr align=center><td align=left rowspan=2>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$i' is not declared
