@@ -1106,7 +1106,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method statement_prefix:sym<do>($/) {
         $V5DEBUG && say("statement_prefix:sym<do>($/)");
-        make QAST::Op.new( :op('call'), $<block>.ast );
+        if $<block> {
+            make QAST::Op.new( :op('call'), $<block>.ast );
+        }
+        else {
+            make QAST::Op.new( :op('callmethod'), :name('P5do'), $<EXPR>.ast );
+        }
     }
 
     method statement_prefix:sym<eval>($/) {

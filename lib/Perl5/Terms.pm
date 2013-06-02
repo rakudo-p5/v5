@@ -153,6 +153,24 @@ sub say(*@a) is export { @a.P5Str.say }; # XXX $*MAIN eq 'Perl5' ?? @a.P5Str.say
 use Perl5::warnings ();
 use MONKEY_TYPING;
 
+sub _P5do( $file ) is hidden_from_backtrace {
+    my $ret;
+    if $file {
+        if $file.IO.e {
+            try {
+                $ret = eval slurp $file;
+                CATCH {
+                    default { warn(CALLER::DYNAMIC::<$!> = .Str) }
+                }
+            }
+        }
+    }
+    else {
+        die 'Null filename used'
+    }
+    $ret
+}
+
 augment class Any {
     method P5Str(Any:U:) is hidden_from_backtrace {
         if warnings::enabled('all') || warnings::enabled('uninitialized') {
@@ -160,6 +178,7 @@ augment class Any {
         }
         ''
     }
+    method P5do(Any:) is hidden_from_backtrace { _P5do(self) }
 }
 
 augment class Bool {
@@ -178,7 +197,8 @@ augment class List {
 }
 
 augment class Str {
-    multi method P5Str(Str:D:) { self.Str }
+    multi method P5Str(Str:D:) { self.Str    }
+    method P5do(Str:)          { _P5do(self) }
 }
 
 augment class Int {

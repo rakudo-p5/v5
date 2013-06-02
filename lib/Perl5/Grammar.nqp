@@ -2926,7 +2926,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <.ws>
     }
 
-    rule statement_prefix:sym<do>      {<sym> <block> }
+    rule statement_prefix:sym<do>      {<sym> [ <?[{]> <block> | <EXPR('q=')> ] }
     rule statement_prefix:sym<eval>    {<sym> <block> }
 
     #########
