@@ -187,6 +187,7 @@ for my $tfile (@tfiles) {
     }
 
     if( $stderr ) {
+        $stderr =~ s/\0+//g;
         $stderr =~ s/.\[\d+m//g;
         $stderr =~ s/\s+expecting any of:.+$//s;
         $stderr =~ s/\s*called from Sub.+$//s;

@@ -1219,7 +1219,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x115e77c0] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x1250bb90] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }‚èè;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -2387,16 +2387,10 @@ Confused
 at t/spec/op/repeat.v5:130
 ------> my ($x, $y) = scalar ((1,2)x‚èè2);</td></tr>
         <tr align=center><td align=left rowspan=2>op/study.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
-        <tr><td colspan=5>   [   3   1   m   =   =   =      [   0   m   S   O   R   R   Y   !      [   3   1   m   =   =   =      [   0   m   
-   C   o   u   l   d   n   '   t       f   i   n   d       t   e   r   m   i   n   a   t   o   r       |   
-   a   t       t   /   s   p   e   c   /   o   p   /   s   t   u   d   y   .   v   5   :   6   9   
-   -   -   -   -   -   -   >          [   3   2   m   o   k   (   m   |   b   c   /   *   d   |      [   3   3   m   œ#     [   3   1   m   )   ;      [   0   m   
-                   e   x   p   e   c   t   i   n   g       a   n   y       o   f   :   
-                                   a   r   g   u   m   e   n   t       l   i   s   t   
-                                   s   t   a   n   d   a   r   d       s   t   o   p   p   e   r   
-                                   a   r   g   u   m   e   n   t   
-                                   p   r   e   f   i   x       o   r       t   e   r   m   
-</td></tr>
+        <tr><td colspan=5>===SORRY!===
+Couldn't find terminator |
+at t/spec/op/study.v5:69
+------> ok(m|bc/*d|œ#);</td></tr>
         <tr align=center><td align=left rowspan=2>comp/uproto.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -2524,7 +2518,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ‚èè= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1370211556.01168
+Could not find sub cuid_97_1370229587.10274
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
