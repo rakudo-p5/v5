@@ -3619,7 +3619,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { <sym> <!before '=' > <O('%equality')> }
 
     token infix:sym<!=>
-        { <sym> <?before \s> <O('%equality')> }
+        { <sym> <O('%equality')> }
 
     token infix:sym<~~>
         { <sym> <O('%equality')> }

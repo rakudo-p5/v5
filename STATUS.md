@@ -561,9 +561,9 @@ at t/spec/re/reg_eval.v5:90
         <tr align=center><td align=left>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Unable to parse expression in block expression; couldn't find final ')'
-at t/spec/re/reg_posixcc.v5:62
------->             if ($last⏏!=$first) {</td></tr>
+Variable '$idx' is not declared
+at t/spec/re/reg_posixcc.v5:65
+------>             $first= $last= $ary->[$idx⏏];</td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 quantifier quantifies nothing
@@ -1219,7 +1219,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x1250bb90] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x1257f168] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -2518,7 +2518,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1370229587.10274
+Could not find sub cuid_97_1370278758.48456
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
