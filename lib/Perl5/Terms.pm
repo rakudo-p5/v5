@@ -133,8 +133,7 @@ multi sub shift(@a) is export { @a ?? @a.shift !! Nil                           
 multi sub undef()         is export { Nil              }
 multi sub undef($a is rw) is export { undefine $a; Nil }
 
-multi infix:<P5~>(\a = '') is export { a.P5Str           }
-multi infix:<P5~>(\a, \b)  is export { a.P5Str ~ b.P5Str }
+multi infix:<P5~>(*@a)     is export { [~] map { .P5Str }, @a }
 multi infix:<|=> (\a, \b)  is export { a = a +& b        }
 multi infix:<&=> (\a, \b)  is export { a = a +| b        }
 multi infix:<||=>(\a, \b)  is export { a = b unless a    }
@@ -147,8 +146,6 @@ multi infix:</=> (\a, \b)  is export { a = a / b         }
 multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
 }
-
-sub say(*@a) is export { @a.P5Str.say }; # XXX $*MAIN eq 'Perl5' ?? @a.P5Str.say !! @a.say
 
 use Perl5::warnings ();
 use MONKEY_TYPING;
@@ -202,6 +199,7 @@ augment class Str {
 }
 
 augment class Int {
+    multi method P5Str(Int:U:) { '' }
     multi method P5Str(Int:D:) { self.Int }
 }
 

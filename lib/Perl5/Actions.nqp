@@ -3795,6 +3795,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make $past
     }
 
+    method term:sym<say>($/) {
+        $V5DEBUG && say("term:sym<say>($/)");
+        my $past := $<arglist> ?? $<arglist>.ast
+                 !! QAST::Op.new( :op('call'), QAST::Var.new( :name('$_'), :scope('lexical') ) );
+        $past.name('&infix:<P5~>');
+        
+        $past := QAST::Op.new( :op('callmethod'), :name('say'), $past );
+        make $past
+    }
+
     method term:sym<rand>($/) {
         $V5DEBUG && say("term:sym<rand>($/)");
         make QAST::Op.new( :op('call'), :name('&rand'), :node($/) );
