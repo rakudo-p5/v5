@@ -2139,6 +2139,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method routine_def($/) {
         $V5DEBUG && say("routine_def($/)");
+        unless $<blockoid> {
+            return make QAST::Var.new( :name<Nil>, :scope<lexical>, :node($/) );
+        }
         my $block;
 
 #        if $<onlystar> {
