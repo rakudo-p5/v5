@@ -2042,7 +2042,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
             <trait>*
             { $*IN_DECL := 0; }
-            <blockoid>
+            [
+            || <?terminator>
+            || <blockoid>
+            ]
         ||  <?before \W>
             <.newlex>
             [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
