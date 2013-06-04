@@ -3515,8 +3515,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<chomp>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-#    token term:sym<scalar>
-#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+    token term:sym<scalar> {
+        :my $*ARGUMENT_HAVE := 0;
+        <sym> <.ws>
+        [
+        | '(' ~ ')' [ <arg('$')>+ % [ <.ws> ',' <.ws> ] ]
+        | <arg('$')>**0..1
+        ]
+    }
 
 #    token term:sym<sethostent>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }

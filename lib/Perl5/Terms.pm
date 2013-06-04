@@ -121,8 +121,6 @@ sub ref($o) is export {
     $o.^name.uc
 }
 
-multi sub scalar( Positional \a ) is export { +a }
-multi sub scalar( Mu \a )         is export { a.item }
 sub exists( \a ) is export { a:exists ?? 1 !! '' }
 
 proto sub shift(|) {*}
@@ -176,41 +174,50 @@ augment class Any {
         ''
     }
     method P5do(Any:) is hidden_from_backtrace { _P5do(self) }
+    method P5scalar(Any:) { '' }
 }
 
 augment class Bool {
     multi method P5Str(Bool:U:) { '' }
     multi method P5Str(Bool:D:) { ?self ?? 1 !! '' }
+    method P5scalar(Bool:) { self.P5Str }
 }
 
 augment class Array {
     multi method P5Str(Array:U:) { '' }
     multi method P5Str(Array:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
+    method P5scalar(Array:) { +@(self) }
 }
 
 augment class List {
     multi method P5Str(List:U:) { '' }
     multi method P5Str(List:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
+    method P5scalar(List:) { +@(self) }
 }
 
 augment class Str {
     multi method P5Str(Str:D:) { self.Str    }
     method P5do(Str:)          { _P5do(self) }
+    method P5scalar(Str:) { self.P5Str }
 }
 
 augment class Int {
     multi method P5Str(Int:U:) { '' }
     multi method P5Str(Int:D:) { self.Int }
+    method P5scalar(Int:) { self.P5Str }
 }
 
 augment class Capture {
     multi method P5Str(Capture:D:) { self.Str }
+    method P5scalar(Capture:) { self.P5Str }
 }
 
 augment class Rat {
     multi method P5Str(Rat:D:) { self.Str }
+    method P5scalar(Rat:) { self.P5Str }
 }
 
 augment class Parcel {
     multi method P5Str(Parcel:D:) { self.Int }
+    method P5scalar(Parcel:) { self.P5Str }
 }

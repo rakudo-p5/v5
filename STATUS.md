@@ -5,29 +5,29 @@
     <tbody>
         <tr align=center><td align=left>summary</td><td>684</td><td>39577</td><td>6</td><td>38</td><td>40302</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>128</td><td>39</td><td>0</td><td>0</td><td>167</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:141
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:141
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:141
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:141
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:141
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:142
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:141
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:142
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:142
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:142
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:142
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:142
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:143
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:142
 
 Cannot convert string to number: radix point must be followed by one or more valid digits in '20.⏏' (indicated by ⏏)
   in method Numeric at src/gen/CORE.setting:10063
@@ -39,9 +39,7 @@ Cannot convert string to number: radix point must be followed by one or more val
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/list.v5</td><td>57</td><td>7</td><td>0</td><td>0</td><td>64</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:146
-
-use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
+        <tr><td colspan=5>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
 
 use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169
 
@@ -224,13 +222,13 @@ Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/op/closure.v5:79
 ------> is(&{$foo[0]}⏏(), 0);</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:138
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
 
 ===SORRY!===
 Could not find overload in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:138
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:137
 
 ===SORRY!===
 Could not find B::Deparse in any of: ., ../lib
@@ -242,9 +240,10 @@ at t/spec/op/do.v5:73
 ------>     print $do ⏏"isnt(wantarray, undef, 'do in scalar co</td></tr>
         <tr align=center><td align=left rowspan=2>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/op/exists_sub.v5:10
-------> sub t1⏏;</td></tr>
+Preceding context expects a term, but found infix , instead
+at t/spec/op/exists_sub.v5:49
+------>     ok( defined &t5, ,⏏ 't5 defined' );
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
@@ -501,9 +500,9 @@ Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/pat_advanced.v5:13
-------> sub run_tests⏏;</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/re/pat_advanced.v5:35
+------>         ok(/(.)(\⏏C)(\C)(.)/, $message);</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_advanced_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:141
@@ -571,7 +570,7 @@ at t/spec/re/regex_sets.v5:23
 ------> like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:169
+  in sub _P5do at lib/Perl5/Terms.pm:166
   in block  at t/spec/re/regex_sets_compat.v5:11
   in method reify at src/gen/CORE.setting:5775
   in method reify at src/gen/CORE.setting:5670
@@ -582,11 +581,11 @@ at t/spec/re/regex_sets.v5:23
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find warnings in any of: ../lib
+Unknown warnings category 'FATAL'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:169
+  in sub _P5do at lib/Perl5/Terms.pm:166
   in block  at t/spec/re/regexp_noamp.v5:8
   in method reify at src/gen/CORE.setting:5775
   in method reify at src/gen/CORE.setting:5670
@@ -597,7 +596,7 @@ Could not find warnings in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:169
+  in sub _P5do at lib/Perl5/Terms.pm:166
   in block  at t/spec/re/regexp_notrie.v5:11
   in method reify at src/gen/CORE.setting:5775
   in method reify at src/gen/CORE.setting:5670
@@ -608,7 +607,7 @@ Could not find warnings in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:169
+  in sub _P5do at lib/Perl5/Terms.pm:166
   in block  at t/spec/re/regexp_qr.v5:6
   in method reify at src/gen/CORE.setting:5775
   in method reify at src/gen/CORE.setting:5670
@@ -619,7 +618,7 @@ Could not find warnings in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:169
+  in sub _P5do at lib/Perl5/Terms.pm:166
   in block  at t/spec/re/regexp_qr_embed.v5:7
   in method reify at src/gen/CORE.setting:5775
   in method reify at src/gen/CORE.setting:5670
@@ -639,7 +638,7 @@ Could not find warnings in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:169
+  in sub _P5do at lib/Perl5/Terms.pm:166
   in block  at t/spec/re/regexp_trielist.v5:12
   in method reify at src/gen/CORE.setting:5775
   in method reify at src/gen/CORE.setting:5670
@@ -650,9 +649,9 @@ Could not find warnings in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/regexp_unicode_prop.v5:17
-------> sub run_tests⏏;</td></tr>
+Variable '$IS_EBCDIC' is not declared
+at t/spec/re/regexp_unicode_prop.v5:68
+------>                $::IS_EBCDIC⏏ ? ['!\x{7f}',  '\x{80}',            '!\</td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Could not find file './thread_it.pl' for module ./thread_it.pl
   in any load_module at src/Perl6/ModuleLoader.nqp:141
@@ -660,7 +659,7 @@ at t/spec/re/regexp_unicode_prop.v5:17
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:163
+        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:160
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -669,7 +668,7 @@ Unrecognized Perl 5 regex backslash sequence
 at t/spec/re/subst_amp.v5:22
 ------> s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:163
+        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:160
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1055,8 +1054,11 @@ Unrecognized Perl 5 regex backslash sequence
 at t/spec/uni/cache.v5:29
 ------> $s =~ m/[\⏏p{Hiragana}\x{101}]/;</td></tr>
         <tr align=center><td align=left rowspan=2>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>Could not find Config in any of: ., ../lib
-  in any load_module at src/Perl6/ModuleLoader.nqp:144
+        <tr><td colspan=5>No such symbol '&Config'
+  in method <anon> at src/gen/CORE.setting:10070
+  in any  at src/gen/Metamodel.nqp:2504
+  in any find_method_fallback at src/gen/Metamodel.nqp:2492
+  in any find_method at src/gen/Metamodel.nqp:939
   in block  at t/spec/io/errnosig.v5:9
 
 </td></tr>
@@ -1150,8 +1152,9 @@ Could not find POSIX in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-de
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find file './test.pl' for module ./test.pl
-</td></tr>
+Variable '@+' is not declared
+at t/spec/op/magic-27839.v5:19
+------> 	return @+⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5, ../lib
@@ -1179,7 +1182,9 @@ at t/spec/re/qr_gc.v5:28
         <tr align=center><td align=left>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left rowspan=2>run/switchd-78586.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not find warnings in any of: ../lib, lib
+Preceding context expects a term, but found infix << instead
+at t/spec/run/switchd-78586.v5:51
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1219,12 +1224,12 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x1257f168] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x12cd2520] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix > instead
+Preceding context expects a term, but found infix < instead
 at t/spec/run/noswitch.v5:21
 ------> <BOL>⏏<EOL>
 </td></tr>
@@ -1396,7 +1401,9 @@ at t/spec/mro/next_method_utf8.v5:33
 </td></tr>
         <tr align=center><td align=left>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>op/defined.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan=5>Too many positional parameters passed; got 2 but expected 1
+        <tr><td colspan=5>WARNINGS:
+Useless use of constant integer 42 in sink context (line 15)
+Too many positional parameters passed; got 2 but expected 1
   in sub defined at src/gen/CORE.setting:1169
   in block  at t/spec/op/defined.v5:14
 
@@ -1546,10 +1553,7 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
-Cannot call 'scalar'; none of these signatures match:
-:(Positional \a)
-:(Mu \a)
-  in sub scalar at lib/Perl5/Terms.pm:124
+No such method 'P5scalar' for invocant of type 'Nil'
   in block  at t/spec/bigmem/vec.v5:23
 
 </td></tr>
@@ -1738,10 +1742,13 @@ Confused
 at t/spec/op/select.v5:20
 ------> is ref\⏏select, 'SCALAR', 'and STDOUT is a plain</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/pat_special_cc.v5:13
-------> sub run_tests⏏;</td></tr>
+        <tr><td colspan=5>WARNINGS:
+Useless use of constant integer 1 in sink context (line 58)
+===SORRY!===
+error:imcc:Sub 'cuid_59_1370384973.85972' not found
+
+	in file '(file unknown)' line 30505797
+</td></tr>
         <tr align=center><td align=left>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left rowspan=2>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1976,9 +1983,10 @@ at t/spec/lib/universal.v5:67
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/form_scope.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/comp/form_scope.v5:7
-------> sub f ($)⏏;</td></tr>
+Preceding context expects a term, but found infix << instead
+at t/spec/comp/form_scope.v5:165
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/package.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2026,9 +2034,9 @@ at t/spec/op/utf8cache.v5:22
 ------>     $a⏏ = "hello \x{1234}";</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_psycho.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/pat_psycho.v5:16
-------> sub run_tests⏏;</td></tr>
+Variable '$"' is not declared
+at t/spec/re/pat_psycho.v5:45
+------>         local $"⏏ = "|";</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan=5>No such symbol '&FH'
   in method <anon> at src/gen/CORE.setting:10070
@@ -2383,7 +2391,7 @@ Could not find overload in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan=5>===SORRY!===
-Confused
+Bogus statement
 at t/spec/op/repeat.v5:130
 ------> my ($x, $y) = scalar ((1,2)x⏏2);</td></tr>
         <tr align=center><td align=left rowspan=2>op/study.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
@@ -2518,7 +2526,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1370278758.48456
+Could not find sub cuid_97_1370384623.15079
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2655,13 +2663,13 @@ at t/spec/io/open.v5:27
 ------>     ok( (print $f ⏏"SomeData\n"),  '       we can print to</td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan=5>===SORRY!===
-Could not locate compile-time value for symbol is
-</td></tr>
+Unable to parse expression in term:sym<scalar>; couldn't find final ')'
+at t/spec/op/array.v5:62
+------> ok(scalar (($F1,$F2,$Etc) ⏏= ($foo =~ /^(\S+)\s+(\S+)\s*(.*)/)));</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/cmd/lexsub.v5:59
------->   our sub b⏏;</td></tr>
+Could not locate compile-time value for symbol d
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/eval.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan=5>===SORRY!===
 Missing block
@@ -2796,14 +2804,14 @@ Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/pat_re_eval.v5:14
-------> sub run_tests⏏;</td></tr>
+Variable '$a' is not declared
+at t/spec/re/pat_re_eval.v5:44
+------>         $a⏏ = qr/(?{++$b})/;</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat.v5</td><td>0</td><td>466</td><td>0</td><td>0</td><td>466</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/pat.v5:12
-------> sub run_tests⏏;</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/re/pat.v5:270
+------>         my $message = '/g, \⏏G and pos';</td></tr>
         <tr align=center><td align=left rowspan=2>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2816,9 +2824,10 @@ at t/spec/op/sprintf2.v5:41
 ------>     my $format = "%$i.${i}⏏s";</td></tr>
         <tr align=center><td align=left rowspan=2>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan=5>===SORRY!===
-Missing block
-at t/spec/re/pat_rt_report.v5:13
-------> sub run_tests⏏;</td></tr>
+quantifier quantifies nothing
+at t/spec/re/pat_rt_report.v5:35
+------>    like("A \x{263a} B z C", qr/A . B (??⏏{ "z" }) C/,
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$value' is not declared. Did you mean '@values'?
