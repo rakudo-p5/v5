@@ -2373,7 +2373,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [
         || '&'
             [
-            | <subname> { $name := ~$<subname> }
+            | <subname> { $name := ~$<subname> } [ <.ws> '(' ~ ')' <arglist> ]?
             | :dba('infix noun') '[' ~ ']' <infixish(1)>
             ]
         || [
@@ -3349,8 +3349,13 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<chroot>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-#    token term:sym<defined>
-#        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
+    token term:sym<defined> {
+        <sym> <.ws>
+        [
+        | '(' ~ ')' <EXPR('h=')>
+        | <EXPR('h=')>
+        ]
+    }
 
 #    token term:sym<delete>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }

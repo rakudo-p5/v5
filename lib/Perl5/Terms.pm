@@ -177,6 +177,17 @@ augment class Any {
     method P5scalar(Any:) { '' }
 }
 
+augment class Nil {
+    method P5Str(Nil:U:) is hidden_from_backtrace {
+        if warnings::enabled('all') || warnings::enabled('uninitialized') {
+            warn 'Use of uninitialized value in string'
+        }
+        ''
+    }
+    method P5do(Nil:) is hidden_from_backtrace { _P5do(self) }
+    method P5scalar(Nil:) { Nil }
+}
+
 augment class Bool {
     multi method P5Str(Bool:U:) { '' }
     multi method P5Str(Bool:D:) { ?self ?? 1 !! '' }

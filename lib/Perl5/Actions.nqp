@@ -1261,7 +1261,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("term:sym<fatarrow>($/)          "); make $<fatarrow>.ast; }
 #    method term:sym<colonpair>($/)          { make $<colonpair>.ast; }
     method term:sym<variable>($/)           {
-        $V5DEBUG && say("term:sym<variable>($/)          "); make $<variable>.ast; }
+        $V5DEBUG && say("term:sym<variable>($/)");
+        make $<variable>.ast;
+    }
     method term:sym<package_declarator>($/) {
         $V5DEBUG && say("term:sym<package_declarator>($/)"); make $<package_declarator>.ast; }
     method term:sym<scope_declarator>($/)   {
@@ -1580,6 +1582,15 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     :op('die_s'),
                     QAST::SVal.new( :value("Could not find sub $name") )
                 ));
+        }
+        # &routine( 1, 2)
+        elsif $<arglist> {
+            $past := $<arglist>.ast;
+            $past.unshift( self.make_indirect_lookup(['&' ~ $<subname>]) );
+        }
+        # &routine
+        elsif $<subname> {
+            $past := QAST::Op.new( :op<call>, self.make_indirect_lookup(['&' ~ $<subname>]) );
         }
         elsif $<desigilname><variable> {
             $past := $<desigilname>.ast;
@@ -3741,6 +3752,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
     method term:sym<chr>($/) {
         $V5DEBUG && say("term:sym<chr>($/)");
         make call_expr_or_topic( $/, 'chr' )
+    }
+
+    method term:sym<defined>($/) {
+        $V5DEBUG && say("term:sym<defined>($/)");
+        my $past := $<EXPR> ?? $<EXPR>.ast
+                 !! QAST::Op.new( :op('call'), QAST::Var.new( :name('$_'), :scope('lexical') ) );
+        #$past.op('&infix:<P5~>');
+        
+        $past := QAST::Op.new( :op('callmethod'), :name('defined'), $past );
+        make $past
     }
 
     method term:sym<eval>($/) {
