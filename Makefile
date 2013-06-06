@@ -18,19 +18,19 @@ HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --i
 all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
+	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
 	$(PARROT) -o blib/Perl5/World.pbc blib/Perl5/World.pir
 
 blib/Perl5/Actions.pbc: blib/Perl5/World.pbc lib/Perl5/Actions.nqp
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5/Actions.pir lib/Perl5/Actions.nqp
+	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/Actions.pir lib/Perl5/Actions.nqp
 	$(PARROT) -o blib/Perl5/Actions.pbc blib/Perl5/Actions.pir
 
 blib/Perl5/Grammar.pbc: blib/Perl5/Actions.pbc lib/Perl5/Grammar.nqp
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5/Grammar.pir lib/Perl5/Grammar.nqp
+	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/Grammar.pir lib/Perl5/Grammar.nqp
 	$(PARROT) -o blib/Perl5/Grammar.pbc blib/Perl5/Grammar.pir
 
 blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/Perl5/Grammar.pbc
-	$(NQP) --vmlibs=perl6_group,perl6_ops --target=pir --stagestats --output=blib/Perl5.pir lib/Perl5.nqp
+	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5.pir lib/Perl5.nqp
 	$(PARROT) -o blib/Perl5.pbc blib/Perl5.pir
 
 blib/Perl5/Config.pbc: lib/Perl5/Config.pm
