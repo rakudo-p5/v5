@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align=center><td align=left>summary</td><td>691</td><td>39569</td><td>6</td><td>39</td><td>40302</td></tr>
+        <tr align=center><td align=left>summary</td><td>700</td><td>39560</td><td>6</td><td>39</td><td>40302</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>128</td><td>39</td><td>0</td><td>0</td><td>167</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:139
 
@@ -52,8 +52,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
 </td></tr>
         <tr align=center><td align=left>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
         <tr align=center><td align=left>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
+        <tr align=center><td align=left>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align=center><td align=left>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
-        <tr align=center><td align=left>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align=center><td align=left>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align=center><td align=left>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
         <tr align=center><td align=left>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
@@ -101,6 +101,7 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
         <tr align=center><td align=left>op/die_except.v5</td><td>8</td><td>4</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align=center><td align=left>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr align=center><td align=left>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr align=center><td align=left>comp/bproto.v5</td><td>7</td><td>12</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align=center><td align=left>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align=center><td align=left>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
@@ -155,7 +156,6 @@ Useless use of constant integer 42 in sink context (line 15)
         <tr align=center><td align=left>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align=center><td align=left>comp/bproto.v5</td><td>2</td><td>17</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align=center><td align=left>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align=center><td align=left>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -788,7 +788,7 @@ Could not find file 'case.pl' for module case.pl
 </td></tr>
         <tr align=center><td align=left rowspan=2>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&Config'
+Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1074,15 +1074,7 @@ Could not find Unicode::UCD in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 Unrecognized Perl 5 regex backslash sequence
 at t/spec/uni/cache.v5:29
 ------> $s =~ m/[\⏏p{Hiragana}\x{101}]/;</td></tr>
-        <tr align=center><td align=left rowspan=2>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan=5>No such symbol '&Config'
-  in method <anon> at src/gen/CORE.setting:10070
-  in any  at src/gen/Metamodel.nqp:2504
-  in any find_method_fallback at src/gen/Metamodel.nqp:2492
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/io/errnosig.v5:9
-
-</td></tr>
+        <tr align=center><td align=left>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/21-test.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
@@ -1245,7 +1237,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x1117f758] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x11d3ce30] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1319,7 +1311,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&Config'
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1747,9 +1739,9 @@ at t/spec/op/select.v5:20
         <tr><td colspan=5>WARNINGS:
 Useless use of constant integer 1 in sink context (line 58)
 ===SORRY!===
-error:imcc:Sub 'cuid_59_1370444574.44994' not found
+error:imcc:Sub 'cuid_60_1370540354.3912' not found
 
-	in file '(file unknown)' line 18807621
+	in file '(file unknown)' line 11488069
 </td></tr>
         <tr align=center><td align=left>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align=center><td align=left rowspan=2>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
@@ -2238,8 +2230,12 @@ Unable to parse expression in variable; couldn't find final '}'
 at t/spec/mro/isarev_utf8.v5:25
 ------>      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align=center><td align=left rowspan=2>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
-        <tr><td colspan=5>===SORRY!===
-No such symbol '&Config'
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+
+===SORRY!===
+Preceding context expects a term, but found infix < instead
+at t/spec/io/pipe.v5:238
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr align=center><td align=left rowspan=2>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
@@ -2248,7 +2244,15 @@ Preceding context expects a term, but found infix < instead
 at t/spec/cmd/while.v5:220
 ------> <BOL>⏏<EOL>
 </td></tr>
-        <tr align=center><td align=left>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
+        <tr align=center><td align=left rowspan=2>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
+        <tr><td colspan=5>WARNINGS:
+Useless use of constant integer 1 in sink context (line 1)
+get_bool() not implemented in class 'ABC'
+  in sub infix:<and> at src/gen/CORE.setting:2787
+  in sub infix:<and> at src/gen/CORE.setting:2785
+  in block  at t/spec/comp/colon.v5:29
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan=5>===SORRY!===
 Two terms in a row
@@ -2408,8 +2412,9 @@ at t/spec/comp/uproto.v5:58
 ------> f("FOO xy", $foo, ⏏"xy");</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&Config'
-</td></tr>
+Two terms in a row
+at t/spec/io/perlio.v5:29
+------> print $txtfh ⏏"foo\n";</td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
 No such symbol '&is_miniperl'
@@ -2485,7 +2490,7 @@ at t/spec/op/inccode.v5:30
 ------>     print $fh ⏏"package ".substr($_[0],0,-3).";\n1;\n";</td></tr>
         <tr align=center><td align=left rowspan=2>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&Config'
+Method 'p5cc' not found for invocant of class 'Perl5::Grammar'
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
@@ -2528,7 +2533,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_97_1370444228.41876
+Could not find sub cuid_97_1370539452.96312
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2613,7 +2618,7 @@ at t/spec/uni/universal.v5:21
 ------> ok $a->isa(⏏"Bòb");</td></tr>
         <tr align=center><td align=left rowspan=2>run/runenv.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&Config'
+No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan=5>Error while reading from file: Malformed UTF-8 string
@@ -2756,8 +2761,9 @@ at t/spec/op/switch.v5:21
 ------> CORE::given(3) ⏏{</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst.v5</td><td>0</td><td>206</td><td>0</td><td>0</td><td>206</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&Config'
-</td></tr>
+Two terms in a row
+at t/spec/re/subst.v5:14
+------> $a = s/david/rules/⏏r;</td></tr>
         <tr align=center><td align=left rowspan=2>uni/gv.v5</td><td>0</td><td>212</td><td>0</td><td>0</td><td>212</td></tr>
         <tr><td colspan=5>===SORRY!===
 ResizablePMCArray: index out of bounds!

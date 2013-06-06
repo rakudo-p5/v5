@@ -1,10 +1,7 @@
 use Perl6::Grammar;
 use Perl5::Grammar;
-use Perl5::World;
 
 sub EXPORT(*@a) {
-    $*W.HOW.mixin( $*W, Perl5::World );
-
     %*LANG<Perl5>           := Perl5::Grammar;
     %*LANG<Perl5-actions>   := Perl5::Actions;
     %*LANG<P5Q>             := Perl5::QGrammar;

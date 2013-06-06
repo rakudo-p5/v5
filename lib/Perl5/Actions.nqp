@@ -137,7 +137,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method deflongname($/) {
         $V5DEBUG && say("deflongname($/)");
-        make $*W.p5dissect_longname($/).name(
+        make $*W.dissect_longname($/).name(
             :dba("$*IN_DECL declaration"),
             :decl<routine>,
         );
@@ -178,7 +178,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
     method comp_unit($/) {
-        $*W.HOW.mixin( $*W, Perl5::World );
         $V5DEBUG && say("comp_unit($/)");
         # Finish up code object for the mainline.
         if $*DECLARAND {
@@ -970,7 +969,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         
         if $<module_name> || $<file> {
             my $name_past := $<module_name>
-                            ?? $*W.p5dissect_longname($<module_name><longname>).name_past()
+                            ?? $*W.dissect_longname($<module_name><longname>).name_past()
                             !! $<file>.ast;
             my $op := QAST::Op.new(
                 :op('callmethod'), :name('load_module'),
@@ -1604,7 +1603,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         else {
             my $indirect;
             if $<desigilname> && $<desigilname><longname> {
-                my $longname := $*W.p5dissect_longname($<desigilname><longname>);
+                my $longname := $*W.dissect_longname($<desigilname><longname>);
                 if $longname.contains_indirect_lookup() {
                     if $*IN_DECL {
                         $*W.throw($/, ['X', 'Syntax', 'Variable', 'IndirectDeclaration']);
@@ -1887,7 +1886,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     }
                 }
                 else {
-                    my %cont_info := $*W.container_type_info($/, $_<sigil> || '$', []);
+                    my %cont_info := Perl5::World::container_type_info($/, $_<sigil> || '$', []);
                     $list.push($*W.build_container_past(
                         %cont_info,
                         $*W.create_container_descriptor(%cont_info<value_type>, 1, 'anon')));
@@ -2025,7 +2024,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $/.CURSOR.panic("Cannot declare an anonymous attribute");
             }
             my $attrname   := ~$sigil ~ '!' ~ $desigilname;
-            my %cont_info  := $*W.container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
+            my %cont_info  := Perl5::World::container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
             my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $attrname);
 
             # Create meta-attribute and add it.
@@ -2085,7 +2084,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
             # Create a container descriptor. Default to rw and set a
             # type if we have one; a trait may twiddle with that later.
-            my %cont_info := $*W.container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
+            my %cont_info := Perl5::World::container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
             my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
             # Install the container.
@@ -2455,7 +2454,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         
         my $name;
         if $<longname> {
-            my $longname := $*W.p5dissect_longname($<longname>);
+            my $longname := $*W.dissect_longname($<longname>);
             $name := $longname.name(:dba('method name'),
                             :decl<routine>, :with_adverbs);
         }
@@ -2859,7 +2858,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
         # Get, or find, enumeration base type and create type object with
         # correct base type.
-        my $longname  := $<longname> ?? $*W.p5dissect_longname($<longname>) !! 0;
+        my $longname  := $<longname> ?? $*W.dissect_longname($<longname>) !! 0;
         my $name      := $<longname> ?? $longname.name() !! $<variable><desigilname>;
 
         my $type_obj;
@@ -3007,7 +3006,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             QAST::Op.new( :op('p6bool'), QAST::IVal.new( :value(1) ) ));
 
         # Create the meta-object.
-        my $longname := $<longname> ?? $*W.p5dissect_longname($<longname>) !! 0;
+        my $longname := $<longname> ?? $*W.dissect_longname($<longname>) !! 0;
         my $subset := $<longname> ??
             $*W.create_subset(%*HOW<subset>, $refinee, $refinement, :name($longname.name())) !!
             $*W.create_subset(%*HOW<subset>, $refinee, $refinement);
@@ -3538,7 +3537,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # runs after CHECK time.
         my $past := $<methodop>.ast;
         if $<methodop><longname> {
-            my @parts   := $*W.p5dissect_longname($<methodop><longname>).components();
+            my @parts   := $*W.dissect_longname($<methodop><longname>).components();
             my $name    := @parts.pop;
             if @parts {
                 my $methpkg := $*W.find_symbol(@parts);
@@ -3582,7 +3581,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $<longname> {
             # May just be .foo, but could also be .Foo::bar. Also handle the
             # macro-ish cases.
-            my @parts := $*W.p5dissect_longname($<longname>).components();
+            my @parts := $*W.dissect_longname($<longname>).components();
             my $name := @parts.pop;
             if +@parts {
                 $past.unshift($*W.symbol_lookup(@parts, $/));
@@ -5198,7 +5197,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # GenericHOW, though whether/how it's used depends on context.
         if $<longname> {
             if nqp::substr(~$<longname>, 0, 2) ne '::' {
-                my $longname := $*W.p5dissect_longname($<longname>);
+                my $longname := $*W.dissect_longname($<longname>);
                 my $type := $*W.find_symbol($longname.type_name_parts('type name'));
                 if $<arglist> {
                     $type := $*W.parameterize_type($type, $<arglist>, $/);

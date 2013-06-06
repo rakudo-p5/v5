@@ -347,7 +347,7 @@ role STD5 {
                         
                         # Create a container descriptor. Default to rw and set a
                         # type if we have one; a trait may twiddle with that later.
-                        my %cont_info := $*W.container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE.ast] !! []);
+                        my %cont_info := Perl5::World::container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE.ast] !! []);
                         my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
                         $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
@@ -1376,6 +1376,33 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     # statement control #
     #####################
 
+    token statement_control:sym<import> {
+        <sym> <.ws>
+        <module_name> [ <.spacey> <arglist> ]? <.ws>
+        :my $*HAS_SELF := '';
+        #~ {
+            #~ my $longname := $*W.dissect_longname($<module_name><longname>);
+            #~ nqp::say(">>" ~ $<module_name><longname>);
+            #~ my $module;
+            #~ my $found := 0;
+            #~ try { $module := $*W.find_symbol($longname.components()); $found := 1; }
+            #~ if $found {
+                #~ # todo: fix arglist
+                #~ my $arglist;
+                #~ if $<arglist> {
+                    #~ $arglist := $*W.compile_time_evaluate($/, $<arglist><EXPR>.ast);
+                    #~ $arglist := nqp::getattr($arglist.list.eager,
+                            #~ $*W.find_symbol(['List']), '$!items');
+                #~ }
+                #~ do_import($/, $module.WHO, ~$<module_name><longname>, $arglist);
+            #~ }
+            #~ else {
+                #~ $/.CURSOR.panic("Could not find module " ~ ~$<module_name> ~
+                    #~ " to import symbols from");
+            #~ }
+        #~ }
+    }
+
     my %pragma_defaults := nqp::hash(
         'base',      [],                       # http://perldoc.perl.org/base.html
         'bytes',     [],                       # http://perldoc.perl.org/bytes.html
@@ -1413,7 +1440,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                     
                     # Create a container descriptor. Default to rw and set a
                     # type if we have one; a trait may twiddle with that later.
-                    my %cont_info := $*W.container_type_info($/, $sigil, []);
+                    my %cont_info := Perl5::World::container_type_info($/, $sigil, []);
                     my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
                     $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
@@ -1862,7 +1889,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { unless $*SCOPE { $*SCOPE := 'our'; } }
         
         [
-            [ <longname> { $longname := $*W.p5dissect_longname($<longname>); } ]?
+            [ <longname> { $longname := $*W.dissect_longname($<longname>); } ]?
             <.newlex>
             
             #~ [ :dba('generic role')
@@ -2412,12 +2439,16 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token deflongname {
         :dba('new name to be defined')
-        <name>
+        <name> <colonpair>*
 #        { self.add_routine( ~$<name> ) if $*IN_DECL; }
     }
 
+    token colonpair {
+        <!>
+    }
+
     token longname {
-        <name>
+        <name> <colonpair>*
     }
     
     token name {
@@ -2446,7 +2477,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | '::?'<identifier>                 # parse ::?CLASS as special case
         | <longname>
           <?{
-            my $longname := $*W.p5dissect_longname($<longname>);
+            my $longname := $*W.dissect_longname($<longname>);
             nqp::substr(~$<longname>, 0, 2) eq '::' ??
                 1 !! # ::T introduces a type, so always is one
                 $*W.is_name($longname.type_name_parts('type name'))
@@ -3832,7 +3863,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token term:sym<name> {
         <longname>
         :my $*longname;
-        { $*longname := $*W.p5dissect_longname($<longname>) }
+        { $*longname := $*W.dissect_longname($<longname>) }
         [
         ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::' || $*W.is_name($*longname.components()) }>
             <.unsp>?

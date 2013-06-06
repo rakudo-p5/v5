@@ -1,17 +1,11 @@
 
-# This will be mixed in within Perl5.pm.
-role Perl5::World {
-    method p5dissect_longname( $longname ) {
-        $longname<colonpair> := nqp::list();
-        self.dissect_longname( $longname )
-    }
-
+class Perl5::World {
     # Given a sigil and the the value type specified, works out the
     # container type (what should we instantiate and bind into the
     # attribute/lexpad), bind constraint (what could we bind to this
     # slot later), and if specified a constraint on the inner value
     # and a default value.
-    method container_type_info($/, $sigil, @value_type, $shape?) {
+    our sub container_type_info($/, $sigil, @value_type, $shape?) {
         my %info;
         if $sigil eq '@' {
             %info<container_base>  := $*W.find_symbol(['Array']);
