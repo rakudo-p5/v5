@@ -238,7 +238,10 @@ printf STATUS "        <tr align=center><td align=left>summary</td><td>%d</td><t
 for ( reverse sort { $a <=> $b } keys %status_rows ) {
     print STATUS $status_rows{$_};
 }
-print STATUS "    </tbody>\n</table>\n";
+print STATUS "
+        <tr><td>nqp --version</td><td colspan=5>" . `nqp --version` . "</td></tr>
+        <tr><td>perl6 --version</td><td colspan=5>" . `perl6 --version` . "</td></tr>
+    </tbody>\n</table>\n";
 close STATUS;
 
 defined $benchmark && $benchmark->end(); # finish simple relative benchmarking
