@@ -3896,6 +3896,21 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make QAST::Var.new( :name('$?PACKAGE'), :scope('lexical') );
     }
 
+    method term:sym<STDIN>($/) {
+        $V5DEBUG && say("term:sym<STDIN>($/)");
+        make QAST::Var.new( :name('$*IN'), :scope('lexical') );
+    }
+
+    method term:sym<STDOUT>($/) {
+        $V5DEBUG && say("term:sym<STDOUT>($/)");
+        make QAST::Var.new( :name('$*OUT'), :scope('lexical') );
+    }
+
+    method term:sym<STDERR>($/) {
+        $V5DEBUG && say("term:sym<STDERR>($/)");
+        make QAST::Var.new( :name('$*ERR'), :scope('lexical') );
+    }
+
     sub make_yada($name, $/) {
 	    my $past := $<args>.ast;
 	    $past.name($name);

@@ -3530,6 +3530,16 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym>
     }
 
+    token term:sym<STDIN> {
+        <sym>
+    }
+    token term:sym<STDOUT> {
+        <sym>
+    }
+    token term:sym<STDERR> {
+        <sym>
+    }
+
 #    token term:sym<rmdir>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
