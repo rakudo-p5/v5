@@ -223,8 +223,9 @@ at t/spec/mro/method_caching_utf8.v5:32
         <tr align=center><td align=left rowspan=2>op/64bitint.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
-===SORRY!===
-Could not find warnings in any of: ../lib
+UV_max eq '0', doesn't end in 5; your UV isn't 4n bits long :-(.
+  in block  at t/spec/op/64bitint.v5:25
+
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/anonsub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -873,7 +874,7 @@ at t/spec/io/perlio_leaks.v5:25
 ------> 	    local $::TODO⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>io/say.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&is_miniperl'
+Could not find Errno in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1220,7 +1221,7 @@ at t/spec/io/iprefix.v5:22
 ------> @ARGV⏏ = @tfiles;</td></tr>
         <tr align=center><td align=left rowspan=2>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&is_miniperl'
+Could not find Errno in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -1250,7 +1251,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x16afb9f0] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x15745220] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1333,7 +1334,7 @@ at t/spec/uni/goto.v5:22
 ------>     goto &{"\⏏345\225\217\351\241\214\343\201\256\345\</td></tr>
         <tr align=center><td align=left rowspan=2>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&is_miniperl'
+Could not find Errno in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>t/v5/12-context.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan=5>WARNINGS:
@@ -1762,11 +1763,11 @@ at t/spec/op/select.v5:20
         <tr><td colspan=5>WARNINGS:
 Useless use of constant integer 1 in sink context (line 58)
 ===SORRY!===
-Could not find sub cuid_57_1370628577.43799
+Could not find sub cuid_58_1370633939.55886
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&is_miniperl'
+Could not find Errno in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2271,7 +2272,7 @@ at t/spec/io/pipe.v5:238
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&is_miniperl'
+Could not find Errno in any of: ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2452,7 +2453,7 @@ at t/spec/io/perlio.v5:29
 ------> print $txtfh ⏏"foo\n";</td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
-No such symbol '&is_miniperl'
+Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2568,7 +2569,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_96_1370628171.99086
+Could not find sub cuid_96_1370633533.71235
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'

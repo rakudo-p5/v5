@@ -35,6 +35,7 @@ sub _done()                  { done()                             }
     sub is                      { _is($_[0], $_[1], $_[2])            }
     sub isnt                    { _isnt(@_)                           }
     sub is_approx               { _is_approx(@_)                      }
+    sub is_miniperl             { 0                                   }
     sub todo                    { _todo(@_)                           }
     sub skip                    { _skip(@_)                           }
     sub skip_all                { _skip_rest(@_)                      }
