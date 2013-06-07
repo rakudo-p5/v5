@@ -109,13 +109,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
 
-    # TODO: inline string_to_bigint?
     my sub string_to_bigint($src, $base) {
         $V5DEBUG && say("my sub string_to_bigint($src, $base)");
         my $res := nqp::radix_I($base, ~$src, 0, 2, $*W.find_symbol(['Int']));
         $src.CURSOR.panic("'$src' is not a valid number")
-            unless nqp::iseq_i(nqp::unbox_i(nqp::atkey($res, 2)), nqp::chars($src));
-        nqp::atkey($res, 0);
+            unless nqp::iseq_i(nqp::unbox_i(nqp::atpos($res, 2)), nqp::chars($src));
+        nqp::atpos($res, 0);
     }
 
     sub xblock_immediate($xblock) {
@@ -212,12 +211,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         );
         $*W.add_fixup_task(:deserialize_past($global_install), :fixup_past($global_install));
 
-        # Mainline should have fresh lexicals.
-        $*W.get_static_lexpad($unit).set_fresh_magicals();
-
         # Get the block for the entire compilation unit.
         my $outer := $*UNIT_OUTER;
         $outer.node($/);
+        $*UNIT_OUTER.unshift(QAST::Var.new( :name('__args__'), :scope('local'), :decl('param'), :slurpy(1) ));
 
         # Load the needed libraries.
         $*W.add_libs($unit);
@@ -280,6 +277,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $compunit<UNIT>      := $unit;
         $compunit<GLOBALish> := $*GLOBALish;
         $compunit<W>         := $*W;
+        
+        # Do any final compiler state cleanup tasks.
+        $*W.cleanup();
 
         make $compunit;
     }
@@ -621,12 +621,21 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("add_param($block, $name)");
         unless $block.symbol($name) {
             if $*IMPLICIT {
+                #~ $block[0].push(QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') ));
                 @params.push(hash(
                     :variable_name($name), :optional(1),
                     :nominal_type($*W.find_symbol(['Mu'])),
                     :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
                 ));
             }
+            #~ else {
+                #~ $block[0].push(QAST::Op.new(
+                    #~ :op('bind'),
+                    #~ QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') ),
+                    #~ QAST::Op.new( :op('getlexouter'), QAST::SVal.new( :value('$_') ) )
+                #~ ));
+            #~ }
+            #~ $block.symbol('$_', :scope('lexical'), :type($*W.find_symbol(['Mu'])));
             # XXX TODO proper handling of our-variables --------------------v
             $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
             $block.symbol($name, :scope('lexical'), :lazyinit($name eq '$_') );
@@ -661,8 +670,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
             add_signature_binding_code($block, $signature, @params);
             
             # Add a slot for a $*DISPATCHER, and a call to take one.
-            add_implicit_var($block, '$*DISPATCHER');
-            $block[0].unshift(QAST::Op.new(:op('p6takedisp')));
+            $block[0].push(QAST::Var.new( :name('$*DISPATCHER'), :scope('lexical'), :decl('var') ));
+            $block[0].push(QAST::Op.new(
+                :op('takedispatcher'),
+                QAST::SVal.new( :value('$*DISPATCHER') )
+            ));
 
             # We'll install PAST in current block so it gets capture_lex'd.
             # Then evaluate to a reference to the block (non-closure - higher
@@ -682,8 +694,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $block<placeholder_sig> {
             my $name := $block<placeholder_sig><variable_name>;
             unless $name eq '%_' || $name eq '@_' {
-                $name := nqp::concat_s(nqp::substr($name, 0, 1),
-                        nqp::concat_s('^', nqp::substr($name, 1)));
+                $name := nqp::concat(nqp::substr($name, 0, 1),
+                        nqp::concat('^', nqp::substr($name, 1)));
             }
 
             $*W.throw( $/, ['X', 'Placeholder', 'Block'],
@@ -738,21 +750,37 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method finishlex($/) {
         $V5DEBUG && say("finishlex($/)");
-        # Generate the $_, $/, and $! lexicals if they aren't already
-        # declared. We don't actually give them a value, but rather the
-        # Perl6LexPad will generate containers (and maybe fill them with
-        # the outer's value) on demand.
+        # Generate the $_, $/, and $! lexicals for routines if they aren't
+        # already declared. For blocks, $_ will come from the outer if it
+        # isn't already declared.
         my $BLOCK := $*W.cur_lexpad();
         my $type := $BLOCK<IN_DECL>;
+        if $type eq 'mainline' && %*COMPILING<%?OPTIONS><setting> eq 'NULL' {
+            # Don't do anything in the case where we are in the mainline of
+            # the setting; we don't have any symbols (Scalar, etc.) yet.
+            return 1;
+        }
         my $is_routine := $type eq 'sub' || $type eq 'method' ||
                           $type eq 'submethod' || $type eq 'mainline';
-        for ($is_routine ?? <$_ $/ $!> !! ['$_']) {
+        if $is_routine {
             # Generate the lexical variable except if...
             #   (1) the block already has one, or
             #   (2) the variable is '$_' and $*IMPLICIT is set
             #       (this case gets handled by getsig)
-            unless $BLOCK.symbol($_) || ($_ eq '$_' && $*IMPLICIT) {
-                add_implicit_var($BLOCK, $_);
+            for <$_ $/ $!> {
+                unless $BLOCK.symbol($_) || ($_ eq '$_' && $*IMPLICIT) {
+                    $*W.install_lexical_magical($BLOCK, $_);
+                }
+            }
+        }
+        else {
+            unless $BLOCK.symbol('$_') || $*IMPLICIT {
+                $BLOCK[0].push(QAST::Op.new(
+                    :op('bind'),
+                    QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') ),
+                    QAST::Op.new( :op('getlexouter'), QAST::SVal.new( :value('$_') ) )
+                ));
+                $BLOCK.symbol('$_', :scope('lexical'), :type($*W.find_symbol(['Mu'])));
             }
         }
     }
@@ -1143,9 +1171,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     )),
                 ),
                 QAST::VM.new(
-                    pirop => 'perl6_invoke_catchhandler 1PP',
-                    QAST::Op.new( :op('null') ),
-                    QAST::Op.new( :op('exception') )
+                    :parrot(QAST::VM.new(
+                        pirop => 'perl6_invoke_catchhandler 1PP',
+                        QAST::Op.new( :op('null') ),
+                        QAST::Op.new( :op('exception') )
+                    )),
+                    :jvm(QAST::Op.new( :op('null') ))
                 ),
                 QAST::WVal.new(
                     :value( $*W.find_symbol(['Nil']) ),
@@ -2201,8 +2232,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
         add_signature_binding_code($block, $signature, @params);
 
         # Needs a slot that can hold a (potentially unvivified) dispatcher;
-        add_implicit_var($block, '$*DISPATCHER');
-        $block[0].unshift(QAST::Op.new(:op('p6takedisp')));
+        $block[0].push(QAST::Var.new( :name('$*DISPATCHER'), :scope('lexical'), :decl('var') ));
+        $block[0].push(QAST::Op.new(
+            :op('takedispatcher'),
+            QAST::SVal.new( :value('$*DISPATCHER') )
+        ));
+
 
         # Set name.
         if $<deflongname> {
@@ -2363,7 +2398,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             # Operations need checking for their inlinability. If they are OK in
             # themselves, it comes down to the children.
             elsif nqp::istype($node, QAST::Op) {
-                if QAST::Operations.is_inlinable('perl6', $node.op) {
+                if nqp::getcomp('QAST').operations.is_inlinable('perl6', $node.op) {
                     my $replacement := clone_qast($node);
                     my int $i := 0;
                     my int $n := +@($node);
@@ -2622,11 +2657,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     variable_name => '%_',
                     nominal_type => $*W.find_symbol(['Mu']),
                     named_slurpy => 1,
-                    is_multi_invocant => 1,
-                    is_method_named_slurpy => 1
+                    is_multi_invocant => 1
                 ));
                 $past[0].unshift(QAST::Var.new( :name('%_'), :scope('lexical'), :decl('var') ));
-                $past.symbol('%_', :scope('lexical'), :lazyinit(1));
+                $past.symbol('%_', :scope('lexical'));
             }
         }
         set_default_parameter_type(@params, 'Any');
@@ -2640,7 +2674,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # Needs a slot to hold a multi or method dispatcher.
         $*W.install_lexical_symbol($past, '$*DISPATCHER',
             $*W.find_symbol([$*MULTINESS eq 'multi' ?? 'MultiDispatcher' !! 'MethodDispatcher']));
-        $past[0].unshift(QAST::Op.new(:op('p6takedisp')));
+        $past[0].push(QAST::Op.new(
+            :op('takedispatcher'),
+            QAST::SVal.new( :value('$*DISPATCHER') )
+        ));
 
         # Finish up code object.
         $*W.attach_signature($code, $signature);
@@ -2685,7 +2722,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             return 0 unless
                 # It's a simple operation.
                 nqp::istype($past, QAST::Op)
-                    && QAST::Operations.is_inlinable('perl6', $past.op) ||
+                    && nqp::getcomp('QAST').operations.is_inlinable('perl6', $past.op) ||
                 # Just a variable lookup.
                 nqp::istype($past, QAST::Var) ||
                 # Just a QAST::Want
@@ -2797,8 +2834,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $block[0].push(QAST::Var.new(:name<$¢>, :scope<lexical>, :decl('var')));
             $block.symbol('$¢', :scope<lexical>);
             unless $use_outer_match {
-                $block[0].push(QAST::Var.new(:name<$/>, :scope<lexical>, :decl('var')));
-                $block.symbol('$/', :scope<lexical>, :lazyinit(1));
+                $*W.install_lexical_magical($block, '$/');
             }
             #$past := %*RX<P5>
             #    ?? %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
@@ -4129,7 +4165,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $past.op eq 'want' {
             $past[1] := compile_time_value_str($past[1], 'want specification', $/);
         }
-        QAST::Operations.attach_result_type('perl6', $past);
+        nqp::getcomp('QAST').operations.attach_result_type('perl6', $past);
         make $past;
     }
 
@@ -4568,7 +4604,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             # We may need to decontainerize the right, depending on sigil.
             my $sigil := nqp::substr($target.name(), 0, 1);
             if $sigil eq '@' || $sigil eq '%' {
-                $source := QAST::Op.new( :op('p6decont'), $source );
+                $source := QAST::Op.new( :op('decont'), $source );
             }
 
             # Now go by scope.
@@ -5491,7 +5527,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     sub add_placeholder_parameter($/, $sigil, $ident, :$named, :$pos_slurpy, :$named_slurpy, :$full_name) {
         # Ensure we're not trying to put a placeholder in the mainline.
         my $block := $*W.cur_lexpad();
-        if $block<IN_DECL> eq 'mainline' {
+        if $block<IN_DECL> eq 'mainline' || $block<IN_DECL> eq 'eval' {
             $*W.throw($/, ['X', 'Placeholder', 'Mainline'],
                 placeholder => $full_name,
             );
@@ -5636,11 +5672,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         return $*W.create_code_object($past, 'Block', $sig);
     }
 
-    sub add_implicit_var($block, $name) {
-        $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
-        $block.symbol($name, :scope('lexical'), :lazyinit(1) );
-    }
-
     sub when_handler_helper($when_block) {
         unless nqp::existskey(%*HANDLERS, 'SUCCEED') {
             %*HANDLERS<SUCCEED> := QAST::Op.new(
@@ -5682,6 +5713,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     # XXX This isn't quite right yet... need to evaluate these semantics
     sub set_block_handler($/, $handler, $type) {
+        # Handler needs its own $/ and $!.
+        $*W.install_lexical_magical($handler<past_block>, '$!');
+        $*W.install_lexical_magical($handler<past_block>, '$/');
+        
         # unshift handler preamble: create exception object and store it into $_
         my $exceptionreg := $handler.unique('exception_');
         my $handler_preamble := QAST::Stmts.new(
@@ -5695,12 +5730,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 )
             ),
             QAST::Op.new( :op('p6store'),
-                QAST::VM.new( :pirop('find_lex_skip_current__Ps'),
-                    QAST::SVal.new( :value('$!') )),
+                QAST::Op.new( :op('getlexouter'), QAST::SVal.new( :value('$!') ) ),
                 QAST::Var.new( :scope('lexical'), :name('$_') ),
-            ),
-            QAST::Var.new( :scope('lexical'), :name('$!'), :decl('var') ),
-            QAST::Var.new( :scope('lexical'), :name('$/'), :decl('var') ),
+            )
         );
         $handler<past_block>.unshift($handler_preamble);
         
@@ -5722,8 +5754,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # code in our handler throws an exception.
         my $ex := QAST::Op.new( :op('exception') );
         if $handler<past_block><handlers> && nqp::existskey($handler<past_block><handlers>, $type) {
+#?if parrot
             $ex := QAST::VM.new( :pirop('perl6_skip_handlers_in_rethrow__0Pi'),
                 $ex, QAST::IVal.new( :value(1) ));
+#?endif
         }
         else {
             my $prev_content := QAST::Stmts.new();
@@ -5734,10 +5768,15 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $prev_content,
                 'CATCH',
                 QAST::VM.new(
-                    :pirop('perl6_based_rethrow 1PP'),
-                    QAST::Op.new( :op('exception') ),
-                    QAST::Var.new( :name($exceptionreg), :scope('local') )
-                )));
+                    :parrot(QAST::VM.new(
+                        :pirop('perl6_based_rethrow 1PP'),
+                        QAST::Op.new( :op('exception') ),
+                        QAST::Var.new( :name($exceptionreg), :scope('local') ),
+                    )),
+                    :jvm(QAST::Op.new(
+                        :op('rethrow'),
+                        QAST::Op.new( :op('exception') )
+                    )))));
                 
             # rethrow the exception if we reach the end of the handler
             # (if a when {} clause matches this will get skipped due
@@ -5751,7 +5790,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # as argument and returns the result. The install the handler.
         %*HANDLERS{$type} := QAST::Stmts.new(
             :node($/),
-            QAST::VM.new( :pirop('perl6_invoke_catchhandler__vPP'), $handler, $ex),
+            QAST::VM.new(
+                :parrot(QAST::VM.new( :pirop('perl6_invoke_catchhandler__vPP'), $handler, $ex )),
+                :jvm(QAST::Op.new( :op('call'), $handler ))
+            ),
             QAST::Var.new( :scope('lexical'), :name('Nil') )
         );
     }
@@ -6006,7 +6048,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             }
         }
 
-        $number := strip_trailing_zeros($number);
+        $number := strip_trailing_zeros(~$number);
 
         my $Int := $*W.find_symbol(['Int']);
 
