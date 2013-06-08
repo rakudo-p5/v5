@@ -3230,6 +3230,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $n := '';
         :my $i := 0;
         <.ws>
+        [ <indirect_object> [ <?before \s+> | <?[(]> ] <.ws> <?before <EXPR('i=')> > ]?
         :dba('argument list')
         [
         | <?stdstopper>
@@ -3530,16 +3531,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <sym>
     }
 
-    token term:sym<STDIN> {
-        <sym>
-    }
-    token term:sym<STDOUT> {
-        <sym>
-    }
-    token term:sym<STDERR> {
-        <sym>
-    }
-
 #    token term:sym<rmdir>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
@@ -3808,6 +3799,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <O('%term')>
     }
 
+    token indirect_object {
+        #| <variable> <?{ $*W.is_lexical(~$<variable>) }> # check that there is a class is inside
+        | <name>     <?{ $*W.is_type([~$<name>]) }>
+    }
+
 #    # force identifier(), identifier.(), etc. to be a function call always
 #    token term:sym<identifier>
 #    {
@@ -3824,7 +3820,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $name;
         :my $*ARGUMENT_WANT := 0;
         :my $*ARGUMENT_HAVE := 0;
-        <identifier> <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/; }>
+        <identifier>
+        <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/ }>
+        <!{ $*W.is_type([~$<identifier>]) }>
         { $name := ~$<identifier>; %prototype{$name} := '@' unless nqp::defined(%prototype{$name}) }
         [\h+ <?[(]>]?
         <args(%prototype{$name})>

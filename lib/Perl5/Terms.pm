@@ -27,8 +27,22 @@ my $COMPILING;
 my $DEBUGGING;
 my $PERLDB;
 
+class STDIN {
+}
+class STDOUT {
+    method say  (*@a) { $*OUT.say( join('', @a) ) }
+    method print(*@a) { $*OUT.say( join('', @a) ) }
+}
+class STDERR {
+    method say  (*@a) { $*ERR.say( join('', @a) ) }
+    method print(*@a) { $*ERR.say( join('', @a) ) }
+}
+
 sub EXPORT(|) {
     my %ex;
+    %ex<STDIN>                    := STDIN;
+    %ex<STDOUT>                   := STDOUT;
+    %ex<STDERR>                   := STDERR;
     %ex<%ENV>                     := %*ENV;
     %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
     %ex<$$>                       := $*PID;
@@ -73,8 +87,6 @@ sub EXPORT(|) {
 
     %ex
 }
-
-class Perl5::Terms;
 
 multi sub chop()          is export { chop(CALLER::DYNAMIC::<$_>) }
 multi sub chop(*@s is rw) is export {

@@ -3854,13 +3854,28 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make $past
     }
 
+    method indirect_object($/) {
+        $V5DEBUG && say("indirect_object($/)");
+        if $<name> {
+            make QAST::WVal.new( :value($*W.find_symbol([~$<name>])))
+        }
+        elsif $<variable> {
+            make $<variable>.ast
+        }
+        
+    }
+
     method term:sym<say>($/) {
         $V5DEBUG && say("term:sym<say>($/)");
         my $past := $<arglist> ?? $<arglist>.ast
                  !! QAST::Op.new( :op('call'), QAST::Var.new( :name('$_'), :scope('lexical') ) );
-        $past.name('&infix:<P5~>');
-        
-        $past := QAST::Op.new( :op('callmethod'), :name('say'), $past );
+        if $<arglist><indirect_object> {
+            $past.name('say');
+        }
+        else {
+            $past.name('&infix:<P5~>');
+            $past := QAST::Op.new( :op('callmethod'), :name('say'), $past );
+        }
         make $past
     }
 
@@ -3894,21 +3909,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("term:sym<__PACKAGE__>($/)");
         # TODO stringify to 'main' for (GLOBAL)
         make QAST::Var.new( :name('$?PACKAGE'), :scope('lexical') );
-    }
-
-    method term:sym<STDIN>($/) {
-        $V5DEBUG && say("term:sym<STDIN>($/)");
-        make QAST::Var.new( :name('$*IN'), :scope('lexical') );
-    }
-
-    method term:sym<STDOUT>($/) {
-        $V5DEBUG && say("term:sym<STDOUT>($/)");
-        make QAST::Var.new( :name('$*OUT'), :scope('lexical') );
-    }
-
-    method term:sym<STDERR>($/) {
-        $V5DEBUG && say("term:sym<STDERR>($/)");
-        make QAST::Var.new( :name('$*ERR'), :scope('lexical') );
     }
 
     sub make_yada($name, $/) {
@@ -3998,7 +3998,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
     method term:sym<identifier>($/) {
         $V5DEBUG && say("term:sym<identifier>($/)");
         my $past := $<args>.ast;
-        $past.unshift( self.make_indirect_lookup(['&' ~ $<identifier>]) );
+        if $<args><arglist><indirect_object> {
+            $past.name( ~$<identifier> );
+        }
+        else {
+            $past.unshift( self.make_indirect_lookup(['&' ~ $<identifier>]) );
+        }
         make $past;
     }
 
@@ -4250,6 +4255,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     }
                 }
             }
+        }
+        if $<indirect_object> {
+            $past.op('callmethod');
+            $past.unshift( $<indirect_object>.ast )
         }
 
         make $past;
