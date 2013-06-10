@@ -90,6 +90,7 @@ my $syn;
 for $syn (@syn) {
     $syn{$syn} = 0;
     for my $col (@col) {
+        $sum{"$col"}      = 0;
         $sum{"$syn-$col"} = 0;
     }
 }
@@ -151,7 +152,7 @@ sub test_single_file {
     }
     close $th or die $!;
     my $tname = $tname{$tfile};
-    my $tsyn = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
+    my $syn   = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
 
     $syn{$syn}++;
     printf "%s%s..", $tname, '.' x ($max - length($tname));
@@ -211,11 +212,33 @@ sub test_single_file {
 
     {
         lock %status_rows;
-        if( $stderr ) {
-            $stderr =~ s/\0+//g;
-            $stderr =~ s/.\[\d+m//g;
-            $stderr =~ s/\s+expecting any of:.+$//s;
-            $stderr =~ s/\s*called from Sub.+$//s;
+        my $msg = '';
+        for (keys %skip) {
+            $msg .= sprintf " &nbqp; %3d skipped: %s<br />\n", $skip{$_}, $_;
+        }
+        for (keys %todofail) {
+            $msg .= sprintf " &nbqp; %3d todo   : %s<br />\n", $todofail{$_}, $_;
+        }
+        for (keys %todopass) {
+            $msg .= sprintf " &nbqp; %3d todo PASSED: %s<br />\n", $todopass{$_}, $_;
+        }
+        #~ if ($abort) {
+            #~ printf "   %3d tests aborted (missing ok/not ok)\n", $abort;
+        #~ }
+        if ($bonus) {
+            $msg .= sprintf"   %3d tests more than planned were run<br />\n", $bonus;
+        }
+        if( $stderr || $msg ) {
+            if( $stderr ) {
+                $stderr   =~ s/\0+//g;
+                $stderr   =~ s/.\[\d+m//g;
+                $stderr   =~ s/\s+expecting any of:.+$//s;
+                $stderr   =~ s/\s*called from Sub.+$//s;
+                $stderr  .=  "<br />$msg" if $msg;
+            }
+            elsif( $msg ) {
+                $stderr = $msg
+            }
             $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
             = sprintf "        <tr align=center><td align=left rowspan=2>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
                     . "        <tr><td colspan=5>%s</td></tr>\n",
@@ -240,21 +263,6 @@ sub test_single_file {
         my $f = $tfile;
         $f =~ s/\.$implementation$/.t/;
         $plan_per_file{$f} = $plan;
-    }
-    for (keys %skip) {
-        printf "   %3d skipped: %s\n", $skip{$_}, $_;
-    }
-    for (keys %todofail) {
-        printf "   %3d todo   : %s\n", $todofail{$_}, $_;
-    }
-    for (keys %todopass) {
-        printf "   %3d todo PASSED: %s\n", $todopass{$_}, $_;
-    }
-    if ($abort) {
-        printf "   %3d tests aborted (missing ok/not ok)\n", $abort;
-    }
-    if ($bonus) {
-        printf "   %3d tests more than planned were run\n", $bonus;
     }
     defined $benchmark && $benchmark->log_script_times($tfile,\@times,\@comments);
 } # for my $tfile (@tfiles)
