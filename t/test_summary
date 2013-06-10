@@ -24,11 +24,14 @@ use strict;
 use warnings;
 use threads;
 use threads::shared;
+use File::Copy;
+use Term::ANSIColor;
 use Time::Local;
 use Time::HiRes;
 use Getopt::Long;
-use Capture::Tiny qw(capture);
+use Capture::Tiny qw(capture_stderr);
 
+my $time = time;
 my $timing;
 my $view;
 unless (GetOptions('timing' => \$timing, 'view' => \$view)) {
@@ -61,6 +64,7 @@ close $fh or die $!;
 # Fudge any implementation specific tests by running the fudgeall script
 {
     my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, 't/*/*.t t/*/*/*.t';
+    #~ my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, 't/spec/base/*.t';
     # Fudgeall prints the name of each test script, but changes the name
     # ending to match the implementation instead of .t if tests were fudged.
     print "$cmd\n";
@@ -98,49 +102,108 @@ for $syn (@syn) {
 $syn = ''; # to reliably trigger the display of column headings
 
 # Execute all test scripts, aggregate the results, display the failures
-$| = 1;
+
 my ( @fail, @plan_hint );
 my %plan_per_file;
-open STATUS, '>STATUS.md';
-print STATUS "<table align=center>
+
+my $last_status;
+if( eval 'require XML::Simple; 1' ) {
+    $last_status = XML::Simple::XMLin('STATUS.md');
+    for my $tr ( @{ $last_status->{tbody}->{tr} } ) {
+        if( 'ARRAY' eq ref $tr->{td} && 'HASH' eq ref $tr->{td}[0] ) {
+            @{ $last_status->{ $tr->{td}[0]{content} } } = @{ $tr->{td} }[1..5]
+        }
+    }
+}
+
+open STATUS, '>STATUS.md.new';
+print STATUS "<table align='center'>
     <thead>
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
 ";
-printf "%s  pass fail todo skip plan\n", ' ' x $max;
+printf "%s     pass     fail     todo     skip     plan\n", ' ' x $max;
 
 my %status_rows  : shared;
 my $row_count = 0;
 my @threads_todo;
-#my @threads_done : shared;
 for my $tfile ( @tfiles ) {
-    push @threads_todo, [ $tfile, $row_count++ ];
+    push @threads_todo, $tfile;
 }
 
-threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
-threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
-threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
-threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
+threads->create( \&test_single_file, shift(@threads_todo) );
+threads->create( \&test_single_file, shift(@threads_todo) );
+threads->create( \&test_single_file, shift(@threads_todo) );
+threads->create( \&test_single_file, shift(@threads_todo) );
+
+$| = 1;
 
 while( @threads_todo ) {
     for( threads->list(threads::joinable) ) {
         $_->join();
+        print_stats( $_->tid() );
         if( scalar @threads_todo ) {
-            my $job = shift(@threads_todo);
-            threads->create( \&test_single_file, $job->[0], $job->[1] );
+            threads->create( \&test_single_file, shift(@threads_todo) );
         }
     }
-    Time::HiRes::usleep( 20 )
+    my $done      = scalar @tfiles - scalar @threads_todo;
+    my $elapsed   = time - $time;
+    my $total     = $elapsed / $done * scalar @tfiles;
+    my $remaining = $elapsed / $done * scalar @threads_todo;
+    printf "\r%4d%%   time elapsed: %2d:%02d   time remaining: %2d:%02d   estimated total time: %2d:%02d",
+        $done * 100 / scalar @tfiles,
+        int($elapsed   / 60), $elapsed   - int($elapsed   / 60) * 60,
+        int($remaining / 60), $remaining - int($remaining / 60) * 60,
+        int($total     / 60), $total     - int($total     / 60) * 60,
+        ;
+    Time::HiRes::usleep( 100_000 )
 }
 
-for( threads->list ) {
+for( threads->list() ) {
     $_->join();
+    print_stats( $_->tid() );
+}
+
+sub print_stats {
+    my $tid  = shift;
+    my %diff = col_diff( $tid );
+    printf "\r%s%s..%4d %s %4d %s %4d %s %4d %s %4d %s                                       \n",
+        $sum{"$tid-name"}, '.' x ($max - length($sum{"$tid-name"})),
+        $sum{"$tid-pass"}, $diff{'pass'},
+        $sum{"$tid-fail"}, $diff{'fail'},
+        $sum{"$tid-todo"}, $diff{'todo'},
+        $sum{"$tid-skip"}, $diff{'skip'},
+        $sum{"$tid-plan"}, $diff{'plan'};
+}
+
+sub col_diff {
+    my $tid  = shift;
+    my $i    = 0;
+    my $name = $sum{"$tid-name"};
+    my %ret;
+    $last_status->{ $name } //= [0, 0, 0, 0, 0];
+    for( qw(pass fail todo skip plan) ) {
+        if( $last_status->{ $name }[$i] == $sum{"$tid-$_"} ) {
+            $ret{$_} = color('white') . '  0' . color('reset');
+        }
+        elsif( $last_status->{ $name }[$i] > $sum{"$tid-$_"} ) {
+            my $color = $_ eq 'fail' ? 'green' : 'red';
+            $ret{$_} = color("bright_$color") . sprintf('%3d', $sum{"$tid-$_"} - $last_status->{ $name }[$i]) . color('reset');
+        }
+        else {
+            my $color = $_ eq 'fail' ? 'red' : 'green';
+            $ret{$_} = color("bright_$color") . sprintf('%3s', '+' . ($sum{"$tid-$_"} - $last_status->{ $name }[$i])) . color('reset');
+        }
+        
+        $i++;
+    }
+    %ret
 }
 
 sub test_single_file {
     my $tfile     = shift || return;
-    my $row_count = shift;
+    my $row_count = threads->tid();
     my $th;
     open($th, '<', $tfile) || die "Can't read $tfile: $!\n";
     my ($pass,$fail,$todo,$skip,$plan,$abort,$bonus) = (0,0,0,0,0,0,0);
@@ -155,13 +218,11 @@ sub test_single_file {
     my $syn   = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
 
     $syn{$syn}++;
-    printf "%s%s..", $tname, '.' x ($max - length($tname));
     my $cmd = "perl6 $tfile";
     # Run the test, collecting all stdout in @results
-    my $stdout;
     my $stderr;
     my @results;
-    ($stdout, $stderr, @results) = capture sub { qx{$cmd} };
+    ($stderr, @results) = capture_stderr { qx{$cmd} };
     my (%skip, %todopass, %todofail);
     my ($time1, $time2, $testnumber, $test_comment ) = ( 0, 0, 0, '' );
     my @times = (); my @comments = ();
@@ -223,40 +284,53 @@ sub test_single_file {
             $msg .= sprintf " &nbqp; %3d todo PASSED: %s<br />\n", $todopass{$_}, $_;
         }
         #~ if ($abort) {
-            #~ printf "   %3d tests aborted (missing ok/not ok)\n", $abort;
+        #~     printf "   %3d tests aborted (missing ok/not ok)\n", $abort;
         #~ }
         if ($bonus) {
             $msg .= sprintf"   %3d tests more than planned were run<br />\n", $bonus;
         }
         if( $stderr || $msg ) {
+            if( $msg ) {
+                $msg =~ s/&/&amp;/g;
+                $msg =~ s/</&lt;/g;
+                $msg =~ s/>/&gt;/g;
+            }
             if( $stderr ) {
-                $stderr   =~ s/\0+//g;
-                $stderr   =~ s/.\[\d+m//g;
-                $stderr   =~ s/\s+expecting any of:.+$//s;
-                $stderr   =~ s/\s*called from Sub.+$//s;
-                $stderr  .=  "<br />$msg" if $msg;
+                $stderr  =~ s/&/&amp;/g;
+                $stderr  =~ s/</&lt;/g;
+                $stderr  =~ s/>/&gt;/g;
+                $stderr  =~ s/\0+//g;
+                $stderr  =~ s/.\[\d+m//g;
+                $stderr  =~ s/\s+expecting any of:.+$//s;
+                $stderr  =~ s/\s*called from Sub.+$//s;
+                $stderr .=  "<br />$msg" if $msg;
             }
             elsif( $msg ) {
                 $stderr = $msg
             }
             $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
-            = sprintf "        <tr align=center><td align=left rowspan=2>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
-                    . "        <tr><td colspan=5>%s</td></tr>\n",
+            = sprintf "        <tr align='center'><td align='left' rowspan='2'>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
+                    . "        <tr><td colspan='5'>%s</td></tr>\n",
                 $tname, $pass, $fail, $todo, $skip, $plan, $stderr;
         }
         else {
             $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
-            = sprintf "        <tr align=center><td align=left>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
+            = sprintf "        <tr align='center'><td align='left'>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
                 $tname, $pass, $fail, $todo, $skip, $plan;
         }
         lock %sum;
-        printf "%4d %4d %4d %4d %4d\n",
-            $pass, $fail, $todo, $skip, $plan;
         $sum{'pass'} += $pass;  $sum{"$syn-pass"} += $pass;
         $sum{'fail'} += $fail;  $sum{"$syn-fail"} += $fail;
         $sum{'todo'} += $todo;  $sum{"$syn-todo"} += $todo;
         $sum{'skip'} += $skip;  $sum{"$syn-skip"} += $skip;
         $sum{'plan'} += $plan;  $sum{"$syn-plan"} += $plan;
+        my $tid = threads->tid();
+        $sum{"$tid-name"} = $tname;
+        $sum{"$tid-pass"} = $pass;
+        $sum{"$tid-fail"} = $fail;
+        $sum{"$tid-todo"} = $todo;
+        $sum{"$tid-skip"} = $skip;
+        $sum{"$tid-plan"} = $plan;
     }
     
     {
@@ -267,16 +341,17 @@ sub test_single_file {
     defined $benchmark && $benchmark->log_script_times($tfile,\@times,\@comments);
 } # for my $tfile (@tfiles)
 
-printf STATUS "        <tr align=center><td align=left>summary</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
+printf STATUS "        <tr align='center'><td align='left'>summary</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
     $sum{'pass'}, $sum{'fail'}, $sum{'todo'}, $sum{'skip'}, $sum{'plan'};
 for ( reverse sort { $a <=> $b } keys %status_rows ) {
     print STATUS $status_rows{$_};
 }
 print STATUS "
-        <tr><td>nqp --version</td><td colspan=5>" . `nqp --version` . "</td></tr>
-        <tr><td>perl6 --version</td><td colspan=5>" . `perl6 --version` . "</td></tr>
+        <tr><td>nqp --version</td><td colspan='5'>" . `nqp --version` . "</td></tr>
+        <tr><td>perl6 --version</td><td colspan='5'>" . `perl6 --version` . "</td></tr>
     </tbody>\n</table>\n";
 close STATUS;
+File::Copy::move('STATUS.md.new', 'STATUS.md');
 
 defined $benchmark && $benchmark->end(); # finish simple relative benchmarking
 
@@ -335,16 +410,16 @@ if (@plan_hint) {
     }
 }
 
-# Show test totals grouped by Synopsys, followed by overall totals
-print "----------------\n";
-my $sumfmt = qq(%-11.11s %6s,%6s,%6s,%6s,%6s,%6s\n);
-printf $sumfmt, qq{"Synopsis",}, map { qq{"$_"} } @col;
-for my $syn (sort keys %syn) {
-    printf $sumfmt, qq{"$syn",}, map { $sum{"$syn-$_"} } @col;
-}
-my $total = scalar(@tfiles).' regression files';
-printf $sumfmt, qq{"total",}, map { $sum{$_} } @col;
-print "----------------\n";
+#~ # Show test totals grouped by Synopsys, followed by overall totals
+#~ print "----------------\n";
+#~ my $sumfmt = qq(%-11.11s %6s,%6s,%6s,%6s,%6s,%6s\n);
+#~ printf $sumfmt, qq{"Synopsis",}, map { qq{"$_"} } @col;
+#~ for my $syn (sort keys %syn) {
+    #~ printf $sumfmt, qq{"$syn",}, map { $sum{"$syn-$_"} } @col;
+#~ }
+#~ my $total = scalar(@tfiles).' regression files';
+#~ printf $sumfmt, qq{"total",}, map { $sum{$_} } @col;
+#~ print "----------------\n";
 
 # Optionally show the statistics that can be manually appended to
 # docs/spectest-progress.csv
@@ -362,15 +437,15 @@ if ($ENV{'REV'}) {
 }
 
 # List descriptions of the tests that failed
-if (@fail) {
-    print "Failure summary:\n";
-    foreach (@fail) {
-        print "$_\n";
-    }
-}
-else {
-    print "No failures!\n";
-}
+#~ if (@fail) {
+    #~ print "Failure summary:\n";
+    #~ foreach (@fail) {
+        #~ print "$_\n";
+    #~ }
+#~ }
+#~ else {
+    #~ print "No failures!\n";
+#~ }
 
 # End of main program
 
