@@ -25,7 +25,7 @@ use warnings;
 use threads;
 use threads::shared;
 use File::Copy;
-use Term::ANSIColor;
+use Term::ANSIColor qw(color colorstrip);
 use Time::Local;
 use Time::HiRes;
 use Getopt::Long;
@@ -64,7 +64,6 @@ close $fh or die $!;
 # Fudge any implementation specific tests by running the fudgeall script
 {
     my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, 't/*/*.t t/*/*/*.t';
-    #~ my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, 't/spec/base/*.t';
     # Fudgeall prints the name of each test script, but changes the name
     # ending to match the implementation instead of .t if tests were fudged.
     print "$cmd\n";
@@ -107,7 +106,7 @@ my ( @fail, @plan_hint );
 my %plan_per_file;
 
 my $last_status;
-if( eval 'require XML::Simple; 1' ) {
+if( -s 'STATUS.md' && eval 'require XML::Simple; 1' ) {
     $last_status = XML::Simple::XMLin('STATUS.md');
     for my $tr ( @{ $last_status->{tbody}->{tr} } ) {
         if( 'ARRAY' eq ref $tr->{td} && 'HASH' eq ref $tr->{td}[0] ) {
@@ -180,7 +179,7 @@ sub print_stats {
 sub col_diff {
     my $tid  = shift;
     my $i    = 0;
-    my $name = $sum{"$tid-name"};
+    my $name = $sum{"$tid-name"} // '';
     my %ret;
     $last_status->{ $name } //= [0, 0, 0, 0, 0];
     for( qw(pass fail todo skip plan) ) {
@@ -275,19 +274,16 @@ sub test_single_file {
         lock %status_rows;
         my $msg = '';
         for (keys %skip) {
-            $msg .= sprintf " &nbsp; %3d skipped: %s<br />\n", $skip{$_}, $_;
+            $msg .= sprintf " %3d skipped: %s<br />\n", $skip{$_}, $_;
         }
         for (keys %todofail) {
-            $msg .= sprintf " &nbsp; %3d todo   : %s<br />\n", $todofail{$_}, $_;
+            $msg .= sprintf " %3d todo   : %s<br />\n", $todofail{$_}, $_;
         }
         for (keys %todopass) {
-            $msg .= sprintf " &nbsp; %3d todo PASSED: %s<br />\n", $todopass{$_}, $_;
+            $msg .= sprintf " %3d todo PASSED: %s<br />\n", $todopass{$_}, $_;
         }
-        #~ if ($abort) {
-        #~     printf "   %3d tests aborted (missing ok/not ok)\n", $abort;
-        #~ }
         if ($bonus) {
-            $msg .= sprintf"   %3d tests more than planned were run<br />\n", $bonus;
+            $msg .= sprintf" %3d tests more than planned were run<br />\n", $bonus;
         }
         if( $stderr || $msg ) {
             if( $msg ) {
@@ -299,8 +295,10 @@ sub test_single_file {
                 $stderr  =~ s/&/&amp;/g;
                 $stderr  =~ s/</&lt;/g;
                 $stderr  =~ s/>/&gt;/g;
-                $stderr  =~ s/\0+//g;
-                $stderr  =~ s/.\[\d+m//g;
+                $stderr  =  colorstrip $stderr;
+                $stderr  =~ s/\0{3}//g;
+                $stderr  =~ s/\xcf\x23\0\0/⏏/g;
+                $stderr  =  colorstrip $stderr;
                 $stderr  =~ s/\s+expecting any of:.+$//s;
                 $stderr  =~ s/\s*called from Sub.+$//s;
                 $stderr .=  "<br />$msg" if $msg;
