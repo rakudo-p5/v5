@@ -51,23 +51,23 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
 
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
-        <tr><td colspan='5'> &amp;nbqp;   2 skipped: trailing dot within strings NYI&lt;br /&gt;
- &amp;nbqp;   1 todo   : octal number in string not treaded as such&lt;br /&gt;
- &amp;nbqp;   1 todo   : NYI&lt;br /&gt;
+        <tr><td colspan='5'>   2 skipped: trailing dot within strings NYI&lt;br /&gt;
+   1 todo   : octal number in string not treaded as such&lt;br /&gt;
+   1 todo   : NYI&lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
-        <tr><td colspan='5'> &amp;nbqp;   4 skipped: Invalid character for UTF-8 encoding&lt;br /&gt;
- &amp;nbqp;   2 skipped: Confused&lt;br /&gt;
- &amp;nbqp;   4 skipped: Unrecognized directive 'U'&lt;br /&gt;
+        <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding&lt;br /&gt;
+   2 skipped: Confused&lt;br /&gt;
+   4 skipped: Unrecognized directive 'U'&lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chars.v5</td><td>33</td><td>0</td><td>0</td><td>1</td><td>34</td></tr>
-        <tr><td colspan='5'> &amp;nbqp;   1 skipped: ord("") NYI&lt;br /&gt;
+        <tr><td colspan='5'>   1 skipped: ord("") NYI&lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
-        <tr><td colspan='5'> &amp;nbqp;  13 skipped: Invalid character for UTF-8 encoding&lt;br /&gt;
+        <tr><td colspan='5'>  13 skipped: Invalid character for UTF-8 encoding&lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
@@ -112,11 +112,11 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>8</td><td>4</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'> &amp;nbqp;   1 todo   : &lt;br /&gt;
+        <tr><td colspan='5'>   1 todo   : &lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>7</td><td>12</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan='5'>     3 tests more than planned were run&lt;br /&gt;
+        <tr><td colspan='5'>   3 tests more than planned were run&lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
@@ -138,7 +138,7 @@ Useless use of constant integer 42 in sink context (line 15)
 </td></tr>
         <tr align='center'><td align='left'>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/10-bind-sub-param.v5</td><td>4</td><td>0</td><td>1</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'> &amp;nbqp;   1 todo   : &lt;br /&gt;
+        <tr><td colspan='5'>   1 todo   : &lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-anon-sub.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
@@ -159,14 +159,14 @@ Useless use of constant integer 42 in sink context (line 15)
         <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/base/term.v5:32
 
-<br /> &amp;nbqp;   2 skipped: typeglobs NYI&lt;br /&gt;
- &amp;nbqp;   1 todo   : retrieving highest array index NYI&lt;br /&gt;
- &amp;nbqp;   1 todo   : rakudo doesnt support -l option&lt;br /&gt;
+<br />   2 skipped: typeglobs NYI&lt;br /&gt;
+   1 todo   : retrieving highest array index NYI&lt;br /&gt;
+   1 todo   : rakudo doesnt support -l option&lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left'>t/v5/19-local.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left'>t/v5/05-anon-sub-lex-block.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>3</td><td>0</td><td>0</td><td>10</td><td>13</td></tr>
-        <tr><td colspan='5'> &amp;nbqp;  10 skipped: Unrecognized directive 'U'&lt;br /&gt;
+        <tr><td colspan='5'>  10 skipped: Unrecognized directive 'U'&lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Potential difficulties:
@@ -184,13 +184,6 @@ Useless use of constant integer 42 in sink context (line 15)
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchI.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/run/switchI.v5:15
-
-No such symbol '&amp;fresh_perl_is'
-  in method &lt;anon&gt; at src/gen/CORE.setting:10177
-  in any  at src/gen/Metamodel.nqp:2577
-  in any find_method_fallback at src/gen/Metamodel.nqp:2565
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/run/switchI.v5:24
 
 </td></tr>
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1118,15 +1111,7 @@ Could not find Unicode::UCD in any of: /home/froggs/dev/nqp/install/lib/parrot/5
   in block  at t/spec/run/switch0.v5:12
 
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;fresh_perl_is'
-  in method &lt;anon&gt; at src/gen/CORE.setting:10177
-  in any  at src/gen/Metamodel.nqp:2577
-  in any find_method_fallback at src/gen/Metamodel.nqp:2565
-  in any find_method at src/gen/Metamodel.nqp:939
-  in block  at t/spec/io/bom.v5:15
-
-</td></tr>
+        <tr align='center'><td align='left'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Unrecognized Perl 5 regex backslash sequence
@@ -1274,7 +1259,7 @@ No such symbol '&amp;skip_all_without_config'
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Placeholder variable H^ash[0x16521f60] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x15929ad0] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1786,7 +1771,7 @@ at t/spec/op/select.v5:20
         <tr><td colspan='5'>WARNINGS:
 Useless use of constant integer 1 in sink context (line 58)
 ===SORRY!===
-Could not find sub cuid_58_1370875827.09663
+Could not find sub cuid_59_1370888556.37992
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -2461,7 +2446,7 @@ at t/spec/op/repeat.v5:130
         <tr><td colspan='5'>===SORRY!===
 Couldn't find terminator |
 at t/spec/op/study.v5:69
-------&gt; ok(m|bc/*d|�#);</td></tr>
+------&gt; ok(m|bc/*d|⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/uproto.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
@@ -2591,7 +2576,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_96_1370875618.51011
+Could not find sub cuid_96_1370888355.18758
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'
@@ -2748,7 +2733,7 @@ current instr.: '' pc 32304 (src/stage2/gen/NQPHLL.pir:12724) (src/stage2/gen/NQ
         <tr align='center'><td align='left' rowspan='2'>japh/abigail.v5</td><td>0</td><td>129</td><td>0</td><td>1</td><td>130</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Cannot assign to a readonly variable or a value
-<br /> &amp;nbqp;   1 skipped: &lt;br /&gt;
+<br />   1 skipped: &lt;br /&gt;
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
         <tr><td colspan='5'>===SORRY!===

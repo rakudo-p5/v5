@@ -55,6 +55,8 @@ sub _done()                  { done()                             }
     sub done_testing            { _done()                             }
     sub done                    { _done()                             }
     
+    sub fresh_perl_is           { _is(`perl6 -e 'use v5; $_[0]'`, $_[1], $_[2]) }
+    
     # so that these tests don't die, see https://github.com/mirrors/perl/blob/blead/t/test.pl#L1587
     sub native_to_latin1 { $_[0] }
     sub latin1_to_native { $_[0] }
