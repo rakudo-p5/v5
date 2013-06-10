@@ -22,6 +22,8 @@
 
 use strict;
 use warnings;
+use threads;
+use threads::shared;
 use Time::Local;
 use Time::HiRes;
 use Getopt::Long;
@@ -46,7 +48,8 @@ my $implementation = $ARGV[0] || 'v5' ||
 my $testlist = $ARGV[1] || 't/spectest.data';
 my $fh;
 open($fh, '<', $testlist) || die "Can't read $testlist: $!";
-my (@tfiles, %tname); # @tfiles lists all test file names before fudging
+my @tfiles : shared; # @tfiles lists all test file names before fudging
+my %tname;
 while (<$fh>) {
     /^ *#/ && next;
     my ($specfile) = split ' ', $_;
@@ -82,7 +85,7 @@ for my $tfile (@tfiles) {
 my @col = qw(pass fail todo skip plan spec);
 my @syn = qw(../v5 base benchmark bigmem cmd comp io japh lib mro op opbasic porting re run test_pl uni win32 x2p);
 my %syn; # number of test scripts per Synopsis
-my %sum; # total pass/fail/todo/skip/test/plan per Synposis
+my %sum : shared; # total pass/fail/todo/skip/test/plan per Synposis
 my $syn;
 for $syn (@syn) {
     $syn{$syn} = 0;
@@ -105,10 +108,37 @@ print STATUS "<table align=center>
     <tbody>
 ";
 
-my %status_rows;
+my %status_rows  : shared;
 my $row_count = 0;
+my @threads_todo;
+#my @threads_done : shared;
+for my $tfile ( @tfiles ) {
+    push @threads_todo, [ $tfile, $row_count++ ];
+}
 
-for my $tfile (@tfiles) {
+threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
+threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
+threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
+threads->create( \&test_single_file, $_->[0], $_->[1] ) for shift(@threads_todo);
+
+while( @threads_todo ) {
+    for( threads->list(threads::joinable) ) {
+        $_->join();
+        if( scalar @threads_todo ) {
+            my $job = shift(@threads_todo);
+            threads->create( \&test_single_file, $job->[0], $job->[1] );
+        }
+    }
+    Time::HiRes::usleep( 20 )
+}
+
+for( threads->list ) {
+    $_->join();
+}
+
+sub test_single_file {
+    my $tfile     = shift || return;
+    my $row_count = shift;
     my $th;
     open($th, '<', $tfile) || die "Can't read $tfile: $!\n";
     my ($pass,$fail,$todo,$skip,$plan,$abort,$bonus) = (0,0,0,0,0,0,0);
@@ -123,13 +153,13 @@ for my $tfile (@tfiles) {
     my $tsyn = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
 
     # Repeat the column headings at the start of each Synopsis
-    if ( $syn ne $tsyn ) {
-        $syn  =  $tsyn;
-        printf( "%s  pass fail todo skip plan\n", ' ' x $max );
-        unless ( exists $syn{$syn} ) {
-            push @fail, "note: test_summary.pl \@syn does not have $syn";
-        }
-    }
+    #~ if ( $syn ne $tsyn ) {
+        #~ $syn  =  $tsyn;
+        #~ printf( "%s  pass fail todo skip plan\n", ' ' x $max );
+        #~ unless ( exists $syn{$syn} ) {
+            #~ push @fail, "note: test_summary.pl \@syn does not have $syn";
+        #~ }
+    #~ }
     $syn{$syn}++;
     printf "%s%s..", $tname, '.' x ($max - length($tname));
     my $cmd = "perl6 $tfile";
@@ -186,30 +216,35 @@ for my $tfile (@tfiles) {
         push @plan_hint, "'plan *;' could become 'plan $plan;' in $tname";
     }
 
-    if( $stderr ) {
-        $stderr =~ s/\0+//g;
-        $stderr =~ s/.\[\d+m//g;
-        $stderr =~ s/\s+expecting any of:.+$//s;
-        $stderr =~ s/\s*called from Sub.+$//s;
-        $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
-        = sprintf "        <tr align=center><td align=left rowspan=2>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
-                . "        <tr><td colspan=5>%s</td></tr>\n",
-            $tname, $pass, $fail, $todo, $skip, $plan, $stderr;
+    {
+        lock %status_rows;
+        #~ lock $row_count;
+        if( $stderr ) {
+            $stderr =~ s/\0+//g;
+            $stderr =~ s/.\[\d+m//g;
+            $stderr =~ s/\s+expecting any of:.+$//s;
+            $stderr =~ s/\s*called from Sub.+$//s;
+            $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
+            = sprintf "        <tr align=center><td align=left rowspan=2>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
+                    . "        <tr><td colspan=5>%s</td></tr>\n",
+                $tname, $pass, $fail, $todo, $skip, $plan, $stderr;
+        }
+        else {
+            $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
+            = sprintf "        <tr align=center><td align=left>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
+                $tname, $pass, $fail, $todo, $skip, $plan;
+        }
+        #~ $row_count++;
+        lock %sum;
+        printf "%4d %4d %4d %4d %4d\n",
+            $pass, $fail, $todo, $skip, $plan;
+        $sum{'pass'} += $pass;  $sum{"$syn-pass"} += $pass;
+        $sum{'fail'} += $fail;  $sum{"$syn-fail"} += $fail;
+        $sum{'todo'} += $todo;  $sum{"$syn-todo"} += $todo;
+        $sum{'skip'} += $skip;  $sum{"$syn-skip"} += $skip;
+        $sum{'plan'} += $plan;  $sum{"$syn-plan"} += $plan;
     }
-    else {
-        $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
-        = sprintf "        <tr align=center><td align=left>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
-            $tname, $pass, $fail, $todo, $skip, $plan;
-    }
-    $row_count++;
     
-    printf "%4d %4d %4d %4d %4d\n",
-        $pass, $fail, $todo, $skip, $plan;
-    $sum{'pass'} += $pass;  $sum{"$syn-pass"} += $pass;
-    $sum{'fail'} += $fail;  $sum{"$syn-fail"} += $fail;
-    $sum{'todo'} += $todo;  $sum{"$syn-todo"} += $todo;
-    $sum{'skip'} += $skip;  $sum{"$syn-skip"} += $skip;
-    $sum{'plan'} += $plan;  $sum{"$syn-plan"} += $plan;
     {
         my $f = $tfile;
         $f =~ s/\.$implementation$/.t/;
