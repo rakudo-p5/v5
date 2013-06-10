@@ -3230,7 +3230,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $n := '';
         :my $i := 0;
         <.ws>
-        [ <indirect_object> [ <?before \s+> | <?[(]> ] <.ws> <?before <EXPR('i=')> > ]?
+        [ <indirect_object> [ <?before \s+> | <?[(]> ] <.ws> <!before <infix> > <?before <EXPR('i=')> > ]?
         :dba('argument list')
         [
         | <?stdstopper>
@@ -3498,6 +3498,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         #~ { <sym> » <?before \s*> <.ws> [ <fh=.EXPR('z=')> <?before \s+> <.ws> <arglist> | <arglist> ]? }
 
     token term:sym<say> {
+        :my $*ALLOW_IOS_VAR := 1;
         <sym> <.ws> <arglist>?
     }
 
@@ -3800,30 +3801,23 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token indirect_object {
-        #| <variable> <?{ $*W.is_lexical(~$<variable>) }> # check that there is a class is inside
+        | <variable> <?{ $*ALLOW_IOS_VAR }>
         | <name>     <?{ $*W.is_type([~$<name>]) }>
     }
 
-#    # force identifier(), identifier.(), etc. to be a function call always
-#    token term:sym<identifier>
-#    {
-#        :my $name;
-#        :my $pos;
-#        <identifier>
-#        { $name := $<identifier>.Str; $pos := self.pos; }
-#        [\h+ <?before '('>]?
-#        <args( $*W.is_name($name) )>
-#    #    { self.add_mystery($name,$pos,substr($*ORIG,$pos,1)) unless $<args><invocant>; }
-#        <O('%term')>
-#    }
     token term:sym<identifier> {
         :my $name;
         :my $*ARGUMENT_WANT := 0;
         :my $*ARGUMENT_HAVE := 0;
+        :my $*ALLOW_IOS_VAR := 0;
         <identifier>
         <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/ }>
         <!{ $*W.is_type([~$<identifier>]) }>
-        { $name := ~$<identifier>; %prototype{$name} := '@' unless nqp::defined(%prototype{$name}) }
+        {
+            $name := ~$<identifier>;
+            %prototype{$name} := '@' unless nqp::defined(%prototype{$name});
+            $*ALLOW_IOS_VAR := $name ~~ /^ [ 'new' | 'print' | 'say' ] $/;
+        }
         [\h+ <?[(]>]?
         <args(%prototype{$name})>
         # no compile-time checking for subs

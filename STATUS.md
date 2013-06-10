@@ -5,29 +5,29 @@
     <tbody>
         <tr align=center><td align=left>summary</td><td>700</td><td>39560</td><td>6</td><td>39</td><td>40302</td></tr>
         <tr align=center><td align=left rowspan=2>opbasic/arith.v5</td><td>128</td><td>39</td><td>0</td><td>0</td><td>167</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:153
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:151
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:153
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:151
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:153
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:151
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:153
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:151
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:153
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:151
 
-use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:153
+use of uninitialized value of type Any in numeric context  in sub infix:<+=> at lib/Perl5/Terms.pm:151
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:154
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:152
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:154
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:152
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:154
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:152
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:154
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:152
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:154
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:152
 
-use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:154
+use of uninitialized value of type Any in numeric context  in sub infix:<-=> at lib/Perl5/Terms.pm:152
 
 Cannot convert string to number: radix point must be followed by one or more valid digits in '20.⏏' (indicated by ⏏)
   in method Numeric at src/gen/CORE.setting:10169
@@ -137,7 +137,18 @@ Useless use of constant integer 42 in sink context (line 15)
 </td></tr>
         <tr align=center><td align=left>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align=center><td align=left>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align=center><td align=left>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align=center><td align=left rowspan=2>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan=5>Use of uninitialized value in addition (+) at t/test_summary line 241.
+Use of uninitialized value in addition (+) at t/test_summary line 241.
+Use of uninitialized value in addition (+) at t/test_summary line 242.
+Use of uninitialized value in addition (+) at t/test_summary line 242.
+Use of uninitialized value in addition (+) at t/test_summary line 243.
+Use of uninitialized value in addition (+) at t/test_summary line 243.
+Use of uninitialized value in addition (+) at t/test_summary line 244.
+Use of uninitialized value in addition (+) at t/test_summary line 244.
+Use of uninitialized value in addition (+) at t/test_summary line 245.
+Use of uninitialized value in addition (+) at t/test_summary line 245.
+</td></tr>
         <tr align=center><td align=left rowspan=2>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
         <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in block  at t/spec/base/term.v5:32
 
@@ -247,22 +258,22 @@ Unable to parse expression in argument list; couldn't find final ')'
 at t/spec/op/closure.v5:79
 ------> is(&{$foo[0]}⏏(), 0);</td></tr>
         <tr align=center><td align=left rowspan=2>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:149
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:147
 
 ===SORRY!===
 Could not find overload in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:149
+        <tr><td colspan=5>use of uninitialized value of type Any in numeric context  in sub infix:<|=> at lib/Perl5/Terms.pm:147
 
 ===SORRY!===
 Could not find B::Deparse in any of: ., ../lib
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/op/do.v5:73
------->     print $do ⏏"isnt(wantarray, undef, 'do in scalar co</td></tr>
+Variable '$#t' is not declared
+at t/spec/op/do.v5:117
+------> is($#t⏏, 0, "empty do result value" );</td></tr>
         <tr align=center><td align=left rowspan=2>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>===SORRY!===
 Preceding context expects a term, but found infix , instead
@@ -603,7 +614,7 @@ at t/spec/re/regex_sets.v5:23
 ------> like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align=center><td align=left rowspan=2>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:178
+  in sub _P5do at lib/Perl5/Terms.pm:176
   in block  at t/spec/re/regex_sets_compat.v5:11
   in method reify at src/gen/CORE.setting:5868
   in method reify at src/gen/CORE.setting:5763
@@ -618,7 +629,7 @@ Unknown warnings category 'FATAL'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:178
+  in sub _P5do at lib/Perl5/Terms.pm:176
   in block  at t/spec/re/regexp_noamp.v5:8
   in method reify at src/gen/CORE.setting:5868
   in method reify at src/gen/CORE.setting:5763
@@ -629,7 +640,7 @@ Unknown warnings category 'FATAL'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:178
+  in sub _P5do at lib/Perl5/Terms.pm:176
   in block  at t/spec/re/regexp_notrie.v5:11
   in method reify at src/gen/CORE.setting:5868
   in method reify at src/gen/CORE.setting:5763
@@ -640,7 +651,7 @@ Unknown warnings category 'FATAL'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:178
+  in sub _P5do at lib/Perl5/Terms.pm:176
   in block  at t/spec/re/regexp_qr.v5:6
   in method reify at src/gen/CORE.setting:5868
   in method reify at src/gen/CORE.setting:5763
@@ -651,7 +662,7 @@ Unknown warnings category 'FATAL'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:178
+  in sub _P5do at lib/Perl5/Terms.pm:176
   in block  at t/spec/re/regexp_qr_embed.v5:7
   in method reify at src/gen/CORE.setting:5868
   in method reify at src/gen/CORE.setting:5763
@@ -671,7 +682,7 @@ Unknown warnings category 'FATAL'
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan=5>Null filename used
-  in sub _P5do at lib/Perl5/Terms.pm:178
+  in sub _P5do at lib/Perl5/Terms.pm:176
   in block  at t/spec/re/regexp_trielist.v5:12
   in method reify at src/gen/CORE.setting:5868
   in method reify at src/gen/CORE.setting:5763
@@ -692,7 +703,7 @@ at t/spec/re/regexp_unicode_prop.v5:68
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:172
+        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:170
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -701,7 +712,7 @@ Unrecognized Perl 5 regex backslash sequence
 at t/spec/re/subst_amp.v5:22
 ------> s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align=center><td align=left rowspan=2>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:172
+        <tr><td colspan=5>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:170
 
 </td></tr>
         <tr align=center><td align=left rowspan=2>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1251,7 +1262,7 @@ No such symbol '&skip_all_without_config'
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan=5>===SORRY!===
-Placeholder variable H^ash[0x14f2c898] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x1576d270] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------>     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align=center><td align=left rowspan=2>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1462,7 +1473,7 @@ at t/spec/op/yadayada.v5:16
     at t/spec/re/qr.v5:82
     ------>  tie my $flile⏏, "qrBug";
 Too many positional parameters passed; got 3 but expected 1
-  in sub ref at lib/Perl5/Terms.pm:134
+  in sub ref at lib/Perl5/Terms.pm:132
   in block  at t/spec/re/qr.v5:14
 
 </td></tr>
@@ -1763,7 +1774,7 @@ at t/spec/op/select.v5:20
         <tr><td colspan=5>WARNINGS:
 Useless use of constant integer 1 in sink context (line 58)
 ===SORRY!===
-Could not find sub cuid_58_1370651182.54543
+Could not find sub cuid_58_1370763303.38994
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2006,9 +2017,9 @@ at t/spec/lib/universal.v5:67
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/form_scope.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix = instead
-at t/spec/comp/form_scope.v5:11
-------> format STDOUT =⏏<EOL>
+Preceding context expects a term, but found infix << instead
+at t/spec/comp/form_scope.v5:165
+------> <BOL>⏏<EOL>
 </td></tr>
         <tr align=center><td align=left rowspan=2>comp/package.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan=5>===SORRY!===
@@ -2093,10 +2104,9 @@ at t/spec/io/crlf.v5:85
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/defout.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
-Preceding context expects a term, but found infix = instead
-at t/spec/io/defout.v5:31
-------> format STDOUT =⏏<EOL>
-</td></tr>
+Two terms in a row
+at t/spec/io/defout.v5:32
+------> @ ⏏@<<</td></tr>
         <tr align=center><td align=left rowspan=2>io/errno.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan=5>===SORRY!===
 Variable '$perlio' is not declared
@@ -2393,9 +2403,15 @@ at t/spec/comp/opsubs.v5:83
 ------>     if (eval { $class->can(⏏$method) }) {</td></tr>
         <tr align=center><td align=left rowspan=2>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/re/recompile.v5:54
------->     print $tf ⏏$prog;</td></tr>
+Preceding context expects a term, but found infix << instead
+at t/spec/re/recompile.v5:194
+------> <BOL>⏏<EOL>
+Other potential difficulties:
+    Redeclaration of symbol $tf
+    at t/spec/re/recompile.v5:44
+    ------>     open my $tf⏏, ">$tmpfile" or die "Cannot open $tmpfi
+
+</td></tr>
         <tr align=center><td align=left rowspan=2>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan=5>===SORRY!===
 quantifier quantifies nothing
@@ -2441,9 +2457,10 @@ at t/spec/comp/uproto.v5:58
 ------> f("FOO xy", $foo, ⏏"xy");</td></tr>
         <tr align=center><td align=left rowspan=2>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/io/perlio.v5:29
-------> print $txtfh ⏏"foo\n";</td></tr>
+Preceding context expects a term, but found infix < instead
+at t/spec/io/perlio.v5:230
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan=5>===SORRY!===
 Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
@@ -2514,9 +2531,9 @@ at t/spec/mro/basic.v5:7
 ------> BEGIN { require q(t/test.pl); } ⏏plan(tests => 59);</td></tr>
         <tr align=center><td align=left rowspan=2>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/op/inccode.v5:30
------->     print $fh ⏏"package ".substr($_[0],0,-3).";\n1;\n";</td></tr>
+Variable '%INC' is not declared
+at t/spec/op/inccode.v5:55
+------> ok( exists $INC{'Foo.pm'}⏏,         '  %INC sees Foo.pm' );</td></tr>
         <tr align=center><td align=left rowspan=2>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan=5>===SORRY!===
 Method 'p5cc' not found for invocant of class 'Perl5::Grammar'
@@ -2562,7 +2579,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------>     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_96_1370650777.02064
+Could not find sub cuid_96_1370763101.70812
 </td></tr>
         <tr align=center><td align=left rowspan=2>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan=5>No such symbol '&watchdog'
@@ -2694,9 +2711,10 @@ Could not find Errno in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-de
 </td></tr>
         <tr align=center><td align=left rowspan=2>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/io/open.v5:27
------->     ok( (print $f ⏏"SomeData\n"),  '       we can print to</td></tr>
+Preceding context expects a term, but found infix < instead
+at t/spec/io/open.v5:393
+------> <BOL>⏏<EOL>
+</td></tr>
         <tr align=center><td align=left rowspan=2>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unable to parse expression in term:sym<scalar>; couldn't find final ')'
@@ -2872,9 +2890,9 @@ at t/spec/op/read.v5:49
 ------> 	if ($value⏏ !~ tr/\0-\377//c) {</td></tr>
         <tr align=center><td align=left rowspan=2>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan=5>===SORRY!===
-Two terms in a row
-at t/spec/comp/utf.v5:40
------->     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
+Unrecognized Perl 5 regex backslash sequence
+at t/spec/comp/utf.v5:45
+------>  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
         <tr align=center><td align=left rowspan=2>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan=5>===SORRY!===
 Unknown warnings category 'FATAL'
