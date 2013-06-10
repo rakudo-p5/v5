@@ -107,6 +107,7 @@ print STATUS "<table align=center>
     </thead>
     <tbody>
 ";
+printf "%s  pass fail todo skip plan\n", ' ' x $max;
 
 my %status_rows  : shared;
 my $row_count = 0;
@@ -152,14 +153,6 @@ sub test_single_file {
     my $tname = $tname{$tfile};
     my $tsyn = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
 
-    # Repeat the column headings at the start of each Synopsis
-    #~ if ( $syn ne $tsyn ) {
-        #~ $syn  =  $tsyn;
-        #~ printf( "%s  pass fail todo skip plan\n", ' ' x $max );
-        #~ unless ( exists $syn{$syn} ) {
-            #~ push @fail, "note: test_summary.pl \@syn does not have $syn";
-        #~ }
-    #~ }
     $syn{$syn}++;
     printf "%s%s..", $tname, '.' x ($max - length($tname));
     my $cmd = "perl6 $tfile";
@@ -218,7 +211,6 @@ sub test_single_file {
 
     {
         lock %status_rows;
-        #~ lock $row_count;
         if( $stderr ) {
             $stderr =~ s/\0+//g;
             $stderr =~ s/.\[\d+m//g;
@@ -234,7 +226,6 @@ sub test_single_file {
             = sprintf "        <tr align=center><td align=left>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n",
                 $tname, $pass, $fail, $todo, $skip, $plan;
         }
-        #~ $row_count++;
         lock %sum;
         printf "%4d %4d %4d %4d %4d\n",
             $pass, $fail, $todo, $skip, $plan;
