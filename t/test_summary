@@ -275,13 +275,13 @@ sub test_single_file {
         lock %status_rows;
         my $msg = '';
         for (keys %skip) {
-            $msg .= sprintf " &nbqp; %3d skipped: %s<br />\n", $skip{$_}, $_;
+            $msg .= sprintf " &nbsp; %3d skipped: %s<br />\n", $skip{$_}, $_;
         }
         for (keys %todofail) {
-            $msg .= sprintf " &nbqp; %3d todo   : %s<br />\n", $todofail{$_}, $_;
+            $msg .= sprintf " &nbsp; %3d todo   : %s<br />\n", $todofail{$_}, $_;
         }
         for (keys %todopass) {
-            $msg .= sprintf " &nbqp; %3d todo PASSED: %s<br />\n", $todopass{$_}, $_;
+            $msg .= sprintf " &nbsp; %3d todo PASSED: %s<br />\n", $todopass{$_}, $_;
         }
         #~ if ($abort) {
         #~     printf "   %3d tests aborted (missing ok/not ok)\n", $abort;
