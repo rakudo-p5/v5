@@ -1337,6 +1337,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*QSIGIL := '';
         :my $*SCOPE := '';
         :my $*ACTIONS := %*LANG<Perl5-actions>;
+        :my $*ARGUMENT_WANT := 0;
+        :my $*ARGUMENT_HAVE := 0;
         <!before <[\])}]> | $ >
         <!stopper>
         <!!{ nqp::rebless($/.CURSOR, %*LANG<Perl5>) }>
@@ -2154,6 +2156,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*MULTINESS := "";
         :my $*OFTYPE;
         :my $*VAR;
+        :my $*ARGUMENT_WANT := 0;
+        :my $*ARGUMENT_HAVE := 0;
         :dba('prefix or term')
         [
             [
@@ -2856,7 +2860,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     # handle composite forms like qww
     token quote:sym<qq> {
         #'qq' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:qq))>
-        'qq' <?before \W> <.ws> <quibble(%*LANG<P5Q>)>
+        'qq' <?before \W> <.ws> <quibble(%*LANG<P5Q>, 'qq')>
     }
     token quote:sym<q> {
         #'q' <?before \W> <.ws> <quibble(self.cursor_fresh( %*LANG<Q> ).tweak(:q))>
@@ -3212,7 +3216,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :dba('argument')
         [
         #| <?stdstopper>
-        | <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')>
+        | <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')> { $*ARGUMENT_HAVE := 1 }
         | <?{ $*PROTOTYPE eq '$' }>
             [
             || <?{ $*ARGUMENT_HAVE }> <EXPR('h=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
@@ -3229,14 +3233,13 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $s := $prototype;
         :my $n := '';
         :my $i := 0;
-        <.ws>
-        [ <indirect_object> [ <?before \s+> | <?[(]> ] <.ws> <!before <infix> > <?before <EXPR('i=')> > ]?
+        [ <.ws> <indirect_object> ]?
         :dba('argument list')
+        <.ws>
         [
         | <?stdstopper>
         | <?[=]>
         | [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
-        #| <?>
         ]
     }
 
@@ -3493,14 +3496,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
 #    token term:sym<oct>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
-
-    #~ token term:sym<print>
-        #~ { <sym> » <?before \s*> <.ws> [ <fh=.EXPR('z=')> <?before \s+> <.ws> <arglist> | <arglist> ]? }
-
-    token term:sym<say> {
-        :my $*ALLOW_IOS_VAR := 1;
-        <sym> <.ws> <arglist>?
-    }
 
 #    token term:sym<prototype>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
@@ -3801,15 +3796,16 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token indirect_object {
-        | <variable> <?{ $*ALLOW_IOS_VAR }>
-        | <name>     <?{ $*W.is_type([~$<name>]) }>
+        [
+        | <?{ $*ALLOW_IOS_VAR }> >> <variable> <?before \s+ <EXPR('z=')> >
+        | <?{ $*ALLOW_IOS_NAME }> <name> <?{ $*W.is_type([~$<name>]) }>
+        ]
     }
 
     token term:sym<identifier> {
         :my $name;
-        :my $*ARGUMENT_WANT := 0;
-        :my $*ARGUMENT_HAVE := 0;
         :my $*ALLOW_IOS_VAR := 0;
+        :my $*ALLOW_IOS_NAME := 1;
         <identifier>
         <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/ }>
         <!{ $*W.is_type([~$<identifier>]) }>
@@ -3817,6 +3813,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             $name := ~$<identifier>;
             %prototype{$name} := '@' unless nqp::defined(%prototype{$name});
             $*ALLOW_IOS_VAR := $name ~~ /^ [ 'new' | 'print' | 'say' ] $/;
+            $*ALLOW_IOS_NAME := $name ne 'open';
         }
         [\h+ <?[(]>]?
         <args(%prototype{$name})>

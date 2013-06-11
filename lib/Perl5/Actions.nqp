@@ -3845,15 +3845,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make call_expr_or_topic( $/, 'chars' ) # TODO http://perldoc.perl.org/bytes.html
     }
 
-    method term:sym<print>($/) {
-        $V5DEBUG && say("term:sym<print>($/)");
-        my @args := $<arglist> ?? $<arglist>.ast.list !! [ QAST::Var.new( :name('$_'), :scope('lexical') ) ];
-        my $past := QAST::Op.new( :op('call'), :name('&print'),
-            |@args );
-        $past.push( QAST::Var.new( :named('fh'), :name(~$<fh>), :scope('lexical') ) ) if $<fh>;
-        make $past
-    }
-
     method indirect_object($/) {
         $V5DEBUG && say("indirect_object($/)");
         if $<name> {
@@ -3863,20 +3854,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
             make $<variable>.ast
         }
         
-    }
-
-    method term:sym<say>($/) {
-        $V5DEBUG && say("term:sym<say>($/)");
-        my $past := $<arglist> ?? $<arglist>.ast
-                 !! QAST::Op.new( :op('call'), QAST::Var.new( :name('$_'), :scope('lexical') ) );
-        if $<arglist><indirect_object> {
-            $past.name('say');
-        }
-        else {
-            $past.name('&infix:<P5~>');
-            $past := QAST::Op.new( :op('callmethod'), :name('say'), $past );
-        }
-        make $past
     }
 
     method term:sym<scalar>($/) {
@@ -3995,14 +3972,39 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make $past;
     }
 
+    my %defaults_to := nqp::hash(
+        'say',     '$_',
+        'print',   '$_',
+        'shift',   '@_',
+        'unshift', '@_',
+        'push',    '@_',
+        'pop',     '@_',
+    );
     method term:sym<identifier>($/) {
         $V5DEBUG && say("term:sym<identifier>($/)");
-        my $past := $<args>.ast;
-        if $<args><arglist><indirect_object> {
-            $past.name( ~$<identifier> );
+        my $name := ~$<identifier>;
+        my $builtin := nqp::existskey(%defaults_to, $name);
+        my $past := $*ARGUMENT_HAVE == 0 && $builtin
+                    ?? QAST::Op.new( :op('call'), QAST::Var.new( :name(%defaults_to{$name}), :scope('lexical') ) )
+                    !! $<args>.ast;
+        if $past.op() eq 'callmethod' {
+            if $*ARGUMENT_HAVE && ($name eq 'say' || $name eq 'print') {
+                $past[1].name('&infix:<P5~>');
+            }
+            $past.op('callmethod');
+            $past.name($name);
+        }
+        elsif $builtin {
+            if $name eq 'say' || $name eq 'print' {
+                $past.name('&infix:<P5~>');
+                $past := QAST::Op.new( :op('call'), $past );
+            }
+            $past.op('callmethod');
+            $past.name($name);
         }
         else {
-            $past.unshift( self.make_indirect_lookup(['&' ~ $<identifier>]) );
+            $past.op('call');
+            $past.unshift( self.make_indirect_lookup(['&' ~ $name]) );
         }
         make $past;
     }
@@ -4257,8 +4259,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
             }
         }
         if $<indirect_object> {
-            $past.op('callmethod');
-            $past.unshift( $<indirect_object>.ast )
+            $past.name('&infix:<,>');
+            $past := QAST::Op.new( :op('callmethod'), $<indirect_object>.ast, $past )
         }
 
         make $past;

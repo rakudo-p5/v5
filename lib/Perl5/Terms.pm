@@ -30,12 +30,12 @@ my $PERLDB;
 class STDIN {
 }
 class STDOUT {
-    method say  (*@a) { $*OUT.say( join('', @a) ) }
-    method print(*@a) { $*OUT.say( join('', @a) ) }
+    method say  (*@a) { $*OUT.say(   join('', @a) ) }
+    method print(*@a) { $*OUT.print( join('', @a) ) }
 }
 class STDERR {
-    method say  (*@a) { $*ERR.say( join('', @a) ) }
-    method print(*@a) { $*ERR.say( join('', @a) ) }
+    method say  (*@a) { $*ERR.say(   join('', @a) ) }
+    method print(*@a) { $*ERR.print( join('', @a) ) }
 }
 
 sub EXPORT(|) {
@@ -125,8 +125,6 @@ multi sub open( $fh is rw, $m, $expr, *@list ) is export {
     $fh = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) );
 }
 
-multi sub print( *@text ) is export { $*OUT.print( @text.P5Str ) }
-
 sub close( IO::Handle $fh ) is export { $fh.close }
 
 sub ref($o) is export {
@@ -134,10 +132,6 @@ sub ref($o) is export {
 }
 
 sub exists( \a ) is export { a:exists ?? 1 !! '' }
-
-proto sub shift(|) {*}
-multi sub shift()   is export { CALLER::DYNAMIC::<@_> ?? CALLER::DYNAMIC::<@_>.shift !! Nil }
-multi sub shift(@a) is export { @a ?? @a.shift !! Nil                                       }
 
 # http://perldoc.perl.org/functions/undef.html
 multi sub undef()         is export { Nil              }
@@ -179,7 +173,7 @@ sub _P5do( $file ) is hidden_from_backtrace {
 }
 
 augment class Any {
-    method P5Str(Any:U:) is hidden_from_backtrace {
+    method P5Str(Any:) is hidden_from_backtrace {
         if warnings::enabled('all') || warnings::enabled('uninitialized') {
             warn 'Use of uninitialized value in string'
         }
@@ -228,6 +222,12 @@ augment class Int {
     multi method P5Str(Int:U:) { '' }
     multi method P5Str(Int:D:) { self.Int }
     method P5scalar(Int:) { self.P5Str }
+}
+
+augment class Num {
+    multi method P5Str(Num:U:) { '' }
+    multi method P5Str(Num:D:) { self.Num }
+    method P5scalar(Num:) { self.P5Str }
 }
 
 augment class Capture {
