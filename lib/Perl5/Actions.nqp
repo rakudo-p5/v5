@@ -11,7 +11,6 @@ my $V5DEBUG := +nqp::atkey(nqp::getenvhash(), 'V5DEBUG');
 
 my role STDActions {
     method quibble($/) {
-        #$V5DEBUG && say("quibble($/)");
         make $<nibble>.ast;
     }
     
@@ -5400,6 +5399,14 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("method quote:sym<__DATA__>($/)");
         # do something with $<text>
     }
+    method quote:sym«<<»($/)   {
+        $V5DEBUG && say("method quote:sym«<<»($/)");
+        make $<quibble>
+            ?? $<quibble>.ast
+            !! QAST::Stmts.new(
+                QAST::Op.new( :op<die_s>, QAST::SVal.new( :value("Premature heredoc consumption") ) ),
+                QAST::SVal.new( :value(~$/), :node($/) ) )
+    }
     method quote:sym<qq>($/)   { $V5DEBUG && say("method quote:sym<qq>($/)");    make $<quibble>.ast; }
     method quote:sym<q>($/)    { $V5DEBUG && say("method quote:sym<q>($/)");     make $<quibble>.ast; }
     method quote:sym<qw>($/)   { $V5DEBUG && say("method quote:sym<qw>($/)");    make $<quibble>.ast; }
@@ -6229,7 +6236,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
     }
 
     method postprocess_heredoc($/, $past) {
-        $V5DEBUG && say("method nibbler($/)");
+        $V5DEBUG && say("method postprocess_heredoc($/)");
         return QAST::Stmts.new(
             QAST::Op.new( :op<die_s>, QAST::SVal.new( :value("Premature heredoc consumption") ) ),
             $past);

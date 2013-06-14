@@ -99,24 +99,7 @@ role STD5 {
     
     token babble($l, @base_tweaks?) {
         :my @extra_tweaks;
-
         <.ws>
-        #~ [ <quotepair> <.ws>
-            #~ {
-                #~ my $kv := $<quotepair>[-1].ast;
-                #~ my $k  := $kv.named;
-                #~ if nqp::istype($kv, QAST::Stmts) || nqp::istype($kv, QAST::Stmt) && +@($kv) == 1 {
-                    #~ $kv := $kv[0];
-                #~ }
-                #~ my $v := nqp::istype($kv, QAST::IVal)
-                    #~ ?? $kv.value
-                    #~ !! $kv.has_compile_time_value
-                        #~ ?? $kv.compile_time_value
-                        #~ !! self.panic("Invalid adverb value for " ~ $<quotepair>[-1].Str);
-                #~ nqp::push(@extra_tweaks, [$k, $v]);
-            #~ }
-        #~ ]*
-
         $<B>=[<?>]
         {
             # Work out the delimeters.
@@ -143,13 +126,14 @@ role STD5 {
     }
 
     role herestop {
-        token stopper { ^^ {} $<ws>=(\h*) $*DELIM \h* $$ \v? }
+        token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ \v? }
+        #~ token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ \v? }
     }
 
     method heredoc () {
         my $here := self.'!cursor_start_cur'();
         $here.'!cursor_pos'(self.pos);
-        while @herestub_queue {
+        while +@herestub_queue {
             my $herestub := nqp::shift(@herestub_queue);
             my $*DELIM := $herestub.delim;
             my $lang := $herestub.lang.HOW.mixin($herestub.lang, herestop);
@@ -174,7 +158,8 @@ role STD5 {
     }
 
     method queue_heredoc($delim, $lang) {
-        nqp::ifnull(@herestub_queue, @herestub_queue := []);
+        #~ nqp::ifnull(@herestub_queue, @herestub_queue := []);
+        @herestub_queue := [];
         nqp::push(@herestub_queue, Herestub.new(:$delim, :$lang, :orignode(self)));
         return self;
     }
@@ -1340,19 +1325,20 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*ARGUMENT_WANT := 0;
         :my $*ARGUMENT_HAVE := 0;
         <!before <[\])}]> | $ >
-        <!stopper>
+        #~ <!stopper>
         <!!{ nqp::rebless($/.CURSOR, %*LANG<Perl5>) }>
         [
         | <label> <statement>
         | <statement_control>
         | <EXPR> :dba('statement end')
+            <.ws>
             [
             || <?MARKED('endstmt')>
             || :dba('statement modifier') <.ws> <statement_mod_cond> <statement_mod_loop>?
             || :dba('statement modifier loop') <.ws> <statement_mod_loop>
             ]?
         | <?before ';'>
-        | <?before <stopper> >
+        #~ | <?before <stopper> >
         | {} <.panic: "Bogus statement">
         ]
     }
@@ -2592,7 +2578,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | $<coeff> = [\d+[_\d+]* '.' \d+[_\d+]* ] <escale>?
         | $<coeff> = [\d+[_\d+]*                ] <escale>
         ]
-        <!!before [ '.' <?before \d> <.panic: "Number contains two decimal points (missing 'v' for version number?)">]? >
     }
 
     token octints { [<.ws><octint><.ws>] +% ',' }
@@ -2605,108 +2590,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     # Quotes #
     ##########
 
-#    our @herestub_queue;
-#
-#    class Herestub {
-#        has $delim;
-#        has $orignode;
-#        has $lang;
-#    } # end class
-#
-#    role herestop {
-#        token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ \v? }
-#    } # end role
-
-#    # XXX be sure to temporize @herestub_queue on reentry to new line of heredocs
-
-#    method heredoc () {
-#    #    my $*CTX := self.callm if $*DEBUG +& DEBUG::trace_call;
-#    #    return if self.peek;
-#        my $here := self;
-#        my $herestub := nqp::shift( @herestub_queue );
-#        while $herestub {
-#            my $*DELIM := $herestub.delim;
-#            #my $lang   := $herestub.lang.mixin( ::herestop );
-#            my $lang   := $herestub.lang.HOW.mixin($herestub.lang, herestop);
-#            my $doc;
-#            if ($doc) := $here.nibble($lang) {
-#                $here := $doc.trim_heredoc();
-#                $herestub.orignode<doc> := $doc;
-#            }
-#            else {
-#                self.panic("Ending delimiter $*DELIM not found");
-#            }
-#            $herestub := nqp::shift( @herestub_queue );
-#        }
-#        return self.cursor($here.pos);  # return to initial type
-#    }
-
     proto token backslash {*}
     proto token escape {*}
 #    token starter { <!> }
     token escape:sym<none> { <!> }
 
-#    token babble ($l) {
-#        :my $lang := $l;
-#
-#        \h*
-#        {
-#            #($start,$stop) := self.peek_delimiters();
-#            my $c      := $/.CURSOR;
-#            my @delims := $c.peek_delimiters($c.target, $c.pos);
-#            my $start  := @delims[0];
-#            my $stop   := @delims[1];
-#            $lang      := $start ne $stop ?? $lang.balanced($start,$stop)
-#                                          !! $lang.unbalanced($stop);
-#            $<B>       := [$lang,$start,$stop];
-#        }
-#    }
-
-#    token quibble ($l) {
-#        :my $lang;
-#        :my $start;
-#        :my $stop;
-#        <babble($l)>
-#        {
-#            my $B  := $<babble><B>;
-#            $lang  := $B[0];
-#            $start := $B[1];
-#            $stop  := $B[2];
-#        }
-#
-#        $start <nibble($lang)> [ $stop || <.panic: "Couldn't find terminator $stop"> ]
-#
-#        { $lang<_herelang> && self.queue_heredoc($<nibble><nibbles>[0]<TEXT>, $lang<_herelang>) }
-#    }
-
-#    method queue_heredoc($delim, $lang) {
-#        nqp::push( @herestub_queue, Perl6::P5Grammar::Herestub.new(
-#                                    :delim($delim),
-#                                    :lang($lang),
-#                                    :orignode(self)) );
-#        return self;
-#    }
-
-#    token sibble ($l, $lang2) {
-#        :my $lang;
-#        :my $start;
-#        :my $stop;
-#        <babble($l)>
-#        {
-#            my $B  := $<babble><B>;
-#            $lang  := $B[0];
-#            $start := $B[1];
-#            $stop  := $B[2];
-#        }
-#
-#        $start <left=nibble($lang)> [ $stop || <.panic: "Couldn't find terminator $stop"> ]
-#        [ <?{ $start ne $stop }>
-#            <.ws> <quibble($lang2)>
-#        || 
-#            { $lang := $lang2.unbalanced($stop); }
-#            <right=nibble($lang)> $stop
-#        ]
-#    }
     token sibble($l, $lang2, @lang2tweaks?) {
         :my $lang;
         :my $start;
@@ -2762,87 +2650,25 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         ]
     }
 
-    # note: polymorphic over many quote languages, we hope
-    token nibbler {
-        :my $text      := '';
-        :my $from      := self.pos;
-        :my $to        := $from;
-        :my @nibbles   := nqp::list();
-        :my $multiline := 0;
-        { $<_from> := self.pos; }
-        [ <!before <stopper> >
-            [
-            || <starter> <nibbler> <stopper>
-                            {{
-                                nqp::push( @nibbles, self.makestr(TEXT => $text, _from => $from, _pos => $to ) ) if $from != $to;
-
-                                my $n := $<nibbler>[-1]<nibbles>;
-                                my @n := @( $n );
-
-                                nqp::push( @nibbles, $<starter> );
-                                nqp::push( @nibbles, @n );
-                                nqp::push( @nibbles, $<stopper> );
-
-                                $text := '';
-                                $from := self.pos;
-                                $to   := $from;
-                            }}
-            || <escape>     {{
-                                nqp::push( @nibbles, self.makestr(TEXT => $text, _from => $from, _pos => $to ) ) if $from != $to;
-                                nqp::push( @nibbles, $<escape>[-1] );
-                                $text := '';
-                                $from := self.pos;
-                                $to   := $from;
-                            }}
-            || .
-                            {{
-                                my $ch := nqp::substr($*ORIG, self.pos-1, 1);
-                                $text  := $text ~ $ch;
-                                $to    := self.pos;
-                                if $ch ~~ "\n" {
-                                    $multiline := $multiline + 1;
-                                }
-                            }}
-            ]
-        ]*
-        {{
-            nqp::push( @nibbles, self.makestr(TEXT => $text, _from => $from, _pos => $to ) ) if $from != $to || !@nibbles;
-            $<nibbles> := @nibbles;
-            $<_pos>    := self.pos;
-            #nqp::delete($<nibbler>);
-            #nqp::delete($<escape>);
-            #nqp::delete($<starter>);
-            #nqp::delete($<stopper>);
-            $*LAST_NIBBLE := self;
-            $*LAST_NIBBLE_MULTILINE := self if $multiline;
-        }}
-    }
-
-#    # and this is what makes nibbler polymorphic...
-#    method nibble ($lang) {
-#        self.cursor_fresh($lang).nibbler;
-#    }
-
-    #token quote:sym<' '>   { "'" <nibble(%*LANG<P5Q>)> "'" }
-    #token quote:sym<" ">   { '"' <nibble(%*LANG<P5Q>)> '"' }
     token quote:sym<' '>  { :dba('single quotes') "'" ~ "'" <nibble(self.quote_lang(%*LANG<P5Q>, "'", "'", ['q']))> }
     token quote:sym<" ">  { :dba('double quotes') '"' ~ '"' <nibble(self.quote_lang(%*LANG<P5Q>, '"', '"', ['qq']))> }
     token quote:sym<` `>  { :dba('backticks')     '`' ~ '`' <nibble(self.quote_lang(%*LANG<P5Q>, '`', '`', ['qq']))> }
     token quote:sym<__DATA__> { :dba('pseudo filehandle') ^^ [ '__DATA__' | '__END__' ] \h* $<text>=[.*] }
 
-# XXX why does this get picked up?
-#    token quote:sym«<<»   { '<<'
-#        [
-#        #| <?before '"'> <quibble(self.cursor_fresh( %*LANG<P5Q> ).tweak(:qq).cursor_herelang)>
-#        | <?before '"'> <quibble(%*LANG<P5Q>)>
-#        #| <?before "'"> <quibble(self.cursor_fresh( %*LANG<P5Q> ).tweak(:q).cursor_herelang)>
-#        | <?before "'"> <quibble(%*LANG<P5Q>)>
-#        | <identifier>
-#            <.queue_heredoc( $<identifier>.Str, %*LANG<P5Q> )>
-#        | \\ <identifier>
-#            <.queue_heredoc( $<identifier>.Str, %*LANG<P5Q> )>
-#        ] || <.panic: "Couldn't parse heredoc construct">
-#    }
+    token quote:sym«<<» {
+        :my $delim := '';
+        <sym>
+        [
+        ||  [
+            || <?before '"'> <quibble(%*LANG<P5Q>, 'qq', 'to')>
+            || <?before "'"> <quibble(%*LANG<P5Q>, 'q', 'to')>
+            || <identifier> { $delim := ~$<identifier> } <.queue_heredoc( $delim, %*LANG<P5Q> )>
+            || \\ <identifier> { $delim := ~$<identifier> } <.queue_heredoc( $delim, %*LANG<P5Q> )>
+            ]
+        ||  <.panic: "Couldn't parse heredoc construct">
+        ]
+        <O('%term')>
+    }
 
     token circumfix:sym«< >»   { '<'
                                   <nibble(%*LANG<P5Q>)> '>' }
@@ -2913,36 +2739,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <[cds\]]>+
     }
 
-    # assumes whitespace is eaten already
-
-#    method peek_delimiters () {
-#        my $pos      := self.pos;
-#        my $startpos := $pos;
-#        my $char     := nqp::substr($*ORIG, $pos, 1);
-#        $pos         := $pos + 1;
-#        if $char ~~ /^\s$/ {
-#            self.panic("Whitespace character is not allowed as delimiter"); # "can't happen"
-#        }
-#        elsif $char ~~ /^\w$/ {
-#            self.panic("Alphanumeric character is not allowed as delimiter");
-#        }
-#        elsif %STD::close2open{$char} {
-#            self.panic("Use of a closing delimiter for an opener is reserved");
-#        }
-#
-#        my $rightbrack := %STD::open2close{$char};
-#        if !nqp::defined($rightbrack) {
-#            return $char, $char;
-#        }
-#        while nqp::substr($*ORIG,$pos,1) eq $char {
-#            $pos := $pos + 1;
-#        }
-#        my $len   := $pos - $startpos;
-#        my $start := nqp::x($char, $len);
-#        my $stop  := nqp::x($rightbrack, $len);
-#        return $start, $stop;
-#    }
-
     token unitstopper { $ }
 
     method balanced ($start,$stop) { self.mixin( Perl5::Grammar::startstop5[$start,$stop] ); }
@@ -2967,10 +2763,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         ]
     }
 
-    method truly ($bool,$opt) {
-        return self if $bool;
-        self.panic("Cannot negate $opt adverb");
-    }
+    #~ method truly ($bool,$opt) {
+        #~ return self if $bool;
+        #~ self.panic("Cannot negate $opt adverb");
+    #~ }
 
     ###########################
     # Captures and Signatures #
@@ -3215,7 +3011,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token arg($*PROTOTYPE = '@') {
         :dba('argument')
         [
-        #| <?stdstopper>
+        #~ | <?stdstopper>
         | <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')> { $*ARGUMENT_HAVE := 1 }
         | <?{ $*PROTOTYPE eq '$' }>
             [
@@ -3223,7 +3019,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             ||                        <EXPR('i=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
             ]
         | <?{ $*PROTOTYPE eq ';' }>
-        #| <?>
+        #~ | <?>
         ]
     }
 
@@ -3843,6 +3639,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         #| <.unsp> '(' ~ ')' <semiarglist>
         #| [<?before \s> <!{ $istype }> <.ws> <!infixstopper> <arglist>]?
         | [ <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] <arglist($prototype)> ]?
+        #~ | [ <?before \s> <.ws> <arglist($prototype)> ]?
         | <?>
         ]
     }
@@ -3885,11 +3682,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     ## loose and
     token infix:sym<and>
-        { <sym> <O('%loose_and')> }
+        { <sym> <O('%loose_and, :pasttype<if>')> }
 
     ## loose or
     token infix:sym<or>
-        { <sym> <O('%loose_or')> }
+        { <sym> <O('%loose_or, :assoc<left>, :pasttype<unless>')> }
 
     token infix:sym<xor>
         { <sym> <O('%loose_or')> }
@@ -4090,6 +3887,11 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
         method postprocessor () { 'null' }
     }
 
+    role to[$herelang] {
+        method herelang() { $herelang }
+        method postprocessor () { 'heredoc' }
+    }
+
     role q {
         token stopper { \' }
 
@@ -4097,8 +3899,8 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
 
         #token backslash:sym<qq> { <?before 'q'> { $<quote> := <quibble(%*LANG<P5Q>, 'qq')>: } }
         token backslash:sym<qq> { <?before 'q'> <quote=.LANG('Perl5','quote')> }
-        token backslash:sym<\\> { <text=sym> }
-        token backslash:sym<stopper> { <text=stopper> }
+        token backslash:sym<\\> { <text=.sym> }
+        token backslash:sym<stopper> { <text=.stopper> }
 
         # in single quotes, keep backslash on random character by default
         #token backslash:sym<misc> { {} (.) { $<text> := "\\" ~ ~$0; } }

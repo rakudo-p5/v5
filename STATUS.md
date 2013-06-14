@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>702</td><td>39558</td><td>6</td><td>39</td><td>40302</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>715</td><td>39554</td><td>6</td><td>39</td><td>40311</td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>128</td><td>39</td><td>0</td><td>0</td><td>167</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:145
 
@@ -95,6 +95,13 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
 
 </td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/lop.v5</td><td>10</td><td>7</td><td>0</td><td>0</td><td>17</td></tr>
+        <tr><td colspan='5'>Cannot assign to a readonly variable or a value
+  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:144
+  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:144
+  in block  at t/spec/op/lop.v5:41
+
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>10</td><td>108</td><td>0</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;bless'
   in method &lt;anon&gt; at src/gen/CORE.setting:10177
@@ -165,6 +172,7 @@ Useless use of constant integer 42 in sink context (line 15)
 </td></tr>
         <tr align='center'><td align='left'>t/v5/19-local.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left'>t/v5/05-anon-sub-lex-block.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr align='center'><td align='left'>op/heredoc.v5</td><td>3</td><td>6</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>3</td><td>0</td><td>0</td><td>10</td><td>13</td></tr>
         <tr><td colspan='5'>  10 skipped: Unrecognized directive 'U'&lt;br /&gt;
 </td></tr>
@@ -193,9 +201,7 @@ Useless use of constant integer 42 in sink context (line 15)
 Nominal type check failed for parameter ''; expected Any but got Mu instead
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/vec.v5:14
-
-use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/vec.v5:13
 
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
@@ -480,10 +486,9 @@ Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Number contains two decimal points (missing 'v' for version number?)
-at t/spec/comp/require.v5:87
-------&gt; print "not " unless 5.5.⏏1 gt v5.5;
-</td></tr>
+Two terms in a row
+at t/spec/comp/require.v5:206
+------&gt; eval { CORE::require ⏏bleah; };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/globvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5
@@ -593,12 +598,6 @@ at t/spec/re/reg_email.v5:16
   in any load_module at src/gen/ModuleLoader.nqp:173
   in block  at t/spec/re/reg_email_thr.v5:4
 
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/re/reg_eval.v5:90
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -885,8 +884,8 @@ at t/v5/32-autoload-method.v5:25
         <tr align='center'><td align='left' rowspan='2'>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Confused
-at t/spec/io/layers.v5:258
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
+at t/spec/io/layers.v5:208
+------&gt; 	use open⏏(IN =&gt; ":crlf", OUT =&gt; ":encoding(cp1252</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Variable '$TODO' is not declared
@@ -898,7 +897,7 @@ Could not find Errno in any of: ../lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
+Preceding context expects a term, but found infix &lt; instead
 at t/spec/io/through.v5:150
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
 </td></tr>
@@ -907,12 +906,6 @@ at t/spec/io/through.v5:150
   in any load_module at src/gen/ModuleLoader.nqp:173
   in block  at t/spec/lib/croak.v5:8
 
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>lib/no_load.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/lib/no_load.v5:38
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -932,9 +925,7 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/read.v5:14
-
-use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/read.v5:13
 
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
@@ -1100,10 +1091,18 @@ Bogus statement
 at t/spec/re/qrstack.v5:12
 ------&gt; ok(defined [(1)x⏏127,qr//,1]-&gt;[127], "qr// should extend</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_60508.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/re/reg_60508.v5:45
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+        <tr><td colspan='5'>Could not find symbol '&amp;encode'
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177
+  in any  at src/gen/Metamodel.nqp:2577
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/re/reg_60508.v5:23
+  in method reify at src/gen/CORE.setting:5868
+  in method reify at src/gen/CORE.setting:5763
+  in method gimme at src/gen/CORE.setting:6191
+  in method sink at src/gen/CORE.setting:6492
+  in block  at t/spec/re/reg_60508.v5:15
+
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -1217,10 +1216,10 @@ No such symbol '&amp;Regexp::DESTROY'
 </td></tr>
         <tr align='center'><td align='left'>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchd-78586.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/run/switchd-78586.v5:51
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+        <tr><td colspan='5'>
+  in sub trace_lines at t/spec/run/switchd-78586.v5:28
+  in block  at t/spec/run/switchd-78586.v5:32
+
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -1235,11 +1234,10 @@ at t/spec/io/iprefix.v5:22
         <tr><td colspan='5'>===SORRY!===
 Could not find Errno in any of: ../lib
 </td></tr>
+        <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Bogus statement
-at t/spec/op/concat2.v5:60
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+Could not find overload in any of: ../lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -1257,7 +1255,7 @@ No such symbol '&amp;skip_all_without_config'
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Placeholder variable H^ash[0x15776308] may not be used here because the surrounding block takes no signature
+Placeholder variable H^ash[0x151ec920] may not be used here because the surrounding block takes no signature
 at t/spec/op/utftaint.v5:15
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1438,10 +1436,13 @@ at t/spec/mro/next_method_utf8.v5:33
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
-===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/op/dbm.v5:72
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+No such symbol '&amp;tempfile'
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177
+  in any  at src/gen/Metamodel.nqp:2577
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/op/dbm.v5:17
+
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -1473,10 +1474,13 @@ Too many positional parameters passed; got 3 but expected 1
 
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/run/switchF1.v5:42
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+        <tr><td colspan='5'>No such symbol '&amp;F'
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177
+  in any  at src/gen/Metamodel.nqp:2577
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/spec/run/switchF1.v5:11
+
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -1515,9 +1519,7 @@ at t/spec/io/nargv.v5:79
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/op/blocks.v5:149
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+Could not find constant in any of: ../lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;kill'
@@ -1624,9 +1626,10 @@ at t/spec/mro/pkg_gen_utf8.v5:37
         <tr align='center'><td align='left'>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Bogus statement
-at t/spec/op/lex.v5:80
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
+Couldn't parse heredoc construct
+at t/spec/op/lex.v5:12
+------&gt;     print &lt;&lt;⏏;   # Yow!
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/my_stash.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Could not find constant in any of: ../lib
@@ -1657,6 +1660,7 @@ Error while compiling block  (source text: "use v5;\n#!./perl\n\nprint \"1..7\\n
 Variable '' is not declared
 at t/spec/opbasic/magic_phase.v5:23
 ------&gt;     ok ${^GLOBAL_PHASE}⏏ eq 'START', 'START';</td></tr>
+        <tr align='center'><td align='left'>re/reg_eval.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Preceding context expects a term, but found infix &lt; instead
@@ -1715,8 +1719,8 @@ at t/spec/op/or.v5:22
         <tr align='center'><td align='left' rowspan='2'>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Unable to parse expression in argument list; couldn't find final ')'
-at t/spec/op/rand.v5:249
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
+at t/spec/op/rand.v5:85
+------&gt;     unless (ok( !$max &lt;= 0 ⏏or $max &gt;= (2 ** $randbits))) {# Just in</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Variable '%main::' is not declared
@@ -1754,12 +1758,6 @@ at t/spec/uni/write.v5:7
 Two terms in a row
 at t/spec/comp/decl.v5:26
 ------&gt; if ($x eq $x) ⏏{</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/op/heredoc.v5:90
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/select.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Confused
@@ -1769,7 +1767,7 @@ at t/spec/op/select.v5:20
         <tr><td colspan='5'>WARNINGS:
 Useless use of constant integer 1 in sink context (line 58)
 ===SORRY!===
-Could not find sub cuid_59_1370948200.00714
+Could not find sub cuid_65_1371217212.67108
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -1827,10 +1825,19 @@ Variable '%SIG' is not declared
 at t/spec/io/eintr.v5:76
 ------&gt; $SIG{PIPE}⏏ = 'IGNORE';</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/23-eval.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/v5/23-eval.v5:98
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+        <tr><td colspan='5'>Oops  in block  at t/v5/23-eval.v5:41
+
+Oops  in block  at t/v5/23-eval.v5:44
+
+Oops  in block  at t/v5/23-eval.v5:59
+
+No such symbol '&amp;or'
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177
+  in any  at src/gen/Metamodel.nqp:2577
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565
+  in any find_method at src/gen/Metamodel.nqp:939
+  in block  at t/v5/23-eval.v5:59
+
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -2006,15 +2013,14 @@ at t/spec/run/switchC.v5:27
         <tr align='center'><td align='left'>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/lib/universal.v5:67
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
-</td></tr>
+Unable to parse expression in variable; couldn't find final '}'
+at t/spec/lib/universal.v5:40
+------&gt; $x = ${qr⏏//};</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/form_scope.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/comp/form_scope.v5:165
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+Couldn't parse heredoc construct
+at t/spec/comp/form_scope.v5:12
+------&gt; ok @&lt;&lt;&lt;&lt;&lt;⏏&lt;&lt;
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'
@@ -2082,9 +2088,7 @@ at t/spec/op/hashwarn.v5:18
 ------&gt;     $SIG{'__WARN__'}⏏ = sub { push @warnings, @_ };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/op/push.v5:115
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+Could not find constant in any of: ../lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===
@@ -2148,37 +2152,9 @@ at t/spec/op/glob.v5:117
 use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134
 
 ===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/op/lfs.v5:245
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/lop.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
-
-use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
-
-use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
-
-use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
-
-use of uninitialized value of type Any in numeric context  in block  at t/spec/op/lop.v5:29
-
-Cannot convert string to number: trailing characters after number in '0⏏ but true' (indicated by ⏏)
-  in method Numeric at src/gen/CORE.setting:10169
-  in sub infix:&lt;==&gt; at src/gen/CORE.setting:3094
-  in sub infix:&lt;==&gt; at src/gen/CORE.setting:3092
-  in sub infix:&lt;==&gt; at src/gen/CORE.setting:3094
-  in sub infix:&lt;==&gt; at src/gen/CORE.setting:3092
-  in sub infix:&lt;!=&gt; at src/gen/CORE.setting:3098
-  in sub infix:&lt;!=&gt; at src/gen/CORE.setting:3096
-  in block  at t/spec/op/lop.v5:30
-  in method reify at src/gen/CORE.setting:5868
-  in method reify at src/gen/CORE.setting:5763
-  in method gimme at src/gen/CORE.setting:6191
-  in method eager at src/gen/CORE.setting:6170
-  in block  at t/spec/op/lop.v5:16
-
-</td></tr>
+Variable '$Level' is not declared
+at t/spec/op/lfs.v5:162
+------&gt;     local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Could not locate compile-time value for symbol like
@@ -2282,9 +2258,7 @@ at t/spec/cmd/while.v5:220
         <tr><td colspan='5'>WARNINGS:
 Useless use of constant integer 1 in sink context (line 1)
 get_bool() not implemented in class 'ABC'
-  in sub infix:&lt;and&gt; at src/gen/CORE.setting:2850
-  in sub infix:&lt;and&gt; at src/gen/CORE.setting:2848
-  in block  at t/spec/comp/colon.v5:29
+  in block  at t/spec/comp/colon.v5:27
 
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
@@ -2378,8 +2352,8 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (line 96)
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan='5'>===SORRY!===
 quantifier quantifies nothing
-at t/spec/re/reg_eval_scope.v5:289
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
+at t/spec/re/reg_eval_scope.v5:91
+------&gt; "a" =~ do { package foo; qr/(?⏏{ $::pack = __PACKAGE__ })a/ };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Preceding context expects a term, but found infix &lt; instead
@@ -2567,7 +2541,7 @@ at t/spec/op/localref.v5:20
     at t/spec/op/loopctl.v5:964
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {
 ===SORRY!===
-Could not find sub cuid_96_1370947974.24114
+Could not find sub cuid_96_1371216997.80581
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'
@@ -2628,9 +2602,9 @@ at t/spec/uni/bless.v5:18
 ------&gt;     my $r = qr/^\⏏Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/u;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/lex.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Confused
-at t/spec/base/lex.v5:407
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
+Unable to parse expression in parenthesized expression; couldn't find final ')'
+at t/spec/base/lex.v5:112
+------&gt; print (((q{{\{\(}} . q{{\)\}}⏏}) eq '{{\(}{\)}}') ? "ok 29\n" : "not o</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/undef.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan='5'>===SORRY!===
 Variable '$a' is not declared
@@ -2785,9 +2759,9 @@ at t/spec/comp/proto.v5:39
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub_lval.v5</td><td>0</td><td>191</td><td>0</td><td>0</td><td>191</td></tr>
         <tr><td colspan='5'>===SORRY!===
-Preceding context expects a term, but found infix &lt;&lt; instead
-at t/spec/op/sub_lval.v5:969
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;
+Preceding context expects a term, but found infix , instead
+at t/spec/op/sub_lval.v5:282
+------&gt; ok(!defined,⏏ 'implicitly returning undef in list con
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/switch.v5</td><td>0</td><td>201</td><td>0</td><td>0</td><td>201</td></tr>
         <tr><td colspan='5'>===SORRY!===
