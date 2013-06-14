@@ -3593,7 +3593,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token indirect_object {
         [
-        | <?{ $*ALLOW_IOS_VAR }> >> <variable> <?before \s+ <EXPR('z=')> >
+        | <?{ $*ALLOW_IOS_VAR }> <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ]
         | <?{ $*ALLOW_IOS_NAME }> <name> <?{ $*W.is_type([~$<name>]) }>
         ]
     }

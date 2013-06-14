@@ -247,9 +247,9 @@ Could not find B::Deparse in any of: ., ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/op/do.v5:73<br />
-------&gt;     print $do ⏏"isnt(wantarray, undef, 'do in scalar co</td></tr>
+Variable '$#t' is not declared<br />
+at t/spec/op/do.v5:117<br />
+------&gt; is($#t⏏, 0, "empty do result value" );</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix , instead<br />
@@ -1160,7 +1160,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x16177a50] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x155b12c8] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1649,7 +1649,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1371240192.90031<br />
+Could not find sub cuid_67_1371245269.10686<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2234,10 +2234,17 @@ Two terms in a row<br />
 at t/spec/comp/opsubs.v5:83<br />
 ------&gt;     if (eval { $class-&gt;can(⏏$method) }) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/re/recompile.v5:54<br />
-------&gt;     print $tf ⏏$prog;</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $tf<br />
+    at t/spec/re/recompile.v5:44<br />
+    ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
+No such symbol '&amp;runperl'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
+  in any  at src/gen/Metamodel.nqp:2577<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in block  at t/spec/re/recompile.v5:28<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 quantifier quantifies nothing<br />
@@ -2282,9 +2289,10 @@ at t/spec/comp/uproto.v5:58<br />
 ------&gt; f("FOO xy", $foo, ⏏"xy");</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/io/perlio.v5:29<br />
-------&gt; print $txtfh ⏏"foo\n";</td></tr>
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/io/perlio.v5:230<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
@@ -2354,9 +2362,9 @@ at t/spec/mro/basic.v5:7<br />
 ------&gt; BEGIN { require q(t/test.pl); } ⏏plan(tests =&gt; 59);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/op/inccode.v5:30<br />
-------&gt;     print $fh ⏏"package ".substr($_[0],0,-3).";\n1;\n";</td></tr>
+Variable '%INC' is not declared<br />
+at t/spec/op/inccode.v5:55<br />
+------&gt; ok( exists $INC{'Foo.pm'}⏏,         '  %INC sees Foo.pm' );</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Method 'p5cc' not found for invocant of class 'Perl5::Grammar'<br />
@@ -2400,7 +2408,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371239972.62304<br />
+Could not find sub cuid_96_1371245059.79896<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2536,9 +2544,10 @@ Could not find Errno in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-de
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/io/open.v5:27<br />
-------&gt;     ok( (print $f ⏏"SomeData\n"),  '       we can print to</td></tr>
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/io/open.v5:393<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in term:sym&lt;scalar&gt;; couldn't find final ')'<br />
@@ -2714,9 +2723,9 @@ at t/spec/op/read.v5:49<br />
 ------&gt; 	if ($value⏏ !~ tr/\0-\377//c) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/comp/utf.v5:40<br />
-------&gt;     print $fh ⏏bytes_to_utf($enc, $write . ($nl ? "\n"</td></tr>
+Unrecognized Perl 5 regex backslash sequence<br />
+at t/spec/comp/utf.v5:45<br />
+------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unknown warnings category 'FATAL'<br />
