@@ -22,6 +22,13 @@ sub _is_deeply($a, $b, $c)   { is_deeply($a, $b, $c)              }
 sub _cmp_ok($a, $b, $c, $d?) { _ok(::("&infix:<$b>")($a, $c), $d) }
 sub _done_testing()          { done_testing()                     }
 sub _done()                  { done()                             }
+sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
+    my $filename = IO::Spec.catdir("$*TMPDIR", "fresh_perl.$*PID");
+    $filename.IO.spurt("use v5; $a");
+    my $result = qqx[perl6 $filename];
+    unlink $filename;
+    ~$result.subst(/\n+$/, '');
+}
 
 {
     use v5;
@@ -38,6 +45,7 @@ sub _done()                  { done()                             }
     sub is_miniperl             { 0                                   }
     sub todo                    { _todo(@_)                           }
     sub skip                    { _skip(@_)                           }
+    sub skip_if_miniperl        {                                     }
     sub skip_all                { _skip_rest(@_)                      }
     sub skip_all_if_miniperl    {                                     }
     sub skip_all_without_perlio {                                     }
@@ -55,7 +63,15 @@ sub _done()                  { done()                             }
     sub done_testing            { _done()                             }
     sub done                    { _done()                             }
     
-    sub fresh_perl_is           { _is(`perl6 -e 'use v5; $_[0]'`, $_[1], $_[2]) }
+    sub fresh_perl_is {
+        my ($code, $expected, $options, $name) = @_;
+        $expected  =~ s/\n+$//;
+        _is( _fresh_perl($code, $options), $expected, $name )
+    }
+    sub fresh_perl_like {
+        my ($code, $expected, $options, $name) = @_;
+        _cmp_ok( _fresh_perl($code, $options), '~~', $expected, $name )
+    }
     
     # so that these tests don't die, see https://github.com/mirrors/perl/blob/blead/t/test.pl#L1587
     sub native_to_latin1 { $_[0] }
