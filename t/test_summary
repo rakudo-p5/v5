@@ -286,16 +286,16 @@ sub test_single_file {
         lock %status_rows;
         my $msg = '';
         for (keys %skip) {
-            $msg .= sprintf " %3d skipped: %s<br />\n", $skip{$_}, $_;
+            $msg .= sprintf " %3d skipped: %s\n", $skip{$_}, $_;
         }
         for (keys %todofail) {
-            $msg .= sprintf " %3d todo   : %s<br />\n", $todofail{$_}, $_;
+            $msg .= sprintf " %3d todo   : %s\n", $todofail{$_}, $_;
         }
         for (keys %todopass) {
-            $msg .= sprintf " %3d todo PASSED: %s<br />\n", $todopass{$_}, $_;
+            $msg .= sprintf " %3d todo PASSED: %s\n", $todopass{$_}, $_;
         }
         if ($bonus) {
-            $msg .= sprintf" %3d tests more than planned were run<br />\n", $bonus;
+            $msg .= sprintf" %3d tests more than planned were run\n", $bonus;
         }
         if( $stderr || $msg ) {
             if( $msg ) {
@@ -318,6 +318,7 @@ sub test_single_file {
             elsif( $msg ) {
                 $stderr = $msg
             }
+            $stderr =~ s|\n+|<br />\n|g;
             $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
             = sprintf "        <tr align='center'><td align='left' rowspan='2'>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
                     . "        <tr><td colspan='5'>%s</td></tr>\n",
