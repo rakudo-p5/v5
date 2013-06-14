@@ -136,7 +136,8 @@ threads->create( \&test_single_file, shift(@threads_todo) );
 threads->create( \&test_single_file, shift(@threads_todo) );
 threads->create( \&test_single_file, shift(@threads_todo) );
 
-$| = 1;
+$|    = 1;
+my $i = 0;
 
 while( @threads_todo ) {
     for( threads->list(threads::joinable) ) {
@@ -150,12 +151,19 @@ while( @threads_todo ) {
     my $elapsed   = time - $time;
     my $total     = $elapsed / $done * scalar @tfiles;
     my $remaining = $elapsed / $done * scalar @threads_todo;
-    printf "\r%4d%%   time elapsed: %2d:%02d   time remaining: %2d:%02d   estimated total time: %2d:%02d",
+    my @anim      = qw(◐ ◓ ◑ ◒);
+    my %diff = col_diff( 'sum' );
+    printf "\r%s%3d%%  elapsed: %2d:%02d  remaining: %2d:%02d  total: %2d:%02d  %s    - %s    - %s    - %s    - %s",
+        $anim[$i++ % 4],
         $done * 100 / scalar @tfiles,
         int($elapsed   / 60), $elapsed   - int($elapsed   / 60) * 60,
         int($remaining / 60), $remaining - int($remaining / 60) * 60,
         int($total     / 60), $total     - int($total     / 60) * 60,
-        ;
+        $diff{'sum-pass-c'},
+        $diff{'sum-fail-c'},
+        $diff{'sum-todo-c'},
+        $diff{'sum-skip-c'},
+        $diff{'sum-plan-c'};
     Time::HiRes::usleep( 100_000 )
 }
 
@@ -165,15 +173,15 @@ for( threads->list() ) {
 }
 
 sub print_stats {
-    my $tid  = shift;
+    my $tid  = shift || '';
     my %diff = col_diff( $tid );
     printf "\r%s%s..%4d %s %4d %s %4d %s %4d %s %4d %s                                       \n",
         $sum{"$tid-name"}, '.' x ($max - length($sum{"$tid-name"})),
-        $sum{"$tid-pass"}, $diff{'pass'},
-        $sum{"$tid-fail"}, $diff{'fail'},
-        $sum{"$tid-todo"}, $diff{'todo'},
-        $sum{"$tid-skip"}, $diff{'skip'},
-        $sum{"$tid-plan"}, $diff{'plan'};
+        $sum{"$tid-pass"}, $diff{"$tid-pass-c"},
+        $sum{"$tid-fail"}, $diff{"$tid-fail-c"},
+        $sum{"$tid-todo"}, $diff{"$tid-todo-c"},
+        $sum{"$tid-skip"}, $diff{"$tid-skip-c"},
+        $sum{"$tid-plan"}, $diff{"$tid-plan-c"};
 }
 
 sub col_diff {
@@ -182,17 +190,21 @@ sub col_diff {
     my $name = $sum{"$tid-name"} // '';
     my %ret;
     $last_status->{ $name } //= [0, 0, 0, 0, 0];
+    lock %sum unless "$tid" eq 'sum';
     for( qw(pass fail todo skip plan) ) {
+        $sum{"sum-$_"} //= 0;
         if( $last_status->{ $name }[$i] == $sum{"$tid-$_"} ) {
-            $ret{$_} = color('white') . '  0' . color('reset');
+            $ret{"$tid-$_-c"} = color('white') . '  0' . color('reset');
         }
         elsif( $last_status->{ $name }[$i] > $sum{"$tid-$_"} ) {
-            my $color = $_ eq 'fail' ? 'green' : 'red';
-            $ret{$_} = color("bright_$color") . sprintf('%3d', $sum{"$tid-$_"} - $last_status->{ $name }[$i]) . color('reset');
+            my $color         = $_ eq 'fail' ? 'green' : 'red';
+            $sum{"sum-$_"}   += $sum{"$tid-$_"} - $last_status->{ $name }[$i] unless "$tid" eq 'sum';
+            $ret{"$tid-$_-c"} = color("bright_$color") . sprintf('%3d', $sum{"$tid-$_"} - $last_status->{ $name }[$i]) . color('reset');
         }
         else {
-            my $color = $_ eq 'fail' ? 'red' : 'green';
-            $ret{$_} = color("bright_$color") . sprintf('%3s', '+' . ($sum{"$tid-$_"} - $last_status->{ $name }[$i])) . color('reset');
+            my $color         = $_ eq 'fail' ? 'red' : 'green';
+            $sum{"sum-$_"}   += $sum{"$tid-$_"} - $last_status->{ $name }[$i] unless "$tid" eq 'sum';
+            $ret{"$tid-$_-c"} = color("bright_$color") . sprintf('%3s', '+' . ($sum{"$tid-$_"} - $last_status->{ $name }[$i])) . color('reset');
         }
         
         $i++;
