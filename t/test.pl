@@ -45,9 +45,11 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     sub is_miniperl             { 0                                   }
     sub todo                    { _todo(@_)                           }
     sub skip                    { _skip(@_)                           }
+    sub skip_rest               { _skip_rest(@_)                      }
     sub skip_if_miniperl        {                                     }
     sub skip_all                { _skip_rest(@_)                      }
     sub skip_all_if_miniperl    {                                     }
+    sub skip_all_without_config {                                     }
     sub skip_all_without_perlio {                                     }
     sub skip_all_without_dynamic_extension {                          }
     sub diag                    { _diag(@_)                           }

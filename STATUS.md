@@ -749,12 +749,7 @@ Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 333.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 334.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 335.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 336.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 337.<br />
-===SORRY!===<br />
+        <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Copy in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1148,7 +1143,9 @@ Could not find overload in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
+Preceding context expects a term, but found infix &gt; instead<br />
+at t/spec/op/getpid.v5:32<br />
+------&gt; $pid2, $ppid2) = ($$, getppid()); } ) -&gt;⏏ join();<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1158,11 +1155,12 @@ at t/spec/op/grent.v5:193<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/setpgrpstack.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
-</td></tr>
+Two terms in a row<br />
+at t/spec/op/setpgrpstack.v5:13<br />
+------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x16ab9920] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x16177a50] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1228,11 +1226,11 @@ Could not find FileHandle in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
+Could not find constant in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
+Could not find File::Path in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1428,7 +1426,7 @@ at t/spec/comp/multiline.v5:95<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
+Could not find threads in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1592,8 +1590,9 @@ Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    ch
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getppid.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
-</td></tr>
+Variable '%SIG' is not declared<br />
+at t/spec/op/getppid.v5:25<br />
+------&gt; $SIG{CHLD}⏏ = 'IGNORE';</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/or.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix - instead<br />
@@ -1650,11 +1649,11 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_65_1371218359.04483<br />
+Could not find sub cuid_67_1371240192.90031<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
+No such symbol '&amp;which_perl'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2065,8 +2064,9 @@ Error while compiling, type X::Redeclaration<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
-</td></tr>
+Variable '*FHTMP' is not declared<br />
+at t/spec/run/cloexec.v5:53<br />
+------&gt;     local *FHTMP⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;bless'<br />
   in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
@@ -2135,7 +2135,7 @@ Could not find Tie::Array in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
+Could not find warnings in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defins.v5</td><td>0</td><td>27</td><td>0</td><td>0</td><td>27</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2400,7 +2400,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371218134.28932<br />
+Could not find sub cuid_96_1371239972.62304<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2482,7 +2482,16 @@ at t/spec/uni/universal.v5:21<br />
 ------&gt; ok $a-&gt;isa(⏏"Bòb");</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/runenv.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;skip_all_without_config'<br />
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/run/runenv.v5:280<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $stdout<br />
+    at t/spec/run/runenv.v5:43<br />
+    ------&gt;     open my $stdout⏏, '&lt;', $STDOUT<br />
+    Redeclaration of symbol $stderr<br />
+    at t/spec/run/runenv.v5:45<br />
+    ------&gt;     open my $stderr⏏, '&lt;', $STDERR<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
