@@ -1794,7 +1794,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     #}
     token package_declarator:sym<package> {
         :my $*OUTERPACKAGE := $*PACKAGE;
-        :my $*PKGDECL := 'package';
+        :my $*PKGDECL := 'class';
         <sym> <.end_keyword> <package_def>
     }
 
@@ -1864,7 +1864,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $longname;
         :my $outer := $*W.cur_lexpad();
         :my $*DECLARAND;
-        :my $*IN_DECL := 'package';
+        :my $*IN_DECL := 'class';
         :my $*HAS_SELF := '';
         :my $*CURPAD;
         :my $*DOC := $*DECLARATOR_DOCS;

@@ -1788,30 +1788,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method package_declarator:sym<package>($/) {
         $V5DEBUG && say("package_declarator:sym<package>($/)"); make $<package_def>.ast; }
-    method package_declarator:sym<module>($/)  {
-        $V5DEBUG && say("package_declarator:sym<module>($/) "); make $<package_def>.ast; }
-    method package_declarator:sym<class>($/)   {
-        $V5DEBUG && say("package_declarator:sym<class>($/)  "); make $<package_def>.ast; }
-    method package_declarator:sym<grammar>($/) {
-        $V5DEBUG && say("package_declarator:sym<grammar>($/)"); make $<package_def>.ast; }
-    method package_declarator:sym<role>($/)    {
-        $V5DEBUG && say("package_declarator:sym<role>($/)   "); make $<package_def>.ast; }
-    method package_declarator:sym<knowhow>($/) {
-        $V5DEBUG && say("package_declarator:sym<knowhow>($/)"); make $<package_def>.ast; }
-    method package_declarator:sym<native>($/)  {
-        $V5DEBUG && say("package_declarator:sym<native>($/) "); make $<package_def>.ast; }
-
-    method package_declarator:sym<trusts>($/) {
-        $V5DEBUG && say("package_declarator:sym<trusts>($/)");
-        $*W.apply_trait($/, '&trait_mod:<trusts>', $*PACKAGE, $<typename>.ast);
-    }
-
-    method package_declarator:sym<also>($/) {
-        $V5DEBUG && say("package_declarator:sym<also>($/)");
-        for $<trait> {
-            if $_.ast { ($_.ast)($*DECLARAND) }
-        }
-    }
 
     method package_def($/) {
         $V5DEBUG && say("package_def($/)");
