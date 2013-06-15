@@ -6133,7 +6133,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
                     }
                     @asts.push($_.ast<ww_atom>
                         ?? $_.ast
-                        !! QAST::Op.new( :op('callmethod'), :name('P5Str'),  $_.ast ));
+                        !! QAST::Op.new( :op('call'), :name('&prefix:<P5~>'),  $_.ast ));
                 }
                 else {
                     $lastlit := $lastlit ~ $_.ast;

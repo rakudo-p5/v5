@@ -137,7 +137,8 @@ sub exists( \a ) is export { a:exists ?? 1 !! '' }
 multi sub undef()         is export { Nil              }
 multi sub undef($a is rw) is export { undefine $a; Nil }
 
-multi infix:<P5~>(*@a)     is export { [~] map { .P5Str }, @a }
+multi prefix:<P5~>(\a)     is export { a.P5Str }
+multi infix:<P5~>(*@a)     is export { [~] map { &prefix:<P5~>($_) }, @a }
 multi infix:<|=> (\a, \b)  is export { a = a +& b        }
 multi infix:<&=> (\a, \b)  is export { a = a +| b        }
 multi infix:<||=>(\a, \b)  is export { a = b unless a    }
@@ -243,4 +244,9 @@ augment class Rat {
 augment class Parcel {
     multi method P5Str(Parcel:D:) { self.Int }
     method P5scalar(Parcel:) { self.P5Str }
+}
+
+augment class Sub {
+    multi method P5Str(Sub:D:) { 'CODE(' ~ self.WHERE.fmt('0x%X').lc ~ ')' }
+    method P5scalar(Sub:) { self.P5Str }
 }
