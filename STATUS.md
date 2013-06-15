@@ -3,20 +3,20 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>715</td><td>39554</td><td>6</td><td>39</td><td>40311</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>719</td><td>39690</td><td>6</td><td>39</td><td>40451</td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>128</td><td>39</td><td>0</td><td>0</td><td>167</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:145<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:145<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:145<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:145<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:145<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:145<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:146<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
 Cannot convert string to number: radix point must be followed by one or more valid digits in '20.⏏' (indicated by ⏏)<br />
   in method Numeric at src/gen/CORE.setting:10169<br />
   in sub infix:&lt;/&gt; at src/gen/CORE.setting:3059<br />
@@ -76,8 +76,8 @@ use of uninitialized value of type Nil in numeric context  in block  at t/spec/o
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lop.v5</td><td>10</td><td>7</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>Cannot assign to a readonly variable or a value<br />
-  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:144<br />
-  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:144<br />
+  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:145<br />
+  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:145<br />
   in block  at t/spec/op/lop.v5:41<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>10</td><td>108</td><td>0</td><td>0</td><td>118</td></tr>
@@ -132,6 +132,26 @@ Useless use of constant integer 42 in sink context (line 15)<br />
   in sub prefix:&lt;-&gt; at src/gen/CORE.setting:2904<br />
   in sub prefix:&lt;-&gt; at src/gen/CORE.setting:2903<br />
   in block  at t/spec/op/negate.v5:21<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>4</td><td>37</td><td>0</td><td>0</td><td>41</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $u<br />
+    at t/spec/op/length.v5:176<br />
+    ------&gt; my $u⏏;<br />
+Unrecognized directive 'U'<br />
+  in block  at src/gen/CORE.setting:7940<br />
+  in method reify at src/gen/CORE.setting:5868<br />
+  in method reify at src/gen/CORE.setting:5763<br />
+  in method gimme at src/gen/CORE.setting:6191<br />
+  in method eager at src/gen/CORE.setting:6170<br />
+  in sub pack at src/gen/CORE.setting:7887<br />
+  in sub pack at src/gen/CORE.setting:7885<br />
+  in block  at t/spec/op/length.v5:37<br />
+  in method reify at src/gen/CORE.setting:5868<br />
+  in method reify at src/gen/CORE.setting:5763<br />
+  in method gimme at src/gen/CORE.setting:6191<br />
+  in method sink at src/gen/CORE.setting:6492<br />
+  in block  at t/spec/op/length.v5:20<br />
 </td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -236,12 +256,14 @@ Unable to parse expression in argument list; couldn't find final ')'<br />
 at t/spec/op/closure.v5:79<br />
 ------&gt; is(&amp;{$foo[0]}⏏(), 0);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:141<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:142<br />
 ===SORRY!===<br />
-Could not find overload in any of: ., ../lib<br />
+Preceding context expects a term, but found infix + instead<br />
+at t/spec/op/coreamp.v5:57<br />
+------&gt;     $tests ++⏏;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:141<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:142<br />
 ===SORRY!===<br />
 Could not find B::Deparse in any of: ., ../lib<br />
 </td></tr>
@@ -323,7 +345,7 @@ at t/spec/op/require_37033.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
+Could not find constant in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -496,8 +518,17 @@ at t/spec/re/fold_grind.v5:4<br />
 ------&gt; binmode STDOUT,⏏ ":utf8";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: ../lib<br />
+        <tr><td colspan='5'>No such symbol '&amp;bless'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
+  in any  at src/gen/Metamodel.nqp:2577<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in block  at t/spec/re/overload.v5:21<br />
+  in method reify at src/gen/CORE.setting:5868<br />
+  in method reify at src/gen/CORE.setting:5763<br />
+  in method gimme at src/gen/CORE.setting:6191<br />
+  in method sink at src/gen/CORE.setting:6492<br />
+  in block  at t/spec/re/overload.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -566,7 +597,7 @@ at t/spec/re/regex_sets.v5:23<br />
 ------&gt; like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:170<br />
+  in sub _P5do at lib/Perl5/Terms.pm:171<br />
   in block  at t/spec/re/regex_sets_compat.v5:11<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -580,7 +611,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:170<br />
+  in sub _P5do at lib/Perl5/Terms.pm:171<br />
   in block  at t/spec/re/regexp_noamp.v5:8<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -590,7 +621,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:170<br />
+  in sub _P5do at lib/Perl5/Terms.pm:171<br />
   in block  at t/spec/re/regexp_notrie.v5:11<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -600,7 +631,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:170<br />
+  in sub _P5do at lib/Perl5/Terms.pm:171<br />
   in block  at t/spec/re/regexp_qr.v5:6<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -610,7 +641,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:170<br />
+  in sub _P5do at lib/Perl5/Terms.pm:171<br />
   in block  at t/spec/re/regexp_qr_embed.v5:7<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -628,7 +659,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:170<br />
+  in sub _P5do at lib/Perl5/Terms.pm:171<br />
   in block  at t/spec/re/regexp_trielist.v5:12<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -647,7 +678,7 @@ at t/spec/re/regexp_unicode_prop.v5:68<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:164<br />
+        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:165<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -655,7 +686,7 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/subst_amp.v5:22<br />
 ------&gt; s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:164<br />
+        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:165<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -1095,8 +1126,9 @@ at t/spec/op/magic-27839.v5:19<br />
 ------&gt; 	return @+⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5, ../lib<br />
-</td></tr>
+Variable '%INC' is not declared<br />
+at t/spec/op/overload_integer.v5:26<br />
+------&gt; BEGIN { $INC{'Foo.pm'}⏏ = "/lib/Foo.pm" }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix &lt; instead<br />
@@ -1138,8 +1170,14 @@ Could not find Errno in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: ../lib<br />
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
+No such symbol '&amp;bless'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
+  in any  at src/gen/Metamodel.nqp:2577<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in block  at t/spec/op/concat2.v5:29<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1160,7 +1198,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x155b12c8] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0xec1be00] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1338,10 +1376,6 @@ No such symbol '&amp;tempfile'<br />
   in any find_method at src/gen/Metamodel.nqp:939<br />
   in block  at t/spec/op/dbm.v5:17<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: ../lib<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;lock'<br />
   in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
@@ -1470,23 +1504,33 @@ Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
+Unexpected closing bracket<br />
+at t/spec/mro/c3_with_overload.v5:32<br />
+------&gt;  $x = InheritingFromOverloadedTest-&gt;new(⏏);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
+Unexpected closing bracket<br />
+at t/spec/mro/c3_with_overload_utf8.v5:32<br />
+------&gt;  $x = InheritingFromOverloadedTest-&gt;new(⏏);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
+Unexpected closing bracket<br />
+at t/spec/mro/overload_c3.v5:38<br />
+------&gt;  $x = InheritingFromOverloadedTest-&gt;new(⏏);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
+Unexpected closing bracket<br />
+at t/spec/mro/overload_c3_utf8.v5:41<br />
+------&gt; my $x = 읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ-&gt;ネᚹ(⏏);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
+Unexpected closing bracket<br />
+at t/spec/mro/overload_dfs.v5:38<br />
+------&gt;  $x = InheritingFromOverloadedTest-&gt;new(⏏);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1649,7 +1693,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1371245269.10686<br />
+Could not find sub cuid_67_1371321867.78935<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2121,8 +2165,26 @@ at t/spec/cmd/while.v5:220<br />
         <tr align='center'><td align='left' rowspan='2'>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 1)<br />
-get_bool() not implemented in class 'ABC'<br />
-  in block  at t/spec/comp/colon.v5:27<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
+WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 1)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2183,10 +2245,9 @@ at t/spec/op/readline.v5:284<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/reset.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Preceding context expects a term, but found infix &lt; instead<br />
-at t/spec/op/reset.v5:195<br />
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
-</td></tr>
+Redeclaration of symbol scratch<br />
+at t/spec/op/reset.v5:84<br />
+------&gt; package scratch ⏏{ reset "bc" }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/warn.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -2268,10 +2329,6 @@ at t/spec/re/rxcode.v5:13<br />
 Confused<br />
 at t/spec/op/avhv.v5:167<br />
 ------&gt; $a = [{key =&gt; 1}⏏, 'a'];</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>0</td><td>41</td><td>0</td><td>0</td><td>41</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: ../lib<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement<br />
@@ -2408,7 +2465,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371245059.79896<br />
+Could not find sub cuid_96_1371321651.61798<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2555,8 +2612,9 @@ at t/spec/op/array.v5:62<br />
 ------&gt; ok(scalar (($F1,$F2,$Etc) ⏏= ($foo =~ /^(\S+)\s+(\S+)\s*(.*)/)));</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol d<br />
-</td></tr>
+Redeclaration of symbol bar<br />
+at t/spec/cmd/lexsub.v5:41<br />
+------&gt; package bar⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/eval.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Missing block<br />
@@ -2593,6 +2651,14 @@ at t/spec/op/method.v5:30<br />
 Confused<br />
 at t/spec/op/range.v5:396<br />
 ------&gt;  for (1..2) { for (1..4) { $s .= ++$_ } ⏏$s.=' ' if $_==1; }</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;bless'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
+  in any  at src/gen/Metamodel.nqp:2577<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in block  at t/spec/op/filetest_stack_ok.v5:19<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Filter::Util::Call in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
@@ -2650,7 +2716,40 @@ ResizablePMCArray: index out of bounds!<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/overload.v5</td><td>0</td><td>215</td><td>0</td><td>0</td><td>215</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: ../lib<br />
+Cannot call 'trait_mod:&lt;is&gt;'; none of these signatures match:<br />
+:(Mu:U $child, Mu:U $parent)<br />
+:(Mu:U $type, :rw(:$rw)!)<br />
+:(Mu:U $type, :nativesize(:$nativesize)!)<br />
+:(Mu:U $type, :hidden(:$hidden)!)<br />
+:(Mu:U $type, *%fail)<br />
+:(Attribute:D $attr, :rw(:$rw)!)<br />
+:(Attribute:D $attr, :readonly(:$readonly)!)<br />
+:(Attribute:D $attr, :box_target(:$box_target)!)<br />
+:(Routine:D $r, :rw(:$rw)!)<br />
+:(Routine:D $r, :default(:$default)!)<br />
+:(Routine:D $r, :DEPRECATED(:$DEPRECATED)!)<br />
+:(Routine:D $r, Mu :inlinable(:$inlinable)!)<br />
+:(Routine:D $r, :onlystar(:$onlystar)!)<br />
+:(Routine:D $r, :prec(%spec)!)<br />
+:(Routine $r, :equiv(:&amp;equiv)!)<br />
+:(Routine $r, :tighter(:&amp;tighter)!)<br />
+:(Routine $r, :looser(:&amp;looser)!)<br />
+:(Routine $r, :assoc(:$assoc)!)<br />
+:(Parameter:D $param, :readonly(:$readonly)!)<br />
+:(Parameter:D $param, :rw(:$rw)!)<br />
+:(Parameter:D $param, :copy(:$copy)!)<br />
+:(Parameter:D $param, :required(:$required)!)<br />
+:(Parameter:D $param, :parcel(:$parcel)!)<br />
+:(Routine:D \r, :export(:$export)!)<br />
+:(Mu:U \type, :export(:$export)!)<br />
+:(Mu \sym, :export(:$export)!, :SYMBOL(:$SYMBOL)!)<br />
+:(Mu:D $docee, :docs(:$docs)!)<br />
+:(Mu:U $docee, :docs(:$docs)!)<br />
+:(Routine:D $r, :hidden_from_backtrace(:$hidden_from_backtrace)!)<br />
+:(Routine:D $r, :pure(:$pure)!)<br />
+:(Routine:D $r, :lvalue(:$lvalue)!)<br />
+at t/spec/uni/overload.v5:15<br />
+------&gt; <br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ref.v5</td><td>0</td><td>230</td><td>0</td><td>0</td><td>230</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2688,8 +2787,11 @@ Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find overload in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+Lexical symbol '$a' is already bound to an outer symbol;<br />
+the implicit outer binding must be rewritten as OUTER::&lt;$a&gt;<br />
+before you can unambiguously declare a new '$a' in this scope<br />
+at t/spec/op/substr.v5:197<br />
+------&gt; my $a ⏏= 'zxcvbnm';</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Variable '$a' is not declared<br />
