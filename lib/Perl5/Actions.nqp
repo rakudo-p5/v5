@@ -4219,23 +4219,26 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method arglist($/) {
         $V5DEBUG && say("arglist($/)");
-        my $past := QAST::Op.new( :op('call'), :node($/) );
+        my @args;
         if $<arg> {
             for $<arg> -> $arg {
                 if $arg<EXPR> {
                     my $expr := $arg<EXPR>.ast;
-                    my @args := nqp::istype($expr, QAST::Op) && $expr.name eq '&infix:<,>'
+                    my @arg := nqp::istype($expr, QAST::Op) && $expr.name eq '&infix:<,>'
                         ?? $expr.list
                         !! [$expr];
-                    for @args {
-                        $past.push($_);
+                    for @arg {
+                        @args.push($_);
                     }
                 }
             }
         }
+        my $past := QAST::Op.new( :op('call'), :node($/), |@args );
         if $<indirect_object> {
             $past.name('&infix:<,>');
-            $past := QAST::Op.new( :op('callmethod'), $<indirect_object>.ast, $past )
+            $past := +@args
+                    ?? QAST::Op.new( :op('callmethod'), $<indirect_object>.ast, $past )
+                    !! QAST::Op.new( :op('callmethod'), $<indirect_object>.ast );
         }
 
         make $past;
