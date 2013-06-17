@@ -3,20 +3,20 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>719</td><td>39690</td><td>6</td><td>39</td><td>40451</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>727</td><td>39685</td><td>5</td><td>37</td><td>40451</td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>128</td><td>39</td><td>0</td><td>0</td><td>167</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:146<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:147<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:151<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:151<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:151<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:151<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:151<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;+=&gt; at lib/Perl5/Terms.pm:151<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:152<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:152<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:152<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:152<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:152<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;-=&gt; at lib/Perl5/Terms.pm:152<br />
 Cannot convert string to number: radix point must be followed by one or more valid digits in '20.⏏' (indicated by ⏏)<br />
   in method Numeric at src/gen/CORE.setting:10169<br />
   in sub infix:&lt;/&gt; at src/gen/CORE.setting:3059<br />
@@ -32,10 +32,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
 use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>49</td><td>0</td><td>2</td><td>2</td><td>53</td></tr>
-        <tr><td colspan='5'>   2 skipped: trailing dot within strings NYI<br />
-   1 todo   : octal number in string not treaded as such<br />
-   1 todo   : NYI<br />
+        <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
+        <tr><td colspan='5'>   1 todo   : NYI<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
         <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
@@ -54,6 +52,7 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left'>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr align='center'><td align='left'>op/lop.v5</td><td>15</td><td>2</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>13</td><td>39</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>Cannot convert string to number: trailing characters after number in '512⏏Büf' (indicated by ⏏)<br />
@@ -70,16 +69,8 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
         <tr align='center'><td align='left' rowspan='2'>op/not.v5</td><td>12</td><td>4</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>parens needed around second argument in next two tests<br />
 to preserve list context inside function call<br />
-use of uninitialized value of type Nil in numeric context  in block  at t/spec/op/not.v5:33<br />
-use of uninitialized value of type Nil in numeric context  in block  at t/spec/op/not.v5:53<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/lop.v5</td><td>10</td><td>7</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Cannot assign to a readonly variable or a value<br />
-  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:145<br />
-  in sub infix:&lt;&amp;&amp;=&gt; at lib/Perl5/Terms.pm:145<br />
-  in block  at t/spec/op/lop.v5:41<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>10</td><td>108</td><td>0</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;bless'<br />
   in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
@@ -157,8 +148,7 @@ Unrecognized directive 'U'<br />
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>3</td><td>0</td><td>2</td><td>2</td><td>7</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/base/term.v5:32<br />
-<br />   2 skipped: typeglobs NYI<br />
+        <tr><td colspan='5'>   2 skipped: typeglobs NYI<br />
    1 todo   : retrieving highest array index NYI<br />
    1 todo   : rakudo doesnt support -l option<br />
 </td></tr>
@@ -178,7 +168,13 @@ Unrecognized directive 'U'<br />
         <tr align='center'><td align='left'>t/v5/05-lex-block.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/05-lex-block-if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 333.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 334.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 335.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 336.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 337.<br />
+</td></tr>
         <tr align='center'><td align='left'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -256,14 +252,14 @@ Unable to parse expression in argument list; couldn't find final ')'<br />
 at t/spec/op/closure.v5:79<br />
 ------&gt; is(&amp;{$foo[0]}⏏(), 0);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:142<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:147<br />
 ===SORRY!===<br />
 Preceding context expects a term, but found infix + instead<br />
 at t/spec/op/coreamp.v5:57<br />
 ------&gt;     $tests ++⏏;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:142<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub infix:&lt;|=&gt; at lib/Perl5/Terms.pm:147<br />
 ===SORRY!===<br />
 Could not find B::Deparse in any of: ., ../lib<br />
 </td></tr>
@@ -597,7 +593,7 @@ at t/spec/re/regex_sets.v5:23<br />
 ------&gt; like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:171<br />
+  in sub _P5do at lib/Perl5/Terms.pm:253<br />
   in block  at t/spec/re/regex_sets_compat.v5:11<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -611,7 +607,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:171<br />
+  in sub _P5do at lib/Perl5/Terms.pm:253<br />
   in block  at t/spec/re/regexp_noamp.v5:8<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -621,7 +617,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:171<br />
+  in sub _P5do at lib/Perl5/Terms.pm:253<br />
   in block  at t/spec/re/regexp_notrie.v5:11<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -631,7 +627,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:171<br />
+  in sub _P5do at lib/Perl5/Terms.pm:253<br />
   in block  at t/spec/re/regexp_qr.v5:6<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -641,7 +637,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:171<br />
+  in sub _P5do at lib/Perl5/Terms.pm:253<br />
   in block  at t/spec/re/regexp_qr_embed.v5:7<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -659,7 +655,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:171<br />
+  in sub _P5do at lib/Perl5/Terms.pm:253<br />
   in block  at t/spec/re/regexp_trielist.v5:12<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -678,7 +674,7 @@ at t/spec/re/regexp_unicode_prop.v5:68<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:165<br />
+        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:247<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -686,7 +682,7 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/subst_amp.v5:22<br />
 ------&gt; s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:165<br />
+        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:247<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -1198,7 +1194,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0xec1be00] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0xcc032a0] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1693,7 +1689,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1371321867.78935<br />
+Could not find sub cuid_67_1371478205.86086<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2465,7 +2461,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371321651.61798<br />
+Could not find sub cuid_96_1371477955.73047<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
