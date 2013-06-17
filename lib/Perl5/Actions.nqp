@@ -4391,6 +4391,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         '==',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5==>'), $/[0].ast, $/[1].ast) },
         '!=',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5!=>'), $/[0].ast, $/[1].ast) },
         '+',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5+>'),  $/[0].ast, $/[1].ast) },
+        '/',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5/>'),  $/[0].ast, $/[1].ast) },
     );
     method EXPR($/, $key?) {
         $V5DEBUG && say("EXPR($/, $key?)");
