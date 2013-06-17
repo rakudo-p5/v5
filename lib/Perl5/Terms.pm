@@ -148,10 +148,11 @@ multi infix:<|=> (\a, \b)  is export { a = a +& b        }
 multi infix:<&=> (\a, \b)  is export { a = a +| b        }
 multi infix:<||=>(\a, \b)  is rw is export { a = b unless a; a }
 multi infix:<&&=>(\a, \b)  is rw is export { a = b if a; a     }
-multi infix:<+=> (\a, \b)  is export { a = a + b         }
-multi infix:<-=> (\a, \b)  is export { a = a - b         }
-multi infix:<*=> (\a, \b)  is export { a = a * b         }
-multi infix:</=> (\a, \b)  is export { a = a / b         }
+multi infix:<+=> (\a, \b)  is export { a = a.P5Numeric + b.P5Numeric }
+multi infix:<-=> (\a, \b)  is export { a = a.P5Numeric - b.P5Numeric }
+multi infix:<*=> (\a, \b)  is export { a = a.P5Numeric * b.P5Numeric }
+multi infix:</=> (\a, \b)  is export { a = a.P5Numeric / b.P5Numeric }
+multi infix:<P5/> (\a, \b) is export { a.P5Numeric / b.P5Numeric }
 
 multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
