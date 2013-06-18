@@ -3759,11 +3759,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
             );
     }
 
-    method term:sym<chr>($/) {
-        $V5DEBUG && say("term:sym<chr>($/)");
-        make call_expr_or_topic( $/, 'chr' )
-    }
-
     method term:sym<defined>($/) {
         $V5DEBUG && say("term:sym<defined>($/)");
         my $past := $<EXPR> ?? $<EXPR>.ast
@@ -3948,6 +3943,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
     my %defaults_to := nqp::hash(
+        'chr',     '$_',
+        'ord',     '$_',
         'say',     '$_',
         'print',   '$_',
         'shift',   '@_',
@@ -3967,16 +3964,22 @@ class Perl5::Actions is HLL::Actions does STDActions {
                         ?? QAST::Op.new( :op('call'), QAST::Var.new( :name(%defaults_to{$name}), :scope('lexical') ) )
                         !! $<args>.ast;
             if $past.op() eq 'callmethod' {
-                if $*ARGUMENT_HAVE && ($name eq 'say' || $name eq 'print') {
-                    $past[1].name('&infix:<P5~>');
+                if $*ARGUMENT_HAVE {
+                    if $name eq 'say' || $name eq 'print' {
+                        $past[1].name('&infix:<P5~>');
+                    }
                 }
-                $past.op('callmethod');
                 $past.name($name);
             }
             elsif $builtin {
                 if $name eq 'say' || $name eq 'print' {
                     $past.name('&infix:<P5~>');
                     $past := QAST::Op.new( :op('call'), $past );
+                }
+                elsif $name eq 'chr' {
+                    $past.op('callmethod');
+                    $past.name('P5Numeric');
+                    $past := QAST::Op.new( :op('callmethod'), $past );
                 }
                 $past.op('callmethod');
                 $past.name($name);
@@ -4388,7 +4391,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast, 0) },
         '.=',   -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast, 1) },
         '|',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+|>'), $/[0].ast, $/[1].ast) },
-        '&',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+&>'), $/[0].ast, $/[1].ast) },
         '^',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+^>'), $/[0].ast, $/[1].ast) },
         '<<',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+<>'), $/[0].ast, $/[1].ast) },
         '>>',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+>>'), $/[0].ast, $/[1].ast) },
@@ -4397,6 +4399,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         '!=',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5!=>'), $/[0].ast, $/[1].ast) },
         '+',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5+>'),  $/[0].ast, $/[1].ast) },
         '/',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5/>'),  $/[0].ast, $/[1].ast) },
+        '&',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5&>'),  $/[0].ast, $/[1].ast) },
     );
     method EXPR($/, $key?) {
         $V5DEBUG && say("EXPR($/, $key?)");

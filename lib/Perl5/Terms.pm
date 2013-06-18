@@ -153,6 +153,8 @@ multi infix:<-=> (\a, \b)  is export { a = a.P5Numeric - b.P5Numeric }
 multi infix:<*=> (\a, \b)  is export { a = a.P5Numeric * b.P5Numeric }
 multi infix:</=> (\a, \b)  is export { a = a.P5Numeric / b.P5Numeric }
 multi infix:<P5/> (\a, \b) is export { a.P5Numeric / b.P5Numeric }
+multi infix:<P5&> (Str \a, Str \b) is export { a ~& b }
+multi infix:<P5&> (*@a)    is export { [+&] map { &prefix:<P5+>($_) }, @a }
 
 multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
@@ -280,7 +282,8 @@ augment class Str {
                 if nqp::isne_i($ch, 46) {  # '.'
                     $parse := nqp::radix_I($radix, $str, $pos, $neg, Int);
                     $p      = nqp::atpos($parse, 2);
-                    parse_fail "base-$radix number must begin with valid digits or '.'"
+                    #~ parse_fail "base-$radix number must begin with valid digits or '.'"
+                    return 0
                         if nqp::iseq_i($p, -1);
                     $pos    = $p;
 

@@ -2046,6 +2046,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #        ] || <.panic: "Malformed routine">
 #    }
     my %prototype := nqp::hash(
+        'chr',  '$',
+        'ord',  '$',
         'time', '',
     );
     rule routine_def {
@@ -2985,7 +2987,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token semiarglist($prototype = '@') {
-        <arglist($prototype)> +% ';'
+        <arglist($prototype, 1)> +% ';'
         <.ws>
     }
 
@@ -3014,18 +3016,18 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :dba('argument')
         [
         #~ | <?stdstopper>
-        | <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')> { $*ARGUMENT_HAVE := 1 }
-        | <?{ $*PROTOTYPE eq '$' }>
+        || <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')> { $*ARGUMENT_HAVE := 1 }
+        || <?{ $*PROTOTYPE eq '$' }>
             [
             || <?{ $*ARGUMENT_HAVE }> <EXPR('h=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
-            ||                        <EXPR('i=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
+            ||                        <EXPR('q=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
             ]
-        | <?{ $*PROTOTYPE eq ';' }>
+        || <?{ $*PROTOTYPE eq ';' }>
         #~ | <?>
         ]
     }
 
-    token arglist($prototype = '@') {
+    token arglist($prototype = '@', $is_semiarglist = 0) {
         :my $*GOAL := 'endargs';
         :my $*QSIGIL := '';
         :my $s := $prototype;
@@ -3037,7 +3039,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [
         | <?stdstopper>
         | <?[=]>
-        | [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
+        |   [
+            || <?{ $is_semiarglist }> <arg> ** 0..1
+            || [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
+            ]
         ]
     }
 
@@ -3175,9 +3180,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
 #    token term:sym<caller>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
-
-    token term:sym<chr>
-        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
 #    token term:sym<cos>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }

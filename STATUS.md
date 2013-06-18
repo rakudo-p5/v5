@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>750</td><td>39662</td><td>5</td><td>37</td><td>40451</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>757</td><td>39655</td><td>5</td><td>37</td><td>40451</td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>151</td><td>16</td><td>0</td><td>0</td><td>167</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:375<br />
 use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:378<br />
@@ -49,23 +49,24 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
         <tr align='center'><td align='left' rowspan='2'>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr><td colspan='5'>  13 skipped: Invalid character for UTF-8 encoding<br />
 </td></tr>
-        <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
-        <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr align='center'><td align='left'>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr align='center'><td align='left'>op/lop.v5</td><td>15</td><td>2</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>13</td><td>39</td><td>0</td><td>0</td><td>52</td></tr>
-        <tr><td colspan='5'>Cannot convert string to number: trailing characters after number in '512⏏Büf' (indicated by ⏏)<br />
-  in method Int at src/gen/CORE.setting:10167<br />
-  in method Int at src/gen/CORE.setting:4119<br />
-  in method chr at src/gen/CORE.setting:2510<br />
-  in block  at t/spec/uni/sprintf.v5:83<br />
+        <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>20</td><td>32</td><td>0</td><td>0</td><td>52</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;unpack'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
+  in any  at src/gen/Metamodel.nqp:2577<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2565<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in block  at t/spec/uni/sprintf.v5:119<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
   in method gimme at src/gen/CORE.setting:6191<br />
   in method sink at src/gen/CORE.setting:6492<br />
   in block  at t/spec/uni/sprintf.v5:14<br />
 </td></tr>
+        <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
+        <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
+        <tr align='center'><td align='left'>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr align='center'><td align='left'>op/lop.v5</td><td>15</td><td>2</td><td>0</td><td>0</td><td>17</td></tr>
+        <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/not.v5</td><td>12</td><td>4</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>parens needed around second argument in next two tests<br />
 to preserve list context inside function call<br />
@@ -179,7 +180,8 @@ Unrecognized directive 'U'<br />
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/hints.v5</td><td>1</td><td>30</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Nominal type check failed for parameter ''; expected Any but got Mu instead<br />
+Cannot call 'prefix:&lt;P5+&gt;'; none of these signatures match:<br />
+:(\a)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/bigmem/vec.v5:13<br />
@@ -587,7 +589,7 @@ at t/spec/re/regex_sets.v5:23<br />
 ------&gt; like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:177<br />
+  in sub _P5do at lib/Perl5/Terms.pm:179<br />
   in block  at t/spec/re/regex_sets_compat.v5:11<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -601,7 +603,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:177<br />
+  in sub _P5do at lib/Perl5/Terms.pm:179<br />
   in block  at t/spec/re/regexp_noamp.v5:8<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -611,7 +613,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:177<br />
+  in sub _P5do at lib/Perl5/Terms.pm:179<br />
   in block  at t/spec/re/regexp_notrie.v5:11<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -621,7 +623,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:177<br />
+  in sub _P5do at lib/Perl5/Terms.pm:179<br />
   in block  at t/spec/re/regexp_qr.v5:6<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -631,7 +633,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:177<br />
+  in sub _P5do at lib/Perl5/Terms.pm:179<br />
   in block  at t/spec/re/regexp_qr_embed.v5:7<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -649,7 +651,7 @@ Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:177<br />
+  in sub _P5do at lib/Perl5/Terms.pm:179<br />
   in block  at t/spec/re/regexp_trielist.v5:12<br />
   in method reify at src/gen/CORE.setting:5868<br />
   in method reify at src/gen/CORE.setting:5763<br />
@@ -668,7 +670,7 @@ at t/spec/re/regexp_unicode_prop.v5:68<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:171<br />
+        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:173<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -676,7 +678,7 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/subst_amp.v5:22<br />
 ------&gt; s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:171<br />
+        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:173<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -1038,11 +1040,7 @@ at t/spec/re/qrstack.v5:12<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Unicode::UCD in any of: /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Too many positional parameters passed; got 3 but expected 1<br />
-  in sub ord at src/gen/CORE.setting:2613<br />
-  in block  at t/spec/run/switch0.v5:12<br />
-</td></tr>
+        <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1188,7 +1186,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0xcbafe18] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0xb010ed0] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1683,7 +1681,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1371548821.61261<br />
+Could not find sub cuid_67_1371571035.22529<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1955,11 +1953,7 @@ at t/spec/re/reg_pmod.v5:24<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find mypragma in any of: lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/op/int.v5:47<br />
-------&gt; $y = int ⏏($x);</td></tr>
+        <tr align='center'><td align='left'>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Method 'p5cc' not found for invocant of class 'Perl5::Grammar'<br />
@@ -2331,9 +2325,9 @@ at t/spec/op/study.v5:69<br />
 ------&gt; ok(m|bc/*d|⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/uproto.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in argument list; couldn't find final ')'<br />
-at t/spec/comp/uproto.v5:58<br />
-------&gt; f("FOO xy", $foo, ⏏"xy");</td></tr>
+Two terms in a row<br />
+at t/spec/comp/uproto.v5:123<br />
+------&gt; unop ⏏11, 22; # takes only the first parameter</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix &lt; instead<br />
@@ -2455,7 +2449,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371548574.32329<br />
+Could not find sub cuid_96_1371570811.16824<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
