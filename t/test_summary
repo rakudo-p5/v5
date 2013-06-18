@@ -124,6 +124,7 @@ print STATUS "<table align='center'>
 ";
 printf "%s     pass     fail     todo     skip     plan\n", ' ' x $max;
 
+my @anim = qw(◐ ◓ ◑ ◒);
 my %status_rows  : shared;
 my $row_count = 0;
 my @threads_todo;
@@ -147,11 +148,33 @@ while( @threads_todo ) {
             threads->create( \&test_single_file, shift(@threads_todo) );
         }
     }
+    print_status();
+}
+
+for( threads->list() ) {
+    $_->join();
+    print_stats( $_->tid() );
+    print_status();
+}
+print "\n";
+
+sub print_stats {
+    my $tid  = shift || '';
+    my %diff = col_diff( $tid );
+    printf "\r%s%s..%4d %s %4d %s %4d %s %4d %s %4d %s                                       \n",
+        $sum{"$tid-name"}, '.' x ($max - length($sum{"$tid-name"})),
+        $sum{"$tid-pass"}, $diff{"$tid-pass-c"},
+        $sum{"$tid-fail"}, $diff{"$tid-fail-c"},
+        $sum{"$tid-todo"}, $diff{"$tid-todo-c"},
+        $sum{"$tid-skip"}, $diff{"$tid-skip-c"},
+        $sum{"$tid-plan"}, $diff{"$tid-plan-c"};
+}
+
+sub print_status {
     my $done      = scalar @tfiles - scalar @threads_todo;
     my $elapsed   = time - $time;
     my $total     = $elapsed / $done * scalar @tfiles;
     my $remaining = $elapsed / $done * scalar @threads_todo;
-    my @anim      = qw(◐ ◓ ◑ ◒);
     my %diff = col_diff( 'sum' );
     printf "\r%s%3d%%  elapsed: %2d:%02d  remaining: %2d:%02d  total: %2d:%02d  %s    - %s    - %s    - %s    - %s",
         $anim[$i++ % 4],
@@ -165,23 +188,6 @@ while( @threads_todo ) {
         $diff{'sum-skip-c'},
         $diff{'sum-plan-c'};
     Time::HiRes::usleep( 100_000 )
-}
-
-for( threads->list() ) {
-    $_->join();
-    print_stats( $_->tid() );
-}
-
-sub print_stats {
-    my $tid  = shift || '';
-    my %diff = col_diff( $tid );
-    printf "\r%s%s..%4d %s %4d %s %4d %s %4d %s %4d %s                                       \n",
-        $sum{"$tid-name"}, '.' x ($max - length($sum{"$tid-name"})),
-        $sum{"$tid-pass"}, $diff{"$tid-pass-c"},
-        $sum{"$tid-fail"}, $diff{"$tid-fail-c"},
-        $sum{"$tid-todo"}, $diff{"$tid-todo-c"},
-        $sum{"$tid-skip"}, $diff{"$tid-skip-c"},
-        $sum{"$tid-plan"}, $diff{"$tid-plan-c"};
 }
 
 sub col_diff {
