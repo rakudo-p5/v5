@@ -2045,7 +2045,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #            <.getsig>
 #        ] || <.panic: "Malformed routine">
 #    }
-    my %prototype;
+    my %prototype := nqp::hash(
+        'time', '',
+    );
     rule routine_def {
         :my $*IN_DECL := 'sub';
         :my $*METHODTYPE;
@@ -3308,7 +3310,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<reset>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<time> { <sym> <.end_keyword> }
+    #~ rule term:sym<time> { <sym> <.end_keyword> }
 
 #    token term:sym<rand>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }

@@ -3,19 +3,27 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>741</td><td>39671</td><td>5</td><td>37</td><td>40451</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>142</td><td>25</td><td>0</td><td>0</td><td>167</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;time'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:10177<br />
-  in any  at src/gen/Metamodel.nqp:2577<br />
-  in any find_method_fallback at src/gen/Metamodel.nqp:2565<br />
-  in any find_method at src/gen/Metamodel.nqp:939<br />
-  in block  at t/spec/opbasic/arith.v5:342<br />
-  in method reify at src/gen/CORE.setting:5868<br />
-  in method reify at src/gen/CORE.setting:5763<br />
-  in method gimme at src/gen/CORE.setting:6191<br />
-  in method sink at src/gen/CORE.setting:6492<br />
-  in block  at t/spec/opbasic/arith.v5:313<br />
+        <tr align='center'><td align='left'>summary</td><td>750</td><td>39662</td><td>5</td><td>37</td><td>40451</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>151</td><td>16</td><td>0</td><td>0</td><td>167</td></tr>
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:375<br />
+use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:378<br />
+use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:387<br />
+use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:390<br />
+use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:394<br />
+use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:398<br />
+Divide by zero<br />
+  in sub infix:&lt;div&gt; at src/gen/CORE.setting:3433<br />
+  in sub infix:&lt;div&gt; at src/gen/CORE.setting:3061<br />
+  in method floor at src/gen/CORE.setting:7994<br />
+  in method Str at src/gen/CORE.setting:8012<br />
+  in method Str at src/gen/CORE.setting:875<br />
+  in method Stringy at src/gen/CORE.setting:884<br />
+  in sub infix:&lt;eq&gt; at src/gen/CORE.setting:1290<br />
+  in sub infix:&lt;eq&gt; at src/gen/CORE.setting:1288<br />
+  in block  at src/gen/CORE.setting:14011<br />
+  in sub infix:&lt;ne&gt; at src/gen/CORE.setting:1294<br />
+  in sub infix:&lt;ne&gt; at src/gen/CORE.setting:1292<br />
+  in block  at t/spec/opbasic/arith.v5:408<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>57</td><td>7</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
@@ -1180,7 +1188,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0xc9c4c38] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0xcbafe18] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1675,7 +1683,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1371482226.96121<br />
+Could not find sub cuid_67_1371548821.61261<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2447,7 +2455,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371481990.59656<br />
+Could not find sub cuid_96_1371548574.32329<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />

@@ -3669,10 +3669,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make QAST::Op.new( :op('call'), :name('&term:<now>'), :node($/) );
     }
 
-    method term:sym<time>($/) {
-        $V5DEBUG && say("term:sym<time>($/)");
-        make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
-    }
+    #~ method term:sym<time>($/) {
+        #~ $V5DEBUG && say("term:sym<time>($/)");
+        #~ make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
+    #~ }
     
     sub expr_or_topic( $/ ) {
         QAST::Op.new( :op('if'),
@@ -3958,30 +3958,35 @@ class Perl5::Actions is HLL::Actions does STDActions {
     method term:sym<identifier>($/) {
         $V5DEBUG && say("term:sym<identifier>($/)");
         my $name := ~$<identifier>;
-        my $builtin := nqp::existskey(%defaults_to, $name);
-        my $past := $*ARGUMENT_HAVE == 0 && $builtin
-                    ?? QAST::Op.new( :op('call'), QAST::Var.new( :name(%defaults_to{$name}), :scope('lexical') ) )
-                    !! $<args>.ast;
-        if $past.op() eq 'callmethod' {
-            if $*ARGUMENT_HAVE && ($name eq 'say' || $name eq 'print') {
-                $past[1].name('&infix:<P5~>');
-            }
-            $past.op('callmethod');
-            $past.name($name);
-        }
-        elsif $builtin {
-            if $name eq 'say' || $name eq 'print' {
-                $past.name('&infix:<P5~>');
-                $past := QAST::Op.new( :op('call'), $past );
-            }
-            $past.op('callmethod');
-            $past.name($name);
+        if $name eq 'time' {
+            make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
         }
         else {
-            $past.op('call');
-            $past.unshift( self.make_indirect_lookup(['&' ~ $name]) );
+            my $builtin := nqp::existskey(%defaults_to, $name);
+            my $past := $*ARGUMENT_HAVE == 0 && $builtin
+                        ?? QAST::Op.new( :op('call'), QAST::Var.new( :name(%defaults_to{$name}), :scope('lexical') ) )
+                        !! $<args>.ast;
+            if $past.op() eq 'callmethod' {
+                if $*ARGUMENT_HAVE && ($name eq 'say' || $name eq 'print') {
+                    $past[1].name('&infix:<P5~>');
+                }
+                $past.op('callmethod');
+                $past.name($name);
+            }
+            elsif $builtin {
+                if $name eq 'say' || $name eq 'print' {
+                    $past.name('&infix:<P5~>');
+                    $past := QAST::Op.new( :op('call'), $past );
+                }
+                $past.op('callmethod');
+                $past.name($name);
+            }
+            else {
+                $past.op('call');
+                $past.unshift( self.make_indirect_lookup(['&' ~ $name]) );
+            }
+            make $past;
         }
-        make $past;
     }
 
     sub add_macro_arguments($expr, @argument_asts) {
