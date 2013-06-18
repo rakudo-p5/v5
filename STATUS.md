@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>757</td><td>39655</td><td>5</td><td>37</td><td>40451</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>789</td><td>39623</td><td>5</td><td>37</td><td>40451</td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>151</td><td>16</td><td>0</td><td>0</td><td>167</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:375<br />
 use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:378<br />
@@ -25,6 +25,11 @@ Divide by zero<br />
   in sub infix:&lt;ne&gt; at src/gen/CORE.setting:1292<br />
   in block  at t/spec/opbasic/arith.v5:408<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>77</td><td>56</td><td>0</td><td>10</td><td>143</td></tr>
+        <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
+   2 skipped: Confused<br />
+   4 skipped: Unrecognized directive 'U'<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>57</td><td>7</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
@@ -34,11 +39,6 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>   1 todo   : NYI<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>45</td><td>88</td><td>0</td><td>10</td><td>143</td></tr>
-        <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
-   2 skipped: Confused<br />
-   4 skipped: Unrecognized directive 'U'<br />
 </td></tr>
         <tr align='center'><td align='left'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
@@ -1186,7 +1186,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0xb010ed0] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0xb1e90b8] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1681,7 +1681,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1371571035.22529<br />
+Could not find sub cuid_67_1371595133.58465<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1953,7 +1953,11 @@ at t/spec/re/reg_pmod.v5:24<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find mypragma in any of: lib, /home/froggs/dev/nqp/install/lib/parrot/5.2.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left'>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Two terms in a row<br />
+at t/spec/op/int.v5:47<br />
+------&gt; $y = int ⏏($x);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Method 'p5cc' not found for invocant of class 'Perl5::Grammar'<br />
@@ -2449,7 +2453,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371570811.16824<br />
+Could not find sub cuid_96_1371594893.61006<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />

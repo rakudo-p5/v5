@@ -191,6 +191,7 @@ augment class Any {
     method P5Numeric(Any:) { 0 }
     method P5do(Any:) is hidden_from_backtrace { _P5do(self) }
     method P5scalar(Any:) { '' }
+    method P5ord(Str:) { 0 }
 }
 
 augment class Nil {
@@ -518,6 +519,7 @@ augment class Str {
     }
     method P5do(Str:)          { _P5do(self) }
     method P5scalar(Str:) { self.P5Str }
+    method P5ord(Str:) { self ?? self.ord !! 0 }
 }
 
 augment class Int {
