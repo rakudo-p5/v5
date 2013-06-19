@@ -321,6 +321,7 @@ role STD5 {
         $ok    := $ok || ($*FOR_VARIABLE && $varast.name eq $*FOR_VARIABLE);
         if !$ok {
             # Change the sigil if needed.
+            $var<really> := '@' if ~$var<sigil> eq '$#';
             $varast.name( ~$var<really> ~ ~$var<desigilname> ) if $var<really>;
             $varast.name( ~$var<sigil>  ~ ~$var<name> )        if $var<name>;
             my $name := $varast.name;

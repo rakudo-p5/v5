@@ -1649,6 +1649,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
             else {
                 $past := make_variable($/, [~$/]);
             }
+            
+            if ~$<sigil> eq '$#' {
+                $past := QAST::Op.new( :op('callmethod'), :name('end'), $past, :node($/) );
+            }
         }
         if $*IN_DECL eq 'variable' {
             $past<sink_ok> := 1;
@@ -1760,6 +1764,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $past := QAST::Op.new(
                     :op('ifnull'), $past,
                     QAST::Var.new(:name('Nil'), :scope('lexical')));
+            }
+            elsif $sigil eq '$#' {
+                $past.name('@' ~ ~($<desigilname> || $<name>));
             }
         }
         $past
