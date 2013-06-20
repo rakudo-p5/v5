@@ -655,7 +655,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 add_param($block, @params, '$a');
                 add_param($block, @params, '$b');
             }
-            else {
+            elsif $*FOR_VARIABLE {
                 add_param($block, @params, $*FOR_VARIABLE);
             }
             %sig_info<parameters> := @params;
@@ -1575,12 +1575,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("variable($/)");
         my $past;
         if $<index> {
-            $past := QAST::Op.new(
-                :op('callmethod'),
-                :name('postcircumfix:<[ ]>'),
+            $past := QAST::Op.new( :op('call'), :name('&prefix:<P5~>'),
+                QAST::Op.new( :op('callmethod'), :name('postcircumfix:<[ ]>'),
                 QAST::Var.new(:name('$/'), :scope('lexical')),
-                $*W.add_constant('Int', 'int', +$<index>),
-            );
+                $*W.add_constant('Int', 'int', +$<index> - 1),
+            ) );
         }
         elsif $<postcircumfix> {
             $past := $<postcircumfix>.ast;
@@ -2818,10 +2817,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             unless $use_outer_match {
                 $*W.install_lexical_magical($block, '$/');
             }
-            #$past := %*RX<P5>
-            #    ?? %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
-            #    !! %*LANG<Regex-actions>.qbuildsub($qast, $block, code_obj => $code);
-            $past := %*LANG<Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
+            $past := %*LANG<P5Regex-actions>.qbuildsub($qast, $block, code_obj => $code)
         }
         $past.name($name);
         $past.blocktype("declaration");

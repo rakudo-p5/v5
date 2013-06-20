@@ -3,28 +3,8 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>791</td><td>39622</td><td>4</td><td>37</td><td>40451</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>opbasic/arith.v5</td><td>151</td><td>16</td><td>0</td><td>0</td><td>167</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:375<br />
-use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:378<br />
-use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:387<br />
-use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:390<br />
-use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:394<br />
-use of uninitialized value of type Any in numeric context  in block  at t/spec/opbasic/arith.v5:398<br />
-Divide by zero<br />
-  in sub infix:&lt;div&gt; at src/gen/CORE.setting:3433<br />
-  in sub infix:&lt;div&gt; at src/gen/CORE.setting:3061<br />
-  in method floor at src/gen/CORE.setting:7994<br />
-  in method Str at src/gen/CORE.setting:8012<br />
-  in method Str at src/gen/CORE.setting:875<br />
-  in method Stringy at src/gen/CORE.setting:884<br />
-  in sub infix:&lt;eq&gt; at src/gen/CORE.setting:1290<br />
-  in sub infix:&lt;eq&gt; at src/gen/CORE.setting:1288<br />
-  in block  at src/gen/CORE.setting:14011<br />
-  in sub infix:&lt;ne&gt; at src/gen/CORE.setting:1294<br />
-  in sub infix:&lt;ne&gt; at src/gen/CORE.setting:1292<br />
-  in block  at t/spec/opbasic/arith.v5:408<br />
-</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>797</td><td>39616</td><td>4</td><td>37</td><td>40451</td></tr>
+        <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>77</td><td>56</td><td>0</td><td>10</td><td>143</td></tr>
         <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
    2 skipped: Confused<br />
@@ -1185,7 +1165,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0xa4198e0] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x9da0270] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1680,7 +1660,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1371641625.00406<br />
+Could not find sub cuid_67_1371758700.49535<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2452,7 +2432,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1371641393.66182<br />
+Could not find sub cuid_96_1371758472.97132<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2673,7 +2653,7 @@ at t/spec/op/sort.v5:21<br />
 ------&gt;     map scalar(sort(+())), ('')x⏏68;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>0</td><td>178</td><td>0</td><td>0</td><td>178</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Nominal type check failed for parameter 'key'; expected Any but got Mu instead<br />
+Too many positional parameters passed; got 1 but expected 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/proto.v5</td><td>0</td><td>180</td><td>0</td><td>0</td><td>180</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />

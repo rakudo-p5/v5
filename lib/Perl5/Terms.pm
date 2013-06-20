@@ -541,6 +541,10 @@ augment class Capture {
     method P5scalar(Capture:) { self.P5Str }
 }
 
+augment class Match {
+    multi method P5Str(Match:D:) { self.Str }
+}
+
 augment class Rat {
     multi method P5Str(Rat:D:) { self.Str }
     method P5Numeric(Rat:) { self }
@@ -556,3 +560,11 @@ augment class Sub {
     multi method P5Str(Sub:D:) { 'CODE(' ~ self.WHERE.fmt('0x%X').lc ~ ')' }
     method P5scalar(Sub:) { self.P5Str }
 }
+
+# class A { method new { bless([], self)}; method a { 42 } }; my $a = A.new; say $a.a; $a[0] = 1; say $a.WHAT
+#~ sub bless(*@a) is export {
+    #~ my class Dummy { };
+    #~ my $d := Dummy.HOW.new_type();
+    #~ $d.HOW.add_parent( $d, $_ ) for @a;
+    #~ $d.HOW.compose($d)
+#~ };
