@@ -1575,7 +1575,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("variable($/)");
         my $past;
         if $<index> {
-            $past := QAST::Op.new( :op('call'), :name('&prefix:<P5~>'),
+            $past := QAST::Op.new( :op('call'), :name('&prefix:<P5.>'),
                 QAST::Op.new( :op('callmethod'), :name('postcircumfix:<[ ]>'),
                 QAST::Var.new(:name('$/'), :scope('lexical')),
                 $*W.add_constant('Int', 'int', +$<index> - 1),
@@ -3766,7 +3766,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("term:sym<defined>($/)");
         my $past := $<EXPR> ?? $<EXPR>.ast
                  !! QAST::Op.new( :op('call'), QAST::Var.new( :name('$_'), :scope('lexical') ) );
-        #$past.op('&infix:<P5~>');
         
         $past := QAST::Op.new( :op('callmethod'), :name('defined'), $past );
         make $past
@@ -3955,9 +3954,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     my %builtin := nqp::hash(
         'chr',     [ '$_', '_', 'callmethod', 'P5Numeric' ],
-        'ord',     [ '$_', '_', 'call',       '&infix:<P5~>', 'callmethod', 'P5ord' ],
-        'say',     [ '$_', '@', 'call',       '&infix:<P5~>' ],
-        'print',   [ '$_', '@', 'call',       '&infix:<P5~>' ],
+        'ord',     [ '$_', '_', 'call',       '&infix:<P5.>', 'callmethod', 'P5ord' ],
+        'say',     [ '$_', '@', 'call',       '&infix:<P5.>' ],
+        'print',   [ '$_', '@', 'call',       '&infix:<P5.>' ],
         'shift',   [ '@_', ';+' ],
         'unshift', [ '@_', '+@' ],
         'push',    [ '@_', '+@' ],
@@ -4385,37 +4384,60 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     ## Expressions
     my %specials := nqp::hash(
-        '==>',  -> $/, $sym { make_feed($/) },
-        '==>>', -> $/, $sym { make_feed($/) },
-        '<==',  -> $/, $sym { make_feed($/) },
-        '<<==', -> $/, $sym { make_feed($/) },
-        '=~',   -> $/, $sym { make_match($/, 0) },
-        '!~',   -> $/, $sym { make_match($/, 1) },
-        '=',    -> $/, $sym { assign_op($/, $/[0].ast, $/[1].ast) },
-        ':=',   -> $/, $sym { bind_op($/, $/[0].ast, $/[1].ast, 0) },
-        '::=',  -> $/, $sym { bind_op($/, $/[0].ast, $/[1].ast, 1) },
-        'ff',   -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 0, 0, 0) },
-        '^ff',  -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 0, 0) },
-        'ff^',  -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 0, 1, 0) },
-        '^ff^', -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 1, 0) },
-        'fff',  -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 0, 0, 1) },
-        '^fff', -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 0, 1) },
-        'fff^', -> $/, $sym { flipflop($/[0].ast, $/[1].ast, 0, 1, 1) },
-        '^fff^',-> $/, $sym { flipflop($/[0].ast, $/[1].ast, 1, 1, 1) },
-        
-        # Perl 5
-        '.',    -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast, 0) },
-        '.=',   -> $/, $sym { concat_op($/, $/[0].ast, $/[1].ast, 1) },
-        '|',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+|>'), $/[0].ast, $/[1].ast) },
-        '^',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+^>'), $/[0].ast, $/[1].ast) },
-        '<<',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+<>'), $/[0].ast, $/[1].ast) },
-        '>>',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<+>>'), $/[0].ast, $/[1].ast) },
-        '=>',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<,>'),  $/[0].ast, $/[1].ast) },
-        '==',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5==>'), $/[0].ast, $/[1].ast) },
-        '!=',   -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5!=>'), $/[0].ast, $/[1].ast) },
-        '+',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5+>'),  $/[0].ast, $/[1].ast) },
-        '/',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5/>'),  $/[0].ast, $/[1].ast) },
-        '&',    -> $/, $sym { QAST::Op.new( :op('call'), :name('&infix:<P5&>'),  $/[0].ast, $/[1].ast) },
+        'INFIX', nqp::hash(
+            #~ '=',    -> $/, $sym { assign_op($/, $/[0].ast, $/[1].ast) },
+           '**',  '&infix:<P5**>',
+           '*',   '&infix:<P5*>',
+           '/',   '&infix:<P5/>',
+           '%',   '&infix:<P5%>',
+           'x',   '&infix:<P5x>',
+           '+',   '&infix:<P5+>',
+           '-',   '&infix:<P5->',
+           '.',   '&infix:<P5.>',
+           '<<',  '&infix:<P5<<>',
+           '>>',  '&infix:<P5>>>',
+           '<',   '&infix:<P5<>',
+           '>',   '&infix:<P5>>',
+           '<=',  '&infix:<P5<=>',
+           '>=',  '&infix:<P5>=>',
+           '==',  '&infix:<P5==>',
+           '!=',  '&infix:<P5!=>',
+           '<=>',  '&infix:<P5<=>>',
+           'eq',  '&infix:<P5eq>',
+           'ne',  '&infix:<P5ne>',
+           'cmp',  '&infix:<P5cmp>',
+           '~~',  '&infix:<P5~~>',
+           '&',   '&infix:<P5&>',
+           '|',   '&infix:<P5|>',
+           '^',   '&infix:<P5^>',
+           '..',  '&infix:<P5..>',
+           '...', '&infix:<P5...>',
+           '|=',  '&infix:<P5|=>',
+           '&=',  '&infix:<P5&=>',
+           '||=', '&infix:<P5||=>',
+           '&&=', '&infix:<P5&&=>',
+           '+=',  '&infix:<P5+=>',
+           '-=',  '&infix:<P5-=>',
+           '*=',  '&infix:<P5*=>',
+           '/=',  '&infix:<P5/=>',
+           '.=',  '&infix:<P5.=>',
+        ),
+        'PREFIX', nqp::hash(
+            'local', '&prefix:<temp>',
+            '!',     '&prefix:<P5!>',
+            '.',     '&prefix:<P5.>',
+            '+',     '&prefix:<P5+>',
+            '-',     '&prefix:<P5->',
+            '++',    '&prefix:<P5++>',
+            '--',    '&prefix:<P5-->',
+        ),
+        'POSTFIX', nqp::hash(
+            '++',    '&postfix:<P5++>',
+            '--',    '&postfix:<P5-->',
+        ),
+        'LIST', nqp::hash(
+           '=>',  '&infix:<,>',
+        ),
     );
     method EXPR($/, $key?) {
         $V5DEBUG && say("EXPR($/, $key?)");
@@ -4429,8 +4451,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
             make $past;
             return 1;
         }
-        elsif nqp::existskey(%specials, $sym) {
-            make %specials{$sym}($/, $sym);
+        elsif $sym eq '=~' {
+            make make_match($/, 0);
+            return 1;
+        }
+        elsif $sym eq '!~' {
+            make make_match($/, 1);
+            return 1;
+        }
+        elsif nqp::existskey(%specials, $key) && nqp::existskey(%specials{$key}, $sym) {
+            make QAST::Op.new( :op('call'), :name(%specials{$key}{$sym}), $/[0].ast, $/[1].ast);
             return 1;
         }
         elsif !$past && ($sym eq 'does' || $sym eq 'but') {
@@ -4497,67 +4527,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
             }
         }
         make $past;
-    }
-
-    sub make_feed($/) {
-        # Assemble into list of AST of each step in the pipeline.
-        my @stages;
-        if $/<infix><sym> eq '==>' {
-            for @($/) { @stages.push($_.ast); }
-        }
-        elsif $/<infix><sym> eq '<==' {
-            for @($/) { @stages.unshift($_.ast); }
-        }
-        else {
-            $*W.throw($/, 'X::Comp::NYI',
-                feature => $/<infix> ~ " feed operator"
-            );
-        }
-
-        # Check what's in each stage and make a chain of blocks
-        # that call each other. They'll return lazy things, which
-        # will be passed in as var-arg parts to other things. The
-        # first thing is just considered the result.
-        my $result := @stages.shift;
-        for @stages {
-            # Wrap current result in a block, so it's thunked and can be
-            # called at the right point.
-            $result := QAST::Block.new( $result );
-
-            # Check what we have. XXX Real first step should be looking
-            # for @(*) since if we find that it overrides all other things.
-            # But that's todo...soon. :-)
-            if $_.isa(QAST::Op) && $_.op eq 'call' {
-                # It's a call. Stick a call to the current supplier in
-                # as its last argument.
-                $_.push(QAST::Op.new( :op('call'), $result ));
-            }
-            elsif $_ ~~ QAST::Var {
-                # It's a variable. We need code that gets the results, pushes
-                # them onto the variable and then returns them (since this
-                # could well be a tap.
-                my $tmp := QAST::Node.unique('feed_tmp');
-                $_ := QAST::Stmts.new(
-                    QAST::Op.new(
-                        :op('bind'),
-                        QAST::Var.new( :scope('local'), :name($tmp), :decl('var') ),
-                        QAST::Op.new( :op('call'), $result )
-                    ),
-                    QAST::Op.new(
-                        :op('callmethod'), :name('push'),
-                        $_,
-                        QAST::Var.new( :scope('local'), :name($tmp) )
-                    ),
-                    QAST::Var.new( :scope('local'), :name($tmp) )
-                );
-            }
-            else {
-                $/.CURSOR.panic('Sorry, do not know how to handle this case of a feed operator yet.');
-            }
-            $result := $_;
-        }
-
-        return $result;
     }
 
     sub make_match($/, $negated) {
@@ -4729,7 +4698,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     
     sub concat_op($/, $lhs_ast, $rhs_ast, $assign = 0) {
         my $past := QAST::Op.new(
-            :op('call'), :name('&infix:<P5~>'),
+            :op('call'), :name('&infix:<P5.>'),
             $lhs_ast,
             $rhs_ast
         );
@@ -4795,135 +4764,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $i++;
         }
         $past;
-    }
-    
-    sub flipflop($lhs, $rhs, $min_excl, $max_excl, $one_only) {
-        # Need various constants.
-        my $zero  := $*W.add_numeric_constant(NQPMu, 'Int', 0);
-        my $one   := $*W.add_numeric_constant(NQPMu, 'Int', 1);
-        my $nil   := QAST::WVal.new( :value($*W.find_symbol(['Nil'])) );
-        my $false := QAST::WVal.new( :value($*W.find_symbol(['Bool', 'False'])) );
-        my $true  := QAST::WVal.new( :value($*W.find_symbol(['Bool', 'True'])) );
-        
-        # Need a state variable to track the state.
-        my %cont;
-        my $id    := $lhs.unique('FLIPFLOP_STATE_');
-        my $state := '!' ~ $id;
-        %cont{'bind_constraint'} := $*W.find_symbol(['Mu']);
-        %cont{'container_type'}  := $*W.find_symbol(['Scalar']);
-        %cont{'container_base'}  := %cont{'container_type'};
-        %cont{'default_value'}   := $zero.compile_time_value;
-        $*W.install_lexical_container($*W.cur_lexpad(), $state, %cont,
-            $*W.create_container_descriptor(%cont{'bind_constraint'}, 1, $state),
-            :scope('state'));
-            
-        # Twiddle to make special-case RHS * work.
-        if istype($rhs.returns, $*W.find_symbol(['Whatever'])) {
-            $rhs := $false;
-        }
-        
-        # Evaluate LHS and RHS. Note that in one-only mode, we use
-        # the state bit to decide which side to evaluate.
-        my $ff_code := QAST::Stmts.new(
-            QAST::Op.new(
-                :op('bind'),
-                QAST::Var.new( :name($id ~ '_lhs'), :scope('local'), :decl('var') ),
-                ($one_only ??
-                    QAST::Op.new(
-                        :op('if'),
-                        QAST::Var.new( :name($state), :scope('lexical') ),
-                        $false,
-                        QAST::Op.new( :op('callmethod'), :name('Bool'), $lhs )
-                    ) !!
-                    QAST::Op.new( :op('callmethod'), :name('Bool'), $lhs ))
-            ),
-            QAST::Op.new(
-                :op('bind'),
-                QAST::Var.new( :name($id ~ '_rhs'), :scope('local'), :decl('var') ),
-                ($one_only ??
-                    QAST::Op.new(
-                        :op('if'),
-                        QAST::Var.new( :name($state), :scope('lexical') ),
-                        QAST::Op.new( :op('callmethod'), :name('Bool'), $rhs ),
-                        $false
-                    ) !!
-                    QAST::Op.new( :op('callmethod'), :name('Bool'), $rhs ))
-            )
-        );
-        
-        # Now decide what to do based on current state and current
-        # results.
-        $ff_code.push(QAST::Op.new(
-            :op('if'),
-            QAST::Var.new( :name($state), :scope('lexical') ),
-            
-            # State is currently true. Check RHS. If it's false, then we
-            # increment the sequence count. If it's true, then we reset,
-            # the state to zero and and what we return depends on $max_excl.
-            QAST::Op.new(
-                :op('if'),
-                QAST::Var.new( :name($id ~ '_rhs'), :scope('local') ),
-                ($max_excl ??
-                    QAST::Stmts.new(
-                        QAST::Op.new(
-                            :op('p6store'),
-                            QAST::Var.new( :name($state), :scope('lexical') ),
-                            $zero
-                        ),
-                        $nil
-                    ) !!
-                    QAST::Stmts.new(
-                        QAST::Op.new(
-                            :op('bind'),
-                            QAST::Var.new( :name($id ~ '_orig'), :scope('local'), :decl('var') ),
-                            QAST::Op.new(
-                                :op('call'), :name('&prefix:<++>'),
-                                QAST::Var.new( :name($state), :scope('lexical') )
-                            )
-                        ),
-                        QAST::Op.new(
-                            :op('p6store'),
-                            QAST::Var.new( :name($state), :scope('lexical') ),
-                            $zero
-                        ),
-                        QAST::Op.new(
-                            :op('p6decont'),
-                            QAST::Var.new( :name($id ~ '_orig'), :scope('local') )
-                        )
-                    )),
-                QAST::Stmts.new(
-                    QAST::Op.new(
-                        :op('call'), :name('&prefix:<++>'),
-                        QAST::Var.new( :name($state), :scope('lexical') )
-                    )
-                )
-            ),
-            
-            # State is currently false. Check LHS. If it's false, then we
-            # stay in a false state. If it's true, then we flip the bit,
-            # but only if the RHS is not also true. We return a result
-            # based on $min_excl.
-            QAST::Op.new(
-                :op('if'),
-                QAST::Var.new( :name($id ~ '_lhs'), :scope('local') ),
-                QAST::Op.new(
-                    :op('if'),
-                    QAST::Var.new( :name($id ~ '_rhs'), :scope('local') ),
-                    $min_excl || $max_excl ?? $nil !! $one,
-                    QAST::Stmts.new(
-                        QAST::Op.new(
-                            :op('p6store'),
-                            QAST::Var.new( :name($state), :scope('lexical') ),
-                            $one
-                        ),
-                        $min_excl ?? $nil !! $one
-                    )
-                ),
-                $nil
-            )
-        ));
-        
-        $ff_code
     }
 
     method prefixish($/) {
@@ -6161,7 +6001,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
                     }
                     @asts.push($_.ast<ww_atom>
                         ?? $_.ast
-                        !! QAST::Op.new( :op('call'), :name('&prefix:<P5~>'),  $_.ast ));
+                        !! QAST::Op.new( :op('call'), :name('&prefix:<P5.>'),  $_.ast ));
                 }
                 else {
                     $lastlit := $lastlit ~ $_.ast;
@@ -6177,7 +6017,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
         
         my $past := @asts.shift();
         for @asts {
-            $past := QAST::Op.new( :op('call'), :name('&infix:<P5~>'), $past, $_ );
+            $past := QAST::Op.new( :op('call'), :name('&infix:<P5.>'), $past, $_ );
         }
         
         if nqp::can($/.CURSOR, 'postprocessor') {
@@ -6226,8 +6066,8 @@ class Perl5::QActions is HLL::Actions does STDActions {
             if $node<ww_atom> {
                 $result.push($node);
             }
-            elsif nqp::istype($node, QAST::Op) && $node.name eq '&infix:<.>' {
-                $node.name('&infix:<P5~>');
+            elsif nqp::istype($node, QAST::Op) && $node.name eq '&infix:<P5.>' {
+                $node.name('&infix:<P5.>');
                 walk($node[0]);
                 walk($node[1]);
             }

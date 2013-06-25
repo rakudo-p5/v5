@@ -6,10 +6,10 @@ my $fallback;
 my %ops = {
     # export both <+> and <P5+>, so that overloading works from v5 and v6 land?
     '0+'   => '&prefix:<P5+>', # like .Numeric
-    '""'   => '&prefix:<P5~>', # like .Str
+    '""'   => '&prefix:<P5.>', # like .Str
     'bool' => '&prefix:<P5?>', # like .Bool
     '+'    => '&infix:<P5+>',
-    '<=>'  => '&infix:<<=>>',
+    '<=>'  => '&infix:<P5<=>>',
 }
 
 sub EXPORT(*@ops) {
@@ -21,6 +21,7 @@ sub EXPORT(*@ops) {
         }
         my $sub        := $v ~~ Str ?? ::($v) !! $v; # Make an indirect sub call if key is a string.
         %o{ %ops{$k} } := $sub if %ops{$k};
+        %o{ $k }       := 1;
     }
     
     if !nqp::defined($fallback) || $fallback {
@@ -30,13 +31,13 @@ sub EXPORT(*@ops) {
                     #~ %o{'&infix:<P5->'} := -> $a, $b { $v($b, $a, 1) } unless %o{'&infix:<P5->'}
                 }
                 
-                when '&infix:<<=>>' {
-                    %o{'&infix:<==>'} := { $^a, $^b; $v($a, $b) == 0 } unless %o{'&infix:<==>'};
-                    %o{'&infix:<>=>'} := { $^a, $^b; $v($a, $b) >= 0 } unless %o{'&infix:<>=>'};
-                    %o{'&infix:<<=>'} := { $^a, $^b; $v($a, $b) <= 0 } unless %o{'&infix:<<=>'};
-                    %o{'&infix:<>>'}  := { $^a, $^b; $v($a, $b) >  0 } unless %o{'&infix:<>>'};
-                    %o{'&infix:<<>'}  := { $^a, $^b; $v($a, $b) <  0 } unless %o{'&infix:<<>'};
-                    %o{'&infix:<!=>'} := { $^a, $^b; $v($a, $b) != 0 } unless %o{'&infix:<!=>'};
+                when '&infix:<P5<=>>' {
+                    %o{'&infix:<P5==>'} := { $^a, $^b; $v($a, $b) == 0 } unless %o{'&infix:<P5==>'};
+                    %o{'&infix:<P5>=>'} := { $^a, $^b; $v($a, $b) >= 0 } unless %o{'&infix:<P5>=>'};
+                    %o{'&infix:<P5<=>'} := { $^a, $^b; $v($a, $b) <= 0 } unless %o{'&infix:<P5<=>'};
+                    %o{'&infix:<P5>>'}  := { $^a, $^b; $v($a, $b) >  0 } unless %o{'&infix:<P5>>'};
+                    %o{'&infix:<P5<>'}  := { $^a, $^b; $v($a, $b) <  0 } unless %o{'&infix:<P5<>'};
+                    %o{'&infix:<P5!=>'} := { $^a, $^b; $v($a, $b) != 0 } unless %o{'&infix:<P5!=>'};
                 }
             }
         }

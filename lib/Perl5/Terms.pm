@@ -137,24 +137,98 @@ sub exists( \a ) is export { a:exists ?? 1 !! '' }
 multi sub undef()         is export { Nil              }
 multi sub undef($a is rw) is export { undefine $a; Nil }
 
-multi prefix:<P5+>(\a)     is export { a.P5Numeric }
-multi infix:<P5+>(*@a)     is export { [+]  map { &prefix:<P5+>($_) }, @a }
-multi infix:<P5==>(*@a)    is export { [==] map { &prefix:<P5+>($_) }, @a }
-multi infix:<P5!=>(*@a)    is export { [!=] map { &prefix:<P5+>($_) }, @a }
 
-multi prefix:<P5~>(\a)     is export { a.P5Str }
-multi infix:<P5~>(*@a)     is export { [~] map { &prefix:<P5~>($_) }, @a }
-multi infix:<|=> (\a, \b)  is export { a = a +& b        }
-multi infix:<&=> (\a, \b)  is export { a = a +| b        }
-multi infix:<||=>(\a, \b)  is rw is export { a = b unless a; a }
-multi infix:<&&=>(\a, \b)  is rw is export { a = b if a; a     }
-multi infix:<+=> (\a, \b)  is export { a = a.P5Numeric + b.P5Numeric }
-multi infix:<-=> (\a, \b)  is export { a = a.P5Numeric - b.P5Numeric }
-multi infix:<*=> (\a, \b)  is export { a = a.P5Numeric * b.P5Numeric }
-multi infix:</=> (\a, \b)  is export { a = a.P5Numeric / b.P5Numeric }
-multi infix:<P5/> (\a, \b) is export { a.P5Numeric / b.P5Numeric }
-multi infix:<P5&> (Str \a, Str \b) is export { a ~& b }
-multi infix:<P5&> (*@a)    is export { [+&] map { &prefix:<P5+>($_) }, @a }
+### Operators by precedence
+
+# x=, autoincrement (++ and --)
+sub prefix:<P5++> (\a)    is export { ++a }
+sub prefix:<P5--> (\a)    is export { --a }
+sub postfix:<P5++>(\a)    is export { a++ }
+sub postfix:<P5-->(\a)    is export { a-- }
+
+# w= exponentiation (right **)
+sub infix:<P5**> (\a, \b) is export { &prefix:<P5+>(a) ** &prefix:<P5+>(b) }
+
+# v=, symbolic unary (right ! ~ \ and unary + and -)
+sub prefix:<P5!> (\a)     is export { !a           }
+sub prefix:<P5.> (\a)     is export {  a.P5Str     }
+sub prefix:<P5+> (\a)     is export {  a.P5Numeric }
+sub prefix:<P5-> (\a)     is export { -a.P5Numeric }
+
+# u=, binding (left =~ !~)
+#~ sub infix:<P5=~> (\a, \b) is export { say a; say b; a.match(b)           }
+#~ sub infix:<P5!~> (\a, \b) is export { !&infix:<P5=~>(a, b) }
+
+# t=, subplicative (left * / % x)
+sub infix:<P5*>  (\a, \b) is export { &prefix:<P5+>(a) * &prefix:<P5+>(b) }
+sub infix:<P5/>  (\a, \b) is export { &prefix:<P5+>(a) / &prefix:<P5+>(b) }
+sub infix:<P5%>  (\a, \b) is export { &prefix:<P5+>(a) % &prefix:<P5+>(b) }
+sub infix:<P5x>  (\a, \b) is export { &prefix:<P5.>(a) x &prefix:<P5+>(b) }
+
+# s=, additive (left + - .)
+sub infix:<P5+>  (\a, \b) is export { &prefix:<P5+>(a) + &prefix:<P5+>(b) }
+sub infix:<P5->  (\a, \b) is export { &prefix:<P5+>(a) - &prefix:<P5+>(b) }
+sub infix:<P5.>  (*@a)    is export { [~] map { &prefix:<P5.>($_) }, @a   }
+
+# r=, shift (left << >>)
+sub infix:«P5<<» (\a, \b) is export { &prefix:<P5+>(a) +< &prefix:<P5+>(b) }
+sub infix:«P5>>» (\a, \b) is export { &prefix:<P5+>(a) +> &prefix:<P5+>(b) }
+
+# p=, comparison (nonassoc < > <= >= lt gt le ge)
+sub infix:«P5<»  (\a, \b) is export { &prefix:<P5+>(a) <  &prefix:<P5+>(b) }
+sub infix:«P5>»  (\a, \b) is export { &prefix:<P5+>(a) >  &prefix:<P5+>(b) }
+sub infix:«P5<=» (\a, \b) is export { &prefix:<P5+>(a) <= &prefix:<P5+>(b) }
+sub infix:«P5>=» (\a, \b) is export { &prefix:<P5+>(a) >= &prefix:<P5+>(b) }
+
+# o=, equality (nonassoc == != <=> eq ne cmp ~~)
+sub infix:<P5==> (\a, \b) is export { &prefix:<P5+>(a) == &prefix:<P5+>(b) }
+sub infix:<P5!=> (\a, \b) is export { !&infix:<P5==>(a, b)                 }
+multi infix:«P5<=>»(\a, \b) is export { nqp::p6box_i(nqp::cmp_I(nqp::decont(&prefix:<P5+>(a)), nqp::decont(&prefix:<P5+>(b)))) }
+multi infix:«P5<=>»(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
+sub infix:<P5eq> (\a, \b) is export { &prefix:<P5.>(a) eq &prefix:<P5.>(b) }
+sub infix:<P5ne> (\a, \b) is export { !&infix:<P5eq>(a, b)                 }
+multi infix:<P5cmp>(\a, \b) is export { &prefix:<P5+>(&prefix:<P5.>(a) cmp &prefix:<P5.>(b)) }
+multi infix:<P5cmp>(\a, \b) is export { nqp::p6box_i(nqp::cmp_I(nqp::decont(&prefix:<P5+>(a)), nqp::decont(&prefix:<P5+>(b)))) }
+multi infix:<P5cmp>(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
+sub infix:<P5~~> (\a, \b) is export { &prefix:<P5.>(a) ~~ &prefix:<P5.>(b) }
+
+# n=, bitwise and (left &)
+multi infix:<P5&>(Str \a, Str \b) is export { &prefix:<P5.>(a) ~& &prefix:<P5.>(b) }
+multi infix:<P5&>(\a, \b)         is export { &prefix:<P5+>(a) +& &prefix:<P5+>(b) }
+
+# m=, bitwise or (left | ^)
+multi infix:<P5|>(\a, \b)         is export { &prefix:<P5+>(a) +| &prefix:<P5+>(b) }
+multi infix:<P5^>(\a, \b)         is export { &prefix:<P5+>(a) +^ &prefix:<P5+>(b) }
+
+# l=, tight and (left &&)
+
+# k=, tight or (left || //)
+
+# j=, range (nonassoc .. ...)
+sub infix:<P5..> (\a, \b) is export { a ..  b }
+sub infix:<P5...>(\a, \b) is export { a ... b }
+
+# i=, conditional (right ?:)
+
+# h=, assignment (right = += -= *= etc.)
+sub infix:<P5|=> (\a, \b)  is rw is export { a = &infix:<P5|>(a, b); a }
+sub infix:<P5&=> (\a, \b)  is rw is export { a = &infix:<P5&>(a, b); a }
+sub infix:<P5||=>(\a, \b)  is rw is export { a = b unless a; a }
+sub infix:<P5&&=>(\a, \b)  is rw is export { a = b if a; a     }
+sub infix:<P5+=> (\a, \b)  is rw is export { a = &infix:<P5+>(a, b); a }
+sub infix:<P5-=> (\a, \b)  is rw is export { a = &infix:<P5->(a, b); a }
+sub infix:<P5*=> (\a, \b)  is rw is export { a = &infix:<P5*>(a, b); a }
+sub infix:<P5/=> (\a, \b)  is rw is export { a = &infix:<P5/>(a, b); a }
+sub infix:<P5.=> (\a, \b)  is rw is export { a = &infix:<P5.>(a, b); a }
+
+# g=, comma (left , =>)
+
+# e=, loose not (right not)
+
+# d=, loose and (left and)
+
+# c=, loose or (left or xor)
+
 
 multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
@@ -562,9 +636,10 @@ augment class Sub {
 }
 
 # class A { method new { bless([], self)}; method a { 42 } }; my $a = A.new; say $a.a; $a[0] = 1; say $a.WHAT
-#~ sub bless(*@a) is export {
-    #~ my class Dummy { };
-    #~ my $d := Dummy.HOW.new_type();
-    #~ $d.HOW.add_parent( $d, $_ ) for @a;
-    #~ $d.HOW.compose($d)
-#~ };
+sub bless(*@a) is export {
+    my class Dummy { };
+    @a[1] := ::(@a[1]) if nqp::istype(@a[1], Str);
+    my $d := Dummy.HOW.new_type( :name(@a[1].^name.uc ~ '=' ~ @a[0].^name.uc ~ '(' ~ @a[0].WHERE.fmt('0x%X').lc ~ ')'), :repr(@a[0].REPR) );
+    $d.HOW.add_parent( $d, $_.WHAT ) for @a;
+    $d.HOW.compose($d)
+};
