@@ -126,6 +126,7 @@ printf "%s     pass     fail     todo     skip     plan\n", ' ' x $max;
 
 my @anim = qw(◐ ◓ ◑ ◒);
 my %status_rows  : shared;
+my @regressions;
 my $row_count = 0;
 my @threads_todo;
 for my $tfile ( @tfiles ) {
@@ -157,17 +158,20 @@ for( threads->list() ) {
     print_status();
 }
 print "\n";
+print color("bright_red") . 'WARNING: ' . scalar(@regressions) . " regressions!\n" . color('reset') if scalar(@regressions);
 
 sub print_stats {
     my $tid  = shift || '';
     my %diff = col_diff( $tid );
-    printf "\r%s%s..%4d %s %4d %s %4d %s %4d %s %4d %s                                       \n",
+    my $line = sprintf "\r%s%s..%4d %s %4d %s %4d %s %4d %s %4d %s                                       \n",
         $sum{"$tid-name"}, '.' x ($max - length($sum{"$tid-name"})),
         $sum{"$tid-pass"}, $diff{"$tid-pass-c"},
         $sum{"$tid-fail"}, $diff{"$tid-fail-c"},
         $sum{"$tid-todo"}, $diff{"$tid-todo-c"},
         $sum{"$tid-skip"}, $diff{"$tid-skip-c"},
         $sum{"$tid-plan"}, $diff{"$tid-plan-c"};
+    push @regressions, $line if $diff{"$tid-pass-c"} =~ /-/ || $diff{"$tid-plan-c"} =~ /-/;
+    print $line
 }
 
 sub print_status {
@@ -369,6 +373,9 @@ print STATUS "
     </tbody>\n</table>\n";
 close STATUS;
 File::Copy::move('STATUS.md.new', 'STATUS.md');
+open REGRESSIONS, '>REGRESSIONS';
+print REGRESSIONS join('', @regressions);
+close REGRESSIONS;
 
 defined $benchmark && $benchmark->end(); # finish simple relative benchmarking
 
