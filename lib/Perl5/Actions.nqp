@@ -3954,7 +3954,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     my %builtin := nqp::hash(
         'chr',     [ '$_', '_', 'callmethod', 'P5Numeric' ],
-        'ord',     [ '$_', '_', 'call',       '&infix:<P5.>', 'callmethod', 'P5ord' ],
+        'ord',     [ '$_', '_', 'call',       '&infix:<P5.>',  'callmethod', 'P5ord' ],
+        'not',     [ '',   '@', '',           '',              'call',       '&prefix:<P5not>' ],
         'say',     [ '$_', '@', 'call',       '&infix:<P5.>' ],
         'print',   [ '$_', '@', 'call',       '&infix:<P5.>' ],
         'shift',   [ '@_', ';+' ],
@@ -3983,8 +3984,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $past := QAST::Op.new( :node($/) );
             }
             
-            # Warp the args if needed.
-            if $builtin[$arg_op] {
+            # Wrap the args if needed.
+            if +@($past) && $builtin[$arg_op] {
                 $past.op( $builtin[$arg_op] );
                 $past.name( $builtin[$arg_opname] );
                 $past := QAST::Op.new( $past );
@@ -4430,6 +4431,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             '-',     '&prefix:<P5->',
             '++',    '&prefix:<P5++>',
             '--',    '&prefix:<P5-->',
+            'not',   '&prefix:<P5not>',
         ),
         'POSTFIX', nqp::hash(
             '++',    '&postfix:<P5++>',
@@ -4443,7 +4445,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("EXPR($/, $key?)");
         unless $key { return 0; }
         my $past := $/.ast // $<OPER>.ast;
-        my $sym := ~$<infix><sym>;
+        my $sym := ~($<infix><sym> // $<prefix><sym> // $<postfix><sym>);
         my int $return_map := 0;
         if $past && nqp::substr($past.name, 0, 19) eq '&METAOP_TEST_ASSIGN' {
             $past.push($/[0].ast);
@@ -4459,8 +4461,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
             make make_match($/, 1);
             return 1;
         }
+        elsif $key eq 'LIST' && nqp::existskey(%specials, $key) && nqp::existskey(%specials{$key}, $sym) {
+            $past := QAST::Op.new( :op('call'), :name(%specials{$key}{$sym}));
+            for $/.list { if $_.ast { $past.push($_.ast); } }
+            make $past;
+            return 1;
+        }
         elsif nqp::existskey(%specials, $key) && nqp::existskey(%specials{$key}, $sym) {
-            make QAST::Op.new( :op('call'), :name(%specials{$key}{$sym}), $/[0].ast, $/[1].ast);
+            $past := QAST::Op.new( :op('call'), :name(%specials{$key}{$sym}), $/[0].ast);
+            $past.push: $/[1].ast if $key eq 'INFIX';
+            make $past;
             return 1;
         }
         elsif !$past && ($sym eq 'does' || $sym eq 'but') {
@@ -4515,6 +4525,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
         }
         else {
             for $/.list { if $_.ast { $past.push($_.ast); } }
+            if $past.isa(QAST::Op) && ($past.op eq 'if' || $past.op eq 'unless') {
+                $past[0] := QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'), $past[0] );
+            }
         }
         if $past.op eq 'xor' {
             $past.push(QAST::Var.new(:named<false>, :scope<lexical>, :name<Nil>));
@@ -5214,6 +5227,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make @pairs;
     }
 
+    method rx_mods($/) {
+        $V5DEBUG && say("method rx_mods($/)");
+        make ~$/
+    }
+
     #~ method setup_quotepair($/) {
         #~ $V5DEBUG && say("method setup_quotepair($/)");
         #~ my %h;
@@ -5264,20 +5282,36 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my %sig_info := hash(parameters => []);
         my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
             $<quibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
-        my $past := block_closure($coderef);
-        $past<sink_past> := QAST::Op.new(:op<callmethod>, :name<Bool>, $past);
-        make $past;
+        make QAST::Op.new(:op<callmethod>, :name<P5Bool>, block_closure($coderef));
     }
     method quote:sym</ />($/) {
         $V5DEBUG && say("method quote:sym</ />($/)");
-        my %sig_info := hash(parameters => []);
         my $block := QAST::Block.new(QAST::Stmts.new, QAST::Stmts.new, :node($/));
+        my %sig_info := hash(parameters => []);
         my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
             $<nibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
-        # Return closure if not in sink context.
-        my $closure := block_closure($coderef);
-        $closure<sink_past> := QAST::Op.new( :op<callmethod>, :name<Bool>, $closure);
-        make $closure;
+
+        my $past := block_closure($coderef);
+        unless $*IN_SPLIT {
+            $past := QAST::Op.new(
+                :node($/),
+                :op('callmethod'), :name('match'),
+                QAST::Op.new( :op('defor'),
+                    QAST::Var.new( :name('$_'), :scope('lexical') ),
+                    QAST::SVal.new( :value('') ),
+                ),
+                $past
+            );
+            $past := QAST::Stmts.new(
+                QAST::Op.new( :op('p6store'),
+                    QAST::Var.new(:name('$/'), :scope('lexical')),
+                    $past ) );
+            
+            if !$<rx_mods> || nqp::index(~$<rx_mods>.ast, 'g') == -1 {
+                $past := QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'), $past )
+            }
+        }
+        make $past;
     }
 
     method quote:sym<m>($/) {
@@ -5287,22 +5321,27 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
             $<quibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
 
-        my $past := QAST::Op.new(
-            :node($/),
-            :op('callmethod'), :name('match'),
-            QAST::Var.new( :name('$_'), :scope('lexical') ),
-            block_closure($coderef)
-        );
-        #~ if self.handle_and_check_adverbs($/, %MATCH_ALLOWED_ADVERBS, 'm', $past) {
-            #~ # if this match returns a list of matches instead of a single
-            #~ # match, don't assing to $/ (which imposes item context)
-            #~ make $past;
-        #~ } else {
-            make QAST::Op.new( :op('p6store'),
-                QAST::Var.new(:name('$/'), :scope('lexical')),
+        my $past := block_closure($coderef);
+        unless $*IN_SPLIT {
+            $past := QAST::Op.new(
+                :node($/),
+                :op('callmethod'), :name('match'),
+                QAST::Op.new( :op('defor'),
+                    QAST::Var.new( :name('$_'), :scope('lexical') ),
+                    QAST::SVal.new( :value('') ),
+                ),
                 $past
             );
-        #~ }
+            $past := QAST::Stmts.new(
+                QAST::Op.new( :op('p6store'),
+                    QAST::Var.new(:name('$/'), :scope('lexical')),
+                    $past ) );
+            
+            if !$<rx_mods> || nqp::index(~$<rx_mods>.ast, 'g') == -1 {
+                $past := QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'), $past )
+            }
+        }
+        make $past;
     }
 
     # returns 1 if the adverbs indicate that the return value of the

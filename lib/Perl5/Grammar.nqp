@@ -2050,6 +2050,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'chr',  '$',
         'ord',  '$',
         'time', '',
+        'not',  '@',
     );
     rule routine_def {
         :my $*IN_DECL := 'sub';
@@ -2685,7 +2686,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token quote:sym</ />  {
         :my %*RX;
         '/' <nibble(self.quote_lang(%*LANG<P5Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
-        <rx_mods>*
+        <rx_mods>?
     }
 
     # handle composite forms like qww
@@ -3607,6 +3608,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $name;
         :my $*ALLOW_IOS_VAR := 0;
         :my $*ALLOW_IOS_NAME := 1;
+        :my $*IN_SPLIT := 0;
         <identifier>
         <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/ }>
         <!{ $*W.is_type([~$<identifier>]) }>
@@ -3615,11 +3617,13 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             %prototype{$name} := '@' unless nqp::defined(%prototype{$name});
             $*ALLOW_IOS_VAR := $name ~~ /^ [ 'new' | 'print' | 'say' ] $/;
             $*ALLOW_IOS_NAME := $name ne 'open';
+            $*IN_SPLIT := $name eq 'split';
         }
         [\h+ <?[(]>]?
         <args(%prototype{$name})>
         # no compile-time checking for subs
         # { self.add_mystery($<identifier>, $<args>.from, nqp::substr(~$<args>, 0, 1)) unless $<args><invocant>; }
+        [ <?{ $name eq 'not' }> <O('%loose_not')> ]?
     }
     
 
@@ -3682,8 +3686,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     ## loose not
-    token prefix:sym<not>
-        { <sym> <?before \s*> <O('%loose_not')> }
+    #~ token prefix:sym<not>
+        #~ { <sym> <?before \s*> <O('%loose_not')> }
 
     ## loose and
     token infix:sym<and>

@@ -150,7 +150,7 @@ sub postfix:<P5-->(\a)    is export { a-- }
 sub infix:<P5**> (\a, \b) is export { &prefix:<P5+>(a) ** &prefix:<P5+>(b) }
 
 # v=, symbolic unary (right ! ~ \ and unary + and -)
-sub prefix:<P5!> (\a)     is export { !a           }
+sub prefix:<P5!> (\a)     is export { !a.P5Bool    }
 sub prefix:<P5.> (\a)     is export {  a.P5Str     }
 sub prefix:<P5+> (\a)     is export {  a.P5Numeric }
 sub prefix:<P5-> (\a)     is export { -a.P5Numeric }
@@ -213,8 +213,8 @@ sub infix:<P5...>(\a, \b) is export { a ... b }
 # h=, assignment (right = += -= *= etc.)
 sub infix:<P5|=> (\a, \b)  is rw is export { a = &infix:<P5|>(a, b); a }
 sub infix:<P5&=> (\a, \b)  is rw is export { a = &infix:<P5&>(a, b); a }
-sub infix:<P5||=>(\a, \b)  is rw is export { a = b unless a; a }
-sub infix:<P5&&=>(\a, \b)  is rw is export { a = b if a; a     }
+sub infix:<P5||=>(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b unless a.P5Bool; a }
+sub infix:<P5&&=>(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b     if a.P5Bool; a }
 sub infix:<P5+=> (\a, \b)  is rw is export { a = &infix:<P5+>(a, b); a }
 sub infix:<P5-=> (\a, \b)  is rw is export { a = &infix:<P5->(a, b); a }
 sub infix:<P5*=> (\a, \b)  is rw is export { a = &infix:<P5*>(a, b); a }
@@ -224,6 +224,7 @@ sub infix:<P5.=> (\a, \b)  is rw is export { a = &infix:<P5.>(a, b); a }
 # g=, comma (left , =>)
 
 # e=, loose not (right not)
+multi prefix:<P5not> (*@a) is export { +@a ?? !([&&] map { $_.P5Bool }, @a) !! 1 }
 
 # d=, loose and (left and)
 
@@ -266,6 +267,7 @@ augment class Any {
     method P5do(Any:) is hidden_from_backtrace { _P5do(self) }
     method P5scalar(Any:) { '' }
     method P5ord(Str:) { 0 }
+    method P5Bool(Any:) { '' }
 }
 
 augment class Nil {
@@ -278,6 +280,7 @@ augment class Nil {
     method P5Numeric(Nil:) { 0 }
     method P5do(Nil:) is hidden_from_backtrace { _P5do(self) }
     method P5scalar(Nil:) { Nil }
+    method P5Bool(Nil:) { '' }
 }
 
 augment class Bool {
@@ -285,18 +288,21 @@ augment class Bool {
     multi method P5Str(Bool:D:) { ?self ?? 1 !! '' }
     method P5Numeric(Bool:) { ?self ?? 1 !! 0 }
     method P5scalar(Bool:) { self.P5Str }
+    method P5Bool(Bool:) { ?self }
 }
 
 augment class Array {
     multi method P5Str(Array:U:) { '' }
     multi method P5Str(Array:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
     method P5scalar(Array:) { +@(self) }
+    method P5Bool(Array:) { [&&] self.list }
 }
 
 augment class List {
     multi method P5Str(List:U:) { '' }
     multi method P5Str(List:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
     method P5scalar(List:) { +@(self) }
+    method P5Bool(List:) { [&&] self.list }
 }
 
 augment class Str {
@@ -594,6 +600,7 @@ augment class Str {
     method P5do(Str:)          { _P5do(self) }
     method P5scalar(Str:) { self.P5Str }
     method P5ord(Str:) { self ?? self.ord !! 0 }
+    method P5Bool(Str:) { ?self }
 }
 
 augment class Int {
@@ -601,6 +608,7 @@ augment class Int {
     multi method P5Str(Int:D:) { self.Int }
     method P5Numeric(Int:) { self }
     method P5scalar(Int:) { self.P5Str }
+    method P5Bool(Int:) { ?self }
 }
 
 augment class Num {
@@ -608,6 +616,7 @@ augment class Num {
     multi method P5Str(Num:D:) { self.Num }
     method P5Numeric(Num:) { self }
     method P5scalar(Num:) { self.P5Str }
+    method P5Bool(Num:) { ?self }
 }
 
 augment class Capture {
@@ -617,22 +626,30 @@ augment class Capture {
 
 augment class Match {
     multi method P5Str(Match:D:) { self.Str }
+    method P5Bool(Match:) { ?self }
+}
+
+augment class Regex {
+    method P5Bool(Regex:) { ?CALLER::DYNAMIC::<$/> }
 }
 
 augment class Rat {
     multi method P5Str(Rat:D:) { self.Str }
     method P5Numeric(Rat:) { self }
     method P5scalar(Rat:) { self.P5Str }
+    method P5Bool(Rat:) { ?self }
 }
 
 augment class Parcel {
     multi method P5Str(Parcel:D:) { self.Int }
     method P5scalar(Parcel:) { self.P5Str }
+    method P5Bool(Parcel:) { [&&] self.list }
 }
 
 augment class Sub {
     multi method P5Str(Sub:D:) { 'CODE(' ~ self.WHERE.fmt('0x%X').lc ~ ')' }
     method P5scalar(Sub:) { self.P5Str }
+    method P5Bool(Sub:) { ?self }
 }
 
 # class A { method new { bless([], self)}; method a { 42 } }; my $a = A.new; say $a.a; $a[0] = 1; say $a.WHAT
