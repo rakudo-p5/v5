@@ -611,7 +611,7 @@ augment class Str {
 
         return $result;
     }
-    multi method P5unpack(Str:D:) { CALLER::DYNAMIC::<$_> }
+    multi method P5unpack(Str:D:) { self.P5unpack( CALLER::DYNAMIC::<$_> ) }
     multi method P5unpack(Str:D: $string) {
         my @bytes = $string.encode.list;
         my @fields;
