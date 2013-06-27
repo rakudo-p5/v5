@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>811</td><td>39605</td><td>4</td><td>36</td><td>40311</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>813</td><td>39603</td><td>4</td><td>36</td><td>40311</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>77</td><td>56</td><td>0</td><td>10</td><td>143</td></tr>
         <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
@@ -56,7 +56,7 @@ to preserve list context inside function call<br />
   in any  at src/gen/Metamodel.nqp:785<br />
   in any compute_mro at src/gen/Metamodel.nqp:783<br />
   in any compose at src/gen/Metamodel.nqp:2454<br />
-  in sub bless at lib/Perl5/Terms.pm:661<br />
+  in sub bless at lib/Perl5/Terms.pm:676<br />
   in block  at t/spec/cmd/for.v5:94<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
@@ -153,6 +153,7 @@ Unrecognized directive 'U'<br />
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>run/switchI.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
   in method &lt;anon&gt; at src/gen/CORE.setting:10381<br />
@@ -172,6 +173,10 @@ Unrecognized directive 'U'<br />
 Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Str \a, Str \b)<br />
 :(\a, \b)<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
@@ -1110,11 +1115,6 @@ at t/spec/porting/bincompat.v5:14<br />
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;Regexp::DESTROY'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>run/switchF.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>Cannot use negative index -1 on Array<br />
-  in method sink at src/gen/CORE.setting:10384<br />
-  in block  at t/spec/run/switchF.v5:11<br />
-</td></tr>
         <tr align='center'><td align='left'>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchd-78586.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
@@ -1135,20 +1135,6 @@ at t/spec/io/iprefix.v5:22<br />
 Could not find Errno in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>WARNINGS:<br />
-Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-Cannot call 'Real'; none of these signatures match:<br />
-:(Mu:U \v: Mu *%_)<br />
-  in method Real at src/gen/CORE.setting:869<br />
-  in method Real at src/gen/CORE.setting:2723<br />
-  in method Real at src/gen/CORE.setting:869<br />
-  in sub infix:&lt;&lt;&gt; at src/gen/CORE.setting:3227<br />
-  in sub infix:&lt;&lt;&gt; at src/gen/CORE.setting:3225<br />
-  in method postcircumfix:&lt;[ ]&gt; at src/gen/CORE.setting:1487<br />
-  in method postcircumfix:&lt;[ ]&gt; at src/gen/CORE.setting:1478<br />
-  in block  at t/spec/op/concat2.v5:29<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix &gt; instead<br />
@@ -1168,7 +1154,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x762ed50] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x69d8100] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1347,33 +1333,33 @@ No such symbol '&amp;tempfile'<br />
   in block  at t/spec/op/dbm.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x706d5fcdbbfffd00) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x260a05ac22209356) in string context  in block  at eval_139:1<br />
 <br /> 140 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1706,7 +1692,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_67_1372281048.88016<br />
+Could not find sub cuid_67_1372319204.7184<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2475,7 +2461,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1372280771.41112<br />
+Could not find sub cuid_96_1372318925.36454<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />

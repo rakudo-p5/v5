@@ -268,6 +268,21 @@ augment class Any {
     method P5scalar(Any:) { '' }
     method P5ord(Str:) { 0 }
     method P5Bool(Any:) { '' }
+    proto method postcircumfix:<P5[ ]>(|) { * }
+    multi method postcircumfix:<P5[ ]>(\SELF:) { self.list }
+    multi method postcircumfix:<P5[ ]>(\SELF: $pos) is rw {
+        SELF.at_pos($pos)
+    }
+    multi method postcircumfix:<P5[ ]>(\SELF: Positional \pos) is rw {
+        if nqp::iscont(pos) {
+            return SELF.at_pos(pos)
+        }
+        my $list = pos.flat;
+        $list.gimme(*);
+        $list.map($list.infinite
+                   ?? { last if $_ >= SELF.list.gimme($_ + 1); SELF[$_] }
+                   !! { SELF[$_] }).eager.Parcel;
+    }
 }
 
 augment class Nil {

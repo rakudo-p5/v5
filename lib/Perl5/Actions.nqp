@@ -4934,7 +4934,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym<[ ]>($/) {
         $V5DEBUG && say("postcircumfix:sym<[ ]>($/)");
-        my $past := QAST::Op.new( :name('postcircumfix:<[ ]>'), :op('callmethod'), :node($/) );
+        my $past := QAST::Op.new( :name('postcircumfix:<P5[ ]>'), :op('callmethod'), :node($/) );
         if $<semilist><statement> {
             my $slast := $<semilist>.ast;
             $past.push($slast);
