@@ -4,6 +4,7 @@ use v6.0.0;
 # http://perldoc.perl.org/warnings.html
 
 my %cats = {
+    'FATAL' => 0,
     'all' => 0,
     'closure' => 0,
     'deprecated' => 0,
