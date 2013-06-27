@@ -270,6 +270,9 @@ augment class Any {
     method P5Bool(Any:) { '' }
     proto method postcircumfix:<P5[ ]>(|) { * }
     multi method postcircumfix:<P5[ ]>(\SELF:) { self.list }
+    multi method postcircumfix:<P5[ ]>(\SELF: int $pos) is rw {
+        SELF.at_pos($pos)
+    }
     multi method postcircumfix:<P5[ ]>(\SELF: $pos) is rw {
         SELF.at_pos($pos)
     }
