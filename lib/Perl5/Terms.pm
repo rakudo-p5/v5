@@ -264,7 +264,7 @@ augment class Any {
         ''
     }
     method P5Numeric(Any:) { 0 }
-    method P5do(Any:) is hidden_from_backtrace { _P5do(self) }
+    method P5do(\SELF:) is hidden_from_backtrace { _P5do(SELF) }
     method P5scalar(Any:) { '' }
     method P5ord(Str:) { 0 }
     method P5Bool(Any:) { '' }
@@ -293,7 +293,6 @@ augment class Nil {
         ''
     }
     method P5Numeric(Nil:) { 0 }
-    method P5do(Nil:) is hidden_from_backtrace { _P5do(self) }
     method P5scalar(Nil:) { Nil }
     method P5Bool(Nil:) { '' }
 }
@@ -612,7 +611,6 @@ augment class Str {
 
         return $result;
     }
-    method P5do(Str:)          { _P5do(self) }
     method P5scalar(Str:) { self.P5Str }
     method P5ord(Str:) { self ?? self.ord !! 0 }
     method P5Bool(Str:) { ?self }
