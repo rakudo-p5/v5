@@ -618,7 +618,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     sub add_param($block, @params, $name) {
         $V5DEBUG && say("add_param($block, $name)");
-        unless $block.symbol($name) {
+        if !$block.symbol($name) || $block.symbol($name)<for_variable> {
             if $*IMPLICIT {
                 #~ $block[0].push(QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') ));
                 @params.push(hash(
@@ -1585,6 +1585,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $past := $<postcircumfix>.ast;
             $past.unshift( QAST::Var.new( :name('$/'), :scope('lexical') ) );
         }
+        # ${x}
+        elsif $<name> {
+            $past := make_variable($/, [~$<sigil> ~ ~$<name>]);
+        }
         # ${ }, @{ }, %{ }
         elsif $<block> {
             $past := $<block>.ast;
@@ -1614,11 +1618,21 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # &routine( 1, 2)
         elsif $<arglist> {
             $past := $<arglist>.ast;
-            $past.unshift( self.make_indirect_lookup(['&' ~ $<subname>]) );
+            if $*W.is_lexical('&' ~ $<subname>) {
+                $past.name('&' ~ $<subname>);
+            }
+            else {
+                $past.unshift( self.make_indirect_lookup(['&' ~ $<subname>]) );
+            }
         }
         # &routine
         elsif $<subname> {
-            $past := QAST::Op.new( :op<call>, self.make_indirect_lookup(['&' ~ $<subname>]) );
+            if $*W.is_lexical('&' ~ $<subname>) {
+                $past := QAST::Op.new( :op<call>, :name('&' ~ $<subname>) );
+            }
+            else {
+                $past := QAST::Op.new( :op<call>, self.make_indirect_lookup(['&' ~ $<subname>]) );
+            }
         }
         elsif $<desigilname><variable> {
             $past := $<desigilname>.ast;
@@ -3987,9 +4001,15 @@ class Perl5::Actions is HLL::Actions does STDActions {
             
             # Wrap the args if needed.
             if +@($past) && $builtin[$arg_op] {
-                $past.op( $builtin[$arg_op] );
-                $past.name( $builtin[$arg_opname] );
-                $past := QAST::Op.new( $past );
+                if $*HAS_INDIRECT_OBJ && $*ARGUMENT_HAVE {
+                    $past[1].op( $builtin[$arg_op] );
+                    $past[1].name( $builtin[$arg_opname] );
+                }
+                else {
+                    $past.op( $builtin[$arg_op] );
+                    $past.name( $builtin[$arg_opname] );
+                    $past := QAST::Op.new( $past );
+                }
             }
             
             if $builtin[$op] {
@@ -4004,7 +4024,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
         else {
             $past := $<args>.ast;
             $past.op('call');
-            $past.unshift( self.make_indirect_lookup(['&' ~ $name]) );
+            if $*W.is_lexical('&' ~ $name) {
+                $past.name('&' ~ $name);
+            }
+            else {
+                $past.unshift( self.make_indirect_lookup(['&' ~ $name]) );
+            }
         }
         make $past;
     }

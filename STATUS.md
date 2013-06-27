@@ -3,12 +3,15 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>818</td><td>39598</td><td>4</td><td>36</td><td>40311</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>964</td><td>39516</td><td>4</td><td>36</td><td>40311</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>77</td><td>56</td><td>0</td><td>10</td><td>143</td></tr>
         <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
    2 skipped: Confused<br />
    4 skipped: Unrecognized directive 'U'<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>  64 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
@@ -16,6 +19,36 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
 use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:169<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>58</td><td>87</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0xba65703a1f0f389f) in string context  in block  at eval_139:1<br />
+<br /> 140 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>   1 todo   : NYI<br />
@@ -32,6 +65,23 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
   in method gimme at src/gen/CORE.setting:6334<br />
   in method eager at src/gen/CORE.setting:6313<br />
   in block  at t/spec/uni/sprintf.v5:144<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/recurse.v5</td><td>23</td><td>5</td><td>0</td><td>0</td><td>28</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;curr_test'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10381<br />
+  in any  at src/gen/Metamodel.nqp:2580<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2568<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in sub get_list1 at t/spec/op/recurse.v5:84<br />
+  in sub get_first1 at t/spec/op/recurse.v5:80<br />
+  in sub get_list1 at t/spec/op/recurse.v5:85<br />
+  in sub get_first1 at t/spec/op/recurse.v5:80<br />
+  in block  at t/spec/op/recurse.v5:88<br />
+  in method reify at src/gen/CORE.setting:6011<br />
+  in method reify at src/gen/CORE.setting:5906<br />
+  in method gimme at src/gen/CORE.setting:6334<br />
+  in method sink at src/gen/CORE.setting:6620<br />
+  in block  at t/spec/op/recurse.v5:76<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr><td colspan='5'>  13 skipped: Invalid character for UTF-8 encoding<br />
@@ -52,13 +102,16 @@ to preserve list context inside function call<br />
   in any  at src/gen/Metamodel.nqp:785<br />
   in any compute_mro at src/gen/Metamodel.nqp:783<br />
   in any compose at src/gen/Metamodel.nqp:2454<br />
-  in sub bless at lib/Perl5/Terms.pm:769<br />
+  in sub bless at lib/Perl5/Terms.pm:770<br />
   in block  at t/spec/cmd/for.v5:94<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
   in method gimme at src/gen/CORE.setting:6334<br />
   in method sink at src/gen/CORE.setting:6620<br />
   in block  at t/spec/cmd/for.v5:79<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>10</td><td>9</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan='5'>   3 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/negate.v5</td><td>9</td><td>36</td><td>0</td><td>0</td><td>45</td></tr>
@@ -68,9 +121,6 @@ to preserve list context inside function call<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2568<br />
   in any find_method at src/gen/Metamodel.nqp:939<br />
   in block  at t/spec/op/negate.v5:32<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>9</td><td>10</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan='5'>   3 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>8</td><td>4</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
@@ -116,7 +166,6 @@ Unrecognized directive 'U'<br />
   in method gimme at src/gen/CORE.setting:6334<br />
   in method eager at src/gen/CORE.setting:6313<br />
   in sub pack at src/gen/CORE.setting:8070<br />
-  in sub pack at src/gen/CORE.setting:8068<br />
   in block  at t/spec/op/length.v5:37<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
@@ -184,25 +233,45 @@ No such symbol '&amp;vec'<br />
   in block  at t/spec/bigmem/vec.v5:24<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '$package' is not declared<br />
-at t/spec/mro/isa_c3.v5:68<br />
-------&gt; 	object_ok($ref, $class, $package⏏);</td></tr>
+        <tr><td colspan='5'>No such symbol 'klonk'<br />
+  in method sink at src/gen/CORE.setting:10384<br />
+  in sub bless at lib/Perl5/Terms.pm:767<br />
+  in block  at t/spec/mro/isa_c3.v5:63<br />
+  in block  at t/spec/mro/isa_c3.v5:45<br />
+  in block  at t/spec/mro/isa_c3.v5:34<br />
+  in block  at t/spec/mro/isa_c3.v5:22<br />
+  in block  at t/spec/mro/isa_c3.v5:12<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
+current instr.: 'print_exception' pc 104903 (src/gen/CORE.setting.pir:46886) (src/gen/CORE.setting:9285)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '$package' is not declared<br />
-at t/spec/mro/isa_c3_utf8.v5:70<br />
-------&gt; 	object_ok($ref, $class, $package⏏);</td></tr>
+        <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
+  in method sink at src/gen/CORE.setting:10384<br />
+  in sub bless at lib/Perl5/Terms.pm:767<br />
+  in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
+  in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
+  in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
+  in block  at t/spec/mro/isa_c3_utf8.v5:24<br />
+  in block  at t/spec/mro/isa_c3_utf8.v5:14<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
+current instr.: 'print_exception' pc 104903 (src/gen/CORE.setting.pir:46886) (src/gen/CORE.setting:9285)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '$package' is not declared<br />
-at t/spec/mro/isa_dfs.v5:64<br />
-------&gt; 	object_ok($ref, $class, $package⏏);</td></tr>
+        <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
+  in any load_module at src/gen/ModuleLoader.nqp:176<br />
+  in block  at t/spec/mro/isa_dfs.v5:45<br />
+  in block  at t/spec/mro/isa_dfs.v5:37<br />
+  in block  at t/spec/mro/isa_dfs.v5:28<br />
+  in block  at t/spec/mro/isa_dfs.v5:20<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
+current instr.: 'print_exception' pc 104903 (src/gen/CORE.setting.pir:46886) (src/gen/CORE.setting:9285)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '$package' is not declared<br />
-at t/spec/mro/isa_dfs_utf8.v5:66<br />
-------&gt; 	object_ok($ref, $class, $package⏏);</td></tr>
+        <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
+  in any load_module at src/gen/ModuleLoader.nqp:176<br />
+  in block  at t/spec/mro/isa_dfs_utf8.v5:47<br />
+  in block  at t/spec/mro/isa_dfs_utf8.v5:39<br />
+  in block  at t/spec/mro/isa_dfs_utf8.v5:30<br />
+  in block  at t/spec/mro/isa_dfs_utf8.v5:22<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
+current instr.: 'print_exception' pc 104903 (src/gen/CORE.setting.pir:46886) (src/gen/CORE.setting:9285)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in argument list; couldn't find final ')'<br />
@@ -225,9 +294,11 @@ at t/spec/op/anonsub.v5:11<br />
 ------&gt; run_multiple_progs('', \*DATA⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$tie' is not declared<br />
-at t/spec/op/assignwarn.v5:51<br />
-------&gt; 	test_op($tie⏏, $integer, $_, 0) foreach qw($x++ $x--</td></tr>
+CHECK FAILED:<br />
+Calling 'keys' will never work with argument types (Associative, Mu) (lines 54, 54)<br />
+    Expected any of:<br />
+    :($x)<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not locate compile-time value for symbol pass<br />
@@ -349,11 +420,6 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-
   in any find_method at src/gen/Metamodel.nqp:939<br />
   in block  at t/spec/op/tie.v5:19<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/upgrade.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '$source_type' is not declared<br />
-at t/spec/op/upgrade.v5:44<br />
-------&gt; 	$vars-&gt;{source} = $types{$source_type⏏};</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix &lt; instead<br />
@@ -553,19 +619,29 @@ at t/spec/re/reg_mesg.v5:100<br />
 No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '$idx' is not declared<br />
-at t/spec/re/reg_posixcc.v5:65<br />
-------&gt;             $first= $last= $ary-&gt;[$idx⏏];</td></tr>
+        <tr><td colspan='5'>Could not find symbol '&amp;upgrade'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10381<br />
+  in any  at src/gen/Metamodel.nqp:2580<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2568<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in block  at t/spec/re/reg_posixcc.v5:116<br />
+  in method reify at src/gen/CORE.setting:6011<br />
+  in method reify at src/gen/CORE.setting:5906<br />
+  in method gimme at src/gen/CORE.setting:6334<br />
+  in method eager at src/gen/CORE.setting:6313<br />
+  in block  at t/spec/re/reg_posixcc.v5:87<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
+current instr.: 'print_exception' pc 104903 (src/gen/CORE.setting.pir:46886) (src/gen/CORE.setting:9285)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 quantifier quantifies nothing<br />
 at t/spec/re/regex_sets.v5:23<br />
 ------&gt; like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:256<br />
-  in block  at t/spec/re/regex_sets_compat.v5:11<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+use of uninitialized value of type Any in string context  in block  at t/spec/re/regex_sets_compat.v5:12<br />
+use of uninitialized value of type Any in string context<br />
+  in block  at t/spec/re/regex_sets_compat.v5:12<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
   in method gimme at src/gen/CORE.setting:6334<br />
@@ -577,9 +653,10 @@ at t/spec/re/regex_sets.v5:23<br />
 Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:256<br />
-  in block  at t/spec/re/regexp_noamp.v5:8<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_noamp.v5:9<br />
+use of uninitialized value of type Any in string context<br />
+  in block  at t/spec/re/regexp_noamp.v5:9<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
   in method gimme at src/gen/CORE.setting:6334<br />
@@ -587,9 +664,10 @@ Null PMC access in find_method('shift')<br />
   in block  at t/spec/re/regexp_noamp.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:256<br />
-  in block  at t/spec/re/regexp_notrie.v5:11<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_notrie.v5:12<br />
+use of uninitialized value of type Any in string context<br />
+  in block  at t/spec/re/regexp_notrie.v5:12<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
   in method gimme at src/gen/CORE.setting:6334<br />
@@ -597,9 +675,10 @@ Null PMC access in find_method('shift')<br />
   in block  at t/spec/re/regexp_notrie.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:256<br />
-  in block  at t/spec/re/regexp_qr.v5:6<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr.v5:7<br />
+use of uninitialized value of type Any in string context<br />
+  in block  at t/spec/re/regexp_qr.v5:7<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
   in method gimme at src/gen/CORE.setting:6334<br />
@@ -607,9 +686,10 @@ Null PMC access in find_method('shift')<br />
   in block  at t/spec/re/regexp_qr.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:256<br />
-  in block  at t/spec/re/regexp_qr_embed.v5:7<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr_embed.v5:8<br />
+use of uninitialized value of type Any in string context<br />
+  in block  at t/spec/re/regexp_qr_embed.v5:8<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
   in method gimme at src/gen/CORE.setting:6334<br />
@@ -625,9 +705,10 @@ Null PMC access in find_method('shift')<br />
   in block  at t/spec/re/regexp_qr_embed_thr.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Null filename used<br />
-  in sub _P5do at lib/Perl5/Terms.pm:256<br />
-  in block  at t/spec/re/regexp_trielist.v5:12<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_trielist.v5:13<br />
+use of uninitialized value of type Any in string context<br />
+  in block  at t/spec/re/regexp_trielist.v5:13<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
   in method gimme at src/gen/CORE.setting:6334<br />
@@ -645,7 +726,7 @@ at t/spec/re/regexp_unicode_prop.v5:68<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:250<br />
+        <tr><td colspan='5'>Could not find module Config to import symbols from  in block  at lib/Perl5/Terms.pm:248<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -653,7 +734,7 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/subst_amp.v5:22<br />
 ------&gt; s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unable to open filehandle from path './': No such file or directory(2)  in block  at lib/Perl5/Terms.pm:250<br />
+        <tr><td colspan='5'>Could not find module Config to import symbols from  in block  at lib/Perl5/Terms.pm:248<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -1150,7 +1231,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x6213728] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x72bf020] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1328,36 +1409,6 @@ No such symbol '&amp;tempfile'<br />
   in any find_method at src/gen/Metamodel.nqp:939<br />
   in block  at t/spec/op/dbm.v5:17<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x455147098f6b9815) in string context  in block  at eval_139:1<br />
-<br /> 140 tests more than planned were run<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;lock'<br />
   in method &lt;anon&gt; at src/gen/CORE.setting:10381<br />
@@ -1449,12 +1500,12 @@ Could not find threads in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:10381<br />
-  in any  at src/gen/Metamodel.nqp:2580<br />
-  in any find_method_fallback at src/gen/Metamodel.nqp:2568<br />
-  in any find_method at src/gen/Metamodel.nqp:939<br />
-  in block  at t/spec/op/unlink.v5:14<br />
+===SORRY!===<br />
+CHECK FAILED:<br />
+Calling 'unlink' will never work with argument types (Str, Str, Str) (lines 29, 29)<br />
+    Expected: :($path)<br />
+Calling 'unlink' will never work with no arguments (lines 34, 34)<br />
+    Expected: :($path)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1685,10 +1736,8 @@ Confused<br />
 at t/spec/op/select.v5:20<br />
 ------&gt; is ref\⏏select, 'SCALAR', 'and STDOUT is a plain</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>WARNINGS:<br />
-Useless use of constant integer 1 in sink context (line 58)<br />
-===SORRY!===<br />
-Could not find sub cuid_67_1372340693.94315<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+No such method 'value' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2018,9 +2067,9 @@ at t/spec/io/defout.v5:32<br />
 ------&gt; @ ⏏@&lt;&lt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errno.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$perlio' is not declared<br />
-at t/spec/io/errno.v5:32<br />
-------&gt; nbsd' &amp;&amp; $Config{useithreads} &amp;&amp; $perlio⏏ eq 'stdio';</td></tr>
+Variable '$TODO' is not declared<br />
+at t/spec/io/errno.v5:38<br />
+------&gt; 			local $::TODO⏏ = "We get RMS\$_IOP at EOF on VMS when</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 ===SORRY!===<br />
@@ -2094,11 +2143,13 @@ Error while compiling, type X::Redeclaration<br />
  at line 36, near ", 'X';\n  m"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>Failed to create directory 'blurfl' with mode '0o777': mkdir failed: File exists<br />
-  in block  at src/gen/CORE.setting:11854<br />
-  in sub mkdir at src/gen/CORE.setting:11849<br />
-  in sub mkdir at src/gen/CORE.setting:11845<br />
-  in block  at t/spec/op/mkdir.v5:26<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+CHECK FAILED:<br />
+Calling 'mkdir' will never work with no arguments (lines 54, 54, 45, 45)<br />
+    Expected any of:<br />
+    :($path, $mode = { ... })<br />
+Calling 'rmdir' will never work with no arguments (lines 58, 58, 47, 47)<br />
+    Expected: :($path)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2109,7 +2160,7 @@ at t/spec/run/cloexec.v5:53<br />
         <tr><td colspan='5'>Cannot call 'AUTOGEN'; none of these signatures match:<br />
 :(Capture:D : Mu *%_)<br />
   in method AUTOGEN at src/gen/CORE.setting:446<br />
-  in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:156<br />
+  in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:154<br />
   in block  at t/spec/op/args.v5:18<br />
   in method reify at src/gen/CORE.setting:6011<br />
   in method reify at src/gen/CORE.setting:5906<br />
@@ -2202,11 +2253,6 @@ at t/spec/op/defins.v5:232<br />
 Two terms in a row<br />
 at t/spec/op/override.v5:69<br />
 ------&gt;         CORE::require ⏏warnings;</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/recurse.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '$x' is not declared<br />
-at t/spec/op/recurse.v5:69<br />
-------&gt; 	my $a = ackermann($x⏏, $y);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/qq.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unrecognized backslash sequence: '\x'<br />
@@ -2457,7 +2503,7 @@ at t/spec/op/localref.v5:20<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1372340381.39136<br />
+Could not find sub cuid_96_1372366877.77671<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2760,9 +2806,9 @@ at t/spec/op/taint.v5:41<br />
 ------&gt; 	  IPC::SysV-&gt;import(⏏qw(IPC_PRIVATE IPC_RMID IPC_CREAT S_IRWX</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$i' is not declared<br />
-at t/spec/op/sprintf2.v5:41<br />
-------&gt;     my $format = "%$i.${i}⏏s";</td></tr>
+Variable '%SIG' is not declared<br />
+at t/spec/op/sprintf2.v5:65<br />
+------&gt;     local $SIG{__WARN__}⏏ = sub {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 quantifier quantifies nothing<br />
@@ -2771,9 +2817,8 @@ at t/spec/re/pat_rt_report.v5:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$value' is not declared. Did you mean '@values'?<br />
-at t/spec/op/read.v5:49<br />
-------&gt; 	if ($value⏏ !~ tr/\0-\377//c) {</td></tr>
+No such method 'p5cc' for invocant of type 'Perl5::Grammar'<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -2781,8 +2826,9 @@ at t/spec/comp/utf.v5:45<br />
 ------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unknown warnings category 'FATAL'<br />
-</td></tr>
+Unrecognized backslash sequence: '\1'<br />
+at t/spec/op/pack.v5:117<br />
+------&gt; pack("%32B*", "\001\002\004\010\020\040\⏏100\200\377")), 16 );</td></tr>
 
         <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.06-34-g33a807f built on parrot 5.5.0 revision RELEASE_5_5_0
 </td></tr>

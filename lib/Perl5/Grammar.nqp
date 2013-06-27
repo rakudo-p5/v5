@@ -318,7 +318,6 @@ role STD5 {
         $ok    := $ok || !nqp::istype($varast, QAST::Var);
         $ok    := $ok || $varast.scope ne 'lexical';
         $ok    := $ok || ($*IN_SORT && ($varast.name eq '$a' || $varast.name eq '$b'));
-        $ok    := $ok || ($*FOR_VARIABLE && $varast.name eq $*FOR_VARIABLE);
         if !$ok {
             # Change the sigil if needed.
             $var<really> := '@' if ~$var<sigil> eq '$#';
@@ -1228,6 +1227,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*CURPAD;
         :my %*HANDLERS;
         <.finishlex>
+        [ <?{ $*FOR_VARIABLE }> {
+            my $BLOCK := $*W.cur_lexpad();
+            $BLOCK.symbol($*FOR_VARIABLE, :scope('lexical'), :lazyinit($*FOR_VARIABLE eq '$_'), :for_variable(1) );
+        } ]?
         [
         | '{YOU_ARE_HERE}' <you_are_here>
         | :dba('block') '{' ~ '}' <statementlist> <?ENDSTMT>
@@ -1252,6 +1255,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my %*LANG := self.shallow_copy(nqp::getlexdyn('%*LANG'));
         :my %*HOW  := self.shallow_copy(nqp::getlexdyn('%*HOW'));
         :my $*INVOCANT_OK := 0;
+        :my $*FOR_VARIABLE := '';
         :dba('statement list')
         :s
         [
@@ -3600,13 +3604,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token indirect_object {
         [
-        | <?{ $*ALLOW_IOS_VAR }> <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ]
-        | <?{ $*ALLOW_IOS_NAME }> <name> <?{ $*W.is_type([~$<name>]) }>
+        | <?{ $*ALLOW_IOS_VAR }> <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] { $*HAS_INDIRECT_OBJ := 1 }
+        | <?{ $*ALLOW_IOS_NAME }> <name> <?{ $*W.is_type([~$<name>]) }> { $*HAS_INDIRECT_OBJ := 1 }
         ]
     }
 
     token term:sym<identifier> {
         :my $name;
+        :my $*HAS_INDIRECT_OBJ := 0;
         :my $*ALLOW_IOS_VAR := 0;
         :my $*ALLOW_IOS_NAME := 1;
         :my $*IN_SPLIT := 0;
