@@ -3953,16 +3953,17 @@ class Perl5::Actions is HLL::Actions does STDActions {
     my $opname      := $i++;
 
     my %builtin := nqp::hash(
-        'chr',     [ '$_', '_', 'callmethod', 'P5Numeric' ],
-        'ord',     [ '$_', '_', 'call',       '&infix:<P5.>',  'callmethod', 'P5ord' ],
-        'not',     [ '',   '@', '',           '',              'call',       '&prefix:<P5not>' ],
-        'say',     [ '$_', '@', 'call',       '&infix:<P5.>' ],
-        'print',   [ '$_', '@', 'call',       '&infix:<P5.>' ],
+        'chr',     [ '$_', '_',  'callmethod', 'P5Numeric' ],
+        'ord',     [ '$_', '_',  'call',       '&infix:<P5.>',  'callmethod', 'P5ord' ],
+        'not',     [ '',   '@',  '',           '',              'call',       '&prefix:<P5not>' ],
+        'say',     [ '$_', '@',  'call',       '&infix:<P5.>' ],
+        'print',   [ '$_', '@',  'call',       '&infix:<P5.>' ],
         'shift',   [ '@_', ';+' ],
+        'unpack',  [ '@_', '$@', '',           '',              'callmethod', 'P5unpack' ],
         'unshift', [ '@_', '+@' ],
         'push',    [ '@_', '+@' ],
         'pop',     [ '@_', ';+' ],
-        'time',    [ '',   '',  '',           '',             'call',       '&term:<time>' ],
+        'time',    [ '',   '',   '',           '',              'call',       '&term:<time>' ],
     );
     method term:sym<identifier>($/) {
         $V5DEBUG && say("term:sym<identifier>($/)");

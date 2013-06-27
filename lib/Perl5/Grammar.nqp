@@ -2051,6 +2051,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'ord',  '$',
         'time', '',
         'not',  '@',
+        'unpack', '$@',
     );
     rule routine_def {
         :my $*IN_DECL := 'sub';
