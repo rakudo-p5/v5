@@ -311,6 +311,7 @@ augment class Bool {
 augment class Array {
     multi method P5Str(Array:U:) { '' }
     multi method P5Str(Array:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
+    method P5Numeric(Array:) { +@(self) }
     method P5scalar(Array:) { +@(self) }
     method P5Bool(Array:) { [&&] self.list }
 }
@@ -318,6 +319,7 @@ augment class Array {
 augment class List {
     multi method P5Str(List:U:) { '' }
     multi method P5Str(List:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
+    method P5Numeric(List:) { +@(self) }
     method P5scalar(List:) { +@(self) }
     method P5Bool(List:) { [&&] self.list }
 }
