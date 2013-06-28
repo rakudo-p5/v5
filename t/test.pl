@@ -78,4 +78,45 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     # so that these tests don't die, see https://github.com/mirrors/perl/blob/blead/t/test.pl#L1587
     sub native_to_latin1 { $_[0] }
     sub latin1_to_native { $_[0] }
+    # Check that $got is within $range of $expected
+    # if $range is 0, then check it's exact
+    # else if $expected is 0, then $range is an absolute value
+    # otherwise $range is a fractional error.
+    # Here $range must be numeric, >= 0
+    # Non numeric ranges might be a useful future extension. (eg %)
+    sub within ($$$@) {
+        my ($got, $expected, $range, $name);
+        ($got, $expected, $range, $name) = @_;
+        my $pass;
+        if (!defined $got or !defined $expected or !defined $range) {
+            # This is a fail, but doesn't need extra diagnostics
+        } elsif ($got !~ /\d/ or $expected !~ /\d/ or $range !~ /\d/) {
+            # This is a fail
+            print "# got, expected and range must be numeric\n";
+        } elsif ($range < 0) {
+            # This is also a fail
+            print "# range must not be negative\n";
+        } elsif ($range == 0) {
+            # Within 0 is ==
+            $pass = $got == $expected;
+        } elsif ($expected == 0) {
+            # If expected is 0, treat range as absolute
+            $pass = ($got <= $range) && ($got >= - $range);
+        } else {
+            my $diff = $got - $expected;
+            $pass = abs ($diff / $expected) < $range;
+        }
+        unless ($pass) {
+            if ($got eq $expected) {
+                print "# $got - $expected = " . ($got - $expected) . "\n";
+            }
+            print "#      got ". _qq($got) ."\n";
+            print "# expected ". _qq($expected) ." (within ". _qq($range) .")\n";
+        }
+        ok($pass, $name);
+    }
+    sub _qq {
+        my $x = shift;
+        return defined $x ? '"' . $x . '"' : 'undef';
+    }
 }
