@@ -3813,8 +3813,7 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
         token backslash:sym<r> { <sym> }
         token backslash:sym<t> { <sym> }
         token backslash:sym<x> { :dba('hex character') <sym> [ <hexint> | '{' ~ '}' <hexints> ] }
-        # XXX viv doesn't support ** quantifiers yet
-        token backslash:sym<0> { :dba('octal character') <sym> [ [<[0..7]> [<[0..7]> <[0..7]>?]?]? | '{' ~ '}' <octints> ] }
+        token backslash:sym<0> { :dba('octal character') [ <octint> ** 1..3 | '{' ~ '}' <octints> ] }
     }
 
     role b0 {
