@@ -5427,6 +5427,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $past
     }
 
+    method quote:sym<tr>($/) {
+        $V5DEBUG && say("method quote:sym<tr>($/)");
+    }
+
     method quote:sym<quasi>($/) {
         $V5DEBUG && say("method quote:sym<quasi>($/)");
         my $ast_class := $*W.find_symbol(['AST']);

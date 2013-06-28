@@ -2632,34 +2632,24 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $lang;
         :my $start;
         :my $stop;
-        :my $*GOAL;
         <babble($l)>
-        {
-            my $B  := $<babble><B>;
-            $lang  := $B[0];
-            $start := $B[1];
-            $stop  := $B[2];
-            $*GOAL := $stop;
-        }
-        #{ say $lang.WHAT }
-        [ $start ~ $stop <left=p5cc($lang)>
+        { my $B := $<babble><B>.ast; $lang := $B[0]; $start := $B[1]; $stop := $B[2]; }
+
+        $start <left=.nibble($lang)> [ $stop || <.panic("Couldn't find terminator $stop")> ]
         [ <?{ $start ne $stop }>
             <.ws>
-            <babble($l)>
-            {
-                my $B  := $<babble>[0]<B>;
-                $lang  := $B[0];
-                $start := $B[1];
-                $stop  := $B[2];
-                $*GOAL := $stop;
-            }
-            [ $start ~ $stop <right=p5cc> ]
-        || 
-            #{ say self.WHAT }
-            '' ~ $stop <right=p5cc>
-        ]
+            [ <?[ \[ \{ \( \< ]> <.obs('brackets around replacement', 'assignment syntax')> ]?
+            [ <infixish> || <.missing: "assignment operator"> ]
+            [ <?{ $<infixish>.Str eq '=' }> || <.malformed: "assignment operator"> ]
+            # XXX When we support it, above check should add: || $<infixish><infix_postfix_meta_operator>[0]
+            <.ws>
+            [ <right=.EXPR('h')> || <.panic: "Assignment operator missing its expression"> ]
+        ||
+            { $lang := self.quote_lang($l, $stop, $stop, ['qq']); }
+            <right=.nibble($lang)> $stop || <.panic("Malformed replacement part; couldn't find final $stop")>
         ]
     }
+ 
 
     token quote:sym<' '>  { :dba('single quotes') "'" ~ "'" <nibble(self.quote_lang(%*LANG<P5Q>, "'", "'", ['q']))> }
     token quote:sym<" ">  { :dba('double quotes') '"' ~ '"' <nibble(self.quote_lang(%*LANG<P5Q>, '"', '"', ['qq']))> }
@@ -2736,8 +2726,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token quote:sym<tr> {
-        #<sym> » <pat=tribble( self.cursor_fresh( %*LANG<P5Regex> ))>
-        <sym> » <pat=tribble(%*LANG<P5Regex>)>
+        <sym> » <pat=tribble(%*LANG<P5Q>)>
         <tr_mods>?
     }
 
