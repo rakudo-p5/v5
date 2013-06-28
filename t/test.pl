@@ -32,6 +32,7 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
 
 {
     use v5;
+    my $Perl;
     sub plan {
         my %args = scalar(@_) == 2 ? @_ : tests => $_[0];
         _plan( $args{'tests'} )
@@ -73,6 +74,10 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     sub fresh_perl_like {
         my ($code, $expected, $options, $name) = @_;
         _cmp_ok( _fresh_perl($code, $options), '~~', $expected, $name )
+    }
+    
+    sub which_perl {
+        $Perl = $^X;
     }
     
     # so that these tests don't die, see https://github.com/mirrors/perl/blob/blead/t/test.pl#L1587
