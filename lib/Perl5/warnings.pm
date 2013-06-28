@@ -5,6 +5,7 @@ use v6.0.0;
 
 my %cats = {
     'FATAL' => 0,
+    'NONFATAL' => 0,
     'all' => 0,
     'closure' => 0,
     'deprecated' => 0,
