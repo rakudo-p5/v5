@@ -2472,7 +2472,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token value:sym<quote>   { <quote> }
-    token value:sym<number>  { <number> }
+    token value:sym<number>  { <number> [ <?before \s+> || <?MARKER('ws')> ] }
     token value:sym<version> { <version> }
 
     # Note: call this only to use existing type, not to declare type
@@ -3125,7 +3125,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { <sym> <O('%multiplicative')> }
 
     token infix:sym<x>
-        { <sym> <O('%multiplicative')> }
+        { <sym> [ <?before \s+> || <?MARKER('ws')> ] <O('%multiplicative')> }
 
 
     ## additive
