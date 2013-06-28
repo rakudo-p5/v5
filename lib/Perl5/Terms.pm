@@ -1,4 +1,9 @@
 
+my %SIG;
+
+sub P5warn(*@a) { %SIG<__WARN__>.defined ?? %SIG<__WARN__>( |@a ) !! warn( |@a ) }
+sub P5die (*@a) { %SIG<__DIE__>.defined  ?? %SIG<__DIE__>(  |@a ) !! die(  |@a ) }
+
 my $INPUT_RECORD_SEPARATOR = "\n";
 my $SUBSCRIPT_SEPARATOR    = chr(28);
 my $VERSION_MAJOR          = 5;  # well, we have to say something
@@ -49,6 +54,7 @@ sub EXPORT(|) {
     %ex<STDERR>                   := STDERR;
     %ex<%ENV>                     := %*ENV;
     %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
+    %ex<%SIG>                     := %SIG;
     %ex<$$>                       := $*PID;
     %ex<$]>                       := $VERSION_FLOAT;
     %ex<$;>                       := $SUBSCRIPT_SEPARATOR;
@@ -232,6 +238,7 @@ multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
 }
 
 use Perl5::warnings ();
+use Perl5::Config;
 use MONKEY_TYPING;
 
 sub _P5do( $file ) is hidden_from_backtrace {
@@ -241,7 +248,7 @@ sub _P5do( $file ) is hidden_from_backtrace {
             try {
                 $ret = eval slurp $file;
                 CATCH {
-                    default { warn(CALLER::DYNAMIC::<$!> = .Str) }
+                    default { P5warn(CALLER::DYNAMIC::<$!> = .Str) }
                 }
             }
         }
@@ -252,10 +259,14 @@ sub _P5do( $file ) is hidden_from_backtrace {
     $ret
 }
 
+augment class Mu {
+    method P5Bool(Mu:) { '' }
+}
+
 augment class Any {
     method P5Str(Any:) is hidden_from_backtrace {
         if warnings::enabled('all') || warnings::enabled('uninitialized') {
-            warn 'Use of uninitialized value in string'
+            P5warn 'Use of uninitialized value in string'
         }
         ''
     }
@@ -704,11 +715,11 @@ augment class Str {
                             $shifted += 4;
                         }
                         else {
-                            die "Cannot unpack byte '" ~ sprintf('%#x', @bytes[0]) ~ "' using directive 'U'";
+                            P5die "Cannot unpack byte '" ~ sprintf('%#x', @bytes[0]) ~ "' using directive 'U'";
                         }
                     }
                 }
-                X::Buf::Pack.new(:$directive).throw;
+                P5die ~X::Buf::Pack.new(:$directive);
             }
         }
 
