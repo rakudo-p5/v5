@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>978</td><td>39502</td><td>4</td><td>36</td><td>40515</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>997</td><td>39674</td><td>4</td><td>36</td><td>40706</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>77</td><td>56</td><td>0</td><td>10</td><td>143</td></tr>
         <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
@@ -11,35 +11,35 @@
    4 skipped: Unrecognized directive 'U'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>71</td><td>74</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:314<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0xc468d7352adcd17e) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:314<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x44f929e594841607) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:319<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x44f929e594841607) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:319<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
@@ -94,6 +94,19 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align='center'><td align='left'>op/lop.v5</td><td>15</td><td>2</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pow.v5</td><td>13</td><td>191</td><td>0</td><td>0</td><td>204</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;within'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:10454<br />
+  in any  at src/gen/Metamodel.nqp:2580<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2568<br />
+  in any find_method at src/gen/Metamodel.nqp:939<br />
+  in block  at t/spec/op/pow.v5:70<br />
+  in method reify at src/gen/CORE.setting:6084<br />
+  in method reify at src/gen/CORE.setting:5979<br />
+  in method gimme at src/gen/CORE.setting:6407<br />
+  in method eager at src/gen/CORE.setting:6386<br />
+  in block  at t/spec/op/pow.v5:65<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>11</td><td>107</td><td>0</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>No such method 'mro' for invocant of type 'Perl6::Metamodel::PackageHOW'<br />
@@ -101,7 +114,7 @@ to preserve list context inside function call<br />
   in any  at src/gen/Metamodel.nqp:785<br />
   in any compute_mro at src/gen/Metamodel.nqp:783<br />
   in any compose at src/gen/Metamodel.nqp:2454<br />
-  in sub bless at lib/Perl5/Terms.pm:772<br />
+  in sub bless at lib/Perl5/Terms.pm:777<br />
   in block  at t/spec/cmd/for.v5:94<br />
   in method reify at src/gen/CORE.setting:6084<br />
   in method reify at src/gen/CORE.setting:5979<br />
@@ -127,6 +140,16 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>6</td><td>9</td><td>0</td><td>0</td><td>15</td></tr>
+        <tr><td colspan='5'>Cannot convert string to number: trailing characters after number in '1⏏foo' (indicated by ⏏)<br />
+  in method Num at src/gen/CORE.setting:10446<br />
+  in method Num at src/gen/CORE.setting:4331<br />
+  in method at_pos at src/gen/CORE.setting:6835<br />
+  in method at_pos at src/gen/CORE.setting:1680<br />
+  in method postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:273<br />
+  in method postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:267<br />
+  in block  at t/spec/op/int.v5:42<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>Length argument to substr out of range. Is: -11, should be in 0..Inf; use *-11 if you want to index relative to the end<br />
@@ -252,7 +275,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at src/gen/CORE.setting:10457<br />
-  in sub bless at lib/Perl5/Terms.pm:769<br />
+  in sub bless at lib/Perl5/Terms.pm:774<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -263,7 +286,7 @@ current instr.: 'print_exception' pc 105920 (src/gen/CORE.setting.pir:47225) (sr
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at src/gen/CORE.setting:10457<br />
-  in sub bless at lib/Perl5/Terms.pm:769<br />
+  in sub bless at lib/Perl5/Terms.pm:774<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -655,7 +678,7 @@ quantifier quantifies nothing<br />
 at t/spec/re/regex_sets.v5:23<br />
 ------&gt; like("a", qr/(?⏏[ [a]      # This is a comment</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:244<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/re/regex_sets_compat.v5:12<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regex_sets_compat.v5:12<br />
@@ -670,7 +693,7 @@ use of uninitialized value of type Any in string context<br />
 Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:244<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_noamp.v5:9<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_noamp.v5:9<br />
@@ -681,7 +704,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_noamp.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:244<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_notrie.v5:12<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_notrie.v5:12<br />
@@ -692,7 +715,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_notrie.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:244<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr.v5:7<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr.v5:7<br />
@@ -703,7 +726,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:244<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr_embed.v5:8<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr_embed.v5:8<br />
@@ -722,7 +745,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr_embed_thr.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find sub &amp;prefix:&lt;|&gt;  in block  at lib/Perl5/Terms.pm:244<br />
 use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_trielist.v5:13<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_trielist.v5:13<br />
@@ -743,7 +766,7 @@ at t/spec/re/regexp_unicode_prop.v5:68<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find module Config to import symbols from  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find module Config to import symbols from  in block  at lib/Perl5/Terms.pm:244<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -751,7 +774,7 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/subst_amp.v5:22<br />
 ------&gt; s/\⏏Ga(?{push @res, $_, $`})/xx/g;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_wamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Could not find module Config to import symbols from  in block  at lib/Perl5/Terms.pm:248<br />
+        <tr><td colspan='5'>Could not find module Config to import symbols from  in block  at lib/Perl5/Terms.pm:244<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -1244,7 +1267,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x6cbe430] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x60c74c8] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1446,7 +1469,7 @@ at t/spec/op/yadayada.v5:16<br />
     at t/spec/re/qr.v5:82<br />
     ------&gt;  tie my $flile⏏, "qrBug";<br />
 Too many positional parameters passed; got 3 but expected 1<br />
-  in sub ref at lib/Perl5/Terms.pm:130<br />
+  in sub ref at lib/Perl5/Terms.pm:126<br />
   in block  at t/spec/re/qr.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1784,9 +1807,9 @@ Could not find constant in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/srand.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/op/srand.v5:18<br />
-------&gt; sub mk_rand { map int ⏏rand 10000, 1..100; }</td></tr>
+Variable '%SIG' is not declared<br />
+at t/spec/op/srand.v5:74<br />
+------&gt; 	local $SIG{__WARN__}⏏ = sub {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/FindExt.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find FindExt in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
@@ -1968,11 +1991,6 @@ Preceding context expects a term, but found infix &lt; instead<br />
 at t/spec/cmd/mod.v5:60<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pow.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/op/pow.v5:12<br />
-------&gt; my $bits_in_uv = int ⏏(0.001 + log (~0+1) / log 2);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Variable '$Level' is not declared<br />
@@ -2021,11 +2039,6 @@ at t/spec/re/reg_pmod.v5:24<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find mypragma in any of: lib, /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/op/int.v5:47<br />
-------&gt; $y = int ⏏($x);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Variable '$additional_tests' is not declared<br />
@@ -2173,7 +2186,7 @@ at t/spec/run/cloexec.v5:53<br />
         <tr><td colspan='5'>Cannot call 'AUTOGEN'; none of these signatures match:<br />
 :(Capture:D : Mu *%_)<br />
   in method AUTOGEN at src/gen/CORE.setting:446<br />
-  in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:154<br />
+  in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:150<br />
   in block  at t/spec/op/args.v5:18<br />
   in method reify at src/gen/CORE.setting:6084<br />
   in method reify at src/gen/CORE.setting:5979<br />
@@ -2517,7 +2530,7 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1372415192.38033<br />
+Could not find sub cuid_96_1372438027.87782<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2841,9 +2854,9 @@ at t/spec/comp/utf.v5:45<br />
 ------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Two terms in a row<br />
-at t/spec/op/pack.v5:344<br />
-------&gt;     my $quotient = int ⏏(100 * ($y - $big) / $big);</td></tr>
+Variable '%SIG' is not declared<br />
+at t/spec/op/pack.v5:373<br />
+------&gt;   local $SIG{__WARN__}⏏ = sub {</td></tr>
 
         <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.06-60-gb9f195c built on parrot 5.5.0 revision RELEASE_5_5_0
 </td></tr>

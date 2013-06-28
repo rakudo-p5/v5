@@ -32,10 +32,14 @@ class STDIN {
 class STDOUT {
     method say  (*@a) { $*OUT.say(   join('', @a) ) }
     method print(*@a) { $*OUT.print( join('', @a) ) }
+    method P5open (*@a) { }
+    method P5close(*@a) { }
 }
 class STDERR {
     method say  (*@a) { $*ERR.say(   join('', @a) ) }
     method print(*@a) { $*ERR.print( join('', @a) ) }
+    method P5open (*@a) { }
+    method P5close(*@a) { }
 }
 
 sub EXPORT(|) {
@@ -118,14 +122,6 @@ multi sub chomp(*@s is rw) is export {
     }
     $nr_chomped
 }
-
-multi sub open( $fh is rw, $expr )             is export { open( $fh, $expr.substr(0, 1), $expr.substr(1) ) }
-multi sub open( $fh is rw, $m, $expr, *@list ) is export {
-    # ($path, :r(:$r), :w(:$w), :a(:$a), :p(:$p), :bin(:$bin), :chomp(:$chomp) = { ... }, :enc(:encoding(:$encoding)) = { ... })
-    $fh = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) );
-}
-
-sub close( IO::Handle $fh ) is export { $fh.close }
 
 sub ref($o) is export {
     $o.^name.uc
@@ -286,7 +282,16 @@ augment class Any {
                    ?? { last if $_ >= SELF.list.gimme($_ + 1); SELF[$_] }
                    !! { SELF[$_] }).eager.Parcel;
     }
+    multi method P5open( \SELF: $expr )             { SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) }
+    multi method P5open( \SELF: $m, $expr, *@list ) {
+        # ($path, :r(:$r), :w(:$w), :a(:$a), :p(:$p), :bin(:$bin), :chomp(:$chomp) = { ... }, :enc(:encoding(:$encoding)) = { ... })
+        SELF = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) );
+    }
+
+    method P5close(\SELF:) { SELF && SELF.close }
 }
+
+augment class IO::Handle { }
 
 augment class Nil {
     method P5Str(Nil:U:) is hidden_from_backtrace {

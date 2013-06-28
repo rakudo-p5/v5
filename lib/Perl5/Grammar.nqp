@@ -2051,10 +2051,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #        ] || <.panic: "Malformed routine">
 #    }
     my %prototype := nqp::hash(
-        'chr',  '$',
-        'ord',  '$',
-        'time', '',
-        'not',  '@',
+        'chr',    '$',
+        'int',    '$',
+        'ord',    '$',
+        'time',   '',
+        'not',    '@',
         'unpack', '$@',
     );
     rule routine_def {
@@ -3592,10 +3593,12 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token indirect_object {
+        :my $name;
         [
-        | <?{ $*ALLOW_IOS_VAR }> <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] { $*HAS_INDIRECT_OBJ := 1 }
-        | <?{ $*ALLOW_IOS_NAME }> <name> <?{ $*W.is_type([~$<name>]) }> { $*HAS_INDIRECT_OBJ := 1 }
+        | <?{ $*ALLOW_IOS_VAR }> <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] { $name := ~$<variable> }
+        | <?{ $*ALLOW_IOS_NAME }> <name> { $name := ~$<name> } <?{ $*W.is_type([$name]) }>
         ]
+        <!{ nqp::defined(%prototype{$name}) }> { $*HAS_INDIRECT_OBJ := 1 }
     }
 
     token term:sym<identifier> {
@@ -3604,11 +3607,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*ALLOW_IOS_VAR := 0;
         :my $*ALLOW_IOS_NAME := 1;
         :my $*IN_SPLIT := 0;
-        <identifier>
-        <!{ ~$<identifier> ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/ }>
-        <!{ $*W.is_type([~$<identifier>]) }>
+        <identifier> { $name := ~$<identifier> }
+        <!{ $name ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/ }>
+        <?{ nqp::defined(%prototype{$name}) || !$*W.is_type([$name]) }>
         {
-            $name := ~$<identifier>;
             %prototype{$name} := '@' unless nqp::defined(%prototype{$name});
             $*ALLOW_IOS_VAR := $name ~~ /^ [ 'new' | 'print' | 'say' ] $/;
             $*ALLOW_IOS_NAME := $name ne 'open';

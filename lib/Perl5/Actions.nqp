@@ -3968,9 +3968,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     my %builtin := nqp::hash(
         'chr',     [ '$_', '_',  'callmethod', 'P5Numeric' ],
+        'close',   [ '',   '*@', '',           '',              'callmethod', 'P5close' ],
+        'int',     [ '$_', '_',  'callmethod', 'P5Numeric',     'callmethod', 'Int' ],
         'ord',     [ '$_', '_',  'call',       '&infix:<P5.>',  'callmethod', 'P5ord' ],
         'not',     [ '',   '@',  '',           '',              'call',       '&prefix:<P5not>' ],
         'say',     [ '$_', '@',  'call',       '&infix:<P5.>' ],
+        'open',    [ '',   '*@', '',           '',              'callmethod', 'P5open' ],
         'print',   [ '$_', '@',  'call',       '&infix:<P5.>' ],
         'shift',   [ '@_', ';+' ],
         'unpack',  [ '@_', '$@', '',           '',              'callmethod', 'P5unpack' ],
@@ -4000,8 +4003,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
             }
             
             # Wrap the args if needed.
-            if +@($past) && $builtin[$arg_op] {
-                if $*HAS_INDIRECT_OBJ && $*ARGUMENT_HAVE {
+            if $builtin[$arg_op] && $*ARGUMENT_HAVE {
+                if $*HAS_INDIRECT_OBJ {
                     $past[1].op( $builtin[$arg_op] );
                     $past[1].name( $builtin[$arg_opname] );
                 }
