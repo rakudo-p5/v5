@@ -1,8 +1,8 @@
 
 my %SIG;
 
-sub P5warn(*@a) { %SIG<__WARN__>.defined ?? %SIG<__WARN__>( |@a ) !! warn( |@a ) }
-sub P5die (*@a) { %SIG<__DIE__>.defined  ?? %SIG<__DIE__>(  |@a ) !! die(  |@a ) }
+sub P5warn(*@a) is hidden_from_backtrace { %SIG<__WARN__> ~~ Callable ?? %SIG<__WARN__>( |@a ) !! warn( join('', @a) ) }
+sub P5die (*@a) is hidden_from_backtrace { %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>(  |@a ) !! die(  join('', @a) ) }
 
 my $INPUT_RECORD_SEPARATOR = "\n";
 my $SUBSCRIPT_SEPARATOR    = chr(28);
@@ -344,7 +344,7 @@ augment class Buf {
     multi method P5Str(Buf:D:) {
         my $ret;
         try {
-            $ret = self.decode('binary');
+            $ret = self.decode;
             CATCH {
                 default { $ret = self.decode('binary') }
             }
@@ -685,6 +685,20 @@ augment class Str {
                     }
                     @bytes.push: 0x00 xx $amount;
                 }
+                when 'c' {
+                    if $amount eq '*' {
+                        $amount = +@items;
+                    }
+                    elsif $amount eq '' {
+                        $amount = 1;
+                    }
+                    for ^$amount {
+                        my $number = shift(@items);
+                        my $s = +($number < 0) +< 7;
+                        $number -= 128 unless $s;
+                        @bytes.push: $s +| ($number +& 0b01111111);
+                    }
+                }
                 when 'C' {
                     my $number = shift(@items);
                     @bytes.push: $number % 0x100;
@@ -714,7 +728,16 @@ augment class Str {
         return Buf.new(@bytes);
     }
     multi method P5unpack(Str:D:) { self.P5unpack( CALLER::DYNAMIC::<$_> ) }
-    multi method P5unpack(Str:D: Str $string) { self.P5unpack( $string.encode ) }
+    multi method P5unpack(Str:D: Str $string) {
+        my $ret;
+        try {
+            $ret = $string.encode('binary');
+            CATCH {
+                default { $ret = $string.encode }
+            }
+        }
+        self.P5unpack($ret)
+    }
     multi method P5unpack(Str:D: Buf $string) {
         my @bytes = $string.list;
         my @fields;
@@ -758,6 +781,20 @@ augment class Str {
                         $amount = 1;
                     }
                     splice @bytes, 0, $amount;
+                }
+                when 'c' {
+                    if $amount eq '*' {
+                        $amount = +@bytes;
+                    }
+                    elsif $amount eq '' {
+                        $amount = 1;
+                    }
+                    for ^$amount {
+                        my $b = shift @bytes;
+                        my $c = $b +& 0b01111111;
+                        $c -= 128 if $b +& 0b10000000;
+                        @fields.push: $c;
+                    }
                 }
                 when 'C' {
                     @fields.push: shift @bytes;
