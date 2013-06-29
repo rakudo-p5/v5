@@ -340,6 +340,19 @@ augment class List {
     method P5Bool(List:) { [&&] self.list }
 }
 
+augment class Buf {
+    multi method P5Str(Buf:D:) {
+        my $ret;
+        try {
+            $ret = self.decode('binary');
+            CATCH {
+                default { $ret = self.decode('binary') }
+            }
+        }
+        $ret
+    }
+}
+
 augment class Str {
     multi method P5Str(Str:D:) { self.Str    }
     multi method P5Numeric(Str:U) { 0 }
@@ -632,9 +645,78 @@ augment class Str {
 
         return $result;
     }
+    multi method P5pack(*@items) {
+        my @bytes;
+        for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
+            my $directive = $unit.substr(0, 1);
+            my $amount = $unit.substr(1);
+
+            given $directive {
+                when 'A' {
+                    my $ascii = shift @items // '';
+                    for $ascii.comb -> $char {
+                        X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
+                        @bytes.push: ord($char);
+                    }
+                    if $amount ne '*' {
+                        @bytes.push: 0x20 xx ($amount - $ascii.chars);
+                    }
+                }
+                when 'H' {
+                    my $hexstring = shift @items // '';
+                    if $hexstring % 2 {
+                        $hexstring ~= '0';
+                    }
+                    @bytes.push: map { :16($_) }, $hexstring.comb(/../);
+                }
+                when 'i' {
+                    my $int = shift @items // '';
+                    for ^%Config<intsize> {
+                        my $offset = (%Config<intsize> - 1 - $_) * 8;
+                        @bytes.push: ($int +& (0xFF +< $offset)) +> $offset;
+                    }
+                }
+                when 'x' {
+                    if $amount eq '*' {
+                        $amount = 0;
+                    }
+                    elsif $amount eq '' {
+                        $amount = 1;
+                    }
+                    @bytes.push: 0x00 xx $amount;
+                }
+                when 'C' {
+                    my $number = shift(@items);
+                    @bytes.push: $number % 0x100;
+                }
+                when 'S' | 'v' {
+                    my $number = shift(@items);
+                    @bytes.push: ($number, $number +> 0x08) >>%>> 0x100;
+                }
+                when 'L' | 'V' {
+                    my $number = shift(@items);
+                    @bytes.push: ($number, $number +> 0x08,
+                                  $number +> 0x10, $number +> 0x18) >>%>> 0x100;
+                }
+                when 'n' {
+                    my $number = shift(@items);
+                    @bytes.push: ($number +> 0x08, $number) >>%>> 0x100;
+                }
+                when 'N' {
+                    my $number = shift(@items);
+                    @bytes.push: ($number +> 0x18, $number +> 0x10,
+                                  $number +> 0x08, $number) >>%>> 0x100;
+                }
+                P5die ~X::Buf::Pack.new(:$directive);
+            }
+        }
+
+        return Buf.new(@bytes);
+    }
     multi method P5unpack(Str:D:) { self.P5unpack( CALLER::DYNAMIC::<$_> ) }
-    multi method P5unpack(Str:D: $string) {
-        my @bytes = $string.encode.list;
+    multi method P5unpack(Str:D: Str $string) { self.P5unpack( $string.encode ) }
+    multi method P5unpack(Str:D: Buf $string) {
+        my @bytes = $string.list;
         my @fields;
         for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
@@ -659,6 +741,14 @@ augment class Str {
                                     ~ ($byte % 16).fmt('%x');
                     }
                     @fields.push($hexstring);
+                }
+                when 'i' {
+                    my $int = 0;
+                    for ^%Config<intsize> {
+                        my $offset = (%Config<intsize> - 1 - $_) * 8;
+                        $int +|= shift(@bytes) +< $offset;
+                    }
+                    @fields.push: $int;
                 }
                 when 'x' {
                     if $amount eq '*' {

@@ -3974,6 +3974,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'not',     [ '',   '@',  '',           '',              'call',       '&prefix:<P5not>' ],
         'say',     [ '$_', '@',  'call',       '&infix:<P5.>' ],
         'open',    [ '',   '*@', '',           '',              'callmethod', 'P5open' ],
+        'pack',    [ '',   '$@', '',           '',              'callmethod', 'P5pack' ],
         'print',   [ '$_', '@',  'call',       '&infix:<P5.>' ],
         'shift',   [ '@_', ';+' ],
         'unpack',  [ '@_', '$@', '',           '',              'callmethod', 'P5unpack' ],
@@ -3989,8 +3990,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $builtin := nqp::existskey(%builtin, $name) && %builtin{$name};
         
         if $builtin {
+            if !$*ARGUMENT_HAVE && !$*HAS_INDIRECT_OBJ && !$builtin[$default] && $builtin[$proto] && $name ne 'not' {
+                make QAST::Op.new( :op('die_s'), QAST::SVal.new( :value("Not enough arguments for $name" ) ) );
+                return 0;
+            }
             # Default to $_/@_.
-            if $*ARGUMENT_HAVE == 0 && $builtin[$default] {
+            elsif !$*ARGUMENT_HAVE && $builtin[$default] {
                 $past := QAST::Op.new( QAST::Var.new( :name($builtin[$default]), :scope('lexical') ), :node($/) );
             }
             # Expect args in this case.
