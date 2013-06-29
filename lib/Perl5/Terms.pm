@@ -278,10 +278,10 @@ augment class Any {
     proto method postcircumfix:<P5[ ]>(|) { * }
     multi method postcircumfix:<P5[ ]>(\SELF:) { self.list }
     multi method postcircumfix:<P5[ ]>(\SELF: int $pos) is rw {
-        SELF.at_pos($pos)
+        SELF.at_pos($pos.P5Numeric)
     }
     multi method postcircumfix:<P5[ ]>(\SELF: $pos) is rw {
-        SELF.at_pos($pos)
+        SELF.at_pos($pos.P5Numeric)
     }
     multi method postcircumfix:<P5[ ]>(\SELF: Positional \pos) is rw {
         if nqp::iscont(pos) {
@@ -290,8 +290,8 @@ augment class Any {
         my $list = pos.flat;
         $list.gimme(*);
         $list.map($list.infinite
-                   ?? { last if $_ >= SELF.list.gimme($_ + 1); SELF[$_] }
-                   !! { SELF[$_] }).eager.Parcel;
+                   ?? { last if $_ >= SELF.list.gimme($_ + 1); SELF[$_.P5Numeric] }
+                   !! { SELF[$_.P5Numeric] }).eager.Parcel;
     }
     multi method P5open( \SELF: $expr )             { SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) }
     multi method P5open( \SELF: $m, $expr, *@list ) {

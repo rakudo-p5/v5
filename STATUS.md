@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>1201</td><td>39470</td><td>4</td><td>36</td><td>40706</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>1209</td><td>39462</td><td>4</td><td>36</td><td>40706</td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>204</td><td>0</td><td>0</td><td>0</td><td>204</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>77</td><td>56</td><td>0</td><td>10</td><td>143</td></tr>
@@ -12,35 +12,35 @@
    4 skipped: Unrecognized directive 'U'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>71</td><td>74</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:330<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0xc522ac8b91bbeca6) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:330<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:330<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x7fa1848b66f2837a) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:330<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
@@ -94,6 +94,7 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align='center'><td align='left'>op/lop.v5</td><td>15</td><td>2</td><td>0</td><td>0</td><td>17</td></tr>
+        <tr align='center'><td align='left'>op/int.v5</td><td>14</td><td>1</td><td>0</td><td>0</td><td>15</td></tr>
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>12</td><td>1358</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;_where'<br />
@@ -138,16 +139,6 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>6</td><td>9</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>Cannot convert string to number: trailing characters after number in '1⏏foo' (indicated by ⏏)<br />
-  in method Num at src/gen/CORE.setting:10446<br />
-  in method Num at src/gen/CORE.setting:4331<br />
-  in method at_pos at src/gen/CORE.setting:6835<br />
-  in method at_pos at src/gen/CORE.setting:1680<br />
-  in method postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:284<br />
-  in method postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:278<br />
-  in block  at t/spec/op/int.v5:42<br />
-</td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>Length argument to substr out of range. Is: -11, should be in 0..Inf; use *-11 if you want to index relative to the end<br />
@@ -1293,7 +1284,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x674d3d8] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x549e768] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -2571,7 +2562,7 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1372536603.68733<br />
+Could not find sub cuid_96_1372538326.14479<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
