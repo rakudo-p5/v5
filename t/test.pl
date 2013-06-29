@@ -66,6 +66,25 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     sub done_testing            { _done()                             }
     sub done                    { _done()                             }
     
+    sub like   ($$@) { like_yn (0,@_) }; # 0 for -
+    sub unlike ($$@) { like_yn (1,@_) }; # 1 for un-
+
+    sub like_yn ($$$@) {
+        my ($flip, $unused, $expected, $name);
+        ($flip, $unused, $expected, $name) = @_;
+        my $pass;
+        $pass = $_[1] =~ /$expected/ if !$flip;
+        $pass = $_[1] !~ /$expected/ if $flip;
+        #~ unless ($pass) {
+        #~ unshift(@mess, "#      got '$_[1]'\n",
+            #~ $flip
+            #~ ? "# expected !~ /$expected/\n" : "# expected /$expected/\n");
+        #~ }
+        #~ local $Level = $Level + 1;
+        ok($pass, _where(), $name);
+    }
+
+    
     sub fresh_perl_is {
         my ($code, $expected, $options, $name) = @_;
         $expected  =~ s/\n+$//;
