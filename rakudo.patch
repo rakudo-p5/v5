@@ -1,8 +1,8 @@
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 977e445..e945579 100644
+index c5d16d6..43b0fa1 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
-@@ -759,6 +759,8 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -763,6 +763,8 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          # Quasis and unquotes
          :my $*IN_QUASI := 0;                       # whether we're currently in a quasi block
@@ -11,7 +11,7 @@ index 977e445..e945579 100644
  
          # Setting loading and symbol setup.
          {
-@@ -827,6 +829,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -831,6 +833,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                      %*LANG{$_.key} := $_.value;
                  }
              }
@@ -21,7 +21,7 @@ index 977e445..e945579 100644
              
              # Install unless we've no setting, in which case we've likely no
              # static lexpad class yet either. Also, UNIT needs a code object.
-@@ -840,9 +845,12 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -844,9 +849,12 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
              my $M := %*COMPILING<%?OPTIONS><M>;
              if nqp::defined($M) {
                  for nqp::islist($M) ?? $M !! [$M] -> $longname {
@@ -35,7 +35,7 @@ index 977e445..e945579 100644
                      do_import($/, $module, $longname);
                      $/.CURSOR.import_EXPORTHOW($module);
                  }
-@@ -851,7 +859,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -855,7 +863,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          <.finishpad>
          <.bom>?
@@ -44,7 +44,7 @@ index 977e445..e945579 100644
  
          <.install_doc_phaser>
          
-@@ -1156,13 +1164,21 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1160,13 +1168,21 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          :my $*IN_DECL := 'use';
          :my $*HAS_SELF := '';
          :my $*SCOPE   := 'use';
@@ -68,7 +68,7 @@ index 977e445..e945579 100644
                  
                  # Some modules are handled in the actions are just turn on a
                  # setting of some kind.
-@@ -1198,9 +1214,22 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1202,9 +1218,22 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
              || { 
                      unless ~$<doc> && !%*COMPILING<%?OPTIONS><doc> {
                          if $longname {
@@ -92,7 +92,7 @@ index 977e445..e945579 100644
                              do_import($/, $module, ~$longname);
                              $/.CURSOR.import_EXPORTHOW($module);
                          }
-@@ -1208,6 +1237,15 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1212,6 +1241,15 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                  }
              ]
          ]
@@ -109,7 +109,7 @@ index 977e445..e945579 100644
      }
      
 diff --git a/src/Perl6/ModuleLoader.nqp b/src/Perl6/ModuleLoader.nqp
-index 8d72145..7093013 100644
+index ee79995..a657c6b 100644
 --- a/src/Perl6/ModuleLoader.nqp
 +++ b/src/Perl6/ModuleLoader.nqp
 @@ -16,14 +16,31 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
@@ -159,9 +159,9 @@ index 8d72145..7093013 100644
          my @candidates := self.locate_candidates($module_name, @prefixes, :$file);
          if +@candidates == 0 {
              if nqp::defined($file) {
-@@ -114,16 +132,18 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
-                 my $source := $fh.readall();
-                 $fh.close();
+@@ -122,16 +140,18 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+                 nqp::closefh($fh);
+ #?endif
                  
 +                #$source := "use $from;\n" ~ $source if $from;
 +                
@@ -180,7 +180,7 @@ index 8d72145..7093013 100644
              }
              nqp::bindhllsym('perl6', 'GLOBAL', $preserve_global);
              CATCH {
-@@ -138,7 +158,7 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+@@ -146,7 +166,7 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
              if +@GLOBALish {
                  my $UNIT := nqp::ctxlexpad($module_ctx);
                  unless nqp::isnull($UNIT<GLOBALish>) {
@@ -189,7 +189,7 @@ index 8d72145..7093013 100644
                  }
              }
          }
-@@ -152,7 +172,7 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+@@ -160,7 +180,7 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
      # details of exactly what that entails are a bit hazy to me at the
      # moment. We'll see how far this takes us.
      my $stub_how := 'Perl6::Metamodel::PackageHOW';
@@ -199,7 +199,7 @@ index 8d72145..7093013 100644
          # overlap. Otherwise, we need to recurse.
          my %known_symbols;
 diff --git a/src/Perl6/World.nqp b/src/Perl6/World.nqp
-index 850274c..c50c808 100644
+index b65c750..ce88834 100644
 --- a/src/Perl6/World.nqp
 +++ b/src/Perl6/World.nqp
 @@ -328,25 +328,31 @@ class Perl6::World is HLL::World {
