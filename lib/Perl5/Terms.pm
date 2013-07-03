@@ -1,8 +1,18 @@
 
 my %SIG;
 
-sub P5warn(*@a) is hidden_from_backtrace { %SIG<__WARN__> ~~ Callable ?? %SIG<__WARN__>( |@a ) !! warn( join('', @a) ) }
-sub P5die (*@a) is hidden_from_backtrace { %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>(  |@a ) !! die(  join('', @a) ) }
+use Perl5::warnings ();
+
+sub P5warn(:$cat, *@a) is hidden_from_backtrace {
+    if warnings::enabled('all') || $cat && warnings::enabled($cat) {
+        %SIG<__WARN__> ~~ Callable ?? %SIG<__WARN__>( |@a ) !! warn( join('', @a) )
+    }
+}
+sub P5die (:$cat, *@a) is hidden_from_backtrace {
+    if warnings::enabled('all') || $cat && warnings::enabled($cat) {
+        %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>(  |@a ) !! die(  join('', @a) )
+    }
+}
 
 my $INPUT_RECORD_SEPARATOR = "\n";
 my $SUBSCRIPT_SEPARATOR    = chr(28);
@@ -237,7 +247,6 @@ multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
 }
 
-use Perl5::warnings ();
 use Perl5::Config;
 use MONKEY_TYPING;
 
@@ -645,11 +654,17 @@ augment class Str {
 
         return $result;
     }
-    multi method P5pack(*@items) {
+    multi method P5pack(*@items) is hidden_from_backtrace {
         my @bytes;
+        sub loop( Callable $c, :$amount is copy ) {
+            my $bytes = $c.signature.count;
+            $amount   = @items.elems if $amount eq '*';
+            $amount  /= $bytes;
+            @bytes.push: $c( |@items.splice(0, $bytes) ) for ^$amount
+        }
         for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
-            my $amount = $unit.substr(1);
+            my $amount = $unit.substr(1) || 1;
 
             given $directive {
                 when 'A' {
@@ -685,23 +700,23 @@ augment class Str {
                     }
                     @bytes.push: 0x00 xx $amount;
                 }
+                # perl/pp_pack.c#L2972
                 when 'c' {
-                    if $amount eq '*' {
-                        $amount = +@items;
-                    }
-                    elsif $amount eq '' {
-                        $amount = 1;
-                    }
-                    for ^$amount {
-                        my $number = shift(@items);
-                        my $s = +($number < 0) +< 7;
-                        $number -= 128 unless $s;
-                        @bytes.push: $s +| ($number +& 0b01111111);
-                    }
+                    loop( :$amount,
+                        -> $a {
+                            P5warn( :cat<pack>, "Character in 'c' format wrapped in pack" ) if -128 > $a || $a > 127;
+                            $a +& 0xFF
+                        } );
                 }
                 when 'C' {
                     my $number = shift(@items);
                     @bytes.push: $number % 0x100;
+                }
+                when 's' {
+                    loop( :$amount,
+                        -> $a {
+                            ($a, $a +> 0x08) >>+&>> 0xFF
+                        } );
                 }
                 when 'S' | 'v' {
                     my $number = shift(@items);
@@ -741,9 +756,15 @@ augment class Str {
     multi method P5unpack(Str:D: Buf $string) {
         my @bytes = $string.list;
         my @fields;
+        sub loop( Callable $c, :$amount is copy ) {
+            my $bytes = $c.signature.count;
+            $amount   = @bytes.elems if $amount eq '*';
+            $amount  /= $bytes;
+            @fields.push: $c( |@bytes.splice(0, $bytes) ) for ^$amount
+        }
         for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
-            my $amount = $unit.substr(1);
+            my $amount = $unit.substr(1) || 1;
 
             given $directive {
                 when 'A' {
@@ -782,22 +803,25 @@ augment class Str {
                     }
                     splice @bytes, 0, $amount;
                 }
+                # perl/pp_pack.c#L1612
                 when 'c' {
-                    if $amount eq '*' {
-                        $amount = +@bytes;
-                    }
-                    elsif $amount eq '' {
-                        $amount = 1;
-                    }
-                    for ^$amount {
-                        my $b = shift @bytes;
-                        my $c = $b +& 0b01111111;
-                        $c -= 128 if $b +& 0b10000000;
-                        @fields.push: $c;
-                    }
+                    loop( :$amount,
+                        -> $a is copy {
+                            $a -= 256 if $a >= 128;
+                            $a
+                        } )
                 }
                 when 'C' {
                     @fields.push: shift @bytes;
+                }
+                # perl/pp_pack.c#L1728
+                when 's' {
+                    loop( :$amount,
+                        -> $a is copy, $b {
+                            $a +|= $b +< 0x08;
+                            $a -= 65536 if $a > 32767;
+                            $a
+                        } )
                 }
                 when 'S' | 'v' {
                     @fields.push: shift(@bytes)
