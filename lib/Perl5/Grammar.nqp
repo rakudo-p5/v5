@@ -3052,8 +3052,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     rule statement_control:sym<{ }> {
         :my $*FOR_VARIABLE := QAST::Node.unique('dummy');
         <?before '{' >
-        <sblock(1)>
-        [ 'continue' <continue=.sblock(1)> ]?
+        <sblock>
+        [ 'continue' <continue=.sblock> ]?
         <O('%term')>
     }
 
