@@ -658,6 +658,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
             elsif $*FOR_VARIABLE {
                 add_param($block, @params, $*FOR_VARIABLE);
             }
+            elsif $*IMPLICIT {
+                add_param($block, @params, '$_');
+            }
             %sig_info<parameters> := @params;
 
             # Create signature object and set up binding.
