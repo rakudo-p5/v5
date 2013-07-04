@@ -40,7 +40,7 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     sub pass                    { _pass(@_)                           }
     sub ok                      { _ok(@_)                             }
     sub nok                     { _nok(@_)                            }
-    sub is                      { _is($_[0], $_[1], $_[2])            }
+    sub is                      { _is($_[0], $_[1], $_[2] // '')      }
     sub isnt                    { _isnt(@_)                           }
     sub is_approx               { _is_approx(@_)                      }
     sub is_miniperl             { 0                                   }
@@ -81,7 +81,7 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
             #~ ? "# expected !~ /$expected/\n" : "# expected /$expected/\n");
         #~ }
         #~ local $Level = $Level + 1;
-        ok($pass, _where(), $name);
+        ok($pass, $name);
     }
 
     
