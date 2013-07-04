@@ -656,25 +656,46 @@ augment class Str {
     }
     multi method P5pack(*@items) is hidden_from_backtrace {
         my @bytes;
-        sub loop( Callable $c, :$amount is copy ) {
-            my $bytes = $c.signature.count;
-            $amount   = @items.elems if $amount eq '*';
-            $amount  /= $bytes;
-            @bytes.push: $c( |@items.splice(0, $bytes) ) for ^$amount
+        my $amount;
+        sub loop( Callable $c ) {
+            my $items = $c.signature.count;
+            $amount  /= $items;
+            @bytes.push: $c( |@items.splice(0, $items) ) for ^$amount;
         }
         for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
-            my $amount = $unit.substr(1) || 1;
+            $amount       = $unit.substr(1);
+            $amount       = @items.elems if $amount eq '*';
+            $amount       = 1            if $amount eq '';
 
             given $directive {
+                when 'a' { # distinguish between Str and Buf
+                    my $binary = shift @items // '';
+                    for $binary.comb -> $char {
+                        @bytes.push: ord($char);
+                    }
+                    if $amount > $binary.chars {
+                        @bytes.push: 0x00 xx ($amount - $binary.chars);
+                    }
+                }
                 when 'A' {
                     my $ascii = shift @items // '';
                     for $ascii.comb -> $char {
                         X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
                         @bytes.push: ord($char);
                     }
-                    if $amount ne '*' {
+                    if $amount > $ascii.chars {
                         @bytes.push: 0x20 xx ($amount - $ascii.chars);
+                    }
+                }
+                when 'Z' {
+                    my $ascii = shift @items // '';
+                    for $ascii.comb -> $char {
+                        X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
+                        @bytes.push: ord($char);
+                    }
+                    if $amount > $ascii.chars {
+                        @bytes.push: 0x00 xx ($amount - $ascii.chars);
                     }
                 }
                 when 'H' {
@@ -684,57 +705,60 @@ augment class Str {
                     }
                     @bytes.push: map { :16($_) }, $hexstring.comb(/../);
                 }
-                when 'i' {
-                    my $int = shift @items // '';
-                    for ^%Config<intsize> {
-                        my $offset = (%Config<intsize> - 1 - $_) * 8;
-                        @bytes.push: ($int +& (0xFF +< $offset)) +> $offset;
-                    }
-                }
                 when 'x' {
-                    if $amount eq '*' {
-                        $amount = 0;
-                    }
-                    elsif $amount eq '' {
-                        $amount = 1;
-                    }
                     @bytes.push: 0x00 xx $amount;
                 }
-                # perl/pp_pack.c#L2972
+                # signed char, perl/pp_pack.c#L2972
                 when 'c' {
-                    loop( :$amount,
-                        -> $a {
+                    loop( -> $a {
                             P5warn( :cat<pack>, "Character in 'c' format wrapped in pack" ) if -128 > $a || $a > 127;
-                            $a +& 0xFF
+                            $a % 0x100
                         } );
                 }
+                # unsigned char
                 when 'C' {
-                    my $number = shift(@items);
-                    @bytes.push: $number % 0x100;
-                }
-                when 's' {
-                    loop( :$amount,
-                        -> $a {
-                            ($a, $a +> 0x08) >>+&>> 0xFF
+                    loop( -> $a {
+                            P5warn( :cat<pack>, "Character in 'C' format wrapped in pack" ) if 0 > $a || $a > 256;
+                            $a % 0x100
                         } );
                 }
-                when 'S' | 'v' {
-                    my $number = shift(@items);
-                    @bytes.push: ($number, $number +> 0x08) >>%>> 0x100;
+                # signed short | unsigned short (16bit, little endian)
+                when 's'       | 'S' | 'v' {
+                    loop( -> $a {
+                            ($a, $a +> 0x08) >>%>> 0x100
+                        } );
                 }
-                when 'L' | 'V' {
-                    my $number = shift(@items);
-                    @bytes.push: ($number, $number +> 0x08,
-                                  $number +> 0x10, $number +> 0x18) >>%>> 0x100;
+                # signed long | unsigned long (32bit, little endian)
+                when 'l'      | 'L' | 'V' {
+                    loop( -> $a {
+                            ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18) >>%>> 0x100
+                        } );
                 }
+                # signed | unsigned integer (%Config<intsize>, little endian)
+                when 'i' | 'I' {
+                    loop( -> $a {
+                            my @b;
+                            @b.push( ($a +> ($_ * 0x08)) % 0x100 ) for ^%Config<intsize>;
+                            @b
+                        } );
+                }
+                # signed | unsigned quad (64bit)
+                when 'q' | 'Q' {
+                    loop( -> $a {
+                            ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18, $a +> 0x20, $a +> 0x28, $a +> 0x30, $a +> 0x38) >>%>> 0x100
+                        } );
+                }
+                # unsigned short (16bit, big endian)
                 when 'n' {
-                    my $number = shift(@items);
-                    @bytes.push: ($number +> 0x08, $number) >>%>> 0x100;
+                    loop( -> $a {
+                            ($a +> 0x08, $a) >>+&>> 0xFF
+                        } );
                 }
+                # unsigned long (32bit, big endian)
                 when 'N' {
-                    my $number = shift(@items);
-                    @bytes.push: ($number +> 0x18, $number +> 0x10,
-                                  $number +> 0x08, $number) >>%>> 0x100;
+                    loop( -> $a {
+                            ($a +> 0x18, $a +> 0x10, $a +> 0x08, $a) >>+&>> 0xFF
+                        } );
                 }
                 P5die ~X::Buf::Pack.new(:$directive);
             }
@@ -755,26 +779,23 @@ augment class Str {
     }
     multi method P5unpack(Str:D: Buf $string) {
         my @bytes = $string.list;
+        my $amount;
         my @fields;
-        sub loop( Callable $c, :$amount is copy ) {
+        sub loop( Callable $c ) {
             my $bytes = $c.signature.count;
-            $amount   = @bytes.elems if $amount eq '*';
             $amount  /= $bytes;
-            @fields.push: $c( |@bytes.splice(0, $bytes) ) for ^$amount
+            @fields.push: $c( |@bytes.splice(0, $bytes) ) for ^$amount;
         }
         for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
-            my $amount = $unit.substr(1) || 1;
+            $amount       = $unit.substr(1);
+            $amount       = @bytes.elems if $amount eq '*';
+            $amount       = 1            if $amount eq '';
 
             given $directive {
-                when 'A' {
+                when 'a' | 'A' | 'Z' {
                     my $asciistring;
-                    if $amount eq '*' {
-                        $amount = @bytes.elems;
-                    }
-                    for ^$amount {
-                        $asciistring ~= chr(shift @bytes);
-                    }
+                    $asciistring ~= chr(shift @bytes) for ^$amount;
                     @fields.push($asciistring);
                 }
                 when 'H' {
@@ -786,68 +807,89 @@ augment class Str {
                     }
                     @fields.push($hexstring);
                 }
-                when 'i' {
-                    my $int = 0;
-                    for ^%Config<intsize> {
-                        my $offset = (%Config<intsize> - 1 - $_) * 8;
-                        $int +|= shift(@bytes) +< $offset;
-                    }
-                    @fields.push: $int;
-                }
                 when 'x' {
-                    if $amount eq '*' {
-                        $amount = 0;
-                    }
-                    elsif $amount eq '' {
-                        $amount = 1;
-                    }
-                    splice @bytes, 0, $amount;
+                    loop( -> $a { } )
                 }
-                # perl/pp_pack.c#L1612
+                # signed char, perl/pp_pack.c#L1612
                 when 'c' {
-                    loop( :$amount,
-                        -> $a is copy {
+                    loop( -> $a is copy {
                             $a -= 256 if $a >= 128;
                             $a
                         } )
                 }
+                # unsigned char
                 when 'C' {
-                    @fields.push: shift @bytes;
+                    loop( -> $a { $a } )
                 }
-                # perl/pp_pack.c#L1728
+                # signed short (16bit, little endian, perl/pp_pack.c#L1728)
                 when 's' {
-                    loop( :$amount,
-                        -> $a is copy, $b {
+                    loop( -> $a is copy, $b {
                             $a +|= $b +< 0x08;
                             $a -= 65536 if $a > 32767;
                             $a
                         } )
                 }
+                # unsigned short (16bit, little endian)
                 when 'S' | 'v' {
-                    @fields.push: shift(@bytes)
-                                 + (shift(@bytes) +< 0x08);
+                    loop( -> $a, $b { $a +| $b +< 0x08 } )
                 }
+                # signed long (32bit, little endian)
+                when 'l' {
+                    loop( -> $a is copy, $b, $c, $d {
+                            $a +|= $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18;
+                            $a -= 4294967296 if $a > 2147483647;
+                            $a
+                        } )
+                }
+                # unsigned long (32bit, little endian)
                 when 'L' | 'V' {
-                    @fields.push: shift(@bytes)
-                                 + (shift(@bytes) +< 0x08)
-                                 + (shift(@bytes) +< 0x10)
-                                 + (shift(@bytes) +< 0x18);
+                    loop( -> $a, $b, $c, $d { $a +| $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18 } )
                 }
+                # signed int
+                when 'i' {
+                    for ^$amount {
+                        my $a = 0;
+                        $a +|= shift(@bytes) +< ($_ * 0x08) for ^%Config<intsize>;
+                        $a -= 2 ** (8 * %Config<intsize>) if $a >= (2 ** (8 * %Config<intsize>)) / 2;
+                        @fields.push($a)
+                    }
+                }
+                # unsigned int
+                when 'I' {
+                    for ^$amount {
+                        my $a = 0;
+                        for ^%Config<intsize> { # usually 4 or 8
+                            $a +|= shift(@bytes) +< ($_ * 0x08);
+                        }
+                        @fields.push($a)
+                    }
+                }
+                # signed quad
+                when 'q' {
+                    loop( -> $a is copy, $b, $c, $d, $e, $f, $g, $h {
+                            $a +|= $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18
+                               +|  $e +< 0x20 +| $f +< 0x28 +| $g +< 0x30 +| $h +< 0x38;
+                            $a -= 18446744073709551616 if $a > 9223372036854775807;
+                            $a
+                        } )
+                }
+                # unsigned quad
+                when 'Q' {
+                    loop( -> $a, $b, $c, $d, $e, $f, $g, $h {
+                               $a         +| $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18
+                            +| $e +< 0x20 +| $f +< 0x28 +| $g +< 0x30 +| $h +< 0x38
+                        } )
+                }
+                # unsigned short (big-endian)
                 when 'n' {
-                    @fields.push: (shift(@bytes) +< 0x08)
-                                 + shift(@bytes);
+                    loop( -> $a, $b { $a +< 0x08 +| $b } )
                 }
+                # unsigned long (big-endian)
                 when 'N' {
-                    @fields.push: (shift(@bytes) +< 0x18)
-                                 + (shift(@bytes) +< 0x10)
-                                 + (shift(@bytes) +< 0x08)
-                                 + shift(@bytes);
+                    loop( -> $a, $b, $c, $d { $a +< 0x18 +| $b +< 0x10 +| $c +< 0x08 +| $d } )
                 }
                 when 'U' {
                     my $shifted = 0;
-                    if $amount eq '*' {
-                        $amount = @bytes.elems;
-                    }
                     while $shifted < $amount {
                         if @bytes[0] +> 7 == 0 {
                             @fields.push: Buf.new( shift(@bytes) ).decode.ord;
