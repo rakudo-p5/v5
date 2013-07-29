@@ -351,14 +351,7 @@ augment class List {
 
 augment class utf8 {
     multi method P5Str(utf8:D:) {
-        my $ret;
-        try {
-            $ret = self.decode;
-            CATCH {
-                default { $ret = self.decode('binary') }
-            }
-        }
-        $ret
+        nqp::unbox_s(nqp::decode(nqp::decont(self), 'binary'))
     }
 }
 
@@ -777,7 +770,7 @@ augment class Str {
         }
         self.P5unpack($ret)
     }
-    multi method P5unpack(Str:D: utf8 $string) {
+    multi method P5unpack(Str:D: Blob $string) {
         my @bytes = $string.list;
         my $amount;
         my @fields;

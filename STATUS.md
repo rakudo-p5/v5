@@ -3,39 +3,50 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>1174</td><td>39507</td><td>4</td><td>26</td><td>40706</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>1382</td><td>39299</td><td>4</td><td>26</td><td>40706</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>208</td><td>14496</td><td>0</td><td>0</td><td>14704</td></tr>
+        <tr><td colspan='5'>Unrecognized directive 'U'<br />
+  in sub P5die at lib/Perl5/Terms.pm:13<br />
+  in block  at lib/Perl5/Terms.pm:756<br />
+  in method reify at src/gen/CORE.setting:6542<br />
+  in method reify at src/gen/CORE.setting:6437<br />
+  in method gimme at src/gen/CORE.setting:6868<br />
+  in method sink at src/gen/CORE.setting:7177<br />
+  in method AUTOGEN at src/gen/CORE.setting:464<br />
+  in block  at t/spec/op/pack.v5:933<br />
+</td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>204</td><td>0</td><td>0</td><td>0</td><td>204</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>71</td><td>74</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0xa23db617b2b8b535) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x90bcaba35d8b7e1a) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
@@ -120,7 +131,7 @@ to preserve list context inside function call<br />
   in any  at src/gen/Metamodel.nqp:792<br />
   in any compute_mro at src/gen/Metamodel.nqp:790<br />
   in any compose at src/gen/Metamodel.nqp:2537<br />
-  in sub bless at lib/Perl5/Terms.pm:981<br />
+  in sub bless at lib/Perl5/Terms.pm:974<br />
   in block  at t/spec/cmd/for.v5:94<br />
   in method reify at src/gen/CORE.setting:6542<br />
   in method reify at src/gen/CORE.setting:6437<br />
@@ -274,7 +285,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at src/gen/CORE.setting:10854<br />
-  in sub bless at lib/Perl5/Terms.pm:978<br />
+  in sub bless at lib/Perl5/Terms.pm:971<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -285,7 +296,7 @@ current instr.: 'print_exception' pc 102329 (src/gen/CORE.setting.pir:45233) (sr
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at src/gen/CORE.setting:10854<br />
-  in sub bless at lib/Perl5/Terms.pm:978<br />
+  in sub bless at lib/Perl5/Terms.pm:971<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -874,12 +885,7 @@ Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 343.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 344.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 345.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 346.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 347.<br />
-===SORRY!===<br />
+        <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Copy in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1274,7 +1280,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Placeholder variable H^ash[0x4ff7558] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x4ca1e70] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -2535,7 +2541,7 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1375128889.73328<br />
+Could not find sub cuid_96_1375132727.18521<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2852,17 +2858,6 @@ Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    ch
 Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/comp/utf.v5:45<br />
 ------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
-        <tr><td colspan='5'>Can not decode a utf-8 buffer as if it were binary<br />
-  in method decode at src/gen/CORE.setting:4535<br />
-  in block  at lib/Perl5/Terms.pm:358<br />
-  in method decode at src/gen/CORE.setting:4535<br />
-  in method P5Str at lib/Perl5/Terms.pm:357<br />
-  in method AUTOGEN at src/gen/CORE.setting:464<br />
-  in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:166<br />
-  in sub infix:&lt;P5eq&gt; at lib/Perl5/Terms.pm:200<br />
-  in block  at t/spec/op/pack.v5:52<br />
-</td></tr>
 
         <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.07-25-g1541771 built on parrot 5.5.0 revision RELEASE_5_5_0
 </td></tr>
