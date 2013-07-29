@@ -349,8 +349,8 @@ augment class List {
     method P5Bool(List:) { [&&] self.list }
 }
 
-augment class Buf {
-    multi method P5Str(Buf:D:) {
+augment class utf8 {
+    multi method P5Str(utf8:D:) {
         my $ret;
         try {
             $ret = self.decode;
@@ -669,7 +669,7 @@ augment class Str {
             $amount       = 1            if $amount eq '';
 
             given $directive {
-                when 'a' { # distinguish between Str and Buf
+                when 'a' { # distinguish between Str and utf8
                     my $binary = shift @items // '';
                     for $binary.comb -> $char {
                         @bytes.push: ord($char);
@@ -764,7 +764,7 @@ augment class Str {
             }
         }
 
-        return Buf.new(@bytes);
+        return utf8.new(@bytes);
     }
     multi method P5unpack(Str:D:) { self.P5unpack( CALLER::DYNAMIC::<$_> ) }
     multi method P5unpack(Str:D: Str $string) {
@@ -777,7 +777,7 @@ augment class Str {
         }
         self.P5unpack($ret)
     }
-    multi method P5unpack(Str:D: Buf $string) {
+    multi method P5unpack(Str:D: utf8 $string) {
         my @bytes = $string.list;
         my $amount;
         my @fields;
@@ -892,19 +892,19 @@ augment class Str {
                     my $shifted = 0;
                     while $shifted < $amount {
                         if @bytes[0] +> 7 == 0 {
-                            @fields.push: Buf.new( shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( shift(@bytes) ).decode.ord;
                             $shifted++;
                         }
                         elsif @bytes[0] +> 5 == 0b110 {
-                            @fields.push: Buf.new( shift(@bytes), shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( shift(@bytes), shift(@bytes) ).decode.ord;
                             $shifted += 2;
                         }
                         elsif @bytes[0] +> 4 == 0b1110 {
-                            @fields.push: Buf.new( shift(@bytes), shift(@bytes), shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( shift(@bytes), shift(@bytes), shift(@bytes) ).decode.ord;
                             $shifted += 3;
                         }
                         elsif @bytes[0] +> 3 == 0b11110 {
-                            @fields.push: Buf.new( shift(@bytes), shift(@bytes), shift(@bytes), shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( shift(@bytes), shift(@bytes), shift(@bytes), shift(@bytes) ).decode.ord;
                             $shifted += 4;
                         }
                         else {
