@@ -959,6 +959,12 @@ augment class Parcel {
     method P5Bool(Parcel:) { [&&] self.list }
 }
 
+augment class Pair {
+    multi method P5Str(Pair:D:) { self.kv.list.P5Str }
+    method P5scalar(Pair:) { self.P5Str }
+    method P5Bool(Pair:) { self.kv.list.P5Bool }
+}
+
 augment class Sub {
     multi method P5Str(Sub:D:) { 'CODE(' ~ self.WHERE.fmt('0x%X').lc ~ ')' }
     method P5scalar(Sub:) { self.P5Str }

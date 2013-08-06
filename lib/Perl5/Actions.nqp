@@ -579,7 +579,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 }
                 elsif ~$ml<sym> eq 'for' {
                     unless $past<past_block> {
-                        $past := make_topic_block_ref($past);
+                        $past := make_topic_block_ref( $past,
+                            :copy(nqp::istype($cond, QAST::Op) && ($cond.name eq '&keys' || $cond.name eq '&values')) );
                     }
                     $past := QAST::Op.new(
                             :op<callmethod>, :name<map>, :node($/),
@@ -624,7 +625,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 @params.push(hash(
                     :variable_name($name), :optional(1),
                     :nominal_type($*W.find_symbol(['Mu'])),
-                    :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
+                    #~ :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
+                    :default_from_outer(1), :is_parcel(1),
                 ));
             }
             #~ else {
@@ -664,7 +666,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             %sig_info<parameters> := @params;
 
             # Create signature object and set up binding.
-            if $<lambda> eq '<->' {
+            unless $*IN_SORT {
                 for @params { $_<is_rw> := 1 }
             }
             set_default_parameter_type(@params, 'Mu');
@@ -855,9 +857,14 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $<EXPR> {
             $V5DEBUG && say("statement_control:sym<for>($/) if");
             my $block := $<sblock>.ast;
+            my $list := $<EXPR>.ast;
+            if nqp::istype($list, QAST::Op) && ($list.name eq '&keys' || $list.name eq '&values') {
+                $block := pblock_immediate($block);
+                $block := make_topic_block_ref( $block, :copy(1), :name( $<variable> ?? $<variable>.ast.name !! '$_' ) );
+            }
             my $past := QAST::Op.new(
                             :op<callmethod>, :name<map>, :node($/),
-                            QAST::Op.new(:name('&infix:<,>'), :op('call'), $<EXPR>.ast),
+                            QAST::Op.new(:name('&infix:<,>'), :op('call'), $list),
                             block_closure($block)
             );
             $past := QAST::Op.new(
@@ -2193,6 +2200,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 unless nqp::objprimspec($block[1].returns) {
                     $block[1] := QAST::Op.new(
                         :op('p6decontrv'),
+                        QAST::WVal.new( :value($*DECLARAND) ),
                         $block[1]);
                 }
                 $block[1] := QAST::Op.new(
@@ -2476,7 +2484,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             if is_clearly_returnless($past) {
                 $past[1] := QAST::Op.new(
                     :op('p6typecheckrv'),
-                    QAST::Op.new( :op('p6decontrv'), $past[1]),
+                    QAST::Op.new( :op('p6decontrv'), QAST::WVal.new( :value($*DECLARAND) ), $past[1]),
                     QAST::WVal.new( :value($*DECLARAND) ));
             }
             else {
@@ -2550,6 +2558,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if is_clearly_returnless($block) {
             $block[1] := QAST::Op.new(
                 :op('p6decontrv'),
+                QAST::WVal.new( :value($*DECLARAND) ),
                 $block[1]);
         }
         else {
@@ -5577,6 +5586,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
     sub make_topic_block_ref($past, :$copy, :$name = '$_') {
+        $V5DEBUG && say("sub make_topic_block_ref($copy, $name)");
         my $block := QAST::Block.new(
             QAST::Stmts.new(
                 QAST::Var.new( :name($name), :scope('lexical'), :decl('var') )
@@ -5913,7 +5923,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     :op<lexotic>, :name<RETURN>,
                     # If we fall off the bottom, decontainerize if
                     # rw not set.
-                    QAST::Op.new( :op('p6decontrv'), $past )
+                    QAST::Op.new( :op('p6decontrv'), QAST::WVal.new( :value($*DECLARAND) ), $past )
                 ),
                 QAST::Op.new(
                     :op<bind>,
