@@ -320,7 +320,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
             my $renderer := "Pod::To::$doc";
 
-            my $module := $*W.load_module($/, $renderer, $*GLOBALish);
+            my $module := $*W.load_module($/, $renderer, {}, $*GLOBALish);
 
             my $pod2text := QAST::Op.new(
                 :op<callmethod>, :name<render>, :node($/),
@@ -1008,13 +1008,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
             my $name_past := $<module_name>
                             ?? $*W.dissect_longname($<module_name><longname>).name_past()
                             !! $<file>.ast;
+            my $opt_hash := QAST::Op.new( :op('hash'),
+                QAST::SVal.new( :value('from') ),
+                QAST::SVal.new( :value('Perl5') ) );
             my $op := QAST::Op.new(
                 :op('callmethod'), :name('load_module'),
                 QAST::Op.new( :op('getcurhllsym'),
                     QAST::SVal.new( :value('ModuleLoader') ) ),
                 $name_past,
+                $opt_hash,
                 $*W.symbol_lookup(['GLOBAL'], $/),
-                QAST::SVal.new( :named<from>, :value<Perl5> )
             );
             if $<file> {
                 $op.push( QAST::Op.new( :named<file>, :op<callmethod>, :name<Stringy>, $<file>.ast ) );

@@ -908,9 +908,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             my $M := %*COMPILING<%?OPTIONS><M>;
             if nqp::defined($M) {
                 for nqp::islist($M) ?? $M !! [$M] -> $longname {
-                    my $module := $*W.load_module($/,
-                                                    $longname,
-                                                    $*GLOBALish);
+                    my $module := $*W.load_module($/, $longname, nqp::hash( 'from', 'Perl5' ), $*GLOBALish);
                     do_import($/, $module, $longname);
                     $/.CURSOR.import_EXPORTHOW($module);
                 }
@@ -1479,10 +1477,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 }
                 
                 if $longname {
-                    my $module := $*W.load_module($/,
-                                                    $longname,
-                                                    $*GLOBALish,
-                                                   :from<Perl5>);
+                    my $module := $*W.load_module($/, $longname, nqp::hash( 'from', 'Perl5' ), $*GLOBALish);
                     do_import($/, $module, $longname, $arglist);
                     $/.CURSOR.import_EXPORTHOW($module);
                 }
