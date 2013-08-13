@@ -71,7 +71,7 @@ class Perl5::World {
             }
             else {
                 %info<bind_constraint> := $*W.find_symbol(['Mu']);
-                %info<value_type>      := $*W.find_symbol(['Mu']);
+                %info<value_type>      := $*W.find_symbol(['Any']);
                 %info<default_value>   := $*W.find_symbol(['Any']);
             }
         }
