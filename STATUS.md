@@ -3,18 +3,53 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>1422</td><td>39249</td><td>4</td><td>36</td><td>40706</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>208</td><td>14496</td><td>0</td><td>0</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>1758</td><td>38913</td><td>4</td><td>36</td><td>40706</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>325</td><td>1045</td><td>0</td><td>0</td><td>1370</td></tr>
+        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type Any in string context  in sub like_yn at ./test.pl:77<br />
+use of uninitialized value of type PAIR=ARRAY(0x189bf881ad09930a) in string context  in block  at t/spec/op/sprintf2.v5:190<br />
+use of uninitialized value of type PAIR=ARRAY(0x189bf881ad09930a) in string context  in block  at t/spec/op/sprintf2.v5:193<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>214</td><td>14490</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-Unrecognized directive 'U'<br />
-  in sub P5die at lib/Perl5/Terms.pm:13<br />
-  in block  at lib/Perl5/Terms.pm:756<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:827<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:827<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏string' (indicated by ⏏)<br />
+  in method Int at src/gen/CORE.setting:11359<br />
+  in sub infix:&lt;+&gt;&gt; at src/gen/CORE.setting:3659<br />
+  in sub infix:&lt;+&gt;&gt; at src/gen/CORE.setting:3656<br />
+  in block  at lib/Perl5/Terms.pm:747<br />
+  in block  at lib/Perl5/Terms.pm:739<br />
   in method reify at src/gen/CORE.setting:6810<br />
   in method reify at src/gen/CORE.setting:6705<br />
   in method gimme at src/gen/CORE.setting:7138<br />
   in method sink at src/gen/CORE.setting:7548<br />
   in method AUTOGEN at src/gen/CORE.setting:510<br />
-  in block  at t/spec/op/pack.v5:933<br />
+  in block  at t/spec/op/pack.v5:854<br />
+  in method reify at src/gen/CORE.setting:6810<br />
+  in method reify at src/gen/CORE.setting:6705<br />
+  in method gimme at src/gen/CORE.setting:7138<br />
+  in method sink at src/gen/CORE.setting:7548<br />
+  in block  at t/spec/op/pack.v5:759<br />
 </td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>204</td><td>0</td><td>0</td><td>0</td><td>204</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
@@ -24,35 +59,35 @@ Unrecognized directive 'U'<br />
    4 skipped: Unrecognized directive 'U'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>71</td><td>74</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x7ce47367182a9c1c) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x66ecf29bdcc691fc) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
@@ -69,6 +104,7 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left'>op/chars.v5</td><td>34</td><td>0</td><td>0</td><td>0</td><td>34</td></tr>
+        <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>25</td><td>27</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏n' (indicated by ⏏)<br />
   in method Int at src/gen/CORE.setting:11359<br />
@@ -101,16 +137,6 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
         <tr align='center'><td align='left' rowspan='2'>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr><td colspan='5'>  13 skipped: Invalid character for UTF-8 encoding<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>18</td><td>1352</td><td>0</td><td>0</td><td>1370</td></tr>
-        <tr><td colspan='5'>'$' is not valid in sprintf format sequence '%1$'<br />
-  in sub sprintf at src/gen/CORE.setting:3153<br />
-  in block  at t/spec/op/sprintf2.v5:75<br />
-  in method reify at src/gen/CORE.setting:6810<br />
-  in method reify at src/gen/CORE.setting:6705<br />
-  in method gimme at src/gen/CORE.setting:7138<br />
-  in method sink at src/gen/CORE.setting:7548<br />
-  in block  at t/spec/op/sprintf2.v5:55<br />
-</td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/not.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
@@ -122,38 +148,23 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>op/int.v5</td><td>14</td><td>1</td><td>0</td><td>0</td><td>15</td></tr>
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>11</td><td>107</td><td>0</td><td>0</td><td>118</td></tr>
-        <tr><td colspan='5'>No such method 'mro' for invocant of type 'Perl6::Metamodel::PackageHOW'<br />
-  in any  at src/gen/Metamodel.nqp:797<br />
-  in any  at src/gen/Metamodel.nqp:792<br />
-  in any compute_mro at src/gen/Metamodel.nqp:790<br />
-  in any compose at src/gen/Metamodel.nqp:2537<br />
-  in sub bless at lib/Perl5/Terms.pm:980<br />
-  in block  at t/spec/cmd/for.v5:94<br />
-  in method reify at src/gen/CORE.setting:6810<br />
-  in method reify at src/gen/CORE.setting:6705<br />
-  in method gimme at src/gen/CORE.setting:7138<br />
-  in method sink at src/gen/CORE.setting:7548<br />
-  in block  at t/spec/cmd/for.v5:79<br />
-</td></tr>
+        <tr align='center'><td align='left'>cmd/for.v5</td><td>11</td><td>107</td><td>0</td><td>0</td><td>118</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>10</td><td>9</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>   3 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/negate.v5</td><td>9</td><td>36</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;bareword'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11368<br />
-  in any  at src/gen/Metamodel.nqp:2663<br />
-  in any find_method_fallback at src/gen/Metamodel.nqp:2651<br />
-  in any find_method at src/gen/Metamodel.nqp:946<br />
-  in block  at t/spec/op/negate.v5:32<br />
-</td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>8</td><td>4</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>   1 todo   : <br />
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
+        <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
+  in method chr at src/gen/CORE.setting:3859<br />
+  in sub hexes at t/spec/op/chr.v5:57<br />
+  in block  at t/spec/op/chr.v5:69<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>Length argument to substr out of range. Is: -11, should be in 0..Inf; use *-11 if you want to index relative to the end<br />
@@ -163,11 +174,6 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 42 in sink context (line 15)<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>5</td><td>37</td><td>0</td><td>0</td><td>42</td></tr>
-        <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
-  in method chr at src/gen/CORE.setting:3859<br />
-  in block  at t/spec/op/chr.v5:24<br />
 </td></tr>
         <tr align='center'><td align='left'>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>4</td><td>0</td><td>1</td><td>2</td><td>7</td></tr>
@@ -1277,7 +1283,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utftaint.v5<br />
-Placeholder variable H^ash[0x553b188] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x6cd2b30] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -2532,7 +2538,7 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1376487213.26308<br />
+Could not find sub cuid_96_1376495342.16768<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
