@@ -2052,6 +2052,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'time',   '',
         'not',    '@',
         'unpack', '$@',
+        'map',    '$@',
+        'grep',   '$@',
+        'sort',   '$@',
     );
     rule routine_def {
         :my $*IN_DECL := 'sub';
@@ -3581,8 +3584,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*IN_SORT := 0;
         $<identifier> = [ 'map' |'grep' | 'sort' { $*IN_SORT := 1; } ] <.ws>
         [
-        | '(' ~ ')' [ [ <?before '{'> <sblock(1)> <.ws> ]? <arglist> ]
-        |           [ [ <?before '{'> <sblock(1)> <.ws> ]? <arglist> ]
+        | '(' ~ ')' [ [ <?before '{'> <sblock(1)> <.ws> ] <arglist> ]
+        |           [ [ <?before '{'> <sblock(1)> <.ws> ] <arglist> ]
         ]
         <O('%term')>
     }

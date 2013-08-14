@@ -3988,7 +3988,39 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $name := ~$<identifier>;
         my $builtin := nqp::existskey(%builtin, $name) && %builtin{$name};
         
-        if $builtin {
+        if $name eq 'map' {
+            my $i := 0;
+            my $items := QAST::Op.new(:op('call'), :name('&infix:<,>'));
+            if $<args><semiarglist> {
+                for @($<args><semiarglist>.ast) {
+                    if $i {
+                        $items.push( $_ );
+                    }
+                    else {
+                        $past := $_;
+                    }
+                    $i := $i + 1;
+                }
+            }
+            else {
+                for $<args><arglist><arg> {
+                    if $i {
+                        $items.push( $_<EXPR>.ast );
+                    }
+                    else {
+                        $past := $_<EXPR>.ast;
+                    }
+                    $i := $i + 1;
+                }
+            }
+            $past := QAST::Op.new( :op<callmethod>, :name<eager>,
+                QAST::Op.new( :op<callmethod>, :name<map>, :node($/),
+                    $items,
+                    block_closure( make_topic_block_ref( $past ) )
+                )
+            );
+        }
+        elsif $builtin {
             if !$*ARGUMENT_HAVE && !$*HAS_INDIRECT_OBJ && !$builtin[$default] && $builtin[$proto] && $name ne 'not' {
                 make QAST::Op.new( :op('die_s'), QAST::SVal.new( :value("Not enough arguments for $name" ) ) );
                 return 0;
