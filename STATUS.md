@@ -3,12 +3,12 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>2511</td><td>38160</td><td>4</td><td>36</td><td>40706</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>2520</td><td>38151</td><td>4</td><td>36</td><td>40706</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>1078</td><td>292</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan='5'>Error executing process: Cannot allocate memory<br />
   in sub QX at src/gen/CORE.setting:759<br />
   in sub _fresh_perl at ./test.pl:28<br />
-  in sub fresh_perl_is at ./test.pl:92<br />
+  in sub fresh_perl_is at ./test.pl:105<br />
   in block  at t/spec/op/sprintf2.v5:182<br />
   in method reify at src/gen/CORE.setting:6818<br />
   in method reify at src/gen/CORE.setting:6713<br />
@@ -55,35 +55,35 @@ Cannot convert string to number: base-10 number must begin with valid digits or 
    4 skipped: Unrecognized directive 'U'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>71</td><td>74</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x-35875d80450d4a73) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x42a70977e9289efc) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
@@ -101,25 +101,9 @@ use of uninitialized value of type Any in string context  in block  at t/spec/op
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left'>op/chars.v5</td><td>34</td><td>0</td><td>0</td><td>0</td><td>34</td></tr>
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
+        <tr align='center'><td align='left'>op/recurse.v5</td><td>26</td><td>2</td><td>0</td><td>0</td><td>28</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>25</td><td>27</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>'%*vd' is not valid in sprintf format sequence 'n%*vd'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/recurse.v5</td><td>23</td><td>5</td><td>0</td><td>0</td><td>28</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;curr_test'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11376<br />
-  in any  at src/gen/Metamodel.nqp:2663<br />
-  in any find_method_fallback at src/gen/Metamodel.nqp:2651<br />
-  in any find_method at src/gen/Metamodel.nqp:946<br />
-  in sub get_list1 at t/spec/op/recurse.v5:84<br />
-  in sub get_first1 at t/spec/op/recurse.v5:80<br />
-  in sub get_list1 at t/spec/op/recurse.v5:85<br />
-  in sub get_first1 at t/spec/op/recurse.v5:80<br />
-  in block  at t/spec/op/recurse.v5:88<br />
-  in method reify at src/gen/CORE.setting:6818<br />
-  in method reify at src/gen/CORE.setting:6713<br />
-  in method gimme at src/gen/CORE.setting:7146<br />
-  in method sink at src/gen/CORE.setting:7556<br />
-  in block  at t/spec/op/recurse.v5:76<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr><td colspan='5'>  13 skipped: Invalid character for UTF-8 encoding<br />
@@ -146,6 +130,7 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr align='center'><td align='left'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
   in method chr at src/gen/CORE.setting:3867<br />
@@ -260,7 +245,7 @@ Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29
 Malformed UTF-8 string<br />
   in sub QX at src/gen/CORE.setting:762<br />
   in sub _fresh_perl at ./test.pl:28<br />
-  in sub fresh_perl_is at ./test.pl:92<br />
+  in sub fresh_perl_is at ./test.pl:105<br />
   in block  at t/spec/op/concat2.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
@@ -296,7 +281,7 @@ Cannot convert string to number: base-10 number must begin with valid digits or 
 current instr.: 'print_exception' pc 110790 (src/gen/CORE.setting.pir:48195) (src/gen/CORE.setting:10207)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at src/gen/ModuleLoader.nqp:197<br />
+  in any load_module at src/gen/ModuleLoader.nqp:195<br />
   in block  at t/spec/mro/isa_dfs.v5:45<br />
   in block  at t/spec/mro/isa_dfs.v5:37<br />
   in block  at t/spec/mro/isa_dfs.v5:28<br />
@@ -305,7 +290,7 @@ Cannot convert string to number: base-10 number must begin with valid digits or 
 current instr.: 'print_exception' pc 110790 (src/gen/CORE.setting.pir:48195) (src/gen/CORE.setting:10207)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at src/gen/ModuleLoader.nqp:197<br />
+  in any load_module at src/gen/ModuleLoader.nqp:195<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:47<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:39<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:30<br />
@@ -411,7 +396,7 @@ Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/op/index_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/leaky-magic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -466,7 +451,7 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/op/substr_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -627,32 +612,32 @@ at t/spec/re/pat_advanced.v5:35<br />
 ------&gt;         ok(/(.)(\⏏C)(\C)(.)/, $message);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/pat_advanced_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_psycho_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/pat_psycho_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/pat_re_eval_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/pat_rt_report_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/pat_special_cc_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/pat_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -662,7 +647,7 @@ at t/spec/re/reg_email.v5:16<br />
 ------&gt;     (?⏏(DEFINE)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_email_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -773,7 +758,7 @@ at t/spec/re/regexp_unicode_prop.v5:68<br />
 ------&gt;                $::IS_EBCDIC⏏ ? ['!\x{7f}',  '\x{80}',            '!\</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -957,7 +942,7 @@ at t/spec/io/through.v5:150<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file '../t/lib/common.pl' for module ../t/lib/common.pl<br />
-  in any load_module at src/gen/ModuleLoader.nqp:192<br />
+  in any load_module at src/gen/ModuleLoader.nqp:190<br />
   in block  at t/spec/lib/croak.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1043,12 +1028,12 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at src/gen/ModuleLoader.nqp:197<br />
+  in any load_module at src/gen/ModuleLoader.nqp:195<br />
   in block  at t/spec/mro/inconsistent_c3.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at src/gen/ModuleLoader.nqp:197<br />
+  in any load_module at src/gen/ModuleLoader.nqp:195<br />
   in block  at t/spec/mro/inconsistent_c3_utf8.v5:18<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1156,7 +1141,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find Config in any of: ../lib<br />
-  in any load_module at src/gen/ModuleLoader.nqp:197<br />
+  in any load_module at src/gen/ModuleLoader.nqp:195<br />
   in block  at t/spec/lib/commonsense.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1270,7 +1255,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utftaint.v5<br />
-Placeholder variable H^ash[0x6dcc958] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x68f1bd8] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1607,15 +1592,6 @@ at t/spec/mro/pkg_gen.v5:35<br />
 Variable '%ᕘ' is not declared<br />
 at t/spec/mro/pkg_gen_utf8.v5:37<br />
 ------&gt; undef %ᕘ::⏏;</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/context.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;curr_test'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11376<br />
-  in any  at src/gen/Metamodel.nqp:2663<br />
-  in any find_method_fallback at src/gen/Metamodel.nqp:2651<br />
-  in any find_method at src/gen/Metamodel.nqp:946<br />
-  in sub foo at t/spec/op/context.v5:15<br />
-  in block  at t/spec/op/context.v5:18<br />
-</td></tr>
         <tr align='center'><td align='left'>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/lex.v5<br />
@@ -1672,13 +1648,13 @@ at t/spec/io/fflush.v5:137<br />
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at src/gen/ModuleLoader.nqp:197<br />
+  in any load_module at src/gen/ModuleLoader.nqp:195<br />
   in block  at t/spec/mro/recursion_c3.v5:18<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at src/gen/ModuleLoader.nqp:197<br />
+  in any load_module at src/gen/ModuleLoader.nqp:195<br />
   in block  at t/spec/mro/recursion_c3_utf8.v5:20<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -2525,7 +2501,7 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1376687706.17034<br />
+Could not find sub cuid_96_1376842454.31671<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2843,9 +2819,9 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/comp/utf.v5:45<br />
 ------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
 
-        <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.07-74-g82dad6b built on parrot 5.5.0 revision RELEASE_5_5_0
+        <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.07-87-g9706494 built on parrot 5.5.0 revision RELEASE_5_5_0
 </td></tr>
-        <tr><td>perl6 --version</td><td colspan='5'>This is perl6 version 2013.07-212-g96314da built on parrot 5.5.0 revision RELEASE_5_5_0
+        <tr><td>perl6 --version</td><td colspan='5'>This is perl6 version 2013.07-229-g63a865a built on parrot 5.5.0 revision RELEASE_5_5_0
 </td></tr>
     </tbody>
 </table>

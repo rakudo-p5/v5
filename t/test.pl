@@ -32,21 +32,24 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
 
 {
     use v5;
+    my $test = 1;
+    my $planned;
+    my $noplan;
     my $Perl;
     sub plan {
         my %args = scalar(@_) == 2 ? @_ : tests => $_[0];
         _plan( $args{'tests'} )
     }
-    sub pass                    { _pass(@_)                           }
-    sub fail                    { _nok(@_)                            }
-    sub ok                      { _ok(@_)                             }
-    sub nok                     { _nok(@_)                            }
-    sub is                      { _is($_[0], $_[1], $_[2] // '')      }
-    sub isnt                    { _isnt(@_)                           }
-    sub is_approx               { _is_approx(@_)                      }
-    sub is_miniperl             { 0                                   }
-    sub todo                    { _todo(@_)                           }
-    sub skip                    { _skip(@_)                           }
+    sub pass                    { $test = $test + 1; _pass(@_)                           }
+    sub fail                    { $test = $test + 1; _nok(@_)                            }
+    sub ok                      { $test = $test + 1; _ok(@_)                             }
+    sub nok                     { $test = $test + 1; _nok(@_)                            }
+    sub is                      { $test = $test + 1; _is($_[0], $_[1], $_[2] // '')      }
+    sub isnt                    { $test = $test + 1; _isnt(@_)                           }
+    sub is_approx               { $test = $test + 1; _is_approx(@_)                      }
+    sub is_miniperl             { $test = $test + 1; 0                                   }
+    sub todo                    { $test = $test + ($_[1] || 1); _todo(@_)                }
+    sub skip                    { $test = $test + ($_[1] || 1); _skip(@_)                }
     sub skip_rest               { _skip_rest(@_)                      }
     sub skip_if_miniperl        {                                     }
     sub skip_all                { _skip_rest(@_)                      }
@@ -85,6 +88,16 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
         ok($pass, $name);
     }
 
+    sub curr_test {
+        #~ $test = shift if @_;
+        return $test;
+    }
+    
+    sub next_test {
+        my $retval = $test;
+        $test = $test + 1; # don't use ++
+        $retval;
+    }
     
     sub fresh_perl_is {
         my ($code, $expected, $options, $name) = @_;
