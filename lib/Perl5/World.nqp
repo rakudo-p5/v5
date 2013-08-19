@@ -20,7 +20,7 @@ class Perl5::World {
             }
             else {
                 %info<container_type> := %info<container_base>;
-                %info<value_type> := $*W.find_symbol(['Mu']);
+                %info<value_type> := $*W.find_symbol(['Any']);
                 %info<default_value> := $*W.find_symbol(['Any']);
             }
             %info<default_value> := %info<value_type>;
@@ -68,7 +68,7 @@ class Perl5::World {
             }
             else {
                 %info<container_type> := %info<container_base>;
-                %info<value_type> := $*W.find_symbol(['Mu']);
+                %info<value_type> := $*W.find_symbol(['Any']);
                 %info<default_value> := $*W.find_symbol(['Any']);
             }
         }
@@ -94,7 +94,7 @@ class Perl5::World {
             }
             else {
                 %info<bind_constraint> := $*W.find_symbol(['Mu']);
-                %info<value_type> := $*W.find_symbol(['Mu']);
+                %info<value_type> := $*W.find_symbol(['Any']);
                 %info<default_value> := $*W.find_symbol(['Any']);
             }
             %info<scalar_value> := %info<default_value>;
