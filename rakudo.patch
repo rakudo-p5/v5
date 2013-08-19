@@ -1,5 +1,5 @@
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 7ae4968..ae04e8a 100644
+index 9f0e4b2..927c9e2 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
 @@ -820,6 +820,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
@@ -29,7 +29,7 @@ index 7ae4968..ae04e8a 100644
  
          <.install_doc_phaser>
          
-@@ -1218,10 +1222,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1225,10 +1229,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          :my $*IN_DECL := 'use';
          :my $*HAS_SELF := '';
          :my $*SCOPE   := 'use';
@@ -49,7 +49,7 @@ index 7ae4968..ae04e8a 100644
          | <module_name>
              {
                  $longname := $<module_name><longname>;
-@@ -1272,6 +1284,15 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1279,6 +1291,15 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                  }
              ]
          ]
@@ -66,10 +66,10 @@ index 7ae4968..ae04e8a 100644
      }
      
 diff --git a/src/Perl6/ModuleLoader.nqp b/src/Perl6/ModuleLoader.nqp
-index 0059e19..6387950 100644
+index 6ee6130..6a45d4f 100644
 --- a/src/Perl6/ModuleLoader.nqp
 +++ b/src/Perl6/ModuleLoader.nqp
-@@ -25,14 +25,31 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+@@ -23,14 +23,31 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
          $*CTXSAVE := 0;
      }
      
@@ -102,7 +102,7 @@ index 0059e19..6387950 100644
                      return @INC;
                  }
              }
-@@ -56,14 +73,14 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+@@ -54,14 +71,14 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
                  return %language_module_loaders{%opts<from>}.load_module($module_name,
                      %opts, |@GLOBALish, :$line, :$file);
              }
@@ -121,7 +121,7 @@ index 0059e19..6387950 100644
          my @candidates := self.locate_candidates($module_name, @prefixes, :$file);
          if +@candidates == 0 {
              if nqp::defined($file) {
-@@ -145,7 +162,7 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+@@ -143,7 +160,7 @@ class Perl6::ModuleLoader does Perl6::ModuleLoaderVMConfig {
                  # Get the compiler and compile the code, then run it
                  # (which runs the mainline and captures UNIT).
                  my $?FILES   := %chosen<pm>;
