@@ -4029,6 +4029,18 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
 
 grammar Perl5::RegexGrammar is QRegex::P5Regex::Grammar does STD5 {
     token rxstopper { <stopper> }
+    
+    token p5metachar:sym<(?{ })> {
+        '(?' <?[{]> <codeblock> ')'
+    }
+    
+    token p5metachar:sym<(??{ })> {
+        '(??' <?[{]> <codeblock> ')'
+    }
+    
+    token codeblock {
+        <block=.LANG('Perl5','block')>
+    }
 }
 
 ## vim: expandtab sw=4 ft=perl6
