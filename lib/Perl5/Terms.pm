@@ -655,7 +655,8 @@ augment class Str {
             $amount  /= $items;
             @bytes.push: $c( |@items.splice(0, $items) ) for ^$amount;
         }
-        for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
+        
+        for self.subst(/\#\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
             $amount       = $unit.substr(1);
             $amount       = @items.elems if $amount eq '*';
@@ -663,7 +664,7 @@ augment class Str {
 
             given $directive {
                 when 'a' { # distinguish between Str and utf8
-                    my $binary = shift @items // '';
+                    my $binary = +@items ?? shift @items !! '';
                     for $binary.comb -> $char {
                         @bytes.push: ord($char);
                     }
@@ -672,7 +673,7 @@ augment class Str {
                     }
                 }
                 when 'A' {
-                    my $ascii = shift @items // '';
+                    my $ascii = +@items ?? shift @items !! '';
                     for $ascii.comb -> $char {
                         X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
                         @bytes.push: ord($char);
@@ -682,7 +683,7 @@ augment class Str {
                     }
                 }
                 when 'Z' {
-                    my $ascii = shift @items // '';
+                    my $ascii = +@items ?? shift @items !! '';
                     for $ascii.comb -> $char {
                         X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
                         @bytes.push: ord($char);
@@ -692,7 +693,7 @@ augment class Str {
                     }
                 }
                 when 'H' {
-                    my $hexstring = shift @items // '';
+                    my $hexstring = +@items ?? shift @items !! '';
                     if $hexstring % 2 {
                         $hexstring ~= '0';
                     }
@@ -703,33 +704,38 @@ augment class Str {
                 }
                 # signed char, perl/pp_pack.c#L2972
                 when 'c' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             P5warn( :cat<pack>, "Character in 'c' format wrapped in pack" ) if -128 > $a || $a > 127;
                             $a % 0x100
                         } );
                 }
                 # unsigned char
                 when 'C' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             P5warn( :cat<pack>, "Character in 'C' format wrapped in pack" ) if 0 > $a || $a > 256;
                             $a % 0x100
                         } );
                 }
                 # signed short | unsigned short (16bit, little endian)
                 when 's'       | 'S' | 'v' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             ($a, $a +> 0x08) >>%>> 0x100
                         } );
                 }
                 # signed long | unsigned long (32bit, little endian)
                 when 'l'      | 'L' | 'V' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18) >>%>> 0x100
                         } );
                 }
                 # signed | unsigned integer (%Config<intsize>, little endian)
                 when 'i' | 'I' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             my @b;
                             @b.push( ($a +> ($_ * 0x08)) % 0x100 ) for ^%Config<intsize>;
                             @b
@@ -737,19 +743,22 @@ augment class Str {
                 }
                 # signed | unsigned quad (64bit)
                 when 'q' | 'Q' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18, $a +> 0x20, $a +> 0x28, $a +> 0x30, $a +> 0x38) >>%>> 0x100
                         } );
                 }
                 # unsigned short (16bit, big endian)
                 when 'n' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             ($a +> 0x08, $a) >>+&>> 0xFF
                         } );
                 }
                 # unsigned long (32bit, big endian)
                 when 'N' {
-                    loop( -> $a {
+                    loop( -> $a is copy {
+                            $a = &prefix:<P5+>($a);
                             ($a +> 0x18, $a +> 0x10, $a +> 0x08, $a) >>+&>> 0xFF
                         } );
                 }
@@ -774,12 +783,13 @@ augment class Str {
         my @bytes = $string.list;
         my $amount;
         my @fields;
+        sub next_byte { +@bytes ?? shift(@bytes) !! 0 }
         sub loop( Callable $c ) {
             my $bytes = $c.signature.count;
             $amount  /= $bytes;
             @fields.push: $c( |@bytes.splice(0, $bytes) ) for ^$amount;
         }
-        for self.comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
+        for self.subst(/\#\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
             $amount       = $unit.substr(1);
             $amount       = @bytes.elems if $amount eq '*';
@@ -788,13 +798,13 @@ augment class Str {
             given $directive {
                 when 'a' | 'A' | 'Z' {
                     my $asciistring;
-                    $asciistring ~= chr(shift @bytes) for ^$amount;
+                    $asciistring ~= chr(next_byte) for ^$amount;
                     @fields.push($asciistring);
                 }
                 when 'H' {
                     my $hexstring;
                     while @bytes {
-                        my $byte = shift @bytes;
+                        my $byte = next_byte;
                         $hexstring ~= ($byte +> 4).fmt('%x')
                                     ~ ($byte % 16).fmt('%x');
                     }
@@ -842,7 +852,7 @@ augment class Str {
                 when 'i' {
                     for ^$amount {
                         my $a = 0;
-                        $a +|= shift(@bytes) +< ($_ * 0x08) for ^%Config<intsize>;
+                        $a +|= next_byte() +< ($_ * 0x08) for ^%Config<intsize>;
                         $a -= 2 ** (8 * %Config<intsize>) if $a >= (2 ** (8 * %Config<intsize>)) / 2;
                         @fields.push($a)
                     }
@@ -852,7 +862,7 @@ augment class Str {
                     for ^$amount {
                         my $a = 0;
                         for ^%Config<intsize> { # usually 4 or 8
-                            $a +|= shift(@bytes) +< ($_ * 0x08);
+                            $a +|= next_byte() +< ($_ * 0x08);
                         }
                         @fields.push($a)
                     }
@@ -885,19 +895,19 @@ augment class Str {
                     my $shifted = 0;
                     while $shifted < $amount {
                         if @bytes[0] +> 7 == 0 {
-                            @fields.push: utf8.new( shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( next_byte ).decode.ord;
                             $shifted++;
                         }
                         elsif @bytes[0] +> 5 == 0b110 {
-                            @fields.push: utf8.new( shift(@bytes), shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( next_byte, next_byte ).decode.ord;
                             $shifted += 2;
                         }
                         elsif @bytes[0] +> 4 == 0b1110 {
-                            @fields.push: utf8.new( shift(@bytes), shift(@bytes), shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( next_byte, next_byte, next_byte ).decode.ord;
                             $shifted += 3;
                         }
                         elsif @bytes[0] +> 3 == 0b11110 {
-                            @fields.push: utf8.new( shift(@bytes), shift(@bytes), shift(@bytes), shift(@bytes) ).decode.ord;
+                            @fields.push: utf8.new( next_byte, next_byte, next_byte, next_byte ).decode.ord;
                             $shifted += 4;
                         }
                         else {

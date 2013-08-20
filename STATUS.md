@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>2523</td><td>38148</td><td>4</td><td>36</td><td>40706</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>2590</td><td>38081</td><td>4</td><td>36</td><td>40706</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>1078</td><td>292</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan='5'>Error executing process: Cannot allocate memory<br />
   in sub QX at src/gen/CORE.setting:759<br />
@@ -16,36 +16,325 @@
   in method eager at src/gen/CORE.setting:7124<br />
   in block  at t/spec/op/sprintf2.v5:172<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>214</td><td>14490</td><td>0</td><td>0</td><td>14704</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>281</td><td>14423</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:827<br />
-use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:827<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏string' (indicated by ⏏)<br />
-  in method Int at src/gen/CORE.setting:11369<br />
-  in sub infix:&lt;+&gt;&gt; at src/gen/CORE.setting:3669<br />
-  in sub infix:&lt;+&gt;&gt; at src/gen/CORE.setting:3666<br />
-  in block  at lib/Perl5/Terms.pm:747<br />
-  in block  at lib/Perl5/Terms.pm:739<br />
-  in method reify at src/gen/CORE.setting:6820<br />
-  in method reify at src/gen/CORE.setting:6715<br />
-  in method gimme at src/gen/CORE.setting:7148<br />
-  in method sink at src/gen/CORE.setting:7558<br />
-  in method AUTOGEN at src/gen/CORE.setting:510<br />
-  in block  at t/spec/op/pack.v5:854<br />
-  in method reify at src/gen/CORE.setting:6820<br />
-  in method reify at src/gen/CORE.setting:6715<br />
-  in method gimme at src/gen/CORE.setting:7148<br />
-  in method sink at src/gen/CORE.setting:7558<br />
-  in block  at t/spec/op/pack.v5:759<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:220<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:220<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:220<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:220<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:220<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:220<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:220<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:837<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:849<br />
+use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 </td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>204</td><td>0</td><td>0</td><td>0</td><td>204</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
@@ -55,35 +344,35 @@ Cannot convert string to number: base-10 number must begin with valid digits or 
    4 skipped: Unrecognized directive 'U'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>71</td><td>74</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x-3ad577de1f8c5ab2) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x-692994834ccc2e96) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:339<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
@@ -140,7 +429,7 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>Length argument to substr out of range. Is: -11, should be in 0..Inf; use *-11 if you want to index relative to the end<br />
-  in method sink at src/gen/CORE.setting:11381<br />
+  in method sink at src/gen/CORE.setting:11387<br />
   in block  at t/v5/04-string.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
@@ -207,7 +496,7 @@ Sorry, coredump is not yet implemented for this platform.<br />
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>1</td><td>4</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -222,7 +511,7 @@ Sorry, coredump is not yet implemented for this platform.<br />
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -252,7 +541,7 @@ Malformed UTF-8 string<br />
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;vec'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -260,26 +549,26 @@ No such symbol '&amp;vec'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
-  in method sink at src/gen/CORE.setting:11381<br />
-  in sub bless at lib/Perl5/Terms.pm:977<br />
+  in method sink at src/gen/CORE.setting:11387<br />
+  in sub bless at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
   in block  at t/spec/mro/isa_c3.v5:22<br />
   in block  at t/spec/mro/isa_c3.v5:12<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10209)</td></tr>
+current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10215)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
-  in method sink at src/gen/CORE.setting:11381<br />
-  in sub bless at lib/Perl5/Terms.pm:977<br />
+  in method sink at src/gen/CORE.setting:11387<br />
+  in sub bless at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:24<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:14<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10209)</td></tr>
+current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10215)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
   in any load_module at src/gen/ModuleLoader.nqp:195<br />
@@ -288,7 +577,7 @@ current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (sr
   in block  at t/spec/mro/isa_dfs.v5:28<br />
   in block  at t/spec/mro/isa_dfs.v5:20<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10209)</td></tr>
+current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10215)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-devel/languages/perl6/lib/Perl5<br />
   in any load_module at src/gen/ModuleLoader.nqp:195<br />
@@ -297,7 +586,7 @@ current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (sr
   in block  at t/spec/mro/isa_dfs_utf8.v5:30<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:22<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10209)</td></tr>
+current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10215)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/method_caching.v5<br />
 Unable to parse expression in argument list; couldn't find final ')'<br />
@@ -375,7 +664,7 @@ at t/spec/op/exists_sub.v5:49<br />
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -431,7 +720,7 @@ at t/spec/op/require_37033.v5:13<br />
 ------&gt;     delete $INC{'test_use_14937.pm'}⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -457,7 +746,7 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -490,7 +779,7 @@ Other potential difficulties:<br />
 WARNINGS:<br />
 Useless use of "," in expression "my @raw, @upgraded, @utf8" in sink context (line 38)<br />
 Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -576,7 +865,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -663,7 +952,7 @@ No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -674,7 +963,7 @@ No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
   in method eager at src/gen/CORE.setting:7124<br />
   in block  at t/spec/re/reg_posixcc.v5:87<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10209)</td></tr>
+current instr.: 'print_exception' pc 110177 (src/gen/CORE.setting.pir:47972) (src/gen/CORE.setting:10215)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regex_sets.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -736,7 +1025,7 @@ use of uninitialized value of type Any in string context<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;useithreads'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -778,7 +1067,7 @@ Useless use of constant integer 0 in sink context (line 10)<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
 use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 No such symbol '&amp;system'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -799,7 +1088,7 @@ at t/spec/run/locale.v5:17<br />
 ------&gt;     eval { require POSIX; POSIX-&gt;import(⏏"locale_h") };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -807,7 +1096,7 @@ at t/spec/run/locale.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/_num_to_alpha.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;_num_to_alpha'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -821,7 +1110,7 @@ at t/spec/test_pl/can_isa_ok.v5:23<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -844,7 +1133,7 @@ Could not find file 'case.pl' for module case.pl<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -959,7 +1248,7 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -968,7 +1257,7 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;DATA'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -976,7 +1265,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -984,7 +1273,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -992,7 +1281,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1000,7 +1289,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1008,7 +1297,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1016,7 +1305,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1024,7 +1313,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1052,7 +1341,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 ------&gt; urn 'ｂ::ຟǫ =&gt; ' . (shift)-&gt;next::method(⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1060,7 +1349,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1068,7 +1357,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1076,7 +1365,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1113,7 +1402,7 @@ at t/spec/re/no_utf8_pm.v5:16<br />
         <tr align='center'><td align='left'>re/qrstack.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_60508.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;encode'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1151,7 +1440,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1159,7 +1448,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1167,7 +1456,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1175,7 +1464,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1260,7 +1549,7 @@ at t/spec/op/setpgrpstack.v5:13<br />
 ------&gt; die("got here") }; package main; A-&gt;foo(⏏setpgrp())});</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utftaint.v5<br />
-Placeholder variable H^ash[0x5aefd30] may not be used here because the surrounding block takes no signature<br />
+Placeholder variable H^ash[0x5ce12a0] may not be used here because the surrounding block takes no signature<br />
 at t/spec/op/utftaint.v5:15<br />
 ------&gt;     not eval { join("",@_), kill 0; 1 }⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1271,7 +1560,7 @@ at t/spec/run/noswitch.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1308,7 +1597,7 @@ Could not find Attribute::Handlers in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;crypt'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1328,7 +1617,7 @@ Could not find File::Path in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;goto'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1379,7 +1668,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 ------&gt; is(Ｄiᚪၚd_D-&gt;can(⏏'hèllò')-&gt;(), 'Ｄiᚪၚd_A::hèllò', '... can</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1387,7 +1676,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1395,7 +1684,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1403,7 +1692,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1421,7 +1710,7 @@ at t/spec/mro/next_method_utf8.v5:33<br />
 ------&gt; mond_B::fಓ =&gt; ' . (shift)-&gt;next::method(⏏) }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;alarm'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1430,7 +1719,7 @@ at t/spec/mro/next_method_utf8.v5:33<br />
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1438,7 +1727,7 @@ No such symbol '&amp;tempfile'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;lock'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1461,7 +1750,7 @@ Too many positional parameters passed; got 3 but expected 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;F'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1474,7 +1763,7 @@ at t/spec/uni/opcroak.v5:21<br />
 ------&gt;  $@, qr/Not enough arguments for main::\⏏x{30cb}/u, "Not enough arguments croak i</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;DÙP'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1482,7 +1771,7 @@ at t/spec/uni/opcroak.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/31-autoload.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;a'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1501,7 +1790,7 @@ Could not find constant in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;kill'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1616,7 +1905,7 @@ at t/spec/op/packagev.v5:193<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1626,7 +1915,7 @@ at t/spec/op/packagev.v5:193<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 93)<br />
 No such symbol '&amp;eq'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1669,7 +1958,7 @@ Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-deve
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;evalbytes'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1677,7 +1966,7 @@ Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-deve
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;fileno'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1706,7 +1995,7 @@ at t/spec/op/symbolcache.v5:17<br />
 ------&gt; delete $main::{removed}⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pos.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1793,7 +2082,7 @@ Could not find FindExt in any of: /home/froggs/dev/nqp/install/lib/parrot/5.5.0-
     at t/spec/run/switchd.v5:19<br />
     ------&gt; 	open my $f⏏, "&gt;$filename"<br />
 No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1816,7 +2105,7 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 Oops  in block  at t/v5/23-eval.v5:44<br />
 Oops  in block  at t/v5/23-eval.v5:59<br />
 No such symbol '&amp;or'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1854,7 +2143,7 @@ at t/spec/mro/basic_02_dfs_utf8.v5:116<br />
 ------&gt; is(텟ţ::ଅ-&gt;can(⏏'ƈ_or_Ḋ')-&gt;(), '텟ţ::Ḋ', '... can got the</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1862,7 +2151,7 @@ at t/spec/mro/basic_02_dfs_utf8.v5:116<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1890,7 +2179,7 @@ at t/spec/op/require_errors.v5:45<br />
 ------&gt;     like $@, qr/^Can't locate \⏏Q$file\E in \@INC \(change \.h to \.ph m</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;select'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1936,7 +2225,7 @@ at t/spec/mro/next_edgecases_utf8.v5:27<br />
 ------&gt;     my $foo = ᕘ-&gt;new(⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1955,7 +2244,7 @@ at t/spec/io/dup.v5:149<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;wantarray'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1980,7 +2269,7 @@ at t/spec/op/wantarray.v5:15<br />
 ------&gt;   local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2000,7 +2289,7 @@ at t/spec/comp/form_scope.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2041,7 +2330,7 @@ at t/spec/re/pat_psycho.v5:45<br />
 ------&gt;         local $"⏏ = "|";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2053,8 +2342,8 @@ Could not find file './test.pl' for module ./test.pl<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Odd number of elements found where hash expected<br />
-  in method STORE at src/gen/CORE.setting:8311<br />
-  in sub infix:&lt;=&gt; at src/gen/CORE.setting:14940<br />
+  in method STORE at src/gen/CORE.setting:8313<br />
+  in sub infix:&lt;=&gt; at src/gen/CORE.setting:14946<br />
   in block  at t/spec/op/hashwarn.v5:29<br />
   in method reify at src/gen/CORE.setting:6820<br />
   in method reify at src/gen/CORE.setting:6715<br />
@@ -2107,7 +2396,7 @@ Null PMC access in get_bool()<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2349,7 +2638,7 @@ at t/spec/comp/opsubs.v5:83<br />
     at t/spec/re/recompile.v5:44<br />
     ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
 No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2363,7 +2652,7 @@ at t/spec/re/reg_nc_tie.v5:63<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;delete'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2490,7 +2779,7 @@ Could not locate compile-time value for symbol is<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each_array.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;each'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2514,11 +2803,11 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 ===SORRY!===<br />
-Could not find sub cuid_96_1376941329.66086<br />
+Could not find sub cuid_96_1376953698.02109<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2530,7 +2819,7 @@ Could not find sub cuid_96_1376941329.66086<br />
     at t/spec/op/tiearray.v5:295<br />
     ------&gt;     tie my @dummy⏏, "NegFetchsize";<br />
 No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11378<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11384<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
