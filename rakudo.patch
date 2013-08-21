@@ -1,8 +1,8 @@
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 9f0e4b2..927c9e2 100644
+index e2f5e7b..3491c02 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
-@@ -820,6 +820,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -821,6 +821,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          # Quasis and unquotes
          :my $*IN_QUASI := 0;                       # whether we're currently in a quasi block
@@ -10,7 +10,7 @@ index 9f0e4b2..927c9e2 100644
  
          # Setting loading and symbol setup.
          {
-@@ -888,6 +889,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -889,6 +890,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                      %*LANG{$_.key} := $_.value;
                  }
              }
@@ -20,7 +20,7 @@ index 9f0e4b2..927c9e2 100644
              
              # Install unless we've no setting, in which case we've likely no
              # static lexpad class yet either. Also, UNIT needs a code object.
-@@ -910,7 +914,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -911,7 +915,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          <.finishpad>
          <.bom>?
@@ -29,7 +29,7 @@ index 9f0e4b2..927c9e2 100644
  
          <.install_doc_phaser>
          
-@@ -1225,10 +1229,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1226,10 +1230,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          :my $*IN_DECL := 'use';
          :my $*HAS_SELF := '';
          :my $*SCOPE   := 'use';
@@ -49,7 +49,7 @@ index 9f0e4b2..927c9e2 100644
          | <module_name>
              {
                  $longname := $<module_name><longname>;
-@@ -1279,6 +1291,15 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1280,6 +1292,15 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                  }
              ]
          ]
