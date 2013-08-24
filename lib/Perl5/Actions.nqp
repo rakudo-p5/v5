@@ -6,7 +6,7 @@ use Perl5::World;
 use QRegex;
 use QAST;
 
-my $V5DEBUG := +nqp::atkey(nqp::getenvhash(), 'V5DEBUG');
+my $V5DEBUG := +nqp::getenvhash()<V5DEBUG>;
 
 my role STDActions {
     method quibble($/) {
