@@ -787,7 +787,12 @@ augment class Str {
         sub loop( Callable $c ) {
             my $bytes = $c.signature.count;
             $amount  /= $bytes;
-            @fields.push: $c( |@bytes.splice(0, $bytes) ) for ^$amount;
+            for ^$amount {
+                my @args = @bytes.splice(0, $bytes);
+                if [&&] @args>>.defined {
+                    @fields.push: $c( |@args );
+                }
+            }
         }
         for self.subst(/\#\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
