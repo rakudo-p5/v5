@@ -1362,6 +1362,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         || <?MARKED('endstmt')> <.ws>
         || <?before ')' | ']' | '}' >
         || $
+        || <?before '__END__'>
         || <?stopper>
         || <.typed_panic: 'X::Syntax::Confused'>
     }
@@ -2653,7 +2654,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token quote:sym<' '>  { :dba('single quotes') "'" ~ "'" <nibble(self.quote_lang(%*LANG<P5Q>, "'", "'", ['q']))> }
     token quote:sym<" ">  { :dba('double quotes') '"' ~ '"' <nibble(self.quote_lang(%*LANG<P5Q>, '"', '"', ['qq']))> }
     token quote:sym<` `>  { :dba('backticks')     '`' ~ '`' <nibble(self.quote_lang(%*LANG<P5Q>, '`', '`', ['qq']))> }
-    token quote:sym<__DATA__> { :dba('pseudo filehandle') ^^ [ '__DATA__' | '__END__' ] \h* $<text>=[.*] }
+    token quote:sym<__DATA__> { :dba('pseudo filehandle') ^^ '__DATA__' \h* $<text>=[.*] }
+    token quote:sym<__END__>  { ^^ '__END__' \h* .* }
 
     token quote:sym«<<» {
         :my $delim := '';
