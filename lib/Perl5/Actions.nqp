@@ -5373,7 +5373,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     $past ) );
             
             if !$<rx_mods> || nqp::index(~$<rx_mods>.ast, 'g') == -1 {
-                $past := QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'), $past )
+                $past.push( QAST::Op.new( :op('if'),
+                        QAST::Op.new( :op('callmethod'), :name('list'),
+                            QAST::Var.new( :name('$/'), :scope('lexical') ) ),
+                        QAST::Var.new( :name('$/'), :scope('lexical') ),
+                        QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'),
+                            QAST::Var.new( :name('$/'), :scope('lexical') ) )
+                ) );
             }
         }
         make $past;
