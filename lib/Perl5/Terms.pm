@@ -139,8 +139,14 @@ multi sub chomp(*@s is rw) is export {
     $nr_chomped
 }
 
-sub ref($o) is export {
-    $o.^name.uc
+sub ref(\o) is export {
+    my $name = o ~~ Cool ?? '' !! o.^name.uc;
+    if $name eq 'SUB' {
+        'CODE'
+    }
+    else {
+        $name
+    }
 }
 
 sub exists( \a ) is export { a:exists ?? 1 !! '' }
