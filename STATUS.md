@@ -3,8 +3,8 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>4321</td><td>35633</td><td>4</td><td>753</td><td>40706</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>1957</td><td>12016</td><td>0</td><td>731</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>4314</td><td>35589</td><td>5</td><td>807</td><td>40706</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>1888</td><td>12039</td><td>0</td><td>777</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -130,25 +130,6 @@ Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br /
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
@@ -241,18 +222,12 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:914<br />
 use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:914<br />
-<br />   8 skipped: J not supported on this perl<br />
-   4 skipped: u not supported on this perl<br />
-   8 skipped: F not supported on this perl<br />
-   8 skipped: j not supported on this perl<br />
+<br />  40 skipped: cannot compare native byteorder with big-/little-endian<br />
+   2 skipped: (EBCDIC and) version strings are bad idea<br />
    4 skipped: Not for EBCDIC<br />
-   8 skipped: f not supported on this perl<br />
-   8 skipped: d not supported on this perl<br />
+ 100 skipped: w not supported on this perl<br />
  630 skipped: cannot test checksums over 0 bits<br />
    1 skipped: Couldn't generate infinity - got error ''<br />
-  40 skipped: cannot compare native byteorder with big-/little-endian<br />
-   4 skipped: w not supported on this perl<br />
-   8 skipped: D not supported on this perl<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1127</td><td>243</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>204</td><td>0</td><td>0</td><td>0</td><td>204</td></tr>
@@ -262,37 +237,42 @@ use of uninitialized value of type Any in numeric context  in block  at lib/Perl
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/magic.v5<br />
+Unrecognized Perl 5 regex backslash sequence<br />
+at t/spec/op/magic.v5:78<br />
+------&gt;         like $set, qr/^(?:\⏏Q$key\E=)?\Q$val\E$/, $desc;</td></tr>
         <tr align='center'><td align='left'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>   1 todo   : NYI<br />
@@ -302,7 +282,7 @@ use of uninitialized value of type O=ARRAY(0x4245d28d9667b380) in numeric contex
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left'>op/chars.v5</td><td>34</td><td>0</td><td>0</td><td>0</td><td>34</td></tr>
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr align='center'><td align='left'>op/recurse.v5</td><td>26</td><td>2</td><td>0</td><td>0</td><td>28</td></tr>
+        <tr align='center'><td align='left'>op/recurse.v5</td><td>27</td><td>1</td><td>0</td><td>0</td><td>28</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>25</td><td>27</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>'%*vd' is not valid in sprintf format sequence 'n%*vd'<br />
 </td></tr>
@@ -320,7 +300,20 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>op/int.v5</td><td>14</td><td>1</td><td>0</td><td>0</td><td>15</td></tr>
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr align='center'><td align='left'>cmd/for.v5</td><td>10</td><td>108</td><td>0</td><td>0</td><td>118</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>10</td><td>107</td><td>1</td><td>0</td><td>118</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;a'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in any  at src/gen/Metamodel.nqp:2671<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
+  in any find_method at src/gen/Metamodel.nqp:946<br />
+  in block  at t/spec/cmd/for.v5:666<br />
+  in method reify at src/gen/CORE.setting:6884<br />
+  in method reify at src/gen/CORE.setting:6779<br />
+  in method gimme at src/gen/CORE.setting:7212<br />
+  in method sink at src/gen/CORE.setting:7622<br />
+  in block  at t/spec/cmd/for.v5:650<br />
+<br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>8</td><td>4</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
@@ -337,6 +330,11 @@ to preserve list context inside function call<br />
   in method chr at src/gen/CORE.setting:3944<br />
   in sub hexes at t/spec/op/chr.v5:57<br />
   in block  at t/spec/op/chr.v5:69<br />
+  in method reify at src/gen/CORE.setting:6884<br />
+  in method reify at src/gen/CORE.setting:6779<br />
+  in method gimme at src/gen/CORE.setting:7212<br />
+  in method sink at src/gen/CORE.setting:7622<br />
+  in block  at t/spec/op/chr.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
@@ -392,6 +390,7 @@ Cannot use a Buf as a string, but you called the chars method on it<br />
         <tr align='center'><td align='left'>t/v5/05-lex-block-if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left'>run/switchI.v5</td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -409,7 +408,6 @@ Cannot use a Buf as a string, but you called the chars method on it<br />
   in method sink at src/gen/CORE.setting:7622<br />
   in block  at t/spec/uni/eval.v5:10<br />
 </td></tr>
-        <tr align='center'><td align='left'>run/switchI.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
@@ -430,6 +428,22 @@ Cannot use a Buf as a string, but you called the chars method on it<br />
 Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Str \a, Str \b)<br />
 :(\a, \b)<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/filetest_t.v5</td><td>1</td><td>3</td><td>0</td><td>7</td><td>7</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;t'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in any  at src/gen/Metamodel.nqp:2671<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
+  in any find_method at src/gen/Metamodel.nqp:946<br />
+  in block  at t/spec/op/filetest_t.v5:36<br />
+  in method reify at src/gen/CORE.setting:6884<br />
+  in method reify at src/gen/CORE.setting:6779<br />
+  in method gimme at src/gen/CORE.setting:7212<br />
+  in method sink at src/gen/CORE.setting:7622<br />
+  in block  at t/spec/op/filetest_t.v5:16<br />
+<br />   4 skipped: Can't open terminal '/dev/tty': <br />
+   3 skipped: Can't open null device '/dev/null': <br />
+   4 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -1326,7 +1340,20 @@ at t/spec/uni/cache.v5:29<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left'>io/errnosig.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;alarm'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in any  at src/gen/Metamodel.nqp:2671<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
+  in any find_method at src/gen/Metamodel.nqp:946<br />
+  in block  at t/spec/io/errnosig.v5:24<br />
+  in method reify at src/gen/CORE.setting:6884<br />
+  in method reify at src/gen/CORE.setting:6779<br />
+  in method gimme at src/gen/CORE.setting:7212<br />
+  in method sink at src/gen/CORE.setting:7622<br />
+  in block  at t/spec/io/errnosig.v5:11<br />
+<br />   1 skipped: Alarm not supported<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-devel/languages/perl6/lib/Perl5<br />
@@ -1498,7 +1525,12 @@ Could not find Attribute::Handlers in any of: ../lib<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
-  in block  at t/spec/op/crypt.v5:46<br />
+  in block  at t/spec/op/crypt.v5:34<br />
+  in method reify at src/gen/CORE.setting:6884<br />
+  in method reify at src/gen/CORE.setting:6779<br />
+  in method gimme at src/gen/CORE.setting:7212<br />
+  in method sink at src/gen/CORE.setting:7622<br />
+  in block  at t/spec/op/crypt.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1783,7 +1815,6 @@ at t/spec/mro/pkg_gen.v5:35<br />
 Variable '%ᕘ' is not declared<br />
 at t/spec/mro/pkg_gen_utf8.v5:37<br />
 ------&gt; undef %ᕘ::⏏;</td></tr>
-        <tr align='center'><td align='left'>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/lex.v5<br />
 Couldn't parse heredoc construct<br />
@@ -2699,8 +2730,18 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     Redeclaration of symbol $x<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
-===SORRY!===<br />
-Could not find sub cuid_96_1378111673.06844<br />
+No such symbol '&amp;TEST1'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in any  at src/gen/Metamodel.nqp:2671<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
+  in any find_method at src/gen/Metamodel.nqp:946<br />
+  in block  at t/spec/op/loopctl.v5:53<br />
+  in block  at t/spec/op/loopctl.v5:50<br />
+  in method reify at src/gen/CORE.setting:6884<br />
+  in method reify at src/gen/CORE.setting:6779<br />
+  in method gimme at src/gen/CORE.setting:7212<br />
+  in method sink at src/gen/CORE.setting:7622<br />
+  in block  at t/spec/op/loopctl.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
@@ -2912,11 +2953,6 @@ at t/spec/op/bop.v5:104<br />
 Unable to parse expression in argument list; couldn't find final ')'<br />
 at t/spec/op/sort.v5:94<br />
 ------&gt; $x = join('', sort $sub ⏏@harry);</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>0</td><td>178</td><td>0</td><td>0</td><td>178</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/magic.v5<br />
-Unrecognized Perl 5 regex backslash sequence<br />
-at t/spec/op/magic.v5:78<br />
-------&gt;         like $set, qr/^(?:\⏏Q$key\E=)?\Q$val\E$/, $desc;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/proto.v5</td><td>0</td><td>180</td><td>0</td><td>0</td><td>180</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/proto.v5<br />
 Confused<br />
@@ -3009,7 +3045,7 @@ at t/spec/re/pat_rt_report.v5:96<br />
 ------&gt;         ok("École" =~ /^\⏏C\C(.)/ &amp;&amp; $1 eq 'c', $message);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n}\nuse..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{\n    foreach my $initial_buffer (@buffers) {\n\tmy @utf8 = 1;\n\tif ($value !~ tr/\\0-\\377//c) {\..."): Error while compiling block  (source text: "{\n\tmy @utf8 = 1;\n\tif ($value !~ tr/\\0-\\377//c) {\n\t    # It's all 8 bit\n\t    unshift @utf8,..."): Error while compiling op if (source text: "($value !~ tr/\\0-\\377//c) {\n\t    # It's all 8 bit\n\t    unshift @utf8, 0;\n\t}\n      "): Error while compiling op bind: Error while compiling op call: Error while compiling op callmethod: Unknown QAST node type NQPMu<br />
+Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n}\nuse..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{\n    foreach my $initial_buffer (@buffers) {\n\tmy @utf8 = 1;\n\tif ($value !~ tr/\\0-\\377//c) {\..."): Error while compiling block  (source text: "{\n\tmy @utf8 = 1;\n\tif ($value !~ tr/\\0-\\377//c) {\n\t    # It's all 8 bit\n\t    unshift @utf8,..."): Error while compiling op bind: Error while compiling op if (source text: "($value !~ tr/\\0-\\377//c) {\n\t    # It's all 8 bit\n\t    unshift @utf8, 0;\n\t}\n      "): Error while compiling op bind: Error while compiling op call: Error while compiling op callmethod: Unknown QAST node type NQPMu<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />

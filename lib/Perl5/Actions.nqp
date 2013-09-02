@@ -595,6 +595,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 }
             }
         }
+        elsif $<statement> {
+            $past := $<statement>.ast;
+        }
         elsif $<statement_control> {
             $past := $<statement_control>.ast;
         }
