@@ -4666,8 +4666,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
             ),
 
             # And finally evaluate to the smart-match result.
-            QAST::Var.new( :name($result_var), :scope('local') )
-        );
+            QAST::Op.new( :op('if'),
+                QAST::Op.new( :op('callmethod'), :name('P5Bool'),
+                    QAST::Op.new( :op('callmethod'), :name('list'),
+                        QAST::Var.new( :name($result_var), :scope('local') ) ) ),
+                QAST::Op.new( :op('hllize'),
+                    QAST::Op.new( :op('callmethod'), :name('list'),
+                        QAST::Var.new( :name($result_var), :scope('local') ) ) ),
+                QAST::Op.new( :op('callmethod'), :name('P5Bool'),
+                    QAST::Var.new( :name($result_var), :scope('local') ) ) )
+        )
     }
 
     sub bind_op($/, $target, $source, $sigish) {
@@ -5370,17 +5378,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $past := QAST::Stmts.new(
                 QAST::Op.new( :op('p6store'),
                     QAST::Var.new(:name('$/'), :scope('lexical')),
-                    $past ) );
-            
-            if !$<rx_mods> || nqp::index(~$<rx_mods>.ast, 'g') == -1 {
-                $past.push( QAST::Op.new( :op('if'),
-                        QAST::Op.new( :op('callmethod'), :name('list'),
-                            QAST::Var.new( :name('$/'), :scope('lexical') ) ),
-                        QAST::Var.new( :name('$/'), :scope('lexical') ),
-                        QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'),
-                            QAST::Var.new( :name('$/'), :scope('lexical') ) )
-                ) );
-            }
+                    $past ),
+                QAST::Var.new(:name('$/'), :scope('lexical'))
+            );
         }
         make $past;
     }
