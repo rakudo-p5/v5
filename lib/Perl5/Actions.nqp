@@ -1733,13 +1733,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                                 :named($twigil eq ':'), :full_name($past.name()));
         }
         elsif $past.name() eq '@_' {
-            if $*W.nearest_signatured_block_declares('@_') {
-                $past.scope('lexical');
-            }
-            else {
-                $past := add_placeholder_parameter($/, '@', '_',
-                                :pos_slurpy(1), :full_name($past.name()));
-            }
+            $past.scope('lexical');
         }
         elsif $past.name() eq '%_' {
             if $*W.nearest_signatured_block_declares('%_') || $*METHODTYPE {
