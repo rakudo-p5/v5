@@ -199,8 +199,7 @@ multi infix:«P5<=>»(\a, \b) is export { nqp::p6box_i(nqp::cmp_I(nqp::decont(&p
 multi infix:«P5<=>»(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
 sub infix:<P5eq> (\a, \b) is export { &prefix:<P5.>(a) eq &prefix:<P5.>(b) }
 sub infix:<P5ne> (\a, \b) is export { !&infix:<P5eq>(a, b)                 }
-multi infix:<P5cmp>(\a, \b) is export { &prefix:<P5+>(&prefix:<P5.>(a) cmp &prefix:<P5.>(b)) }
-multi infix:<P5cmp>(\a, \b) is export { nqp::p6box_i(nqp::cmp_I(nqp::decont(&prefix:<P5+>(a)), nqp::decont(&prefix:<P5+>(b)))) }
+multi infix:<P5cmp>(\a, \b) is export { +(&prefix:<P5.>(a) cmp &prefix:<P5.>(b)) }
 multi infix:<P5cmp>(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
 sub infix:<P5~~> (\a, \b) is export { &prefix:<P5.>(a) ~~ &prefix:<P5.>(b) }
 
@@ -351,7 +350,9 @@ augment class List {
 
 augment class utf8 {
     multi method P5Str(utf8:D:) {
-        nqp::unbox_s(nqp::decode(nqp::decont(self), 'binary'))
+        my $str;
+        try $str = self.decode;
+        $str ?? $str !! nqp::unbox_s(nqp::decode(nqp::decont(self), 'binary'))
     }
 }
 
@@ -762,10 +763,15 @@ augment class Str {
                             ($a +> 0x18, $a +> 0x10, $a +> 0x08, $a) >>+&>> 0xFF
                         } );
                 }
+                # Unicode codepoint to utf8 integer sequence
+                when 'U' {
+                    loop( -> $a {
+                            &prefix:<P5+>($a).chr.encode.list.flat
+                        } );
+                }
                 P5die ~X::Buf::Pack.new(:$directive);
             }
         }
-
         return utf8.new(@bytes);
     }
     multi method P5unpack(Str:D:) { self.P5unpack( CALLER::DYNAMIC::<$_> ) }
