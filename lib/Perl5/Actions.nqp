@@ -5471,6 +5471,15 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method quote:sym<tr>($/) {
         $V5DEBUG && say("method quote:sym<tr>($/)");
+        my $left  := ~$<tribble><left>;
+        my $right := ~$<tribble><right>;
+        make QAST::Op.new(:op<p6store>,
+            QAST::Var.new(:name('$_'), :scope<lexical>),
+            QAST::Op.new(:op<callmethod>, :name<trans>,
+                QAST::Var.new(:name('$_'), :scope<lexical>),
+                make_pair($left, QAST::SVal.new(:value($right))),
+            )
+        );
     }
 
     method quote:sym<quasi>($/) {

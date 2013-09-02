@@ -3,8 +3,8 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>4314</td><td>35589</td><td>5</td><td>807</td><td>40706</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>1888</td><td>12039</td><td>0</td><td>777</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>4398</td><td>35505</td><td>5</td><td>807</td><td>40706</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>1972</td><td>11955</td><td>0</td><td>777</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -237,35 +237,35 @@ use of uninitialized value of type Any in numeric context  in block  at lib/Perl
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x2c8c73cebe0cb709) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -302,15 +302,15 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>10</td><td>107</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;a'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/cmd/for.v5:666<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/cmd/for.v5:650<br />
 <br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
 </td></tr>
@@ -330,16 +330,16 @@ to preserve list context inside function call<br />
   in method chr at src/gen/CORE.setting:3944<br />
   in sub hexes at t/spec/op/chr.v5:57<br />
   in block  at t/spec/op/chr.v5:69<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/chr.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/04-string.v5</td><td>5</td><td>15</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>Length argument to substr out of range. Is: -11, should be in 0..Inf; use *-11 if you want to index relative to the end<br />
-  in method sink at src/gen/CORE.setting:11565<br />
+  in method sink at src/gen/CORE.setting:11569<br />
   in block  at t/v5/04-string.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
@@ -366,10 +366,10 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 Cannot use a Buf as a string, but you called the chars method on it<br />
   in method chars at src/gen/CORE.setting:4744<br />
   in block  at t/spec/op/length.v5:40<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/length.v5:20<br />
 </td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -397,29 +397,29 @@ Cannot use a Buf as a string, but you called the chars method on it<br />
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>1</td><td>4</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/uni/eval.v5:25<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/uni/eval.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/re/overload.v5:30<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/re/overload.v5:1<br />
 <br />   2 tests more than planned were run<br />
 </td></tr>
@@ -431,15 +431,15 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_t.v5</td><td>1</td><td>3</td><td>0</td><td>7</td><td>7</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;t'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/op/filetest_t.v5:36<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/filetest_t.v5:16<br />
 <br />   4 skipped: Can't open terminal '/dev/tty': <br />
    3 skipped: Can't open null device '/dev/null': <br />
@@ -457,7 +457,7 @@ Malformed UTF-8 string<br />
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;vec'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -465,7 +465,7 @@ No such symbol '&amp;vec'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
-  in method sink at src/gen/CORE.setting:11565<br />
+  in method sink at src/gen/CORE.setting:11569<br />
   in sub bless at lib/Perl5/Terms.pm:1004<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
@@ -473,10 +473,10 @@ No such symbol '&amp;vec'<br />
   in block  at t/spec/mro/isa_c3.v5:22<br />
   in block  at t/spec/mro/isa_c3.v5:12<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
-  in method sink at src/gen/CORE.setting:11565<br />
+  in method sink at src/gen/CORE.setting:11569<br />
   in sub bless at lib/Perl5/Terms.pm:1004<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
@@ -484,7 +484,7 @@ current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (sr
   in block  at t/spec/mro/isa_c3_utf8.v5:24<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:14<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-devel/languages/perl6/lib/Perl5<br />
   in any load_module at src/gen/ModuleLoader.nqp:209<br />
@@ -493,7 +493,7 @@ current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (sr
   in block  at t/spec/mro/isa_dfs.v5:28<br />
   in block  at t/spec/mro/isa_dfs.v5:20<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-devel/languages/perl6/lib/Perl5<br />
   in any load_module at src/gen/ModuleLoader.nqp:209<br />
@@ -502,7 +502,7 @@ current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (sr
   in block  at t/spec/mro/isa_dfs_utf8.v5:30<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:22<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/method_caching.v5<br />
 Unable to parse expression in argument list; couldn't find final ')'<br />
@@ -580,7 +580,7 @@ at t/spec/op/exists_sub.v5:49<br />
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -636,7 +636,7 @@ at t/spec/op/require_37033.v5:13<br />
 ------&gt;     delete $INC{'test_use_14937.pm'}⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -662,7 +662,7 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -695,7 +695,7 @@ Other potential difficulties:<br />
 WARNINGS:<br />
 Useless use of "," in expression "my @raw, @upgraded, @utf8" in sink context (line 38)<br />
 Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -781,7 +781,7 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -868,18 +868,18 @@ No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/re/reg_posixcc.v5:116<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method eager at src/gen/CORE.setting:7188<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method eager at src/gen/CORE.setting:7189<br />
   in block  at t/spec/re/reg_posixcc.v5:87<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regex_sets.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -889,10 +889,10 @@ at t/spec/re/regex_sets.v5:38<br />
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regex_sets_compat.v5:12<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regex_sets_compat.v5:12<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method eager at src/gen/CORE.setting:7188<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method eager at src/gen/CORE.setting:7189<br />
   in block  at t/spec/re/regex_sets_compat.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -903,45 +903,45 @@ Null PMC access in find_method('shift')<br />
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_noamp.v5:9<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_noamp.v5:9<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method eager at src/gen/CORE.setting:7188<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method eager at src/gen/CORE.setting:7189<br />
   in block  at t/spec/re/regexp_noamp.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_notrie.v5:12<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_notrie.v5:12<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method eager at src/gen/CORE.setting:7188<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method eager at src/gen/CORE.setting:7189<br />
   in block  at t/spec/re/regexp_notrie.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr.v5:7<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr.v5:7<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method eager at src/gen/CORE.setting:7188<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method eager at src/gen/CORE.setting:7189<br />
   in block  at t/spec/re/regexp_qr.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr_embed.v5:8<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr_embed.v5:8<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method eager at src/gen/CORE.setting:7188<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method eager at src/gen/CORE.setting:7189<br />
   in block  at t/spec/re/regexp_qr_embed.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;useithreads'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -951,10 +951,10 @@ use of uninitialized value of type Any in string context<br />
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_trielist.v5:13<br />
 use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_trielist.v5:13<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method eager at src/gen/CORE.setting:7188<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method eager at src/gen/CORE.setting:7189<br />
   in block  at t/spec/re/regexp_trielist.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -983,7 +983,7 @@ Useless use of constant integer 0 in sink context (line 10)<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
 use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 No such symbol '&amp;system'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1004,7 +1004,7 @@ at t/spec/run/locale.v5:17<br />
 ------&gt;     eval { require POSIX; POSIX-&gt;import(⏏"locale_h") };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1012,7 +1012,7 @@ at t/spec/run/locale.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/_num_to_alpha.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;_num_to_alpha'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1026,7 +1026,7 @@ at t/spec/test_pl/can_isa_ok.v5:23<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1041,14 +1041,14 @@ Could not locate compile-time value for symbol pass<br />
 current instr.: '' pc 32136 (src/stage2/gen/NQPHLL.pir:12660) (src/stage2/gen/NQPHLL.nqp:1311)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>no kid script<br />
   in block  at t/spec/io/crlf_through.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1056,10 +1056,10 @@ current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (sr
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10311)</td></tr>
+current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (src/gen/CORE.setting:10315)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-devel/languages/perl6/lib/Perl5<br />
@@ -1160,7 +1160,7 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1169,7 +1169,7 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;DATA'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1177,7 +1177,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1185,7 +1185,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1193,7 +1193,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1201,7 +1201,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1209,7 +1209,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1217,7 +1217,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1225,7 +1225,7 @@ No such symbol '&amp;DATA'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1253,7 +1253,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 ------&gt; urn 'ｂ::ຟǫ =&gt; ' . (shift)-&gt;next::method(⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1261,7 +1261,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1269,7 +1269,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1277,7 +1277,7 @@ at t/spec/mro/next_ineval_utf8.v5:34<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1314,15 +1314,15 @@ at t/spec/re/no_utf8_pm.v5:16<br />
         <tr align='center'><td align='left'>re/qrstack.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_60508.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;encode'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/re/reg_60508.v5:23<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/re/reg_60508.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1342,15 +1342,15 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;alarm'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/io/errnosig.v5:24<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/io/errnosig.v5:11<br />
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
@@ -1365,7 +1365,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1373,7 +1373,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1381,7 +1381,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1389,7 +1389,7 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1484,7 +1484,7 @@ at t/spec/run/noswitch.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1521,15 +1521,15 @@ Could not find Attribute::Handlers in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;crypt'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/op/crypt.v5:34<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/crypt.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -1546,7 +1546,7 @@ Could not find File::Path in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;goto'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1597,7 +1597,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 ------&gt; is(Ｄiᚪၚd_D-&gt;can(⏏'hèllò')-&gt;(), 'Ｄiᚪၚd_A::hèllò', '... can</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1605,7 +1605,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1613,7 +1613,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1621,7 +1621,7 @@ at t/spec/mro/basic_01_dfs_utf8.v5:49<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1639,7 +1639,7 @@ at t/spec/mro/next_method_utf8.v5:33<br />
 ------&gt; mond_B::fಓ =&gt; ' . (shift)-&gt;next::method(⏏) }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;alarm'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1648,7 +1648,7 @@ at t/spec/mro/next_method_utf8.v5:33<br />
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1656,7 +1656,7 @@ No such symbol '&amp;tempfile'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;lock'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1679,7 +1679,7 @@ Too many positional parameters passed; got 3 but expected 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;F'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1692,7 +1692,7 @@ at t/spec/uni/opcroak.v5:21<br />
 ------&gt;  $@, qr/Not enough arguments for main::\⏏x{30cb}/u, "Not enough arguments croak i</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;DÙP'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1700,7 +1700,7 @@ at t/spec/uni/opcroak.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/31-autoload.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;a'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1719,7 +1719,7 @@ Could not find constant in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;kill'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1833,7 +1833,7 @@ at t/spec/op/packagev.v5:193<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1843,7 +1843,7 @@ at t/spec/op/packagev.v5:193<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 93)<br />
 No such symbol '&amp;eq'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1886,7 +1886,7 @@ Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-deve
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;evalbytes'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1894,7 +1894,7 @@ Could not find mro in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-deve
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;fileno'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -1923,15 +1923,15 @@ at t/spec/op/symbolcache.v5:17<br />
 ------&gt; delete $main::{removed}⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pos.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/re/pos.v5:25<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/re/pos.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -2010,7 +2010,7 @@ Could not find FindExt in any of: /home/froggs/dev/nqp/install/lib/parrot/5.7.0-
     at t/spec/run/switchd.v5:19<br />
     ------&gt; 	open my $f⏏, "&gt;$filename"<br />
 No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2033,7 +2033,7 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 Oops  in block  at t/v5/23-eval.v5:44<br />
 Oops  in block  at t/v5/23-eval.v5:59<br />
 No such symbol '&amp;or'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2071,7 +2071,7 @@ at t/spec/mro/basic_02_dfs_utf8.v5:116<br />
 ------&gt; is(텟ţ::ଅ-&gt;can(⏏'ƈ_or_Ḋ')-&gt;(), '텟ţ::Ḋ', '... can got the</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2079,7 +2079,7 @@ at t/spec/mro/basic_02_dfs_utf8.v5:116<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2107,7 +2107,7 @@ at t/spec/op/require_errors.v5:45<br />
 ------&gt;     like $@, qr/^Can't locate \⏏Q$file\E in \@INC \(change \.h to \.ph m</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;select'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2153,7 +2153,7 @@ at t/spec/mro/next_edgecases_utf8.v5:27<br />
 ------&gt;     my $foo = ᕘ-&gt;new(⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2172,7 +2172,7 @@ at t/spec/io/dup.v5:149<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;wantarray'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2197,7 +2197,7 @@ at t/spec/op/wantarray.v5:15<br />
 ------&gt;   local $::Level⏏ = $::Level + 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2217,7 +2217,7 @@ at t/spec/comp/form_scope.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2258,7 +2258,7 @@ at t/spec/re/pat_psycho.v5:45<br />
 ------&gt;         local $"⏏ = "|";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2270,13 +2270,13 @@ Could not find file './test.pl' for module ./test.pl<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Odd number of elements found where hash expected<br />
-  in method STORE at src/gen/CORE.setting:8386<br />
-  in sub infix:&lt;=&gt; at src/gen/CORE.setting:15351<br />
+  in method STORE at src/gen/CORE.setting:8388<br />
+  in sub infix:&lt;=&gt; at src/gen/CORE.setting:15372<br />
   in block  at t/spec/op/hashwarn.v5:29<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/hashwarn.v5:25<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -2324,7 +2324,7 @@ Null PMC access in get_bool()<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2391,10 +2391,10 @@ at t/spec/run/cloexec.v5:53<br />
   in method AUTOGEN at src/gen/CORE.setting:510<br />
   in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:172<br />
   in block  at t/spec/op/args.v5:18<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/args.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
@@ -2566,7 +2566,7 @@ at t/spec/comp/opsubs.v5:83<br />
     at t/spec/re/recompile.v5:44<br />
     ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
 No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2580,7 +2580,7 @@ at t/spec/re/reg_nc_tie.v5:63<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;delete'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2707,7 +2707,7 @@ Could not locate compile-time value for symbol is<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each_array.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;each'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2731,21 +2731,21 @@ Undefined routine '&amp;prefix:&lt;\&gt;' called (lines 96, 96)<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 No such symbol '&amp;TEST1'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/op/loopctl.v5:53<br />
   in block  at t/spec/op/loopctl.v5:50<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/loopctl.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
@@ -2757,20 +2757,20 @@ No such symbol '&amp;TEST1'<br />
     at t/spec/op/tiearray.v5:295<br />
     ------&gt;     tie my @dummy⏏, "NegFetchsize";<br />
 No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at src/gen/CORE.setting:11562<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
   in any  at src/gen/Metamodel.nqp:2671<br />
   in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
   in any find_method at src/gen/Metamodel.nqp:946<br />
   in block  at t/spec/op/tiearray.v5:155<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/tiearray.v5:153<br />
-  in method reify at src/gen/CORE.setting:6884<br />
-  in method reify at src/gen/CORE.setting:6779<br />
-  in method gimme at src/gen/CORE.setting:7212<br />
-  in method sink at src/gen/CORE.setting:7622<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
   in block  at t/spec/op/tiearray.v5:151<br />
   in block  at t/spec/op/tiearray.v5:108<br />
   in block  at t/spec/op/tiearray.v5:1<br />
@@ -3044,8 +3044,12 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/pat_rt_report.v5:96<br />
 ------&gt;         ok("École" =~ /^\⏏C\C(.)/ &amp;&amp; $1 eq 'c', $message);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Error while compiling block  (source text: "use v5;\n#!./perl\n\nBEGIN {\n    chdir 't';\n    @INC = '../lib';\n    require './test.pl';\n}\nuse..."): Error while compiling op call: Error while compiling block : Error while compiling block  (source text: "{\n    foreach my $initial_buffer (@buffers) {\n\tmy @utf8 = 1;\n\tif ($value !~ tr/\\0-\\377//c) {\..."): Error while compiling block  (source text: "{\n\tmy @utf8 = 1;\n\tif ($value !~ tr/\\0-\\377//c) {\n\t    # It's all 8 bit\n\t    unshift @utf8,..."): Error while compiling op bind: Error while compiling op if (source text: "($value !~ tr/\\0-\\377//c) {\n\t    # It's all 8 bit\n\t    unshift @utf8, 0;\n\t}\n      "): Error while compiling op bind: Error while compiling op call: Error while compiling op callmethod: Unknown QAST node type NQPMu<br />
+        <tr><td colspan='5'>No such symbol '&amp;FOO'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
+  in any  at src/gen/Metamodel.nqp:2671<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
+  in any find_method at src/gen/Metamodel.nqp:946<br />
+  in block  at t/spec/op/read.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3053,9 +3057,9 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/comp/utf.v5:45<br />
 ------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
 
-        <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.08-53-g4b4fd70 built on parrot 5.7.0 revision RELEASE_5_7_0-1-gc823d3e
+        <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.08-56-g9318564 built on parrot 5.7.0 revision RELEASE_5_7_0-1-gc823d3e
 </td></tr>
-        <tr><td>perl6 --version</td><td colspan='5'>This is perl6 version 2013.08-49-ga9be7f0 built on parrot 5.7.0 revision RELEASE_5_7_0-1-gc823d3e
+        <tr><td>perl6 --version</td><td colspan='5'>This is perl6 version 2013.08-69-g5aeaca0 built on parrot 5.7.0 revision RELEASE_5_7_0-1-gc823d3e
 </td></tr>
     </tbody>
 </table>
