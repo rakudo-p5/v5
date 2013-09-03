@@ -41,7 +41,6 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
         _plan( $args{'tests'} )
     }
     sub pass                    { $test = $test + 1; _pass(@_)                           }
-    sub fail                    { $test = $test + 1; _nok(@_)                            }
     sub ok                      { $test = $test + 1; _ok(@_)                             }
     sub nok                     { $test = $test + 1; _nok(@_)                            }
     sub is                      { $test = $test + 1; _is($_[0], $_[1], $_[2] // '')      }

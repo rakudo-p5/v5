@@ -1633,7 +1633,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # &routine( 1, 2)
         elsif $<arglist> {
             $past := $<arglist>.ast;
-            if $*W.is_lexical('&' ~ $<subname>) {
+            if $<subname><desigilname><variable> {
+                $past.name(~$<subname><desigilname><variable>);
+            }
+            elsif $*W.is_lexical('&' ~ $<subname>) {
                 $past.name('&' ~ $<subname>);
             }
             else {
@@ -3967,6 +3970,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'close',   [ '',   '*@', '',           '',              'callmethod', 'P5close' ],
         'int',     [ '$_', '_',  'callmethod', 'P5Numeric',     'callmethod', 'Int' ],
         'ord',     [ '$_', '_',  'call',       '&infix:<P5.>',  'callmethod', 'P5ord' ],
+        'ref',     [ '$_', '_',  '',           '',              'callmethod', 'P5ref' ],
         'not',     [ '',   '@',  '',           '',              'call',       '&prefix:<P5not>' ],
         'say',     [ '$_', '@',  'call',       '&infix:<P5.>' ],
         'open',    [ '',   '*@', '',           '',              'callmethod', 'P5open' ],

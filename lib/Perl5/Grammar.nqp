@@ -2050,6 +2050,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'chr',    '$',
         'int',    '$',
         'ord',    '$',
+        'ref',    '$',
         'time',   '',
         'not',    '@',
         'unpack', '$@',

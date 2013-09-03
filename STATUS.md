@@ -130,6 +130,96 @@ Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br /
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
+Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
@@ -142,21 +232,21 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:225<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:217<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:225<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:217<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:225<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:217<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:225<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:217<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:225<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:217<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:225<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:225<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:217<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:217<br />
 Use of uninitialized value in string  in sub P5warn at lib/Perl5/Terms.pm:8<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -220,8 +310,8 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:914<br />
-use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:914<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:916<br />
+use of uninitialized value of type Any in numeric context  in block  at lib/Perl5/Terms.pm:916<br />
 <br />  40 skipped: cannot compare native byteorder with big-/little-endian<br />
    2 skipped: (EBCDIC and) version strings are bad idea<br />
    4 skipped: Not for EBCDIC<br />
@@ -237,35 +327,35 @@ use of uninitialized value of type Any in numeric context  in block  at lib/Perl
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x-d37499654261fdb) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:344<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:346<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x-6b5d7169f7a1fa0f) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:346<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -451,7 +541,7 @@ Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29
 Malformed UTF-8 string<br />
   in sub QX at src/gen/CORE.setting:759<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/./test.pl:28<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/./test.pl:105<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/./test.pl:104<br />
   in block  at t/spec/op/concat2.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
@@ -466,7 +556,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at src/gen/CORE.setting:11569<br />
-  in sub bless at lib/Perl5/Terms.pm:1004<br />
+  in sub bless at lib/Perl5/Terms.pm:1006<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -477,7 +567,7 @@ current instr.: 'print_exception' pc 112286 (src/gen/CORE.setting.pir:48712) (sr
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at src/gen/CORE.setting:11569<br />
-  in sub bless at lib/Perl5/Terms.pm:1004<br />
+  in sub bless at lib/Perl5/Terms.pm:1006<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -1673,9 +1763,17 @@ at t/spec/op/yadayada.v5:16<br />
     Redeclaration of symbol $flile<br />
     at t/spec/re/qr.v5:82<br />
     ------&gt;  tie my $flile⏏, "qrBug";<br />
-Too many positional parameters passed; got 3 but expected 1<br />
-  in sub ref at lib/Perl5/Terms.pm:142<br />
-  in block  at t/spec/re/qr.v5:14<br />
+No such symbol '&amp;tie'<br />
+  in method &lt;anon&gt; at src/gen/CORE.setting:11566<br />
+  in any  at src/gen/Metamodel.nqp:2671<br />
+  in any find_method_fallback at src/gen/Metamodel.nqp:2659<br />
+  in any find_method at src/gen/Metamodel.nqp:946<br />
+  in block  at t/spec/re/qr.v5:82<br />
+  in method reify at src/gen/CORE.setting:6885<br />
+  in method reify at src/gen/CORE.setting:6780<br />
+  in method gimme at src/gen/CORE.setting:7213<br />
+  in method sink at src/gen/CORE.setting:7623<br />
+  in block  at t/spec/re/qr.v5:57<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;F'<br />
@@ -2389,7 +2487,7 @@ at t/spec/run/cloexec.v5:53<br />
         <tr><td colspan='5'>Cannot call 'AUTOGEN'; none of these signatures match:<br />
 :(Capture:D : Mu *%_)<br />
   in method AUTOGEN at src/gen/CORE.setting:510<br />
-  in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:172<br />
+  in sub prefix:&lt;P5.&gt; at lib/Perl5/Terms.pm:164<br />
   in block  at t/spec/op/args.v5:18<br />
   in method reify at src/gen/CORE.setting:6885<br />
   in method reify at src/gen/CORE.setting:6780<br />

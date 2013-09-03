@@ -108,6 +108,8 @@ sub EXPORT(|) {
     %ex
 }
 
+sub fail($a?) is export { use Test; ::('&flunk')( $a // '' ) }
+
 multi sub chop()          is export { chop(CALLER::DYNAMIC::<$_>) }
 multi sub chop(*@s is rw) is export {
     my $chopped_of = '';
@@ -137,16 +139,6 @@ multi sub chomp(*@s is rw) is export {
         }
     }
     $nr_chomped
-}
-
-sub ref(\o) is export {
-    my $name = o ~~ Cool ?? '' !! o.^name.uc;
-    if $name eq 'SUB' {
-        'CODE'
-    }
-    else {
-        $name
-    }
 }
 
 sub exists( \a ) is export { a:exists ?? 1 !! '' }
@@ -275,6 +267,7 @@ sub _P5do( $file ) is hidden_from_backtrace {
 
 augment class Mu {
     method P5Bool(Mu:) { '' }
+    method P5ref(Mu:) { '' }
 }
 
 augment class Any {
@@ -314,6 +307,15 @@ augment class Any {
     }
 
     method P5close(\SELF:) { SELF && SELF.close }
+    method P5ref(\SELF:) {
+        my $name = SELF ~~ Cool ?? '' !! SELF.^name.uc;
+        if $name eq 'SUB' {
+            'CODE'
+        }
+        else {
+            $name
+        }
+    }
 }
 
 augment class IO::Handle { }
