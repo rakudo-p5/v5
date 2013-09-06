@@ -658,22 +658,31 @@ augment class Str {
     }
     multi method P5pack(*@items) is hidden_from_backtrace {
         my @bytes;
+        my $pos = 0;
         my $amount;
+        sub next_item {
+            my $item = +@items > $pos ?? @items[$pos] !! '';
+            $pos++;
+            $item
+        }
         sub loop( Callable $c ) {
             my $items = $c.signature.count;
             $amount  /= $items;
-            @bytes.push: $c( |@items.splice(0, $items) ) for ^$amount;
+            for ^$amount {
+                @bytes.push: $c( |@items[$pos ..^ ($pos + $items)] );
+                $pos += $items
+            }
         }
         
         for self.subst(/\#\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
             $amount       = $unit.substr(1);
-            $amount       = @items.elems if $amount eq '*';
-            $amount       = 1            if $amount eq '';
+            $amount       = +@items - $pos if $amount eq '*';
+            $amount       = 1              if $amount eq '';
 
             given $directive {
                 when 'a' { # distinguish between Str and utf8
-                    my $binary = +@items ?? shift @items !! '';
+                    my $binary = next_item;
                     for $binary.comb -> $char {
                         @bytes.push: ord($char);
                     }
@@ -682,7 +691,7 @@ augment class Str {
                     }
                 }
                 when 'A' {
-                    my $ascii = +@items ?? shift @items !! '';
+                    my $ascii = next_item;
                     for $ascii.comb -> $char {
                         X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
                         @bytes.push: ord($char);
@@ -692,7 +701,7 @@ augment class Str {
                     }
                 }
                 when 'Z' {
-                    my $ascii = +@items ?? shift @items !! '';
+                    my $ascii = next_item;
                     for $ascii.comb -> $char {
                         X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
                         @bytes.push: ord($char);
@@ -702,7 +711,7 @@ augment class Str {
                     }
                 }
                 when 'H' {
-                    my $hexstring = +@items ?? shift @items !! '';
+                    my $hexstring = next_item;
                     if $hexstring % 2 {
                         $hexstring ~= '0';
                     }
@@ -777,6 +786,9 @@ augment class Str {
                             &prefix:<P5+>($a).chr.encode.list.flat
                         } );
                 }
+                when 'X' {
+                    $pos ?? @bytes.pop !! die "'X' outside of string";
+                }
                 P5die ~X::Buf::Pack.new(:$directive);
             }
         }
@@ -795,24 +807,30 @@ augment class Str {
     }
     multi method P5unpack(Str:D: Blob $string) {
         my @bytes = $string.list;
+        my $pos   = 0;
         my $amount;
         my @fields;
-        sub next_byte { +@bytes ?? shift(@bytes) !! 0 }
+        sub next_byte {
+            my $byte = +@bytes > $pos ?? @bytes[$pos] !! 0;
+            $pos++;
+            $byte
+        }
         sub loop( Callable $c ) {
             my $bytes = $c.signature.count;
             $amount  /= $bytes;
             for ^$amount {
-                my @args = @bytes.splice(0, $bytes);
+                my @args = @bytes[$pos ..^ ($pos + $bytes)];
                 if [&&] @args>>.defined {
                     @fields.push: $c( |@args );
                 }
+                $pos += $bytes;
             }
         }
         for self.subst(/\#\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
             $amount       = $unit.substr(1);
-            $amount       = @bytes.elems if $amount eq '*';
-            $amount       = 1            if $amount eq '';
+            $amount       = +@bytes - $pos if $amount eq '*';
+            $amount       = 1              if $amount eq '';
 
             given $directive {
                 when 'a' | 'A' | 'Z' {
@@ -822,7 +840,7 @@ augment class Str {
                 }
                 when 'H' {
                     my $hexstring;
-                    while @bytes {
+                    while +@bytes > $pos {
                         my $byte = next_byte;
                         $hexstring ~= ($byte +> 4).fmt('%x')
                                     ~ ($byte % 16).fmt('%x');
@@ -913,26 +931,30 @@ augment class Str {
                 when 'U' {
                     my $shifted = 0;
                     while $shifted < $amount {
-                        if @bytes[0] +> 7 == 0 {
-                            @fields.push: utf8.new( next_byte ).decode.ord;
+                        my $byte = next_byte;
+                        if $byte +> 7 == 0 {
+                            @fields.push: utf8.new( $byte ).decode.ord;
                             $shifted++;
                         }
-                        elsif @bytes[0] +> 5 == 0b110 {
-                            @fields.push: utf8.new( next_byte, next_byte ).decode.ord;
+                        elsif $byte +> 5 == 0b110 {
+                            @fields.push: utf8.new( $byte, next_byte ).decode.ord;
                             $shifted += 2;
                         }
-                        elsif @bytes[0] +> 4 == 0b1110 {
-                            @fields.push: utf8.new( next_byte, next_byte, next_byte ).decode.ord;
+                        elsif $byte +> 4 == 0b1110 {
+                            @fields.push: utf8.new( $byte, next_byte, next_byte ).decode.ord;
                             $shifted += 3;
                         }
-                        elsif @bytes[0] +> 3 == 0b11110 {
-                            @fields.push: utf8.new( next_byte, next_byte, next_byte, next_byte ).decode.ord;
+                        elsif $byte +> 3 == 0b11110 {
+                            @fields.push: utf8.new( $byte, next_byte, next_byte, next_byte ).decode.ord;
                             $shifted += 4;
                         }
                         else {
-                            P5die "Cannot unpack byte '" ~ sprintf('%#x', @bytes[0]) ~ "' using directive 'U'";
+                            P5die "Cannot unpack byte '" ~ sprintf('%#x', $byte) ~ "' using directive 'U'";
                         }
                     }
+                }
+                when 'X' {
+                    $pos ?? $pos-- !! die "'X' outside of string";
                 }
                 P5die ~X::Buf::Pack.new(:$directive);
             }
