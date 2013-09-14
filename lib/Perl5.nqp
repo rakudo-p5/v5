@@ -2,6 +2,10 @@ use Perl6::Grammar;
 use Perl5::Grammar;
 
 sub EXPORT(*@a) {
+    Perl5::Grammar.HOW.trace-on(Perl5::Grammar)           if nqp::getenvhash()<V5TRACE> eq 'Perl5::Grammar';
+    Perl5::QGrammar.HOW.trace-on(Perl5::QGrammar)         if nqp::getenvhash()<V5TRACE> eq 'Perl5::QGrammar';
+    Perl5::RegexGrammar.HOW.trace-on(Perl5::RegexGrammar) if nqp::getenvhash()<V5TRACE> eq 'Perl5::RegexGrammar';
+    
     %*LANG<Perl5>           := Perl5::Grammar;
     %*LANG<Perl5-actions>   := Perl5::Actions;
     %*LANG<P5Q>             := Perl5::QGrammar;
