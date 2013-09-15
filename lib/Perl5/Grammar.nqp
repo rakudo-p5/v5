@@ -967,7 +967,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     method import_EXPORTHOW($UNIT) {    
         # See if we've exported any HOWs.
         if nqp::existskey($UNIT, 'EXPORTHOW') {
-            for $UNIT<EXPORTHOW>.WHO {
+            for $*W.stash_hash($UNIT<EXPORTHOW>) {
                 %*HOW{$_.key} := nqp::decont($_.value);
             }
         }
@@ -1254,6 +1254,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my %*HOW  := self.shallow_copy(nqp::getlexdyn('%*HOW'));
         :my $*INVOCANT_OK := 0;
         :my $*FOR_VARIABLE := '';
+        {
+            my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
+            do_import($/, $terms, 'Perl5::Terms');
+            $/.CURSOR.import_EXPORTHOW($terms);
+        }
         :dba('statement list')
         :s
         [
@@ -1417,9 +1422,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $OLD_MAIN := ~$*MAIN;
         <sym> <.ws>
         [
-        || <versionish> [ <?{ ~$<versionish><version><vnum>[0] eq '6' }> {
-                            $*MAIN := 'MAIN';
-                        } ]?
+        || <versionish> [ <?{ ~$<versionish><version><vnum>[0] eq '6' }> { $*MAIN := 'MAIN' } || <?> ]
         || 'vars' <.ws>? <quote>
             {
                 my $vars := $*W.compile_time_evaluate($/, $<quote>.ast);
@@ -1493,7 +1496,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     sub do_import($/, $module, $package_source_name, $arglist?) {
         if nqp::existskey($module, 'EXPORT') {
-            my $EXPORT := $module<EXPORT>.WHO;
+            my $EXPORT := $*W.stash_hash($module<EXPORT>);
             my @to_import := ['MANDATORY'];
             my @positional_imports := [];
             if nqp::defined($arglist) {
@@ -1502,11 +1505,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                     if nqp::istype($tag, $Pair) {
                         $tag := nqp::unbox_s($tag.key);
                         if nqp::existskey($EXPORT, $tag) {
-                            $*W.import($/, $EXPORT{$tag}.WHO, $package_source_name);
+                            $*W.import($/, $*W.stash_hash($EXPORT{$tag}), $package_source_name);
                         }
                         else {
                             nqp::die("Error while importing from '$package_source_name': no such tag '$tag'");
-
                         }
                     }
                     else {
@@ -1519,7 +1521,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             }
             for @to_import -> $tag {
                 if nqp::existskey($EXPORT, $tag) {
-                    $*W.import($/, $EXPORT{$tag}.WHO, $package_source_name);
+                    $*W.import($/, $*W.stash_hash($EXPORT{$tag}), $package_source_name);
                 }
             }
             if nqp::existskey($module, '&EXPORT') {
