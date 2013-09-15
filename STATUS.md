@@ -322,35 +322,35 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:346<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x5da4d64153e093f2) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:346<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:346<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x4c4a8f72fb71ac37) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:346<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -3150,7 +3150,7 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/comp/utf.v5:45<br />
 ------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
 
-        <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.08-78-g92cda32 built on parrot 5.7.0 revision RELEASE_5_7_0-1-gc823d3e
+        <tr><td>nqp --version</td><td colspan='5'>This is nqp version 2013.08-80-g8ed7dad built on parrot 5.7.0 revision RELEASE_5_7_0-1-gc823d3e
 </td></tr>
         <tr><td>perl6 --version</td><td colspan='5'>This is perl6 version 2013.08-99-ga13cec9 built on parrot 5.7.0 revision RELEASE_5_7_0-1-gc823d3e
 </td></tr>

@@ -514,6 +514,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         self.SET_BLOCK_OUTER_CTX($*UNIT_OUTER);
     }
 
+    method slang($/) {
+        make $<statementlist>.ast
+    }
+
     method statementlist($/) {
         $V5DEBUG && say("statementlist($/)");
         my $past := QAST::Stmts.new( :node($/) );
