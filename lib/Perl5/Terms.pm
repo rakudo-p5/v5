@@ -894,7 +894,7 @@ augment class Str {
                     for ^$amount {
                         my $a = 0;
                         $a +|= next_byte() +< ($_ * 0x08) for ^$CONFIG_INTSIZE;
-                        $a -= 2 ** (8 * %Config<intsize>) if $a >= (2 ** (8 * $CONFIG_INTSIZE)) / 2;
+                        $a -= 2 ** (8 * $CONFIG_INTSIZE) if $a >= (2 ** (8 * $CONFIG_INTSIZE)) / 2;
                         @fields.push($a)
                     }
                 }
