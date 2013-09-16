@@ -15,7 +15,7 @@ HAS_ICU    = 0
 #       as the goal is that all tests must pass without fudge
 HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(HAS_ICU)
 
-all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc
+all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc blib/Perl5/ModuleLoader.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp

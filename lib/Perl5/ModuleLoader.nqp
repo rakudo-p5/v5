@@ -1,9 +1,19 @@
 
 use Perl6::ModuleLoader;
 
-class Perl5::ModuleLoader {
-    my %modules_loaded := Perl6::ModuleLoader.modules_loaded();
+my $V5MLDEBUG := +nqp::getenvhash()<V5MLDEBUG>;
+
+class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+    my %modules_loaded;
+
+    method ctxsave() {
+        $V5MLDEBUG && say("Perl5::ModuleLoader.ctxsave()");
+        $*MAIN_CTX := nqp::ctxcaller(nqp::ctx());
+        $*CTXSAVE := 0;
+    }
+    
     method search_path(%opts) {
+        $V5MLDEBUG && say("Perl5::ModuleLoader.search_path(" ~ dump_hash(%opts) ~ ")");
         # See if we have an @*INC set up, and if so just use that.
         my $PROCESS := nqp::gethllsym('perl6', 'PROCESS');
         
@@ -45,11 +55,12 @@ class Perl5::ModuleLoader {
         @search_paths
     }
     
-    method load_module($module_name, %opts, *@GLOBALish, :$line, :$file?) {
+    method load_module($module_name, %opts, *@GLOBALish, :$line, :$file) {
+        $V5MLDEBUG && say("Perl5::ModuleLoader.load_module($module_name, " ~ dump_hash(%opts) ~ ", +\@GLOBALish=" ~  +@GLOBALish ~ ", :\$line=$line, :\$file=$file)");
         # Locate all the things that we potentially could load. Choose
         # the first one for now (XXX need to filter by version and auth).
-        my @prefixes   := self.search_path(%opts);
-        my @candidates := Perl6::ModuleLoader.locate_candidates($module_name, @prefixes, :$file);
+        my @prefixes   := self.search_path( %opts );
+        my @candidates := self.locate_candidates($module_name, @prefixes, :$file);
         if +@candidates == 0 {
             if nqp::defined($file) {
                 nqp::die("Could not find file '$file' for module $module_name");
@@ -132,7 +143,6 @@ class Perl5::ModuleLoader {
                 my $*MAIN_CTX;
                 $eval();
                 %modules_loaded{%chosen<key>} := $module_ctx := $*MAIN_CTX;
-
             }
             nqp::bindhllsym('perl6', 'GLOBAL', $preserve_global);
             CATCH {
@@ -155,6 +165,79 @@ class Perl5::ModuleLoader {
         else {
             return {};
         }
+    }
+
+    # This is a first cut of the globals merger. For another approach,
+    # see sorear++'s work in Niecza. That one is likely more "pure"
+    # than this, but that would seem to involve copying too, and the
+    # details of exactly what that entails are a bit hazy to me at the
+    # moment. We'll see how far this takes us.
+    my $stub_how := 'Perl6::Metamodel::PackageHOW';
+    sub merge_globals($target, $source) {
+        $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals(\$target, \$source)");
+        # Start off merging top-level symbols. Easy when there's no
+        # overlap. Otherwise, we need to recurse.
+        my %known_symbols;
+        for stash_hash($target) {
+            %known_symbols{$_.key} := 1;
+            $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: %known_symbols<{$_.key}> := 1;");
+        }
+        for stash_hash($source) {
+            my $sym := $_.key;
+            if !%known_symbols{$sym} {
+                ($target.WHO){$sym} := $_.value;
+                $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: (\$target.WHO)<{$sym}> := \$_.value;");
+            }
+            elsif ($target.WHO){$sym} =:= $_.value {
+                # No problemo; a symbol can't conflict with itself.
+            }
+            else {
+                my $source_mo := $_.value.HOW;
+                my $source_is_stub := $source_mo.HOW.name($source_mo) eq $stub_how;
+                my $target_mo := ($target.WHO){$sym}.HOW;
+                my $target_is_stub := $target_mo.HOW.name($target_mo) eq $stub_how;
+                if $source_is_stub && $target_is_stub {
+                    # Both stubs. We can safely merge the symbols from
+                    # the source into the target that's importing them.
+                    $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: merge_globals((\$target.WHO)<{$sym}>, \$_.value);");
+                    merge_globals(($target.WHO){$sym}, $_.value);
+                }
+                elsif $source_is_stub {
+                    # The target has a real package, but the source is a
+                    # stub. Also fine to merge source symbols into target.
+                    $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: merge_globals((\$target.WHO)<{$sym}>, \$_.value);");
+                    merge_globals(($target.WHO){$sym}, $_.value);
+                }
+                elsif $target_is_stub {
+                    # The tricky case: here the interesting package is the
+                    # one in the module. So we merge the other way around
+                    # and install that as the result.
+                    $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: merge_globals(\$_.value, (\$target.WHO)<$sym>);");
+                    merge_globals($_.value, ($target.WHO){$sym});
+                    ($target.WHO){$sym} := $_.value;
+                    $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: (\$target.WHO)<{$sym}> := \$_.value;");
+                }
+                else {
+                    nqp::die("Merging GLOBAL symbols failed: duplicate definition of symbol $sym");
+                }
+            }
+        }
+    }
+    
+    sub stash_hash($pkg) {
+        my $hash := $pkg.WHO;
+        unless nqp::ishash($hash) {
+            $hash := $hash.FLATTENABLE_HASH();
+        }
+        $hash
+    }
+
+    sub dump_hash($hash) {
+        my $dump := '{ ';
+        for $hash {
+            $dump := $dump ~ $_.key ~ ' => ' ~ $_.value ~ ' ';
+        }
+        $dump ~ '}'
     }
 }
 

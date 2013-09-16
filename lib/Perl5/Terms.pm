@@ -1,4 +1,6 @@
 
+use v6.0.0;
+
 my %SIG;
 
 use Perl5::warnings ();
@@ -14,6 +16,8 @@ sub P5die (:$cat, *@a) is hidden_from_backtrace {
     }
 }
 
+# We can't use modules here which will be exposed to user land. So we turn it around.
+my $CONFIG_INTSIZE         = 4;
 my $INPUT_RECORD_SEPARATOR = "\n";
 my $SUBSCRIPT_SEPARATOR    = chr(28);
 my $VERSION_MAJOR          = 5;  # well, we have to say something
@@ -104,6 +108,7 @@ sub EXPORT(|) {
     # So we need an accessor, the grammar token '$/' can use, and a way to support the English module.
     # I choosed $*-vars, because they can't be used from Perl5 directly because of its grammar.
     %ex<$*INPUT_RECORD_SEPARATOR> := $INPUT_RECORD_SEPARATOR;
+    %ex<$*CONFIG_INTSIZE>         := $CONFIG_INTSIZE;
 
     %ex
 }
@@ -244,7 +249,6 @@ multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
 }
 
-use Perl5::Config;
 use MONKEY_TYPING;
 
 sub _P5do( $file ) is hidden_from_backtrace {
@@ -755,7 +759,7 @@ augment class Str {
                     loop( -> $a is copy {
                             $a = &prefix:<P5+>($a);
                             my @b;
-                            @b.push( ($a +> ($_ * 0x08)) % 0x100 ) for ^%Config<intsize>;
+                            @b.push( ($a +> ($_ * 0x08)) % 0x100 ) for ^$CONFIG_INTSIZE;
                             @b
                         } );
                 }
@@ -889,8 +893,8 @@ augment class Str {
                 when 'i' {
                     for ^$amount {
                         my $a = 0;
-                        $a +|= next_byte() +< ($_ * 0x08) for ^%Config<intsize>;
-                        $a -= 2 ** (8 * %Config<intsize>) if $a >= (2 ** (8 * %Config<intsize>)) / 2;
+                        $a +|= next_byte() +< ($_ * 0x08) for ^$CONFIG_INTSIZE;
+                        $a -= 2 ** (8 * %Config<intsize>) if $a >= (2 ** (8 * $CONFIG_INTSIZE)) / 2;
                         @fields.push($a)
                     }
                 }
@@ -898,7 +902,7 @@ augment class Str {
                 when 'I' {
                     for ^$amount {
                         my $a = 0;
-                        for ^%Config<intsize> { # usually 4 or 8
+                        for ^$CONFIG_INTSIZE { # usually 4 or 8
                             $a +|= next_byte() +< ($_ * 0x08);
                         }
                         @fields.push($a)

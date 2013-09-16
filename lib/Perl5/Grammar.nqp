@@ -1460,9 +1460,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         || <module_name> <version=versionish>?
             [ <.spacey> <arglist> <?{ $<arglist><arg>[0]<EXPR> }> ]?
             {
-                my $longname := ~$<module_name><longname>;
+                my $longname := $<module_name><longname>;
+                my $lnd      := $*W.dissect_longname($longname);
+                my $name     := $lnd.name;
                 my $arglist;
-                
+
                 if $<arglist><arg>[0]<EXPR> {
                     $arglist := $*W.compile_time_evaluate($/,
                             $<arglist><arg>[0]<EXPR>.ast);
@@ -1470,15 +1472,15 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                             $*W.find_symbol(['List']), '$!items');
                 }
                 
-                if nqp::existskey(%pragma_defaults, $longname) {
-                    $arglist := %pragma_defaults{$longname} unless $<arglist><arg>[0]<EXPR>;
-                    self.pragma($longname, $arglist, 1);
-                    $longname := '' unless $longname eq 'warnings';
+                if nqp::existskey(%pragma_defaults, $name) {
+                    $arglist := %pragma_defaults{$name} unless $<arglist><arg>[0]<EXPR>;
+                    self.pragma($name, $arglist, 1);
+                    $name := '' unless $name eq 'warnings';
                 }
                 
-                if $longname {
-                    my $module := $*W.load_module($/, $longname, nqp::hash( 'from', 'Perl5' ), $*GLOBALish);
-                    do_import($/, $module, $longname, $arglist);
+                if $name {
+                    my $module := $*W.load_module($/, $name, nqp::hash( 'from', 'Perl5' ), $*GLOBALish);
+                    do_import($/, $module, $name, $arglist);
                     $/.CURSOR.import_EXPORTHOW($module);
                 }
             }

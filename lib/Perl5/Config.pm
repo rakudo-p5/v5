@@ -2,6 +2,8 @@
 use v6.0.0;
 
 sub EXPORT(|) {
+    use Perl5::Terms;
+
     my %ex;
     %ex<%Config> = {
         'Author' => '',
@@ -1138,5 +1140,6 @@ sub EXPORT(|) {
         'git_uncommitted_changes' => '',
         'git_commit_id_title' => ''
     };
+    %ex<intsize> := $*CONFIG_INTSZIE;
     %ex
 }

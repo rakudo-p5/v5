@@ -1,5 +1,6 @@
 use Perl6::Grammar;
 use Perl5::Grammar;
+use Perl5::ModuleLoader;
 
 sub EXPORT(*@a) {
     Perl5::Grammar.HOW.trace-on(Perl5::Grammar)           if nqp::getenvhash()<V5TRACE> eq 'Perl5::Grammar';
