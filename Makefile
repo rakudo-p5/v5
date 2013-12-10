@@ -1,7 +1,7 @@
-NQP        = nqp
+NQP        = nqp-p
 PARROT     = parrot
 PERL       = perl
-PERL6      = PERL6LIB=blib perl6
+PERL6      = PERL6LIB=blib perl6-p
 RM_F       = $(PERL) -MExtUtils::Command -e rm_f
 CP         = $(PERL) -MExtUtils::Command -e cp
 MKPATH     = $(PERL) -MExtUtils::Command -e mkpath
