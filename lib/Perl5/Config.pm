@@ -1140,6 +1140,6 @@ sub EXPORT(|) {
         'git_uncommitted_changes' => '',
         'git_commit_id_title' => ''
     };
-    %ex<intsize> := $*CONFIG_INTSZIE;
+    %ex<intsize> := $*CONFIG_INTSIZE;
     %ex
 }
