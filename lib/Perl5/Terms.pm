@@ -678,7 +678,7 @@ augment class Str {
             }
         }
         
-        for self.subst(/\#\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
+        for self.subst(/'#'\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
             $amount       = $unit.substr(1);
             $amount       = +@items - $pos if $amount eq '*';
@@ -830,7 +830,7 @@ augment class Str {
                 $pos += $bytes;
             }
         }
-        for self.subst(/\#\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
+        for self.subst(/'#'\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
             my $directive = $unit.substr(0, 1);
             $amount       = $unit.substr(1);
             $amount       = +@bytes - $pos if $amount eq '*';
