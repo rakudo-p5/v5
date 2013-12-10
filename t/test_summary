@@ -368,8 +368,8 @@ for ( reverse sort { $a <=> $b } keys %status_rows ) {
     print STATUS $status_rows{$_};
 }
 print STATUS "
-        <tr><td>nqp --version</td><td colspan='5'>" . `nqp --version` . "</td></tr>
-        <tr><td>perl6 --version</td><td colspan='5'>" . `perl6 --version` . "</td></tr>
+        <tr><td>nqp-p --version</td><td colspan='5'>" . `nqp-p --version` . "</td></tr>
+        <tr><td>perl6-p --version</td><td colspan='5'>" . `perl6-p --version` . "</td></tr>
     </tbody>\n</table>\n";
 close STATUS;
 File::Copy::move('STATUS.md.new', 'STATUS.md');
