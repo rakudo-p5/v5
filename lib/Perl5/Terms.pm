@@ -236,6 +236,7 @@ sub infix:<P5/=> (\a, \b)  is rw is export { a = &infix:<P5/>(a, b); a }
 sub infix:<P5.=> (\a, \b)  is rw is export { a = &infix:<P5.>(a, b); a }
 
 # g=, comma (left , =>)
+multi infix:«P5=>»(*@a) is export { @a }
 
 # e=, loose not (right not)
 multi prefix:<P5not> (*@a) is export { +@a ?? !([&&] map { $_.P5Bool }, @a) !! 1 }
@@ -286,6 +287,8 @@ augment class Any {
     method P5scalar(Any:) { '' }
     method P5ord(Str:) { 0 }
     method P5Bool(Any:) { '' }
+    
+    # XXX turn these methods into subs
     proto method postcircumfix:<P5[ ]>(|) { * }
     multi method postcircumfix:<P5[ ]>(\SELF:) { self.list }
     multi method postcircumfix:<P5[ ]>(\SELF: int $pos) is rw {
