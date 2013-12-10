@@ -631,18 +631,22 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         ]?
     }
 
-    token ws {
+    method ws() {
+        if self.MARKED('ws') {
+            self
+        }
+        else {
+            self._ws()
+        }
+    }
+    token _ws {
         :my $old_highexpect := self.'!fresh_highexpect'();
         :dba('whitespace')
         [
-        ||  <?MARKED('ws')>
-        ||  <!ww>
-            [
-            | <.vws> <.heredoc>
-            | <.unv>
-            ]*
-            <?MARKER('ws')>
-        ]
+        | <.vws> <.heredoc>
+        | <.unv>
+        ]*
+        <?MARKER('ws')>
         :my $stub := self.'!set_highexpect'($old_highexpect);
     }
 
@@ -1233,30 +1237,37 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | '{YOU_ARE_HERE}' <you_are_here>
         | :dba('block') '{' ~ '}' <statementlist> <?ENDSTMT>
         | <?terminator> { $*W.throw($/, 'X::Syntax::Missing', what =>'block') }
-        | <?> <.panic: "Malformed block">
+        | <?> { $*W.throw($/, 'X::Syntax::Missing', what => 'block') }
         ]
         { $*CURPAD := $*W.pop_lexpad() }
     }
 
-    token slang {
+    #~ token slang {
+        #~ :my %*LANG    := self.shallow_copy(nqp::getlexdyn('%*LANG'));
+        #~ :my %*HOW     := self.shallow_copy(nqp::getlexdyn('%*HOW'));
+        #~ :my $*IN_DECL := '';
+        #~ :my $*SCOPE   := '';
+        #~ {
+            #~ my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
+            #~ do_import($/, $terms, 'Perl5::Terms');
+            #~ $/.CURSOR.import_EXPORTHOW($terms);
+        #~ }
+        #~ <statementlist>
+    #~ }
+
+    # statement semantics
+    rule statementlist {
         :my %*LANG    := self.shallow_copy(nqp::getlexdyn('%*LANG'));
         :my %*HOW     := self.shallow_copy(nqp::getlexdyn('%*HOW'));
-        :my $*IN_DECL := '';
-        :my $*SCOPE   := '';
+        :my $*INVOCANT_OK := 0;
+        :my $*FOR_VARIABLE := '';
         {
             my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
             do_import($/, $terms, 'Perl5::Terms');
             $/.CURSOR.import_EXPORTHOW($terms);
         }
-        <statementlist>
-    }
-
-    # statement semantics
-    token statementlist {
-        :my $*INVOCANT_OK := 0;
-        :my $*FOR_VARIABLE := '';
         :dba('statement list')
-        :s
+        ''
         [
         | $
         | <?before <[\)\]\}]>>
@@ -1664,10 +1675,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    rule statement_mod_loop:sym<until> {<sym> <modifier_expr> }
 #    rule statement_mod_loop:sym<for>   {<sym> <modifier_expr> }
 #    rule statement_mod_loop:sym<given> {<sym> <modifier_expr> }
-    token statement_mod_loop:sym<while> { <sym> :s <smexpr=.EXPR> }
-    token statement_mod_loop:sym<until> { <sym> :s <smexpr=.EXPR> }
-    token statement_mod_loop:sym<for>   { <sym> 'each'? :s <smexpr=.EXPR> }
-    token statement_mod_loop:sym<given> { <sym> :s <smexpr=.EXPR> }
+    token statement_mod_loop:sym<while> { <sym> <.ws> <smexpr=.EXPR> }
+    token statement_mod_loop:sym<until> { <sym> <.ws> <smexpr=.EXPR> }
+    token statement_mod_loop:sym<for>   { <sym> 'each'? <.ws> <smexpr=.EXPR> }
+    token statement_mod_loop:sym<given> { <sym> <.ws> <smexpr=.EXPR> }
 
     ################
     # module names #
@@ -1871,7 +1882,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*DOC := $*DECLARATOR_DOCS;
         :my $*DOCEE;
 #        <.attach_docs>
-        
+        ''
         # Meta-object will live in here; also set default REPR (a trait
         # may override this, e.g. is repr('...')).
         :my $*PACKAGE;
@@ -2001,7 +2012,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     #rule routine_declarator:sym<sub>       { <sym> <routine_def> }
-    token routine_declarator:sym<sub>       { <sym> <.end_keyword> <routine_def> }
+    token routine_declarator:sym<sub>       { <sym> <.end_keyword> <.ws> <routine_def> }
 
     rule parensig {
         :dba('signature')
@@ -2803,8 +2814,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <.ws>
     }
 
-    rule statement_prefix:sym<do>      {<sym> [ <?[{]> <block> | <EXPR('q=')> ] }
-    rule statement_prefix:sym<eval>    {<sym> <block> }
+    rule statement_prefix:sym<do>   { <sym> [ <?[{]> <block> | <EXPR('q=')> ] }
+    rule statement_prefix:sym<eval> { <sym> <.ws> <block> }
 
     #########
     # Terms #
