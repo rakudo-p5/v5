@@ -1549,8 +1549,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method fatarrow($/) {
         $V5DEBUG && say("fatarrow($/)");
-        #~ make make_pair($<key>.Str, $<val>.ast);
-        make QAST::Op.new( :op('call'), :name('&infix:<,>'),  QAST::SVal.new(:value($<key>.Str)), $<val>.ast);
+        make QAST::Op.new( :op('call'), :name('&infix:<P5=>>'),  $*W.add_string_constant($<key>.Str), $<val>.ast);
     }
     
     method coloncircumfix($/) {
@@ -1559,17 +1558,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
             ?? $<circumfix>.ast
             !! QAST::Var.new( :name('Nil'), :scope('lexical') );
     }
-
-#    method colonpair($/) {
-#        make make_pair($*key, QAST::Op.new(
-#            :op('p6bool'),
-#            QAST::IVal.new( :value($*value) ) 
-#        ));
-#    }
-    
-#    method colonpair_variable($/) {
-#        make make_variable($/, [~$/]);
-#    }
 
     sub make_pair($key_str, $value) {
         $V5DEBUG && say("make_pair($key_str, $value)");
@@ -1595,7 +1583,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $past;
         if $<index> {
             $past := QAST::Op.new( :op('call'), :name('&prefix:<P5.>'),
-                QAST::Op.new( :op('callmethod'), :name('postcircumfix:<[ ]>'),
+                QAST::Op.new( :op('callmethod'), :name('postcircumfix:<P5[ ]>'),
                 QAST::Var.new(:name('$/'), :scope('lexical')),
                 $*W.add_constant('Int', 'int', +$<index> - 1),
             ) );
@@ -4348,7 +4336,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         else {
             my $last := $past[ $size - 1 ];
             $past.returns($last.returns);
-            if nqp::defined($last.arity) {
+            if nqp::istype($last, QAST::Block) {
                 $past.arity($last.arity);
             }
         }
@@ -4395,7 +4383,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $elem := $elem[0];
             }
             if $elem ~~ QAST::Op
-                    && (istype($elem.returns, $Pair) || $elem.name eq '&infix:<=>>') {
+                    && (istype($elem.returns, $Pair) || $elem.name eq '&infix:<=>>'
+                                                     || $elem.name eq '&infix:<P5=>>') {
                 # first item is a pair
                 $is_hash := 1;
             }
@@ -4405,14 +4394,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $is_hash := 1;
             }
         }
-        if $is_hash {
-            for $past<past_block>.symtable() {
-                my $sym := $_.key;
-                if $sym ne '$_' && $sym ne '$*DISPATCHER' {
-                    $is_hash := 0;
-                }
-            }
-        }
+        #~ if $is_hash {
+            #~ for $past<past_block>.symtable() {
+                #~ if $sym ne '$_' && $sym ne '$*DISPATCHER' {
+                    #~ $is_hash := 0;
+                #~ }
+            #~ }
+        #~ }
         if $is_hash && $past<past_block>.arity == 0 {
             my @children := @($past<past_block>[1]);
             $past := QAST::Op.new(
@@ -4508,7 +4496,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             '--',    '&postfix:<P5-->',
         ),
         'LIST', nqp::hash(
-           '=>',  '&infix:<,>',
+           '=>',  '&infix:<P5=>>',
         ),
     );
     method EXPR($/, $key?) {
@@ -4731,14 +4719,14 @@ class Perl5::Actions is HLL::Actions does STDActions {
             make QAST::Op.new( :op('bind'), $target, $source );
         }
         elsif $target.isa(QAST::Op) && $target.op eq 'hllize' &&
-                $target[0].isa(QAST::Op) && $target[0].op eq 'callmethod' &&
-                ($target[0].name eq 'postcircumfix:<[ ]>' || $target[0].name eq 'postcircumfix:<{ }>') {
+                $target[0].isa(QAST::Op) && $target[0].op eq 'call' &&
+                ($target[0].name eq '&postcircumfix:<[ ]>' || $target[0].name eq '&postcircumfix:<{ }>') {
             $source.named('BIND');
             $target[0].push($source);
             make $target;
         }
-        elsif $target.isa(QAST::Op) && $target.op eq 'callmethod' &&
-              ($target.name eq 'postcircumfix:<[ ]>' || $target.name eq 'postcircumfix:<{ }>') {
+        elsif $target.isa(QAST::Op) && $target.op eq 'call' &&
+              ($target.name eq '&postcircumfix:<[ ]>' || $target.name eq '&postcircumfix:<{ }>') {
             $source.named('BIND');
             $target.push($source);
             make $target;
@@ -5022,7 +5010,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym<{ }>($/) {
         $V5DEBUG && say("postcircumfix:sym<\{ }>($/)");
-        my $past := QAST::Op.new( :name('postcircumfix:<{ }>'), :op('callmethod'), :node($/) );
+        my $past := QAST::Op.new( :name('&postcircumfix:<{ }>'), :op('call'), :node($/) );
         if $<nibble> {
             $past.push( QAST::Op.new( :name('Stringy'), :op('callmethod'), :node($/), $<nibble>.ast ) );
         }
@@ -5042,7 +5030,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym<ang>($/) {
         $V5DEBUG && say("postcircumfix:sym<ang>($/)");
-        my $past := QAST::Op.new( :name('postcircumfix:<{ }>'), :op('callmethod'), :node($/) );
+        my $past := QAST::Op.new( :name('&postcircumfix:<{ }>'), :op('call'), :node($/) );
         my $nib  := $<nibble>.ast;
         $past.push($nib)
             unless nqp::istype($nib, QAST::Stmts) && nqp::istype($nib[0], QAST::Op) &&
@@ -5052,7 +5040,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym«<< >>»($/) {
         $V5DEBUG && say("postcircumfix:sym«<< >>»($/)");
-        my $past := QAST::Op.new( :name('postcircumfix:<{ }>'), :op('callmethod'), :node($/) );
+        my $past := QAST::Op.new( :name('&postcircumfix:<{ }>'), :op('call'), :node($/) );
         my $nib  := $<nibble>.ast;
         $past.push($nib)
             unless nqp::istype($nib, QAST::Stmts) && nqp::istype($nib[0], QAST::Op) &&
@@ -5062,7 +5050,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym<« »>($/) {
         $V5DEBUG && say("postcircumfix:sym<« »>($/)");
-        my $past := QAST::Op.new( :name('postcircumfix:<{ }>'), :op('callmethod'), :node($/) );
+        my $past := QAST::Op.new( :name('&postcircumfix:<{ }>'), :op('call'), :node($/) );
         my $nib  := $<nibble>.ast;
         $past.push($nib)
             unless nqp::istype($nib, QAST::Stmts) && nqp::istype($nib[0], QAST::Op) &&
