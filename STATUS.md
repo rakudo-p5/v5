@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>4573</td><td>35518</td><td>4</td><td>707</td><td>40793</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>4579</td><td>35514</td><td>4</td><td>707</td><td>40793</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2065</td><td>11962</td><td>0</td><td>677</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -124,35 +124,35 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:353<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x1402962bfb84d049) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:353<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:353<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:353<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -262,6 +262,29 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-anon-sub.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>4</td><td>37</td><td>0</td><td>0</td><td>41</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $u<br />
+    at t/spec/op/length.v5:176<br />
+    ------&gt; my $u⏏;<br />
+Cannot use a Buf as a string, but you called the chars method on it<br />
+  in method chars at gen/parrot/CORE.setting:5024<br />
+  in block  at t/spec/op/length.v5:40<br />
+  in method reify at gen/parrot/CORE.setting:7248<br />
+  in method reify at gen/parrot/CORE.setting:7143<br />
+  in method gimme at gen/parrot/CORE.setting:7571<br />
+  in method sink at gen/parrot/CORE.setting:7981<br />
+  in block  at t/spec/op/length.v5:20<br />
+  in any  at t/spec/op/length.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -378,6 +401,31 @@ Useless use of constant integer 42 in sink context (line 15)<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;pos'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/re/overload.v5:30<br />
+  in method reify at gen/parrot/CORE.setting:7248<br />
+  in method reify at gen/parrot/CORE.setting:7143<br />
+  in method gimme at gen/parrot/CORE.setting:7571<br />
+  in method sink at gen/parrot/CORE.setting:7981<br />
+  in block  at t/spec/re/overload.v5:1<br />
+  in any  at t/spec/re/overload.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+<br />   2 tests more than planned were run<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/setpgrpstack.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;setpgrp'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
@@ -429,6 +477,24 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 <br />   4 skipped: Can't open terminal '/dev/tty': <br />
    3 skipped: Can't open null device '/dev/null': <br />
    4 tests more than planned were run<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
+Malformed UTF-8 string<br />
+  in sub QX at gen/parrot/CORE.setting:737<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:28<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:104<br />
+  in block  at t/spec/op/concat2.v5:40<br />
+  in any  at t/spec/op/concat2.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
@@ -920,11 +986,6 @@ Preceding context expects a term, but found infix , instead<br />
 at t/spec/re/fold_grind.v5:4<br />
 ------&gt; binmode STDOUT,⏏ ":utf8";<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/overload.v5<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/re/overload.v5:19<br />
-------&gt;     use overload '""' =&gt; sub {$TAG}⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_advanced.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -2034,11 +2095,6 @@ at t/spec/io/iprefix.v5:22<br />
 Could not find Errno in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/concat2.v5<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/op/concat2.v5:28<br />
-------&gt; ; use overload '""' =&gt; sub { $_[0][0] } ⏏}</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/getpid.v5<br />
 Preceding context expects a term, but found infix &gt; instead<br />
@@ -2633,30 +2689,92 @@ Could not find Fcntl in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-de
 Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/c3_with_overload.v5<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/mro/c3_with_overload.v5:21<br />
-------&gt;                  fallback =&gt; 1⏏;</td></tr>
+        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
+  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
+  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
+  in block  at t/spec/mro/c3_with_overload.v5:7<br />
+  in any  at t/spec/mro/c3_with_overload.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/c3_with_overload_utf8.v5<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/mro/c3_with_overload_utf8.v5:21<br />
-------&gt;                  fallback =&gt; 1⏏;</td></tr>
+        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
+  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
+  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
+  in block  at t/spec/mro/c3_with_overload_utf8.v5:7<br />
+  in any  at t/spec/mro/c3_with_overload_utf8.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/overload_c3.v5<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/mro/overload_c3.v5:27<br />
-------&gt;                  fallback =&gt; 1⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/overload_c3.v5:38<br />
+  in any  at t/spec/mro/overload_c3.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/overload_c3_utf8.v5<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/mro/overload_c3_utf8.v5:30<br />
-------&gt;                  fallback =&gt; 1⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/overload_c3_utf8.v5:41<br />
+  in any  at t/spec/mro/overload_c3_utf8.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/overload_dfs.v5<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/mro/overload_dfs.v5:27<br />
-------&gt;                  fallback =&gt; 1⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/overload_dfs.v5:38<br />
+  in any  at t/spec/mro/overload_dfs.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/pkg_gen.v5<br />
 Variable '%Foo' is not declared<br />
@@ -3809,11 +3927,6 @@ Confused<br />
 at t/spec/op/avhv.v5:53<br />
 ------&gt; not_hash⏏($@);<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>0</td><td>41</td><td>0</td><td>0</td><td>41</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/op/length.v5:190<br />
-------&gt; use overload '""' =&gt; sub {return undef;}⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 CHECK FAILED:<br />
@@ -4248,15 +4361,12 @@ at t/spec/op/tie_fetch_count.v5:25<br />
 Could not find Tie::1 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/substr.v5<br />
 Lexical symbol '$a' is already bound to an outer symbol;<br />
 the implicit outer binding must be rewritten as OUTER::&lt;$a&gt;<br />
 before you can unambiguously declare a new '$a' in this scope<br />
 at t/spec/op/substr.v5:197<br />
-------&gt; my $a ⏏= 'zxcvbnm';<br />
-Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
-at t/spec/op/substr.v5:796<br />
-------&gt; &lt;BOL&gt;⏏}</td></tr>
+------&gt; my $a ⏏= 'zxcvbnm';</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_re_eval.v5<br />
 Variable '$a' is not declared<br />
@@ -4303,8 +4413,9 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/comp/utf.v5:45<br />
 ------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
 
-        <tr><td>nqp --version</td><td colspan='5'></td></tr>
-        <tr><td>perl6 --version</td><td colspan='5'>This is perl6 version 2013.11-35-g0bf3de5 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.11.1-64-g4da6c96 built on parrot 5.9.0 revision RELEASE_5_9_0
+</td></tr>
+        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-35-g0bf3de5 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
     </tbody>
 </table>

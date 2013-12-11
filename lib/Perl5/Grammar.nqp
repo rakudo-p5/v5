@@ -1242,30 +1242,23 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { $*CURPAD := $*W.pop_lexpad() }
     }
 
-    #~ token slang {
-        #~ :my %*LANG    := self.shallow_copy(nqp::getlexdyn('%*LANG'));
-        #~ :my %*HOW     := self.shallow_copy(nqp::getlexdyn('%*HOW'));
-        #~ :my $*IN_DECL := '';
-        #~ :my $*SCOPE   := '';
-        #~ {
-            #~ my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
-            #~ do_import($/, $terms, 'Perl5::Terms');
-            #~ $/.CURSOR.import_EXPORTHOW($terms);
-        #~ }
-        #~ <statementlist>
-    #~ }
-
-    # statement semantics
-    rule statementlist {
+    token slang {
         :my %*LANG    := self.shallow_copy(nqp::getlexdyn('%*LANG'));
         :my %*HOW     := self.shallow_copy(nqp::getlexdyn('%*HOW'));
-        :my $*INVOCANT_OK := 0;
-        :my $*FOR_VARIABLE := '';
+        :my $*IN_DECL := '';
+        :my $*SCOPE   := '';
         {
             my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
             do_import($/, $terms, 'Perl5::Terms');
             $/.CURSOR.import_EXPORTHOW($terms);
         }
+        <statementlist>
+    }
+
+    # statement semantics
+    rule statementlist {
+        :my $*INVOCANT_OK := 0;
+        :my $*FOR_VARIABLE := '';
         :dba('statement list')
         ''
         [
