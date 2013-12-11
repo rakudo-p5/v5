@@ -133,10 +133,8 @@ for my $tfile ( @tfiles ) {
     push @threads_todo, $tfile;
 }
 
-threads->create( \&test_single_file, shift(@threads_todo) );
-threads->create( \&test_single_file, shift(@threads_todo) );
-threads->create( \&test_single_file, shift(@threads_todo) );
-threads->create( \&test_single_file, shift(@threads_todo) );
+my $jobs = $ENV{TEST} || 1;
+threads->create( \&test_single_file, shift(@threads_todo) ) for 1..$jobs;
 
 $|    = 1;
 my $i = 0;
