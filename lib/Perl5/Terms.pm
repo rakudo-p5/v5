@@ -2,6 +2,8 @@
 use v6.0.0;
 
 my %SIG;
+my %STASH; # for ${^SOMETHING} style variables
+%STASH<CHILD_ERROR_NATIVE> = 0;
 
 use Perl5::warnings ();
 
@@ -109,6 +111,7 @@ sub EXPORT(|) {
     # I choosed $*-vars, because they can't be used from Perl5 directly because of its grammar.
     %ex<$*INPUT_RECORD_SEPARATOR> := $INPUT_RECORD_SEPARATOR;
     %ex<$*CONFIG_INTSIZE>         := $CONFIG_INTSIZE;
+    %ex<%*STASH>                  := %STASH;
 
     %ex
 }
@@ -152,6 +155,8 @@ sub exists( \a ) is export { a:exists ?? 1 !! '' }
 multi sub undef()         is export { Nil              }
 multi sub undef($a is rw) is export { undefine $a; Nil }
 
+# http://perldoc.perl.org/functions/system.html
+sub system(*@a) is export { shell(@a).status || '' }
 
 ### Operators by precedence
 

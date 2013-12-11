@@ -1487,11 +1487,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
     # ${^WIN32_SLOPPY_STAT}, ${^MATCH}, ${^PREMATCH}, ${^RE_DEBUG_FLAGS}, ${^RE_TRIE_MAXBUF},
-    # {^CHILD_ERROR_NATIVE}, ${^WARNING_BITS}, ${^ENCODING}, ${^GLOBAL_PHASE}, ${^OPEN},
+    # ${^CHILD_ERROR_NATIVE}, ${^WARNING_BITS}, ${^ENCODING}, ${^GLOBAL_PHASE}, ${^OPEN},
     # ${^TAINT}, ${^UNICODE}, ${^UTF8CACHE}, ${^UTF8LOCALE}
     method special_variable:sym<${^ }>($/) {
         $V5DEBUG && say("special_variable:sym<\$\{^ }>($/)");
-        make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
+        make QAST::Op.new( :op('call'), :name('&postcircumfix:<{ }>'),
+                QAST::Var.new( :name('%*STASH'), :scope('lexical') ),
+                QAST::SVal.new( :value(~$<text>) ) )
     }
 
     method special_variable:sym<::{ }>($/) {
