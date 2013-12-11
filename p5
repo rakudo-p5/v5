@@ -5,6 +5,6 @@ eval "perl -E '$@'" | perl -CSDL -E 'while(<>) { s/[\r\n]/\x{2424}/g; print }'
 echo
 
 echo -n "v5:    "
-eval "perl6 -e 'use v5; $@'" | perl -CSDL -E 'while(<>) { s/[\r\n]/\x{2424}/g; print }'
+eval "perl6-p -e 'use v5; $@'" | perl -CSDL -E 'while(<>) { s/[\r\n]/\x{2424}/g; print }'
 
 echo
