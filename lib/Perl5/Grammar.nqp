@@ -1088,6 +1088,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             $prec := '%autoincrement';
             $is_oper := 1;
         }
+        elsif $category eq 'postcircumfix' {
+            $prec := '%methodcall';
+            $is_oper := 1;
+        }
         elsif $category eq 'circumfix' {
             $is_oper := 0;
         }

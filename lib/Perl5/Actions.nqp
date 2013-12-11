@@ -1583,7 +1583,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $past;
         if $<index> {
             $past := QAST::Op.new( :op('call'), :name('&prefix:<P5.>'),
-                QAST::Op.new( :op('callmethod'), :name('postcircumfix:<P5[ ]>'),
+                QAST::Op.new( :op('call'), :name('&postcircumfix:<P5[ ]>'),
                 QAST::Var.new(:name('$/'), :scope('lexical')),
                 $*W.add_constant('Int', 'int', +$<index> - 1),
             ) );
@@ -4584,7 +4584,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         else {
             for $/.list { if $_.ast { $past.push($_.ast); } }
             if $past.isa(QAST::Op) && ($past.op eq 'if' || $past.op eq 'unless') {
-                $past[0] := QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'), $past[0] );
+                $past[0] := QAST::Op.new( :node($/), :op('call'), :name('&P5Bool'), $past[0] );
             }
         }
         if $past.op eq 'xor' {
@@ -4660,13 +4660,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
             # And finally evaluate to the smart-match result.
             QAST::Op.new( :op('if'),
-                QAST::Op.new( :op('callmethod'), :name('P5Bool'),
+                QAST::Op.new( :op('call'), :name('&P5Bool'),
                     QAST::Op.new( :op('callmethod'), :name('list'),
                         QAST::Var.new( :name($result_var), :scope('local') ) ) ),
                 QAST::Op.new( :op('hllize'),
                     QAST::Op.new( :op('callmethod'), :name('list'),
                         QAST::Var.new( :name($result_var), :scope('local') ) ) ),
-                QAST::Op.new( :op('callmethod'), :name('P5Bool'),
+                QAST::Op.new( :op('call'), :name('&P5Bool'),
                     QAST::Var.new( :name($result_var), :scope('local') ) ) )
         )
     }
@@ -5000,7 +5000,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym<[ ]>($/) {
         $V5DEBUG && say("postcircumfix:sym<[ ]>($/)");
-        my $past := QAST::Op.new( :name('postcircumfix:<P5[ ]>'), :op('callmethod'), :node($/) );
+        my $past := QAST::Op.new( :name('&postcircumfix:<P5[ ]>'), :op('call'), :node($/) );
         if $<semilist><statement> {
             my $slast := $<semilist>.ast;
             $past.push($slast);
@@ -5348,7 +5348,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my %sig_info := hash(parameters => []);
         my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
             $<quibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
-        make QAST::Op.new(:op<callmethod>, :name<P5Bool>, block_closure($coderef));
+        my $past := block_closure($coderef);
+        $past<sink_past> := QAST::Op.new(:op<call>, :name<P5Bool>, $past);
+        make $past;
     }
     method quote:sym</ />($/) {
         $V5DEBUG && say("method quote:sym</ />($/)");
@@ -5402,7 +5404,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     $past ) );
             
             if !$<rx_mods> || nqp::index(~$<rx_mods>.ast, 'g') == -1 {
-                $past := QAST::Op.new( :node($/), :op('callmethod'), :name('P5Bool'), $past )
+                $past := QAST::Op.new( :node($/), :op('call'), :name('&P5Bool'), $past )
             }
         }
         make $past;

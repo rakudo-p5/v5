@@ -3,8 +3,8 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>4579</td><td>35514</td><td>4</td><td>707</td><td>40793</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2065</td><td>11962</td><td>0</td><td>677</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>4579</td><td>25887</td><td>4</td><td>10330</td><td>40793</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2065</td><td>2332</td><td>0</td><td>10307</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -85,11 +85,93 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-<br />  40 skipped: cannot compare native byteorder with big-/little-endian<br />
+<br /> 108 skipped: cannot pack 'h' on this perl<br />
+  84 skipped: cannot pack '&lt;' on this perl<br />
+  10 skipped: cannot pack 'C/a*S&lt;/A*L&lt;/Z*I&lt;/a*' on this perl<br />
+ 108 skipped: cannot pack 'H' on this perl<br />
+  12 skipped: cannot pack 'I&lt;' on this perl<br />
+ 186 skipped: cannot pack 'l' on this perl<br />
+ 186 skipped: cannot pack 's' on this perl<br />
    2 skipped: (EBCDIC and) version strings are bad idea<br />
+ 165 skipped: cannot pack 'c' on this perl<br />
+ 161 skipped: cannot pack 'l!' on this perl<br />
+ 161 skipped: cannot pack 'V' on this perl<br />
+  12 skipped: cannot pack 'C&lt;' on this perl<br />
    4 skipped: Not for EBCDIC<br />
- 630 skipped: cannot test checksums over 0 bits<br />
+ 133 skipped: cannot pack 'Q' on this perl<br />
+  53 skipped: cannot pack 'v!' on this perl<br />
+  12 skipped: cannot pack 'V&lt;' on this perl<br />
+ 165 skipped: cannot pack 'n' on this perl<br />
+  53 skipped: cannot pack 'V!' on this perl<br />
+  10 skipped: cannot pack '(I!&lt;4(J&lt;2L&lt;)3)5' on this perl<br />
+ 161 skipped: cannot pack 'i!' on this perl<br />
+ 108 skipped: cannot pack 'p' on this perl<br />
+ 108 skipped: cannot pack 'J' on this perl<br />
+ 161 skipped: cannot pack 'N' on this perl<br />
+ 173 skipped: cannot pack 'i&lt;' on this perl<br />
+ 227 skipped: cannot pack 'd&gt;' on this perl<br />
+ 216 skipped: cannot pack/unpack V! on this perl<br />
+ 308 skipped: cannot pack 'q' on this perl<br />
+ 227 skipped: cannot pack 'd' on this perl<br />
+ 161 skipped: cannot pack 'I!' on this perl<br />
+ 119 skipped: cannot pack 'f&gt;' on this perl<br />
+ 108 skipped: cannot pack 'x' on this perl<br />
+ 161 skipped: cannot pack 'L!' on this perl<br />
+ 108 skipped: cannot pack 'p&gt;' on this perl<br />
+ 131 skipped: cannot pack 'f&lt;' on this perl<br />
+ 186 skipped: cannot pack 'S' on this perl<br />
+ 161 skipped: cannot pack 'i&gt;' on this perl<br />
+  40 skipped: cannot compare native byteorder with big-/little-endian<br />
+ 161 skipped: cannot pack 's&gt;' on this perl<br />
+  53 skipped: cannot pack 'n!' on this perl<br />
+ 161 skipped: cannot pack 'i!&gt;' on this perl<br />
+  12 skipped: cannot pack 'Q&lt;' on this perl<br />
+ 161 skipped: cannot pack 'C' on this perl<br />
+ 165 skipped: cannot pack 'v' on this perl<br />
+ 108 skipped: cannot pack 'j&lt;' on this perl<br />
+ 173 skipped: cannot pack 'l&lt;' on this perl<br />
+ 108 skipped: cannot pack 'F' on this perl<br />
+ 108 skipped: cannot pack 'Z' on this perl<br />
+  10 skipped: cannot pack 'n/a*' on this perl<br />
+  10 skipped: cannot pack 'f&lt;F&lt;d&lt;' on this perl<br />
+  10 skipped: cannot pack '(i&lt;j&lt;[s]l&lt;)3' on this perl<br />
+ 108 skipped: cannot pack 'j&gt;' on this perl<br />
+  84 skipped: cannot pack '' on this perl<br />
+ 161 skipped: cannot pack 's!' on this perl<br />
+ 108 skipped: cannot pack 'B' on this perl<br />
+ 183 skipped: cannot pack 's&lt;' on this perl<br />
+  53 skipped: cannot pack 'N!' on this perl<br />
+ 161 skipped: cannot pack 's!&lt;' on this perl<br />
+ 186 skipped: cannot pack 'L' on this perl<br />
+ 161 skipped: cannot pack 'l!&gt;' on this perl<br />
+ 108 skipped: cannot pack 'a' on this perl<br />
+  10 skipped: cannot pack 'D&lt;cCD&lt;' on this perl<br />
    1 skipped: Couldn't generate infinity - got error ''<br />
+ 108 skipped: cannot pack 'P' on this perl<br />
+ 108 skipped: cannot pack 'b' on this perl<br />
+ 169 skipped: cannot pack 'W' on this perl<br />
+  12 skipped: cannot pack 'W&lt;' on this perl<br />
+ 161 skipped: cannot pack 's!&gt;' on this perl<br />
+  12 skipped: cannot pack 'S&lt;' on this perl<br />
+ 108 skipped: cannot pack 'j' on this perl<br />
+  10 skipped: cannot pack 'q&lt;Q&lt;' on this perl<br />
+ 108 skipped: cannot pack 'p&lt;' on this perl<br />
+  12 skipped: cannot pack 'L&lt;' on this perl<br />
+ 161 skipped: cannot pack 'i!&lt;' on this perl<br />
+ 108 skipped: cannot pack 'q&gt;' on this perl<br />
+ 161 skipped: cannot pack 'l!&lt;' on this perl<br />
+ 108 skipped: cannot pack 'A' on this perl<br />
+ 119 skipped: cannot pack 'f' on this perl<br />
+  10 skipped: cannot pack 's&lt;c2x![S]S&lt;' on this perl<br />
+  12 skipped: cannot pack 'N&lt;' on this perl<br />
+ 630 skipped: cannot test checksums over 0 bits<br />
+ 239 skipped: cannot pack 'd&lt;' on this perl<br />
+ 161 skipped: cannot pack 'S!' on this perl<br />
+ 186 skipped: cannot pack 'i' on this perl<br />
+ 186 skipped: cannot pack 'I' on this perl<br />
+ 120 skipped: cannot pack 'q&lt;' on this perl<br />
+ 161 skipped: cannot pack 'l&gt;' on this perl<br />
+  84 skipped: cannot pack '&gt;' on this perl<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1127</td><td>243</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>204</td><td>0</td><td>0</td><td>0</td><td>204</td></tr>
@@ -124,43 +206,43 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:353<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in string context  in block  at eval_139:1<br />
-use of uninitialized value of type O=ARRAY(0x-10bbe405eeb86aea) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:353<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:351<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in string context  in block  at eval_139:1<br />
+use of uninitialized value of type O=ARRAY(0x6d8b6e29e3b10497) in numeric context  in method P5Numeric at lib/Perl5/Terms.pm:351<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr align='center'><td align='left'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/magic.v5<br />
-Unrecognized Perl 5 regex backslash sequence<br />
-at t/spec/op/magic.v5:78<br />
-------&gt;         like $set, qr/^(?:\⏏Q$key\E=)?\Q$val\E$/, $desc;</td></tr>
-        <tr align='center'><td align='left'>op/list.v5</td><td>59</td><td>5</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Two terms in a row<br />
+at t/spec/op/magic.v5:178<br />
+------&gt;     print $? &amp; ⏏0xFF ? "ok $tn[4]$todo\n" : "not ok $tn[</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>   1 todo   : NYI<br />
 </td></tr>
@@ -289,7 +371,6 @@ Cannot use a Buf as a string, but you called the chars method on it<br />
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>t/v5/05-anon-sub-lex-block.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr align='center'><td align='left'>re/reg_eval.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left'>op/sleep.v5</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>op/heredoc.v5</td><td>3</td><td>6</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left'>t/v5/19-local.v5</td><td>2</td><td>5</td><td>0</td><td>0</td><td>7</td></tr>
@@ -324,6 +405,7 @@ Cannot use a Buf as a string, but you called the chars method on it<br />
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>run/switchI.v5</td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align='center'><td align='left'>re/reg_eval.v5</td><td>2</td><td>5</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>offset argument to List.splice out of range. Is: -1, should be in 0..^12<br />
   in method Str at gen/parrot/CORE.setting:12019<br />
@@ -362,19 +444,7 @@ Cannot use a Buf as a string, but you called the chars method on it<br />
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/06-bool.v5</td><td>1</td><td>31</td><td>0</td><td>0</td><td>32</td></tr>
-        <tr><td colspan='5'>No such method 'P5Bool' for invocant of type 'Hash'<br />
-  in block  at t/v5/06-bool.v5:74<br />
-  in any  at t/v5/06-bool.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
+        <tr align='center'><td align='left'>t/v5/06-bool.v5</td><td>1</td><td>31</td><td>0</td><td>0</td><td>32</td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>1</td><td>4</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
@@ -451,7 +521,7 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Str \a, Str \b)<br />
 :(\a, \b)<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/filetest_t.v5</td><td>1</td><td>3</td><td>0</td><td>7</td><td>7</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/filetest_t.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;t'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -474,9 +544,6 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
   in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
-<br />   4 skipped: Can't open terminal '/dev/tty': <br />
-   3 skipped: Can't open null device '/dev/null': <br />
-   4 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -519,7 +586,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12028<br />
-  in sub bless at lib/Perl5/Terms.pm:1035<br />
+  in sub bless at lib/Perl5/Terms.pm:1021<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -539,7 +606,7 @@ current instr.: 'print_exception' pc 136263 (src/gen/p-CORE.setting.pir:57942) (
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12028<br />
-  in sub bless at lib/Perl5/Terms.pm:1035<br />
+  in sub bless at lib/Perl5/Terms.pm:1021<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -664,7 +731,14 @@ Could not find B::1 in any of: ., ../lib<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/do.v5:280<br />
     ------&gt;       open my $fh⏏, '&lt;', \$code;<br />
-Null PMC access in find_method('postcircumfix:&lt;P5[ ]&gt;')<br />
+Cannot call 'postcircumfix:&lt;P5[ ]&gt;'; none of these signatures match:<br />
+:(\SELF)<br />
+:(\SELF, int $pos)<br />
+:(\SELF, $pos)<br />
+:(\SELF, Positional \pos)<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
+  in sub postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:253<br />
   in block  at t/spec/op/do.v5:27<br />
   in any  at t/spec/op/do.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
