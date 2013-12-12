@@ -171,7 +171,7 @@ sub infix:<P5**> (\a, \b) is export { &prefix:<P5+>(a) ** &prefix:<P5+>(b) }
 
 # v=, symbolic unary (right ! ~ \ and unary + and -)
 sub prefix:<P5!> (\a)     is export { !P5Bool(a)   }
-sub prefix:<P5.> (\a)     is export {  a.P5Str     }
+sub prefix:<P5.> (\a)     is export {  P5Str(a)    }
 sub prefix:<P5+> (\a)     is export {  a.P5Numeric }
 sub prefix:<P5-> (\a)     is export { -a.P5Numeric }
 
@@ -274,6 +274,23 @@ multi P5Bool(Parcel \SELF) is export { [&&] SELF.list          }
 multi P5Bool(List   \SELF) is export { [&&] SELF.list          }
 multi P5Bool(Pair   \SELF) is export { SELF.kv.list ?? 1 !! '' }
 
+multi P5Str(Mu:U) is export is hidden_from_backtrace {
+    if warnings::enabled('all') || warnings::enabled('uninitialized') {
+        P5warn 'Use of uninitialized value in string'
+    }
+    ''
+}
+multi P5Str(Mu:D     \SELF) is export { SELF.Str }
+multi P5Str(Bool:D   \SELF) is export { ?SELF ?? 1 !! '' }
+multi P5Str(Array:D  \SELF) is export { join '', map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
+multi P5Str(List:D   \SELF) is export { join '', map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
+multi P5Str(utf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'binary')) }
+multi P5Str(Int:D    \SELF) is export { SELF.Int }
+multi P5Str(Num:D    \SELF) is export { SELF.Num }
+multi P5Str(Parcel:D \SELF) is export { SELF.Int }
+multi P5Str(Pair:D   \SELF) is export { P5Str(SELF.kv.list) }
+multi P5Str(Sub:D    \SELF) is export { 'CODE(' ~ SELF.WHERE.fmt('0x%X').lc ~ ')' }
+
 use MONKEY_TYPING;
 
 sub _P5do( $file ) is hidden_from_backtrace {
@@ -299,12 +316,6 @@ augment class Mu {
 }
 
 augment class Any {
-    method P5Str(Any:) is hidden_from_backtrace {
-        if warnings::enabled('all') || warnings::enabled('uninitialized') {
-            P5warn 'Use of uninitialized value in string'
-        }
-        ''
-    }
     method P5Numeric(Any:) { 0 }
     method P5do(\SELF:) is hidden_from_backtrace { _P5do(SELF) }
     method P5scalar(Any:) { '' }
@@ -331,47 +342,28 @@ augment class Any {
 augment class IO::Handle { }
 
 augment class Nil {
-    method P5Str(Nil:U:) is hidden_from_backtrace {
-        if warnings::enabled('all') || warnings::enabled('uninitialized') {
-            warn 'Use of uninitialized value in string'
-        }
-        ''
-    }
     method P5Numeric(Nil:) { 0 }
     method P5scalar(Nil:) { Nil }
 }
 
 augment class Bool {
-    multi method P5Str(Bool:U:) { '' }
-    multi method P5Str(Bool:D:) { ?self ?? 1 !! '' }
     method P5Numeric(Bool:) { ?self ?? 1 !! 0 }
-    method P5scalar(Bool:) { self.P5Str }
+    method P5scalar(Bool:) { P5Str(self) }
 }
 
 augment class Array {
-    multi method P5Str(Array:U:) { '' }
-    multi method P5Str(Array:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
     method P5Numeric(Array:) { +@(self) }
     method P5scalar(Array:) { +@(self) }
 }
 
 augment class List {
-    multi method P5Str(List:U:) { '' }
-    multi method P5Str(List:D:) { join '', map { $_.defined ?? $_.P5Str !! '' }, @(self) }
     method P5Numeric(List:) { +@(self) }
     method P5scalar(List:) { +@(self) }
 }
 
-augment class utf8 {
-    multi method P5Str(utf8:D:) {
-        my $str;
-        try $str = self.decode;
-        $str ?? $str !! nqp::unbox_s(nqp::decode(nqp::decont(self), 'binary'))
-    }
-}
+augment class utf8 { }
 
 augment class Str {
-    multi method P5Str(Str:D:) { self.Str    }
     multi method P5Numeric(Str:U) { 0 }
     multi method P5Numeric(Str:D:) {
         my str $str = nqp::unbox_s(self);
@@ -968,54 +960,42 @@ augment class Str {
 
         return |@fields;
     }
-    method P5scalar(Str:) { self.P5Str }
+    method P5scalar(Str:) { P5Str(self) }
     method P5ord(Str:) { self ?? self.ord !! 0 }
 }
 
 augment class Int {
-    multi method P5Str(Int:U:) { '' }
-    multi method P5Str(Int:D:) { self.Int }
     method P5Numeric(Int:) { self }
-    method P5scalar(Int:) { self.P5Str }
+    method P5scalar(Int:) { P5Str(self) }
 }
 
 augment class Num {
-    multi method P5Str(Num:U:) { '' }
-    multi method P5Str(Num:D:) { self.Num }
     method P5Numeric(Num:) { self }
-    method P5scalar(Num:) { self.P5Str }
+    method P5scalar(Num:) { P5Str(self) }
 }
 
 augment class Capture {
-    multi method P5Str(Capture:D:) { self.Str }
-    method P5scalar(Capture:) { self.P5Str }
+    method P5scalar(Capture:) { P5Str(self) }
 }
 
-augment class Match {
-    multi method P5Str(Match:D:) { self.Str }
-}
-
+augment class Match { }
 augment class Regex { }
 
 augment class Rat {
-    multi method P5Str(Rat:D:) { self.Str }
     method P5Numeric(Rat:) { self }
-    method P5scalar(Rat:) { self.P5Str }
+    method P5scalar(Rat:) { P5Str(self) }
 }
 
 augment class Parcel {
-    multi method P5Str(Parcel:D:) { self.Int }
-    method P5scalar(Parcel:) { self.P5Str }
+    method P5scalar(Parcel:) { P5Str(self) }
 }
 
 augment class Pair {
-    multi method P5Str(Pair:D:) { self.kv.list.P5Str }
-    method P5scalar(Pair:) { self.P5Str }
+    method P5scalar(Pair:) { P5Str(self) }
 }
 
 augment class Sub {
-    multi method P5Str(Sub:D:) { 'CODE(' ~ self.WHERE.fmt('0x%X').lc ~ ')' }
-    method P5scalar(Sub:) { self.P5Str }
+    method P5scalar(Sub:) { P5Str(self) }
 }
 
 # class A { method new { bless([], self)}; method a { 42 } }; my $a = A.new; say $a.a; $a[0] = 1; say $a.WHAT

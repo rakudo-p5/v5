@@ -5,7 +5,7 @@ sub _plan(*@args)            { plan(|@args)                       }
 sub _pass(*@args)            { pass(|@args)                       }
 sub _ok(*@args)              { ok(|@args)                         }
 sub _nok(*@args)             { nok(|@args)                        }
-sub _is($a, $b, $c)          { is($a.P5Str, $b.P5Str, $c.P5Str)   }
+sub _is($a, $b, $c)          { is($a, $b, $c)                     }
 sub _isnt(*@args)            { isnt(|@args)                       }
 sub _is_approx(*@args)       { is_approx(|@args)                  }
 sub _todo(*@args)            { todo(|@args)                       }
@@ -43,7 +43,7 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     sub pass                    { $test = $test + 1; _pass(@_)                           }
     sub ok                      { $test = $test + 1; _ok(@_)                             }
     sub nok                     { $test = $test + 1; _nok(@_)                            }
-    sub is                      { $test = $test + 1; _is($_[0], $_[1], $_[2] // '')      }
+    sub is                      { $test = $test + 1; _is(P5Str($_[0]), P5Str($_[1]), $_[2] // '') }
     sub isnt                    { $test = $test + 1; _isnt(@_)                           }
     sub is_approx               { $test = $test + 1; _is_approx(@_)                      }
     sub is_miniperl             { $test = $test + 1; 0                                   }
