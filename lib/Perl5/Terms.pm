@@ -274,6 +274,24 @@ multi P5Bool(Parcel \SELF) is export { [&&] SELF.list          }
 multi P5Bool(List   \SELF) is export { [&&] SELF.list          }
 multi P5Bool(Pair   \SELF) is export { SELF.kv.list ?? 1 !! '' }
 
+sub P5do(Mu \SELF) is export is hidden_from_backtrace {
+    my $ret;
+    if SELF {
+        if SELF.IO.e {
+            try {
+                $ret = eval slurp SELF;
+                CATCH {
+                    default { P5warn(CALLER::DYNAMIC::<$!> = .Str) }
+                }
+            }
+        }
+    }
+    else {
+        die 'Null filename used'
+    }
+    $ret
+}
+
 multi P5Numeric(Mu           ) is export { 0 }
 multi P5Numeric(Bool    \SELF) is export { ?SELF ?? 1 !! 0 }
 multi P5Numeric(Array:D \SELF) is export { +@(SELF) }
@@ -567,6 +585,16 @@ multi P5Numeric(Str:D   \SELF) is export {
     return $result;
 }
 
+multi P5ord(Mu         ) is export { 0             }
+multi P5ord(Str:D \SELF) is export { SELF.ord || 0 }
+
+multi P5ref(Mu    \SELF) is export { '' }
+multi P5ref(Cool  \SELF) is export { '' }
+multi P5ref(Any:D \SELF) is export {
+    my $name = SELF.^name.uc;
+    $name eq 'SUB' ?? 'CODE' !! $name
+}
+
 multi P5scalar(Mu      \SELF) is export { SELF     }
 multi P5scalar(Array:D \SELF) is export { +@(SELF) }
 multi P5scalar(List:D  \SELF) is export { +@(SELF) }
@@ -590,32 +618,9 @@ multi P5Str(Sub:D    \SELF) is export { 'CODE(' ~ SELF.WHERE.fmt('0x%X').lc ~ ')
 
 use MONKEY_TYPING;
 
-sub _P5do( $file ) is hidden_from_backtrace {
-    my $ret;
-    if $file {
-        if $file.IO.e {
-            try {
-                $ret = eval slurp $file;
-                CATCH {
-                    default { P5warn(CALLER::DYNAMIC::<$!> = .Str) }
-                }
-            }
-        }
-    }
-    else {
-        die 'Null filename used'
-    }
-    $ret
-}
-
-augment class Mu {
-    method P5ref(Mu:) { '' }
-}
+augment class Mu { }
 
 augment class Any {
-    method P5do(\SELF:) is hidden_from_backtrace { _P5do(SELF) }
-    method P5ord(Str:) { 0 }
-    
     multi method P5open( \SELF: $expr )             { SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) }
     multi method P5open( \SELF: $m, $expr, *@list ) {
         # ($path, :r(:$r), :w(:$w), :a(:$a), :p(:$p), :bin(:$bin), :chomp(:$chomp) = { ... }, :enc(:encoding(:$encoding)) = { ... })
@@ -623,15 +628,6 @@ augment class Any {
     }
 
     method P5close(\SELF:) { SELF && SELF.close }
-    method P5ref(\SELF:) {
-        my $name = SELF ~~ Cool ?? '' !! SELF.^name.uc;
-        if $name eq 'SUB' {
-            'CODE'
-        }
-        else {
-            $name
-        }
-    }
 }
 
 augment class IO::Handle { }
@@ -948,7 +944,6 @@ augment class Str {
 
         return |@fields;
     }
-    method P5ord(Str:) { self ?? self.ord !! 0 }
 }
 
 augment class Int { }

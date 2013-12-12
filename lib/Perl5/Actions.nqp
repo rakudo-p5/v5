@@ -1155,7 +1155,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             make QAST::Op.new( :op('call'), $<block>.ast );
         }
         else {
-            make QAST::Op.new( :op('callmethod'), :name('P5do'), $<EXPR>.ast );
+            make QAST::Op.new( :op('call'), :name('&P5do'), $<EXPR>.ast );
         }
     }
 
@@ -3963,8 +3963,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'chr',     [ '$_', '_',  'call', '&P5Numeric' ],
         'close',   [ '',   '*@', '',     '',              'callmethod', 'P5close' ],
         'int',     [ '$_', '_',  'call', '&P5Numeric',    'callmethod', 'Int' ],
-        'ord',     [ '$_', '_',  'call', '&infix:<P5.>',  'callmethod', 'P5ord' ],
-        'ref',     [ '$_', '_',  '',     '',              'callmethod', 'P5ref' ],
+        'ord',     [ '$_', '_',  'call', '&infix:<P5.>',  'call',       '&P5ord' ],
+        'ref',     [ '$_', '_',  '',     '',              'call',       '&P5ref' ],
         'not',     [ '',   '@',  '',     '',              'call',       '&prefix:<P5not>' ],
         'say',     [ '$_', '@',  'call', '&infix:<P5.>' ],
         'open',    [ '',   '*@', '',     '',              'callmethod', 'P5open' ],
