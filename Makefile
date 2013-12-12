@@ -15,7 +15,8 @@ HAS_ICU    = 0
 #       as the goal is that all tests must pass without fudge
 HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(HAS_ICU)
 
-all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc blib/Perl5/ModuleLoader.pbc
+all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc blib/Perl5/ModuleLoader.pbc \
+	blib/Perl5/constant.pbc blib/Perl5/overload.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
@@ -40,6 +41,14 @@ blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/P
 blib/Perl5/Config.pbc: blib/Perl5/Terms.pbc lib/Perl5/Config.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Config.pir lib/Perl5/Config.pm
 	$(PARROT) -o blib/Perl5/Config.pbc blib/Perl5/Config.pir
+
+blib/Perl5/constant.pbc: lib/Perl5/constant.pm
+	$(PERL6) --target=pir --output=blib/Perl5/constant.pir lib/Perl5/constant.pm
+	$(PARROT) -o blib/Perl5/constant.pbc blib/Perl5/constant.pir
+
+blib/Perl5/overload.pbc: lib/Perl5/overload.pm
+	$(PERL6) --target=pir --output=blib/Perl5/overload.pir lib/Perl5/overload.pm
+	$(PARROT) -o blib/Perl5/overload.pbc blib/Perl5/overload.pir
 
 blib/Perl5/warnings.pbc: lib/Perl5/warnings.pm
 	$(PERL6) --target=pir --output=blib/Perl5/warnings.pir lib/Perl5/warnings.pm
@@ -71,6 +80,8 @@ install: all
 	$(CP) lib/Perl5/warnings/*.pm $(P6LIB)/lib/Perl5/warnings/
 	$(CP) blib/Perl5/Config.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/Terms.pbc $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/constant.pbc $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/overload.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/warnings.pbc $(P6LIB)/lib/Perl5/
 
 uninstall:
