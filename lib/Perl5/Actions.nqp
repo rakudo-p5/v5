@@ -3960,22 +3960,22 @@ class Perl5::Actions is HLL::Actions does STDActions {
     my $opname      := $i++;
 
     my %builtin := nqp::hash(
-        'chr',     [ '$_', '_',  'callmethod', 'P5Numeric' ],
-        'close',   [ '',   '*@', '',           '',              'callmethod', 'P5close' ],
-        'int',     [ '$_', '_',  'callmethod', 'P5Numeric',     'callmethod', 'Int' ],
-        'ord',     [ '$_', '_',  'call',       '&infix:<P5.>',  'callmethod', 'P5ord' ],
-        'ref',     [ '$_', '_',  '',           '',              'callmethod', 'P5ref' ],
-        'not',     [ '',   '@',  '',           '',              'call',       '&prefix:<P5not>' ],
-        'say',     [ '$_', '@',  'call',       '&infix:<P5.>' ],
-        'open',    [ '',   '*@', '',           '',              'callmethod', 'P5open' ],
-        'pack',    [ '',   '$@', '',           '',              'callmethod', 'P5pack' ],
-        'print',   [ '$_', '@',  'call',       '&infix:<P5.>' ],
+        'chr',     [ '$_', '_',  'call', '&P5Numeric' ],
+        'close',   [ '',   '*@', '',     '',              'callmethod', 'P5close' ],
+        'int',     [ '$_', '_',  'call', '&P5Numeric',    'callmethod', 'Int' ],
+        'ord',     [ '$_', '_',  'call', '&infix:<P5.>',  'callmethod', 'P5ord' ],
+        'ref',     [ '$_', '_',  '',     '',              'callmethod', 'P5ref' ],
+        'not',     [ '',   '@',  '',     '',              'call',       '&prefix:<P5not>' ],
+        'say',     [ '$_', '@',  'call', '&infix:<P5.>' ],
+        'open',    [ '',   '*@', '',     '',              'callmethod', 'P5open' ],
+        'pack',    [ '',   '$@', '',     '',              'callmethod', 'P5pack' ],
+        'print',   [ '$_', '@',  'call', '&infix:<P5.>' ],
         'shift',   [ '@_', ';+' ],
-        'unpack',  [ '@_', '$@', '',           '',              'callmethod', 'P5unpack' ],
+        'unpack',  [ '@_', '$@', '',     '',              'callmethod', 'P5unpack' ],
         'unshift', [ '@_', '+@' ],
         'push',    [ '@_', '+@' ],
         'pop',     [ '@_', ';+' ],
-        'time',    [ '',   '',   '',           '',              'call',       '&term:<time>' ],
+        'time',    [ '',   '',   '',     '',              'call',       '&term:<time>' ],
     );
     method term:sym<identifier>($/) {
         $V5DEBUG && say("term:sym<identifier>($/)");
