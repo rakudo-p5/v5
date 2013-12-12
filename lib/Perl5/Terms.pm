@@ -274,6 +274,10 @@ multi P5Bool(Parcel \SELF) is export { [&&] SELF.list          }
 multi P5Bool(List   \SELF) is export { [&&] SELF.list          }
 multi P5Bool(Pair   \SELF) is export { SELF.kv.list ?? 1 !! '' }
 
+multi P5scalar(Mu      \SELF) is export { SELF     }
+multi P5scalar(Array:D \SELF) is export { +@(SELF) }
+multi P5scalar(List:D  \SELF) is export { +@(SELF) }
+
 multi P5Str(Mu:U) is export is hidden_from_backtrace {
     if warnings::enabled('all') || warnings::enabled('uninitialized') {
         P5warn 'Use of uninitialized value in string'
@@ -318,7 +322,6 @@ augment class Mu {
 augment class Any {
     method P5Numeric(Any:) { 0 }
     method P5do(\SELF:) is hidden_from_backtrace { _P5do(SELF) }
-    method P5scalar(Any:) { '' }
     method P5ord(Str:) { 0 }
     
     multi method P5open( \SELF: $expr )             { SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) }
@@ -343,22 +346,18 @@ augment class IO::Handle { }
 
 augment class Nil {
     method P5Numeric(Nil:) { 0 }
-    method P5scalar(Nil:) { Nil }
 }
 
 augment class Bool {
     method P5Numeric(Bool:) { ?self ?? 1 !! 0 }
-    method P5scalar(Bool:) { P5Str(self) }
 }
 
 augment class Array {
     method P5Numeric(Array:) { +@(self) }
-    method P5scalar(Array:) { +@(self) }
 }
 
 augment class List {
     method P5Numeric(List:) { +@(self) }
-    method P5scalar(List:) { +@(self) }
 }
 
 augment class utf8 { }
@@ -960,43 +959,28 @@ augment class Str {
 
         return |@fields;
     }
-    method P5scalar(Str:) { P5Str(self) }
     method P5ord(Str:) { self ?? self.ord !! 0 }
 }
 
 augment class Int {
     method P5Numeric(Int:) { self }
-    method P5scalar(Int:) { P5Str(self) }
 }
 
 augment class Num {
     method P5Numeric(Num:) { self }
-    method P5scalar(Num:) { P5Str(self) }
 }
 
-augment class Capture {
-    method P5scalar(Capture:) { P5Str(self) }
-}
-
+augment class Capture { }
 augment class Match { }
 augment class Regex { }
 
 augment class Rat {
     method P5Numeric(Rat:) { self }
-    method P5scalar(Rat:) { P5Str(self) }
 }
 
-augment class Parcel {
-    method P5scalar(Parcel:) { P5Str(self) }
-}
-
-augment class Pair {
-    method P5scalar(Pair:) { P5Str(self) }
-}
-
-augment class Sub {
-    method P5scalar(Sub:) { P5Str(self) }
-}
+augment class Parcel { }
+augment class Pair { }
+augment class Sub { }
 
 # class A { method new { bless([], self)}; method a { 42 } }; my $a = A.new; say $a.a; $a[0] = 1; say $a.WHAT
 sub bless(*@a) is export {

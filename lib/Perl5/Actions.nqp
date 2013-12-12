@@ -3842,7 +3842,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         for $<arg> {
             @args.push( $_<EXPR>.ast )
         }
-        $last := QAST::Op.new( :op('callmethod'), :name('P5scalar'), $last<EXPR>.ast );
+        $last := QAST::Op.new( :op('call'), :name('&P5scalar'), $last<EXPR>.ast );
         make QAST::Stmts.new( |@args, $last );
     }
 
