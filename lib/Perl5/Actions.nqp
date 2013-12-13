@@ -4932,14 +4932,19 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make QAST::Op.new(:node($/), :op<call>, $metapast, $args);
     }
 
-    method term:sym<filetest>($/) {
-        $V5DEBUG && say("term:sym<filetest>($/)");
+    method filetest($/) {
+        $V5DEBUG && say("filetest($/)");
         make QAST::Op.new(
                 :op('callmethod'), :name($<letter>),
                 QAST::Op.new(
                     :op('callmethod'), :name('IO'),
                     $<EXPR> ?? $<EXPR>.ast
                             !! QAST::Var.new( :name('$_'), :scope('lexical') ) ) )
+    }
+
+    method term:sym<filetest>($/) {
+        $V5DEBUG && say("term:sym<filetest>($/)");
+        make $<filetest>.ast
     }
 
     method infix_circumfix_meta_operator:sym«<< >>»($/) {

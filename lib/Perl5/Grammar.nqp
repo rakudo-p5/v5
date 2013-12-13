@@ -2170,7 +2170,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             | <prefixish> [ <!{
                     my $p   := $<prefixish>;
                     $<term> := nqp::pop( $p ) if $p[-1]<O><term>;
-                }> <prefixish> ]*
+                }> <!filetest> <prefixish> ]*
                 [ <?{ $<term> }> || <term> ]
             | <term>
             ]
@@ -3427,8 +3427,12 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
     token prefix:sym<local> { <sym> \s+ <O('%named_unary')> { $*W.give_cur_block_temp($/) } }
 
-    token term:sym<filetest> {
+    token filetest {
         '-'$<letter>=[<[a..zA..Z]>] » <?before \s*> <.ws> <EXPR('q=')>?
+    }
+
+    token term:sym<filetest> {
+        <filetest>
     }
 
     ## comparisons
