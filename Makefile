@@ -46,6 +46,10 @@ blib/Perl5/constant.pbc: lib/Perl5/constant.pm
 	$(PERL6) --target=pir --output=blib/Perl5/constant.pir lib/Perl5/constant.pm
 	$(PARROT) -o blib/Perl5/constant.pbc blib/Perl5/constant.pir
 
+blib/Perl5/mro.pbc: lib/Perl5/mro.pm
+	$(PERL6) --target=pir --output=blib/Perl5/mro.pir lib/Perl5/mro.pm
+	$(PARROT) -o blib/Perl5/mro.pbc blib/Perl5/mro.pir
+
 blib/Perl5/overload.pbc: lib/Perl5/overload.pm
 	$(PERL6) --target=pir --output=blib/Perl5/overload.pir lib/Perl5/overload.pm
 	$(PARROT) -o blib/Perl5/overload.pbc blib/Perl5/overload.pir

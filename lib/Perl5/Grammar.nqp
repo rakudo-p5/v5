@@ -1413,7 +1413,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'charnames', [],                       # http://perldoc.perl.org/charnames.html
         'feature',   [],                       # http://perldoc.perl.org/feature.html
         'integer',   [],                       # http://perldoc.perl.org/integer.html
-        'mro',       [],                       # http://perldoc.perl.org/mro.html
         'open',      [],                       # http://perldoc.perl.org/open.html
         'strict',    ['vars', 'refs', 'subs'], # http://perldoc.perl.org/strict.html
         'utf8',      [],                       # http://perldoc.perl.org/utf8.html
@@ -2472,7 +2471,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token morename {
         :my $*QSIGIL := '';
-        '::' <identifier>**0..1
+        '::' <identifier>?
     }
 
     token subname {
