@@ -2,6 +2,7 @@
 use v6.0.0;
 
 my %SIG;
+my %INC;
 my %STASH; # for ${^SOMETHING} style variables
 %STASH<CHILD_ERROR_NATIVE> = 0;
 
@@ -68,6 +69,8 @@ sub EXPORT(|) {
     %ex<STDIN>                    := STDIN;
     %ex<STDOUT>                   := STDOUT;
     %ex<STDERR>                   := STDERR;
+    %ex<@ARGV>                    := @*ARGS;
+    %ex<%INC>                     := %INC;
     %ex<%ENV>                     := %*ENV;
     %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
     %ex<%SIG>                     := %SIG;

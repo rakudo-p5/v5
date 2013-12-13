@@ -37,13 +37,13 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:228<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:228<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:228<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:228<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:228<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:228<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:228<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:231<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:231<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:231<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:231<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:231<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:231<br />
+use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:231<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -206,33 +206,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-286035190a53203a) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-18c41565ed44331f) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
@@ -649,7 +649,7 @@ Could not find mro in any of: ../lib<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12028<br />
-  in sub bless at lib/Perl5/Terms.pm:963<br />
+  in sub bless at lib/Perl5/Terms.pm:966<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -669,7 +669,7 @@ current instr.: 'print_exception' pc 136263 (src/gen/p-CORE.setting.pir:57942) (
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12028<br />
-  in sub bless at lib/Perl5/Terms.pm:963<br />
+  in sub bless at lib/Perl5/Terms.pm:966<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -762,7 +762,7 @@ Cannot call 'postcircumfix:&lt;P5[ ]&gt;'; none of these signatures match:<br />
 :(\SELF, Positional \pos)<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
-  in sub postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:259<br />
+  in sub postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:262<br />
   in block  at t/spec/op/do.v5:27<br />
   in any  at t/spec/op/do.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -854,10 +854,15 @@ Variable '*OP' is not declared<br />
 at t/spec/op/readdir.v5:18<br />
 ------&gt;     local *OP⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/require_37033.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/require_37033.v5<br />
-Variable '%INC' is not declared<br />
-at t/spec/op/require_37033.v5:13<br />
-------&gt;     delete $INC{'test_use_14937.pm'}⏏;</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Preceding context expects a term, but found infix , instead<br />
+at t/spec/op/require_37033.v5:35<br />
+------&gt; is(fileno STDIN,⏏ 0, 'STDIN is open on file descriptor 0'<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/require_37033.v5:14<br />
+    ------&gt;     open my $fh⏏, '&lt;', 'README' or die "Can't open READM<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
@@ -1000,10 +1005,15 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0
 Could not find Digest in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/porting/diag.v5<br />
-Variable '@ARGV' is not declared<br />
-at t/spec/porting/diag.v5:21<br />
-------&gt; my $make_exceptions_list = ($ARGV[0]⏏||'') eq '--make-exceptions-list';</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/porting/diag.v5:667<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $func_fh<br />
+    at t/spec/porting/diag.v5:28<br />
+    ------&gt; open my $func_fh⏏, "&lt;", "embed.fnc" or die "Can't open em<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -1516,12 +1526,7 @@ Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 341.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 342.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 343.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 344.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 345.<br />
-===SORRY!===<br />
+        <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Copy in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -2068,10 +2073,9 @@ Variable '@+' is not declared<br />
 at t/spec/op/magic-27839.v5:19<br />
 ------&gt; 	return @+⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/overload_integer.v5<br />
-Variable '%INC' is not declared<br />
-at t/spec/op/overload_integer.v5:26<br />
-------&gt; BEGIN { $INC{'Foo.pm'}⏏ = "/lib/Foo.pm" }</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Could not find Foo in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5, ../lib<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/pwent.v5<br />
 Preceding context expects a term, but found infix &lt; instead<br />
@@ -2149,9 +2153,10 @@ Could not find Encode in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-d
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/iprefix.v5<br />
-Variable '@ARGV' is not declared<br />
-at t/spec/io/iprefix.v5:22<br />
-------&gt; @ARGV⏏ = @tfiles;</td></tr>
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/io/iprefix.v5:42<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Errno in any of: ../lib<br />
@@ -2743,9 +2748,10 @@ current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/sta
 current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/inplace.v5<br />
-Variable '@ARGV' is not declared<br />
-at t/spec/io/inplace.v5:20<br />
-------&gt; @ARGV⏏ = @tfiles;</td></tr>
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/io/inplace.v5:97<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Fcntl in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -4060,9 +4066,9 @@ at t/spec/mro/basic.v5:7<br />
 ------&gt; BEGIN { require q(t/test.pl); } ⏏plan(tests =&gt; 59);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '%INC' is not declared<br />
-at t/spec/op/inccode.v5:55<br />
-------&gt; ok( exists $INC{'Foo.pm'}⏏,         '  %INC sees Foo.pm' );</td></tr>
+Variable '@bbblplast' is not declared<br />
+at t/spec/op/inccode.v5:331<br />
+------&gt;     @::bbblplast⏏ = ();</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/quotemeta.v5<br />
 Unrecognized backslash sequence: '\U'<br />
