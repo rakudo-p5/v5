@@ -2217,7 +2217,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token term:sym<circumfix>          { <circumfix> }
     token term:sym<dotty>              { <dotty> }
     token term:sym<value>              { <value> }
-    token term:sym<capterm>            { <capterm> }
     token term:sym<statement_prefix>   { <statement_prefix> }
 
     token fatarrow {
@@ -2781,19 +2780,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     ###########################
     # Captures and Signatures #
     ###########################
-
-    token capterm {
-        '\\'
-        [
-        | '(' <capture>? ')'
-        | <?before \S> <termish>
-        ]
-    }
-
-    rule capture {
-        :my $*INVOCANT_OK := 1;
-        <EXPR>
-    }
 
     rule param_sep { [','|':'|';'|';;'] }
 

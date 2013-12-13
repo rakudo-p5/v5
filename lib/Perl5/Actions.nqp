@@ -3108,23 +3108,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
 #        make $<dottyopish><term>.ast;
 #    }
 
-    method capterm($/) {
-        $V5DEBUG && say("capterm($/)");
-        # Construct a Parcel, and then call .Capture to coerce it to a capture.
-        my $past := $<termish> ?? $<termish>.ast !!
-                    $<capture> ?? $<capture>.ast !!
-                    QAST::Op.new( :op('call'), :name('&infix:<,>') );
-        unless $past.isa(QAST::Op) && $past.name eq '&infix:<,>' {
-            $past := QAST::Op.new( :op('call'), :name('&infix:<,>'), $past );
-        }
-        make QAST::Op.new( :op('callmethod'), :name('Capture'), $past);
-    }
-
-    method capture($/) {
-        $V5DEBUG && say("capture($/)");
-        make $<EXPR>.ast;
-    }
-
     method parensig($/) {
         make $<signature>.ast;
     }
@@ -4264,11 +4247,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         )
     }
 
-    method term:sym<capterm>($/) {
-        $V5DEBUG && say("term:sym<capterm>($/)");
-        make $<capterm>.ast;
-    }
-    
     method term:sym<onlystar>($/) {
         $V5DEBUG && say("term:sym<onlystar>($/)");
         make QAST::Op.new( :op('p6multidispatchlex') );
@@ -4492,6 +4470,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             '++',    '&prefix:<P5++>',
             '--',    '&prefix:<P5-->',
             'not',   '&prefix:<P5not>',
+            '\\',    '&prefix:<P5bs>',
         ),
         'POSTFIX', nqp::hash(
             '++',    '&postfix:<P5++>',

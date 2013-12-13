@@ -174,6 +174,7 @@ sub prefix:<P5!> (\a)     is export { !P5Bool(a)   }
 sub prefix:<P5.> (\a)     is export {  P5Str(a)    }
 sub prefix:<P5+> (\a)     is export {  P5Numeric(a) }
 sub prefix:<P5-> (\a)     is export { -P5Numeric(a) }
+sub prefix:<P5bs>(\a)     is export { a }
 
 # u=, binding (left =~ !~)
 #~ sub infix:<P5=~> (\a, \b) is export { say a; say b; a.match(b)           }
