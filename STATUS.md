@@ -206,33 +206,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x54397862978c0289) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x6f6edd3d0c5321de) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
@@ -1468,8 +1468,10 @@ at t/spec/run/fresh_perl.v5:881<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
-===SORRY!===<br />
-Could not find Config in any of: ../lib<br />
+===SORRY!=== Error while compiling t/spec/run/locale.v5<br />
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/run/locale.v5:181<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
@@ -2007,10 +2009,14 @@ Could not find Perlito5::1 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 Could not find File::1::1 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find Config in any of: ../lib<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:70<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/lib/commonsense.v5:12<br />
+        <tr><td colspan='5'>No such symbol '&amp;BAIL_OUT'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/lib/commonsense.v5:15<br />
   in any  at t/spec/lib/commonsense.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2434,10 +2440,14 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/basic_01_dfs.v5:7<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/basic_01_dfs.v5:41<br />
   in any  at t/spec/mro/basic_01_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2449,10 +2459,14 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/basic_01_dfs_utf8.v5:9<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/basic_01_dfs_utf8.v5:43<br />
   in any  at t/spec/mro/basic_01_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2817,10 +2831,14 @@ Could not find Fcntl in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-de
 Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/c3_with_overload.v5:7<br />
+        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/c3_with_overload.v5:32<br />
   in any  at t/spec/mro/c3_with_overload.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2832,10 +2850,14 @@ Could not find Benchmark in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/c3_with_overload_utf8.v5:7<br />
+        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/c3_with_overload_utf8.v5:32<br />
   in any  at t/spec/mro/c3_with_overload_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3257,10 +3279,14 @@ at t/spec/io/openpid.v5:89<br />
 Could not find File::1 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/basic_02_c3.v5:7<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/basic_02_c3.v5:83<br />
   in any  at t/spec/mro/basic_02_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3272,10 +3298,14 @@ Could not find File::1 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/basic_02_c3_utf8.v5:9<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/basic_02_c3_utf8.v5:85<br />
   in any  at t/spec/mro/basic_02_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3287,10 +3317,14 @@ Could not find File::1 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/basic_02_dfs.v5:7<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/basic_02_dfs.v5:83<br />
   in any  at t/spec/mro/basic_02_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3302,10 +3336,14 @@ Could not find File::1 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/basic_02_dfs_utf8.v5:9<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/basic_02_dfs_utf8.v5:85<br />
   in any  at t/spec/mro/basic_02_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3392,10 +3430,14 @@ at t/spec/uni/lex_utf8.v5:25<br />
 ------&gt; my $name_first = "b\N{⏏MICRO SIGN}Ɓ";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/complex_c3.v5:7<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/complex_c3.v5:88<br />
   in any  at t/spec/mro/complex_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3407,10 +3449,14 @@ at t/spec/uni/lex_utf8.v5:25<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:65<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/mro/complex_c3_utf8.v5:9<br />
+        <tr><td colspan='5'>Could not find symbol '&amp;1'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12025<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/complex_c3_utf8.v5:90<br />
   in any  at t/spec/mro/complex_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
