@@ -19,6 +19,7 @@ sub _lives_ok(*@args)        { lives_ok(|@args)                   }
 sub _eval_dies_ok(*@args)    { eval_dies_ok(|@args)               }
 sub _eval_lives_ok(*@args)   { eval_lives_ok(|@args)              }
 sub _is_deeply($a, $b, $c)   { is_deeply($a, $b, $c)              }
+sub _eq_array($a, $b)        { $a eqv $b                          }
 sub _cmp_ok($a, $b, $c, $d?) { _ok(::("&infix:<$b>")($a, $c), $d) }
 sub _done_testing()          { done_testing()                     }
 sub _done()                  { done()                             }
@@ -64,7 +65,7 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     sub eval_dies_ok            { _eval_dies_ok(@_)                   }
     sub eval_lives_ok           { _eval_lives_ok(@_)                  }
     sub is_deeply               { _is_deeply($_[0], $_[1], $_[2])     }
-    sub eq_array                { _is_deeply($_[0], $_[1], $_[2])     }
+    sub eq_array                { _eq_array($_[0], $_[1])             }
     sub cmp_ok                  { _cmp_ok($_[0], $_[1], $_[2], $_[3]) }
     sub done_testing            { _done()                             }
     sub done                    { _done()                             }
