@@ -3599,6 +3599,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <!{ nqp::defined(%prototype{$name}) }> { $*HAS_INDIRECT_OBJ := 1 }
     }
 
+    token term:sym<...> { <sym> <args> }
+
     token term:sym<identifier> {
         :my $name;
         :my $*HAS_INDIRECT_OBJ := 0;

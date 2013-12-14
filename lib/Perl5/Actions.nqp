@@ -3862,7 +3862,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method term:sym<...>($/) {
         $V5DEBUG && say("term:sym<...>($/)");
-        make make_yada('&fail', $/);
+        make QAST::Op.new( :op('call'), :name('&die'), QAST::SVal.new( :value('Unimplemented'), :node($/) ) )
     }
 
     method term:sym<???>($/) {
