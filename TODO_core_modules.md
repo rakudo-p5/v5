@@ -57,7 +57,7 @@ Keys:
 [ ] Compress::Raw::Bzip2 - Low-Level Interface to bzip2 compression library
 [ ] Compress::Raw::Zlib - Low-Level Interface to zlib compression library
 [ ] Compress::Zlib - Interface to zlib compression library
-[ ] Config - access Perl configuration information
+[s] Config - access Perl configuration information
 [ ] Config::Extensions - hash lookup of which core extensions were built.
 [ ] CPAN - query, download and build perl modules from CPAN sites
 [ ] CPAN::Debug - internal debugging for CPAN.pm
@@ -156,7 +156,7 @@ Keys:
 [ ] Encode::TW - Taiwan-based Chinese Encodings
 [ ] Encode::Unicode - Various Unicode Transformation Formats
 [ ] Encode::Unicode::UTF7 - UTF-7 encoding
-[ ] English - use nice English (or awk) names for ugly punctuation variables
+[s] English - use nice English (or awk) names for ugly punctuation variables
 [ ] Env - perl module that imports environment variables as scalars or arrays
 [ ] Errno - System errno constants
 [ ] Exporter - Implements default import method for modules
