@@ -2,7 +2,7 @@ To be able to use Perl 5 modules we need to port the most-used core modules firs
 
 This is a list of to-bo-ported modules, starting with:
 
-<a href="#a">A</a> <a href="#b">B</a> <a href="#c">C</a> <a href="#d">D</a> <a href="#e">E</a> <a href="#f">F</a> <a href="#g">G</a> <a href="#h">H</a> <a href="#i">I</a> J K <a href="#l">L</a> <a href="#m">M</a> <a href="#n">N</a> <a href="#o">O</a> <a href="#p">P</a> Q <a href="#r">R</a> <a href="#s">S</a> <a href="#t">T</a> <a href="#u">U</a> V W <a href="#r">X</a> Y Z
+<a href="#a">A</a> <a href="#b">B</a> <a href="#c">C</a> <a href="#d">D</a> <a href="#e">E</a> <a href="#f">F</a> <a href="#g">G</a> <a href="#h">H</a> <a href="#i">I</a> J K <a href="#l">L</a> <a href="#m">M</a> <a href="#n">N</a> <a href="#o">O</a> <a href="#p">P</a> Q <a href="#r">R</a> <a href="#s">S</a> <a href="#t">T</a> <a href="#u">U</a> V W <a href="#x">X</a> Y Z
 
 Keys:
 ```
