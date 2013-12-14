@@ -103,7 +103,7 @@ Keys:
 [ ] CPANPLUS::Shell::Default::Plugins::CustomSource - add custom sources to CPANPLUS
 [ ] CPANPLUS::Shell::Default::Plugins::Remote - connect to a remote CPANPLUS
 [ ] CPANPLUS::Shell::Default::Plugins::Source - read in CPANPLUS commands
-[ ] Cwd - get pathname of current working directory
+[x] Cwd - get pathname of current working directory
 ```
 
 ## D

@@ -16,7 +16,7 @@ HAS_ICU    = 0
 HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(HAS_ICU)
 
 all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc blib/Perl5/ModuleLoader.pbc \
-	blib/Perl5/constant.pbc blib/Perl5/overload.pbc
+	blib/Perl5/constant.pbc blib/Perl5/Cwd.pbc blib/Perl5/mro.pbc blib/Perl5/overload.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
@@ -43,20 +43,29 @@ blib/Perl5/Config.pbc: blib/Perl5/Terms.pbc lib/Perl5/Config.pm
 	$(PARROT) -o blib/Perl5/Config.pbc blib/Perl5/Config.pir
 
 blib/Perl5/constant.pbc: lib/Perl5/constant.pm
-	$(PERL6) --target=pir --output=blib/Perl5/constant.pir lib/Perl5/constant.pm
-	$(PARROT) -o blib/Perl5/constant.pbc blib/Perl5/constant.pir
+	@echo Compiling constant
+	@$(PERL6) --target=pir --output=blib/Perl5/constant.pir lib/Perl5/constant.pm
+	@$(PARROT) -o blib/Perl5/constant.pbc blib/Perl5/constant.pir
+
+blib/Perl5/Cwd.pbc: lib/Perl5/Cwd.pm
+	@echo Compiling Cwd
+	@$(PERL6) --target=pir --output=blib/Perl5/Cwd.pir lib/Perl5/Cwd.pm
+	@$(PARROT) -o blib/Perl5/Cwd.pbc blib/Perl5/Cwd.pir
 
 blib/Perl5/mro.pbc: lib/Perl5/mro.pm
-	$(PERL6) --target=pir --output=blib/Perl5/mro.pir lib/Perl5/mro.pm
-	$(PARROT) -o blib/Perl5/mro.pbc blib/Perl5/mro.pir
+	@echo Compiling mro
+	@$(PERL6) --target=pir --output=blib/Perl5/mro.pir lib/Perl5/mro.pm
+	@$(PARROT) -o blib/Perl5/mro.pbc blib/Perl5/mro.pir
 
 blib/Perl5/overload.pbc: lib/Perl5/overload.pm
-	$(PERL6) --target=pir --output=blib/Perl5/overload.pir lib/Perl5/overload.pm
-	$(PARROT) -o blib/Perl5/overload.pbc blib/Perl5/overload.pir
+	@echo Compiling overload
+	@$(PERL6) --target=pir --output=blib/Perl5/overload.pir lib/Perl5/overload.pm
+	@$(PARROT) -o blib/Perl5/overload.pbc blib/Perl5/overload.pir
 
 blib/Perl5/warnings.pbc: lib/Perl5/warnings.pm
-	$(PERL6) --target=pir --output=blib/Perl5/warnings.pir lib/Perl5/warnings.pm
-	$(PARROT) -o blib/Perl5/warnings.pbc blib/Perl5/warnings.pir
+	@echo Compiling warnings
+	@$(PERL6) --target=pir --output=blib/Perl5/warnings.pir lib/Perl5/warnings.pm
+	@$(PARROT) -o blib/Perl5/warnings.pbc blib/Perl5/warnings.pir
 
 blib/Perl5/Terms.pbc: blib/Perl5/warnings.pbc lib/Perl5/Terms.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/Terms.pir lib/Perl5/Terms.pm
@@ -85,6 +94,8 @@ install: all
 	$(CP) blib/Perl5/Config.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/Terms.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/constant.pbc $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/Cwd.pbc $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/mro.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/overload.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/warnings.pbc $(P6LIB)/lib/Perl5/
 
