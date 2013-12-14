@@ -1530,8 +1530,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 }
             }
             if nqp::existskey($module, '&EXPORT') {
-                @positional_imports := $*W.p6ize_recursive( @positional_imports );
-                my $result := $module<&EXPORT>(@positional_imports);
+                my $result;
+                if nqp::defined($arglist) {
+                    @positional_imports := $*W.p6ize_recursive( @positional_imports );
+                    $result := $module<&EXPORT>(@positional_imports);
+                }
+                else {
+                    $result := $module<&EXPORT>();
+                }
                 my $EnumMap := $*W.find_symbol(['EnumMap']);
                 if nqp::istype($result, $EnumMap) {
                     my $storage := $result.hash.FLATTENABLE_HASH();
