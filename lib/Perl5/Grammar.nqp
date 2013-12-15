@@ -1541,7 +1541,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 my $EnumMap := $*W.find_symbol(['EnumMap']);
                 if nqp::istype($result, $EnumMap) {
                     my $storage := $result.hash.FLATTENABLE_HASH();
-                    $*W.import($/, $storage, $package_source_name);
+                    Perl5::World::import($/, $storage, $package_source_name);
                 }
                 else {
                     nqp::die("&EXPORT sub did not return an EnumMap");

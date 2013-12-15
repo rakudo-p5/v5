@@ -101,6 +101,101 @@ class Perl5::World {
         }
         %info
     }
+
+    # Imports symbols from the specified stash into the current package.
+    our sub import($/, %stash, $source_package_name) {
+        # What follows is a two-pass thing for historical reasons.
+        my $target := $*W.cur_lexpad();
+        
+        # First pass: QAST::Block symbol table installation. Also detect any
+        # outright conflicts, and handle any situations where we need to merge.
+        my %to_install;
+        my @clash;
+        my @clash_onlystar;
+        for %stash {
+            if $target.symbol($_.key) -> %sym {
+                # There's already a symbol. However, we may be able to merge
+                # if both are multis and have onlystar dispatchers.
+                my $installed := %sym<value>;
+                my $foreign := $_.value;
+                if $installed =:= $foreign {
+                    next;
+                }
+                if nqp::can($installed, 'is_dispatcher') && $installed.is_dispatcher
+                && nqp::can($foreign, 'is_dispatcher') && $foreign.is_dispatcher {
+                    # Both dispatchers, but are they onlystar? If so, we can
+                    # go ahead and merge them.
+                    if $installed.onlystar && $foreign.onlystar {
+                        # Replace installed one with a derived one, to avoid any
+                        # weird action at a distance.
+                        $installed := $*W.derive_dispatcher($installed);
+                        $*W.install_lexical_symbol($target, $_.key, $installed, :clone(1));
+                        
+                        # Incorporate dispatchees of foreign proto, avoiding
+                        # duplicates.
+                        my %seen;
+                        for $installed.dispatchees {
+                            %seen{$_.static_id} := $_;
+                        }
+                        for $foreign.dispatchees {
+                            unless nqp::existskey(%seen, $_.static_id) {
+                                $*W.add_dispatchee_to_proto($installed, $_);
+                            }
+                        }
+                    }
+                    else {
+                        nqp::push(@clash_onlystar, $_.key);
+                    }
+                }
+                else {
+                    nqp::push(@clash, $_.key);
+                }
+            }
+            else {
+                $target.symbol($_.key, :scope('lexical'), :value($_.value));
+                $target[0].push(QAST::Var.new(
+                    :scope('lexical'), :name($_.key), :decl('static'), :value($_.value)
+                ));
+                $*W.install_package_symbol($*PACKAGE, $_.key, $_.value);
+                $target[0].push(QAST::Op.new(
+                    :op('bindkey'),
+                    QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
+                    QAST::SVal.new( :value($_.key) ),
+                    QAST::Var.new( :name($_.key), :scope('lexical') )
+                ));
+                %to_install{$_.key} := $_.value;
+                
+            }
+        }
+
+        if +@clash_onlystar {
+            $*W.throw($/, 'X::Import::OnlystarProto',
+                symbols             => @clash_onlystar,
+                source-package-name => $source_package_name,
+            );
+        }
+
+        if +@clash {
+            $*W.throw($/, 'X::Import::Redeclaration',
+                symbols             => @clash,
+                source-package-name => $source_package_name,
+            );
+        }
+        
+        # Second pass: make sure installed things are in an SC and handle
+        # categoricals.
+        for %to_install {
+            my $v := $_.value;
+            
+            if nqp::isnull(nqp::getobjsc($v)) { $*W.add_object($v); }
+            my $categorical := match($_.key, /^ '&' (\w+) ':<' (.+) '>' $/);
+            if $categorical {
+                $/.CURSOR.add_categorical(~$categorical[0], ~$categorical[1],
+                    ~$categorical[0] ~ ':sym<' ~$categorical[1] ~ '>',
+                    $_.key, $_.value);
+            }
+        }
+    }
 }
 
 # vim: ft=perl6

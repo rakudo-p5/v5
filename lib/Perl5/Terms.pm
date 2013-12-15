@@ -87,7 +87,7 @@ sub EXPORT(|) {
     %ex<$^T>                      := $BASETIME;
     %ex<$^V>                      := $VERSION_V;
     %ex<$^X>                      := $*EXECUTABLE_NAME;
-    %ex<$^M>                       = Mu;
+    %ex<$^M>                      := Mu;
         
     ## Variables related to regular expressions
     %ex<$^N>                      := $LAST_SUBMATCH_RESULT;
