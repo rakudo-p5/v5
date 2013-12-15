@@ -206,33 +206,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x65813662be2aae0d) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
@@ -975,20 +975,47 @@ Other potential difficulties:<br />
     ------&gt;     open my $fh⏏, '&lt;', $proto or die "Can't open $proto:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;find_git_or_skip'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/porting/authors.v5:12<br />
+  in any  at t/spec/porting/authors.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+Could not find File::Find in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr align='center'><td align='left'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;find_git_or_skip'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/porting/cmp_version.v5:16<br />
+  in any  at t/spec/porting/cmp_version.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1029,7 +1056,13 @@ at t/spec/comp/require.v5:206<br />
 ------&gt; eval { CORE::require ⏏bleah; };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/globvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/porting/globvar.v5:75<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/globvar.v5:33<br />
+    ------&gt; open my $fh⏏, '-|', $^X, '-Ilib', './makedef.pl', 'P<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1037,16 +1070,38 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/manifest.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/porting/manifest.v5:85<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $m<br />
+    at t/spec/porting/manifest.v5:17<br />
+    ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/pending-author.v5:56<br />
+    ------&gt; open my $fh⏏, '|-', "$^X Porting/checkAUTHORS.pl --t<br />
+No such symbol '&amp;find_git_or_skip'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/porting/pending-author.v5:31<br />
+  in any  at t/spec/porting/pending-author.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr align='center'><td align='left'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
@@ -1067,9 +1122,10 @@ Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/porting/regen.v5<br />
+Variable '$NO_ENDING' is not declared<br />
+at t/spec/porting/regen.v5:14<br />
+------&gt; $::NO_ENDING⏏ = $::NO_ENDING = 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/test_bootstrap.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix &lt; instead<br />
@@ -1082,7 +1138,13 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find TestInit in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/porting/utils.v5:103<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/utils.v5:37<br />
+    ------&gt; open my $fh⏏, '&lt;', 'MANIFEST' or die "Can't open MAN<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/fold_grind.v5<br />
