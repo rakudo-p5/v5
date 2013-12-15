@@ -303,6 +303,7 @@ multi P5Numeric(List:D  \SELF) is export { +@(SELF) }
 multi P5Numeric(Int     \SELF) is export { SELF }
 multi P5Numeric(Num     \SELF) is export { SELF }
 multi P5Numeric(Rat     \SELF) is export { SELF }
+multi P5Numeric(''      \SELF) is export { '' }
 multi P5Numeric(Str:D   \SELF) is export {
     my str $str = nqp::unbox_s(SELF);
     my int $eos = nqp::chars($str);
