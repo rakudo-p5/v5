@@ -206,33 +206,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-45c6596c5397211c) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
@@ -2993,10 +2993,10 @@ at t/spec/op/flip.v5:69<br />
 Could not find Fcntl in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/require_errors.v5<br />
-Unrecognized Perl 5 regex backslash sequence<br />
-at t/spec/op/require_errors.v5:45<br />
-------&gt;     like $@, qr/^Can't locate \⏏Q$file\E in \@INC \(change \.h to \.ph m</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Two terms in a row<br />
+at t/spec/op/require_errors.v5:65<br />
+------&gt; print { $module_fh } ⏏"print 1; 1;\n";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sselect.v5<br />
 Confused<br />
@@ -3931,14 +3931,14 @@ at t/spec/op/oct.v5:65<br />
 ------&gt; y $format = ($string =~ /([bx])/i) ? "0\⏏L$1%\U$1": '0%o';</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/use.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/use.v5<br />
-Unrecognized Perl 5 regex backslash sequence<br />
-at t/spec/comp/use.v5:100<br />
-------&gt; r/Perl v6\.0\.0 required--this is only \⏏Q$^V\E, stopped/);</td></tr>
+Two terms in a row<br />
+at t/spec/comp/use.v5:146<br />
+------&gt; is $@, "", ⏏'explicit "no strict" overrides later ve</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/bless.v5<br />
-Unrecognized Perl 5 regex backslash sequence<br />
+Two terms in a row<br />
 at t/spec/uni/bless.v5:18<br />
-------&gt;     my $r = qr/^\⏏Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/u;</td></tr>
+------&gt; r/^\Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/⏏u;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/lex.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/base/lex.v5<br />
 Unable to parse expression in parenthesized expression; couldn't find final ')' <br />
@@ -3989,10 +3989,9 @@ at t/spec/op/lex_assign.v5:344<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/bless.v5<br />
-Unrecognized Perl 5 regex backslash sequence<br />
-at t/spec/op/bless.v5:16<br />
-------&gt;     my $r = qr/^\⏏Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/;</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Could not find warnings in any of: ../lib<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/stat.v5<br />
 Two terms in a row<br />
@@ -4011,8 +4010,8 @@ No such symbol '&amp;or'<br />
         <tr align='center'><td align='left' rowspan='2'>op/split.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/split.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
-at t/spec/op/split.v5:84<br />
-------&gt; foo =~ /DEBUGGING/ || $foo =~ /const\n?\⏏Q(IV(3))\E/);</td></tr>
+at t/spec/op/split.v5:207<br />
+------&gt; @ary = split(/\⏏x{FE}/, "\x{FF}\x{FE}\x{FD}"); # bug id</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switches.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Errno in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -4206,10 +4205,39 @@ at t/spec/re/pat_rt_report.v5:96<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Unrecognized Perl 5 regex backslash sequence<br />
-at t/spec/comp/utf.v5:45<br />
-------&gt;  ($@ =~ /^(Unsupported script encoding \⏏Q$enc\E)/) {</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/comp/utf.v5:38<br />
+    ------&gt;     open my $fh⏏, "&gt;", "utf$$.pl" or die "utf.pl: $!";<br />
+No such symbol '&amp;binmode'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in sub test at t/spec/comp/utf.v5:39<br />
+  in block  at t/spec/comp/utf.v5:61<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method eager at gen/parrot/CORE.setting:7583<br />
+  in block  at t/spec/comp/utf.v5:59<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method eager at gen/parrot/CORE.setting:7583<br />
+  in block  at t/spec/comp/utf.v5:57<br />
+  in any  at t/spec/comp/utf.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
 
         <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.11.1-64-g4da6c96 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>

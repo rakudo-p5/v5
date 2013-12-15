@@ -2694,6 +2694,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    }
     token quote:sym</ />  {
         :my %*RX;
+        :my $*INTERPOLATE := 1;
         '/' <nibble(self.quote_lang(%*LANG<P5Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
         <rx_mods>?
     }
@@ -2715,6 +2716,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token quote:sym<qr> {
         :my %*RX;
+        :my $*INTERPOLATE := 1;
         <sym> »
         #<quibble( self.cursor_fresh( %*LANG<P5Regex> ) )>
         <quibble(%*LANG<P5Regex>)>
@@ -2723,6 +2725,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token quote:sym<m>  {
         :my %*RX;
+        :my $*INTERPOLATE := 1;
         <sym> »
         { %*RX<s> := 1 if $/[0] }
         <quibble(%*LANG<P5Regex>)>
@@ -2732,6 +2735,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token quote:sym<s> {
         <sym> »
         :my %*RX;
+        :my $*INTERPOLATE := 1;
         {
             %*RX<s> := 1 if $/[0]
         }
@@ -4045,7 +4049,11 @@ grammar Perl5::RegexGrammar is QRegex::P5Regex::Grammar does STD5 {
     token p5metachar:sym<(??{ })> {
         '(??' <?[{]> <codeblock> ')'
     }
-    
+
+    token p5metachar:sym<var> {
+        <?[$]> <var=.LANG('Perl5', 'variable')>
+    }
+
     token codeblock {
         <block=.LANG('Perl5','block')>
     }
