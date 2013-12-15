@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>4597</td><td>25917</td><td>5</td><td>10332</td><td>40841</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>4604</td><td>25910</td><td>5</td><td>10332</td><td>40841</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2065</td><td>2332</td><td>0</td><td>10307</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -206,33 +206,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-9f11a0ef345527e) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
@@ -435,6 +435,10 @@ use of uninitialized value of type Any in string context<br />
     at t/v5/16-var-redeclare.v5:13<br />
     ------&gt;     my $x ⏏= 1;<br />
 </td></tr>
+        <tr align='center'><td align='left'>t/v5/11-class.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr align='center'><td align='left'>t/v5/11-bless.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left'>t/v5/11-bind-method-param.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left'>t/v5/11-accessor.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/05-lex-block.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/05-lex-block-if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
@@ -509,20 +513,6 @@ Malformed UTF-8 string<br />
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>io/iofile.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-accessor.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>No such method 'new1' for invocant of type 'Other'<br />
-  in block  at t/v5/11-accessor.v5:20<br />
-  in block  at t/v5/11-accessor.v5:1<br />
-  in any  at t/v5/11-accessor.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
         <tr align='center'><td align='left'>t/v5/06-bool.v5</td><td>1</td><td>31</td><td>0</td><td>0</td><td>32</td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>1</td><td>4</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1612,19 +1602,7 @@ No such symbol '&amp;DATA'<br />
         <tr align='center'><td align='left'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
-  in block  at t/spec/mro/next_ineval.v5:41<br />
-  in any  at t/spec/mro/next_ineval.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
+        <tr align='center'><td align='left'>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/next_ineval_utf8.v5<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
@@ -1751,7 +1729,14 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in method BUILDALL at gen/parrot/CORE.setting:892<br />
+  in method bless at gen/parrot/CORE.setting:812<br />
+  in method new at gen/parrot/CORE.setting:797<br />
+  in method new at gen/parrot/CORE.setting:795<br />
+  in method dispatch:&lt;::&gt; at gen/parrot/CORE.setting:1153<br />
+  in sub foo at t/spec/mro/basic_05_c3.v5:46<br />
   in block  at t/spec/mro/basic_05_c3.v5:54<br />
   in any  at t/spec/mro/basic_05_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -1764,7 +1749,14 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'ᕘ' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in method BUILDALL at gen/parrot/CORE.setting:892<br />
+  in method bless at gen/parrot/CORE.setting:812<br />
+  in method new at gen/parrot/CORE.setting:797<br />
+  in method new at gen/parrot/CORE.setting:795<br />
+  in method dispatch:&lt;::&gt; at gen/parrot/CORE.setting:1153<br />
+  in sub ᕘ at t/spec/mro/basic_05_c3_utf8.v5:48<br />
   in block  at t/spec/mro/basic_05_c3_utf8.v5:56<br />
   in any  at t/spec/mro/basic_05_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -1777,7 +1769,14 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in method BUILDALL at gen/parrot/CORE.setting:892<br />
+  in method bless at gen/parrot/CORE.setting:812<br />
+  in method new at gen/parrot/CORE.setting:797<br />
+  in method new at gen/parrot/CORE.setting:795<br />
+  in method dispatch:&lt;::&gt; at gen/parrot/CORE.setting:1153<br />
+  in sub foo at t/spec/mro/basic_05_dfs.v5:46<br />
   in block  at t/spec/mro/basic_05_dfs.v5:54<br />
   in any  at t/spec/mro/basic_05_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -1790,7 +1789,14 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'ᕘ' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in method BUILDALL at gen/parrot/CORE.setting:892<br />
+  in method bless at gen/parrot/CORE.setting:812<br />
+  in method new at gen/parrot/CORE.setting:797<br />
+  in method new at gen/parrot/CORE.setting:795<br />
+  in method dispatch:&lt;::&gt; at gen/parrot/CORE.setting:1153<br />
+  in sub ᕘ at t/spec/mro/basic_05_dfs_utf8.v5:49<br />
   in block  at t/spec/mro/basic_05_dfs_utf8.v5:57<br />
   in any  at t/spec/mro/basic_05_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -1802,32 +1808,8 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
-  in block  at t/spec/mro/next_inanon.v5:52<br />
-  in any  at t/spec/mro/next_inanon.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'ᕘ' for invocant of type 'Nil'<br />
-  in block  at t/spec/mro/next_inanon_utf8.v5:53<br />
-  in any  at t/spec/mro/next_inanon_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
+        <tr align='center'><td align='left'>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left'>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find POSIX in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -1875,32 +1857,6 @@ No such symbol '&amp;Regexp::DESTROY'<br />
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Encode in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bind-method-param.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Main'<br />
-  in block  at t/v5/11-bind-method-param.v5:17<br />
-  in any  at t/v5/11-bind-method-param.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bless.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Other'<br />
-  in block  at t/v5/11-bless.v5:33<br />
-  in any  at t/v5/11-bless.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>No such method 'subr' for invocant of type 'Other'<br />
@@ -2101,7 +2057,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
 Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Diamond_D'<br />
   in block  at t/spec/mro/basic_01_c3.v5:46<br />
   in any  at t/spec/mro/basic_01_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -2114,7 +2070,7 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such method 'hèllò' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>No such method 'hèllò' for invocant of type 'Ｄiᚪၚd_D'<br />
   in block  at t/spec/mro/basic_01_c3_utf8.v5:48<br />
   in any  at t/spec/mro/basic_01_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -2127,7 +2083,7 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Diamond_D'<br />
   in block  at t/spec/mro/basic_01_dfs.v5:46<br />
   in any  at t/spec/mro/basic_01_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -2140,7 +2096,7 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such method 'hèllò' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>No such method 'hèllò' for invocant of type 'Ｄiᚪၚd_D'<br />
   in block  at t/spec/mro/basic_01_dfs_utf8.v5:48<br />
   in any  at t/spec/mro/basic_01_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -2205,7 +2161,7 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_method.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Diamond_D'<br />
   in block  at t/spec/mro/next_method.v5:54<br />
   in any  at t/spec/mro/next_method.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -2218,7 +2174,7 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_method_utf8.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>No such method '헬ฬ' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>No such method '헬ฬ' for invocant of type 'Diӑmond_D'<br />
   in block  at t/spec/mro/next_method_utf8.v5:56<br />
   in any  at t/spec/mro/next_method_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -2364,20 +2320,6 @@ at t/spec/uni/opcroak.v5:21<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/uni/select.v5:19<br />
   in any  at t/spec/uni/select.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-class.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Other'<br />
-  in block  at t/v5/11-class.v5:35<br />
-  in block  at t/v5/11-class.v5:1<br />
-  in any  at t/v5/11-class.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
   in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
@@ -2816,7 +2758,14 @@ at t/spec/uni/labels.v5:49<br />
 Could not locate compile-time value for symbol A<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
+        <tr><td colspan='5'>Could not find symbol 'next'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in method BUILDALL at gen/parrot/CORE.setting:892<br />
+  in method bless at gen/parrot/CORE.setting:812<br />
+  in method new at gen/parrot/CORE.setting:797<br />
+  in method new at gen/parrot/CORE.setting:795<br />
+  in method dispatch:&lt;::&gt; at gen/parrot/CORE.setting:1153<br />
+  in sub foo at t/spec/mro/next_skip.v5:47<br />
   in block  at t/spec/mro/next_skip.v5:65<br />
   in any  at t/spec/mro/next_skip.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -3009,7 +2958,14 @@ at t/spec/uni/lex_utf8.v5:25<br />
 ------&gt; my $name_first = "b\N{⏏MICRO SIGN}Ɓ";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>No such method 'testmeth' for invocant of type 'Test::K'<br />
+        <tr><td colspan='5'>Could not find symbol 'next'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in method BUILDALL at gen/parrot/CORE.setting:892<br />
+  in method bless at gen/parrot/CORE.setting:812<br />
+  in method new at gen/parrot/CORE.setting:797<br />
+  in method new at gen/parrot/CORE.setting:795<br />
+  in method dispatch:&lt;::&gt; at gen/parrot/CORE.setting:1153<br />
+  in sub testmeth at t/spec/mro/complex_c3.v5:85<br />
   in block  at t/spec/mro/complex_c3.v5:143<br />
   in any  at t/spec/mro/complex_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -3022,7 +2978,14 @@ at t/spec/uni/lex_utf8.v5:25<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>No such method 'testmèth' for invocant of type '텟Ṱ::Ḵ'<br />
+        <tr><td colspan='5'>Could not find symbol 'next'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in method BUILDALL at gen/parrot/CORE.setting:892<br />
+  in method bless at gen/parrot/CORE.setting:812<br />
+  in method new at gen/parrot/CORE.setting:797<br />
+  in method new at gen/parrot/CORE.setting:795<br />
+  in method dispatch:&lt;::&gt; at gen/parrot/CORE.setting:1153<br />
+  in sub testmèth at t/spec/mro/complex_c3_utf8.v5:87<br />
   in block  at t/spec/mro/complex_c3_utf8.v5:145<br />
   in any  at t/spec/mro/complex_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
@@ -3754,7 +3717,7 @@ at t/spec/op/stash.v5:79<br />
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/ver.v5<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
 at t/spec/op/ver.v5:110<br />
-------&gt; 			 ⏏unpack 'U*', pack('U*',2001,2002,2003)))</td></tr>
+------&gt; 			 unpack⏏ 'U*', pack('U*',2001,2002,2003))),</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/stash.v5<br />
 Variable '%piƓ' is not declared<br />

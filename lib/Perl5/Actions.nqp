@@ -2184,30 +2184,23 @@ class Perl5::Actions is HLL::Actions does STDActions {
         unless $<blockoid> {
             return make QAST::Var.new( :name<Nil>, :scope<lexical>, :node($/) );
         }
-        my $block;
-
-#        if $<onlystar> {
-#            $block := $<onlystar>.ast;
-#        }
-#        else {
-            $block := $<blockoid>.ast;
-            $block.blocktype('declaration');
-            if is_clearly_returnless($block) {
-                unless nqp::objprimspec($block[1].returns) {
-                    $block[1] := QAST::Op.new(
-                        :op('p6decontrv'),
-                        QAST::WVal.new( :value($*DECLARAND) ),
-                        $block[1]);
-                }
+        my $block := $<blockoid>.ast;
+        $block.blocktype('declaration');
+        if is_clearly_returnless($block) {
+            unless nqp::objprimspec($block[1].returns) {
                 $block[1] := QAST::Op.new(
-                    :op('p6typecheckrv'),
-                    $block[1],
-                    QAST::WVal.new( :value($*DECLARAND) ));
+                    :op('p6decontrv'),
+                    QAST::WVal.new( :value($*DECLARAND) ),
+                    $block[1]);
             }
-            else {
-                $block[1] := wrap_return_handler($block[1]);
-            }
-#        }
+            $block[1] := QAST::Op.new(
+                :op('p6typecheckrv'),
+                $block[1],
+                QAST::WVal.new( :value($*DECLARAND) ));
+        }
+        else {
+            $block[1] := wrap_return_handler($block[1]);
+        }
 
         # Add an slurpy @_ parameter by default.
         my %sig_info;
@@ -2272,6 +2265,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                         what   => 'routine',
                 );
             }
+
+            install_method($/, ~$<deflongname>.ast, $*SCOPE, $code, $outer, :private(0));
 
             # Install in lexpad and in package, and set up code to
             # re-bind it per invocation of its outer.
@@ -2470,24 +2465,18 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method method_def($/) {
         $V5DEBUG && say("method_def($/)");
-        my $past;
-#        if $<onlystar> {
-#            $past := $<onlystar>.ast;
-#        }
-#        else {
-            $past := $<blockoid>.ast;
-            $past.blocktype('declaration');
-            if is_clearly_returnless($past) {
-                $past[1] := QAST::Op.new(
-                    :op('p6typecheckrv'),
-                    QAST::Op.new( :op('p6decontrv'), QAST::WVal.new( :value($*DECLARAND) ), $past[1]),
-                    QAST::WVal.new( :value($*DECLARAND) ));
-            }
-            else {
-                $past[1] := wrap_return_handler($past[1]);
-            }
-#        }
-        
+        my $past := $<blockoid>.ast;
+        $past.blocktype('declaration');
+        if is_clearly_returnless($past) {
+            $past[1] := QAST::Op.new(
+                :op('p6typecheckrv'),
+                QAST::Op.new( :op('p6decontrv'), QAST::WVal.new( :value($*DECLARAND) ), $past[1]),
+                QAST::WVal.new( :value($*DECLARAND) ));
+        }
+        else {
+            $past[1] := wrap_return_handler($past[1]);
+        }
+
         my $name;
         if $<longname> {
             my $longname := $*W.dissect_longname($<longname>);
@@ -2524,9 +2513,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         for $<trait> {
             if $_.ast { ($_.ast)($code) }
         }
-#        if $<onlystar> {
-#            $*W.apply_trait($/, '&trait_mod:<is>', $*DECLARAND, :onlystar(1));
-#        }
 
         # Install method.
         if $name {
@@ -2702,18 +2688,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $scope ne 'anon' && nqp::can($*PACKAGE.HOW, $meta_meth) {
             $*W.pkg_add_method($/, $*PACKAGE, $meta_meth, $name, $code);
         }
-        elsif $scope eq '' || $scope eq 'has' {
-            my $nocando := $*MULTINESS eq 'multi' ?? 'multi-method' !! 'method';
-            nqp::printfh(nqp::getstderr(),
-                "Useless declaration of a has-scoped $nocando in " ~
-                ($*PKGDECL || "mainline") ~ "\n");
-        }
 
         # May also need it in lexpad and/or package.
         if $*SCOPE eq 'my' {
             $*W.install_lexical_symbol($outer, '&' ~ $name, $code, :clone(1));
         }
-        elsif $*SCOPE eq 'our' {
+        elsif $*SCOPE eq 'our' || $*SCOPE eq '' {
             $*W.install_lexical_symbol($outer, '&' ~ $name, $code, :clone(1));
             $*W.install_package_symbol($*PACKAGE, '&' ~ $name, $code);
         }
