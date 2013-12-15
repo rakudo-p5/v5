@@ -206,33 +206,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x735d8733a72da2f6) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x6ee430c468146532) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
@@ -1526,7 +1526,12 @@ Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
+        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 341.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 342.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 343.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 344.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 345.<br />
+===SORRY!===<br />
 Could not find File::Copy in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1577,25 +1582,7 @@ Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_04_c3.v5:31<br />
-  in any  at t/spec/mro/basic_04_c3.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
+        <tr align='center'><td align='left'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;DATA'<br />
@@ -1616,139 +1603,13 @@ No such symbol '&amp;DATA'<br />
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_04_c3_utf8.v5:33<br />
-  in any  at t/spec/mro/basic_04_c3_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_04_dfs.v5:31<br />
-  in any  at t/spec/mro/basic_04_dfs.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_04_dfs_utf8.v5:33<br />
-  in any  at t/spec/mro/basic_04_dfs_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/dbic_c3.v5:95<br />
-  in any  at t/spec/mro/dbic_c3.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/dbic_c3_utf8.v5:97<br />
-  in any  at t/spec/mro/dbic_c3_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/dbic_dfs.v5:95<br />
-  in any  at t/spec/mro/dbic_dfs.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/dbic_dfs_utf8.v5:97<br />
-  in any  at t/spec/mro/dbic_dfs_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
+        <tr align='center'><td align='left'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1769,82 +1630,10 @@ No such symbol '&amp;DATA'<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
 at t/spec/mro/next_ineval_utf8.v5:44<br />
 ------&gt;    qr/^అ::ຟǫ died/⏏u,</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/vulcan_c3.v5:64<br />
-  in any  at t/spec/mro/vulcan_c3.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/vulcan_c3_utf8.v5:65<br />
-  in any  at t/spec/mro/vulcan_c3_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/vulcan_dfs.v5:64<br />
-  in any  at t/spec/mro/vulcan_dfs.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/vulcan_dfs_utf8.v5:66<br />
-  in any  at t/spec/mro/vulcan_dfs_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
+        <tr align='center'><td align='left'>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/fresh_perl_utf8.v5<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
@@ -1962,14 +1751,8 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_05_c3.v5:49<br />
+        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_05_c3.v5:54<br />
   in any  at t/spec/mro/basic_05_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -1981,14 +1764,8 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_05_c3_utf8.v5:51<br />
+        <tr><td colspan='5'>No such method 'ᕘ' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_05_c3_utf8.v5:56<br />
   in any  at t/spec/mro/basic_05_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2000,14 +1777,8 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_05_dfs.v5:49<br />
+        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_05_dfs.v5:54<br />
   in any  at t/spec/mro/basic_05_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2019,14 +1790,8 @@ Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_05_dfs_utf8.v5:52<br />
+        <tr><td colspan='5'>No such method 'ᕘ' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_05_dfs_utf8.v5:57<br />
   in any  at t/spec/mro/basic_05_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2216,15 +1981,43 @@ Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-dev
 Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/next_goto.v5<br />
-Cannot import symbol &amp;get_linear_isa from mro, because it already exists in this lexical scope<br />
-at t/spec/mro/next_goto.v5:9<br />
-------&gt; use mro⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;TTop'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/next_goto.v5:33<br />
+  in any  at t/spec/mro/next_goto.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/next_goto_utf8.v5<br />
-Cannot import symbol &amp;get_linear_isa from mro, because it already exists in this lexical scope<br />
-at t/spec/mro/next_goto_utf8.v5:10<br />
-------&gt; use mro⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;ᵗ톺'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/next_goto_utf8.v5:34<br />
+  in any  at t/spec/mro/next_goto_utf8.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Attribute::Handlers in any of: ../lib<br />
@@ -2308,14 +2101,8 @@ at t/v5/25-syntax-defined-or.v5:8<br />
 Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_01_c3.v5:41<br />
+        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_01_c3.v5:46<br />
   in any  at t/spec/mro/basic_01_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2327,14 +2114,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_01_c3_utf8.v5:43<br />
+        <tr><td colspan='5'>No such method 'hèllò' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_01_c3_utf8.v5:48<br />
   in any  at t/spec/mro/basic_01_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2346,14 +2127,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_01_dfs.v5:41<br />
+        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_01_dfs.v5:46<br />
   in any  at t/spec/mro/basic_01_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2365,14 +2140,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_01_dfs_utf8.v5:43<br />
+        <tr><td colspan='5'>No such method 'hèllò' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/basic_01_dfs_utf8.v5:48<br />
   in any  at t/spec/mro/basic_01_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2384,14 +2153,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_03_c3.v5:90<br />
+        <tr><td colspan='5'>No such method 'O_or_D' for invocant of type 'Test::A'<br />
+  in block  at t/spec/mro/basic_03_c3.v5:95<br />
   in any  at t/spec/mro/basic_03_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2403,14 +2166,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_03_c3_utf8.v5:92<br />
+        <tr><td colspan='5'>No such method 'ᴼ_or_Ḋ' for invocant of type '텟ţ::ଅ'<br />
+  in block  at t/spec/mro/basic_03_c3_utf8.v5:97<br />
   in any  at t/spec/mro/basic_03_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2422,14 +2179,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_03_dfs.v5:90<br />
+        <tr><td colspan='5'>No such method 'O_or_D' for invocant of type 'Test::A'<br />
+  in block  at t/spec/mro/basic_03_dfs.v5:95<br />
   in any  at t/spec/mro/basic_03_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2441,14 +2192,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_03_dfs_utf8.v5:92<br />
+        <tr><td colspan='5'>No such method 'ᴼ_or_Ḋ' for invocant of type '텟ţ::ଅ'<br />
+  in block  at t/spec/mro/basic_03_dfs_utf8.v5:97<br />
   in any  at t/spec/mro/basic_03_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2460,14 +2205,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_method.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/next_method.v5:49<br />
+        <tr><td colspan='5'>No such method 'hello' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/next_method.v5:54<br />
   in any  at t/spec/mro/next_method.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -2479,14 +2218,8 @@ Could not find B in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_method_utf8.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/next_method_utf8.v5:51<br />
+        <tr><td colspan='5'>No such method '헬ฬ' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/next_method_utf8.v5:56<br />
   in any  at t/spec/mro/next_method_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3083,14 +2816,8 @@ at t/spec/uni/labels.v5:49<br />
 Could not locate compile-time value for symbol A<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/next_skip.v5:60<br />
+        <tr><td colspan='5'>No such method 'foo' for invocant of type 'Nil'<br />
+  in block  at t/spec/mro/next_skip.v5:65<br />
   in any  at t/spec/mro/next_skip.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3191,14 +2918,8 @@ at t/spec/io/openpid.v5:89<br />
 Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_02_c3.v5:83<br />
+        <tr><td colspan='5'>No such method 'C_or_D' for invocant of type 'Test::A'<br />
+  in block  at t/spec/mro/basic_02_c3.v5:113<br />
   in any  at t/spec/mro/basic_02_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3210,14 +2931,8 @@ Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_02_c3_utf8.v5:85<br />
+        <tr><td colspan='5'>No such method 'ƈ_or_Ḋ' for invocant of type '텟ţ::ଅ'<br />
+  in block  at t/spec/mro/basic_02_c3_utf8.v5:115<br />
   in any  at t/spec/mro/basic_02_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3229,14 +2944,8 @@ Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_02_dfs.v5:83<br />
+        <tr><td colspan='5'>No such method 'C_or_D' for invocant of type 'Test::A'<br />
+  in block  at t/spec/mro/basic_02_dfs.v5:113<br />
   in any  at t/spec/mro/basic_02_dfs.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3248,14 +2957,8 @@ Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/basic_02_dfs_utf8.v5:85<br />
+        <tr><td colspan='5'>No such method 'ƈ_or_Ḋ' for invocant of type '텟ţ::ଅ'<br />
+  in block  at t/spec/mro/basic_02_dfs_utf8.v5:115<br />
   in any  at t/spec/mro/basic_02_dfs_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3266,44 +2969,8 @@ Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/complex_dfs.v5:85<br />
-  in any  at t/spec/mro/complex_dfs.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/complex_dfs_utf8.v5:87<br />
-  in any  at t/spec/mro/complex_dfs_utf8.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
+        <tr align='center'><td align='left'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr align='center'><td align='left'>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/array_base.v5<br />
 Missing block<br />
@@ -3342,14 +3009,8 @@ at t/spec/uni/lex_utf8.v5:25<br />
 ------&gt; my $name_first = "b\N{⏏MICRO SIGN}Ɓ";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/complex_c3.v5:88<br />
+        <tr><td colspan='5'>No such method 'testmeth' for invocant of type 'Test::K'<br />
+  in block  at t/spec/mro/complex_c3.v5:143<br />
   in any  at t/spec/mro/complex_c3.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3361,14 +3022,8 @@ at t/spec/uni/lex_utf8.v5:25<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Could not find symbol '&amp;get_linear_isa'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/complex_c3_utf8.v5:90<br />
+        <tr><td colspan='5'>No such method 'testmèth' for invocant of type '텟Ṱ::Ḵ'<br />
+  in block  at t/spec/mro/complex_c3_utf8.v5:145<br />
   in any  at t/spec/mro/complex_c3_utf8.v5:1<br />
   in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
   in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
@@ -3399,15 +3054,53 @@ at t/spec/uni/lex_utf8.v5:25<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/next_edgecases.v5<br />
-Cannot import symbol &amp;get_linear_isa from mro, because it already exists in this lexical scope<br />
-at t/spec/mro/next_edgecases.v5:89<br />
-------&gt;         use mro⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;object_ok'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/next_edgecases.v5:25<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/mro/next_edgecases.v5:9<br />
+  in any  at t/spec/mro/next_edgecases.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/next_edgecases_utf8.v5<br />
-Cannot import symbol &amp;get_linear_isa from mro, because it already exists in this lexical scope<br />
-at t/spec/mro/next_edgecases_utf8.v5:92<br />
-------&gt;         use mro⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;object_ok'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/next_edgecases_utf8.v5:28<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/mro/next_edgecases_utf8.v5:12<br />
+  in any  at t/spec/mro/next_edgecases_utf8.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
@@ -3752,14 +3445,14 @@ at t/spec/io/argv.v5:158<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/isarev.v5<br />
-Cannot import symbol &amp;get_linear_isa from mro, because it already exists in this lexical scope<br />
-at t/spec/mro/isarev.v5:16<br />
-------&gt; use mro⏏;</td></tr>
+Unable to parse expression in variable; couldn't find final '}' <br />
+at t/spec/mro/isarev.v5:22<br />
+------&gt;      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isarev_utf8.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/isarev_utf8.v5<br />
-Cannot import symbol &amp;get_linear_isa from mro, because it already exists in this lexical scope<br />
-at t/spec/mro/isarev_utf8.v5:19<br />
-------&gt; use mro⏏;</td></tr>
+Unable to parse expression in variable; couldn't find final '}' <br />
+at t/spec/mro/isarev_utf8.v5:25<br />
+------&gt;      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 ===SORRY!=== Error while compiling t/spec/io/pipe.v5<br />
@@ -4500,7 +4193,7 @@ at t/spec/comp/utf.v5:45<br />
 
         <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.11.1-64-g4da6c96 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
-        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-38-g455fbcb built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-44-g1069590 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
     </tbody>
 </table>
