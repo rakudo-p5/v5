@@ -206,33 +206,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x3e84978598bb67f6) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
@@ -655,7 +655,7 @@ Could not find mro in any of: ../lib<br />
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (gen/parrot/CORE.setting:10814)</td></tr>
+current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10814)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12068<br />
@@ -675,7 +675,7 @@ current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (gen/parrot/CORE.setting:10814)</td></tr>
+current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10814)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/method_caching_utf8.v5<br />
 Variable '*FFF' is not declared<br />
@@ -1301,7 +1301,7 @@ No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (gen/parrot/CORE.setting:10814)</td></tr>
+current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10814)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regex_sets.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -1530,10 +1530,10 @@ Could not locate compile-time value for symbol pass<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error while reading from file: Invalid character in UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (gen/parrot/CORE.setting:10814)</td></tr>
+current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10814)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>no kid script<br />
   in block  at t/spec/io/crlf_through.v5:11<br />
@@ -1568,10 +1568,10 @@ current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (gen/parrot/CORE.setting:10814)</td></tr>
+current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10814)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 137617 (src/gen/p-CORE.setting.pir:58501) (gen/parrot/CORE.setting:10814)</td></tr>
+current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10814)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -2482,10 +2482,10 @@ Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/inplace.v5<br />
 Preceding context expects a term, but found infix &lt; instead<br />
@@ -3797,7 +3797,7 @@ at t/spec/op/quotemeta.v5:35<br />
 ------&gt; is("aA\⏏UbB\LcC\EdD", "aABBccdD", 'aA\UbB\LcC\Ed</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grep.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/grep.v5<br />
 Preceding context expects a term, but found infix , instead<br />
@@ -3919,7 +3919,7 @@ No such symbol '&amp;tie'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 QRPA: index out of bounds<br />
@@ -3978,10 +3978,10 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex_assign.v5</td><td>0</td><td>100</td><td>0</td><td>0</td><td>100</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/lex_assign.v5<br />
 Preceding context expects a term, but found infix &lt; instead<br />
@@ -3989,8 +3989,19 @@ at t/spec/op/lex_assign.v5:344<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find warnings in any of: ../lib<br />
+        <tr><td colspan='5'>No such symbol 'A'<br />
+  in method sink at gen/parrot/CORE.setting:12068<br />
+  in sub bless at lib/Perl5/Terms.pm:967<br />
+  in block  at t/spec/op/bless.v5:30<br />
+  in any  at t/spec/op/bless.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/stat.v5<br />
@@ -4039,7 +4050,7 @@ at t/spec/op/eval.v5:92<br />
 ------&gt;      is(eval⏏('"$b"'), $b);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
-current instr.: '' pc 31699 (gen/parrot/stage2/NQPHLL.pir:12569) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
+current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>japh/abigail.v5</td><td>0</td><td>129</td><td>0</td><td>1</td><td>130</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot assign to a readonly variable or a value<br />
@@ -4239,9 +4250,9 @@ No such symbol '&amp;binmode'<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
 
-        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.11.1-64-g4da6c96 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.11.1-82-g565cce8 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
-        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-44-g1069590 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-48-gdc5a1ff built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
     </tbody>
 </table>
