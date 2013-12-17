@@ -20,13 +20,25 @@ my role STDActions {
         my $docast := $doc.MATCH.ast;
         if $docast.has_compile_time_value {
             my $dedented := nqp::unbox_s($docast.compile_time_value.indent($indent));
-            $origast.push($*W.add_string_constant($dedented));
+
+            my $chars := nqp::chars($dedented);
+            if $chars {
+                my $last := nqp::substr($dedented, $chars - 1);
+                my $to_remove := 0;
+                $to_remove := 1 if $last eq "\n" || $last eq "\r";
+                $to_remove := 2 if $chars > 1
+                    && nqp::substr($dedented, $chars - 2) eq "\r\n";
+                
+                $dedented := nqp::substr($dedented, 0, $chars - $to_remove);
+            }
+
+            $origast.push($*W.add_string_constant( $dedented ));
         }
         else {
-            $origast.push(QAST::Op.new(
-                :op('callmethod'), :name('indent'),
+            $origast.push( QAST::Op.new( :op('callmethod'), :name('chomp'),
+                QAST::Op.new( :op('callmethod'), :name('indent'),
                 $doc.MATCH.ast,
-                QAST::IVal.new( :value($indent) )));
+                QAST::IVal.new( :value($indent) ))));
         }
     }
 }
@@ -620,7 +632,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method xblock($/) {
         $V5DEBUG && say("xblock($/)");
-        make QAST::Op.new( $<EXPR>.ast, $<sblock>.ast, :op('if'), :node($/) );
+        make QAST::Op.new( :op('if'), QAST::Op.new( :op('call'), :name('&P5Bool'), $<EXPR>.ast),
+                $<sblock>.ast, :node($/) );
     }
 
     sub add_param($block, @params, $name) {
@@ -1276,12 +1289,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method statement_mod_cond:sym<if>($/)     {
         $V5DEBUG && say("statement_mod_cond:sym<if>($/)    ");
-        make QAST::Op.new( :op<if>, $<modifier_expr>.ast, :node($/) );
+        make QAST::Op.new( :op<if>, QAST::Op.new( :op('call'), :name('&P5Bool'), $<modifier_expr>.ast ), :node($/) );
     }
 
     method statement_mod_cond:sym<unless>($/) {
         $V5DEBUG && say("statement_mod_cond:sym<unless>($/)");
-        make QAST::Op.new( :op<unless>, $<modifier_expr>.ast, :node($/) );
+        make QAST::Op.new( :op<unless>, QAST::Op.new( :op('call'), :name('&P5Bool'), $<modifier_expr>.ast ), :node($/) );
     }
 
     method statement_mod_cond:sym<when>($/) {
@@ -4621,7 +4634,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
             # And finally evaluate to the smart-match result.
             QAST::Op.new( :op('if'),
-                QAST::Op.new( :op('call'), :name('&P5Bool'),
+                QAST::Op.new( :op('call'), :name('&P5scalar'),
                     QAST::Op.new( :op('callmethod'), :name('list'),
                         QAST::Var.new( :name($result_var), :scope('local') ) ) ),
                 QAST::Op.new( :op('hllize'),

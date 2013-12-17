@@ -273,10 +273,10 @@ multi postcircumfix:<P5[ ]>(Any \SELF, Positional \pos) is rw is export {
                !! { SELF[P5Numeric($_)] }).eager.Parcel;
 }
 
-multi P5Bool(Mu     \SELF) is export { SELF ?? 1 !! ''         }
-multi P5Bool(Parcel \SELF) is export { [&&] SELF.list          }
-multi P5Bool(List   \SELF) is export { [&&] SELF.list          }
-multi P5Bool(Pair   \SELF) is export { SELF.kv.list ?? 1 !! '' }
+multi P5Bool(Mu     \SELF) is export { SELF ?? 1 !! ''               }
+multi P5Bool(Parcel \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
+multi P5Bool(List   \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
+multi P5Bool(Pair   \SELF) is export { SELF.kv.list ?? 1 !! ''       }
 
 sub P5do(Mu \SELF) is export is hidden_from_backtrace {
     my $ret;

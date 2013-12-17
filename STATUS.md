@@ -3,8 +3,8 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>4629</td><td>25885</td><td>5</td><td>10332</td><td>40841</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2065</td><td>2332</td><td>0</td><td>10307</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>4699</td><td>35481</td><td>5</td><td>662</td><td>40837</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2128</td><td>11939</td><td>0</td><td>637</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -85,93 +85,10 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-<br /> 108 skipped: cannot pack 'h' on this perl<br />
-  84 skipped: cannot pack '&lt;' on this perl<br />
-  10 skipped: cannot pack 'C/a*S&lt;/A*L&lt;/Z*I&lt;/a*' on this perl<br />
- 108 skipped: cannot pack 'H' on this perl<br />
-  12 skipped: cannot pack 'I&lt;' on this perl<br />
- 186 skipped: cannot pack 'l' on this perl<br />
- 186 skipped: cannot pack 's' on this perl<br />
-   2 skipped: (EBCDIC and) version strings are bad idea<br />
- 165 skipped: cannot pack 'c' on this perl<br />
- 161 skipped: cannot pack 'l!' on this perl<br />
- 161 skipped: cannot pack 'V' on this perl<br />
-  12 skipped: cannot pack 'C&lt;' on this perl<br />
+<br />   2 skipped: (EBCDIC and) version strings are bad idea<br />
    4 skipped: Not for EBCDIC<br />
- 133 skipped: cannot pack 'Q' on this perl<br />
-  53 skipped: cannot pack 'v!' on this perl<br />
-  12 skipped: cannot pack 'V&lt;' on this perl<br />
- 165 skipped: cannot pack 'n' on this perl<br />
-  53 skipped: cannot pack 'V!' on this perl<br />
-  10 skipped: cannot pack '(I!&lt;4(J&lt;2L&lt;)3)5' on this perl<br />
- 161 skipped: cannot pack 'i!' on this perl<br />
- 108 skipped: cannot pack 'p' on this perl<br />
- 108 skipped: cannot pack 'J' on this perl<br />
- 161 skipped: cannot pack 'N' on this perl<br />
- 173 skipped: cannot pack 'i&lt;' on this perl<br />
- 227 skipped: cannot pack 'd&gt;' on this perl<br />
- 216 skipped: cannot pack/unpack V! on this perl<br />
- 308 skipped: cannot pack 'q' on this perl<br />
- 227 skipped: cannot pack 'd' on this perl<br />
- 161 skipped: cannot pack 'I!' on this perl<br />
- 119 skipped: cannot pack 'f&gt;' on this perl<br />
- 108 skipped: cannot pack 'x' on this perl<br />
- 161 skipped: cannot pack 'L!' on this perl<br />
- 108 skipped: cannot pack 'p&gt;' on this perl<br />
- 131 skipped: cannot pack 'f&lt;' on this perl<br />
- 186 skipped: cannot pack 'S' on this perl<br />
- 161 skipped: cannot pack 'i&gt;' on this perl<br />
-  40 skipped: cannot compare native byteorder with big-/little-endian<br />
- 161 skipped: cannot pack 's&gt;' on this perl<br />
-  53 skipped: cannot pack 'n!' on this perl<br />
- 161 skipped: cannot pack 'i!&gt;' on this perl<br />
-  12 skipped: cannot pack 'Q&lt;' on this perl<br />
- 161 skipped: cannot pack 'C' on this perl<br />
- 165 skipped: cannot pack 'v' on this perl<br />
- 108 skipped: cannot pack 'j&lt;' on this perl<br />
- 173 skipped: cannot pack 'l&lt;' on this perl<br />
- 108 skipped: cannot pack 'F' on this perl<br />
- 108 skipped: cannot pack 'Z' on this perl<br />
-  10 skipped: cannot pack 'n/a*' on this perl<br />
-  10 skipped: cannot pack 'f&lt;F&lt;d&lt;' on this perl<br />
-  10 skipped: cannot pack '(i&lt;j&lt;[s]l&lt;)3' on this perl<br />
- 108 skipped: cannot pack 'j&gt;' on this perl<br />
-  84 skipped: cannot pack '' on this perl<br />
- 161 skipped: cannot pack 's!' on this perl<br />
- 108 skipped: cannot pack 'B' on this perl<br />
- 183 skipped: cannot pack 's&lt;' on this perl<br />
-  53 skipped: cannot pack 'N!' on this perl<br />
- 161 skipped: cannot pack 's!&lt;' on this perl<br />
- 186 skipped: cannot pack 'L' on this perl<br />
- 161 skipped: cannot pack 'l!&gt;' on this perl<br />
- 108 skipped: cannot pack 'a' on this perl<br />
-  10 skipped: cannot pack 'D&lt;cCD&lt;' on this perl<br />
-   1 skipped: Couldn't generate infinity - got error ''<br />
- 108 skipped: cannot pack 'P' on this perl<br />
- 108 skipped: cannot pack 'b' on this perl<br />
- 169 skipped: cannot pack 'W' on this perl<br />
-  12 skipped: cannot pack 'W&lt;' on this perl<br />
- 161 skipped: cannot pack 's!&gt;' on this perl<br />
-  12 skipped: cannot pack 'S&lt;' on this perl<br />
- 108 skipped: cannot pack 'j' on this perl<br />
-  10 skipped: cannot pack 'q&lt;Q&lt;' on this perl<br />
- 108 skipped: cannot pack 'p&lt;' on this perl<br />
-  12 skipped: cannot pack 'L&lt;' on this perl<br />
- 161 skipped: cannot pack 'i!&lt;' on this perl<br />
- 108 skipped: cannot pack 'q&gt;' on this perl<br />
- 161 skipped: cannot pack 'l!&lt;' on this perl<br />
- 108 skipped: cannot pack 'A' on this perl<br />
- 119 skipped: cannot pack 'f' on this perl<br />
-  10 skipped: cannot pack 's&lt;c2x![S]S&lt;' on this perl<br />
-  12 skipped: cannot pack 'N&lt;' on this perl<br />
  630 skipped: cannot test checksums over 0 bits<br />
- 239 skipped: cannot pack 'd&lt;' on this perl<br />
- 161 skipped: cannot pack 'S!' on this perl<br />
- 186 skipped: cannot pack 'i' on this perl<br />
- 186 skipped: cannot pack 'I' on this perl<br />
- 120 skipped: cannot pack 'q&lt;' on this perl<br />
- 161 skipped: cannot pack 'l&gt;' on this perl<br />
-  84 skipped: cannot pack '&gt;' on this perl<br />
+   1 skipped: Couldn't generate infinity - got error ''<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1127</td><td>243</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>204</td><td>0</td><td>0</td><td>0</td><td>204</td></tr>
@@ -206,48 +123,69 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-3fe5de442819ac17) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x546568f3fd989802) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>60</td><td>4</td><td>0</td><td>0</td><td>64</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:146<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Two terms in a row<br />
 at t/spec/op/magic.v5:178<br />
 ------&gt;     print $? &amp; ⏏0xFF ? "ok $tn[4]$todo\n" : "not ok $tn[</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>56</td><td>8</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:146<br />
+Index out of range. Is: 1, should be in 0..0<br />
+  in method Str at gen/parrot/CORE.setting:12059<br />
+  in method Str at gen/parrot/CORE.setting:996<br />
+  in method join at gen/parrot/CORE.setting:1593<br />
+  in sub join at gen/parrot/CORE.setting:1781<br />
+  in sub join at gen/parrot/CORE.setting:1780<br />
+  in block  at t/spec/op/list.v5:169<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/op/list.v5:132<br />
+  in any  at t/spec/op/list.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>   1 todo   : NYI<br />
 </td></tr>
         <tr align='center'><td align='left'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
-        <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>43</td><td>1</td><td>0</td><td>0</td><td>44</td></tr>
+        <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left'>op/chars.v5</td><td>34</td><td>0</td><td>0</td><td>0</td><td>34</td></tr>
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
@@ -288,14 +226,40 @@ at t/spec/op/magic.v5:178<br />
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>8</td><td>50</td><td>0</td><td>2</td><td>60</td></tr>
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 117)<br />
+Cannot call 'push'; none of these signatures match:<br />
+:(Any:U \SELF: *@values, Mu *%_)<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
+  in method push at gen/parrot/CORE.setting:1562<br />
+  in block  at t/spec/op/push.v5:87<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/op/push.v5:81<br />
+  in any  at t/spec/op/push.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+<br />   2 skipped: implicit @-sigil on a barename in push/pop is rediculous<br />
+</td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>8</td><td>4</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>8</td><td>11</td><td>0</td><td>0</td><td>16</td></tr>
+        <tr><td colspan='5'>   3 tests more than planned were run<br />
+</td></tr>
+        <tr align='center'><td align='left'>op/append.v5</td><td>8</td><td>5</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>   1 todo   : <br />
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>7</td><td>12</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan='5'>   3 tests more than planned were run<br />
-</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
@@ -337,7 +301,6 @@ at t/spec/op/magic.v5:178<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
-        <tr align='center'><td align='left'>op/append.v5</td><td>5</td><td>8</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left'>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>4</td><td>0</td><td>1</td><td>2</td><td>7</td></tr>
         <tr><td colspan='5'>   2 skipped: typeglobs NYI<br />
@@ -348,31 +311,6 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-anon-sub.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>4</td><td>58</td><td>0</td><td>2</td><td>64</td></tr>
-        <tr><td colspan='5'>WARNINGS:<br />
-Useless use of constant integer 1 in sink context (line 117)<br />
-Cannot call 'push'; none of these signatures match:<br />
-:(Any:U \SELF: *@values, Mu *%_)<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
-  in method push at gen/parrot/CORE.setting:1562<br />
-  in block  at t/spec/op/push.v5:87<br />
-  in method reify at gen/parrot/CORE.setting:7288<br />
-  in method reify at gen/parrot/CORE.setting:7183<br />
-  in method gimme at gen/parrot/CORE.setting:7611<br />
-  in method sink at gen/parrot/CORE.setting:8021<br />
-  in block  at t/spec/op/push.v5:81<br />
-  in any  at t/spec/op/push.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-<br />   2 skipped: implicit @-sigil on a barename in push/pop is rediculous<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>4</td><td>37</td><td>0</td><td>0</td><td>41</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $u<br />
@@ -429,7 +367,6 @@ use of uninitialized value of type Any in string context<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sleep.v5</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr align='center'><td align='left'>op/heredoc.v5</td><td>3</td><td>6</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $x<br />
@@ -446,9 +383,6 @@ use of uninitialized value of type Any in string context<br />
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>run/switchI.v5</td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>2</td><td>5</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>offset argument to List.splice out of range. Is: -1, should be in 0..^12<br />
   in method Str at gen/parrot/CORE.setting:12059<br />
@@ -511,6 +445,9 @@ Malformed UTF-8 string<br />
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan='5'>Ending delimiter HEREDOC not found ---  in block  at t/spec/op/heredoc.v5:21<br />
+</td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>io/iofile.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -540,6 +477,9 @@ Malformed UTF-8 string<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;pos'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
@@ -590,6 +530,25 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Str \a, Str \b)<br />
 :(\a, \b)<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>1</td><td>7</td><td>0</td><td>0</td><td>8</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;evalbytes'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/evalbytes.v5:21<br />
+  in any  at t/spec/op/evalbytes.v5:1<br />
+  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
+  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
+  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
+  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
+  in any command_eval at src/Perl6/Compiler.nqp:17<br />
+  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
+  in any MAIN at gen/parrot/main.nqp:45<br />
+  in any  at gen/parrot/main.nqp:35<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
@@ -608,6 +567,9 @@ Malformed UTF-8 string<br />
   in any MAIN at gen/parrot/main.nqp:45<br />
   in any  at gen/parrot/main.nqp:35<br />
 </td></tr>
+        <tr align='center'><td align='left'>mro/next_ineval.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/inconsistent_c3_utf8.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;vec'<br />
@@ -1657,9 +1619,6 @@ No such symbol '&amp;DATA'<br />
         <tr align='center'><td align='left'>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align='center'><td align='left'>mro/inconsistent_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align='center'><td align='left'>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/next_ineval_utf8.v5<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
@@ -2687,25 +2646,6 @@ at t/spec/io/fflush.v5:137<br />
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;evalbytes'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/op/evalbytes.v5:21<br />
-  in any  at t/spec/op/evalbytes.v5:1<br />
-  in any  at gen/parrot/stage2/NQPHLL.nqp:1146<br />
-  in any eval at gen/parrot/stage2/NQPHLL.nqp:1133<br />
-  in any evalfiles at gen/parrot/stage2/NQPHLL.nqp:1339<br />
-  in any command_eval at gen/parrot/stage2/NQPHLL.nqp:1276<br />
-  in any command_eval at src/Perl6/Compiler.nqp:17<br />
-  in any command_line at gen/parrot/stage2/NQPHLL.nqp:1218<br />
-  in any MAIN at gen/parrot/main.nqp:45<br />
-  in any  at gen/parrot/main.nqp:35<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;fileno'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12065<br />
@@ -3352,7 +3292,7 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Null PMC access in get_bool()<br />
+No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
