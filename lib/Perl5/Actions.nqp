@@ -3797,7 +3797,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method term:sym<length>($/) {
         $V5DEBUG && say("term:sym<length>($/)");
-        make call_expr_or_topic( $/, 'chars' ) # TODO http://perldoc.perl.org/bytes.html
+        make QAST::Op.new( :op('call'), :name('&P5length'),
+            $<EXPR> ?? $<EXPR>.ast !! QAST::Var.new( :name('$_'), :scope('lexical') ) );
     }
 
     method indirect_object($/) {

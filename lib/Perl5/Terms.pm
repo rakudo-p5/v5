@@ -296,6 +296,33 @@ sub P5do(Mu \SELF) is export is hidden_from_backtrace {
     $ret
 }
 
+multi P5length(Mu     \SELF) is export { 0 }
+multi P5length(Str:D  \SELF) is export { SELF.chars }
+multi P5length(Blob:D \SELF) is export {
+    if $*USE_BYTES {
+        SELF.bytes
+    }
+    else {
+        my $chars;
+        try {
+            $chars = SELF.decode('utf8').chars;
+            CATCH {
+                default {
+                    try {
+                        $chars = SELF.decode('ascii').chars;
+                        CATCH {
+                            default {
+                                $chars = SELF.bytes
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $chars
+    }
+}
+
 multi P5Numeric(Mu           ) is export { 0 }
 multi P5Numeric(Bool    \SELF) is export { ?SELF ?? 1 !! 0 }
 multi P5Numeric(Array:D \SELF) is export { +@(SELF) }
