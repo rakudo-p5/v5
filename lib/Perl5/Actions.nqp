@@ -3522,55 +3522,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
         }
     }
 
-    method privop($/) {
-        $V5DEBUG && say("privop($/)");
-        # Compiling private method calls is somewhat interesting. If it's
-        # in any way qualified, we need to ensure that the current package
-        # is trusted by the target class. Otherwise we assume that the call
-        # is to a private method in the current (non-virtual) package.
-        # XXX Optimize the case where the method is declared up front - but
-        # maybe this is for the optimizer, not for here.
-        # XXX Attribute accesses? Again, maybe for the optimizer, since it
-        # runs after CHECK time.
-        my $past := $<methodop>.ast;
-        if $<methodop><longname> {
-            my @parts   := $*W.dissect_longname($<methodop><longname>).components();
-            my $name    := @parts.pop;
-            if @parts {
-                my $methpkg := $*W.find_symbol(@parts);
-                unless nqp::can($methpkg.HOW, 'is_trusted') && $methpkg.HOW.is_trusted($methpkg, $*PACKAGE) {
-                    $*W.throw($/, ['X', 'Method', 'Private', 'Permission'],
-                        :method(         $name),
-                        :source-package( $methpkg.HOW.name($methpkg)),
-                        :calling-package( $*PACKAGE.HOW.name($*PACKAGE)),
-                    );
-                }
-                $past[1].returns($methpkg);
-            }
-            else {
-                unless nqp::can($*PACKAGE.HOW, 'find_private_method') {
-                    $*W.throw($/, ['X', 'Method', 'Private', 'Unqualified'],
-                        :method($name),
-                    );
-                }
-                $past.unshift(QAST::WVal.new( :value($*PACKAGE) ));
-                $past[0].returns($*PACKAGE);
-                $past.unshift($*W.add_string_constant($name));
-            }
-            $past.name('dispatch:<!>');
-        }
-        elsif $<methodop><quote> {
-            my $name := $past.shift;
-            $past.unshift(QAST::WVal.new( :value($*PACKAGE) ));
-            $past.unshift($name);
-            $past.name('dispatch:<!>');
-        }
-        else {
-            $/.CURSOR.panic("Cannot use this form of method call with a private method");
-        }
-        make $past;
-    }
-
     method methodop($/) {
         $V5DEBUG && say("methodop($/)");
         my $past := $<args> ?? $<args>.ast !! QAST::Op.new( :node($/) );

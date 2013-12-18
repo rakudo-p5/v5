@@ -2916,7 +2916,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | <OPER=postfix>
         | <OPER=postcircumfix>
         | <OPER=dotty>
-        | <OPER=privop>
         ]
         { $*LEFTSIGIL := '@'; }
     }
@@ -2968,11 +2967,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token postop {
         | <postfix>        { $<O> := $<postfix><O>;       $<sym> := $<postfix><sym>; }
         | <postcircumfix>  { $<O> := $<postcircumfix><O>; $<sym> := $<postcircumfix><sym>; }
-    }
-
-    token privop {
-        '!' <methodop>
-        <O('%methodcall')>
     }
 
     token methodop {
