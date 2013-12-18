@@ -5554,7 +5554,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             ),
             $past);
         ($*W.cur_lexpad())[0].push($block);
-        my $param := hash( :variable_name($name), :nominal_type($*W.find_symbol(['Mu'])));
+        my $param := hash( :variable_name($name), :nominal_type($*W.find_symbol(['Mu'])), :is_parcel(!$copy) );
         if $copy {
             $param<container_descriptor> := $*W.create_container_descriptor(
                     $*W.find_symbol(['Mu']), 0, $name
