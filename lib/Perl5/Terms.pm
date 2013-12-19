@@ -174,6 +174,7 @@ sub infix:<P5**> (\a, \b) is export { &prefix:<P5+>(a) ** &prefix:<P5+>(b) }
 
 # v=, symbolic unary (right ! ~ \ and unary + and -)
 sub prefix:<P5!> (\a)     is export { !P5Bool(a)   }
+sub prefix:<P5~> (\a)     is export { 18446744073709551616 - (P5Numeric(a) + 1)   }
 sub prefix:<P5.> (\a)     is export {  P5Str(a)    }
 sub prefix:<P5+> (\a)     is export {  P5Numeric(a) }
 sub prefix:<P5-> (\a)     is export { -P5Numeric(a) }

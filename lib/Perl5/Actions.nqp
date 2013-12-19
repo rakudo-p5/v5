@@ -4409,6 +4409,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'PREFIX', nqp::hash(
             'local', '&prefix:<temp>',
             '!',     '&prefix:<P5!>',
+            '~',     '&prefix:<P5~>',
             '.',     '&prefix:<P5.>',
             '+',     '&prefix:<P5+>',
             '-',     '&prefix:<P5->',
