@@ -152,6 +152,14 @@ multi sub chomp(*@s is rw) is export {
     $nr_chomped
 }
 
+multi caller()   is export { caller(1)[0,1,2] }
+multi caller($o) is export {
+    try my $f = Backtrace.new[$o + 4];
+    try my $p = $f.code.package.^name;
+    $p = 'main' unless $p;
+    $f && [$p, $f.file, $f.line, $p ~ '::' ~ $f.subname] || ['','','']
+}
+
 sub exists( \a ) is export { a:exists ?? 1 !! '' }
 
 # http://perldoc.perl.org/functions/undef.html
