@@ -1246,24 +1246,26 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         { $*CURPAD := $*W.pop_lexpad() }
     }
 
-    token slang {
+    # statement semantics
+    rule statementlist {
         :my %*LANG    := self.shallow_copy(nqp::getlexdyn('%*LANG'));
         :my %*HOW     := self.shallow_copy(nqp::getlexdyn('%*HOW'));
         :my $*IN_DECL := '';
         :my $*SCOPE   := '';
-        {
-            my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
-            do_import($/, $terms, 'Perl5::Terms');
-            $/.CURSOR.import_EXPORTHOW($terms);
-        }
-        <statementlist>
-    }
-
-    # statement semantics
-    rule statementlist {
         :my $*INVOCANT_OK := 0;
         :my $*FOR_VARIABLE := '';
         :dba('statement list')
+        {
+            # Not very nice, but it works for the cases, that:
+            # 1) This is the mainline, Perl5::Terms needs to be loaded.
+            # 2) We are in an eval, Perl5::Terms should already be there.
+            # 3) We are in a use'd Perl5 module, load Perl5::Terms.
+            unless $*W.is_lexical('&P5Str') {
+                my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
+                do_import($/, $terms, 'Perl5::Terms');
+                $/.CURSOR.import_EXPORTHOW($terms);
+            }
+        }
         ''
         [
         | $
