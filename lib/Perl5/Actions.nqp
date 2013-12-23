@@ -3746,6 +3746,29 @@ class Perl5::Actions is HLL::Actions does STDActions {
         )
     }
 
+    method term:sym<goto>($/) {
+        $V5DEBUG && say("term:sym<goto>($/)");
+        my $ast;
+        my $label := ~$<EXPR>;
+        if nqp::substr($label, 0, 1) eq '&' {
+            # From http://perldoc.perl.org/functions/goto.html
+            # The goto-&NAME form is quite different from the other forms of goto. In fact, it isn't
+            # a goto in the normal sense at all, and doesn't have the stigma associated with other
+            # gotos. Instead, it exits the current subroutine (losing any changes set by local()) and
+            # immediately calls in its place the named subroutine using the current value of @_. This
+            # is used by AUTOLOAD subroutines that wish to load another subroutine and then pretend
+            # that the other subroutine had been called in the first place (except that any
+            # modifications to @_ in the current subroutine are propagated to the other subroutine.)
+            # After the goto, not even caller will be able to tell that this routine was called first.
+            make QAST::Op.new( :op('call'), :name('&return'),
+                    QAST::Op.new( :op('call'), :name($label),
+                        QAST::Op.new( :op('call'), :name('&postcircumfix:<{ }>'),
+                            QAST::Op.new( :op('callmethod'), :name('my'),
+                                QAST::Op.new( :op('call'), :name('&callframe') ) ),
+                                $*W.add_string_constant('@_') ) ) )
+        }
+    }
+
     method term:sym<length>($/) {
         $V5DEBUG && say("term:sym<length>($/)");
         make QAST::Op.new( :op('call'), :name('&P5length'),

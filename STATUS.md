@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5028</td><td>35848</td><td>5</td><td>32</td><td>40901</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5030</td><td>35846</td><td>5</td><td>32</td><td>40901</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2350</td><td>12347</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x29794862126a1b73) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-3f0fdd5c2a893b89) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -186,7 +186,7 @@ Index out of range. Is: 1, should be in 0..0<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
   in method match at gen/parrot/CORE.setting:3475<br />
-  in method Bool at gen/parrot/CORE.setting:12447<br />
+  in method Bool at gen/parrot/CORE.setting:12456<br />
   in method Bool at gen/parrot/CORE.setting:783<br />
   in sub P5Bool at lib/Perl5/Terms.pm:285<br />
   in sub P5Bool at lib/Perl5/Terms.pm:285<br />
@@ -333,7 +333,7 @@ Malformed UTF-8 string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/localref.v5</td><td>2</td><td>62</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Can only use 'temp' on a container<br />
-  in sub prefix:&lt;temp&gt; at gen/parrot/CORE.setting:16423<br />
+  in sub prefix:&lt;temp&gt; at gen/parrot/CORE.setting:16432<br />
   in block  at t/spec/op/localref.v5:14<br />
   in method reify at gen/parrot/CORE.setting:7288<br />
   in method reify at gen/parrot/CORE.setting:7183<br />
@@ -345,6 +345,22 @@ Malformed UTF-8 string<br />
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---  in block  at t/spec/op/heredoc.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;L'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in sub local2 at t/spec/op/args.v5:76<br />
+  in block  at t/spec/op/args.v5:77<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/op/args.v5:73<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/64bitint.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -1415,24 +1431,12 @@ Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-dev
 Could not find NEXT in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;TTop'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/next_goto.v5:33<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+No such method 'orig' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;ᵗ톺'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/next_goto_utf8.v5:34<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+No such method 'orig' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1466,15 +1470,8 @@ Could not find Data::Dumper in any of: /home/froggs/dev/nqp/install/lib/parrot/5
 Could not find File::Path in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;goto'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in sub goto_baresub at t/spec/uni/goto.v5:14<br />
-  in block  at t/spec/uni/goto.v5:29<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+No such method 'orig' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2244,7 +2241,7 @@ Could not find file './test.pl' for module ./test.pl<br />
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Odd number of elements found where hash expected<br />
   in method STORE at gen/parrot/CORE.setting:8867<br />
-  in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16200<br />
+  in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16209<br />
   in block  at t/spec/op/hashwarn.v5:29<br />
   in method reify at gen/parrot/CORE.setting:7288<br />
   in method reify at gen/parrot/CORE.setting:7183<br />
@@ -2362,22 +2359,6 @@ No such method 'value' for invocant of type 'NQPMu'<br />
 Variable '*FHTMP' is not declared<br />
 at t/spec/run/cloexec.v5:53<br />
 ------&gt;     local *FHTMP⏏;</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;goto'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in sub new3 at t/spec/op/args.v5:30<br />
-  in block  at t/spec/op/args.v5:32<br />
-  in method reify at gen/parrot/CORE.setting:7288<br />
-  in method reify at gen/parrot/CORE.setting:7183<br />
-  in method gimme at gen/parrot/CORE.setting:7611<br />
-  in method sink at gen/parrot/CORE.setting:8021<br />
-  in block  at t/spec/op/args.v5:10<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'ast' for invocant of type 'NQPMu'<br />
@@ -2978,10 +2959,7 @@ at t/spec/op/cproto.v5:291<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
 at t/spec/op/hashassign.v5:133<br />
 ------&gt; ok (main-&gt;in_method ⏏(%names), "pass hash into a method");</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/local.v5</td><td>0</td><td>310</td><td>0</td><td>0</td><td>310</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol ok<br />
-</td></tr>
+        <tr align='center'><td align='left'>op/local.v5</td><td>0</td><td>310</td><td>0</td><td>0</td><td>310</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie_fetch_count.v5</td><td>0</td><td>312</td><td>0</td><td>0</td><td>312</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tie_fetch_count.v5<br />
 Preceding context expects a term, but found infix + instead<br />
@@ -3056,9 +3034,9 @@ No such symbol '&amp;binmode'<br />
   in block  at t/spec/comp/utf.v5:57<br />
 </td></tr>
 
-        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.11.1-86-g4165a18 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
-        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-48-gdc5a1ff built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-63-gd727971 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
     </tbody>
 </table>

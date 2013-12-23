@@ -3259,6 +3259,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<getgroupgid>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
+    token term:sym<goto>
+        { <sym> » <?before \s*> <.ws> <?[&]> <EXPR('q=')> }
+
 #    token term:sym<hex>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
