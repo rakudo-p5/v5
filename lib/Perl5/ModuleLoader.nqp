@@ -60,6 +60,11 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
         # Locate all the things that we potentially could load. Choose
         # the first one for now (XXX need to filter by version and auth).
         my @prefixes   := self.search_path( %opts );
+        if nqp::defined($file) {
+            for @prefixes {
+                $file := "$_/$file" if nqp::stat("$_/$file", 0)
+            }
+        }
         my @candidates := self.locate_candidates($module_name, @prefixes, :$file);
         if +@candidates == 0 {
             if nqp::defined($file) {
