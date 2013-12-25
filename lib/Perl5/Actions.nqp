@@ -3749,8 +3749,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     method term:sym<goto>($/) {
         $V5DEBUG && say("term:sym<goto>($/)");
         my $ast;
-        my $label := ~$<EXPR>;
-        if nqp::substr($label, 0, 1) eq '&' {
+        if nqp::substr(~$<EXPR>, 0, 1) eq '&' {
             # From http://perldoc.perl.org/functions/goto.html
             # The goto-&NAME form is quite different from the other forms of goto. In fact, it isn't
             # a goto in the normal sense at all, and doesn't have the stigma associated with other
@@ -3760,13 +3759,28 @@ class Perl5::Actions is HLL::Actions does STDActions {
             # that the other subroutine had been called in the first place (except that any
             # modifications to @_ in the current subroutine are propagated to the other subroutine.)
             # After the goto, not even caller will be able to tell that this routine was called first.
-            make QAST::Op.new( :op('call'), :name('&return'),
-                    QAST::Op.new( :op('call'), :name($label),
+            my $subname := $<EXPR><variable><subname>;
+            $ast := QAST::Op.new( :op('call'),
                         QAST::Op.new( :op('call'), :name('&postcircumfix:<{ }>'),
                             QAST::Op.new( :op('callmethod'), :name('my'),
                                 QAST::Op.new( :op('call'), :name('&callframe') ) ),
-                                $*W.add_string_constant('@_') ) ) )
+                                $*W.add_string_constant('@_') ) );
+
+            if $subname<desigilname><variable> {
+                $ast.name(~$<subname><desigilname><variable>);
+            }
+            elsif $*W.is_lexical('&' ~ $subname) {
+                $ast.name('&' ~ $subname);
+            }
+            else {
+                $ast.unshift( self.make_indirect_lookup(['&' ~ $subname]) );
+            }
+            $ast := QAST::Op.new( :op('call'), :name('&return'), $ast )
         }
+        else {
+            $*W.throw($/, 'X::Comp::NYI', feature => "goto $<EXPR> NYI");
+        }
+        make $ast
     }
 
     method term:sym<length>($/) {
