@@ -1549,9 +1549,20 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                     nqp::die("&EXPORT sub did not return an EnumMap");
                 }
             }
+            elsif nqp::existskey($module, $package_source_name) # sub import in package
+               && nqp::existskey($*W.stash_hash($module{$package_source_name}), '&import') {
+                nqp::unshift(@positional_imports, $package_source_name);
+                my $result := $*W.stash_hash($module{$package_source_name})<&import>(
+                    $*W.p6ize_recursive( @positional_imports ));
+                my $EnumMap := $*W.find_symbol(['EnumMap']);
+                if nqp::istype($result, $EnumMap) {
+                    my $storage := $result.hash.FLATTENABLE_HASH();
+                    Perl5::World::import($/, $storage, $package_source_name);
+                }
+            }
             else {
                 if +@positional_imports {
-                    nqp::die("Error while importing from '$package_source_name': no EXPORT sub, but you provided positional argument in the 'use' statement");
+                    nqp::die("Error while importing from '$package_source_name': no EXPORT or import sub, but you provided positional argument in the 'use' statement");
                 }
             }
         }
