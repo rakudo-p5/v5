@@ -16,7 +16,8 @@ HAS_ICU    = 0
 HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(HAS_ICU)
 
 all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc blib/Perl5/ModuleLoader.pbc \
-	blib/Perl5/constant.pbc blib/Perl5/Cwd.pbc blib/Perl5/mro.pbc blib/Perl5/overload.pbc blib/Perl5/TestInit.pbc
+	blib/Perl5/constant.pbc blib/Perl5/Cwd.pbc blib/Perl5/lib.pbc blib/Perl5/mro.pbc blib/Perl5/overload.pbc \
+	blib/Perl5/TestInit.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
@@ -51,6 +52,11 @@ blib/Perl5/Cwd.pbc: lib/Perl5/Cwd.pm
 	@echo Compiling Cwd
 	@$(PERL6) --target=pir --output=blib/Perl5/Cwd.pir lib/Perl5/Cwd.pm
 	@$(PARROT) -o blib/Perl5/Cwd.pbc blib/Perl5/Cwd.pir
+
+blib/Perl5/lib.pbc: lib/Perl5/lib.pm
+	@echo Compiling lib
+	@$(PERL6) --target=pir --output=blib/Perl5/lib.pir lib/Perl5/lib.pm
+	@$(PARROT) -o blib/Perl5/lib.pbc blib/Perl5/lib.pir
 
 blib/Perl5/mro.pbc: lib/Perl5/mro.pm
 	@echo Compiling mro
