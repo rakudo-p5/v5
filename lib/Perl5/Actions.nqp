@@ -3536,6 +3536,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $past.unshift($*W.add_string_constant($name));
                 $past.name('dispatch:<::>');
             }
+            elsif $name eq 'can' {
+                $past.name('&P5can');
+                $past.op('call');
+            }
             elsif $name eq 'WHAT' {
                 whine_if_args($/, $past, $name);
                 $past.op('what');

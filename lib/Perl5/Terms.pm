@@ -282,6 +282,25 @@ multi postcircumfix:<P5[ ]>(Any \SELF, Positional \pos) is rw is export {
                !! { SELF[P5Numeric($_)] }).eager.Parcel;
 }
 
+multi P5can(Mu  $pkg, Str $method, *@a) is export { $pkg.$method(|@a) }
+multi P5can(Str $pkg, Str $method, *@a) is export {
+    my $p := GLOBAL::{$pkg};
+
+    # The package has a can method, just all it.
+    if $p.HOW.method_table($p)<can> {
+        $p.can($method, |@a)
+    }
+    # Do what UNIVERSAL->can does if the package has no 'can' method.
+    else {
+        if $p.^can($method) {
+            $p.HOW.method_table($p){$method}
+        }
+        else {
+            ''
+        }
+    }
+}
+
 multi P5Bool(Mu     \SELF) is export { SELF ?? 1 !! ''               }
 multi P5Bool(Parcel \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
 multi P5Bool(List   \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
