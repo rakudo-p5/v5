@@ -2079,6 +2079,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'ref',    '$',
         'time',   '',
         'not',    '@',
+        'unlink', '@',
         'unpack', '$@',
         'map',    '$@',
         'grep',   '$@',

@@ -676,6 +676,18 @@ multi P5Str(Parcel:D \SELF) is export { SELF.Int }
 multi P5Str(Pair:D   \SELF) is export { P5Str(SELF.kv.list) }
 multi P5Str(Sub:D    \SELF) is export { 'CODE(' ~ SELF.WHERE.fmt('0x%X').lc ~ ')' }
 
+multi P5unlink(Str:D \SELF) is export {
+    my $abspath = IO::Spec.rel2abs(SELF);
+    if 0 == nqp::unlink($abspath) {
+        return 1
+    }
+    else {
+        CALLER::DYNAMIC::<$!> = X::IO::Unlink.new( :path(SELF), os-error => $!.Str );
+        return 0
+    }
+}
+multi P5unlink(*@a) is export { [+] map { P5unlink($_) }, @a }
+
 use MONKEY_TYPING;
 
 augment class Mu { }
