@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-3c8788f81f518ef4) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-273abedcf5f8e7dc) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -343,7 +343,7 @@ use of uninitialized value of type Any in string context<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/localref.v5</td><td>2</td><td>62</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Can only use 'temp' on a container<br />
-  in sub prefix:&lt;temp&gt; at gen/parrot/CORE.setting:16432<br />
+  in sub prefix:&lt;temp&gt; at gen/parrot/CORE.setting:16453<br />
   in block  at t/spec/op/localref.v5:14<br />
   in method reify at gen/parrot/CORE.setting:7288<br />
   in method reify at gen/parrot/CORE.setting:7183<br />
@@ -3099,9 +3099,9 @@ No such symbol '&amp;binmode'<br />
   in block  at t/spec/comp/utf.v5:57<br />
 </td></tr>
 
-        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1-1-g8e407b3 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
-        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.11-63-gd727971 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.12-8-g53c60ca built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
     </tbody>
 </table>
