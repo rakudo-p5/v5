@@ -2707,7 +2707,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token quote:sym<tr> {
-        <sym> » <pat=tribble(%*LANG<P5Q>)>
+        [ <sym> | 'y' ] » <pat=tribble(%*LANG<P5Q>)>
         <tr_mods>?
     }
 
@@ -2717,7 +2717,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token tr_mods {
-        <[cds\]]>+
+        <[cdsr]>+
     }
 
     token unitstopper { $ }

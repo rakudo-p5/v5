@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5088</td><td>35850</td><td>5</td><td>32</td><td>40918</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5107</td><td>35831</td><td>5</td><td>32</td><td>40918</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2350</td><td>12347</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x5503373585d94354) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -180,6 +180,16 @@ Index out of range. Is: 1, should be in 0..0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr><td colspan='5'>  13 skipped: Invalid character for UTF-8 encoding<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/fold.v5</td><td>19</td><td>7</td><td>0</td><td>0</td><td>26</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;INSTALL'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/comp/fold.v5:138<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
@@ -1201,7 +1211,12 @@ Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
+        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 341.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 342.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 343.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 344.<br />
+Use of uninitialized value in addition (+) at t/test_summary line 345.<br />
+===SORRY!===<br />
 Could not find File::Copy in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -2135,9 +2150,9 @@ at t/spec/op/array_base.v5:12<br />
 ------&gt;  is(eval⏏('$[ = 1; 123'), undef);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/flip.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/flip.v5<br />
-Bogus statement<br />
-at t/spec/op/flip.v5:31<br />
-------&gt; $x = ($foo =~ y/\n/\n/⏏);</td></tr>
+Unable to parse expression in term:sym&lt;scalar&gt;; couldn't find final ')' <br />
+at t/spec/op/flip.v5:54<br />
+------&gt; ok(scalar(0⏏..2));</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/goto_xs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Fcntl in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -2471,10 +2486,15 @@ at t/spec/mro/isarev_utf8.v5:25<br />
 ------&gt;      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
-===SORRY!=== Error while compiling t/spec/io/pipe.v5<br />
-Bogus statement<br />
-at t/spec/io/pipe.v5:102<br />
-------&gt;                 y/A-Z/a-z/⏏;</td></tr>
+No such symbol '&amp;PIPE'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/io/pipe.v5:23<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Errno in any of: ../lib<br />
@@ -2508,11 +2528,6 @@ Useless use of constant integer 1 in sink context (line 1)<br />
 WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 1)<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/fold.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/fold.v5<br />
-Two terms in a row<br />
-at t/spec/comp/fold.v5:117<br />
-------&gt;  ok scalar $jing =~ (1 ? y/fo// ⏏: /bar/),</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/reverse.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Tie::Array in any of: ../lib<br />
@@ -2709,13 +2724,7 @@ QRPA: index out of bounds<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest.v5</td><td>0</td><td>49</td><td>0</td><td>0</td><td>49</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Preceding context expects a term, but found infix , instead<br />
-at t/spec/op/filetest.v5:60<br />
-------&gt; is( "@{[grep -r,⏏ qw(foo io noo op zoo)]}", "io op",<br />
-Other potential difficulties:<br />
-    Redeclaration of symbol $fh<br />
-    at t/spec/op/filetest.v5:27<br />
-    ------&gt;     open my $fh⏏, '&gt;', $ro_empty_file or die "open $fh: <br />
+Could not find Perl::OSType in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/package_aliases_utf8.v5<br />
@@ -2739,9 +2748,10 @@ at t/spec/mro/package_aliases.v5:31<br />
 ------&gt; ok (Old-&gt;isa ⏏(New::), 'Old inherits from New');</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/each.v5<br />
-Bogus statement<br />
-at t/spec/op/each.v5:54<br />
-------&gt; 	$key =~ y/a-z/A-Z/⏏;</td></tr>
+Preceding context expects a term, but found infix , instead<br />
+at t/spec/op/each.v5:172<br />
+------&gt;     is (length,⏏ 3, "check length"); <br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stash.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/stash.v5<br />
 Variable '%pig' is not declared<br />
@@ -2942,10 +2952,12 @@ at t/spec/op/lex_assign.v5:34<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/stat.v5<br />
-Preceding context expects a term, but found infix , instead<br />
-at t/spec/op/stat.v5:363<br />
-------&gt;         ok(-t,⏏          '-t on STDIN');<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/stat.v5:465<br />
+    ------&gt;     open my $fh⏏, "test.pl";<br />
+Could not find File::Spec in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+  in block  at t/spec/op/stat.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/index.v5<br />
@@ -3000,9 +3012,9 @@ Could not locate compile-time value for symbol is<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tr.v5</td><td>0</td><td>132</td><td>0</td><td>0</td><td>132</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tr.v5<br />
-Confused<br />
-at t/spec/op/tr.v5:57<br />
-------&gt; is "aaa" =~ y\⏏a\b\r, 'bbb', '/r with constant param';</td></tr>
+Couldn't find terminator |<br />
+at t/spec/op/tr.v5:202<br />
+------&gt;          'LHS bad on updating tr'⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/universal.v5</td><td>0</td><td>139</td><td>0</td><td>0</td><td>139</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
