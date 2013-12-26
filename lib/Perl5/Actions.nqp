@@ -1017,6 +1017,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make $past;
     }
 
+    method statement_control:sym<no>($/) {
+        $V5DEBUG && say("statement_control:sym<no>($/)");
+    }
+
     method statement_control:sym<require>($/) {
         $V5DEBUG && say("statement_control:sym<require>($/) module_name") if $<module_name>;
         $V5DEBUG && say("statement_control:sym<require>($/) file") if $<file>;
