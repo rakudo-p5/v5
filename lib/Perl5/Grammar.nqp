@@ -3393,7 +3393,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token prefix:sym<local> { <sym> \s+ <O('%named_unary')> { $*W.give_cur_block_temp($/) } }
 
     token filetest {
-        '-'$<letter>=[<[a..zA..Z]>] » <?before \s*> <.ws> <EXPR('q=')>?
+        '-'$<letter>=[<[a..zA..Z]>] » [ <!before <infix>> <?before \s*> <.ws> <EXPR('q=')> ]?
     }
 
     token term:sym<filetest> {

@@ -4906,7 +4906,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 QAST::Op.new(
                     :op('callmethod'), :name('IO'),
                     $<EXPR> ?? $<EXPR>.ast
-                            !! QAST::Var.new( :name('$_'), :scope('lexical') ) ) )
+                            !! $<letter> eq 't' # http://perldoc.perl.org/functions/-X.html
+                                ?? QAST::Var.new( :name('STDIN'), :scope('lexical') )
+                                !! QAST::Var.new( :name('$_'), :scope('lexical') ) ) )
     }
 
     method term:sym<filetest>($/) {
