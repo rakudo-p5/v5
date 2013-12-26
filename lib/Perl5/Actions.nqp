@@ -3836,6 +3836,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
         make QAST::Var.new( :name('$?PACKAGE'), :scope('lexical') );
     }
 
+    method term:sym«<filehandle>»($/) {
+        $V5DEBUG && say("term:sym«<filehandle>»($/)");
+        make QAST::Var.new( :name('Nil'), :scope('lexical') );
+    }
+
     sub make_yada($name, $/) {
 	    my $past := $<args>.ast;
 	    $past.name($name);

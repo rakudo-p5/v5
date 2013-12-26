@@ -3347,6 +3347,16 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<readline>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
+    token term:sym«<filehandle>» {
+        '<'
+        [
+        | <longname>
+        | <variable>
+        | ''
+        ]
+        '>'
+    }
+
 #    token term:sym<backtick>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
