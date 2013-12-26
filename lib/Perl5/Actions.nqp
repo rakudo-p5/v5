@@ -3940,10 +3940,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'ord',     [ '$_', '_',  'call', '&infix:<P5.>',  'call',       '&P5ord' ],
         'ref',     [ '$_', '_',  '',     '',              'call',       '&P5ref' ],
         'not',     [ '',   '@',  '',     '',              'call',       '&prefix:<P5not>' ],
-        'say',     [ '$_', '@',  'call', '&infix:<P5.>' ],
+        'say',     [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5say' ],
         'open',    [ '',   '*@', '',     '',              'callmethod', 'P5open' ],
         'pack',    [ '',   '$@', '',     '',              'callmethod', 'P5pack' ],
-        'print',   [ '$_', '@',  'call', '&infix:<P5.>' ],
+        'print',   [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5print' ],
         'shift',   [ '@_', ';+' ],
         'unlink',  [ '$_', '@',  '',     '',              'call',       '&P5unlink' ],
         'unpack',  [ '@_', '$@', '',     '',              'callmethod', 'P5unpack' ],
@@ -3996,7 +3996,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 return 0;
             }
             # Default to $_/@_.
-            elsif !$*ARGUMENT_HAVE && $builtin[$default] {
+            elsif !$*ARGUMENT_HAVE && !$*HAS_INDIRECT_OBJ && $builtin[$default] {
                 $past := QAST::Op.new( QAST::Var.new( :name($builtin[$default]), :scope('lexical') ), :node($/) );
             }
             # Expect args in this case.

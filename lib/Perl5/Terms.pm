@@ -648,11 +648,25 @@ multi P5Numeric(Str:D   \SELF) is export {
 multi P5ord(Mu         ) is export { 0             }
 multi P5ord(Str:D \SELF) is export { SELF.ord || 0 }
 
+sub P5print(*@a is copy) is export {
+    my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle) ?? @a.shift !! $*OUT;
+    @a.push: CALLER::DYNAMIC::<$_> unless +@a;
+
+    $fh.print( @a.join('') )
+}
+
 multi P5ref(Mu    \SELF) is export { '' }
 multi P5ref(Cool  \SELF) is export { '' }
 multi P5ref(Any:D \SELF) is export {
     my $name = SELF.^name.uc;
     $name eq 'SUB' ?? 'CODE' !! $name
+}
+
+sub P5say(*@a is copy) is export {
+    my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle) ?? @a.shift !! $*OUT;
+    @a.push: CALLER::DYNAMIC::<$_> unless +@a;
+
+    $fh.say( @a.join('') )
 }
 
 multi P5scalar(Mu      \SELF) is export { SELF     }
