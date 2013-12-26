@@ -672,6 +672,9 @@ sub P5say(*@a is copy) is export {
 multi P5scalar(Mu      \SELF) is export { SELF     }
 multi P5scalar(Array:D \SELF) is export { +@(SELF) }
 multi P5scalar(List:D  \SELF) is export { +@(SELF) }
+multi P5scalar(Hash:D  \SELF) is export {
+    SELF.elems && (SELF.elems ~ '/' ~ (SELF.elems < 8 ?? 8 !! (2 ** (1 + SELF.elems.msb))))
+}
 
 multi P5Str(Mu:U) is export is hidden_from_backtrace {
     if warnings::enabled('all') || warnings::enabled('uninitialized') {
