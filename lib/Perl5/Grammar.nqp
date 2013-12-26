@@ -2598,16 +2598,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
         $start <left=.nibble($lang)> [ $stop || <.panic("Couldn't find terminator $stop")> ]
         [ <?{ $start ne $stop }>
-            <.ws>
-            [ <?[ \[ \{ \( \< ]> <.obs('brackets around replacement', 'assignment syntax')> ]?
-            [ <infixish> || <.missing: "assignment operator"> ]
-            [ <?{ $<infixish>.Str eq '=' }> || <.malformed: "assignment operator"> ]
-            # XXX When we support it, above check should add: || $<infixish><infix_postfix_meta_operator>[0]
-            <.ws>
-            [ <right=.EXPR('h')> || <.panic: "Assignment operator missing its expression"> ]
+            { $lang := self.quote_lang($lang2, $start, $stop, @lang2tweaks); }
+            $start <right=.nibble($lang)> [ $stop || <.panic("Malformed replacement part; couldn't find final $stop")> ]
         ||
             { $lang := self.quote_lang($lang2, $stop, $stop, @lang2tweaks); }
-            <right=.nibble($lang)> $stop || <.panic("Malformed replacement part; couldn't find final $stop")>
+            <right=.nibble($lang)> [ $stop || <.panic("Malformed replacement part; couldn't find final $stop")> ]
         ]
     }
 
@@ -2620,16 +2615,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
         $start <left=.nibble($lang)> [ $stop || <.panic("Couldn't find terminator $stop")> ]
         [ <?{ $start ne $stop }>
-            <.ws>
-            [ <?[ \[ \{ \( \< ]> <.obs('brackets around replacement', 'assignment syntax')> ]?
-            [ <infixish> || <.missing: "assignment operator"> ]
-            [ <?{ $<infixish>.Str eq '=' }> || <.malformed: "assignment operator"> ]
-            # XXX When we support it, above check should add: || $<infixish><infix_postfix_meta_operator>[0]
-            <.ws>
-            [ <right=.EXPR('h')> || <.panic: "Assignment operator missing its expression"> ]
+            { $lang := self.quote_lang($l, $start, $stop, ['qq']); }
+            $start <right=.nibble($lang)> [ $stop || <.panic("Malformed replacement part; couldn't find final $stop")> ]
         ||
             { $lang := self.quote_lang($l, $stop, $stop, ['qq']); }
-            <right=.nibble($lang)> $stop || <.panic("Malformed replacement part; couldn't find final $stop")>
+            <right=.nibble($lang)> [ $stop || <.panic("Malformed replacement part; couldn't find final $stop")> ]
         ]
     }
  
