@@ -1,7 +1,7 @@
 
 use v6.0.0;
 use Test;
-sub _plan(*@args)            { plan(|@args)                       }
+sub _plan($t)                { plan($t eq 'no_plan' ?? * !! $t)   }
 sub _pass(*@args)            { pass(|@args)                       }
 sub _ok(*@args)              { ok(|@args)                         }
 sub _nok(*@args)             { nok(|@args)                        }
