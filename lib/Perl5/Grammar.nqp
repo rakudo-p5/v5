@@ -595,6 +595,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token _ws {
         :my $old_highexpect := self.'!fresh_highexpect'();
         :dba('whitespace')
+        <!ww>
         [
         | <.vws> <.heredoc>
         | <.unv>
@@ -605,7 +606,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token unsp {
         #~ <!>
-        \\ <?before [\s|'#'] >
+        \\ <?before \s | '#'>
         :dba('unspace')
         [
         | <.vws>
