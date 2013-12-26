@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-547a3b87e3bd8606) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x39916b74b3289aa3) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -2724,9 +2724,9 @@ at t/spec/mro/package_aliases_utf8.v5:87<br />
 ------&gt;    ~ =~ s\__code__\$$_{code}\⏏r; #\</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/fs.v5<br />
-Use of a closing delimiter for an opener is reserved<br />
-at t/spec/io/fs.v5:31<br />
-------&gt;      ⏏);</td></tr>
+Variable '%FH' is not declared<br />
+at t/spec/io/fs.v5:401<br />
+------&gt; 	    ok(truncate(*FH{IO}⏏, 100), "fh resize by IO slot");</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_utf8.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/basic_utf8.v5<br />
 Two terms in a row<br />
@@ -2943,9 +2943,9 @@ at t/spec/op/lex_assign.v5:34<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/stat.v5<br />
-Confused<br />
-at t/spec/op/stat.v5:122<br />
-------&gt;                             $mtime &amp;&amp; $m⏏time == $ctime;</td></tr>
+Unsupported use of brackets around replacement; in Perl 6 please use assignment syntax<br />
+at t/spec/op/stat.v5:269<br />
+------&gt;     $DEV =~ s{^[cpls].+?\sstdout$}⏏{}m;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/index.v5<br />
 Variable '$a' is not declared<br />

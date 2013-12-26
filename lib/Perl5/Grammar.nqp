@@ -2698,7 +2698,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*INTERPOLATE := 1;
         <sym> »
         { %*RX<s> := 1 if $/[0] }
-        <quibble(%*LANG<P5Regex>)>
+        [
+        | '#' <quibble=.nibble(self.quote_lang(%*LANG<P5Regex>, '#', '#'))> '#'
+        | <quibble(%*LANG<P5Regex>)>
+        ]
         <rx_mods>?
     }
 
