@@ -2075,6 +2075,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     my %prototype := nqp::hash(
         'chr',    '$',
         'int',    '$',
+        'keys',   '$',
         'ord',    '$',
         'ref',    '$',
         'time',   '',
@@ -2084,6 +2085,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'map',    '$@',
         'grep',   '$@',
         'sort',   '$@',
+        'values', '$',
     );
     rule routine_def {
         :my $*IN_DECL := 'sub';
