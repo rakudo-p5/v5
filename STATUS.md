@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x4ebf0e144b82a82a) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x526bb42b4b3a222d) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -165,52 +165,13 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left'>op/chars.v5</td><td>34</td><td>0</td><td>0</td><td>0</td><td>34</td></tr>
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>27</td><td>17</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot call 'postcircumfix:&lt;{ }&gt;'; none of these signatures match:<br />
-:(\SELF, $key)<br />
-:(\SELF, $key, Mu \$BIND)<br />
-:(\SELF, $key, :SINK(:$SINK)!, *%other)<br />
-:(\SELF, $key, :delete(:$delete)!, *%other)<br />
-:(\SELF, $key, :exists(:$exists)!, *%other)<br />
-:(\SELF, $key, :kv(:$kv)!, *%other)<br />
-:(\SELF, $key, :p(:$p)!, *%other)<br />
-:(\SELF, $key, :k(:$k)!, *%other)<br />
-:(\SELF, $key, :v(:$v)!, *%other)<br />
-:(\SELF, Positional \key)<br />
-:(\SELF, Positional \key, :BIND(:$BIND)!)<br />
-:(\SELF, Positional \key, :SINK(:$SINK)!, *%other)<br />
-:(\SELF, Positional \key, :delete(:$delete)!, *%other)<br />
-:(\SELF, Positional \key, :exists(:$exists)!, *%other)<br />
-:(\SELF, Positional \key, :kv(:$kv)!, *%other)<br />
-:(\SELF, Positional \key, :p(:$p)!, *%other)<br />
-:(\SELF, Positional \key, :k(:$k)!, *%other)<br />
-:(\SELF, Positional \key, :v(:$v)!, *%other)<br />
-:(\SELF, Whatever )<br />
-:(\SELF, Whatever , :BIND(:$BIND)!)<br />
-:(\SELF, Whatever , :SINK(:$SINK)!, *%other)<br />
-:(\SELF, Whatever , :delete(:$delete)!, *%other)<br />
-:(\SELF, Whatever , :exists(:$exists)!, *%other)<br />
-:(\SELF, Whatever , :kv(:$kv)!, *%other)<br />
-:(\SELF, Whatever , :p(:$p)!, *%other)<br />
-:(\SELF, Whatever , :k(:$k)!, *%other)<br />
-:(\SELF, Whatever , :p(:$p)!, *%other)<br />
-:(\SELF)<br />
-:(\SELF, :BIND(:$BIND)!)<br />
-:(\SELF, :SINK(:$SINK)!, *%other)<br />
-:(\SELF, :delete(:$delete)!, *%other)<br />
-:(\SELF, :exists(:$exists)!, *%other)<br />
-:(\SELF, :kv(:$kv)!, *%other)<br />
-:(\SELF, :p(:$p)!, *%other)<br />
-:(\SELF, :k(:$k)!, *%other)<br />
-:(\SELF, :p(:$p)!, *%other)<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
-  in sub postcircumfix:&lt;{ }&gt; at gen/parrot/CORE.setting:2490<br />
-  in block  at t/spec/op/smartkve.v5:148<br />
+        <tr><td colspan='5'>Cannot modify an immutable value<br />
+  in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16209<br />
+  in block  at t/spec/op/smartkve.v5:149<br />
   in block  at t/spec/op/smartkve.v5:65<br />
   in block  at t/spec/op/smartkve.v5:56<br />
   in block  at t/spec/op/smartkve.v5:41<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)<br />  44 tests more than planned were run<br />
+<br />  44 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left'>op/recurse.v5</td><td>27</td><td>1</td><td>0</td><td>0</td><td>28</td></tr>
         <tr align='center'><td align='left'>t/v5/06-bool.v5</td><td>26</td><td>6</td><td>0</td><td>0</td><td>32</td></tr>
@@ -334,6 +295,7 @@ Useless use of constant integer 42 in sink context (line 15)<br />
         <tr align='center'><td align='left' rowspan='2'>run/exit.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
+use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:4<br />
 use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 No such symbol '&amp;POSIX::WIFEXITED'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
@@ -580,8 +542,7 @@ No such symbol '&amp;vec'<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
   in block  at t/spec/mro/isa_c3.v5:22<br />
   in block  at t/spec/mro/isa_c3.v5:12<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)</td></tr>
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
@@ -591,8 +552,7 @@ current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:24<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:14<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)</td></tr>
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
@@ -602,8 +562,7 @@ current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (
   in block  at t/spec/mro/isa_dfs.v5:33<br />
   in block  at t/spec/mro/isa_dfs.v5:23<br />
   in block  at t/spec/mro/isa_dfs.v5:12<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)</td></tr>
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
@@ -613,8 +572,7 @@ current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:25<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:14<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)</td></tr>
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/method_caching_utf8.v5<br />
 Variable '*FFF' is not declared<br />
@@ -821,10 +779,17 @@ Could not find symbol '&amp;upgrade'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/porting/args_assert.v5:38<br />
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
-Could not find file './test.pl' for module ./test.pl<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:70<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/porting/args_assert.v5:7<br />
+Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13069<br />
+  in method open at gen/parrot/CORE.setting:13058<br />
+  in method P5open at lib/Perl5/Terms.pm:713<br />
+  in method AUTOGEN at gen/parrot/CORE.setting:532<br />
+  in block  at t/spec/porting/args_assert.v5:27<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/porting/args_assert.v5:18<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;find_git_or_skip'<br />
@@ -902,8 +867,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file
   in method P5open at lib/Perl5/Terms.pm:713<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)</td></tr>
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
@@ -1035,8 +999,7 @@ No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
   in method gimme at gen/parrot/CORE.setting:7611<br />
   in method eager at gen/parrot/CORE.setting:7583<br />
   in block  at t/spec/re/reg_posixcc.v5:87<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏no_plan' (indicated by ⏏)<br />
-current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)</td></tr>
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regex_sets.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -1210,12 +1173,7 @@ Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 341.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 342.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 343.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 344.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 345.<br />
-===SORRY!===<br />
+        <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Copy in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1934,16 +1892,20 @@ No such symbol '&amp;tempfile'<br />
   in block  at t/spec/io/fflush.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:4<br />
+use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:4<br />
+use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:4<br />
+use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:4<br />
+use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;fileno'<br />

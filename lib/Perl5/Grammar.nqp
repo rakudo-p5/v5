@@ -256,53 +256,6 @@ role STD5 {
         );
     }
     
-#    method check_variable ($variable) {
-#        my $name := $variable.Str;
-#        my $here := self.cursor($variable.from);
-#        #self.deb("check_variable $name") if $*DEBUG +& DEBUG::symtab;
-#        if $variable<really> { $name := $variable<really> ~ nqp::substr($name,1) }
-#        my @parts := $name ~~ /(\$|\@|\%|\&|\*)(.?)/;
-#        my $sigil := @parts[0];
-#        my $first := @parts[1];
-#        return self if $first eq '{';
-#        my $ok := 0;
-#        $ok := $ok || $*IN_DECL;
-#        $ok := $ok || $first lt 'A';
-#        $ok := $ok || $sigil eq '*';
-#        $ok := $ok || self.is_known($name);
-#        $ok := $ok || ($*IN_SORT && ($name eq '$a' || $name eq '$b'));
-#        if !$ok {
-#            my $id := $name;
-#            #$id ~~ s/^\W\W?//;
-#            $id := nqp::substr($id, 1, nqp::chars($id) - 1) if $id ~~ /^\W/;
-#            $id := nqp::substr($id, 1, nqp::chars($id) - 1) if $id ~~ /^\W/;
-#            if $sigil eq '&' {
-#                $here.add_mystery($variable<sublongname>, self.pos, 'var')
-#            }
-#            elsif $name eq '@_' || $name eq '%_' {
-#                
-#            }
-#            else {  # guaranteed fail now
-#                if my $scope := @*MEMOS[$variable.from]<declend> {
-#                    return $here.sorry("Variable $name is not predeclared (declarators are tighter than comma, so maybe your '$scope' signature needs parens?)");
-#                }
-#                elsif !($id ~~ /\:\:/) {
-#                    if self.is_known('@' ~ $id) {
-#                        return $here.sorry("Variable $name is not predeclared (did you mean \@$id?)");
-#                    }
-#                    elsif self.is_known('%' ~ $id) {
-#                        return $here.sorry("Variable $name is not predeclared (did you mean \%$id?)");
-#                    }
-#                }
-#                return $here.sorry("Variable $name is not predeclared");
-#            }
-#        }
-#        elsif $*CURLEX{$name} {
-#            $*CURLEX{$name}<used> := $*CURLEX{$name}<used> + 1;
-#        }
-#        self;
-#    }
-
     my %pragmas;
     method pragma( $name, $args, $set ) {
         %pragmas{$name} := nqp::hash();
@@ -324,9 +277,9 @@ role STD5 {
             $varast.name( ~$var<really> ~ ~$var<desigilname> ) if $var<really>;
             $varast.name( ~$var<sigil>  ~ ~$var<name> )        if $var<name>;
             my $name := $varast.name;
-            if $name ne '%_' && $name ne '@_' && !$*W.is_lexical($name) {
+            if $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
-                    if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) {
+                    if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) || $name eq '%_' {
                         
                         my $BLOCK := $*W.cur_lexpad();
                         

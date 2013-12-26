@@ -1745,17 +1745,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $past := add_placeholder_parameter($/, $sigil, $desigilname,
                                 :named($twigil eq ':'), :full_name($past.name()));
         }
-        elsif $past.name() eq '@_' {
+        elsif $past.name() eq '@_' || $past.name() eq '%_' {
             $past.scope('lexical');
-        }
-        elsif $past.name() eq '%_' {
-            if $*W.nearest_signatured_block_declares('%_') || $*METHODTYPE {
-                $past.scope('lexical');
-            }
-            else {
-                $past := add_placeholder_parameter($/, '%', '_', :named_slurpy(1),
-                                :full_name($past.name()));
-            }
         }
         elsif $past.name() eq '$?LINE' || $past.name eq '$?FILE' {
             if $*IN_DECL eq 'variable' {
