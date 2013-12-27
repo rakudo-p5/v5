@@ -306,6 +306,9 @@ multi P5Bool(Parcel \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
 multi P5Bool(List   \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
 multi P5Bool(Pair   \SELF) is export { SELF.kv.list ?? 1 !! ''       }
 
+multi P5chdir(\SELF) is export { chdir(SELF) }
+multi P5chdir()      is export { %*ENV<HOME> ?? chdir(%*ENV<HOME>) !! %*ENV<LOGDIR> ?? chdir(%*ENV<LOGDIR>) !! False }
+
 sub P5do(Mu \SELF) is export is hidden_from_backtrace {
     my $ret;
     if SELF {
