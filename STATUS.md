@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5107</td><td>35831</td><td>5</td><td>32</td><td>40918</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5109</td><td>35813</td><td>5</td><td>48</td><td>40918</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2350</td><td>12347</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-48508c2656b803d9) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -389,6 +389,22 @@ use of uninitialized value of type Any in string context<br />
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---  in block  at t/spec/op/heredoc.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;opendir'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/chdir.v5:74<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/op/chdir.v5:69<br />
+<br />  16 skipped: no fchdir<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;L'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
@@ -560,7 +576,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
-  in sub bless at lib/Perl5/Terms.pm:1051<br />
+  in sub bless at lib/Perl5/Terms.pm:1054<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -570,7 +586,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
-  in sub bless at lib/Perl5/Terms.pm:1051<br />
+  in sub bless at lib/Perl5/Terms.pm:1054<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -580,7 +596,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
-  in sub bless at lib/Perl5/Terms.pm:1051<br />
+  in sub bless at lib/Perl5/Terms.pm:1054<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -590,7 +606,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
-  in sub bless at lib/Perl5/Terms.pm:1051<br />
+  in sub bless at lib/Perl5/Terms.pm:1054<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -806,7 +822,7 @@ Could not find symbol '&amp;upgrade'<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13069<br />
   in method open at gen/parrot/CORE.setting:13058<br />
-  in method P5open at lib/Perl5/Terms.pm:716<br />
+  in method P5open at lib/Perl5/Terms.pm:719<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
   in method reify at gen/parrot/CORE.setting:7288<br />
@@ -877,7 +893,7 @@ use of uninitialized value of type Any in numeric context  in sub skip_rest at l
 Unable to open filehandle from path '/home/froggs/dev/v5/perl6': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13069<br />
   in method open at gen/parrot/CORE.setting:13058<br />
-  in method P5open at lib/Perl5/Terms.pm:716<br />
+  in method P5open at lib/Perl5/Terms.pm:719<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/globvar.v5:34<br />
 </td></tr>
@@ -893,7 +909,7 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13069<br />
   in method open at gen/parrot/CORE.setting:13058<br />
-  in method P5open at lib/Perl5/Terms.pm:716<br />
+  in method P5open at lib/Perl5/Terms.pm:719<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
 </td></tr>
@@ -2629,9 +2645,9 @@ Could not find re in any of: lib, ../lib<br />
         <tr><td colspan='5'>Unable to open filehandle from path '/home/froggs/dev/v5/t/arness': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13069<br />
   in method open at gen/parrot/CORE.setting:13058<br />
-  in method P5open at lib/Perl5/Terms.pm:716<br />
+  in method P5open at lib/Perl5/Terms.pm:719<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
-  in method P5open at lib/Perl5/Terms.pm:713<br />
+  in method P5open at lib/Perl5/Terms.pm:716<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
@@ -2714,14 +2730,6 @@ No such symbol '&amp;use_ok'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/io/perlio.v5:12<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-CHECK FAILED:<br />
-Calling 'chdir' requires arguments (lines 143, 148, 227)<br />
-    Expected any of:<br />
-    :(IO::Path:D $path)<br />
-    :($path)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sysio.v5<br />
@@ -2959,7 +2967,7 @@ at t/spec/op/lex_assign.v5:34<br />
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
   in method sink at gen/parrot/CORE.setting:12073<br />
-  in sub bless at lib/Perl5/Terms.pm:1051<br />
+  in sub bless at lib/Perl5/Terms.pm:1054<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
