@@ -15,9 +15,9 @@ HAS_ICU    = 0
 #       as the goal is that all tests must pass without fudge
 HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(HAS_ICU)
 
-all: blib blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc blib/Perl5/ModuleLoader.pbc \
-	blib/Perl5/constant.pbc blib/Perl5/Cwd.pbc blib/Perl5/lib.pbc blib/Perl5/mro.pbc blib/Perl5/overload.pbc \
-	blib/Perl5/TestInit.pbc
+all: blib/Perl5/File/Spec blib/Perl5.pbc blib/Perl5/Config.pbc blib/Perl5/Terms.pbc blib/Perl5/ModuleLoader.pbc \
+	blib/Perl5/constant.pbc blib/Perl5/Cwd.pbc blib/Perl5/File/Spec.pbc blib/Perl5/File/Spec/Functions.pbc \
+	blib/Perl5/lib.pbc blib/Perl5/mro.pbc blib/Perl5/overload.pbc blib/Perl5/TestInit.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	$(NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=blib/Perl5/World.pir lib/Perl5/World.nqp
@@ -53,6 +53,16 @@ blib/Perl5/Cwd.pbc: lib/Perl5/Cwd.pm
 	@$(PERL6) --target=pir --output=blib/Perl5/Cwd.pir lib/Perl5/Cwd.pm
 	@$(PARROT) -o blib/Perl5/Cwd.pbc blib/Perl5/Cwd.pir
 
+blib/Perl5/File/Spec.pbc: lib/Perl5/File/Spec.pm
+	@echo Compiling File::Spec
+	@$(PERL6) --target=pir --output=blib/Perl5/File/Spec.pir lib/Perl5/File/Spec.pm
+	@$(PARROT) -o blib/Perl5/File/Spec.pbc blib/Perl5/File/Spec.pir
+
+blib/Perl5/File/Spec/Functions.pbc: lib/Perl5/File/Spec/Functions.pm
+	@echo Compiling File::Spec::Functions
+	@$(PERL6) --target=pir --output=blib/Perl5/File/Spec/Functions.pir lib/Perl5/File/Spec/Functions.pm
+	@$(PARROT) -o blib/Perl5/File/Spec/Functions.pbc blib/Perl5/File/Spec/Functions.pir
+
 blib/Perl5/lib.pbc: lib/Perl5/lib.pm
 	@echo Compiling lib
 	@$(PERL6) --target=pir --output=blib/Perl5/lib.pir lib/Perl5/lib.pm
@@ -86,8 +96,8 @@ blib/Perl5/English.pbc: blib/Perl5/Terms.pbc lib/Perl5/English.pm
 	$(PERL6) --target=pir --stagestats --output=blib/Perl5/English.pir lib/Perl5/English.pm
 	$(PARROT) -o blib/Perl5/English.pbc blib/Perl5/English.pir
 
-blib:
-	$(MKPATH) blib/Perl5
+blib/Perl5/File/Spec:
+	$(MKPATH) blib/Perl5/File/Spec
 
 clean:
 	$(RM_F) blib/*.pbc blib/*.pir blib/Perl5/*.pbc blib/Perl5/*.pir
@@ -95,6 +105,7 @@ clean:
 install: all
 	$(MKPATH) $(NQPLIB)/lib/Perl5
 	$(MKPATH) $(P6LIB)/lib/Perl5/warnings
+	$(MKPATH) $(P6LIB)/lib/Perl5/File/Spec
 	$(CP) blib/*.pbc $(P6LIB)/lib/
 	$(CP) blib/Perl5/Actions.pbc $(NQPLIB)/lib/Perl5/
 	$(CP) blib/Perl5/World.pbc $(NQPLIB)/lib/Perl5/
@@ -106,6 +117,8 @@ install: all
 	$(CP) blib/Perl5/Terms.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/constant.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/Cwd.pbc $(P6LIB)/lib/Perl5/
+	$(CP) blib/Perl5/File/*.pbc $(P6LIB)/lib/Perl5/File/
+	$(CP) blib/Perl5/File/Spec/*.pbc $(P6LIB)/lib/Perl5/File/Spec/
 	$(CP) blib/Perl5/mro.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/overload.pbc $(P6LIB)/lib/Perl5/
 	$(CP) blib/Perl5/warnings.pbc $(P6LIB)/lib/Perl5/

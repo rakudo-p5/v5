@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x13f658c9411fd9a5) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-1b47346efb09f33e) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -1211,12 +1211,7 @@ Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Use of uninitialized value in addition (+) at t/test_summary line 341.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 342.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 343.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 344.<br />
-Use of uninitialized value in addition (+) at t/test_summary line 345.<br />
-===SORRY!===<br />
+        <tr><td colspan='5'>===SORRY!===<br />
 Could not find File::Copy in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1371,8 +1366,16 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;infix:&lt;0&gt;'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+  in sub cmp_ok at /home/froggs/dev/v5/t/test.pl:69<br />
+  in block  at t/spec/lib/1_compile.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;BAIL_OUT'<br />
@@ -2469,10 +2472,14 @@ No such method 'ast' for invocant of type 'NQPMu'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/io/argv.v5:118<br />
     ------&gt;     open my $fh⏏, 'Io_argv1.tmp' or die "Could not open <br />
-Could not find File::Spec in any of: ../lib<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:75<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/io/argv.v5:18<br />
+Could not find symbol '&amp;Spec'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/io/argv.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/isarev.v5<br />
@@ -2710,7 +2717,11 @@ No such symbol '&amp;use_ok'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+CHECK FAILED:<br />
+Calling 'chdir' requires arguments (lines 143, 148, 227)<br />
+    Expected any of:<br />
+    :(IO::Path:D $path)<br />
+    :($path)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sysio.v5<br />
@@ -2956,8 +2967,14 @@ at t/spec/op/lex_assign.v5:34<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/stat.v5:465<br />
     ------&gt;     open my $fh⏏, "test.pl";<br />
-Could not find File::Spec in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-  in block  at t/spec/op/stat.v5:17<br />
+Could not find symbol '&amp;Spec'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/stat.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/index.v5<br />
