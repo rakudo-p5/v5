@@ -1,3 +1,4 @@
 t/spec
 *.v5
-blib/*
+*.pbc
+*.pir
