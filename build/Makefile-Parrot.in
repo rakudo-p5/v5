@@ -53,13 +53,6 @@ blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/P
 	$(P_NQP) --vmlibs=perl6_ops --target=pir --output=lib/Perl5.pir lib/Perl5.nqp
 	$(P_PARROT) -o blib/Perl5.pbc lib/Perl5.pir
 
-lib/Perl5/Terms.pir: lib/Perl5/Terms.pm lib/Perl5/warnings.pir
-	$(P_PERL6) --target=pir --stagestats --output=lib/Perl5/Terms.pir lib/Perl5/Terms.pm
-lib/Perl5/Terms.pbc: lib/Perl5/Terms.pir
-	$(P_PARROT) -o lib/Perl5/Terms.pbc lib/Perl5/Terms.pir
-$(P_P6LIB)/lib/Perl5/Terms.pbc:
-	$(CP) lib/Perl5/Terms.pbc $(P_P6LIB)/lib/Perl5/Terms.pbc
-
 # pragmas and modules
 p-modules: @p_modules_list@
 

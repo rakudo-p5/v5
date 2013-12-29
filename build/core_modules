@@ -1,3 +1,7 @@
+## things v5 needs...
+TestInit - ...
+Terms - ... [warnings]
+
 ## pragmas
 attributes - get/set subroutine or variable attributes
 autodie - Replace functions with ones that succeed or die with lexical scope
