@@ -12,11 +12,25 @@ P_HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 -
 p-all: blib/Perl5.pbc p-modules
 
 # core
-p-core-install: blib/Perl5.pbc
-	$(MKPATH) $(P_NQPLIB)/lib/Perl5/
-	$(CP) blib/Perl5/*.pbc $(P_NQPLIB)/lib/Perl5/
-	$(MKPATH) $(P_P6LIB)/lib/
-	$(CP) lib/Perl5.pbc $(P_P6LIB)/lib/
+$(P_NQPLIB)/lib/Perl5:
+	$(MKPATH) $(P_NQPLIB)/lib/Perl5
+$(P_P6LIB)/lib:
+	$(MKPATH) $(P_P6LIB)/lib
+$(P_P6LIB)/lib/Perl5: $(P_P6LIB)/lib
+	$(MKPATH) $(P_P6LIB)/lib/Perl5
+
+$(P_NQPLIB)/lib/Perl5/World.pbc: $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/World.pbc $(P_NQPLIB)/lib/Perl5
+$(P_NQPLIB)/lib/Perl5/Actions.pbc: $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Actions.pbc $(P_NQPLIB)/lib/Perl5
+$(P_NQPLIB)/lib/Perl5/Grammar.pbc: $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Grammar.pbc $(P_NQPLIB)/lib/Perl5
+$(P_NQPLIB)/lib/Perl5/ModuleLoader.pbc: $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/ModuleLoader.pbc $(P_NQPLIB)/lib/Perl5
+$(P_P6LIB)/lib/Perl5.pbc: $(P_P6LIB)/lib/Perl5
+	$(CP) lib/Perl5.pbc $(P_P6LIB)/lib
+
+p-core-install: $(P_NQPLIB)/lib/Perl5/World.pbc $(P_NQPLIB)/lib/Perl5/Actions.pbc $(P_NQPLIB)/lib/Perl5/Grammar.pbc $(P_NQPLIB)/lib/Perl5/ModuleLoader.pbc $(P_P6LIB)/lib/Perl5.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	@$(MKPATH) blib/Perl5
@@ -43,6 +57,8 @@ lib/Perl5/Terms.pir: lib/Perl5/Terms.pm lib/Perl5/warnings.pir
 	$(P_PERL6) --target=pir --stagestats --output=lib/Perl5/Terms.pir lib/Perl5/Terms.pm
 lib/Perl5/Terms.pbc: lib/Perl5/Terms.pir
 	$(P_PARROT) -o lib/Perl5/Terms.pbc lib/Perl5/Terms.pir
+$(P_P6LIB)/lib/Perl5/Terms.pbc:
+	$(CP) lib/Perl5/Terms.pbc $(P_P6LIB)/lib/Perl5/Terms.pbc
 
 # pragmas and modules
 p-modules: @p_modules_list@
@@ -52,8 +68,27 @@ p-modules: @p_modules_list@
 p-clean:
 	$(RM_F) lib/*.pbc lib/*.pir lib/Perl5/*.pbc lib/Perl5/*.pir
 
-p-install: p-all
-@p_modules_install@
+p-a-install: @p_a_install@
+p-b-install: @p_b_install@
+p-c-install: @p_c_install@
+p-d-install: @p_d_install@
+p-e-install: @p_e_install@
+p-f-install: @p_f_install@
+p-g-install: @p_g_install@
+p-h-install: @p_h_install@
+p-i-install: @p_i_install@
+p-l-install: @p_l_install@
+p-m-install: @p_m_install@
+p-n-install: @p_n_install@
+p-o-install: @p_o_install@
+p-p-install: @p_p_install@
+p-r-install: @p_r_install@
+p-s-install: @p_s_install@
+p-t-install: $(P_P6LIB)/lib/Perl5/Terms.pbc @p_t_install@
+p-u-install: @p_u_install@
+p-x-install: @p_x_install@
+
+p-install: p-core-install p-a-install p-b-install p-c-install p-d-install p-e-install p-f-install p-g-install p-h-install p-i-install p-l-install p-m-install p-n-install p-o-install p-p-install p-r-install p-s-install p-t-install p-u-install p-x-install
 
 p-uninstall:
 	$(RM_F) $(NQPLIB)/lib/Perl5.pbc

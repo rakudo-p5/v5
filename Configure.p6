@@ -7,7 +7,6 @@ my %config =
     p_perl6           => "PERL6LIB={cwd}/lib perl6-p",
     p_modules         => '',
     p_modules_list    => '',
-    p_modules_install => "\t\$(MKPATH) \$(P_P6LIB)/lib/Perl5\n\t\$(CP) lib/Perl5/Terms.pbc \$(P_P6LIB)/lib/Perl5/\n",
 ;
 my regex name { [\w+]+ % '::' };
 my regex desc { <-[\n\[]>+ };
@@ -37,6 +36,12 @@ for @modules -> $module {
         %config<p_modules_list> ~= "\\\n\t" if $break_modules_list;
         my $deps                 = join ' ', $module<deps>>>.map({ 'lib/Perl5/' ~ .split('::').join('/') ~ '.pir' });
 
+        my $mk_path = '';
+        for 0..^@name_parts.end {
+            my $path = @name_parts[0..$_].join('/');
+            $mk_path ~= "\t\$(MKPATH) \$(P_P6LIB)/lib/Perl5/$path\n";
+        }
+
         %config<p_modules> ~= qq:to/P_MODULES/.subst('    ', "\t", :g);
             $pir: $pm $deps
             \t@echo Compiling $module<name> to pir
@@ -44,18 +49,12 @@ for @modules -> $module {
             $pbc: $pir
             \t@echo Compiling $module<name> to pbc
             \t@\$(P_PARROT) -o $pbc $pir
+            \$(P_P6LIB)/$pbc: $pbc
+            {+@name_parts > 1 ?? $mk_path !! ''}\t\$(CP) $pbc \$(P_P6LIB)/$pbc
             
             P_MODULES
 
-        for 0..^@name_parts.end {
-            my $path = @name_parts[0..$_].join('/');
-            unless %p_module_paths{ $path } {
-                %config<p_modules_install> ~= "\t\$(MKPATH) \$(P_P6LIB)/lib/Perl5/$path\n";
-                %p_module_paths{ $path }    = 1;
-            }
-        }
-
-        %config<p_modules_install> ~= "\t\$(CP) $pbc \$(P_P6LIB)/lib/Perl5/" ~ @name_parts[0..^@name_parts.end].join('/') ~ "\n"
+        %config{"p_{$module<name>.substr(0,1).lc}_install"} ~= "\$(P_P6LIB)/$pbc "
     }
 
     $i++;
