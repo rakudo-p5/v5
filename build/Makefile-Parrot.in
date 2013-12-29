@@ -1,0 +1,65 @@
+P_NQP    := nqp-p
+P_PARROT := parrot
+P_PERL6  := @p_perl6@
+P_NQPLIB := $(shell $(P_NQP) -e 'my %conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH]; print(%conf<libdir> ~ %conf<versiondir> ~ "/languages/nqp");')
+P_P6LIB  := $(shell $(P_PERL6) -e 'print %*CUSTOM_LIB<perl>')
+
+# We need to tweak that some day
+P_HAS_ICU = 0
+
+P_HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5 --icu=$(P_HAS_ICU)
+
+p-all: blib/Perl5.pbc p-modules
+
+# core
+p-core-install: blib/Perl5.pbc
+	$(MKPATH) $(P_NQPLIB)/lib/Perl5/
+	$(CP) blib/Perl5/*.pbc $(P_NQPLIB)/lib/Perl5/
+	$(MKPATH) $(P_P6LIB)/lib/
+	$(CP) lib/Perl5.pbc $(P_P6LIB)/lib/
+
+blib/Perl5/World.pbc: lib/Perl5/World.nqp
+	@$(MKPATH) blib/Perl5
+	$(P_NQP) --vmlibs=perl6_ops --target=pir --output=lib/Perl5/World.pir lib/Perl5/World.nqp
+	$(P_PARROT) -o blib/Perl5/World.pbc lib/Perl5/World.pir
+
+blib/Perl5/Actions.pbc: blib/Perl5/World.pbc lib/Perl5/Actions.nqp
+	$(P_NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=lib/Perl5/Actions.pir lib/Perl5/Actions.nqp
+	$(P_PARROT) -o blib/Perl5/Actions.pbc lib/Perl5/Actions.pir
+
+blib/Perl5/Grammar.pbc: blib/Perl5/Actions.pbc lib/Perl5/Grammar.nqp
+	$(P_NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=lib/Perl5/Grammar.pir lib/Perl5/Grammar.nqp
+	$(P_PARROT) -o blib/Perl5/Grammar.pbc lib/Perl5/Grammar.pir
+
+blib/Perl5/ModuleLoader.pbc: lib/Perl5/ModuleLoader.nqp
+	$(P_NQP) --vmlibs=perl6_ops --target=pir --output=lib/Perl5/ModuleLoader.pir lib/Perl5/ModuleLoader.nqp
+	$(P_PARROT) -o blib/Perl5/ModuleLoader.pbc lib/Perl5/ModuleLoader.pir
+
+blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/Perl5/Grammar.pbc blib/Perl5/ModuleLoader.pbc
+	$(P_NQP) --vmlibs=perl6_ops --target=pir --output=lib/Perl5.pir lib/Perl5.nqp
+	$(P_PARROT) -o blib/Perl5.pbc lib/Perl5.pir
+
+lib/Perl5/Terms.pir: lib/Perl5/Terms.pm lib/Perl5/warnings.pir
+	$(P_PERL6) --target=pir --stagestats --output=lib/Perl5/Terms.pir lib/Perl5/Terms.pm
+lib/Perl5/Terms.pbc: lib/Perl5/Terms.pir
+	$(P_PARROT) -o lib/Perl5/Terms.pbc lib/Perl5/Terms.pir
+
+# pragmas and modules
+p-modules: @p_modules_list@
+
+@p_modules@
+
+p-clean:
+	$(RM_F) lib/*.pbc lib/*.pir lib/Perl5/*.pbc lib/Perl5/*.pir
+
+p-install: p-core-install
+@p_modules_install@
+
+p-uninstall:
+	$(RM_F) $(NQPLIB)/lib/Perl5.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl5/Actions.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl5/Grammar.pbc
+	$(RM_F) $(NQPLIB)/lib/Perl5/World.pbc
+
+p-summary:
+	V5DEBUG=0 perl t/test_summary

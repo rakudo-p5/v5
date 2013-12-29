@@ -2,3 +2,4 @@ t/spec
 *.v5
 *.pbc
 *.pir
+Makefile

@@ -1,0 +1,38 @@
+PERL      := perl
+PERL6     := PERL6LIB=lib perl6
+RM_F      := $(PERL) -MExtUtils::Command -e rm_f
+CP        := $(PERL) -MExtUtils::Command -e cp
+MKPATH    := $(PERL) -MExtUtils::Command -e mkpath
+
+all: p-all
+
+core-install: p-core-install
+
+clean: p-clean
+
+install: p-install
+
+uninstall: p-uninstall
+
+test: p-test
+
+testable : all spectest_checkout spectest_update
+
+spectest_checkout : t
+t :
+	git clone git://github.com/rakudo-p5/roast5.git t/spec
+	-cd t/spec/ && git config remote.origin.pushurl git@github.com:rakudo-p5/roast5.git
+
+spectest_update :
+	-cd t && git pull
+
+spectest: install testable t/spectest.data
+	V5DEBUG=0 $(HARNESS_WITH_FUDGE) --tests-from-file=t/spectest.data
+
+fulltest: install testable t/spectest.data
+	V5DEBUG=0 $(HARNESS_WITH_FUDGE) t/spec/*/*.t t/v5/*.t
+
+summary: p-core-summary
+
+t/v5/*.t t/spec/*/*.t:
+	V5DEBUG=0 $(HARNESS_WITH_FUDGE) --verbosity=1 $@
