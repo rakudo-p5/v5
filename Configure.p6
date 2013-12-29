@@ -64,7 +64,7 @@ for @modules -> $module {
 my $Makefile = fill_template 'build/Makefile-common.in';
 $Makefile   ~= fill_template 'build/Makefile-Parrot.in' if $have_parrot;
 
-"Makefile".io.spurt: $Makefile;
+"Makefile".IO.spurt: $Makefile;
 
 sub fill_template($file, :%values = %config) {
     my $template = $file.IO.slurp;
