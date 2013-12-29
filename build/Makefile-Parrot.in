@@ -52,7 +52,7 @@ p-modules: @p_modules_list@
 p-clean:
 	$(RM_F) lib/*.pbc lib/*.pir lib/Perl5/*.pbc lib/Perl5/*.pir
 
-p-install: p-core-install
+p-install: p-all
 @p_modules_install@
 
 p-uninstall:
