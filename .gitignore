@@ -3,3 +3,5 @@ t/spec
 *.pbc
 *.pir
 Makefile
+REGRESSIONS
+STATUS.md.new
