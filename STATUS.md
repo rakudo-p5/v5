@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5113</td><td>35813</td><td>5</td><td>48</td><td>40922</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5147</td><td>35778</td><td>5</td><td>49</td><td>40922</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2350</td><td>12347</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -107,33 +107,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-757e8e976e79c5e8) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-1e59836f2e441b9f) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -175,6 +175,15 @@ Index out of range. Is: 1, should be in 0..0<br />
 </td></tr>
         <tr align='center'><td align='left'>op/recurse.v5</td><td>27</td><td>1</td><td>0</td><td>0</td><td>28</td></tr>
         <tr align='center'><td align='left'>t/v5/06-bool.v5</td><td>26</td><td>6</td><td>0</td><td>0</td><td>32</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/rxcode.v5</td><td>26</td><td>12</td><td>0</td><td>1</td><td>39</td></tr>
+        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+use of uninitialized value of type Any in numeric context  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+use of uninitialized value of type Any in numeric context  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+use of uninitialized value of type Any in numeric context  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+use of uninitialized value of type Any in numeric context  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+use of uninitialized value of type Any in numeric context  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+<br />   1 skipped: hangs<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>25</td><td>27</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>'%*vd' is not valid in sprintf format sequence 'n%*vd'<br />
 </td></tr>
@@ -237,10 +246,14 @@ Cannot call 'push'; none of these signatures match:<br />
     Redeclaration of symbol $u<br />
     at t/spec/op/length.v5:176<br />
     ------&gt; my $u⏏;<br />
-Could not find Tie::Scalar in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:75<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/op/length.v5:123<br />
+No such symbol '&amp;tie'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/length.v5:126<br />
   in method reify at gen/parrot/CORE.setting:7288<br />
   in method reify at gen/parrot/CORE.setting:7183<br />
   in method gimme at gen/parrot/CORE.setting:7611<br />
@@ -257,6 +270,9 @@ Could not find Tie::Scalar in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
+        <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
+current instr.: 'chr' pc 262635 (src/gen/p-CORE.setting.pir:111047) (gen/parrot/CORE.setting:4261)</td></tr>
         <tr align='center'><td align='left'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
@@ -417,6 +433,15 @@ No such symbol '&amp;delete'<br />
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---  in block  at t/spec/op/heredoc.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
+Malformed UTF-8 string<br />
+  in sub QX at gen/parrot/CORE.setting:737<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:29<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:105<br />
+  in block  at t/spec/op/concat2.v5:40<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;opendir'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
@@ -530,6 +555,12 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Str \a, Str \b)<br />
 :(\a, \b)<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/getpid.v5<br />
+Preceding context expects a term, but found infix &gt; instead<br />
+at t/spec/op/getpid.v5:32<br />
+------&gt; $pid2, $ppid2) = ($$, getppid()); } ) -&gt;⏏ join();<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>1</td><td>7</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;evalbytes'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
@@ -560,15 +591,6 @@ No such symbol '&amp;FILE'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/op/defins.v5:51<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>WARNINGS:<br />
-Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-Malformed UTF-8 string<br />
-  in sub QX at gen/parrot/CORE.setting:737<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:29<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:105<br />
-  in block  at t/spec/op/concat2.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;warning_is'<br />
@@ -749,8 +771,14 @@ Variable '$b' is not declared<br />
 at t/spec/op/inc.v5:56<br />
 ------&gt; $b⏏ = -$a;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find Tie::Array in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;tie'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/inccode-tie.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
@@ -891,8 +919,14 @@ Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such fi
   in block  at t/spec/porting/authors.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Find in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;find'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/porting/checkcase.v5:18<br />
 </td></tr>
         <tr align='center'><td align='left'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -907,7 +941,7 @@ Could not find File::Find in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Spec in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -915,16 +949,38 @@ Variable '$TODO' is not declared<br />
 at t/spec/porting/diag.v5:106<br />
 ------&gt;             local $::TODO⏏ = "Remove the TODO entry \"$cur_entry\"</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;find'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/porting/dual-life.v5:47<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/exec-bit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find ExtUtils::Manifest in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/exec-bit.v5:13<br />
+    ------&gt;   open my $fh⏏, '&lt;', $fname or die "Can't open '$fname<br />
+===SORRY!===<br />
+CHECK FAILED:<br />
+Calling 'split' requires arguments (line 41)<br />
+    Expected: :($pat, Cool $target, $limit = { ... }, :all(:$all))<br />
+Calling 'split' will never work with argument types (str) (line 43)<br />
+    Expected: :($pat, Cool $target, $limit = { ... }, :all(:$all))<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/filenames.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Basename in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $m<br />
+    at t/spec/porting/filenames.v5:37<br />
+    ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
+Unable to open filehandle from path '/home/froggs/dev/v5/t/../MANIFEST': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13069<br />
+  in method open at gen/parrot/CORE.setting:13058<br />
+  in method P5open at lib/Perl5/Terms.pm:719<br />
+  in method AUTOGEN at gen/parrot/CORE.setting:532<br />
+  in block  at t/spec/porting/filenames.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/require.v5<br />
@@ -1195,8 +1251,15 @@ No such method 'value' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
-===SORRY!===<br />
-Could not find locale in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+No such symbol '&amp;LOCALES'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/run/locale.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
@@ -1266,12 +1329,18 @@ current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (
 current instr.: 'print_exception' pc 137569 (src/gen/p-CORE.setting.pir:58483) (gen/parrot/CORE.setting:10819)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Temp in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+Could not find Win32 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Copy in any of: ../lib<br />
+Lexical symbol '$script' is already bound to an outer symbol;<br />
+the implicit outer binding must be rewritten as OUTER::&lt;$script&gt;<br />
+before you can unambiguously declare a new '$script' in this scope<br />
+at t/spec/x2p/s2p.v5:837<br />
+------&gt;     my $script ⏏= $testcase{$tc}{script};<br />
+Undeclared routine:<br />
+    my used at lines 830, 841<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/v5/05-hash.v5<br />
@@ -1317,12 +1386,20 @@ at t/spec/io/through.v5:90<br />
   in block  at t/spec/lib/croak.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/lib/overload_fallback.v5<br />
+Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
+at t/spec/lib/overload_fallback.v5:6<br />
+------&gt;  =&gt; sub { 'stringvalue' }, fallback =&gt; 1⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find Test::Simple in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;ok'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/lib/overload_nomethod.v5:16<br />
+  in block  at t/spec/lib/overload_nomethod.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1369,11 +1446,13 @@ at t/spec/comp/final_line_num.v5:14<br />
 ------&gt; BEGIN { $last_line_num = __LINE__; } ⏏print 1+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/podcheck.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Find in any of: ../lib, /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+Could not find file '../regen/regen_lib.pl' for module ../regen/regen_lib.pl<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find locale in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/charset.v5<br />
+Unexpected closing bracket<br />
+at t/spec/re/charset.v5:52<br />
+------&gt;     ⏏}<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/no_utf8_pm.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/no_utf8_pm.v5<br />
@@ -1399,8 +1478,9 @@ at t/spec/re/no_utf8_pm.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find Unicode::UCD in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+Unable to parse expression in declarator; couldn't find final ')' <br />
+at t/spec/re/reg_fold.v5:30<br />
+------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1429,8 +1509,16 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Spec::Functions in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;infix:&lt;0&gt;'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:23<br />
+  in sub cmp_ok at /home/froggs/dev/v5/t/test.pl:69<br />
+  in block  at t/spec/lib/1_compile.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;BAIL_OUT'<br />
@@ -1561,12 +1649,6 @@ No such symbol '&amp;Regexp::DESTROY'<br />
   in block  at t/spec/io/read.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/getpid.v5<br />
-Preceding context expects a term, but found infix &gt; instead<br />
-at t/spec/op/getpid.v5:32<br />
-------&gt; $pid2, $ppid2) = ($$, getppid()); } ) -&gt;⏏ join();<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;GR'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
@@ -1647,12 +1729,19 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t/foo': No such file or
   in block  at t/spec/op/filehandle.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find Data::Dumper in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sigsystem.v5<br />
+Two terms in a row<br />
+at t/spec/op/sigsystem.v5:28<br />
+------&gt;     my $pid = fork // ⏏die "Can't fork: $!";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/mad.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Path in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;tempfile'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/run/mad.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1860,9 +1949,10 @@ Could not locate compile-time value for symbol is<br />
   in block  at t/spec/comp/multiline.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find threads in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/threads-dirh.v5<br />
+Variable '$TODO' is not declared<br />
+at t/spec/op/threads-dirh.v5:44<br />
+------&gt;   $::TODO⏏ = 'dir handle cloning currently require</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
@@ -1883,9 +1973,10 @@ Variable '$stored' is not declared<br />
 at t/spec/op/utf8magic.v5:30<br />
 ------&gt; sub STORE     { $::stored⏏ = pop }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/tr_7jis.v5<br />
+Variable '$B' is not declared<br />
+at t/spec/uni/tr_7jis.v5:19<br />
+------&gt; my @hiragana =  map {chr} ord("$B⏏$!(B")..ord("$B$s(B");</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 string<br />
 current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
@@ -2111,14 +2202,11 @@ at t/spec/op/symbolcache.v5:17<br />
   in method sink at gen/parrot/CORE.setting:8021<br />
   in block  at t/spec/re/pos.v5:15<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find encoding in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/tr_utf8.v5<br />
+Bogus statement<br />
+at t/spec/uni/tr_utf8.v5:40<br />
+------&gt;  $hiragana; $str =~ s/([ぁ-ん])/$h2k{$1}/g⏏o;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/write.v5<br />
 Variable '$IS_EBCDIC' is not declared<br />
@@ -2154,8 +2242,10 @@ at t/spec/op/select.v5:20<br />
 No such method 'value' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find IPC::Open2 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
+Couldn't parse heredoc construct<br />
+at t/spec/run/dtrace.v5:70<br />
+------&gt; dtrace_like(&lt;&lt;⏏ 'MAGIC_OP',<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/binmode.v5<br />
@@ -2254,10 +2344,7 @@ No such symbol '&amp;or'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/io/openpid.v5:22<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find File::Copy in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr align='center'><td align='left'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>No such method 'C_or_D' for invocant of type 'Test::A'<br />
   in block  at t/spec/mro/basic_02_c3.v5:113<br />
@@ -2439,8 +2526,15 @@ Two terms in a row<br />
 at t/spec/comp/package.v5:18<br />
 ------&gt;     $main⏏'a = $'b;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find Scalar::Util in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+        <tr><td colspan='5'>No such symbol '&amp;weaken'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in sub s1 at t/spec/re/qr-72922.v5:20<br />
+  in block  at t/spec/re/qr-72922.v5:38<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_pmod.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/reg_pmod.v5<br />
@@ -2478,8 +2572,19 @@ at t/spec/re/pat_psycho.v5:45<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
-===SORRY!===<br />
-Could not find sigtrap in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
+No such symbol '&amp;IPC_PRIVATE'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/io/shm.v5:45<br />
+  in method reify at gen/parrot/CORE.setting:7288<br />
+  in method reify at gen/parrot/CORE.setting:7183<br />
+  in method gimme at gen/parrot/CORE.setting:7611<br />
+  in method sink at gen/parrot/CORE.setting:8021<br />
+  in block  at t/spec/io/shm.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Odd number of elements found where hash expected<br />
@@ -2577,9 +2682,10 @@ Redeclaration of routine sub0<br />
 at t/spec/comp/redef.v5:22<br />
 ------&gt; &lt;BOL&gt;⏏ok 1, $warn =~ s/Subroutine sub0 redefin</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find vmsish in any of: ../lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/exec.v5<br />
+Two terms in a row<br />
+at t/spec/op/exec.v5:110<br />
+------&gt; $rc = system { "lskdfj" } ⏏"lskdfj";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/join.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Error while compiling, type X::Redeclaration<br />
@@ -2604,10 +2710,14 @@ No such method 'ast' for invocant of type 'NQPMu'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/io/argv.v5:118<br />
     ------&gt;     open my $fh⏏, 'Io_argv1.tmp' or die "Could not open <br />
-Could not find File::Spec in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-  in any load_module at lib/Perl5/ModuleLoader.nqp:75<br />
-  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
-  in block  at t/spec/io/argv.v5:18<br />
+Could not find symbol '&amp;Spec'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/io/argv.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/isarev.v5<br />
@@ -2799,10 +2909,6 @@ at t/spec/re/reg_nc_tie.v5:63<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/op/delete.v5:20<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/rxcode.v5</td><td>0</td><td>39</td><td>0</td><td>0</td><td>39</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find re in any of: ../lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/avhv.v5<br />
@@ -3084,8 +3190,14 @@ at t/spec/op/lex_assign.v5:34<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/stat.v5:465<br />
     ------&gt;     open my $fh⏏, "test.pl";<br />
-Could not find File::Spec in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
-  in block  at t/spec/op/stat.v5:17<br />
+Could not find symbol '&amp;Spec'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12070<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/stat.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/index.v5<br />
@@ -3282,10 +3394,9 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/pat.v5:270<br />
 ------&gt;         my $message = '/g, \⏏G and pos';</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/taint.v5<br />
-Variable '$Level' is not declared<br />
-at t/spec/op/taint.v5:108<br />
-------&gt;     local $::Level⏏ = $::Level + 1;</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Could not find symbol '&amp;SysV'<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_rt_report.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
