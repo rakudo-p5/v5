@@ -1,4 +1,5 @@
 ## pragmas
+attributes - get/set subroutine or variable attributes
 autodie - Replace functions with ones that succeed or die with lexical scope
 autouse - postpone load of modules until a function is used
 base - Establish an ISA relationship with base classes at compile time
