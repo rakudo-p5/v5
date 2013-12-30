@@ -19,39 +19,38 @@ $(P_P6LIB)/lib:
 $(P_P6LIB)/lib/Perl5: $(P_P6LIB)/lib
 	$(MKPATH) $(P_P6LIB)/lib/Perl5
 
-$(P_NQPLIB)/lib/Perl5/World.pbc: $(P_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/World.pbc $(P_NQPLIB)/lib/Perl5
-$(P_NQPLIB)/lib/Perl5/Actions.pbc: $(P_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/Actions.pbc $(P_NQPLIB)/lib/Perl5
-$(P_NQPLIB)/lib/Perl5/Grammar.pbc: $(P_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/Grammar.pbc $(P_NQPLIB)/lib/Perl5
-$(P_NQPLIB)/lib/Perl5/ModuleLoader.pbc: $(P_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/ModuleLoader.pbc $(P_NQPLIB)/lib/Perl5
-$(P_P6LIB)/lib/Perl5.pbc: $(P_P6LIB)/lib/Perl5
-	$(CP) lib/Perl5.pbc $(P_P6LIB)/lib
-
 p-core-install: $(P_NQPLIB)/lib/Perl5/World.pbc $(P_NQPLIB)/lib/Perl5/Actions.pbc $(P_NQPLIB)/lib/Perl5/Grammar.pbc $(P_NQPLIB)/lib/Perl5/ModuleLoader.pbc $(P_P6LIB)/lib/Perl5.pbc
 
 blib/Perl5/World.pbc: lib/Perl5/World.nqp
 	@$(MKPATH) blib/Perl5
 	$(P_NQP) --vmlibs=perl6_ops --target=pir --output=lib/Perl5/World.pir lib/Perl5/World.nqp
 	$(P_PARROT) -o blib/Perl5/World.pbc lib/Perl5/World.pir
+$(P_NQPLIB)/lib/Perl5/World.pbc: blib/Perl5/World.pbc $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/World.pbc $(P_NQPLIB)/lib/Perl5
 
 blib/Perl5/Actions.pbc: blib/Perl5/World.pbc lib/Perl5/Actions.nqp
 	$(P_NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=lib/Perl5/Actions.pir lib/Perl5/Actions.nqp
 	$(P_PARROT) -o blib/Perl5/Actions.pbc lib/Perl5/Actions.pir
+$(P_NQPLIB)/lib/Perl5/Actions.pbc: blib/Perl5/Actions.pbc $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Actions.pbc $(P_NQPLIB)/lib/Perl5
 
 blib/Perl5/Grammar.pbc: blib/Perl5/Actions.pbc lib/Perl5/Grammar.nqp
 	$(P_NQP) --vmlibs=perl6_ops --target=pir --stagestats --output=lib/Perl5/Grammar.pir lib/Perl5/Grammar.nqp
 	$(P_PARROT) -o blib/Perl5/Grammar.pbc lib/Perl5/Grammar.pir
+$(P_NQPLIB)/lib/Perl5/Grammar.pbc: blib/Perl5/Grammar.pbc $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Grammar.pbc $(P_NQPLIB)/lib/Perl5
 
 blib/Perl5/ModuleLoader.pbc: lib/Perl5/ModuleLoader.nqp
 	$(P_NQP) --vmlibs=perl6_ops --target=pir --output=lib/Perl5/ModuleLoader.pir lib/Perl5/ModuleLoader.nqp
 	$(P_PARROT) -o blib/Perl5/ModuleLoader.pbc lib/Perl5/ModuleLoader.pir
+$(P_NQPLIB)/lib/Perl5/ModuleLoader.pbc: blib/Perl5/ModuleLoader.pbc $(P_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/ModuleLoader.pbc $(P_NQPLIB)/lib/Perl5
 
 blib/Perl5.pbc: lib/Perl5.nqp blib/Perl5/World.pbc blib/Perl5/Actions.pbc blib/Perl5/Grammar.pbc blib/Perl5/ModuleLoader.pbc
 	$(P_NQP) --vmlibs=perl6_ops --target=pir --output=lib/Perl5.pir lib/Perl5.nqp
 	$(P_PARROT) -o blib/Perl5.pbc lib/Perl5.pir
+$(P_P6LIB)/lib/Perl5.pbc: blib/Perl5.pbc $(P_P6LIB)/lib/Perl5
+	$(CP) blib/Perl5.pbc $(P_P6LIB)/lib
 
 # pragmas and modules
 p-modules: @p_modules_list@
