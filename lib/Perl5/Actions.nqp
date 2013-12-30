@@ -3932,6 +3932,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'chr',     [ '$_', '_',  'call', '&P5Numeric' ],
         'close',   [ '',   '*@', '',     '',              'callmethod', 'P5close' ],
         'chdir',   [ '',   '$',  '',     '',              'call',       '&P5chdir' ],
+        'each',    [ '',   '$',  '',     '',              'call',       '&P5each' ],
         'int',     [ '$_', '_',  'call', '&P5Numeric',    'callmethod', 'Int' ],
         'ord',     [ '$_', '_',  'call', '&infix:<P5.>',  'call',       '&P5ord' ],
         'ref',     [ '$_', '_',  '',     '',              'call',       '&P5ref' ],

@@ -327,6 +327,13 @@ sub P5do(Mu \SELF) is export is hidden_from_backtrace {
     $ret
 }
 
+multi P5each(Mu \SELF is rw) is export {
+    my $it := nqp::iterator(nqp::getattr(nqp::decont(SELF), EnumMap, "\$!storage"));
+    my $kv := nqp::shift($it);
+    nqp::bindattr(nqp::decont(SELF), EnumMap, "\$!storage", $it) if $it;
+    [ nqp::iterkey_s($kv), nqp::iterval($kv) ]
+}
+
 multi P5length(Mu     \SELF) is export { 0 }
 multi P5length(Str:D  \SELF) is export { SELF.chars }
 multi P5length(Blob:D \SELF) is export {

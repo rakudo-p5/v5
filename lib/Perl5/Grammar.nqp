@@ -2029,6 +2029,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     my %prototype := nqp::hash(
         'chr',    '$',
         'chdir',  '$',
+        'each',   '$',
         'int',    '$',
         'keys',   '$',
         'ord',    '$',
