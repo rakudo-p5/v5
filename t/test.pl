@@ -23,8 +23,9 @@ sub _eq_array($a, $b)        { $a eqv $b                          }
 sub _cmp_ok($a, $b, $c, $d?) { _ok(::("&infix:<$b>")($a, $c), $d) }
 sub _done_testing()          { done_testing()                     }
 sub _done()                  { done()                             }
+my $tmpfile;
 sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
-    my $filename = IO::Spec.catdir("$*TMPDIR", "fresh_perl.$*PID");
+    my $filename = "$tmpfile.$*PID";
     $filename.IO.spurt("use v5; $a");
     my $result = qqx[perl6 $filename];
     unlink $filename;
@@ -187,6 +188,10 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
         }
         die "Can't find temporary file name starting \"tmp$$\"";
     }
+    
+    # This is the temporary file for _fresh_perl
+    $tmpfile = tempfile();
+    
     
     sub which_perl {
         $Perl = $^X;
