@@ -32,7 +32,7 @@ spectest: install testable t/spectest.data
 fulltest: install testable t/spectest.data
 	V5DEBUG=0 $(HARNESS_WITH_FUDGE) t/spec/*/*.t t/v5/*.t
 
-summary: p-core-summary
+summary: p-summary
 
 t/v5/*.t t/spec/*/*.t:
 	V5DEBUG=0 $(HARNESS_WITH_FUDGE) --verbosity=1 $@
