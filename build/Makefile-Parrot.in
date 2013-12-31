@@ -89,4 +89,4 @@ p-uninstall:
 	$(RM_F) $(NQPLIB)/lib/Perl5/World.pbc
 
 p-summary:
-	V5DEBUG=0 perl t/test_summary
+	V5DEBUG=0 NQP_EXE=nqp-p PERL6_EXE=perl6-p perl t/test_summary

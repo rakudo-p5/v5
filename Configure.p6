@@ -1,12 +1,20 @@
 #!perl6
 
-my $have_parrot = 1;
+use v6;
+my $devnull     = IO::Spec.devnull;
+my $have_parrot = shell("perl6-p -e 1 >$devnull 2>$devnull").status == 0;
+my $have_moar   = shell("perl6-m -e 1 >$devnull 2>$devnull").status == 0;
+my $have_jvm    = 0;
 
 # That goes into the Makefile.
 my %config =
     p_perl6           => "PERL6LIB={cwd}/lib perl6-p",
+    m_perl6           => "PERL6LIB={cwd}/lib perl6-m",
     p_modules         => '',
+    m_modules         => '',
     p_modules_list    => '',
+    m_modules_list    => '',
+    summary           => '',
 ;
 my regex name { [\w+]+ % '::' };
 my regex desc { <-[\n\[]>+ };
@@ -54,7 +62,33 @@ for @modules -> $module {
             
             P_MODULES
 
-        %config{"p_{$module<name>.substr(0,1).lc}_install"} ~= "\$(P_P6LIB)/$pbc "
+        %config{"p_{$module<name>.substr(0,1).lc}_install"} ~= "\$(P_P6LIB)/$pbc ";
+        %config<summary> ~= ' p-summary';
+    }
+
+    if $have_moar {
+        my $mbc                  = "lib/Perl5/$basename.moarvm";
+        %config<m_modules_list> ~= "$mbc ";
+        %config<m_modules_list> ~= "\\\n\t" if $break_modules_list;
+        my $deps                 = join ' ', $module<deps>>>.map({ 'lib/Perl5/' ~ .split('::').join('/') ~ '.moarvm' });
+
+        my $mk_path = '';
+        for 0..^@name_parts.end {
+            my $path = @name_parts[0..$_].join('/');
+            $mk_path ~= "\t\$(MKPATH) \$(M_P6LIB)/lib/Perl5/$path\n";
+        }
+
+        %config<m_modules> ~= qq:to/M_MODULES/.subst('    ', "\t", :g);
+            $mbc: $pm $deps
+            \t@echo Compiling $module<name> to mbc
+            \t@\$(M_PERL6) --target=mbc --output=$mbc $pm
+            \$(M_P6LIB)/$mbc: $mbc
+            {+@name_parts > 1 ?? $mk_path !! ''}\t\$(CP) $mbc \$(M_P6LIB)/$mbc
+            
+            M_MODULES
+
+        %config{"m_{$module<name>.substr(0,1).lc}_install"} ~= "\$(M_P6LIB)/$mbc ";
+        %config<summary> ~= ' m-summary';
     }
 
     $i++;
@@ -62,6 +96,8 @@ for @modules -> $module {
 
 my $Makefile = fill_template 'build/Makefile-common.in';
 $Makefile   ~= fill_template 'build/Makefile-Parrot.in' if $have_parrot;
+$Makefile   ~= fill_template 'build/Makefile-Moar.in'   if $have_moar;
+$Makefile   ~= fill_template 'build/Makefile-JVM.in'    if $have_jvm;
 
 "Makefile".IO.spurt: $Makefile;
 

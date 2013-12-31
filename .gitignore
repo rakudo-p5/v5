@@ -2,6 +2,10 @@ t/spec
 *.v5
 *.pbc
 *.pir
+*.moarvm
+*.moar
+*.jvm
+*.class
 Makefile
 REGRESSIONS
 STATUS.md.new
