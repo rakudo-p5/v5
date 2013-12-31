@@ -36,8 +36,9 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
                 my @INC := $INC.FLATTENABLE_LIST();
                 if +@INC {
                     if %opts<from> {
-                        my %conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH];
-                        nqp::push(@INC, %conf<libdir> ~ %conf<versiondir> ~ '/languages/' ~ nqp::lc(%opts<from>) ~ '/lib');
+                        my %conf := nqp::backendconfig();
+                        nqp::push(@INC, %conf<libdir> ~ %conf<versiondir> ~ '/languages/' ~ nqp::lc(%opts<from>) ~ '/lib') if %conf<libdir>;
+                        nqp::push(@INC, %conf<prefix> ~ '/languages/' ~ nqp::lc(%opts<from>) ~ '/lib') if %conf<prefix>;
                     }
                     return @INC;
                 }
