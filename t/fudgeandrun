@@ -19,4 +19,4 @@ my $nt = `t/spec/fudge @OPTS @ARGV`;
 # ... or any other modules
 my $pwd = `pwd`; chomp $pwd;
 $ENV{PERL6LIB}="$pwd/blib:.";
-system("perl6", split ' ', $nt);
+system($ENV{PERL6_EXE}, split ' ', $nt);

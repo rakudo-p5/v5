@@ -27,7 +27,7 @@ my $tmpfile;
 sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     my $filename = "$tmpfile.$*PID";
     $filename.IO.spurt("use v5; $a");
-    my $result = qqx[perl6 $filename];
+    my $result = qqx[%*ENV<PERL6_EXE> $filename];
     unlink $filename;
     ~$result.subst(/\n+$/, '');
 }

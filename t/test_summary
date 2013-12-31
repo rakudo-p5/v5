@@ -237,7 +237,7 @@ sub test_single_file {
     my $syn   = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
 
     $syn{$syn}++;
-    my $cmd = "perl6 $tfile";
+    my $cmd = "$ENV{PERL6_EXE} $tfile";
     # Run the test, collecting all stdout in @results
     my $stderr;
     my @results;
@@ -367,8 +367,8 @@ for ( reverse sort { $a <=> $b } keys %status_rows ) {
     print STATUS $status_rows{$_};
 }
 print STATUS "
-        <tr><td>nqp-p --version</td><td colspan='5'>" . `nqp-p --version` . "</td></tr>
-        <tr><td>perl6-p --version</td><td colspan='5'>" . `perl6-p --version` . "</td></tr>
+        <tr><td>$ENV{NQP_EXE} --version</td><td colspan='5'>" . `$ENV{NQP_EXE} --version` . "</td></tr>
+        <tr><td>$ENV{PERL6_EXE} --version</td><td colspan='5'>" . `$ENV{PERL6_EXE} --version` . "</td></tr>
     </tbody>\n</table>\n";
 close STATUS;
 File::Copy::move('STATUS.md.new', 'STATUS.md');
@@ -503,7 +503,7 @@ sub begin {
         }
     }
     open( $self->{'file_out'}, '>', 'docs/test_summary.times.tmp') or die "cannot create docs/test_summary.times.tmp: $!";
-    my $parrot_version = qx{./perl6 -e'print \$*VM<config><revision>'};
+    my $parrot_version = qx{$ENV{PERL6_EXE} -e'print \$*VM<config><version>'};
     my $impl_version = qx{git log --pretty=oneline --abbrev-commit --max-count=1 .}; chomp $impl_version;
     $impl_version =~ s/^([0-9a-f])+\.\.\./$1/; # delete possible ... 
     $impl_version =~ s/\\/\\\\/g; # escape all backslashes
