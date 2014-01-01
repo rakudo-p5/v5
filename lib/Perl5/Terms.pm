@@ -327,11 +327,25 @@ sub P5do(Mu \SELF) is export is hidden_from_backtrace {
     $ret
 }
 
-multi P5each(Mu \SELF is rw) is export {
-    my $it := nqp::iterator(nqp::getattr(nqp::decont(SELF), EnumMap, "\$!storage"));
-    my $kv := nqp::shift($it);
-    nqp::bindattr(nqp::decont(SELF), EnumMap, "\$!storage", $it) if $it;
-    [ nqp::iterkey_s($kv), nqp::iterval($kv) ]
+my role IteratorPosition { has $.iterator-position is rw = 0  }
+multi P5each(Mu:U) is export { Mu }
+multi P5each(Mu:D) is export {
+    P5warn 'Type of argument to each on reference must be unblessed hashref or arrayref';
+    Mu
+}
+multi P5each(List:D \SELF is rw) {
+    SELF does IteratorPosition unless SELF ~~ IteratorPosition;
+    my @kv = SELF.iterator-position > SELF.list.end
+        ?? (SELF.iterator-position = 0) || Mu
+        !! SELF.iterator-position, SELF.list[SELF.iterator-position];
+    SELF.iterator-position++;
+    @kv
+}
+multi P5each(Hash:D \SELF is rw) is export {
+    SELF does IteratorPosition unless SELF ~~ IteratorPosition;
+    SELF.iterator-position > SELF.list.end
+        ?? (SELF.iterator-position = 0) || Mu
+        !! SELF.list[ SELF.iterator-position++ ].kv
 }
 
 multi P5length(Mu     \SELF) is export { 0 }
