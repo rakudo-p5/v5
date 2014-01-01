@@ -895,7 +895,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $V5DEBUG && say("statement_control:sym<for>($/) else");
             # C-stye for loop
             my $block := pblock_immediate($<sblock>.ast);
-            my $cond := $<e2> ?? $<e2>.ast !! QAST::Var.new(:name<True>, :scope<lexical>);
+            my $cond := $<e2>
+                ?? QAST::Op.new(:op('call'), :name('&P5Bool'), $<e2>.ast)
+                !! QAST::Var.new(:name<True>, :scope<lexical>);
             my $loop := QAST::Op.new( $cond, :op('while'), :node($/) );
             $loop.push($block);
             if $<e3> {
