@@ -78,6 +78,8 @@ p-r-install: @p_r_install@
 p-s-install: @p_s_install@
 p-t-install: $(P_P6LIB)/lib/Perl5/Terms.pbc @p_t_install@
 p-u-install: @p_u_install@
+p-v-install: @p_v_install@
+p-w-install: @p_w_install@
 p-x-install: @p_x_install@
 
 p-install: p-core-install p-a-install p-b-install p-c-install p-d-install p-e-install p-f-install p-g-install p-h-install p-i-install p-l-install p-m-install p-n-install p-o-install p-p-install p-r-install p-s-install p-t-install p-u-install p-x-install
