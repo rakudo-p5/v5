@@ -1,7 +1,11 @@
 
 use v6.0.0;
 use Test;
-sub _plan($t)                { plan($t eq 'no_plan' ?? * !! $t)   }
+my $no_plan = 0;
+my $done_testing_has_been_run = 0;
+%*ENV<PERL6_EXE> //= $*EXECUTABLE_NAME;
+
+sub _plan($t)                { plan($no_plan = $t eq 'no_plan' ?? * !! $t)   }
 sub _pass(*@args)            { pass(|@args)                       }
 sub _ok(*@args)              { ok(|@args)                         }
 sub _nok(*@args)             { nok(|@args)                        }
@@ -30,6 +34,14 @@ sub _fresh_perl($a, $b) { # TODO $b contains compiler switches
     my $result = qqx[%*ENV<PERL6_EXE> $filename];
     unlink $filename;
     ~$result.subst(/\n+$/, '');
+}
+
+END {
+    ## In unplanned mode, we need to call done, Test.pm is too sane for us.
+    if !$done_testing_has_been_run && $no_plan {
+        $done_testing_has_been_run = 1;
+        done;
+    }
 }
 
 {
