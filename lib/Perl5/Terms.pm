@@ -301,10 +301,10 @@ multi P5can(Str $pkg, Str $method, *@a) is export {
     }
 }
 
-multi P5Bool(Mu     \SELF) is export { SELF ?? 1 !! ''               }
-multi P5Bool(Parcel \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
-multi P5Bool(List   \SELF) is export { ?SELF ?? [&&] SELF.list !! '' }
-multi P5Bool(Pair   \SELF) is export { SELF.kv.list ?? 1 !! ''       }
+multi P5Bool(Mu     \SELF) is export { SELF ?? 1                 !! '' }
+multi P5Bool(Parcel \SELF) is export { SELF ?? [||] SELF.list    !! '' }
+multi P5Bool(List   \SELF) is export { SELF ?? [||] SELF.list    !! '' }
+multi P5Bool(Pair   \SELF) is export { SELF ?? [||] SELF.kv.list !! '' }
 
 multi P5chdir(\SELF) is export { chdir(SELF) }
 multi P5chdir()      is export { %*ENV<HOME> ?? chdir(%*ENV<HOME>) !! %*ENV<LOGDIR> ?? chdir(%*ENV<LOGDIR>) !! False }
@@ -328,23 +328,27 @@ sub P5do(Mu \SELF) is export is hidden_from_backtrace {
 }
 
 my role IteratorPosition { has $.iterator-position is rw = 0  }
-multi P5each(Mu:U) is export { Mu }
+multi P5each(Mu:U) is export { Nil }
 multi P5each(Mu:D) is export {
     P5warn 'Type of argument to each on reference must be unblessed hashref or arrayref';
-    Mu
+    Nil
 }
 multi P5each(List:D \SELF is rw) {
     SELF does IteratorPosition unless SELF ~~ IteratorPosition;
-    my @kv = SELF.iterator-position > SELF.list.end
-        ?? (SELF.iterator-position = 0) || Mu
-        !! SELF.iterator-position, SELF.list[SELF.iterator-position];
-    SELF.iterator-position++;
-    @kv
+    if SELF.iterator-position > SELF.list.end {
+        SELF.iterator-position = 0;
+        Nil
+    }
+    else {
+        my @kv = SELF.iterator-position, SELF.list[SELF.iterator-position];
+        SELF.iterator-position++;
+        @kv
+    }
 }
 multi P5each(Hash:D \SELF is rw) is export {
     SELF does IteratorPosition unless SELF ~~ IteratorPosition;
     SELF.iterator-position > SELF.list.end
-        ?? (SELF.iterator-position = 0) || Mu
+        ?? (SELF.iterator-position = 0) || Nil
         !! SELF.list[ SELF.iterator-position++ ].kv
 }
 
