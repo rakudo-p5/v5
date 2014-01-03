@@ -2845,6 +2845,9 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token dottyop {
         :dba('dotty method or postfix')
+
+        [ <!{ $*QSIGIL }> <.ws> \s* ]?
+
         [
         | <methodop>
         | <!alpha> <postcircumfix> { $<O> := $<postcircumfix><O>; $<sym> := $<postcircumfix><sym>; }
@@ -2869,11 +2872,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    }
     token postfixish {
         <!stdstopper>
-        
-        # last whitespace didn't end here
-        <!MARKED('ws')>
 
-        [ <!{ $*QSIGIL }> [ <.unsp> | '\\' ] ]?
+        [ <!{ $*QSIGIL }> <.ws> \s* ]?
 
         :dba('postfix')
         <postfix_prefix_meta_operator>?
