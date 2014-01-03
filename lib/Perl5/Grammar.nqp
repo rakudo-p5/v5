@@ -2988,7 +2988,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $s := $prototype;
         :my $n := '';
         :my $i := 0;
-        [ <.ws> <indirect_object> ]?
+        [ <!{ $is_semiarglist }> <.ws> <indirect_object> ]?
         :dba('argument list')
         <.ws>
         [

@@ -110,33 +110,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x491e2fc60b72e44b) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -1780,7 +1780,7 @@ at t/spec/op/sigsystem.v5:28<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp6641C' on target 'tmp6641B': link failed: No such file or directory<br />
+Failed to create link called 'tmp16195C' on target 'tmp16195B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13731<br />
   in sub link at gen/parrot/CORE.setting:13726<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -2251,10 +2251,14 @@ at t/spec/run/dtrace.v5:70<br />
 ------&gt; dtrace_like(&lt;&lt;⏏ 'MAGIC_OP',<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/binmode.v5<br />
-Preceding context expects a term, but found infix , instead<br />
-at t/spec/io/binmode.v5:19<br />
-------&gt;     ok( binmode(STDERR,⏏ ":unix"),   '  with unix discipline' );<br />
+        <tr><td colspan='5'>No such symbol '&amp;binmode'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/io/binmode.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/labels.v5<br />
@@ -2635,7 +2639,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp5344B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp14937B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -3244,9 +3248,8 @@ at t/spec/op/tr.v5:202<br />
 ------&gt;          'LHS bad on updating tr'⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/universal.v5</td><td>0</td><td>139</td><td>0</td><td>0</td><td>139</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in argument list; couldn't find final ')' <br />
-at t/spec/op/universal.v5:151<br />
-------&gt; ok UNIVERSAL::isa(Alice ⏏=&gt; "UNIVERSAL");</td></tr>
+Could not find UNIVERSAL in any of: ../lib<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/method.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/method.v5<br />
 Two terms in a row<br />
