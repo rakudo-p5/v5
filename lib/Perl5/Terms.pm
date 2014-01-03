@@ -712,8 +712,8 @@ multi P5Str(Mu:U) is export is hidden_from_backtrace {
 }
 multi P5Str(Mu:D     \SELF) is export { SELF.Str }
 multi P5Str(Bool:D   \SELF) is export { ?SELF ?? 1 !! '' }
-multi P5Str(Array:D  \SELF) is export { join '', map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
-multi P5Str(List:D   \SELF) is export { join '', map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
+multi P5Str(Array:D  \SELF) is export { join ' ', map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
+multi P5Str(List:D   \SELF) is export { join '',  map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
 multi P5Str(utf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'binary')) }
 multi P5Str(Int:D    \SELF) is export { SELF.Int }
 multi P5Str(Num:D    \SELF) is export { SELF.Num }

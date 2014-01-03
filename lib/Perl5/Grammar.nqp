@@ -2154,13 +2154,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             
             :dba('postfix')
             [
-            || <?{ $*QSIGIL }>
-                [
-                || <?{ $*QSIGIL eq '$' }> [ <postfixish>+! <?{ bracket_ending($<postfixish>) }> ]?
-                ||                          <postfixish>+! <?{ bracket_ending($<postfixish>) }>
-                || { $*VAR := 0 } <!>
-                ]
-            || <!{ $*QSIGIL }> <postfixish>*
+            || <?{ $*QSIGIL && $*QSIGIL eq '$' }> [ <postfixish>+! <?{ bracket_ending($<postfixish>) }> ]?
+            || <postfixish>*
             ]
         || <!{ $*QSIGIL }> <?before <infixish> {
             $/.CURSOR.typed_panic('X::Syntax::InfixInTermPosition', infix => ~$<infixish>); } >
@@ -2173,7 +2168,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         my $check := $matches[+$matches - 1];
         my $str   := $check.Str;
         my $last  := nqp::substr($str, nqp::chars($check) - 1, 1);
-        $last eq ')' || $last eq '}' || $last eq ']' || $last eq '>'
+        $last eq ')' || $last eq '}' || $last eq ']'
     }
 
     token term:sym<fatarrow> { <fatarrow> }
@@ -3805,7 +3800,6 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
         token escape:sym<$> {
             :my $*QSIGIL := '$';
             <?before '$'>
-#            [ <termish=.LANG('MAIN','termish')> ] || <.panic: "Non-variable \$ must be backslashed">
             [ <EXPR=.LANG('Perl5', 'EXPR', 'z=')> || { $*W.throw($/, 'X::Backslash::NonVariableDollar') } ]
         }
     }
@@ -3817,8 +3811,8 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
     role a1 {
         token escape:sym<@> {
             :my $*QSIGIL := '@';
-            <?before '@'>
-            [ <termish=.LANG('Perl5','termish')> | <!> ] # trap ABORTBRANCH from variable's ::
+            <?before '@' <!stopper> <[\w+-]> >
+            [ <termish=.LANG('Perl5','termish')> | <!> ]
         }
     }
 
@@ -3829,7 +3823,7 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
     role h1 {
         token escape:sym<%> {
             :my $*QSIGIL := '%';
-            <?before '%'>
+            <?before '%' <!stopper> <[\w+-]> >
             [ <termish=.LANG('Perl5','termish')> | <!> ]
         }
     }

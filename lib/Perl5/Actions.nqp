@@ -6230,8 +6230,8 @@ class Perl5::QActions is HLL::Actions does STDActions {
     }
     
     method escape:sym<$>($/) { make $<EXPR>.ast; }
-    method escape:sym<@>($/) { make $<EXPR>.ast; }
-    method escape:sym<%>($/) { make $<EXPR>.ast; }
+    method escape:sym<@>($/) { make $<termish>.ast; }
+    method escape:sym<%>($/) { make $<termish>.ast; }
     method escape:sym<&>($/) { make $<EXPR>.ast; }
 
     method escape:sym<' '>($/) { make mark_ww_atom($<quote>.ast); }
