@@ -3708,7 +3708,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method term:sym<eval>($/) {
         $V5DEBUG && say("term:sym<eval>($/)");
-        my $block := call_expr_or_topic( $/, 'eval' );
+        my $block := call_expr_or_topic( $/, 'EVAL' );
         make QAST::Op.new(
             :op('handle'),
             

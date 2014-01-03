@@ -314,7 +314,7 @@ sub P5do(Mu \SELF) is export is hidden_from_backtrace {
     if SELF {
         if SELF.IO.e {
             try {
-                $ret = eval slurp SELF;
+                $ret = EVAL slurp SELF;
                 CATCH {
                     default { P5warn(CALLER::DYNAMIC::<$!> = .Str) }
                 }
