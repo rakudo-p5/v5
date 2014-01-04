@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5312</td><td>35766</td><td>5</td><td>52</td><td>41122</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5314</td><td>35764</td><td>5</td><td>52</td><td>41122</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2354</td><td>12343</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
 use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
@@ -110,33 +110,33 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x-327927013b99bb72) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_9:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_14:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_19:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_24:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_29:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_34:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_39:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_44:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_49:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_54:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_59:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_64:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_69:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_74:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_79:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_84:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_89:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_94:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_99:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_104:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_109:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_114:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_119:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_124:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_129:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_134:1<br />
+use of uninitialized value of type O=ARRAY(0x-2ab2fec8b58c4e54) in string context  in block  at eval_139:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -391,6 +391,21 @@ No such symbol '&amp;delete'<br />
   in block  at t/spec/op/reverse.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;C'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/v5/26-syntax-namespace.v5:54<br />
+  in method reify at gen/parrot/CORE.setting:7331<br />
+  in method reify at gen/parrot/CORE.setting:7226<br />
+  in method gimme at gen/parrot/CORE.setting:7654<br />
+  in method sink at gen/parrot/CORE.setting:8064<br />
+  in block  at t/v5/26-syntax-namespace.v5:4<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $x<br />
@@ -734,8 +749,10 @@ Variable '*DATA' is not declared<br />
 at t/spec/op/anonsub.v5:11<br />
 ------&gt; run_multiple_progs('', \*DATA⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol pass<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/attrs.v5<br />
+Unexpected closing bracket<br />
+at t/spec/op/attrs.v5:303<br />
+------&gt; FY_CODE_ATTRIBUTES { $proto = $_[1]; _: ⏏}<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/closure.v5<br />
@@ -801,7 +818,7 @@ No such symbol '&amp;run_multiple_progs'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$Level' is not declared<br />
+Variable '$::Level' is not declared<br />
 at t/spec/op/gmagic.v5:16<br />
 ------&gt;     local $::Level ⏏= $::Level + 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -991,7 +1008,7 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$TODO' is not declared<br />
+Variable '$::TODO' is not declared<br />
 at t/spec/porting/diag.v5:106<br />
 ------&gt;             local $::TODO ⏏= "Remove the TODO entry \"$cur_entry\"</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1091,7 +1108,7 @@ No such symbol '&amp;find_git_or_skip'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/porting/regen.v5<br />
-Variable '$NO_ENDING' is not declared<br />
+Variable '$::NO_ENDING' is not declared<br />
 at t/spec/porting/regen.v5:14<br />
 ------&gt; $::NO_ENDING ⏏= $::NO_ENDING = 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/test_bootstrap.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1271,7 +1288,7 @@ use of uninitialized value of type Any in string context<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regexp_unicode_prop.v5<br />
-Variable '$IS_EBCDIC' is not declared<br />
+Variable '$::IS_EBCDIC' is not declared<br />
 at t/spec/re/regexp_unicode_prop.v5:68<br />
 ------&gt;                $::IS_EBCDIC ⏏? ['!\x{7f}',  '\x{80}',            '!\x</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1323,8 +1340,10 @@ Variable '%Bar' is not declared<br />
 at t/spec/test_pl/can_isa_ok.v5:23<br />
 ------&gt;     local %Bar::⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol pass<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/attrs.v5<br />
+Unexpected closing bracket<br />
+at t/spec/uni/attrs.v5:160<br />
+------&gt; FY_CODE_ATTRIBUTES { $proto = $_[1]; _: ⏏}<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error while reading from file: Invalid character in UTF-8 string<br />
@@ -1390,7 +1409,7 @@ at t/spec/io/layers.v5:208<br />
 ------&gt; 	use open⏏(IN =&gt; ":crlf", OUT =&gt; ":encoding(cp1252</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$TODO' is not declared<br />
+Variable '$::TODO' is not declared<br />
 at t/spec/io/perlio_leaks.v5:25<br />
 ------&gt; 	    local $::TODO⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/say.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1780,7 +1799,7 @@ at t/spec/op/sigsystem.v5:28<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp16195C' on target 'tmp16195B': link failed: No such file or directory<br />
+Failed to create link called 'tmp27539C' on target 'tmp27539B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13731<br />
   in sub link at gen/parrot/CORE.setting:13726<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1948,9 +1967,10 @@ at t/spec/uni/opcroak.v5:21<br />
   in block  at t/spec/io/nargv.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol is<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/blocks.v5<br />
+Missing block<br />
+at t/spec/op/blocks.v5:127<br />
+------&gt; ::is INIT⏏, 5, 'constant named after a special blo</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;kill'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
@@ -1973,12 +1993,12 @@ Could not locate compile-time value for symbol is<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/threads-dirh.v5<br />
-Variable '$TODO' is not declared<br />
+Variable '$::TODO' is not declared<br />
 at t/spec/op/threads-dirh.v5:44<br />
 ------&gt;   $::TODO ⏏= 'dir handle cloning currently requires</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utf8magic.v5<br />
-Variable '$stored' is not declared<br />
+Variable '$::stored' is not declared<br />
 at t/spec/op/utf8magic.v5:30<br />
 ------&gt; sub STORE     { $::stored ⏏= pop }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
@@ -2212,7 +2232,7 @@ at t/spec/uni/tr_utf8.v5:40<br />
 ------&gt;  $hiragana; $str =~ s/([ぁ-ん])/$h2k{$1}/g⏏o;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/write.v5<br />
-Variable '$IS_EBCDIC' is not declared<br />
+Variable '$::IS_EBCDIC' is not declared<br />
 at t/spec/uni/write.v5:7<br />
 ------&gt; "EBCDIC porting needed") if $::IS_EBCDIC⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -2265,10 +2285,6 @@ at t/spec/run/dtrace.v5:70<br />
 Two terms in a row<br />
 at t/spec/uni/labels.v5:49<br />
 ------&gt;  $@, qr/Label not found for "last Ｅ" at/⏏u, "last's error is UTF-8 clean";</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol A<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Could not find symbol 'next'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
@@ -2287,7 +2303,7 @@ at t/spec/mro/next_skip_utf8.v5:73<br />
 ------&gt; No next::method 'fuz' found for Ｄiᚪၚd_D/⏏u, '... cannot re-dispatch to a method w</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hash.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '*DESTROY' is not declared<br />
+Variable '*::DESTROY' is not declared<br />
 at t/spec/op/hash.v5:56<br />
 ------&gt;     local *::DESTROY ⏏= sub { ++$gone };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/srand.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
@@ -2314,7 +2330,7 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/tie.v5<br />
-Variable '$TODO' is not declared<br />
+Variable '$::TODO' is not declared<br />
 at t/spec/uni/tie.v5:58<br />
 ------&gt;     local $::TODO ⏏= "Need more tests!";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
@@ -2488,7 +2504,7 @@ at t/spec/op/protowarn.v5:41<br />
         <tr align='center'><td align='left'>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/wantarray.v5<br />
-Variable '$Level' is not declared<br />
+Variable '$::Level' is not declared<br />
 at t/spec/op/wantarray.v5:15<br />
 ------&gt;   local $::Level ⏏= $::Level + 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
@@ -2550,7 +2566,7 @@ Could not find mypragma in any of: lib, /home/froggs/dev/nqp/install/lib/parrot/
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/numconvert.v5<br />
-Variable '$additional_tests' is not declared<br />
+Variable '$::additional_tests' is not declared<br />
 at t/spec/op/numconvert.v5:72<br />
 ------&gt; $num += $::additional_tests⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
@@ -2626,7 +2642,7 @@ at t/spec/io/defout.v5:32<br />
 ------&gt; @ ⏏@&lt;&lt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errno.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/errno.v5<br />
-Variable '$TODO' is not declared<br />
+Variable '$::TODO' is not declared<br />
 at t/spec/io/errno.v5:38<br />
 ------&gt; 			local $::TODO ⏏= "We get RMS\$_IOP at EOF on VMS when \</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -2639,7 +2655,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp14937B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp26394B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2651,13 +2667,14 @@ at t/spec/op/glob.v5:117<br />
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 ===SORRY!=== Error while compiling t/spec/op/lfs.v5<br />
-Variable '$Level' is not declared<br />
+Variable '$::Level' is not declared<br />
 at t/spec/op/lfs.v5:162<br />
 ------&gt;     local $::Level ⏏= $::Level + 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol like<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/caller.v5<br />
+Two terms in a row<br />
+at t/spec/uni/caller.v5:20<br />
+------&gt; ndefined subroutine &amp;ｍａｉｎ::ok called at/⏏u;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/package.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/package.v5<br />
 Two terms in a row<br />
@@ -2807,7 +2824,7 @@ Calling 'truncate' will never work with argument types (Mu, Int) (line 52)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sigdispatch.v5<br />
-Variable '$TODO' is not declared<br />
+Variable '$::TODO' is not declared<br />
 at t/spec/op/sigdispatch.v5:81<br />
 ------&gt; 		local $::TODO ⏏= "Needs investigation" if $^O eq 'VMS';</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
@@ -3002,7 +3019,7 @@ at t/spec/mro/basic.v5:7<br />
 ------&gt; BEGIN { require q(t/test.pl); } ⏏plan(tests =&gt; 59);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '@bbblplast' is not declared<br />
+Variable '@::bbblplast' is not declared<br />
 at t/spec/op/inccode.v5:331<br />
 ------&gt;     @::bbblplast ⏏= ();</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
@@ -3020,12 +3037,13 @@ at t/spec/op/grep.v5:57<br />
 ------&gt;            {a =&gt;$_},⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/method.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol is<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/method.v5<br />
+Two terms in a row<br />
+at t/spec/uni/method.v5:43<br />
+------&gt; method "ｍｅｔｈｏｄ" on unblessed reference /⏏u;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tiehandle.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol fail<br />
+Could not find Symbol in any of: ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/loopctl.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -3120,7 +3138,7 @@ at t/spec/op/undef.v5:16<br />
 ------&gt; ok !defined($a⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/goto.v5</td><td>0</td><td>89</td><td>0</td><td>0</td><td>89</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$FILE' is not declared<br />
+Variable '$::FILE' is not declared<br />
 at t/spec/op/goto.v5:285<br />
 ------&gt;  $pack $file $line", "1 2 3 main $::FILE⏏ $::LINE",</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
@@ -3239,8 +3257,9 @@ Cannot assign to a readonly variable or a value<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol is<br />
-</td></tr>
+Variable '$stones' is not declared. Did you mean '@stones'?<br />
+at t/spec/op/state.v5:211<br />
+------&gt; my $first  = $stones [0]⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tr.v5</td><td>0</td><td>132</td><td>0</td><td>0</td><td>132</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tr.v5<br />
 Couldn't find terminator |<br />
@@ -3248,8 +3267,9 @@ at t/spec/op/tr.v5:202<br />
 ------&gt;          'LHS bad on updating tr'⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/universal.v5</td><td>0</td><td>139</td><td>0</td><td>0</td><td>139</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find UNIVERSAL in any of: ../lib<br />
-</td></tr>
+Unable to parse expression in declarator; couldn't find final ')' <br />
+at t/spec/op/universal.v5:195<br />
+------&gt;     tie my($x), ⏏"HumanTie";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/method.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/method.v5<br />
 Two terms in a row<br />
@@ -3332,11 +3352,17 @@ at t/spec/op/hashassign.v5:361<br />
 ------&gt;     is( scalar(%h ⏏= (1,1,1)), 3,</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/local.v5</td><td>0</td><td>310</td><td>0</td><td>0</td><td>310</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not locate compile-time value for symbol ok<br />
+Preceding context expects a term, but found infix &lt; instead<br />
+at t/spec/op/local.v5:832<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol %hash<br />
+    at t/spec/op/local.v5:658<br />
+    ------&gt;     tie my %hash⏏, "TieHash", {};<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie_fetch_count.v5</td><td>0</td><td>312</td><td>0</td><td>0</td><td>312</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tie_fetch_count.v5<br />
-Variable '$Level' is not declared<br />
+Variable '$::Level' is not declared<br />
 at t/spec/op/tie_fetch_count.v5:32<br />
 ------&gt;     local $::Level ⏏= $::Level + 1;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartmatch.v5</td><td>0</td><td>349</td><td>0</td><td>0</td><td>349</td></tr>

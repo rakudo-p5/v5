@@ -644,7 +644,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token identifier {
-        <.alpha> \w*
+        '::'? <.alpha> \w*
     }
 
     token pod_comment {
