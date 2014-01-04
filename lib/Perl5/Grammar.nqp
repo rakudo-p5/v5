@@ -1190,6 +1190,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [ <?{ $*FOR_VARIABLE }> {
             my $BLOCK := $*W.cur_lexpad();
             $BLOCK.symbol($*FOR_VARIABLE, :scope('lexical'), :lazyinit($*FOR_VARIABLE eq '$_'), :for_variable(1) );
+            $BLOCK[0].push(QAST::Var.new( :name($*FOR_VARIABLE), :scope('lexical'), :decl('var') ))
         } ]?
         [
         | '{YOU_ARE_HERE}' <you_are_here>
@@ -1726,9 +1727,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                             reserved => '() shape syntax in variable declarations');
                     }
                 }
-            | :dba('shape definition') '[' ~ ']' <semilist> <.NYI: "Shaped variable declarations">
-            | :dba('shape definition') '{' ~ '}' <semilist>
-            | <?before '<'> <postcircumfix> <.NYI: "Shaped variable declarations">
+            | <?{ $*SCOPE eq 'local' }> '[' ~ ']' <semilist> { $*W.give_cur_block_temp($/) }
+            | <?{ $*SCOPE eq 'local' }> '{' ~ '}' <semilist> { $*W.give_cur_block_temp($/) }
             ]+
         ]?
         <.ws>
@@ -1765,6 +1765,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
 
     token scope_declarator:sym<my>        { <sym> <scoped('my')> }
+    token scope_declarator:sym<local>     { <sym> <scoped('local')> }
     token scope_declarator:sym<our>       { <sym> <scoped('our')> }
     token scope_declarator:sym<state>     { <sym> <scoped('state')> }
 
@@ -2177,8 +2178,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         <variable>
         [
 #        || <?{ ~$<variable><sigil> ne '$' }>
-        || <?before '['> { $<variable><really> := '@' }
-        || <?before '{'> { $<variable><really> := '%' }
+        || <?before <ws> \s* '['> { $<variable><really> := '@' }
+        || <?before <ws> \s* '{'> { $<variable><really> := '%' }
         ]?
         { $*VAR := $*VAR || $<variable> }
     }
@@ -3387,7 +3388,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
 #    token term:sym<local>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
-    token prefix:sym<local> { <sym> \s+ <O('%named_unary')> { $*W.give_cur_block_temp($/) } }
+    #~ token prefix:sym<local> { <sym> \s+ <O('%named_unary')> { $*W.give_cur_block_temp($/) } }
 
     token filetest {
         '-'$<letter>=[<[a..zA..Z]>] » [ <!before <infix>> <?before \s*> <.ws> <EXPR('q=')> ]?

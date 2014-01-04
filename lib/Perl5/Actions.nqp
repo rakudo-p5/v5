@@ -640,24 +640,15 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("add_param($block, $name)");
         if !$block.symbol($name) || $block.symbol($name)<for_variable> {
             if $*IMPLICIT {
-                #~ $block[0].push(QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') ));
                 @params.push(hash(
                     :variable_name($name), :optional(1),
                     :nominal_type($*W.find_symbol(['Mu'])),
-                    #~ :default_from_outer($*SCOPE ne 'my'), :is_parcel(1),
                     :default_from_outer(1), :is_parcel(1),
                 ));
             }
-            #~ else {
-                #~ $block[0].push(QAST::Op.new(
-                    #~ :op('bind'),
-                    #~ QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') ),
-                    #~ QAST::Op.new( :op('getlexouter'), QAST::SVal.new( :value('$_') ) )
-                #~ ));
-            #~ }
-            #~ $block.symbol('$_', :scope('lexical'), :type($*W.find_symbol(['Mu'])));
-            # XXX TODO proper handling of our-variables --------------------v
-            $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
+            unless $block.symbol($name) {
+                $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
+            }
             $block.symbol($name, :scope('lexical'), :lazyinit($name eq '$_') );
         }
     }
@@ -1866,6 +1857,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method scope_declarator:sym<my>($/)      {
         $V5DEBUG && say("scope_declarator:sym<my>($/)     "); make $<scoped>.ast; }
+    method scope_declarator:sym<local>($/)   {
+        $V5DEBUG && say("scope_declarator:sym<local>($/)  "); make $<scoped>.ast; }
     method scope_declarator:sym<our>($/)     {
         $V5DEBUG && say("scope_declarator:sym<our>($/)    "); make $<scoped>.ast; }
     method scope_declarator:sym<has>($/)     {
@@ -2031,8 +2024,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $name   := ~$sigil ~ ~$twigil ~ ~$<variable><desigilname>;
         if $<variable><desigilname> {
             my $lex := $*W.cur_lexpad();
-            if $lex.symbol($name) {
-                $/.CURSOR.typed_worry('X::Redeclaration', symbol => $name);
+            if $lex.symbol($name) -> $sym {
+                unless $sym<for_variable> || $name eq '$_' {
+                    $/.CURSOR.typed_worry('X::Redeclaration', symbol => $name);
+                }
             }
             elsif $lex<also_uses> && $lex<also_uses>{$name} {
                 $/.CURSOR.typed_sorry('X::Redeclaration::Outer', symbol => $name);
@@ -2100,7 +2095,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $past := QAST::Var.new(:name('Nil'), :scope('lexical'));
             $past<metaattr> := $attr;
         }
-        elsif $*SCOPE eq 'my' || $*SCOPE eq 'our' || $*SCOPE eq 'state' {
+        elsif $*SCOPE eq 'my' || $*SCOPE eq 'our' || $*SCOPE eq 'state' || $*SCOPE eq 'local' {
             # Twigil handling.
             if $twigil eq '.' {
                 add_lexical_accessor($/, $past, $desigilname, $*W.cur_lexpad());
@@ -2133,6 +2128,21 @@ class Perl5::Actions is HLL::Actions does STDActions {
             if $desigilname eq '' {
                 $name := QAST::Node.unique('ANON_VAR_');
             }
+
+            # If this variable has a lookup (getlexouter), replace it with a declaration.
+            if $BLOCK.symbol($name) {
+                my $i := 0;
+                for @($BLOCK[0]) {
+                    if nqp::istype($_, QAST::Op) && +@($_) == 2
+                    && nqp::istype($_[0], QAST::Var) && $_[0].name eq $name
+                    && nqp::istype($_[1], QAST::Op)  && $_[1].op   eq 'getlexouter' {
+                        $BLOCK[0][$i] := QAST::Var.new( :$name, :scope('lexical'), :decl('var') );
+                        last;
+                    }
+                    $i := $i + 1;
+                }
+            }
+            
             $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
                 :scope($*SCOPE), :package($*PACKAGE));
             
@@ -4453,7 +4463,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
            '.=',  '&infix:<P5.=>',
         ),
         'PREFIX', nqp::hash(
-            'local', '&prefix:<temp>',
             '!',     '&prefix:<P5!>',
             '~',     '&prefix:<P5~>',
             '.',     '&prefix:<P5.>',
@@ -4530,7 +4539,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
             if $past.isa(QAST::Op) && !$past.name {
                 if $key eq 'LIST' { $key := 'infix'; }
                 my $sym := $<OPER><sym>;
-                $sym := 'temp' if $sym eq 'local';
                 $name := nqp::lc($key) ~ ':<' ~ $sym ~ '>';
                 $past.name('&' ~ $name);
             }
