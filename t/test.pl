@@ -98,7 +98,7 @@ END {
             #~ ? "# expected !~ /$expected/\n" : "# expected /$expected/\n");
         #~ }
         #~ local $Level = $Level + 1;
-        ok($pass, $name);
+        ok($pass, $name // '');
     }
 
     sub curr_test {

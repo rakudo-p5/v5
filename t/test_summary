@@ -305,28 +305,29 @@ sub test_single_file {
         if ($bonus) {
             $msg .= sprintf" %3d tests more than planned were run\n", $bonus;
         }
+        if( $msg ) {
+            $msg =~ s/&/&amp;/g;
+            $msg =~ s/</&lt;/g;
+            $msg =~ s/>/&gt;/g;
+        }
+        if( $stderr ) {
+            $stderr  =~ s/&/&amp;/g;
+            $stderr  =~ s/</&lt;/g;
+            $stderr  =~ s/>/&gt;/g;
+            $stderr  =  colorstrip $stderr;
+            $stderr  =~ s/\0{3}//g;
+            $stderr  =~ s/\xcf\x23\0\0/⏏/g;
+            $stderr  =  colorstrip $stderr;
+            $stderr  =~ s/\s+expecting any of:.+$//s;
+            $stderr  =~ s/\s*called from Sub.+$//s;
+            $stderr  =~ s/use of uninitialized.+//ig;
+            $stderr  =~ s///g;
+            $stderr .=  "<br />$msg" if $msg;
+        }
+        elsif( $msg ) {
+            $stderr = $msg
+        }
         if( $stderr || $msg ) {
-            if( $msg ) {
-                $msg =~ s/&/&amp;/g;
-                $msg =~ s/</&lt;/g;
-                $msg =~ s/>/&gt;/g;
-            }
-            if( $stderr ) {
-                $stderr  =~ s/&/&amp;/g;
-                $stderr  =~ s/</&lt;/g;
-                $stderr  =~ s/>/&gt;/g;
-                $stderr  =  colorstrip $stderr;
-                $stderr  =~ s/\0{3}//g;
-                $stderr  =~ s/\xcf\x23\0\0/⏏/g;
-                $stderr  =  colorstrip $stderr;
-                $stderr  =~ s/\s+expecting any of:.+$//s;
-                $stderr  =~ s/\s*called from Sub.+$//s;
-                $stderr  =~ s///g;
-                $stderr .=  "<br />$msg" if $msg;
-            }
-            elsif( $msg ) {
-                $stderr = $msg
-            }
             $stderr =~ s|\n+|<br />\n|g;
             $status_rows{ $pass ? "$pass.0$row_count" : "-$plan.0$row_count" }
             = sprintf "        <tr align='center'><td align='left' rowspan='2'>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>\n"
