@@ -820,7 +820,7 @@ augment class Str {
                 }
                 when 'H' {
                     my $hexstring = next_item;
-                    if $hexstring % 2 {
+                    if $hexstring.chars % 2 {
                         $hexstring ~= '0';
                     }
                     @bytes.push: map { :16($_) }, $hexstring.comb(/../);
@@ -893,6 +893,18 @@ augment class Str {
                     loop( -> $a {
                             &prefix:<P5+>($a).chr.encode.list.flat
                         } );
+                }
+                when 'w' {
+                    sub pack-w($int) {
+                        if $int > 0x80 {
+                            @bytes.push: (($int +> 7) +& 0x7F) +| 0x80;
+                            pack-w( $int % 0x80 )
+                        }
+                        else {
+                            @bytes.push: $int;
+                        }
+                    }
+                    loop( -> $a { pack-w($a) } );
                 }
                 when 'X' {
                     $pos ?? @bytes.pop !! P5warn "'X' outside of string";
@@ -1060,6 +1072,14 @@ augment class Str {
                         else {
                             P5die "Cannot unpack byte '" ~ sprintf('%#x', $byte) ~ "' using directive 'U'";
                         }
+                    }
+                }
+                when 'w' {
+                    sub unpack-w($byte, $i=7) {
+                        $byte > 0x80 ?? (($byte +& 0x7F) +< $i) + unpack-w(next_byte, $i+7) !! $byte
+                    }
+                    for ^$amount {
+                        @fields.push: unpack-w(next_byte)
                     }
                 }
                 when 'X' {

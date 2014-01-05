@@ -3,14 +3,13 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5220</td><td>35758</td><td>5</td><td>152</td><td>41122</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2235</td><td>12362</td><td>0</td><td>107</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5378</td><td>35700</td><td>5</td><td>52</td><td>41122</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2393</td><td>12304</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'><br />
 'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 <br />   2 skipped: (EBCDIC and) version strings are bad idea<br />
    4 skipped: Not for EBCDIC<br />
- 100 skipped: w not supported on this perl<br />
    1 skipped: Couldn't generate infinity - got error ''<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1155</td><td>215</td><td>0</td><td>0</td><td>1370</td></tr>
@@ -607,7 +606,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1089<br />
+  in sub bless at lib/Perl5/Terms.pm:1109<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -617,7 +616,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1089<br />
+  in sub bless at lib/Perl5/Terms.pm:1109<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -627,7 +626,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1089<br />
+  in sub bless at lib/Perl5/Terms.pm:1109<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -637,7 +636,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1089<br />
+  in sub bless at lib/Perl5/Terms.pm:1109<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -1287,7 +1286,8 @@ Could not find Win32 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-de
 </td></tr>
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
+        <tr><td colspan='5'><br />
+===SORRY!===<br />
 Lexical symbol '$script' is already bound to an outer symbol;<br />
 the implicit outer binding must be rewritten as OUTER::&lt;$script&gt;<br />
 before you can unambiguously declare a new '$script' in this scope<br />
@@ -1740,7 +1740,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp27617C' on target 'tmp27617B': link failed: No such file or directory<br />
+Failed to create link called 'tmp5466C' on target 'tmp5466B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13731<br />
   in sub link at gen/parrot/CORE.setting:13726<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -2201,7 +2201,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1388882068.93924<br />
+Could not find sub cuid_102_1388934850.22333<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2537,7 +2537,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1388882055.5293<br />
+Could not find sub cuid_102_1388934833.16984<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2616,7 +2616,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp26489B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp4305B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -3152,7 +3152,7 @@ at t/spec/op/lex_assign.v5:34<br />
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1089<br />
+  in sub bless at lib/Perl5/Terms.pm:1109<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
