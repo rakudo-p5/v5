@@ -3,84 +3,14 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5339</td><td>35739</td><td>5</td><td>52</td><td>41122</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2354</td><td>12343</td><td>0</td><td>7</td><td>14704</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:240<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:240<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:240<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:240<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:240<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:240<br />
-use of uninitialized value of type Any in numeric context  in sub infix:&lt;P5..&gt; at lib/Perl5/Terms.pm:240<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in block  at t/spec/op/pack.v5:1137<br />
-use of uninitialized value of type Any in string context  in block  at t/spec/op/pack.v5:1137<br />
-use of uninitialized value of type Any in string context  in block  at t/spec/op/pack.v5:1137<br />
-use of uninitialized value of type Any in string context  in block  at t/spec/op/pack.v5:1137<br />
-use of uninitialized value of type Any in string context  in block  at t/spec/op/pack.v5:1137<br />
-use of uninitialized value of type Any in string context  in block  at t/spec/op/pack.v5:1137<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
-use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+        <tr align='center'><td align='left'>summary</td><td>5220</td><td>35758</td><td>5</td><td>152</td><td>41122</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2235</td><td>12362</td><td>0</td><td>107</td><td>14704</td></tr>
+        <tr><td colspan='5'><br />
+'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
+'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 <br />   2 skipped: (EBCDIC and) version strings are bad idea<br />
    4 skipped: Not for EBCDIC<br />
+ 100 skipped: w not supported on this perl<br />
    1 skipped: Couldn't generate infinity - got error ''<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1155</td><td>215</td><td>0</td><td>0</td><td>1370</td></tr>
@@ -103,40 +33,17 @@ use of uninitialized value of type Any in string context  in sub proclaim at lib
 <br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>95</td><td>65</td><td>0</td><td>3</td><td>163</td></tr>
-        <tr><td colspan='5'>   3 skipped: Cannot modify an immutable value<br />
+        <tr><td colspan='5'><br />
+Type of argument to each on reference must be unblessed hashref or arrayref  in sub P5warn at lib/Perl5/Terms.pm:14<br />
+Type of argument to each on reference must be unblessed hashref or arrayref  in sub P5warn at lib/Perl5/Terms.pm:14<br />
+<br />   3 skipped: Cannot modify an immutable value<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>81</td><td>56</td><td>0</td><td>6</td><td>143</td></tr>
         <tr><td colspan='5'>   4 skipped: Invalid character for UTF-8 encoding<br />
    2 skipped: Confused<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>76</td><td>69</td><td>0</td><td>0</td><td>145</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_9:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_14:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_19:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_24:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_29:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_34:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_39:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_44:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_49:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_54:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_59:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_64:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_69:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_74:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_79:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_84:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_89:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_94:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_99:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_104:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_109:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_114:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_119:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_124:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_129:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_134:1<br />
-use of uninitialized value of type O=ARRAY(0x2e6697270ec8ea84) in string context  in block  at eval_139:1<br />
+        <tr><td colspan='5'><br />
 </td></tr>
         <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>59</td><td>119</td><td>0</td><td>0</td><td>178</td></tr>
@@ -145,7 +52,7 @@ Two terms in a row<br />
 at t/spec/op/magic.v5:178<br />
 ------&gt;     print $? &amp; ⏏0xFF ? "ok $tn[4]$todo\n" : "not ok $tn[</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>56</td><td>8</td><td>0</td><td>0</td><td>64</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/op/list.v5:146<br />
+        <tr><td colspan='5'><br />
 Index out of range. Is: 1, should be in 0..0<br />
   in method Str at gen/parrot/CORE.setting:12118<br />
   in method Str at gen/parrot/CORE.setting:1008<br />
@@ -162,7 +69,9 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>   1 todo   : NYI<br />
 </td></tr>
-        <tr align='center'><td align='left'>op/each_array.v5</td><td>46</td><td>17</td><td>0</td><td>0</td><td>63</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/each_array.v5</td><td>46</td><td>17</td><td>0</td><td>0</td><td>63</td></tr>
+        <tr><td colspan='5'><br />
+</td></tr>
         <tr align='center'><td align='left'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
@@ -230,8 +139,8 @@ to preserve list context inside function call<br />
   in method match at gen/parrot/CORE.setting:3487<br />
   in method Bool at gen/parrot/CORE.setting:12498<br />
   in method Bool at gen/parrot/CORE.setting:795<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:304<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:304<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:315<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:315<br />
   in sub isnt at t/spec/comp/opsubs.v5:68<br />
   in block  at t/spec/comp/opsubs.v5:139<br />
 </td></tr>
@@ -302,7 +211,7 @@ current instr.: 'chr' pc 263550 (src/gen/p-CORE.setting.pir:111388) (gen/parrot/
   in block  at t/spec/op/chr.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/mod.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/cmd/mod.v5:19<br />
+        <tr><td colspan='5'><br />
 No such symbol '&amp;foo'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -352,8 +261,6 @@ Useless use of constant integer 42 in sink context (line 15)<br />
         <tr align='center'><td align='left' rowspan='2'>run/exit.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
-use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:8<br />
-use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
 No such symbol '&amp;POSIX::WIFEXITED'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -362,8 +269,6 @@ No such symbol '&amp;POSIX::WIFEXITED'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/run/exit.v5:58<br />
-use of uninitialized value of type Any in numeric context<br />
-use of uninitialized value of type Any in string context<br />
 <br />   3 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>3</td><td>8</td><td>0</td><td>0</td><td>11</td></tr>
@@ -516,7 +421,9 @@ Malformed UTF-8 string<br />
         <tr><td colspan='5'>'lld' is not valid in sprintf format sequence '%lld'<br />
 <br />   2 tests more than planned were run<br />
 </td></tr>
-        <tr align='center'><td align='left'>io/iofile.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/iofile.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'><br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/12-context.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -561,14 +468,14 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub proclaim at lib/Test.pm:255<br />
+        <tr><td colspan='5'><br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
   in method Bridge at gen/parrot/CORE.setting:4272<br />
   in sub infix:&lt;&gt;&gt; at gen/parrot/CORE.setting:4195<br />
   in sub infix:&lt;&gt;&gt; at gen/parrot/CORE.setting:4045<br />
-  in sub infix:&lt;P5&gt;&gt; at lib/Perl5/Terms.pm:212<br />
+  in sub infix:&lt;P5&gt;&gt; at lib/Perl5/Terms.pm:215<br />
   in block  at t/spec/comp/term.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
@@ -687,7 +594,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left'>mro/inconsistent_c3_utf8.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 No such symbol '&amp;vec'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -700,7 +607,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1079<br />
+  in sub bless at lib/Perl5/Terms.pm:1089<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -710,7 +617,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1079<br />
+  in sub bless at lib/Perl5/Terms.pm:1089<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -720,7 +627,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1079<br />
+  in sub bless at lib/Perl5/Terms.pm:1089<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -730,7 +637,7 @@ No such symbol '&amp;vec'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1079<br />
+  in sub bless at lib/Perl5/Terms.pm:1089<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -795,7 +702,7 @@ Cannot call 'postcircumfix:&lt;P5[ ]&gt;'; none of these signatures match:<br />
 :(\SELF, Positional \pos)<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
-  in sub postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:271<br />
+  in sub postcircumfix:&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:282<br />
   in block  at t/spec/op/do.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -805,7 +712,7 @@ at t/spec/op/exists_sub.v5:49<br />
 ------&gt;     ok( defined &amp;t5, ,⏏ 't5 defined' );<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 No such symbol '&amp;run_multiple_progs'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -962,7 +869,7 @@ Could not find symbol '&amp;upgrade'<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1041,7 +948,7 @@ Calling 'split' will never work with argument types (str) (line 43)<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/../MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/filenames.v5:37<br />
 </td></tr>
@@ -1057,11 +964,10 @@ at t/spec/comp/require.v5:182<br />
     ------&gt; open my $fh⏏, '-|', $^X, '-Ilib', './makedef.pl', 'P<br />
 WARNINGS:<br />
 Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in expression "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in sink context (line 16)<br />
-use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/perl6-p': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/globvar.v5:34<br />
 </td></tr>
@@ -1077,7 +983,7 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
 </td></tr>
@@ -1228,8 +1134,7 @@ at t/spec/re/regex_sets.v5:38<br />
 Null PMC access in find_method('shift')<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_noamp.v5:9<br />
-use of uninitialized value of type Any in string context<br />
+        <tr><td colspan='5'><br />
   in block  at t/spec/re/regexp_noamp.v5:9<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
   in method reify at gen/parrot/CORE.setting:7226<br />
@@ -1238,8 +1143,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_noamp.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_notrie.v5:12<br />
-use of uninitialized value of type Any in string context<br />
+        <tr><td colspan='5'><br />
   in block  at t/spec/re/regexp_notrie.v5:12<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
   in method reify at gen/parrot/CORE.setting:7226<br />
@@ -1248,8 +1152,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_notrie.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr.v5:7<br />
-use of uninitialized value of type Any in string context<br />
+        <tr><td colspan='5'><br />
   in block  at t/spec/re/regexp_qr.v5:7<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
   in method reify at gen/parrot/CORE.setting:7226<br />
@@ -1258,8 +1161,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_qr_embed.v5:8<br />
-use of uninitialized value of type Any in string context<br />
+        <tr><td colspan='5'><br />
   in block  at t/spec/re/regexp_qr_embed.v5:8<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
   in method reify at gen/parrot/CORE.setting:7226<br />
@@ -1278,8 +1180,7 @@ use of uninitialized value of type Any in string context<br />
   in block  at t/spec/re/regexp_qr_embed_thr.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in block  at t/spec/re/regexp_trielist.v5:13<br />
-use of uninitialized value of type Any in string context<br />
+        <tr><td colspan='5'><br />
   in block  at t/spec/re/regexp_trielist.v5:13<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
   in method reify at gen/parrot/CORE.setting:7226<br />
@@ -1311,7 +1212,7 @@ Useless use of constant integer 0 in sink context (line 10)<br />
 </td></tr>
         <tr align='center'><td align='left'>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 Potential difficulties:<br />
     Redeclaration of symbol $ENV<br />
     at t/spec/run/locale.v5:88<br />
@@ -1319,7 +1220,6 @@ Potential difficulties:<br />
     Redeclaration of symbol $ENV<br />
     at t/spec/run/locale.v5:165<br />
     ------&gt; 	local $ENV{LC_ALL}⏏; # so it never overrides LC_NUMERIC<br />
-use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 No such symbol '&amp;LOCALES'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -1428,7 +1328,7 @@ at t/spec/io/layers.v5:208<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/t/spec/io/perlio_leaks.v5': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1477,7 +1377,7 @@ at t/spec/lib/overload_fallback.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 No such symbol '&amp;DATA'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -1648,8 +1548,12 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
   in sub ᕘ at t/spec/mro/basic_05_dfs_utf8.v5:49<br />
   in block  at t/spec/mro/basic_05_dfs_utf8.v5:57<br />
 </td></tr>
-        <tr align='center'><td align='left'>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left'>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan='5'><br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan='5'><br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/groups.v5<br />
 Variable '$groups_command' is not declared<br />
@@ -1798,7 +1702,7 @@ at t/spec/op/attrhand.v5:19<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/foo': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/op/filehandle.v5:15<br />
 </td></tr>
@@ -1836,7 +1740,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp7973C' on target 'tmp7973B': link failed: No such file or directory<br />
+Failed to create link called 'tmp27617C' on target 'tmp27617B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13731<br />
   in sub link at gen/parrot/CORE.setting:13726<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1902,7 +1806,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
   in block  at t/spec/op/alarm.v5:31<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 No such symbol '&amp;dbmopen'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -2070,7 +1974,7 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
 Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -2157,7 +2061,7 @@ at t/spec/op/lex.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/packagev.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Merging GLOBAL symbols failed: duplicate definition of symbol warnings<br />
+Could not find version in any of: ../lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
@@ -2207,20 +2111,16 @@ No such symbol '&amp;PROG'<br />
   in block  at t/spec/io/fflush.v5:51<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:8<br />
-use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'><br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:8<br />
-use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'><br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:8<br />
-use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'><br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in string context  in sub _plan at /home/froggs/dev/v5/t/test.pl:8<br />
-use of uninitialized value of type Any in string context  in sub plan at lib/Test.pm:42<br />
+        <tr><td colspan='5'><br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;fileno'<br />
@@ -2301,7 +2201,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1388845592.34183<br />
+Could not find sub cuid_102_1388882068.93924<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2382,7 +2282,6 @@ Other potential difficulties:<br />
     Redeclaration of symbol $in<br />
     at t/spec/io/eintr.v5:23<br />
     ------&gt; 	pipe my $in⏏, my $out;<br />
-use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/23-eval.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Oops  in block  at t/v5/23-eval.v5:41<br />
@@ -2411,8 +2310,8 @@ No such symbol '&amp;or'<br />
         <tr><td colspan='5'>Failed to change the working directory to '/home/froggs/dev/v5/lib/deprecate': Directory does not exist<br />
   in sub chdir at gen/parrot/CORE.setting:13646<br />
   in sub chdir at gen/parrot/CORE.setting:13627<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:309<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:309<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:320<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:320<br />
   in block  at t/spec/lib/deprecate.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
@@ -2638,7 +2537,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1388845575.56927<br />
+Could not find sub cuid_102_1388882055.5293<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2651,7 +2550,7 @@ Could not find sub cuid_102_1388845575.56927<br />
   in block  at t/spec/io/perlio_fail.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 No such symbol '&amp;IPC_PRIVATE'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -2708,7 +2607,7 @@ at t/spec/io/defout.v5:32<br />
   in block  at t/spec/io/errno.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 ===SORRY!===<br />
 Could not find Win32 in any of: ../lib/Perl5<br />
 </td></tr>
@@ -2717,7 +2616,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp6769B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp26489B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2727,7 +2626,7 @@ at t/spec/op/glob.v5:117<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 ===SORRY!=== Error while compiling t/spec/op/lfs.v5<br />
 Variable '$::Tests_Are_Passing' is not declared<br />
 at t/spec/op/lfs.v5:232<br />
@@ -2814,7 +2713,7 @@ Unable to parse expression in variable; couldn't find final '}' <br />
 at t/spec/mro/isarev_utf8.v5:25<br />
 ------&gt;      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 No such symbol '&amp;PIPE'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
@@ -2859,9 +2758,10 @@ WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 1)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Merging GLOBAL symbols failed: duplicate definition of symbol warnings<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/threads.v5<br />
+Variable '$b' is not declared<br />
+at t/spec/op/threads.v5:60<br />
+------&gt; sub mycmp { length($b⏏) &lt;=&gt; length($a) }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/override.v5<br />
 Two terms in a row<br />
@@ -2953,9 +2853,9 @@ Could not find re in any of: lib, ../lib<br />
         <tr><td colspan='5'>Unable to open filehandle from path '/home/froggs/dev/v5/t/arness': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:744<br />
+  in method P5open at lib/Perl5/Terms.pm:753<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
-  in method P5open at lib/Perl5/Terms.pm:741<br />
+  in method P5open at lib/Perl5/Terms.pm:750<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
@@ -3252,7 +3152,7 @@ at t/spec/op/lex_assign.v5:34<br />
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1079<br />
+  in sub bless at lib/Perl5/Terms.pm:1089<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
@@ -3275,7 +3175,7 @@ Variable '$a' is not declared<br />
 at t/spec/op/index.v5:67<br />
 ------&gt; $a ⏏= "foo \x{1234}bar";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/svleak.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
-        <tr><td colspan='5'>use of uninitialized value of type Any in numeric context  in sub skip_rest at lib/Test.pm:134<br />
+        <tr><td colspan='5'><br />
 ===SORRY!===<br />
 No such symbol '&amp;or'<br />
 </td></tr>
@@ -3448,8 +3348,21 @@ Variable '*dummy' is not declared. Did you mean any of these?<br />
 at t/spec/op/tie_fetch_count.v5:48<br />
 ------&gt; *dummy  ⏏=  $var         ; check_count '*glob = $</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartmatch.v5</td><td>0</td><td>349</td><td>0</td><td>0</td><td>349</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Merging GLOBAL symbols failed: duplicate definition of symbol warnings<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol @tied_nums<br />
+    at t/spec/op/smartmatch.v5:25<br />
+    ------&gt; tie my @tied_nums⏏, 'Tie::StdArray';<br />
+    Redeclaration of symbol %tied_hash<br />
+    at t/spec/op/smartmatch.v5:29<br />
+    ------&gt; tie my %tied_hash⏏, 'Tie::StdHash';<br />
+No such symbol '&amp;tie'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/smartmatch.v5:25<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/substr.v5<br />

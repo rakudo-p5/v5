@@ -92,6 +92,7 @@ my %cats = {
 };
 
 sub EXPORT(*@cats) {
+    use Perl5::Terms <%*WARNINGS_CATS>;
     my $set = +($*SCOPE eq 'use');
     for @cats -> $cat {
         if %cats{ $cat }.defined && %cats{ "+$cat" }.defined {
@@ -110,10 +111,11 @@ sub EXPORT(*@cats) {
             die "Unknown warnings category '$cat'"
         }
     }
+    %*WARNINGS_CATS = %cats;
     my %ex
 }
 
-module warnings;
-
-our proto enabled(|) { * }
-multi sub enabled($cat) { %cats{$cat} }
+module warnings {
+    our proto enabled(|) { * }
+    multi sub enabled($cat) { %cats{$cat} }
+}

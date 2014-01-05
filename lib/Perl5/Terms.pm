@@ -6,16 +6,18 @@ my %INC;
 my %STASH; # for ${^SOMETHING} style variables
 %STASH<CHILD_ERROR_NATIVE> = 0;
 
-use Perl5::warnings ();
+our %WARNINGS_CATS;
 
 sub P5warn(:$cat, *@a) is hidden_from_backtrace {
-    if warnings::enabled('all') || $cat && warnings::enabled($cat) {
-        %SIG<__WARN__> ~~ Callable ?? %SIG<__WARN__>( |@a ) !! warn( join('', @a) )
+    if %WARNINGS_CATS<all> || ($cat && %WARNINGS_CATS{$cat}) {
+        my $*WITHIN_WARN = 1;
+        %SIG<__WARN__> ~~ Callable ?? %SIG<__WARN__>( |@a.list.map(P5Str(*)) ) !! warn( P5Str(@a.list) )
     }
 }
 sub P5die (:$cat, *@a) is hidden_from_backtrace {
-    if warnings::enabled('all') || $cat && warnings::enabled($cat) {
-        %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>(  |@a ) !! die(  join('', @a) )
+    if %WARNINGS_CATS<all> || ($cat && %WARNINGS_CATS{$cat}) {
+        my $*WITHIN_WARN = 1;
+        %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>( |@a.list.map(P5Str(*)) ) !! die( P5Str(@a.list) )
     }
 }
 
@@ -115,6 +117,7 @@ sub EXPORT(|) {
     %ex<$*INPUT_RECORD_SEPARATOR> := $INPUT_RECORD_SEPARATOR;
     %ex<$*CONFIG_INTSIZE>         := $CONFIG_INTSIZE;
     %ex<%*STASH>                  := %STASH;
+    %ex<%*WARNINGS_CATS>          := %WARNINGS_CATS;
 
     %ex
 }
@@ -237,8 +240,16 @@ multi infix:<P5^>(\a, \b)         is export { &prefix:<P5+>(a) +^ &prefix:<P5+>(
 # k=, tight or (left || //)
 
 # j=, range (nonassoc .. ...)
-sub infix:<P5..> (\a, \b) is export { a ..  b }
-sub infix:<P5...>(\a, \b) is export { a ... b }
+sub infix:<P5..> (\a, \b) is export is hidden_from_backtrace {
+    (a.defined ?? a !! P5warn(:cat<uninitialized>, "Use of uninitialized value {a.VAR.?name} in range (or flop)") || 0)
+    ..
+    (b.defined ?? b !! P5warn(:cat<uninitialized>, "Use of uninitialized value {b.VAR.?name} in range (or flop)") || 0)
+}
+sub infix:<P5...>(\a, \b) is export is hidden_from_backtrace {
+    (a.defined ?? a !! P5warn(:cat<uninitialized>, "Use of uninitialized value {a.VAR.?name} in range (or flop)") || 0)
+    ...
+    (b.defined ?? b !! P5warn(:cat<uninitialized>, "Use of uninitialized value {b.VAR.?name} in range (or flop)") || 0)
+}
 
 # i=, conditional (right ?:)
 
@@ -705,9 +716,7 @@ multi P5scalar(Hash:D  \SELF) is export {
 }
 
 multi P5Str(Mu:U) is export is hidden_from_backtrace {
-    if warnings::enabled('all') || warnings::enabled('uninitialized') {
-        P5warn 'Use of uninitialized value in string'
-    }
+    P5warn(:cat<uninitialized>, 'Use of uninitialized value in string') unless $*WITHIN_WARN;
     ''
 }
 multi P5Str(Mu:D     \SELF) is export { SELF.Str }
@@ -822,7 +831,7 @@ augment class Str {
                 # signed char, perl/pp_pack.c#L2972
                 when 'c' {
                     loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
+                            $a = &prefix:<P5+>($a).Int;
                             P5warn( :cat<pack>, "Character in 'c' format wrapped in pack" ) if -128 > $a || $a > 127;
                             $a % 0x100
                         } );
@@ -830,7 +839,7 @@ augment class Str {
                 # unsigned char
                 when 'C' {
                     loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
+                            $a = &prefix:<P5+>($a).Int;
                             P5warn( :cat<pack>, "Character in 'C' format wrapped in pack" ) if 0 > $a || $a > 256;
                             $a % 0x100
                         } );
@@ -838,21 +847,21 @@ augment class Str {
                 # signed short | unsigned short (16bit, little endian)
                 when 's'       | 'S' | 'v' {
                     loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
+                            $a = &prefix:<P5+>($a).Int;
                             ($a, $a +> 0x08) >>%>> 0x100
                         } );
                 }
                 # signed long | unsigned long (32bit, little endian)
                 when 'l'      | 'L' | 'V' {
                     loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
+                            $a = &prefix:<P5+>($a).Int;
                             ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18) >>%>> 0x100
                         } );
                 }
                 # signed | unsigned integer (%Config<intsize>, little endian)
                 when 'i' | 'I' {
                     loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
+                            $a = &prefix:<P5+>($a).Int;
                             my @b;
                             @b.push( ($a +> ($_ * 0x08)) % 0x100 ) for ^$CONFIG_INTSIZE;
                             @b
@@ -868,14 +877,14 @@ augment class Str {
                 # unsigned short (16bit, big endian)
                 when 'n' {
                     loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
+                            $a = &prefix:<P5+>($a).Int;
                             ($a +> 0x08, $a) >>+&>> 0xFF
                         } );
                 }
                 # unsigned long (32bit, big endian)
                 when 'N' {
                     loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
+                            $a = &prefix:<P5+>($a).Int;
                             ($a +> 0x18, $a +> 0x10, $a +> 0x08, $a) >>+&>> 0xFF
                         } );
                 }
@@ -886,13 +895,14 @@ augment class Str {
                         } );
                 }
                 when 'X' {
-                    $pos ?? @bytes.pop !! die "'X' outside of string";
+                    $pos ?? @bytes.pop !! P5warn "'X' outside of string";
                 }
                 P5die ~X::Buf::Pack.new(:$directive);
             }
         }
         return utf8.new(@bytes);
     }
+    multi method P5unpack(Mu $thing) { self.P5unpack( ~$thing ) }
     multi method P5unpack(Str:D:) { self.P5unpack( CALLER::DYNAMIC::<$_> ) }
     multi method P5unpack(Str:D: Str $string) {
         my $ret;
@@ -1053,7 +1063,7 @@ augment class Str {
                     }
                 }
                 when 'X' {
-                    $pos ?? $pos-- !! die "'X' outside of string";
+                    $pos ?? $pos-- !! P5warn "'X' outside of string";
                 }
                 P5die ~X::Buf::Pack.new(:$directive);
             }
