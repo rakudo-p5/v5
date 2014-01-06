@@ -3959,6 +3959,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'unshift', [ '@_', '+@' ],
         'push',    [ '@_', '+@' ],
         'pop',     [ '@_', ';+' ],
+        'pos',     [ '$_', '$',  '',     '',              'call',       '&P5pos' ],
         'time',    [ '',   '',   '',     '',              'call',       '&term:<time>' ],
     );
     method term:sym<identifier>($/) {
@@ -4588,6 +4589,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $old_topic_var := $lhs.unique('old_topic');
         my $result_var := $lhs.unique('sm_result');
         my $sm_call;
+        
+        # TODO only set last-match if modifier "g" was used. (m//g)
+        #~ say($rhs.dump);
 
         # In case the rhs is a substitution, the result should say if it actually
         # matched something. Calling ACCEPTS will always be True for this case.
@@ -4631,6 +4635,28 @@ class Perl5::Actions is HLL::Actions does STDActions {
             QAST::Op.new( :op('bind'),
                 QAST::Var.new( :name($result_var), :scope('local'), :decl('var') ),
                 $sm_call
+            ),
+
+            QAST::Op.new( :op('if'),
+                QAST::Op.new( :op('callmethod'), :name('defined'), $lhs ),
+                QAST::Stmt.new(
+                    QAST::Op.new( :op('unless'),
+                        QAST::Op.new( :op('callmethod'), :name('dispatch:<.^>'),
+                            $lhs,
+                            $*W.add_string_constant('can'),
+                            $*W.add_string_constant('last-match')
+                        ),
+                        QAST::Op.new( :op('call'), :name('&infix:<does>'),
+                            $lhs,
+                            QAST::WVal.new( :value($*W.find_symbol(['P5MatchPos'])) )
+                        )
+                    ),
+                    QAST::Op.new( :op('p6store'),
+                        QAST::Op.new( :op('hllize'),
+                            QAST::Op.new( :op('callmethod'), :name('last-match'), $lhs ) ),
+                        QAST::Var.new( :name($result_var), :scope('local') )
+                    )
+                )
             ),
 
             # Re-instate original $_.

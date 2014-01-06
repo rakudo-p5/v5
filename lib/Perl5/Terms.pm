@@ -66,6 +66,10 @@ class STDERR {
     method P5close(*@a) { }
 }
 
+role P5MatchPos {
+    has $.last-match is rw;
+}
+
 sub EXPORT(|) {
     my %ex;
     %ex<STDIN>                    := STDIN;
@@ -686,6 +690,20 @@ multi P5Numeric(Str:D   \SELF) is export {
 
 multi P5ord(Mu         ) is export { 0             }
 multi P5ord(Str:D \SELF) is export { SELF.ord || 0 }
+
+sub P5pos($s is rw) is export {
+    Proxy.new(
+        FETCH => sub ($) {
+            $s ~~ P5MatchPos && $s.last-match ~~ Match ?? $s.last-match.to !! Any
+        },
+        STORE => sub ($, $) {
+            if $s.defined {
+                $s does P5MatchPos unless $s ~~ P5MatchPos;
+                $s.last-match = Match.new
+            }
+        }
+    )
+}
 
 sub P5print(*@a is copy) is export {
     my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle) ?? @a.shift !! $*OUT;
