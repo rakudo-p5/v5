@@ -320,7 +320,7 @@ sub test_single_file {
             $stderr  =  colorstrip $stderr;
             $stderr  =~ s/\s+expecting any of:.+$//s;
             $stderr  =~ s/\s*called from Sub.+$//s;
-            $stderr  =~ s/use of uninitialized.+//ig;
+            $stderr  =~ s/use of uninitialized.+[\n\r]*//ig;
             $stderr  =~ s///g;
             $stderr .=  "<br />$msg" if $msg;
         }
