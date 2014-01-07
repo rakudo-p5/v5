@@ -590,7 +590,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1127<br />
+  in sub bless at lib/Perl5/Terms.pm:1129<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -600,7 +600,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1127<br />
+  in sub bless at lib/Perl5/Terms.pm:1129<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -610,7 +610,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1127<br />
+  in sub bless at lib/Perl5/Terms.pm:1129<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -620,7 +620,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1127<br />
+  in sub bless at lib/Perl5/Terms.pm:1129<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -851,7 +851,7 @@ Could not find symbol '&amp;upgrade'<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -930,7 +930,7 @@ Calling 'split' will never work with argument types (str) (line 43)<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/../MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/filenames.v5:37<br />
 </td></tr>
@@ -949,7 +949,7 @@ Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgoto
 Unable to open filehandle from path '/home/froggs/dev/v5/perl6-p': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/globvar.v5:34<br />
 </td></tr>
@@ -965,7 +965,7 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
 </td></tr>
@@ -1113,7 +1113,7 @@ at t/spec/re/regex_sets.v5:38<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Null PMC access in find_method('shift')<br />
+Element shifted from empty list<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regexp_noamp.v5:9<br />
@@ -1304,7 +1304,7 @@ at t/spec/io/layers.v5:208<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/t/spec/io/perlio_leaks.v5': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1673,7 +1673,7 @@ at t/spec/op/attrhand.v5:19<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/foo': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/op/filehandle.v5:15<br />
 </td></tr>
@@ -1711,7 +1711,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp17889C' on target 'tmp17889B': link failed: No such file or directory<br />
+Failed to create link called 'tmp15016C' on target 'tmp15016B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13731<br />
   in sub link at gen/parrot/CORE.setting:13726<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1944,7 +1944,7 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
 Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -2148,7 +2148,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389009330.50561<br />
+Could not find sub cuid_102_1389089484.15794<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2474,7 +2474,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389009314.75667<br />
+Could not find sub cuid_102_1389089465.45188<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2551,7 +2551,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp15902B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp10544B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2780,9 +2780,9 @@ Could not find re in any of: lib, ../lib<br />
         <tr><td colspan='5'>Unable to open filehandle from path '/home/froggs/dev/v5/t/arness': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:771<br />
+  in method P5open at lib/Perl5/Terms.pm:773<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
-  in method P5open at lib/Perl5/Terms.pm:768<br />
+  in method P5open at lib/Perl5/Terms.pm:770<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
@@ -3079,7 +3079,7 @@ at t/spec/op/lex_assign.v5:34<br />
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1127<br />
+  in sub bless at lib/Perl5/Terms.pm:1129<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>

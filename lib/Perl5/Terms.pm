@@ -733,6 +733,8 @@ multi P5scalar(Hash:D  \SELF) is export {
     SELF.elems && (SELF.elems ~ '/' ~ (SELF.elems < 8 ?? 8 !! (2 ** (1 + SELF.elems.msb))))
 }
 
+sub P5shift(Mu \SELF) is export { try SELF.shift }
+
 multi P5Str(Mu:U) is export is hidden_from_backtrace {
     P5warn(:cat<uninitialized>, 'Use of uninitialized value in string') unless $*WITHIN_WARN;
     ''

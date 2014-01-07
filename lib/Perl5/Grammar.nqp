@@ -1626,10 +1626,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
     rule statement_control:sym<default> {<sym> <sblock> }
 
-    rule statement_prefix:sym<BEGIN>    {<sym> <sblock> }
-    rule statement_prefix:sym<CHECK>    {<sym> <sblock> }
-    rule statement_prefix:sym<INIT>     {<sym> <sblock> }
-    rule statement_control:sym<END>     {<sym> <sblock> }
+    rule statement_prefix:sym<BEGIN>     { :my $*SHIFT_FROM := '@ARGV'; <sym> <sblock> }
+    rule statement_prefix:sym<CHECK>     { :my $*SHIFT_FROM := '@ARGV'; <sym> <sblock> }
+    rule statement_prefix:sym<INIT>      { :my $*SHIFT_FROM := '@ARGV'; <sym> <sblock> }
+    rule statement_prefix:sym<UNITCHECK> { :my $*SHIFT_FROM := '@ARGV'; <sym> <sblock> }
+    rule statement_control:sym<END>      { :my $*SHIFT_FROM := '@ARGV'; <sym> <sblock> }
 
     #######################
     # statement modifiers #
@@ -2053,6 +2054,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*DOCEE;
         :my $*DECLARAND := $*W.stub_code_object('Sub');
         :my $*PROTOTYPE;
+        :my $*SHIFT_FROM;
         [
         ||  <deflongname>
             <.newlex>
@@ -3011,6 +3013,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     rule statement_control:sym<{ }> {
         :my $*FOR_VARIABLE := QAST::Node.unique('dummy');
+        :my $*SHIFT_FROM;
         <?before '{' >
         <sblock>
         [ 'continue' <continue=.sblock> ]?
@@ -3170,8 +3173,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #    token term:sym<try>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym<eval>
-        { <sym> » <?before \s*> <.ws> <!before '{'> <EXPR('q=')>? }
+    token term:sym<eval> {
+        :my $*SHIFT_FROM := '@ARGV';
+        <sym> » <?before \s*> <.ws> <!before '{'> <EXPR('q=')>?
+    }
 
 #    token term:sym<eof>
 #        { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }

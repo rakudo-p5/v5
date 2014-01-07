@@ -3953,7 +3953,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'open',    [ '',   '*@', '',     '',              'callmethod', 'P5open' ],
         'pack',    [ '',   '$@', '',     '',              'callmethod', 'P5pack' ],
         'print',   [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5print' ],
-        'shift',   [ '@_', ';+' ],
+        'shift',   [ '@_', ';+', '',     '',              'call',       '&P5shift' ],
         'unlink',  [ '$_', '@',  '',     '',              'call',       '&P5unlink' ],
         'unpack',  [ '@_', '$@', '',     '',              'callmethod', 'P5unpack' ],
         'unshift', [ '@_', '+@' ],
@@ -4007,7 +4007,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
             }
             # Default to $_/@_.
             elsif !$*ARGUMENT_HAVE && !$*HAS_INDIRECT_OBJ && $builtin[$default] {
-                $past := QAST::Op.new( QAST::Var.new( :name($builtin[$default]), :scope('lexical') ), :node($/) );
+                my $var := ($name eq 'shift' || $name eq 'pop')
+                        ?? QAST::Var.new( :name($*SHIFT_FROM // $builtin[$default]), :scope('lexical') )
+                        !! QAST::Var.new( :name($builtin[$default]), :scope('lexical') );
+                $past   := QAST::Op.new( $var, :node($/) );
             }
             # Expect args in this case.
             elsif $builtin[$proto] {
