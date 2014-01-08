@@ -1,5 +1,5 @@
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 749ceca..dd4550c 100644
+index 59f66db..15ca3b7 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
 @@ -854,6 +854,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
@@ -8,9 +8,9 @@ index 749ceca..dd4550c 100644
          :my $*IN_QUASI := 0;                       # whether we're currently in a quasi block
 +        :my $*MAIN := 'MAIN';
  
-         # Setting loading and symbol setup.
-         {
-@@ -922,6 +923,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+         # performance improvement stuff
+         :my $*FAKE_INFIX_FOUND := 0;
+@@ -925,6 +926,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                      %*LANG{$_.key} := $_.value;
                  }
              }
@@ -20,7 +20,7 @@ index 749ceca..dd4550c 100644
              
              # Install unless we've no setting, in which case we've likely no
              # static lexpad class yet either. Also, UNIT needs a code object.
-@@ -944,7 +948,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -947,7 +951,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          <.finishpad>
          <.bom>?
@@ -29,7 +29,7 @@ index 749ceca..dd4550c 100644
  
          <.install_doc_phaser>
          
-@@ -1260,10 +1264,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1263,10 +1267,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          :my $*IN_DECL := 'use';
          :my $*HAS_SELF := '';
          :my $*SCOPE   := 'use';
@@ -49,7 +49,7 @@ index 749ceca..dd4550c 100644
          | <module_name>
              {
                  $longname := $<module_name><longname>;
-@@ -1314,6 +1326,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1317,6 +1329,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                  }
              ]
          ]
@@ -57,7 +57,7 @@ index 749ceca..dd4550c 100644
          <.ws>
      }
      
-@@ -3727,6 +3740,10 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -3732,6 +3745,10 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
              $prec := '%autoincrement';
              $is_oper := 1;
          }
