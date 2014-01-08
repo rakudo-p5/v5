@@ -735,6 +735,13 @@ multi P5scalar(Hash:D  \SELF) is export {
 
 sub P5shift(Mu \SELF) is export { try SELF.shift }
 
+sub P5splice(\arr, $off is copy = 0, $len? is copy, *@lst) is export {
+    $off  += +@(arr) if $off < 0;
+    $len //= +@(arr) - $off;
+    $len  += +@(arr) - $off if $len < 0;
+    arr.splice($off, $len, @lst)
+}
+
 multi P5Str(Mu:U) is export is hidden_from_backtrace {
     P5warn(:cat<uninitialized>, 'Use of uninitialized value in string') unless $*WITHIN_WARN;
     ''

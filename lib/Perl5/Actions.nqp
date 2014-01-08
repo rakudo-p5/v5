@@ -3960,6 +3960,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'push',    [ '@_', '+@' ],
         'pop',     [ '@_', ';+' ],
         'pos',     [ '$_', '$',  '',     '',              'call',       '&P5pos' ],
+        'splice',  [ '',   '@',  '',     '',              'call',       '&P5splice' ],
         'time',    [ '',   '',   '',     '',              'call',       '&term:<time>' ],
     );
     method term:sym<identifier>($/) {
