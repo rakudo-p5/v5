@@ -757,6 +757,16 @@ multi P5Str(Parcel:D \SELF) is export { SELF.Int }
 multi P5Str(Pair:D   \SELF) is export { P5Str(SELF.kv.list) }
 multi P5Str(Sub:D    \SELF) is export { 'CODE(' ~ SELF.WHERE.fmt('0x%X').lc ~ ')' }
 
+multi P5substr(\str, $off is copy, $len is copy, $repl) is export {
+    P5substr(str, $off, $len) = $repl
+}
+multi P5substr(\str, $off is copy = 0, $len? is copy) is export {
+    $off  += str.chars if $off < 0;
+    $len //= str.chars - $off;
+    $len  += str.chars - $off if $len < 0;
+    substr-rw(str, $off, $len)
+}
+
 multi P5unlink(Str:D \SELF) is export {
     my $abspath = IO::Spec.rel2abs(SELF);
     if 0 == nqp::unlink($abspath) {

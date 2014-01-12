@@ -2045,6 +2045,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'pos',    '$',
         'sort',   '$@',
         'splice', '@',
+        'substr', '$$$$',
         'values', '$',
     );
     rule routine_def {
