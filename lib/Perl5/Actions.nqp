@@ -3547,6 +3547,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $past.name('&P5can');
                 $past.op('call');
             }
+            elsif $name eq 'isa' {
+                $past.name('&P5isa');
+                $past.op('call');
+            }
             elsif $name eq 'WHAT' {
                 whine_if_args($/, $past, $name);
                 $past.op('what');
@@ -4078,11 +4082,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
         }
     }
 
-    method make_indirect_lookup(@components, $sigil?) {
+    method make_indirect_lookup(@components, $sigil?, :$object, :$method) {
         $V5DEBUG && say("make_indirect_lookup(@components, $sigil?)");
         my $past := QAST::Op.new(
             :op<call>,
-            :name<&INDIRECT_NAME_LOOKUP>,
+            :name<&P5INDIRECT_NAME_LOOKUP>,
             QAST::Op.new(
                 :op<callmethod>, :name<new>,
                 QAST::WVal.new( :value($*W.find_symbol(['PseudoStash'])) )
@@ -4563,6 +4567,17 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $key eq 'POSTFIX' {
             # Method calls may be to a foreign language, and thus return
             # values may need type mapping into Perl 6 land.
+            my $object := $/[0]<identifier>;
+            my $method := $<OPER><dottyop><methodop><longname>;
+            if $object && $method && nqp::istype($/[0].ast, QAST::Op)
+            && $/[0].ast[0]    && nqp::istype($/[0].ast[0], QAST::Op) && $/[0].ast[0].name eq '&P5INDIRECT_NAME_LOOKUP' {
+                $object := $*W.add_string_constant(~$object);
+                $method := $*W.add_string_constant(~$method);
+                $object.named('object');
+                $method.named('method');
+                $/[0].ast[0].push: $object;
+                $/[0].ast[0].push: $method;
+            }
             $past.unshift($/[0].ast);
             if $past.isa(QAST::Op) && $past.op eq 'callmethod' {
                 $return_map := 1;

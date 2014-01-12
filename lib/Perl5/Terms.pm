@@ -297,29 +297,28 @@ multi postcircumfix:<P5[ ]>(Any \SELF, Positional \pos) is rw is export {
                !! { SELF[P5Numeric($_)] }).eager.Parcel;
 }
 
-multi P5can(Mu  $pkg, Str $method, *@a) is export { $pkg.$method(|@a) }
-multi P5can(Str $pkg, Str $method, *@a) is export {
-    my $p := GLOBAL::{$pkg};
+multi P5Bool(Mu     \SELF) is export { SELF ?? 1                 !! '' }
+multi P5Bool(Parcel \SELF) is export { SELF ?? [||] SELF.list    !! '' }
+multi P5Bool(List   \SELF) is export { SELF ?? [||] SELF.list    !! '' }
+multi P5Bool(Pair   \SELF) is export { SELF ?? [||] SELF.kv.list !! '' }
+
+sub P5can(Mu $pkg, $method, *@a) is export {
+    my $p := GLOBAL::{ $pkg.^name };
 
     # The package has a can method, just all it.
     if $p.HOW.method_table($p)<can> {
-        $p.can($method, |@a)
+        $p.can(~$method, |@a)
     }
     # Do what UNIVERSAL->can does if the package has no 'can' method.
     else {
-        if $p.^can($method) {
-            $p.HOW.method_table($p){$method}
+        if $p.^can(~$method) {
+            $p.HOW.method_table($p){~$method}
         }
         else {
             ''
         }
     }
 }
-
-multi P5Bool(Mu     \SELF) is export { SELF ?? 1                 !! '' }
-multi P5Bool(Parcel \SELF) is export { SELF ?? [||] SELF.list    !! '' }
-multi P5Bool(List   \SELF) is export { SELF ?? [||] SELF.list    !! '' }
-multi P5Bool(Pair   \SELF) is export { SELF ?? [||] SELF.kv.list !! '' }
 
 multi P5chdir(\SELF) is export { chdir(SELF) }
 multi P5chdir()      is export { %*ENV<HOME> ?? chdir(%*ENV<HOME>) !! %*ENV<LOGDIR> ?? chdir(%*ENV<LOGDIR>) !! False }
@@ -366,6 +365,44 @@ multi P5each(Hash:D \SELF is rw) is export {
         ?? (SELF.iterator-position = 0) || Nil
         !! SELF.list[ SELF.iterator-position++ ].kv
 }
+
+sub P5INDIRECT_NAME_LOOKUP($root, *@chunks, :$object is copy, :$method) is export is rw {
+    # note that each part of @chunks itself can
+    # contain double colons. That's why joining and
+    # re-splitting is necessary
+    my Str $name = @chunks.join('::');
+    my @parts    = $name.split('::');
+    my $first    = @parts.shift;
+    if @parts && '$@%&'.index($first.substr(0, 1)).defined {
+        # move sigil from first to last chunk, because
+        # $Foo::Bar::baz is actually stored as Foo::Bar::$baz
+        my $last_idx      = @parts.end;
+        @parts[$last_idx] = $first.substr(0, 1) ~ @parts[$last_idx]; 
+        $first            = $first.substr(1);
+        if $first eq '' {
+            $first = @parts.shift;
+            $name = @chunks.join('::');
+        }
+    }
+    $object //= $name;
+    my Mu $thing := $root.exists_key($first) ?? $root{$first} !!
+                    GLOBAL::.exists_key($first) ?? GLOBAL::{$first} !!
+                    !$method ?? X::NoSuchSymbol.new(symbol => $name).fail !!
+                    $method eq 'isa' || $method eq 'can' ?? Str !!
+                    X::AdHoc.new(payload => "Can't locate object method \"$method\" via package \"$object\" (perhaps you forgot to load \"$object\"?)").fail;
+    for @parts {
+        unless $thing.WHO.exists_key($_) {
+            $method eq 'isa' || $method eq 'can' ?? Str !!
+            X::AdHoc.new(payload => "Can't locate object method \"$method\" via package \"$object\" (perhaps you forgot to load \"$object\"?)").fail;
+        }
+        $thing := $thing.WHO{$_};
+    }
+    $thing;
+}
+
+multi P5isa()           is hidden_from_backtrace is export { P5die "Usage: UNIVERSAL::isa(reference, kind)" }
+multi P5isa(\reference) is hidden_from_backtrace is export { P5die "Usage: UNIVERSAL::isa(reference, kind)" }
+multi P5isa(\reference, \kind) is export { reference.isa(kind) }
 
 multi P5length(Mu     \SELF) is export { 0 }
 multi P5length(Str:D  \SELF) is export { SELF.chars }

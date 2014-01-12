@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5421</td><td>35684</td><td>5</td><td>52</td><td>41125</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5434</td><td>35672</td><td>5</td><td>52</td><td>41125</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2393</td><td>12304</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
@@ -69,16 +69,11 @@ at t/spec/op/magic.v5:178<br />
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left'>op/chars.v5</td><td>34</td><td>0</td><td>0</td><td>0</td><td>34</td></tr>
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>27</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;Foo'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/op/splice.v5:87<br />
-<br />  28 tests more than planned were run<br />
+        <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>28</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>No such method 'splice' for invocant of type 'Any'<br />
+  in sub P5splice at lib/Perl5/Terms.pm:779<br />
+  in block  at t/spec/op/splice.v5:89<br />
+<br />  29 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left'>op/recurse.v5</td><td>27</td><td>1</td><td>0</td><td>0</td><td>28</td></tr>
         <tr align='center'><td align='left'>t/v5/06-bool.v5</td><td>26</td><td>6</td><td>0</td><td>0</td><td>32</td></tr>
@@ -143,8 +138,8 @@ to preserve list context inside function call<br />
   in method match at gen/parrot/CORE.setting:3487<br />
   in method Bool at gen/parrot/CORE.setting:12498<br />
   in method Bool at gen/parrot/CORE.setting:795<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:319<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:319<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:300<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:300<br />
   in sub isnt at t/spec/comp/opsubs.v5:68<br />
   in block  at t/spec/comp/opsubs.v5:139<br />
 </td></tr>
@@ -223,6 +218,17 @@ current instr.: 'chr' pc 263550 (src/gen/p-CORE.setting.pir:111388) (gen/parrot/
   in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/cmd/mod.v5:36<br />
+</td></tr>
+        <tr align='center'><td align='left'>mro/isa_aliases_utf8.v5</td><td>6</td><td>6</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr><td colspan='5'>Can't locate object method "ook" via package "Baro" (perhaps you forgot to load "Baro"?)<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/mro/isa_aliases.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
@@ -349,7 +355,7 @@ No such symbol '&amp;delete'<br />
         <tr align='center'><td align='left'>run/noswitch.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>re/overload.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub.v5</td><td>2</td><td>14</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;main'<br />
+        <tr><td colspan='5'>Can't locate object method "import" via package "main" (perhaps you forgot to load "main"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -552,7 +558,7 @@ No such symbol '&amp;FILE'<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/next_ineval.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT_utf8.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;Fᶽ'<br />
+        <tr><td colspan='5'>Can't locate object method "fಓ" via package "Fᶽ" (perhaps you forgot to load "Fᶽ"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -562,7 +568,7 @@ No such symbol '&amp;FILE'<br />
   in block  at t/spec/mro/next_NEXT_utf8.v5:47<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;Fuz'<br />
+        <tr><td colspan='5'>Can't locate object method "foo" via package "Fuz" (perhaps you forgot to load "Fuz"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -586,7 +592,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1146<br />
+  in sub bless at lib/Perl5/Terms.pm:1183<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -596,7 +602,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1146<br />
+  in sub bless at lib/Perl5/Terms.pm:1183<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -606,7 +612,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1146<br />
+  in sub bless at lib/Perl5/Terms.pm:1183<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -616,7 +622,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1146<br />
+  in sub bless at lib/Perl5/Terms.pm:1183<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -847,7 +853,7 @@ Could not find symbol '&amp;upgrade'<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -926,7 +932,7 @@ Calling 'split' will never work with argument types (str) (line 43)<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/../MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/filenames.v5:37<br />
 </td></tr>
@@ -945,7 +951,7 @@ Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgoto
 Unable to open filehandle from path '/home/froggs/dev/v5/perl6-p': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/globvar.v5:34<br />
 </td></tr>
@@ -961,7 +967,7 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
 </td></tr>
@@ -1161,7 +1167,11 @@ Element shifted from empty list<br />
   in method eager at gen/parrot/CORE.setting:7626<br />
   in block  at t/spec/re/regexp_trielist.v5:11<br />
 </td></tr>
-        <tr align='center'><td align='left'>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regexp_unicode_prop.v5<br />
+Variable '$::IS_EBCDIC' is not declared<br />
+at t/spec/re/regexp_unicode_prop.v5:68<br />
+------&gt;                $::IS_EBCDIC ⏏? ['!\x{7f}',  '\x{80}',            '!\x</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:71<br />
@@ -1296,7 +1306,7 @@ at t/spec/io/layers.v5:208<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/t/spec/io/perlio_leaks.v5': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1618,7 +1628,7 @@ at t/spec/op/utftaint.v5:27<br />
         <tr align='center'><td align='left'>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;TTop'<br />
+        <tr><td colspan='5'>Can't locate object method "foo" via package "TTop" (perhaps you forgot to load "TTop"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -1628,7 +1638,7 @@ at t/spec/op/utftaint.v5:27<br />
   in block  at t/spec/mro/next_goto.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;ᵗ톺'<br />
+        <tr><td colspan='5'>Can't locate object method "ᕗ" via package "ᵗ톺" (perhaps you forgot to load "ᵗ톺"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -1665,7 +1675,7 @@ at t/spec/op/attrhand.v5:19<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/foo': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/op/filehandle.v5:15<br />
 </td></tr>
@@ -1703,7 +1713,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp6025C' on target 'tmp6025B': link failed: No such file or directory<br />
+Failed to create link called 'tmp21908C' on target 'tmp21908B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13731<br />
   in sub link at gen/parrot/CORE.setting:13726<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1936,7 +1946,7 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
 Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1956,7 +1966,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
   in block  at t/spec/benchmark/rt26188-speed-up-keys-on-empty-hash.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+        <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -1966,7 +1976,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
   in block  at t/spec/mro/c3_with_overload.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+        <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -1976,7 +1986,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
   in block  at t/spec/mro/c3_with_overload_utf8.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+        <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -1986,7 +1996,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
   in block  at t/spec/mro/overload_c3.v5:38<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ'<br />
+        <tr><td colspan='5'>Can't locate object method "ネᚹ" via package "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ" (perhaps you forgot to load "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -1996,7 +2006,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
   in block  at t/spec/mro/overload_c3_utf8.v5:41<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;InheritingFromOverloadedTest'<br />
+        <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -2140,7 +2150,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389479766.39001<br />
+Could not find sub cuid_102_1389566008.69716<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2249,8 +2259,8 @@ No such symbol '&amp;or'<br />
         <tr><td colspan='5'>Failed to change the working directory to '/home/froggs/dev/v5/lib/deprecate': Directory does not exist<br />
   in sub chdir at gen/parrot/CORE.setting:13646<br />
   in sub chdir at gen/parrot/CORE.setting:13627<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:324<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:324<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:323<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:323<br />
   in block  at t/spec/lib/deprecate.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
@@ -2324,16 +2334,6 @@ at t/spec/uni/lex_utf8.v5:25<br />
   in sub testmèth at t/spec/mro/complex_c3_utf8.v5:87<br />
   in block  at t/spec/mro/complex_c3_utf8.v5:145<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;ฟ옥ʮ'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/isa_aliases_utf8.v5:19<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;object_ok'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
@@ -2379,16 +2379,6 @@ at t/spec/op/protowarn.v5:41<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in sub foo at t/v5/13-op-context.v5:10<br />
   in block  at t/v5/13-op-context.v5:18<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;Foogh'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
-  in any  at gen/parrot/Metamodel.nqp:2691<br />
-  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
-  in any find_method at gen/parrot/Metamodel.nqp:946<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
-  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
-  in block  at t/spec/mro/isa_aliases.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/wantarray.v5<br />
@@ -2466,7 +2456,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389479748.56829<br />
+Could not find sub cuid_102_1389565991.87113<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2543,7 +2533,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp4887B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp20421B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2772,9 +2762,9 @@ Could not find re in any of: lib, ../lib<br />
         <tr><td colspan='5'>Unable to open filehandle from path '/home/froggs/dev/v5/t/arness': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13111<br />
   in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:790<br />
+  in method P5open at lib/Perl5/Terms.pm:827<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
-  in method P5open at lib/Perl5/Terms.pm:787<br />
+  in method P5open at lib/Perl5/Terms.pm:824<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
@@ -3071,7 +3061,7 @@ at t/spec/op/lex_assign.v5:34<br />
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
   in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1146<br />
+  in sub bless at lib/Perl5/Terms.pm:1183<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
