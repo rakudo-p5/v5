@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5434</td><td>35672</td><td>5</td><td>52</td><td>41125</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5438</td><td>35668</td><td>5</td><td>52</td><td>41125</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2393</td><td>12304</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
@@ -245,6 +245,11 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-anon-sub.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>4</td><td>33</td><td>0</td><td>0</td><td>37</td></tr>
+        <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
+  in sub exists at lib/Perl5/Terms.pm:170<br />
+  in block  at t/spec/re/reg_nc_tie.v5:47<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>4</td><td>8</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;DESTROY'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
@@ -691,10 +696,8 @@ Cannot call 'postcircumfix:&lt;P5[ ]&gt;'; none of these signatures match:<br />
   in block  at t/spec/op/do.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/exists_sub.v5<br />
-Preceding context expects a term, but found infix , instead<br />
-at t/spec/op/exists_sub.v5:49<br />
-------&gt;     ok( defined &amp;t5, ,⏏ 't5 defined' );<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+No such method 'orig' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
@@ -767,12 +770,7 @@ at t/spec/op/readdir.v5:75<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Preceding context expects a term, but found infix , instead<br />
 at t/spec/op/require_37033.v5:35<br />
-------&gt; is(fileno STDIN,⏏ 0, 'STDIN is open on file descriptor 0'<br />
-Other potential difficulties:<br />
-    Redeclaration of symbol $fh<br />
-    at t/spec/op/require_37033.v5:14<br />
-    ------&gt;     open my $fh⏏, '&lt;', 'README' or die "Can't open READM<br />
-</td></tr>
+------&gt; is(fileno STDIN,⏏ 0, 'STDIN is open on file descriptor 0'</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
@@ -1024,8 +1022,7 @@ No such symbol '&amp;find_git_or_skip'<br />
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/fold_grind.v5<br />
 Preceding context expects a term, but found infix , instead<br />
 at t/spec/re/fold_grind.v5:4<br />
-------&gt; binmode STDOUT,⏏ ":utf8";<br />
-</td></tr>
+------&gt; binmode STDOUT,⏏ ":utf8";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_advanced.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -1080,11 +1077,9 @@ at t/spec/re/reg_email.v5:76<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/reg_mesg.v5<br />
-Variable '%inf_m1' is not declared. Did you mean any of these?<br />
-    $inf_m1<br />
-    $inf_p1<br />
-at t/spec/re/reg_mesg.v5:93<br />
-------&gt; &gt; "Quantifier in {,} bigger than $inf_m1⏏ {#} m/x{{#}$inf_p1}/",</td></tr>
+Variable '$::IS_EBCDIC' is not declared<br />
+at t/spec/re/reg_mesg.v5:273<br />
+------&gt;     next if $::IS_EBCDIC ⏏&amp;&amp; $regex =~ /utf8/;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
@@ -1329,8 +1324,7 @@ at t/spec/io/say.v5:34<br />
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/through.v5<br />
 Preceding context expects a term, but found infix , instead<br />
 at t/spec/io/through.v5:90<br />
-------&gt;   my @data = grep length,⏏ split /(.{1,$write_c})/s, $str;<br />
-</td></tr>
+------&gt;   my @data = grep length,⏏ split /(.{1,$write_c})/s, $str;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file 't/lib/common.pl' for module t/lib/common.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:71<br />
@@ -1713,7 +1707,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp21908C' on target 'tmp21908B': link failed: No such file or directory<br />
+Failed to create link called 'tmp17484C' on target 'tmp17484B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13731<br />
   in sub link at gen/parrot/CORE.setting:13726<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -2150,7 +2144,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389566008.69716<br />
+Could not find sub cuid_102_1389629387.01241<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2456,7 +2450,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389565991.87113<br />
+Could not find sub cuid_102_1389629368.85814<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2533,7 +2527,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp20421B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp16039B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2796,12 +2790,6 @@ No such symbol '&amp;runperl'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/re/recompile.v5:29<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/reg_nc_tie.v5<br />
-Preceding context expects a term, but found infix , instead<br />
-at t/spec/re/reg_nc_tie.v5:63<br />
-------&gt; like($@, ,⏏ qr/Modification of a read-only value at<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;delete'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
@@ -2853,8 +2841,7 @@ No such symbol '&amp;use_ok'<br />
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sysio.v5<br />
 Preceding context expects a term, but found infix , instead<br />
 at t/spec/op/sysio.v5:217<br />
-------&gt; eval {binmode STDOUT,⏏ ":utf8"};<br />
-</td></tr>
+------&gt; eval {binmode STDOUT,⏏ ":utf8"};</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 QRPA: index out of bounds<br />
@@ -2887,8 +2874,7 @@ at t/spec/mro/package_aliases.v5:75<br />
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/each.v5<br />
 Preceding context expects a term, but found infix , instead<br />
 at t/spec/op/each.v5:172<br />
-------&gt;     is (length,⏏ 3, "check length"); <br />
-</td></tr>
+------&gt;     is (length,⏏ 3, "check length");</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stash.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/stash.v5<br />
 Variable '%pig' is not declared<br />
@@ -2926,8 +2912,7 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/grep.v5<br />
 Preceding context expects a term, but found infix , instead<br />
 at t/spec/op/grep.v5:57<br />
-------&gt;            {a =&gt;$_},⏏&lt;EOL&gt;<br />
-</td></tr>
+------&gt;            {a =&gt;$_},⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/method.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/method.v5<br />
 Two terms in a row<br />
@@ -3208,8 +3193,7 @@ at t/spec/comp/proto.v5:47<br />
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sub_lval.v5<br />
 Preceding context expects a term, but found infix , instead<br />
 at t/spec/op/sub_lval.v5:282<br />
-------&gt; ok(!defined,⏏ 'implicitly returning undef in list con<br />
-</td></tr>
+------&gt; ok(!defined,⏏ 'implicitly returning undef in list con</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/switch.v5</td><td>0</td><td>201</td><td>0</td><td>0</td><td>201</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/switch.v5<br />
 Confused<br />

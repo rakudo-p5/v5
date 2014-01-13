@@ -126,7 +126,7 @@ role STD5 {
     }
 
     role herestop {
-        token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ \v? }
+        token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ <+[\v]-[\x85]>? }
         #~ token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ \v? }
     }
 
@@ -616,7 +616,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token vws {
         :dba('vertical whitespace')
-        \v
+        <[\v]-[\x85]>
     }
 
     # We provide two mechanisms here:
@@ -636,7 +636,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     token comment:sym<#> {
-       '#' {} \N*
+       '#' {} <[\N\x85]>*
     }
 
     token ident {
@@ -2182,9 +2182,15 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token term:sym<variable> {
         <variable>
         [
-#        || <?{ ~$<variable><sigil> ne '$' }>
-        || <?before <ws> \s* '['> { $<variable><really> := '@' }
-        || <?before <ws> \s* '{'> { $<variable><really> := '%' }
+        ||  <!{ $*QSIGIL }>
+            [
+            || <?before <ws> \s* '['> { $<variable><really> := '@' }
+            || <?before <ws> \s* '{'> { $<variable><really> := '%' }
+            ]
+        ||  [
+            || <?[\[]> { $<variable><really> := '@' }
+            || <?[\{]> { $<variable><really> := '%' }
+            ]
         ]?
         { $*VAR := $*VAR || $<variable> }
     }
@@ -3559,11 +3565,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     ## list item separator
     token infix:sym<,>    {
-        <sym> <O('%comma, :fiddly<0>')>
+        <sym> [\s* ','| \s* '=>']* <O('%comma, :fiddly<0>')>
     }
 
     token infix:sym«=>» {
-        <sym> <O('%comma, :fiddly<0>')>
+        <sym> [\s* ','| \s* '=>']* <O('%comma, :fiddly<0>')>
     }
 
     token term:sym<blocklist> {
