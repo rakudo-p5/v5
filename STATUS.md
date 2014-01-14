@@ -16,7 +16,7 @@
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>112</td><td>5</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;a'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -48,7 +48,7 @@ at t/spec/op/magic.v5:178<br />
 ------&gt;     print $? &amp; ⏏0xFF ? "ok $tn[4]$todo\n" : "not ok $tn[</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>56</td><td>8</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Index out of range. Is: 1, should be in 0..0<br />
-  in method Str at gen/parrot/CORE.setting:12118<br />
+  in method Str at gen/parrot/CORE.setting:12129<br />
   in method Str at gen/parrot/CORE.setting:1008<br />
   in method join at gen/parrot/CORE.setting:1605<br />
   in sub join at gen/parrot/CORE.setting:1793<br />
@@ -71,7 +71,7 @@ at t/spec/op/magic.v5:178<br />
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>28</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'splice' for invocant of type 'Any'<br />
-  in sub P5splice at lib/Perl5/Terms.pm:779<br />
+  in sub P5splice at lib/Perl5/Terms.pm:791<br />
   in block  at t/spec/op/splice.v5:89<br />
 <br />  29 tests more than planned were run<br />
 </td></tr>
@@ -106,7 +106,7 @@ at t/spec/op/magic.v5:178<br />
     at t/spec/comp/fold.v5:90<br />
     ------&gt;     local $SIG{__DIE__}  ⏏= sub { $c+= 2 };<br />
 No such symbol '&amp;INSTALL'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -136,7 +136,7 @@ to preserve list context inside function call<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1218<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1209<br />
   in method match at gen/parrot/CORE.setting:3487<br />
-  in method Bool at gen/parrot/CORE.setting:12498<br />
+  in method Bool at gen/parrot/CORE.setting:12509<br />
   in method Bool at gen/parrot/CORE.setting:795<br />
   in sub P5Bool at lib/Perl5/Terms.pm:300<br />
   in sub P5Bool at lib/Perl5/Terms.pm:300<br />
@@ -169,7 +169,7 @@ Cannot call 'push'; none of these signatures match:<br />
     at t/spec/op/length.v5:176<br />
     ------&gt; my $u⏏;<br />
 No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -211,7 +211,7 @@ current instr.: 'chr' pc 263550 (src/gen/p-CORE.setting.pir:111388) (gen/parrot/
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/mod.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;foo'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -222,7 +222,7 @@ current instr.: 'chr' pc 263550 (src/gen/p-CORE.setting.pir:111388) (gen/parrot/
         <tr align='center'><td align='left'>mro/isa_aliases_utf8.v5</td><td>6</td><td>6</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>Can't locate object method "ook" via package "Baro" (perhaps you forgot to load "Baro"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -252,7 +252,7 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>4</td><td>8</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;DESTROY'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -263,7 +263,7 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/or.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -282,7 +282,7 @@ Useless use of constant integer 42 in sink context (line 15)<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
 No such symbol '&amp;POSIX::WIFEXITED'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -294,7 +294,7 @@ No such symbol '&amp;POSIX::WIFEXITED'<br />
         <tr align='center'><td align='left'>re/pos.v5</td><td>3</td><td>5</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>3</td><td>8</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;select'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -312,7 +312,7 @@ No such symbol '&amp;POSIX::WIFEXITED'<br />
     at t/spec/op/reverse.v5:82<br />
     ------&gt;     tie my @empty⏏, "Tie::StdArray";<br />
 No such symbol '&amp;delete'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -328,7 +328,7 @@ No such symbol '&amp;delete'<br />
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;C'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -361,7 +361,7 @@ No such symbol '&amp;delete'<br />
         <tr align='center'><td align='left'>re/overload.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub.v5</td><td>2</td><td>14</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Can't locate object method "import" via package "main" (perhaps you forgot to load "main"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -398,7 +398,7 @@ Malformed UTF-8 string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;opendir'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -414,7 +414,7 @@ Malformed UTF-8 string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;L'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -440,7 +440,7 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>1</td><td>28</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;DUPOUT'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -451,7 +451,7 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -462,7 +462,7 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>1</td><td>4</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -487,7 +487,7 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/setpgrpstack.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;setpgrp'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -506,7 +506,7 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;getppid'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -516,7 +516,7 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>1</td><td>7</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;evalbytes'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -536,7 +536,7 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
     at t/spec/op/defins.v5:179<br />
     ------&gt; while (my $name ⏏= each %hash)<br />
 No such symbol '&amp;FILE'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -546,7 +546,7 @@ No such symbol '&amp;FILE'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;warning_is'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -564,7 +564,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left'>mro/next_ineval.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT_utf8.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Can't locate object method "fಓ" via package "Fᶽ" (perhaps you forgot to load "Fᶽ"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -574,7 +574,7 @@ No such symbol '&amp;FILE'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Can't locate object method "foo" via package "Fuz" (perhaps you forgot to load "Fuz"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -586,7 +586,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;vec'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -596,8 +596,8 @@ No such symbol '&amp;FILE'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1183<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
+  in sub bless at lib/Perl5/Terms.pm:1195<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -606,8 +606,8 @@ No such symbol '&amp;FILE'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1183<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
+  in sub bless at lib/Perl5/Terms.pm:1195<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -616,8 +616,8 @@ No such symbol '&amp;FILE'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1183<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
+  in sub bless at lib/Perl5/Terms.pm:1195<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -626,8 +626,8 @@ No such symbol '&amp;FILE'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1183<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
+  in sub bless at lib/Perl5/Terms.pm:1195<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -701,7 +701,7 @@ No such method 'orig' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -721,7 +721,7 @@ at t/spec/op/inc.v5:56<br />
 ------&gt; $b ⏏= -$a;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -753,7 +753,7 @@ at t/spec/op/mydef.v5:173<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 32)<br />
 No such symbol '&amp;AUX'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -773,7 +773,7 @@ at t/spec/op/require_37033.v5:35<br />
 ------&gt; is(fileno STDIN,⏏ 0, 'STDIN is open on file descriptor 0'</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -793,7 +793,7 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -803,7 +803,7 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;v256'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -832,7 +832,7 @@ at t/spec/op/write.v5:81<br />
 WARNINGS:<br />
 Useless use of "," in expression "my @raw, @upgraded, @utf8" in sink context (line 38)<br />
 Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -849,9 +849,9 @@ Could not find symbol '&amp;upgrade'<br />
     at t/spec/porting/args_assert.v5:38<br />
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -862,7 +862,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such fi
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;find_git_or_skip'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -872,7 +872,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such fi
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;find'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -883,7 +883,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such fi
         <tr align='center'><td align='left'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;find_git_or_skip'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -902,7 +902,7 @@ at t/spec/porting/diag.v5:106<br />
 ------&gt; TA as it is already in $pod near line $.⏏";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;find'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -928,9 +928,9 @@ Calling 'split' will never work with argument types (str) (line 43)<br />
     at t/spec/porting/filenames.v5:37<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/../MANIFEST': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/filenames.v5:37<br />
 </td></tr>
@@ -947,9 +947,9 @@ at t/spec/comp/require.v5:182<br />
 WARNINGS:<br />
 Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in expression "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in sink context (line 16)<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/perl6-p': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/globvar.v5:34<br />
 </td></tr>
@@ -963,9 +963,9 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
     at t/spec/porting/manifest.v5:17<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
 </td></tr>
@@ -975,7 +975,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file
     at t/spec/porting/pending-author.v5:56<br />
     ------&gt; open my $fh⏏, '|-', "$^X Porting/checkAUTHORS.pl --t<br />
 No such symbol '&amp;find_git_or_skip'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -986,7 +986,7 @@ No such symbol '&amp;find_git_or_skip'<br />
         <tr align='center'><td align='left'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1010,7 +1010,7 @@ at t/spec/porting/test_bootstrap.v5:36<br />
     at t/spec/porting/utils.v5:37<br />
     ------&gt; open my $fh⏏, '&lt;', 'MANIFEST' or die "Can't open MAN<br />
 No such symbol '&amp;find_git_or_skip'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1086,7 +1086,7 @@ No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;upgrade'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1105,12 +1105,24 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/regex_sets.v5:38<br />
 ------&gt; unlike("\cK", qr/(?[ \s - \⏏cK ])/, 'can do basic subtraction');</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find ./re/regexp.t or ./t/re/regexp.t<br />
-  in block  at t/spec/re/regex_sets_compat.v5:16<br />
+        <tr><td colspan='5'>  in block  at t/spec/re/regex_sets_compat.v5:12<br />
+  in method reify at gen/parrot/CORE.setting:7331<br />
+  in method reify at gen/parrot/CORE.setting:7226<br />
+  in method gimme at gen/parrot/CORE.setting:7654<br />
+  in method eager at gen/parrot/CORE.setting:7626<br />
+  in block  at t/spec/re/regex_sets_compat.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Element shifted from empty list<br />
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of constant integer 1 in sink context (line 401)<br />
+No such symbol '&amp;TESTS'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/re/regexp.v5:78<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regexp_noamp.v5:9<br />
@@ -1146,7 +1158,7 @@ Element shifted from empty list<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;useithreads'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1194,7 +1206,7 @@ Useless use of constant integer 0 in sink context (line 10)<br />
     at t/spec/run/locale.v5:165<br />
     ------&gt; 	local $ENV{LC_ALL}⏏; # so it never overrides LC_NUMERIC<br />
 No such symbol '&amp;LOCALES'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1204,7 +1216,7 @@ No such symbol '&amp;LOCALES'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1214,7 +1226,7 @@ No such symbol '&amp;LOCALES'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;can_ok'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1233,14 +1245,14 @@ at t/spec/uni/attrs.v5:160<br />
 current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 138283 (src/gen/p-CORE.setting.pir:58754) (gen/parrot/CORE.setting:10873)</td></tr>
+current instr.: 'print_exception' pc 138283 (src/gen/p-CORE.setting.pir:58754) (gen/parrot/CORE.setting:10884)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>no kid script<br />
   in block  at t/spec/io/crlf_through.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;run_multiple_progs'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1250,10 +1262,10 @@ current instr.: 'print_exception' pc 138283 (src/gen/p-CORE.setting.pir:58754) (
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 138283 (src/gen/p-CORE.setting.pir:58754) (gen/parrot/CORE.setting:10873)</td></tr>
+current instr.: 'print_exception' pc 138283 (src/gen/p-CORE.setting.pir:58754) (gen/parrot/CORE.setting:10884)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 138283 (src/gen/p-CORE.setting.pir:58754) (gen/parrot/CORE.setting:10873)</td></tr>
+current instr.: 'print_exception' pc 138283 (src/gen/p-CORE.setting.pir:58754) (gen/parrot/CORE.setting:10884)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Win32 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -1299,9 +1311,9 @@ at t/spec/io/layers.v5:208<br />
     at t/spec/io/perlio_leaks.v5:29<br />
     ------&gt; 	    open my $fh⏏, "&lt;$layer", $0 or die $!;<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/t/spec/io/perlio_leaks.v5': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1338,7 +1350,7 @@ at t/spec/lib/overload_fallback.v5:6<br />
 ------&gt;  =&gt; sub { 'stringvalue' }, fallback =&gt; 1⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;ok'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1350,7 +1362,7 @@ at t/spec/lib/overload_fallback.v5:6<br />
         <tr align='center'><td align='left'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;DATA'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1408,7 +1420,7 @@ at t/spec/re/no_utf8_pm.v5:16<br />
         <tr align='center'><td align='left'>re/qrstack.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_60508.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;encode'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1439,7 +1451,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;alarm'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1455,7 +1467,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;infix:&lt;0&gt;'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1467,7 +1479,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;BAIL_OUT'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1477,7 +1489,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
   in method BUILDALL at gen/parrot/CORE.setting:904<br />
   in method bless at gen/parrot/CORE.setting:824<br />
   in method new at gen/parrot/CORE.setting:809<br />
@@ -1488,7 +1500,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
   in method BUILDALL at gen/parrot/CORE.setting:904<br />
   in method bless at gen/parrot/CORE.setting:824<br />
   in method new at gen/parrot/CORE.setting:809<br />
@@ -1499,7 +1511,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
   in method BUILDALL at gen/parrot/CORE.setting:904<br />
   in method bless at gen/parrot/CORE.setting:824<br />
   in method new at gen/parrot/CORE.setting:809<br />
@@ -1510,7 +1522,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Could not find symbol 'SUPER'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
   in method BUILDALL at gen/parrot/CORE.setting:904<br />
   in method bless at gen/parrot/CORE.setting:824<br />
   in method new at gen/parrot/CORE.setting:809<br />
@@ -1565,7 +1577,7 @@ No such symbol '&amp;Regexp::DESTROY'<br />
   in method STORE_AT_KEY at gen/parrot/CORE.setting:8897<br />
   in method STORE at gen/parrot/CORE.setting:8909<br />
   in method new at gen/parrot/CORE.setting:8847<br />
-  in sub circumfix:&lt;{ }&gt; at gen/parrot/CORE.setting:9220<br />
+  in sub circumfix:&lt;{ }&gt; at gen/parrot/CORE.setting:9235<br />
   in block  at t/spec/uni/chomp.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1575,7 +1587,7 @@ No such symbol '&amp;Regexp::DESTROY'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1585,7 +1597,7 @@ No such symbol '&amp;Regexp::DESTROY'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;A'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1596,7 +1608,7 @@ No such symbol '&amp;Regexp::DESTROY'<br />
         <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;GR'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1611,7 +1623,7 @@ at t/spec/op/utftaint.v5:27<br />
 ------&gt; *is_utf8 ⏏= \&amp;utf8::is_utf8;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;try'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1623,7 +1635,7 @@ at t/spec/op/utftaint.v5:27<br />
         <tr align='center'><td align='left'>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Can't locate object method "foo" via package "TTop" (perhaps you forgot to load "TTop"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1633,7 +1645,7 @@ at t/spec/op/utftaint.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Can't locate object method "ᕗ" via package "ᵗ톺" (perhaps you forgot to load "ᵗ톺"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1648,7 +1660,7 @@ at t/spec/op/attrhand.v5:19<br />
 ------&gt; sub TypeCheck :ATTR⏏(CODE,RAWDATA) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;crypt'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1667,9 +1679,9 @@ at t/spec/op/attrhand.v5:19<br />
     at t/spec/op/filehandle.v5:15<br />
     ------&gt; open my $fh⏏, "&lt;", \$str;<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/foo': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/op/filehandle.v5:15<br />
 </td></tr>
@@ -1687,7 +1699,7 @@ at t/spec/op/sigsystem.v5:28<br />
     at t/spec/run/mad.v5:42<br />
     ------&gt;     delete local $ENV{$_} ⏏for keys %ENV;<br />
 No such symbol '&amp;delete'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1707,9 +1719,9 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp17484C' on target 'tmp17484B': link failed: No such file or directory<br />
-  in block  at gen/parrot/CORE.setting:13731<br />
-  in sub link at gen/parrot/CORE.setting:13726<br />
+Failed to create link called 'tmp13932C' on target 'tmp13932B': link failed: No such file or directory<br />
+  in block  at gen/parrot/CORE.setting:13742<br />
+  in sub link at gen/parrot/CORE.setting:13737<br />
   in block  at t/spec/win32/fs.v5:18<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/24-strict.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -1764,7 +1776,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;alarm'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1774,7 +1786,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;dbmopen'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1789,7 +1801,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;lock'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1808,7 +1820,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
     at t/spec/re/qr.v5:82<br />
     ------&gt;  tie my $flile⏏, "qrBug";<br />
 No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1823,7 +1835,7 @@ No such symbol '&amp;tie'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;F'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1838,7 +1850,7 @@ at t/spec/uni/opcroak.v5:21<br />
 ------&gt;  $@, qr/Not enough arguments for main::\⏏x{30cb}/u, "Not enough arguments croak i</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;DÙP'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1848,7 +1860,7 @@ at t/spec/uni/opcroak.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/31-autoload.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;a'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1864,7 +1876,7 @@ at t/spec/uni/opcroak.v5:21<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;wantarray'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1880,7 +1892,7 @@ at t/spec/op/blocks.v5:127<br />
 ------&gt; ::is INIT⏏, 5, 'constant named after a special blo</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;kill'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1890,7 +1902,7 @@ at t/spec/op/blocks.v5:127<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/multiline.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;TRY'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1921,7 +1933,7 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
 current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1938,9 +1950,9 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
     at t/spec/io/perlio_open.v5:28<br />
     ------&gt;     ok((open my $fh⏏, "+&lt;", undef), "open my \$fh, '+&lt;', und<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1951,7 +1963,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;delete'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1961,7 +1973,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1971,7 +1983,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1981,7 +1993,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -1991,7 +2003,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Can't locate object method "ネᚹ" via package "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ" (perhaps you forgot to load "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2001,7 +2013,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or dir
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2031,7 +2043,7 @@ Could not find version in any of: ../lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2043,7 +2055,7 @@ Could not find version in any of: ../lib/Perl5<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 93)<br />
 No such symbol '&amp;eq'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2068,7 +2080,7 @@ at t/spec/uni/readline.v5:53<br />
     at t/spec/io/fflush.v5:126<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
 No such symbol '&amp;PROG'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2082,7 +2094,7 @@ No such symbol '&amp;PROG'<br />
         <tr align='center'><td align='left'>mro/recursion_dfs_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;fileno'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2117,7 +2129,7 @@ at t/spec/uni/write.v5:7<br />
 ------&gt; "EBCDIC porting needed") if $::IS_EBCDIC⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;svref_2object'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2144,7 +2156,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389629387.01241<br />
+Could not find sub cuid_102_1389696310.68503<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2154,7 +2166,7 @@ at t/spec/run/dtrace.v5:70<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;binmode'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2169,7 +2181,7 @@ at t/spec/uni/labels.v5:49<br />
 ------&gt;  $@, qr/Label not found for "last Ｅ" at/⏏u, "last's error is UTF-8 clean";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Could not find symbol 'next'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
   in method BUILDALL at gen/parrot/CORE.setting:904<br />
   in method bless at gen/parrot/CORE.setting:824<br />
   in method new at gen/parrot/CORE.setting:809<br />
@@ -2212,7 +2224,7 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2231,7 +2243,7 @@ Other potential difficulties:<br />
 Oops  in block  at t/v5/23-eval.v5:44<br />
 Oops  in block  at t/v5/23-eval.v5:59<br />
 No such symbol '&amp;or'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2241,7 +2253,7 @@ No such symbol '&amp;or'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2251,8 +2263,8 @@ No such symbol '&amp;or'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Failed to change the working directory to '/home/froggs/dev/v5/lib/deprecate': Directory does not exist<br />
-  in sub chdir at gen/parrot/CORE.setting:13646<br />
-  in sub chdir at gen/parrot/CORE.setting:13627<br />
+  in sub chdir at gen/parrot/CORE.setting:13657<br />
+  in sub chdir at gen/parrot/CORE.setting:13638<br />
   in sub P5chdir at lib/Perl5/Terms.pm:323<br />
   in sub P5chdir at lib/Perl5/Terms.pm:323<br />
   in block  at t/spec/lib/deprecate.v5:14<br />
@@ -2308,7 +2320,7 @@ at t/spec/uni/lex_utf8.v5:25<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>Could not find symbol 'next'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
   in method BUILDALL at gen/parrot/CORE.setting:904<br />
   in method bless at gen/parrot/CORE.setting:824<br />
   in method new at gen/parrot/CORE.setting:809<br />
@@ -2319,7 +2331,7 @@ at t/spec/uni/lex_utf8.v5:25<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>Could not find symbol 'next'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
   in method BUILDALL at gen/parrot/CORE.setting:904<br />
   in method bless at gen/parrot/CORE.setting:824<br />
   in method new at gen/parrot/CORE.setting:809<br />
@@ -2330,7 +2342,7 @@ at t/spec/uni/lex_utf8.v5:25<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;object_ok'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2345,7 +2357,7 @@ at t/spec/uni/lex_utf8.v5:25<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;object_ok'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2365,7 +2377,7 @@ at t/spec/op/protowarn.v5:41<br />
 ------&gt; $sub = sub (⏏x) { };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;wantarray'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2381,7 +2393,7 @@ at t/spec/op/wantarray.v5:16<br />
 ------&gt;   my ( $cona⏏, $testnum ) = @_;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2403,7 +2415,7 @@ at t/spec/comp/form_scope.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2418,7 +2430,7 @@ at t/spec/comp/package.v5:18<br />
 ------&gt;     $main⏏'a = $'b;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;weaken'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2450,11 +2462,11 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389629368.85814<br />
+Could not find sub cuid_102_1389696293.0569<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2464,7 +2476,7 @@ Could not find sub cuid_102_1389629368.85814<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;IPC_PRIVATE'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2480,7 +2492,7 @@ Could not find sub cuid_102_1389629368.85814<br />
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Odd number of elements found where hash expected<br />
   in method STORE at gen/parrot/CORE.setting:8910<br />
-  in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16253<br />
+  in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16264<br />
   in block  at t/spec/op/hashwarn.v5:29<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
   in method reify at gen/parrot/CORE.setting:7226<br />
@@ -2494,7 +2506,7 @@ Could not find sub cuid_102_1389629368.85814<br />
     at t/spec/io/crlf.v5:38<br />
     ------&gt; 	open my $fh⏏, "&lt;:crlf", \$fcontents;<br />
 No such symbol '&amp;FOO'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2527,7 +2539,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp16039B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp12031B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2589,7 +2601,7 @@ Calling 'rmdir' requires arguments (lines 58, 47)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FHTMP'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2604,7 +2616,7 @@ Calling 'rmdir' requires arguments (lines 58, 47)<br />
     at t/spec/io/argv.v5:118<br />
     ------&gt;     open my $fh⏏, 'Io_argv1.tmp' or die "Could not open <br />
 Could not find symbol '&amp;Spec'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2686,8 +2698,8 @@ at t/spec/opbasic/qq.v5:45<br />
 WARNINGS:<br />
 Useless use of "," in expression "= `\\@\\[\\]foo`, \"\\n\"" in sink context (line 53)<br />
 Failed to remove the directory 'foo': rmdir failed: No such file or directory<br />
-  in block  at gen/parrot/CORE.setting:13515<br />
-  in sub rmdir at gen/parrot/CORE.setting:13511<br />
+  in block  at gen/parrot/CORE.setting:13526<br />
+  in sub rmdir at gen/parrot/CORE.setting:13522<br />
   in block  at t/spec/base/rs.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/pvbm.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
@@ -2700,7 +2712,7 @@ Calling 'truncate' will never work with argument types (Mu, Int) (line 52)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2740,7 +2752,7 @@ at t/spec/op/qr.v5:73<br />
 ------&gt;     my $x = 1.1; $x = ${qr⏏//};</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;vec'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2754,11 +2766,11 @@ Could not find re in any of: lib, ../lib<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
         <tr><td colspan='5'>Unable to open filehandle from path '/home/froggs/dev/v5/t/arness': No such file or directory(2)<br />
+  in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method open at gen/parrot/CORE.setting:13100<br />
-  in method P5open at lib/Perl5/Terms.pm:827<br />
+  in method P5open at lib/Perl5/Terms.pm:839<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
-  in method P5open at lib/Perl5/Terms.pm:824<br />
+  in method P5open at lib/Perl5/Terms.pm:836<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
@@ -2782,7 +2794,7 @@ at t/spec/cmd/subval.v5:110<br />
     at t/spec/re/recompile.v5:44<br />
     ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
 No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2792,7 +2804,7 @@ No such symbol '&amp;runperl'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;delete'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2829,7 +2841,7 @@ at t/spec/comp/uproto.v5:123<br />
     at t/spec/io/perlio.v5:198<br />
     ------&gt;         open my $fh⏏, "&lt;", \(my $f = *f);<br />
 No such symbol '&amp;use_ok'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2931,7 +2943,7 @@ Could not find Symbol in any of: ../lib<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
 No such symbol '&amp;TEST1'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2947,7 +2959,7 @@ No such symbol '&amp;TEST1'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;watchdog'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -2961,7 +2973,7 @@ No such symbol '&amp;TEST1'<br />
     at t/spec/op/tiearray.v5:295<br />
     ------&gt;     tie my @dummy⏏, "NegFetchsize";<br />
 No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -3045,8 +3057,8 @@ at t/spec/op/lex_assign.v5:34<br />
 ------&gt; my $b = "\⏏u\L$a";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
-  in method sink at gen/parrot/CORE.setting:12127<br />
-  in sub bless at lib/Perl5/Terms.pm:1183<br />
+  in method sink at gen/parrot/CORE.setting:12138<br />
+  in sub bless at lib/Perl5/Terms.pm:1195<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
@@ -3055,7 +3067,7 @@ at t/spec/op/lex_assign.v5:34<br />
     at t/spec/op/stat.v5:465<br />
     ------&gt;     open my $fh⏏, "test.pl";<br />
 Could not find symbol '&amp;Spec'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -3098,7 +3110,7 @@ at t/spec/op/split.v5:207<br />
     at t/spec/run/switches.v5:432<br />
     ------&gt;     open my $f⏏, "&gt;$filename" or skip( "Can't write tem<br />
 No such symbol '&amp;runperl'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -3248,7 +3260,7 @@ at t/spec/op/tie_fetch_count.v5:48<br />
     at t/spec/op/smartmatch.v5:29<br />
     ------&gt; tie my %tied_hash⏏, 'Tie::StdHash';<br />
 No such symbol '&amp;tie'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -3284,7 +3296,7 @@ at t/spec/re/pat_rt_report.v5:96<br />
 ------&gt;         ok("École" =~ /^\⏏C\C(.)/ &amp;&amp; $1 eq 'c', $message);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FOO'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -3298,7 +3310,7 @@ at t/spec/re/pat_rt_report.v5:96<br />
     at t/spec/comp/utf.v5:38<br />
     ------&gt;     open my $fh⏏, "&gt;", "utf$$.pl" or die "utf.pl: $!";<br />
 No such symbol '&amp;binmode'<br />
-  in method &lt;anon&gt; at gen/parrot/CORE.setting:12124<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
   in any find_method at gen/parrot/Metamodel.nqp:946<br />
@@ -3318,9 +3330,9 @@ No such symbol '&amp;binmode'<br />
   in block  at t/spec/comp/utf.v5:57<br />
 </td></tr>
 
-        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1-27-gfdc0be3 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1-28-g08d6968 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
-        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.12-27-g263aa0e built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.12-31-geb1aa54 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
     </tbody>
 </table>

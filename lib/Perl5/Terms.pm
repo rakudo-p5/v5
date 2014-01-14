@@ -770,7 +770,19 @@ multi P5scalar(Hash:D  \SELF) is export {
     SELF.elems && (SELF.elems ~ '/' ~ (SELF.elems < 8 ?? 8 !! (2 ** (1 + SELF.elems.msb))))
 }
 
-sub P5shift(Mu \SELF) is export { try SELF.shift }
+sub P5shift(Mu \SELF) is export {
+    my $r;
+    try {
+        $r = SELF.shift;
+        CATCH {
+            default {
+                $r = Any;
+            }
+        }
+    }
+    $r = Any if $r ~~ Failure;
+    $r
+}
 
 sub P5splice(\arr, $off is copy = 0, $len? is copy, *@lst) is export {
     $off  += +@(arr) if $off < 0;
