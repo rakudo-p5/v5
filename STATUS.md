@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5438</td><td>35668</td><td>5</td><td>52</td><td>41125</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5447</td><td>37426</td><td>5</td><td>52</td><td>42887</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2393</td><td>12304</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
@@ -231,6 +231,23 @@ current instr.: 'chr' pc 263550 (src/gen/p-CORE.setting.pir:111388) (gen/parrot/
   in block  at t/spec/mro/isa_aliases.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/mydef.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏ladol' (indicated by ⏏)<br />
+  in method Numeric at gen/parrot/CORE.setting:12128<br />
+  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4031<br />
+  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4029<br />
+  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4031<br />
+  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4029<br />
+  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:27<br />
+  in sub cmp_ok at /home/froggs/dev/v5/t/test.pl:86<br />
+  in block  at t/spec/op/mydef.v5:25<br />
+  in method reify at gen/parrot/CORE.setting:7331<br />
+  in method reify at gen/parrot/CORE.setting:7226<br />
+  in method gimme at gen/parrot/CORE.setting:7654<br />
+  in method sink at gen/parrot/CORE.setting:8064<br />
+  in block  at t/spec/op/mydef.v5:16<br />
+<br />   5 tests more than planned were run<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 42 in sink context (line 15)<br />
@@ -271,6 +288,9 @@ Useless use of constant integer 42 in sink context (line 15)<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in block  at t/spec/op/or.v5:56<br />
   in block  at t/spec/op/or.v5:1<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>4</td><td>1756</td><td>0</td><td>0</td><td>1760</td></tr>
+        <tr><td colspan='5'>-18446744073709551616 -18446744073709551615 -9223372036854775808 -9223372036854775807 0 -9797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979 -1 0 1 9797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979  9223372036854775807 9223372036854775808 18446744073709551615 18446744073709551616<br />
 </td></tr>
         <tr align='center'><td align='left'>op/filetest_t.v5</td><td>4</td><td>3</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -378,7 +398,7 @@ No such symbol '&amp;delete'<br />
         <tr><td colspan='5'>Malformed UTF-8 string<br />
   in sub QX at gen/parrot/CORE.setting:749<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:118<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:122<br />
   in block  at t/spec/op/print.v5:16<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
   in method reify at gen/parrot/CORE.setting:7226<br />
@@ -393,7 +413,7 @@ Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29
 Malformed UTF-8 string<br />
   in sub QX at gen/parrot/CORE.setting:749<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:118<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:122<br />
   in block  at t/spec/op/concat2.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
@@ -744,11 +764,6 @@ Could not find tests in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-de
 Unable to parse expression in declarator; couldn't find final ')' <br />
 at t/spec/op/my.v5:15<br />
 ------&gt;     { my($a, ⏏undef, $c) = ("ok 9\n", "not ok 10\n", "</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/mydef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/mydef.v5<br />
-Variable '$::_' is not declared<br />
-at t/spec/op/mydef.v5:173<br />
-------&gt;     ::is($::_⏏, 'notmain', 'our $_ forced into main::'</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/line_debug.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 32)<br />
@@ -995,10 +1010,15 @@ No such symbol '&amp;find_git_or_skip'<br />
   in block  at t/spec/porting/pod_rules.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/porting/regen.v5<br />
-Variable '$::NO_ENDING' is not declared<br />
-at t/spec/porting/regen.v5:14<br />
-------&gt; $::NO_ENDING ⏏= $::NO_ENDING = 1;</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/regen.v5:27<br />
+    ------&gt;     open my $fh⏏, '&lt;', $file or die "Can't open $file: $<br />
+Could not find file 'regen/regen_lib.pl' for module regen/regen_lib.pl<br />
+  in any load_module at lib/Perl5/ModuleLoader.nqp:71<br />
+  in any load_module at gen/parrot/ModuleLoader.nqp:181<br />
+  in block  at t/spec/porting/regen.v5:12<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/test_bootstrap.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unrecognized backslash sequence: '\Q'<br />
@@ -1076,10 +1096,15 @@ at t/spec/re/reg_email.v5:76<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/reg_mesg.v5<br />
-Variable '$::IS_EBCDIC' is not declared<br />
-at t/spec/re/reg_mesg.v5:273<br />
-------&gt;     next if $::IS_EBCDIC ⏏&amp;&amp; $regex =~ /utf8/;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;warning_is'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/re/reg_mesg.v5:279<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
@@ -1176,9 +1201,9 @@ No such symbol '&amp;TESTS'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regexp_unicode_prop.v5<br />
-Variable '$::IS_EBCDIC' is not declared<br />
-at t/spec/re/regexp_unicode_prop.v5:68<br />
-------&gt;                $::IS_EBCDIC ⏏? ['!\x{7f}',  '\x{80}',            '!\x</td></tr>
+Unrecognized Perl 5 regex backslash sequence<br />
+at t/spec/re/regexp_unicode_prop.v5:174<br />
+------&gt;     $i ++, redo if $CLASSES [$i] =~ /^\⏏h*#\h*(.*)/;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:71<br />
@@ -1474,7 +1499,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
   in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
   in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:27<br />
-  in sub cmp_ok at /home/froggs/dev/v5/t/test.pl:82<br />
+  in sub cmp_ok at /home/froggs/dev/v5/t/test.pl:86<br />
   in block  at t/spec/lib/1_compile.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1719,7 +1744,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp13932C' on target 'tmp13932B': link failed: No such file or directory<br />
+Failed to create link called 'tmp14600C' on target 'tmp14600B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13742<br />
   in sub link at gen/parrot/CORE.setting:13737<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1911,15 +1936,24 @@ at t/spec/op/blocks.v5:127<br />
   in block  at t/spec/comp/multiline.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/threads-dirh.v5<br />
-Variable '$::TODO' is not declared<br />
-at t/spec/op/threads-dirh.v5:44<br />
-------&gt;   $::TODO ⏏= 'dir handle cloning currently requires</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Two terms in a row<br />
+at t/spec/op/threads-dirh.v5:123<br />
+------&gt;   ⏏is length async { scalar readdir $dirh }</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utf8magic.v5<br />
-Variable '$::stored' is not declared<br />
-at t/spec/op/utf8magic.v5:30<br />
-------&gt; sub STORE     { $::stored ⏏= pop }</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $str2<br />
+    at t/spec/op/utf8magic.v5:32<br />
+    ------&gt; tie my $str2⏏, "", "a";<br />
+Could not find symbol '&amp;is_utf8'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/utf8magic.v5:17<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/tr_7jis.v5<br />
 Variable '$B' is not declared<br />
@@ -2123,10 +2157,9 @@ Bogus statement<br />
 at t/spec/uni/tr_utf8.v5:40<br />
 ------&gt;  $hiragana; $str =~ s/([ぁ-ん])/$h2k{$1}/g⏏o;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/write.v5<br />
-Variable '$::IS_EBCDIC' is not declared<br />
-at t/spec/uni/write.v5:7<br />
-------&gt; "EBCDIC porting needed") if $::IS_EBCDIC⏏;</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Could not find file './test.pl' for module ./test.pl<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;svref_2object'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
@@ -2156,7 +2189,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389696310.68503<br />
+Could not find sub cuid_102_1389731987.48256<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2448,11 +2481,6 @@ at t/spec/re/reg_pmod.v5:41<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find mypragma in any of: lib, /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/numconvert.v5<br />
-Variable '$::additional_tests' is not declared<br />
-at t/spec/op/numconvert.v5:72<br />
-------&gt; $num += $::additional_tests⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utf8cache.v5<br />
 Variable '$a' is not declared<br />
@@ -2462,7 +2490,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389696293.0569<br />
+Could not find sub cuid_102_1389731969.87984<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2539,7 +2567,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp12031B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp13413B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2549,10 +2577,15 @@ at t/spec/op/glob.v5:117<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/lfs.v5<br />
-Variable '$::Tests_Are_Passing' is not declared<br />
-at t/spec/op/lfs.v5:232<br />
-------&gt; explain() unless $::Tests_Are_Passing⏏;</td></tr>
+        <tr><td colspan='5'>No such symbol '&amp;BIG'<br />
+  in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
+  in any  at gen/parrot/Metamodel.nqp:2691<br />
+  in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
+  in any find_method at gen/parrot/Metamodel.nqp:946<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1687<br />
+  in any  at gen/parrot/BOOTSTRAP.nqp:1669<br />
+  in block  at t/spec/op/lfs.v5:78<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/caller.v5<br />
 Two terms in a row<br />
@@ -2907,11 +2940,6 @@ at t/spec/uni/stash.v5:71<br />
 Two terms in a row<br />
 at t/spec/mro/basic.v5:7<br />
 ------&gt; BEGIN { require q(t/test.pl); } ⏏plan(tests =&gt; 59);</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '@::bbblplast' is not declared<br />
-at t/spec/op/inccode.v5:331<br />
-------&gt;     @::bbblplast ⏏= ();</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/quotemeta.v5<br />
 Unrecognized backslash sequence: '\U'<br />
@@ -3000,6 +3028,24 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
         <tr><td colspan='5'>===SORRY!===<br />
 QRPA: index out of bounds<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:29<br />
+    ------&gt;     open my $fh⏏, "&gt;$f" or die "Can't create $f: $!";<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:274<br />
+    ------&gt;         open my $fh⏏, '&lt;',<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:303<br />
+    ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
+No such method 'substr' for invocant of type 'Any'<br />
+  in sub substr-rw at gen/parrot/CORE.setting:6632<br />
+  in sub P5substr at lib/Perl5/Terms.pm:816<br />
+  in sub P5substr at lib/Perl5/Terms.pm:809<br />
+  in sub fooinc at t/spec/op/inccode.v5:39<br />
+  in block  at t/spec/op/inccode.v5:47<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/oct.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/oct.v5<br />
 Unrecognized backslash sequence: '\L'<br />
@@ -3027,9 +3073,9 @@ at t/spec/op/undef.v5:16<br />
 ------&gt; ok !defined($a⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/goto.v5</td><td>0</td><td>89</td><td>0</td><td>0</td><td>89</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '$::FILE' is not declared<br />
-at t/spec/op/goto.v5:285<br />
-------&gt;  $pack $file $line", "1 2 3 main $::FILE⏏ $::LINE",</td></tr>
+Variable '*__' is not declared. Did you mean '@__'?<br />
+at t/spec/op/goto.v5:482<br />
+------&gt; sub { *__ ⏏= \@_;  goto &amp;null } -&gt; ("rough and tubb</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 QRPA: index out of bounds<br />
@@ -3330,7 +3376,7 @@ No such symbol '&amp;binmode'<br />
   in block  at t/spec/comp/utf.v5:57<br />
 </td></tr>
 
-        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1-28-g08d6968 built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1-37-g9c0f3b2 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
         <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.12-31-geb1aa54 built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>

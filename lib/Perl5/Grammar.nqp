@@ -277,9 +277,11 @@ role STD5 {
             $varast.name( ~$var<really> ~ ~$var<desigilname> ) if $var<really>;
             $varast.name( ~$var<sigil>  ~ ~$var<name> )        if $var<name>;
             my $name := $varast.name;
+            my $is_global := nqp::substr(~$var<desigilname>, 0, 2) eq '::';
             if $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
-                    if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) || $name eq '%_' {
+                    if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) || $name eq '%_'
+                    || $is_global {
                         
                         my $BLOCK := $*W.cur_lexpad();
                         
@@ -287,9 +289,10 @@ role STD5 {
                         # type if we have one; a trait may twiddle with that later.
                         my %cont_info := Perl5::World::container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE.ast] !! []);
                         my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
+                        my $package := $is_global ?? $*W.symbol_lookup(['GLOBAL'], $/) !! $*PACKAGE;
 
                         $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
-                            :scope('our'), :package($*PACKAGE));
+                            :scope('our'), :$package);
                         
                         # Set scope and type on container, and if needed emit code to
                         # reify a generic type.

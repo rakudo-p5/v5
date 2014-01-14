@@ -2096,6 +2096,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $past<metaattr> := $attr;
         }
         elsif $*SCOPE eq 'my' || $*SCOPE eq 'our' || $*SCOPE eq 'state' || $*SCOPE eq 'local' {
+            my $package := $*PACKAGE;
             # Twigil handling.
             if $twigil eq '.' {
                 add_lexical_accessor($/, $past, $desigilname, $*W.cur_lexpad());
@@ -2117,6 +2118,15 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 elsif $desigilname eq '' {
                     $/.CURSOR.panic("Cannot have an anonymous 'our'-scoped variable");
                 }
+            }
+            if nqp::substr($desigilname, 0, 2) eq '::' {
+                if $*SCOPE eq 'my' {
+                    $/.CURSOR.panic("\"my\" variable $name can't be in a package");
+                }
+                elsif $*SCOPE eq 'our' {
+                    $/.CURSOR.panic("No package name allowed for variable $name in \"our\"");
+                }
+                $package := $*W.symbol_lookup(['GLOBAL'], $/)
             }
 
             # Create a container descriptor. Default to rw and set a
@@ -2142,9 +2152,9 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     $i := $i + 1;
                 }
             }
-            
+
             $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
-                :scope($*SCOPE), :package($*PACKAGE));
+                :scope($*SCOPE), :package($package));
             
             # Set scope and type on container, and if needed emit code to
             # reify a generic type.
