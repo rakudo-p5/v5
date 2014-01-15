@@ -24,7 +24,7 @@ sub _eval_dies_ok(*@args)    { eval_dies_ok(|@args)               }
 sub _eval_lives_ok(*@args)   { eval_lives_ok(|@args)              }
 sub _is_deeply($a, $b, $c)   { is_deeply($a, $b, $c)              }
 sub _eq_array($a, $b)        { $a eqv $b                          }
-sub _cmp_ok($a, $b, $c, $d?) { _ok(::("&infix:<$b>")($a // 0, $c // 0), $d // '') }
+sub _cmp_ok($a, $b, $c, $d?) { _ok(::("&infix:<P5$b>")($a // 0, $c // 0), $d // '') }
 sub _done_testing()          { done_testing()                     }
 sub _done()                  { done()                             }
 my $tmpfile;
