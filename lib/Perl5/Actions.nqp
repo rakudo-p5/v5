@@ -638,7 +638,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     sub add_param($block, @params, $name) {
         $V5DEBUG && say("add_param($block, $name)");
-        if !$block.symbol($name) || $block.symbol($name)<for_variable> {
+        if !$block.symbol($name) || $block.symbol($name)<for_variable> || $name eq '$_' {
             if $*IMPLICIT {
                 @params.push(hash(
                     :variable_name($name), :optional(1),
@@ -4623,9 +4623,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # TODO only set last-match if modifier "g" was used. (m//g)
         #~ say($rhs.dump);
 
+        # In case of a tr/// we return the number of translated chars.
+        if $rhs<is_trans> {
+            $sm_call := $rhs
+        }
         # In case the rhs is a substitution, the result should say if it actually
         # matched something. Calling ACCEPTS will always be True for this case.
-        if $rhs<is_subst> {
+        elsif $rhs<is_subst> {
             $sm_call := QAST::Stmt.new(
                 $rhs,
                 QAST::Op.new(
@@ -5515,13 +5519,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("method quote:sym<tr>($/)");
         my $left  := ~$<tribble><left>;
         my $right := ~$<tribble><right>;
-        make QAST::Op.new(:op<p6store>,
+        my $past := make QAST::Op.new(:op<call>, :name<&P5trans>,
             QAST::Var.new(:name('$_'), :scope<lexical>),
-            QAST::Op.new(:op<callmethod>, :name<trans>,
-                QAST::Var.new(:name('$_'), :scope<lexical>),
-                make_pair($left, QAST::SVal.new(:value($right))),
-            )
+            make_pair($left, QAST::SVal.new(:value($right))),
         );
+        $past<is_trans> := 1;
+        $past
     }
 
     method quote:sym<quasi>($/) {

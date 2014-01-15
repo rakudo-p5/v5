@@ -3,8 +3,8 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5447</td><td>37426</td><td>5</td><td>52</td><td>42887</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2393</td><td>12304</td><td>0</td><td>7</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5398</td><td>37526</td><td>5</td><td>52</td><td>42887</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2296</td><td>12401</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 <br />   2 skipped: (EBCDIC and) version strings are bad idea<br />
@@ -30,7 +30,7 @@
   in block  at t/spec/cmd/for.v5:650<br />
 <br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>95</td><td>65</td><td>0</td><td>3</td><td>163</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>98</td><td>62</td><td>0</td><td>3</td><td>163</td></tr>
         <tr><td colspan='5'>Type of argument to each on reference must be unblessed hashref or arrayref  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 Type of argument to each on reference must be unblessed hashref or arrayref  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 <br />   3 skipped: Cannot modify an immutable value<br />
@@ -46,7 +46,7 @@ Type of argument to each on reference must be unblessed hashref or arrayref  in 
 Two terms in a row<br />
 at t/spec/op/magic.v5:178<br />
 ------&gt;     print $? &amp; ⏏0xFF ? "ok $tn[4]$todo\n" : "not ok $tn[</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>56</td><td>8</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>58</td><td>6</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Index out of range. Is: 1, should be in 0..0<br />
   in method Str at gen/parrot/CORE.setting:12129<br />
   in method Str at gen/parrot/CORE.setting:1008<br />
@@ -66,6 +66,17 @@ at t/spec/op/magic.v5:178<br />
         <tr align='center'><td align='left'>op/each_array.v5</td><td>46</td><td>17</td><td>0</td><td>0</td><td>63</td></tr>
         <tr align='center'><td align='left'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/mydef.v5</td><td>38</td><td>18</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Cannot modify an immutable value<br />
+  in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16264<br />
+  in block  at t/spec/op/mydef.v5:142<br />
+  in method reify at gen/parrot/CORE.setting:7331<br />
+  in method reify at gen/parrot/CORE.setting:7226<br />
+  in method gimme at gen/parrot/CORE.setting:7654<br />
+  in method sink at gen/parrot/CORE.setting:8064<br />
+  in block  at t/spec/op/mydef.v5:52<br />
+<br />  56 tests more than planned were run<br />
+</td></tr>
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left'>op/chars.v5</td><td>34</td><td>0</td><td>0</td><td>0</td><td>34</td></tr>
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
@@ -115,19 +126,20 @@ No such symbol '&amp;INSTALL'<br />
   in block  at t/spec/comp/fold.v5:138<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
+        <tr align='center'><td align='left'>op/lop.v5</td><td>17</td><td>0</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/not.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>parens needed around second argument in next two tests<br />
 to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr align='center'><td align='left'>op/lop.v5</td><td>15</td><td>2</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left'>t/v5/04-string.v5</td><td>14</td><td>6</td><td>0</td><td>0</td><td>20</td></tr>
         <tr align='center'><td align='left'>op/int.v5</td><td>14</td><td>1</td><td>0</td><td>0</td><td>15</td></tr>
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 </td></tr>
+        <tr align='center'><td align='left'>op/die_except.v5</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>9</td><td>27</td><td>0</td><td>0</td><td>36</td></tr>
@@ -143,7 +155,7 @@ to preserve list context inside function call<br />
   in sub isnt at t/spec/comp/opsubs.v5:68<br />
   in block  at t/spec/comp/opsubs.v5:139<br />
 </td></tr>
-        <tr align='center'><td align='left'>op/die_except.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr align='center'><td align='left'>op/die_unwind.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>9</td><td>10</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>   3 tests more than planned were run<br />
 </td></tr>
@@ -186,7 +198,6 @@ No such symbol '&amp;tie'<br />
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>   1 todo   : <br />
 </td></tr>
-        <tr align='center'><td align='left'>op/die_unwind.v5</td><td>7</td><td>5</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
@@ -231,23 +242,7 @@ current instr.: 'chr' pc 263550 (src/gen/p-CORE.setting.pir:111388) (gen/parrot/
   in block  at t/spec/mro/isa_aliases.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/mydef.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏ladol' (indicated by ⏏)<br />
-  in method Numeric at gen/parrot/CORE.setting:12128<br />
-  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4031<br />
-  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4029<br />
-  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4031<br />
-  in sub infix:&lt;==&gt; at gen/parrot/CORE.setting:4029<br />
-  in sub _cmp_ok at /home/froggs/dev/v5/t/test.pl:27<br />
-  in sub cmp_ok at /home/froggs/dev/v5/t/test.pl:86<br />
-  in block  at t/spec/op/mydef.v5:25<br />
-  in method reify at gen/parrot/CORE.setting:7331<br />
-  in method reify at gen/parrot/CORE.setting:7226<br />
-  in method gimme at gen/parrot/CORE.setting:7654<br />
-  in method sink at gen/parrot/CORE.setting:8064<br />
-  in block  at t/spec/op/mydef.v5:16<br />
-<br />   5 tests more than planned were run<br />
-</td></tr>
+        <tr align='center'><td align='left'>re/pos.v5</td><td>5</td><td>3</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 42 in sink context (line 15)<br />
@@ -289,9 +284,7 @@ Useless use of constant integer 42 in sink context (line 15)<br />
   in block  at t/spec/op/or.v5:56<br />
   in block  at t/spec/op/or.v5:1<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>4</td><td>1756</td><td>0</td><td>0</td><td>1760</td></tr>
-        <tr><td colspan='5'>-18446744073709551616 -18446744073709551615 -9223372036854775808 -9223372036854775807 0 -9797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979 -1 0 1 9797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979  9223372036854775807 9223372036854775808 18446744073709551615 18446744073709551616<br />
-</td></tr>
+        <tr align='center'><td align='left'>op/numconvert.v5</td><td>4</td><td>1756</td><td>0</td><td>0</td><td>1760</td></tr>
         <tr align='center'><td align='left'>op/filetest_t.v5</td><td>4</td><td>3</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -311,7 +304,6 @@ No such symbol '&amp;POSIX::WIFEXITED'<br />
   in block  at t/spec/run/exit.v5:58<br />
 <br />   3 tests more than planned were run<br />
 </td></tr>
-        <tr align='center'><td align='left'>re/pos.v5</td><td>3</td><td>5</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>3</td><td>8</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;select'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
@@ -346,6 +338,7 @@ No such symbol '&amp;delete'<br />
   in block  at t/spec/op/reverse.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr align='center'><td align='left'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;C'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
@@ -452,7 +445,6 @@ Malformed UTF-8 string<br />
         <tr><td colspan='5'>'lld' is not valid in sprintf format sequence '%lld'<br />
 <br />   2 tests more than planned were run<br />
 </td></tr>
-        <tr align='center'><td align='left'>io/iofile.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/12-context.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -617,7 +609,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12138<br />
-  in sub bless at lib/Perl5/Terms.pm:1195<br />
+  in sub bless at lib/Perl5/Terms.pm:1318<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -627,7 +619,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12138<br />
-  in sub bless at lib/Perl5/Terms.pm:1195<br />
+  in sub bless at lib/Perl5/Terms.pm:1318<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -637,7 +629,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12138<br />
-  in sub bless at lib/Perl5/Terms.pm:1195<br />
+  in sub bless at lib/Perl5/Terms.pm:1318<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -647,7 +639,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12138<br />
-  in sub bless at lib/Perl5/Terms.pm:1195<br />
+  in sub bless at lib/Perl5/Terms.pm:1318<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -866,7 +858,7 @@ Could not find symbol '&amp;upgrade'<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -945,7 +937,7 @@ Calling 'split' will never work with argument types (str) (line 43)<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/../MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/filenames.v5:37<br />
 </td></tr>
@@ -964,7 +956,7 @@ Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgoto
 Unable to open filehandle from path '/home/froggs/dev/v5/perl6-p': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/globvar.v5:34<br />
 </td></tr>
@@ -980,7 +972,7 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
 </td></tr>
@@ -1338,7 +1330,7 @@ at t/spec/io/layers.v5:208<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/t/spec/io/perlio_leaks.v5': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -1491,7 +1483,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;infix:&lt;0&gt;'<br />
+        <tr><td colspan='5'>No such symbol '&amp;infix:&lt;P50&gt;'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
   in any  at gen/parrot/Metamodel.nqp:2691<br />
   in any find_method_fallback at gen/parrot/Metamodel.nqp:2679<br />
@@ -1706,7 +1698,7 @@ at t/spec/op/attrhand.v5:19<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/foo': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/op/filehandle.v5:15<br />
 </td></tr>
@@ -1744,7 +1736,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp14600C' on target 'tmp14600B': link failed: No such file or directory<br />
+Failed to create link called 'tmp26181C' on target 'tmp26181B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13742<br />
   in sub link at gen/parrot/CORE.setting:13737<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1983,10 +1975,8 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
     Redeclaration of symbol $fh<br />
     at t/spec/io/perlio_open.v5:28<br />
     ------&gt;     ok((open my $fh⏏, "+&lt;", undef), "open my \$fh, '+&lt;', und<br />
-Unable to open filehandle from path '/home/froggs/dev/v5/t': No such file or directory(2)<br />
-  in method open at gen/parrot/CORE.setting:13122<br />
-  in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+No such method 'IO' for invocant of type 'Any'<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
   in method reify at gen/parrot/CORE.setting:7331<br />
@@ -2157,9 +2147,10 @@ Bogus statement<br />
 at t/spec/uni/tr_utf8.v5:40<br />
 ------&gt;  $hiragana; $str =~ s/([ぁ-ん])/$h2k{$1}/g⏏o;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find file './test.pl' for module ./test.pl<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/write.v5<br />
+Two terms in a row<br />
+at t/spec/uni/write.v5:103<br />
+------&gt;   like $@, qr/Undefined format "놋웇ʱＦᚖṀŦ/⏏u, 'no such format, with format name in</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;svref_2object'<br />
   in method &lt;anon&gt; at gen/parrot/CORE.setting:12135<br />
@@ -2189,7 +2180,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389731987.48256<br />
+Could not find sub cuid_102_1389787840.55705<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2490,7 +2481,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389731969.87984<br />
+Could not find sub cuid_102_1389787823.13832<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2567,7 +2558,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp13413B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp24561B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2801,9 +2792,9 @@ Could not find re in any of: lib, ../lib<br />
         <tr><td colspan='5'>Unable to open filehandle from path '/home/froggs/dev/v5/t/arness': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13122<br />
   in method open at gen/parrot/CORE.setting:13111<br />
-  in method P5open at lib/Perl5/Terms.pm:839<br />
+  in method P5open at lib/Perl5/Terms.pm:962<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
-  in method P5open at lib/Perl5/Terms.pm:836<br />
+  in method P5open at lib/Perl5/Terms.pm:959<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
@@ -3104,7 +3095,7 @@ at t/spec/op/lex_assign.v5:34<br />
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
   in method sink at gen/parrot/CORE.setting:12138<br />
-  in sub bless at lib/Perl5/Terms.pm:1195<br />
+  in sub bless at lib/Perl5/Terms.pm:1318<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
