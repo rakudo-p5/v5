@@ -50,6 +50,10 @@ END {
     my $planned;
     my $noplan;
     my $Perl;
+
+    $::IS_ASCII  = ord 'A' ==  65;
+    $::IS_EBCDIC = ord 'A' == 193;
+
     sub plan {
         my %args = scalar(@_) == 2 ? @_ : tests => $_[0];
         _plan( $args{'tests'} )
