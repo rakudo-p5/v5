@@ -3968,6 +3968,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'pack',    [ '',   '$@', '',     '',              'callmethod', 'P5pack' ],
         'print',   [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5print' ],
         'shift',   [ '@_', ';+', '',     '',              'call',       '&P5shift' ],
+        'split',   [ '',   '$$$', '',    '',              'call',       '&P5split' ],
         'unlink',  [ '$_', '@',  '',     '',              'call',       '&P5unlink' ],
         'unpack',  [ '@_', '$@', '',     '',              'callmethod', 'P5unpack' ],
         'unshift', [ '@_', '+@' ],

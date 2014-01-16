@@ -2048,6 +2048,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'pos',    '$',
         'sort',   '$@',
         'splice', '@',
+        'split',  '$$$',
         'substr', '$$$$',
         'values', '$',
     );
@@ -3609,7 +3610,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             %prototype{$name} := '@' unless nqp::defined(%prototype{$name});
             $*ALLOW_IOS_VAR := $name ~~ /^ [ 'new' | 'print' | 'say' ] $/;
             $*ALLOW_IOS_NAME := $name ne 'open';
-            $*IN_SPLIT := $name eq 'split';
+            $*IN_SPLIT := $name eq 'split' || $name eq 'grep';
         }
         [\h+ <?[(]>]?
         <args(%prototype{$name})>

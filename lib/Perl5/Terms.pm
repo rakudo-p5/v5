@@ -791,6 +791,78 @@ sub P5splice(\arr, $off is copy = 0, $len? is copy, *@lst) is export {
     arr.splice($off, $len, @lst)
 }
 
+multi P5split(Regex $pattern) is export {
+    P5split($pattern, nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$_'))
+}
+multi P5split(Cool $delimiter) is export {
+    P5split($delimiter, nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctx()), '$_'))
+}
+multi P5split(Regex $pat, $expr, $limit = *) {
+    return ().list
+      if $limit ~~ Numeric && $limit <= 0;
+    my @matches = nqp::istype($limit, Whatever)
+      ?? $expr.match($pat, :g)
+      !! $expr.match($pat, :x(1..$limit-1), :g);
+
+    push @matches, Match.new( :from($expr.chars) );
+    my $prev-pos = 0;
+    if +@matches {
+        @matches.shift if .from == .to == 0 given @matches[0]
+    }
+    my $elems = +@matches;
+    my $i = 0;
+    @matches = map {
+        my $value = $expr.substr($prev-pos, .from - $prev-pos);
+        $prev-pos = .to;
+        $value
+    }, @matches;
+    @matches.pop while @matches[*-1] eq "";
+    @matches
+}
+
+multi P5split(Cool $delimiter, $expr, $limit = *) {
+    my $match-string = $delimiter.Str;
+    return if $expr eq '' && $delimiter eq '';
+
+    my $l = $limit ~~ Whatever ?? $Inf !! $limit;
+    return ().list      if $l <= 0;
+    return ($expr).list if $l == 1;
+
+    my $c = 0;
+    my $done = 0;
+    if $match-string eq "" {
+        my $chars = $expr.chars;
+        map {
+            last if $done;
+
+            if --$chars and --$l {
+                $expr.substr($c++, 1);
+            }
+            else {
+                $done = 1;
+                $expr.substr($c);
+            }
+        }, 1 .. $l;
+    }
+    else {
+        my $width = $match-string.chars;
+        map {
+            last if $done;
+
+            my $m = $expr.index($match-string, $c);
+            if $m.defined and --$l {
+                my $value = $expr.substr($c, $m - $c);
+                $c = $m + $width;
+                $value;
+            }
+            else {
+                $done = 1;
+                $expr.substr($c);
+            }
+        }, 1 .. $l;
+    }
+}
+
 multi P5Str(Mu:U) is export is hidden_from_backtrace {
     P5warn(:cat<uninitialized>, 'Use of uninitialized value in string') unless $*WITHIN_WARN;
     ''
