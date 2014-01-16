@@ -2983,11 +2983,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #        ]
 #    }
     
-    token arg($*PROTOTYPE = '@') {
+    token arg($*PROTOTYPE = '@', $prec = 'f=') {
         :dba('argument')
         [
         #~ | <?stdstopper>
-        || <?{ $*PROTOTYPE eq '@' }> <EXPR('f=')> { $*ARGUMENT_HAVE := 1 }
+        || <?{ $*PROTOTYPE eq '@' }> <EXPR($prec)> { $*ARGUMENT_HAVE := 1 }
         || <?{ $*PROTOTYPE eq '$' }>
             [
             || <?{ $*ARGUMENT_HAVE }> <EXPR('h=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
@@ -3011,7 +3011,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         | <?stdstopper>
         | <?[=]>
         |   [
-            || <?{ $is_semiarglist }> <arg> ** 0..1
+            || <?{ $is_semiarglist }> <arg('@', 'a=')> ** 0..1
             || [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
             ]
         ]
