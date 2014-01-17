@@ -318,10 +318,13 @@ sub test_single_file {
             $stderr  =~ s/\0{3}//g;
             $stderr  =~ s/\xcf\x23\0\0/â/g;
             $stderr  =  colorstrip $stderr;
+            $stderr  =~ tr[\x{9}\x{A}\x{D}\x{20}-\x{D7FF}\x{E000}-\x{FFFD}\x{10000}-\x{10FFFF}][]cd;
             $stderr  =~ s/\s+expecting any of:.+$//s;
             $stderr  =~ s/\s*called from Sub.+$//s;
             $stderr  =~ s/use of uninitialized.+[\n\r]*//ig;
             $stderr  =~ s///g;
+            $stderr  =~ s/ºt//g;
+            $stderr  =~ s/ã //g;
             $stderr .=  "<br />$msg" if $msg;
         }
         elsif( $msg ) {
