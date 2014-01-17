@@ -749,6 +749,9 @@ sub P5print(*@a is copy) is export {
     $fh.print( @a.join('') )
 }
 
+multi P5rand(        ) is export { 1.rand           }
+multi P5rand(Mu \SELF) is export { (SELF || 1).rand }
+
 multi P5ref(Mu    \SELF) is export { '' }
 multi P5ref(Cool  \SELF) is export { '' }
 multi P5ref(Any:D \SELF) is export {

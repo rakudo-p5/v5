@@ -2046,6 +2046,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'map',    '$@',
         'grep',   '$@',
         'pos',    '$',
+        'rand',   '$',
         'sort',   '$@',
         'splice', '@',
         'split',  '$$$',

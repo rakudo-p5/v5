@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5395</td><td>35760</td><td>5</td><td>1808</td><td>42877</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5402</td><td>35753</td><td>5</td><td>1808</td><td>42877</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2296</td><td>12401</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
 'X' outside of string  in sub P5warn at lib/Perl5/Terms.pm:14<br />
@@ -82,7 +82,7 @@ at t/spec/op/magic.v5:178<br />
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>28</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'splice' for invocant of type 'Any'<br />
-  in sub P5splice at lib/Perl5/Terms.pm:791<br />
+  in sub P5splice at lib/Perl5/Terms.pm:794<br />
   in block  at t/spec/op/splice.v5:89<br />
 <br />  29 tests more than planned were run<br />
 </td></tr>
@@ -196,6 +196,7 @@ No such symbol '&amp;tie'<br />
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>   1 todo   : <br />
 </td></tr>
+        <tr align='center'><td align='left'>op/rand.v5</td><td>7</td><td>1</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
@@ -214,7 +215,7 @@ current instr.: 'chr' pc 261926 (src/gen/p-CORE.setting.pir:110968) (gen/parrot/
     Redeclaration of symbol $SIG<br />
     at t/spec/op/die.v5:94<br />
     ------&gt;     local $SIG{__WARN__} ⏏= sub { $ok = 0 };<br />
-ce �tii tu, b� ?<br />
+ce ii tu, b?<br />
   in block  at t/spec/op/die.v5:83<br />
 </td></tr>
         <tr align='center'><td align='left'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
@@ -620,7 +621,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12154<br />
-  in sub bless at lib/Perl5/Terms.pm:1390<br />
+  in sub bless at lib/Perl5/Terms.pm:1393<br />
   in block  at t/spec/mro/isa_c3.v5:63<br />
   in block  at t/spec/mro/isa_c3.v5:45<br />
   in block  at t/spec/mro/isa_c3.v5:34<br />
@@ -630,7 +631,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12154<br />
-  in sub bless at lib/Perl5/Terms.pm:1390<br />
+  in sub bless at lib/Perl5/Terms.pm:1393<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:65<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:47<br />
   in block  at t/spec/mro/isa_c3_utf8.v5:36<br />
@@ -640,7 +641,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'klonk'<br />
   in method sink at gen/parrot/CORE.setting:12154<br />
-  in sub bless at lib/Perl5/Terms.pm:1390<br />
+  in sub bless at lib/Perl5/Terms.pm:1393<br />
   in block  at t/spec/mro/isa_dfs.v5:59<br />
   in block  at t/spec/mro/isa_dfs.v5:41<br />
   in block  at t/spec/mro/isa_dfs.v5:33<br />
@@ -650,7 +651,7 @@ No such symbol '&amp;FILE'<br />
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such symbol 'kഌoんḰ'<br />
   in method sink at gen/parrot/CORE.setting:12154<br />
-  in sub bless at lib/Perl5/Terms.pm:1390<br />
+  in sub bless at lib/Perl5/Terms.pm:1393<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:61<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:43<br />
   in block  at t/spec/mro/isa_dfs_utf8.v5:35<br />
@@ -869,7 +870,7 @@ Could not find symbol '&amp;upgrade'<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13138<br />
   in method open at gen/parrot/CORE.setting:13127<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
   in method reify at gen/parrot/CORE.setting:7343<br />
@@ -950,7 +951,7 @@ No such symbol '&amp;maniread'<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/../MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13138<br />
   in method open at gen/parrot/CORE.setting:13127<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/filenames.v5:37<br />
 </td></tr>
@@ -969,7 +970,7 @@ Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgoto
 Unable to open filehandle from path '/home/froggs/dev/v5/perl6-p': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13138<br />
   in method open at gen/parrot/CORE.setting:13127<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/globvar.v5:34<br />
 </td></tr>
@@ -985,7 +986,7 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/lib/parrot/5.
 Unable to open filehandle from path '/home/froggs/dev/v5/MANIFEST': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13138<br />
   in method open at gen/parrot/CORE.setting:13127<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/manifest.v5:17<br />
 </td></tr>
@@ -1343,7 +1344,7 @@ at t/spec/io/layers.v5:208<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/t/spec/io/perlio_leaks.v5': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13138<br />
   in method open at gen/parrot/CORE.setting:13127<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
   in method reify at gen/parrot/CORE.setting:7343<br />
@@ -1711,7 +1712,7 @@ at t/spec/op/attrhand.v5:19<br />
 Unable to open filehandle from path '/home/froggs/dev/v5/t/foo': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13138<br />
   in method open at gen/parrot/CORE.setting:13127<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/op/filehandle.v5:15<br />
 </td></tr>
@@ -1749,7 +1750,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp31465C' on target 'tmp31465B': link failed: No such file or directory<br />
+Failed to create link called 'tmp28776C' on target 'tmp28776B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13758<br />
   in sub link at gen/parrot/CORE.setting:13753<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1845,10 +1846,10 @@ at t/v5/25-syntax-defined-or.v5:8<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1219<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1210<br />
   in method match at gen/parrot/CORE.setting:3500<br />
-  in sub P5split at lib/Perl5/Terms.pm:804<br />
-  in sub P5split at lib/Perl5/Terms.pm:794<br />
-  in sub P5split at lib/Perl5/Terms.pm:795<br />
-  in sub P5split at lib/Perl5/Terms.pm:794<br />
+  in sub P5split at lib/Perl5/Terms.pm:807<br />
+  in sub P5split at lib/Perl5/Terms.pm:797<br />
+  in sub P5split at lib/Perl5/Terms.pm:798<br />
+  in sub P5split at lib/Perl5/Terms.pm:797<br />
   in block  at t/spec/op/yadayada.v5:24<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1996,7 +1997,7 @@ current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/sta
     at t/spec/io/perlio_open.v5:28<br />
     ------&gt;     ok((open my $fh⏏, "+&lt;", undef), "open my \$fh, '+&lt;', und<br />
 No such method 'IO' for invocant of type 'Any'<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
   in method reify at gen/parrot/CORE.setting:7343<br />
@@ -2151,12 +2152,6 @@ No such symbol '&amp;PROG'<br />
 Unable to parse expression in declarator; couldn't find final ')' <br />
 at t/spec/op/getppid.v5:29<br />
 ------&gt;     pipe my ($r, $w) ⏏or die "pipe: $!\n";</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-CHECK FAILED:<br />
-Calling 'rand' will never work with argument types (int) (lines 53, 51, 214, 212, 237)<br />
-    Expected: :()<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/symbolcache.v5<br />
 Variable '%main::' is not declared<br />
@@ -2201,7 +2196,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389907385.04004<br />
+Could not find sub cuid_102_1389960833.77504<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2248,8 +2243,6 @@ at t/spec/op/hash.v5:77<br />
         <tr align='center'><td align='left' rowspan='2'>op/srand.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 CHECK FAILED:<br />
-Calling 'rand' will never work with argument types (Int, Mu) (line 18)<br />
-    Expected: :()<br />
 Calling 'srand' requires arguments (line 45)<br />
     Expected: :(Int $seed)<br />
 </td></tr>
@@ -2502,7 +2495,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389907368.55715<br />
+Could not find sub cuid_102_1389960817.50989<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2579,7 +2572,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp30131B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp27550B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2808,9 +2801,9 @@ Could not find re in any of: lib, ../lib<br />
         <tr><td colspan='5'>Unable to open filehandle from path '/home/froggs/dev/v5/t/arness': No such file or directory(2)<br />
   in method open at gen/parrot/CORE.setting:13138<br />
   in method open at gen/parrot/CORE.setting:13127<br />
-  in method P5open at lib/Perl5/Terms.pm:1034<br />
+  in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
-  in method P5open at lib/Perl5/Terms.pm:1031<br />
+  in method P5open at lib/Perl5/Terms.pm:1034<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
@@ -3048,8 +3041,8 @@ QRPA: index out of bounds<br />
     ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
 No such method 'substr' for invocant of type 'Any'<br />
   in sub substr-rw at gen/parrot/CORE.setting:6645<br />
-  in sub P5substr at lib/Perl5/Terms.pm:888<br />
-  in sub P5substr at lib/Perl5/Terms.pm:881<br />
+  in sub P5substr at lib/Perl5/Terms.pm:891<br />
+  in sub P5substr at lib/Perl5/Terms.pm:884<br />
   in sub fooinc at t/spec/op/inccode.v5:39<br />
   in block  at t/spec/op/inccode.v5:47<br />
 </td></tr>
@@ -3111,7 +3104,7 @@ at t/spec/op/lex_assign.v5:34<br />
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>No such symbol 'A'<br />
   in method sink at gen/parrot/CORE.setting:12154<br />
-  in sub bless at lib/Perl5/Terms.pm:1390<br />
+  in sub bless at lib/Perl5/Terms.pm:1393<br />
   in block  at t/spec/op/bless.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
