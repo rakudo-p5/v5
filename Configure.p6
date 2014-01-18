@@ -8,13 +8,15 @@ my $have_jvm    = 0;
 
 # That goes into the Makefile.
 my %config =
-    p_perl6           => "PERL6LIB={cwd}/lib perl6-p",
-    m_perl6           => "PERL6LIB={cwd}/lib perl6-m",
-    p_modules         => '',
-    m_modules         => '',
-    p_modules_list    => '',
-    m_modules_list    => '',
-    summary           => '',
+    p_perl6        => "PERL6LIB={cwd}/lib perl6-p",
+    m_perl6        => "PERL6LIB={cwd}/lib perl6-m",
+    p_modules      => '',
+    m_modules      => '',
+    p_modules_list => '',
+    m_modules_list => '',
+    p_clean        => {},
+    m_clean        => {},
+    summary        => '',
 ;
 my regex name { [\w+]+ % '::' };
 my regex desc { <-[\n\[]>+ };
@@ -36,6 +38,8 @@ for @modules -> $module {
     $l                    += $pm.chars + 2;
     my $break_modules_list = !$last && $l > 110;
     $l                     = 0 if $break_modules_list;
+    my $pattern            = "lib/Perl5/$basename";
+    $pattern              ~~ s{\w+$} = '*';
 
     if $have_parrot {
         my $pbc                  = "lib/Perl5/$basename.pbc";
@@ -43,6 +47,8 @@ for @modules -> $module {
         %config<p_modules_list> ~= "$pbc ";
         %config<p_modules_list> ~= "\\\n\t" if $break_modules_list;
         my $deps                 = join ' ', $module<deps>>>.map({ 'lib/Perl5/' ~ .split('::').join('/') ~ '.pir' });
+        %config<p_clean>{"$pattern.pir"} = 1;
+        %config<p_clean>{"$pattern.pbc"} = 1;
 
         my $mk_path = '';
         for 0..^@name_parts.end {
@@ -71,6 +77,7 @@ for @modules -> $module {
         %config<m_modules_list> ~= "$mbc ";
         %config<m_modules_list> ~= "\\\n\t" if $break_modules_list;
         my $deps                 = join ' ', $module<deps>>>.map({ 'lib/Perl5/' ~ .split('::').join('/') ~ '.moarvm' });
+        %config<m_clean>{"$pattern.moarvm"} = 1;
 
         my $mk_path = '';
         for 0..^@name_parts.end {
@@ -92,6 +99,9 @@ for @modules -> $module {
     }
 
     $i++;
+}
+for < p j m > {
+    %config{$_ ~ '_clean'} = %config{$_ ~ '_clean'}.keys.join(' ') if %config{$_ ~ '_clean'} # >
 }
 
 my $Makefile = fill_template 'build/Makefile-common.in';

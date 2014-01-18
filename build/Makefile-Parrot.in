@@ -58,7 +58,7 @@ p-modules: @p_modules_list@
 @p_modules@
 
 p-clean:
-	$(RM_F) lib/*.pbc lib/*.pir lib/Perl5/*.pbc lib/Perl5/*.pir blib/*.pbc blib/*.pir blib/Perl5/*.pbc blib/Perl5/*.pir
+	$(RM_F) lib/*.pbc lib/*.pir lib/Perl5/*.pbc lib/Perl5/*.pir blib/*.pbc blib/*.pir blib/Perl5/*.pbc blib/Perl5/*.pir @p_clean@
 
 p-a-install: @p_a_install@
 p-b-install: @p_b_install@
