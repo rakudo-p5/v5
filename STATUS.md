@@ -23,7 +23,7 @@
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/cmd/for.v5:666<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -54,7 +54,7 @@ at t/spec/op/magic.v5:178<br />
   in sub join at gen/parrot/CORE.setting:1807<br />
   in sub join at gen/parrot/CORE.setting:1806<br />
   in block  at t/spec/op/list.v5:169<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -70,7 +70,7 @@ at t/spec/op/magic.v5:178<br />
         <tr><td colspan='5'>Cannot modify an immutable value<br />
   in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16280<br />
   in block  at t/spec/op/mydef.v5:142<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -102,7 +102,7 @@ at t/spec/op/magic.v5:178<br />
   in method STORE at gen/parrot/CORE.setting:8922<br />
   in method hash at gen/parrot/CORE.setting:1530<br />
   in block  at t/spec/op/localref.v5:48<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -165,7 +165,7 @@ Cannot call 'push'; none of these signatures match:<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1210<br />
   in method push at gen/parrot/CORE.setting:1588<br />
   in block  at t/spec/op/push.v5:87<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -185,7 +185,7 @@ No such symbol '&amp;tie'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/length.v5:126<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -200,7 +200,7 @@ No such symbol '&amp;tie'<br />
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Invalid character for UTF-8 encoding<br />
-current instr.: 'chr' pc 261926 (src/gen/p-CORE.setting.pir:110968) (gen/parrot/CORE.setting:4290)</td></tr>
+current instr.: 'chr' pc 261926 (src/gen/p-CORE.setting.pir:111128) (gen/parrot/CORE.setting:4290)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/unlink.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
@@ -224,7 +224,7 @@ ce ii tu, b?<br />
   in method chr at gen/parrot/CORE.setting:4290<br />
   in sub hexes at t/spec/op/chr.v5:57<br />
   in block  at t/spec/op/chr.v5:69<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -343,7 +343,7 @@ No such symbol '&amp;delete'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/reverse.v5:30<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -360,7 +360,7 @@ No such symbol '&amp;delete'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/v5/26-syntax-namespace.v5:54<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -393,7 +393,7 @@ No such symbol '&amp;delete'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/sub.v5:27<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -405,7 +405,7 @@ No such symbol '&amp;delete'<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:122<br />
   in block  at t/spec/op/print.v5:16<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -430,7 +430,7 @@ Malformed UTF-8 string<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/chdir.v5:74<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -447,7 +447,7 @@ Malformed UTF-8 string<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in sub local2 at t/spec/op/args.v5:76<br />
   in block  at t/spec/op/args.v5:77<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -493,7 +493,7 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/uni/eval.v5:25<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -578,7 +578,7 @@ No such symbol '&amp;FILE'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in sub test_op at t/spec/op/assignwarn.v5:44<br />
   in block  at t/spec/op/assignwarn.v5:51<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -829,7 +829,7 @@ Could not find version in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/utf8decode.v5:11<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -873,7 +873,7 @@ Unable to open filehandle from path '/home/froggs/dev/v5/../proto.h': No such fi
   in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/porting/args_assert.v5:27<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -1124,7 +1124,7 @@ No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/re/reg_posixcc.v5:116<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -1137,7 +1137,7 @@ at t/spec/re/regex_sets.v5:38<br />
 ------&gt; unlike("\cK", qr/(?[ \s - \⏏cK ])/, 'can do basic subtraction');</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets_compat.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regex_sets_compat.v5:12<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -1157,7 +1157,7 @@ No such symbol '&amp;TESTS'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regexp_noamp.v5:9<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -1165,7 +1165,7 @@ No such symbol '&amp;TESTS'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_notrie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regexp_notrie.v5:12<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -1173,7 +1173,7 @@ No such symbol '&amp;TESTS'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regexp_qr.v5:7<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -1181,7 +1181,7 @@ No such symbol '&amp;TESTS'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regexp_qr_embed.v5:8<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -1199,7 +1199,7 @@ No such symbol '&amp;TESTS'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>  in block  at t/spec/re/regexp_trielist.v5:13<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -1276,7 +1276,7 @@ at t/spec/uni/attrs.v5:160<br />
 current instr.: '' pc 31672 (gen/parrot/stage2/NQPHLL.pir:12557) (gen/parrot/stage2/NQPHLL.nqp:1327)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 137735 (src/gen/p-CORE.setting.pir:58645) (gen/parrot/CORE.setting:10900)</td></tr>
+current instr.: 'print_exception' pc 137735 (src/gen/p-CORE.setting.pir:58861) (gen/parrot/CORE.setting:10900)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>no kid script<br />
   in block  at t/spec/io/crlf_through.v5:11<br />
@@ -1293,10 +1293,10 @@ current instr.: 'print_exception' pc 137735 (src/gen/p-CORE.setting.pir:58645) (
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 137735 (src/gen/p-CORE.setting.pir:58645) (gen/parrot/CORE.setting:10900)</td></tr>
+current instr.: 'print_exception' pc 137735 (src/gen/p-CORE.setting.pir:58861) (gen/parrot/CORE.setting:10900)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-current instr.: 'print_exception' pc 137735 (src/gen/p-CORE.setting.pir:58645) (gen/parrot/CORE.setting:10900)</td></tr>
+current instr.: 'print_exception' pc 137735 (src/gen/p-CORE.setting.pir:58861) (gen/parrot/CORE.setting:10900)</td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find Win32 in any of: /home/froggs/dev/nqp/install/lib/parrot/5.9.0-devel/languages/perl6/lib/Perl5<br />
@@ -1347,12 +1347,12 @@ Unable to open filehandle from path '/home/froggs/dev/v5/t/t/spec/io/perlio_leak
   in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
   in block  at t/spec/io/perlio_leaks.v5:21<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -1458,7 +1458,7 @@ at t/spec/re/no_utf8_pm.v5:16<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/re/reg_60508.v5:23<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -1489,7 +1489,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/lib/parrot
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/io/errnosig.v5:24<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -1698,7 +1698,7 @@ at t/spec/op/attrhand.v5:19<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/crypt.v5:34<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -1750,7 +1750,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp28776C' on target 'tmp28776B': link failed: No such file or directory<br />
+Failed to create link called 'tmp23125C' on target 'tmp23125B': link failed: No such file or directory<br />
   in block  at gen/parrot/CORE.setting:13758<br />
   in sub link at gen/parrot/CORE.setting:13753<br />
   in block  at t/spec/win32/fs.v5:18<br />
@@ -1824,7 +1824,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/dbm.v5:66<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -1865,7 +1865,7 @@ No such symbol '&amp;tie'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/re/qr.v5:82<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2000,7 +2000,7 @@ No such method 'IO' for invocant of type 'Any'<br />
   in method P5open at lib/Perl5/Terms.pm:1037<br />
   in method AUTOGEN at gen/parrot/CORE.setting:532<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2176,7 +2176,7 @@ at t/spec/uni/write.v5:103<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/lib/proxy_constant_subs.v5:24<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2196,7 +2196,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389960833.77504<br />
+Could not find sub cuid_102_1390075763.18657<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
@@ -2387,7 +2387,7 @@ at t/spec/uni/lex_utf8.v5:25<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/mro/next_edgecases.v5:25<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2402,7 +2402,7 @@ at t/spec/uni/lex_utf8.v5:25<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/mro/next_edgecases_utf8.v5:28<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2495,7 +2495,7 @@ at t/spec/op/utf8cache.v5:22<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 209)<br />
 ===SORRY!===<br />
-Could not find sub cuid_102_1389960817.50989<br />
+Could not find sub cuid_102_1390075746.02149<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such symbol '&amp;FH'<br />
@@ -2516,7 +2516,7 @@ Could not find sub cuid_102_1389960817.50989<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/io/shm.v5:45<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2527,7 +2527,7 @@ Could not find sub cuid_102_1389960817.50989<br />
   in method STORE at gen/parrot/CORE.setting:8922<br />
   in sub infix:&lt;=&gt; at gen/parrot/CORE.setting:16280<br />
   in block  at t/spec/op/hashwarn.v5:29<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2546,7 +2546,7 @@ No such symbol '&amp;FOO'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/io/crlf.v5:18<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -2572,7 +2572,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 No such method 'Any' for invocant of type 'Int'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp27550B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp21510B:  <br />
   in block  at t/spec/op/die_exit.v5:62<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2979,7 +2979,7 @@ No such symbol '&amp;TEST1'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/loopctl.v5:53<br />
   in block  at t/spec/op/loopctl.v5:50<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -3008,12 +3008,12 @@ No such symbol '&amp;tie'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1692<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in block  at t/spec/op/tiearray.v5:155<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
   in block  at t/spec/op/tiearray.v5:153<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method sink at gen/parrot/CORE.setting:8076<br />
@@ -3364,12 +3364,12 @@ No such symbol '&amp;binmode'<br />
   in any  at gen/parrot/BOOTSTRAP.nqp:1674<br />
   in sub test at t/spec/comp/utf.v5:39<br />
   in block  at t/spec/comp/utf.v5:61<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
   in block  at t/spec/comp/utf.v5:59<br />
-  in method reify at gen/parrot/CORE.setting:7343<br />
+  in method reify at gen/parrot/CORE.setting:7345<br />
   in method reify at gen/parrot/CORE.setting:7238<br />
   in method gimme at gen/parrot/CORE.setting:7666<br />
   in method eager at gen/parrot/CORE.setting:7638<br />
@@ -3378,7 +3378,7 @@ No such symbol '&amp;binmode'<br />
 
         <tr><td>nqp-p --version</td><td colspan='5'>This is nqp version 2013.12.1-32-gea681df built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
-        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.12-288-gdddd3ff built on parrot 5.9.0 revision RELEASE_5_9_0
+        <tr><td>perl6-p --version</td><td colspan='5'>This is perl6 version 2013.12-299-g6aa2f1d built on parrot 5.9.0 revision RELEASE_5_9_0
 </td></tr>
     </tbody>
 </table>
