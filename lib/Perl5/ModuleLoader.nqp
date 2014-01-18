@@ -126,21 +126,22 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
                         "When pre-compiling a module, its dependencies must be pre-compiled first.\n" ~
                         "Please pre-compile " ~ %chosen<pm>);
                 }
-                
+
                 # Read source file.
-#?if parrot
-                my $fh := nqp::open(%chosen<pm>, 'r');
-                $fh.encoding('utf8');
-                my $source := $fh.readall();
-                $fh.close();
-#?endif
-#?if jvm
-                #~ my $fh := nqp::open(%chosen<pm>, 'r');
-                #~ nqp::setencoding($fh, 'utf8');
-                #~ my $source := nqp::readallfh($fh);
-                #~ nqp::closefh($fh);
-#?endif
-                
+                my $source;
+                if nqp::backendconfig<runtime.jars> || nqp::backendconfig<moar> {
+                    my $fh := nqp::open(%chosen<pm>, 'r');
+                    nqp::setencoding($fh, 'utf8');
+                    $source := nqp::readallfh($fh);
+                    nqp::closefh($fh);
+                }
+                else {
+                    my $fh := nqp::open(%chosen<pm>, 'r');
+                    $fh.encoding('utf8');
+                    $source := $fh.readall();
+                    $fh.close();
+                }
+
                 # Get the compiler and compile the code, then run it
                 # (which runs the mainline and captures UNIT).
                 my $?FILES   := %chosen<pm>;
