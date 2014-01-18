@@ -728,6 +728,20 @@ multi P5Numeric(Str:D   \SELF) is export {
 multi P5ord(Mu         ) is export { 0             }
 multi P5ord(Str:D \SELF) is export { SELF.ord || 0 }
 
+sub P5pop(Mu \SELF) is export {
+    my $r;
+    try {
+        $r = SELF.list.pop;
+        CATCH {
+            default {
+                $r = Any;
+            }
+        }
+    }
+    $r = Any if $r ~~ Failure;
+    $r
+}
+
 sub P5pos($s is rw) is export {
     Proxy.new(
         FETCH => sub ($) {
@@ -747,6 +761,11 @@ sub P5print(*@a is copy) is export {
     @a.push: CALLER::DYNAMIC::<$_> unless +@a;
 
     $fh.print( @a.join('') )
+}
+
+sub P5push(Mu \SELF, *@a) is export {
+    try SELF.list.push: |@a;
+    SELF.list.elems // 0
 }
 
 multi P5rand(        ) is export { 1.rand           }
@@ -776,7 +795,7 @@ multi P5scalar(Hash:D  \SELF) is export {
 sub P5shift(Mu \SELF) is export {
     my $r;
     try {
-        $r = SELF.shift;
+        $r = SELF.list.shift;
         CATCH {
             default {
                 $r = Any;
@@ -889,6 +908,11 @@ multi P5substr(\str, $off is copy = 0, $len? is copy) is export {
     $len //= str.chars - $off;
     $len  += str.chars - $off if $len < 0;
     substr-rw(str, $off, $len)
+}
+
+sub P5unshift(Mu \SELF, *@a) is export {
+    try SELF.list.unshift: |@a;
+    SELF.list.elems // 0
 }
 
 my class LSM {
