@@ -1,7 +1,7 @@
-M_NQP    := nqp-m
-M_PERL6  := @m_perl6@
-M_NQPLIB := $(shell $(M_NQP) -e 'print(nqp::backendconfig<prefix> ~ "/languages/nqp");')
-M_P6LIB  := $(shell $(M_PERL6) -e 'print %*CUSTOM_LIB<perl>')
+M_NQP    = nqp-m
+M_PERL6  = @m_perl6@
+M_NQPLIB = @m_nqplib@
+M_P6LIB  = @m_p6lib@
 
 M_HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keem-exit-code --add_use_v5
 

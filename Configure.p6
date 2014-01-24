@@ -2,7 +2,7 @@
 
 use v6;
 my $devnull     = IO::Spec.devnull;
-my $have_parrot = shell("perl6-p -e 1 >$devnull 2>$devnull").status == 0;
+my $have_parrot = 0;
 my $have_moar   = shell("perl6-m -e 1 >$devnull 2>$devnull").status == 0;
 my $have_jvm    = 0;
 
@@ -10,6 +10,8 @@ my $have_jvm    = 0;
 my %config =
     p_perl6        => "PERL6LIB={cwd}/lib perl6-p",
     m_perl6        => "PERL6LIB={cwd}/lib perl6-m",
+    m_nqplib       => qqx{nqp-m -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
+    m_p6lib        => qqx{perl6-m -e "print \%*CUSTOM_LIB<perl>"},
     p_modules      => '',
     m_modules      => '',
     p_modules_list => '',
