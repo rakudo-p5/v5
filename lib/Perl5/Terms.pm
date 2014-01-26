@@ -496,7 +496,7 @@ multi P5Numeric(Str:D   \SELF) is export {
                 $p      = nqp::atpos($parse, 2);
                 #~ parse_fail "base-$radix number must begin with valid digits or '.'"
                 return 0
-                    if nqp::iseq_i($p, -1);
+                    if nqp::islt_i($p, 0);
                 $pos    = $p;
 
                 $int   := nqp::atpos($parse, 0);
@@ -517,7 +517,7 @@ multi P5Numeric(Str:D   \SELF) is export {
 
                 $frac  := nqp::atpos($parse, 0);
                 $base  := nqp::atpos($parse, 1);
-                $ch     = nqp::islt_i($pos, $eos) && nqp::ord($str, $pos);
+                $ch     = nqp::isgt_i($pos, -1) && nqp::islt_i($pos, $eos) && nqp::ord($str, $pos);
             }
 
             # Exponent, if 'E' or 'e' are present (forces return type Num)
@@ -532,9 +532,9 @@ multi P5Numeric(Str:D   \SELF) is export {
                     if nqp::iseq_i($p, -1);
                 $pos    = $p;
 
-                my num $exp  = nqp::atpos($parse, 0);
-                my num $coef = $frac ?? nqp::add_n($int, nqp::div_n($frac, $base)) !! $int;
-                return nqp::p6box_n(nqp::mul_n($coef, nqp::pow_n(10, $exp)));
+                my num $exp  = nqp::atpos($parse, 0).Num;
+                my num $coef = $frac ?? nqp::add_n($int.Num, nqp::div_n($frac.Num, $base.Num)) !! $int.Num;
+                return nqp::p6box_n(nqp::mul_n($coef, nqp::pow_n(10e0, $exp)));
             }
 
             # Multiplier with exponent, if single '*' is present
@@ -667,7 +667,7 @@ multi P5Numeric(Str:D   \SELF) is export {
     my sub parse-real () {
         # Parse a simple number or a Rat numerator
         my $result := parse-simple-number();
-        return $result if nqp::iseq_i($pos, $eos);
+        return $result if nqp::islt_i($pos, 0) || nqp::iseq_i($pos, $eos);
 
         # Check for '/' indicating Rat denominator
         if nqp::iseq_i(nqp::ord($str, $pos), 47) {  # '/'
@@ -688,7 +688,7 @@ multi P5Numeric(Str:D   \SELF) is export {
     # Parse a real number, magnitude of a pure imaginary number,
     # or real part of a complex number
     my $result := parse-real();
-    return $result if nqp::iseq_i($pos, $eos);
+    return $result if nqp::islt_i($pos, 0) || nqp::iseq_i($pos, $eos);
 
     # Check for 'i' or '\\i' indicating first parsed number was
     # the magnitude of a pure imaginary number
