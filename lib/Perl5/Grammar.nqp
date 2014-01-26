@@ -1256,7 +1256,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $label;
         <identifier> ':' <?before \s> <.ws>
 
-        [ <?{ $label := $<identifier>.Str; $*W.is_name($label) }>
+        [ <?{ $label := $<identifier>.Str; $*W.is_name([$label]) }>
           <.sorry("Illegal redeclaration of '$label'")>
         ]?
 
