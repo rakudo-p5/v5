@@ -73,7 +73,7 @@ m-v-install: @m_v_install@
 m-w-install: @m_w_install@
 m-x-install: @m_x_install@
 
-m-install: m-core-install m-a-install m-b-install m-c-install m-d-install m-e-install m-f-install m-g-install m-h-install m-i-install m-l-install m-m-install m-n-install m-o-install m-m-install m-r-install m-s-install m-t-install m-u-install m-v-install m-x-install m-x-install
+m-install: m-core-install m-a-install m-b-install m-c-install m-d-install m-e-install m-f-install m-g-install m-h-install m-i-install m-l-install m-m-install m-n-install m-o-install m-m-install m-r-install m-s-install m-t-install m-u-install m-v-install m-w-install m-x-install
 
 m-uninstall:
 	$(RM_F) $(NQPLIB)/lib/Perl5.moarvm
