@@ -1,8 +1,8 @@
-P_NQP    := nqp-p
-P_PARROT := parrot
-P_PERL6  := @p_perl6@
-P_NQPLIB := $(shell $(P_NQP) -e 'my %conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH]; print(%conf<libdir> ~ %conf<versiondir> ~ "/languages/nqp");')
-P_P6LIB  := $(shell $(P_PERL6) -e 'print %*CUSTOM_LIB<perl>')
+P_NQP    = nqp-p
+P_PARROT = parrot
+P_PERL6  = @p_perl6@
+P_NQPLIB = @p_nqplib@
+P_P6LIB  = @p_p6lib@
 
 # We need to tweak that some day
 P_HAS_ICU = 0
