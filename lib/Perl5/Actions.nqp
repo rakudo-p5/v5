@@ -1207,7 +1207,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
                         QAST::Op.new( :op('null') ),
                         QAST::Op.new( :op('exception') )
                     )),
-                    :jvm(QAST::Op.new( :op('null') ))
+                    :jvm(QAST::Op.new( :op('null') )),
+                    :moar(QAST::Op.new( :op('null') )),
                 ),
                 QAST::WVal.new(
                     :value( $*W.find_symbol(['Nil']) ),
@@ -1269,9 +1270,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
                         )),
                     ),
                     QAST::VM.new(
-                        pirop => 'perl6_invoke_catchhandler 1PP',
-                        QAST::Op.new( :op('null') ),
-                        QAST::Op.new( :op('exception') )
+                        :parrot(QAST::VM.new(
+                            pirop => 'perl6_invoke_catchhandler 1PP',
+                            QAST::Op.new( :op('null') ),
+                            QAST::Op.new( :op('exception') )
+                        )),
+                        :jvm(QAST::Op.new( :op('null') )),
+                        :moar(QAST::Op.new( :op('null') )),
                     ),
                     QAST::WVal.new(
                         :value( $*W.find_symbol(['Nil']) ),
@@ -5801,10 +5806,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         # code in our handler throws an exception.
         my $ex := QAST::Op.new( :op('exception') );
         if $handler<past_block><handlers> && nqp::existskey($handler<past_block><handlers>, $type) {
-#?if parrot
-            $ex := QAST::VM.new( :pirop('perl6_skip_handlers_in_rethrow__0Pi'),
-                $ex, QAST::IVal.new( :value(1) ));
-#?endif
+            if !nqp::backendconfig<runtime.jars> && !nqp::backendconfig<moar> {
+                $ex := QAST::VM.new( :pirop('perl6_skip_handlers_in_rethrow__0Pi'),
+                    $ex, QAST::IVal.new( :value(1) ));
+            }
         }
         else {
             my $prev_content := QAST::Stmts.new();
@@ -5823,7 +5828,12 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     :jvm(QAST::Op.new(
                         :op('rethrow'),
                         QAST::Op.new( :op('exception') )
-                    )))));
+                    )),
+                    :moar(QAST::Op.new(
+                        :op('rethrow'),
+                        QAST::Op.new( :op('exception') )
+                    )),
+                )));
                 
             # rethrow the exception if we reach the end of the handler
             # (if a when {} clause matches this will get skipped due
@@ -5839,7 +5849,8 @@ class Perl5::Actions is HLL::Actions does STDActions {
             :node($/),
             QAST::VM.new(
                 :parrot(QAST::VM.new( :pirop('perl6_invoke_catchhandler__vPP'), $handler, $ex )),
-                :jvm(QAST::Op.new( :op('call'), $handler ))
+                :jvm(QAST::Op.new( :op('call'), $handler )),
+                :moar(QAST::Op.new( :op('call'), $handler )),
             ),
             QAST::Var.new( :scope('lexical'), :name('Nil') )
         );
