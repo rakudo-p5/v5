@@ -4,22 +4,28 @@ use v6;
 my $devnull     = IO::Spec.devnull;
 my $have_parrot = shell("perl6-p -e 1 >$devnull 2>$devnull").status == 0;
 my $have_moar   = shell("perl6-m -e 1 >$devnull 2>$devnull").status == 0;
-my $have_jvm    = 0;
+my $have_jvm    = shell("perl6-j -e 1 >$devnull 2>$devnull").status == 0;
 
 # That goes into the Makefile.
 my %config =
     p_perl6        => "PERL6LIB={cwd}/lib perl6-p",
     m_perl6        => "PERL6LIB={cwd}/lib perl6-m",
+    j_perl6        => "PERL6LIB={cwd}/lib perl6-j",
     p_nqplib       => qqx{nqp-p -e "my \%conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH]; print(\%conf<libdir> ~ \%conf<versiondir> ~ '/languages/nqp');"},
     m_nqplib       => qqx{nqp-m -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
+    j_nqplib       => qqx{nqp-p -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
     p_p6lib        => qqx{perl6-p -e "print \%*CUSTOM_LIB<perl>"},
     m_p6lib        => qqx{perl6-m -e "print \%*CUSTOM_LIB<perl>"},
+    j_p6lib        => qqx{perl6-j -e "print \%*CUSTOM_LIB<perl>"},
     p_modules      => '',
     m_modules      => '',
+    j_modules      => '',
     p_modules_list => '',
     m_modules_list => '',
+    j_modules_list => '',
     p_clean        => {},
     m_clean        => {},
+    j_clean        => {},
     summary        => '',
 ;
 my regex name { [\w+]+ % '::' };
@@ -100,6 +106,32 @@ for @modules -> $module {
 
         %config{"m_{$module<name>.substr(0,1).lc}_install"} ~= "\$(M_P6LIB)/$mbc ";
         %config<summary> ~= ' m-summary';
+    }
+
+    if $have_jvm {
+        my $cls                  = "lib/Perl5/$basename.jar";
+        %config<j_modules_list> ~= "$cls ";
+        %config<j_modules_list> ~= "\\\n\t" if $break_modules_list;
+        my $deps                 = join ' ', $module<deps>>>.map({ 'lib/Perl5/' ~ .split('::').join('/') ~ '.jar' });
+        %config<j_clean>{"$pattern.jar"} = 1;
+
+        my $mk_path = '';
+        for 0..^@name_parts.end {
+            my $path = @name_parts[0..$_].join('/');
+            $mk_path ~= "\t\$(MKPATH) \$(J_P6LIB)/lib/Perl5/$path\n";
+        }
+
+        %config<j_modules> ~= qq:to/J_MODULES/.subst('    ', "\t", :g);
+            $cls: $pm $deps
+            \t@echo Compiling $module<name> to jar
+            \t@\$(J_PERL6) --target=jar --output=$cls $pm
+            \$(J_P6LIB)/$cls: $cls
+            {+@name_parts > 1 ?? $mk_path !! ''}\t\$(CP) $cls \$(J_P6LIB)/$cls
+            
+            J_MODULES
+
+        %config{"j_{$module<name>.substr(0,1).lc}_install"} ~= "\$(J_P6LIB)/$cls ";
+        %config<summary> ~= ' j-summary';
     }
 
     $i++;

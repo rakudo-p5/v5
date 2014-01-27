@@ -76,10 +76,10 @@ m-x-install: @m_x_install@
 m-install: m-core-install m-a-install m-b-install m-c-install m-d-install m-e-install m-f-install m-g-install m-h-install m-i-install m-l-install m-m-install m-n-install m-o-install m-m-install m-r-install m-s-install m-t-install m-u-install m-v-install m-w-install m-x-install
 
 m-uninstall:
-	$(RM_F) $(NQPLIB)/lib/Perl5.moarvm
-	$(RM_F) $(NQPLIB)/lib/Perl5/Actions.moarvm
-	$(RM_F) $(NQPLIB)/lib/Perl5/Grammar.moarvm
-	$(RM_F) $(NQPLIB)/lib/Perl5/World.moarvm
+	$(RM_F) $(M_NQPLIB)/lib/Perl5.moarvm
+	$(RM_F) $(M_NQPLIB)/lib/Perl5/Actions.moarvm
+	$(RM_F) $(M_NQPLIB)/lib/Perl5/Grammar.moarvm
+	$(RM_F) $(M_NQPLIB)/lib/Perl5/World.moarvm
 
 m-summary:
 	V5DEBUG=0 NQP_EXE=nqp-m PERL6_EXE=perl6-m perl t/test_summary

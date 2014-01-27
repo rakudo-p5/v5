@@ -1,0 +1,85 @@
+J_NQP    = nqp-j
+J_PERL6  = @j_perl6@
+J_NQPLIB = @j_nqplib@
+J_P6LIB  = @j_p6lib@
+
+M_HARNESS_WITH_FUDGE = $(PERL) t/harness --fudge --keep-exit-code --add_use_v5
+
+j-all: blib/Perl5.jar j-modules
+
+# core
+$(J_NQPLIB)/lib/Perl5:
+	$(MKPATH) $(J_NQPLIB)/lib/Perl5
+$(J_P6LIB)/lib:
+	$(MKPATH) $(J_P6LIB)/lib
+$(J_P6LIB)/lib/Perl5: $(J_P6LIB)/lib
+	$(MKPATH) $(J_P6LIB)/lib/Perl5
+
+j-core-install: $(J_NQPLIB)/lib/Perl5/World.jar $(J_NQPLIB)/lib/Perl5/Actions.jar $(J_NQPLIB)/lib/Perl5/Grammar.jar $(J_NQPLIB)/lib/Perl5/ModuleLoader.jar $(J_P6LIB)/lib/Perl5.jar
+
+blib/Perl5/World.jar: lib/Perl5/World.nqp
+	@$(MKPATH) blib/Perl5
+	$(J_NQP) --target=jar --output=blib/Perl5/World.jar lib/Perl5/World.nqp
+$(J_NQPLIB)/lib/Perl5/World.jar: blib/Perl5/World.jar $(J_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/World.jar $(J_NQPLIB)/lib/Perl5
+
+blib/Perl5/Actions.jar: blib/Perl5/World.jar lib/Perl5/Actions.nqp
+	$(J_NQP) --target=jar --stagestats --output=blib/Perl5/Actions.jar lib/Perl5/Actions.nqp
+$(J_NQPLIB)/lib/Perl5/Actions.jar: blib/Perl5/Actions.jar $(J_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Actions.jar $(J_NQPLIB)/lib/Perl5
+
+blib/Perl5/Grammar.jar: blib/Perl5/Actions.jar lib/Perl5/Grammar.nqp
+	$(J_NQP) --target=jar --stagestats --output=blib/Perl5/Grammar.jar lib/Perl5/Grammar.nqp
+$(J_NQPLIB)/lib/Perl5/Grammar.jar: blib/Perl5/Grammar.jar $(J_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Grammar.jar $(J_NQPLIB)/lib/Perl5
+
+blib/Perl5/ModuleLoader.jar: lib/Perl5/ModuleLoader.nqp
+	$(J_NQP) --target=jar --output=blib/Perl5/ModuleLoader.jar lib/Perl5/ModuleLoader.nqp
+$(J_NQPLIB)/lib/Perl5/ModuleLoader.jar: blib/Perl5/ModuleLoader.jar $(J_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/ModuleLoader.jar $(J_NQPLIB)/lib/Perl5
+
+blib/Perl5.jar: lib/Perl5.nqp blib/Perl5/World.jar blib/Perl5/Actions.jar blib/Perl5/Grammar.jar blib/Perl5/ModuleLoader.jar
+	$(J_NQP) --target=jar --output=blib/Perl5.jar lib/Perl5.nqp
+$(J_P6LIB)/lib/Perl5.jar: blib/Perl5.jar $(J_P6LIB)/lib/Perl5
+	$(CP) blib/Perl5.jar $(J_P6LIB)/lib
+
+# pragmas and modules
+j-modules: @j_modules_list@
+
+@j_modules@
+
+j-clean:
+	$(RM_F) lib/*.jar lib/*.jar lib/Perl5/*.jar lib/Perl5/*.jar blib/*.jar blib/*.jar blib/Perl5/*.jar blib/Perl5/*.jar @j_clean@
+
+j-a-install: @j_a_install@
+j-b-install: @j_b_install@
+j-c-install: @j_c_install@
+j-d-install: @j_d_install@
+j-e-install: @j_e_install@
+j-f-install: @j_f_install@
+j-g-install: @j_g_install@
+j-h-install: @j_h_install@
+j-i-install: @j_i_install@
+j-l-install: @j_l_install@
+j-j-install: @j_m_install@
+j-n-install: @j_n_install@
+j-o-install: @j_o_install@
+j-j-install: @j_m_install@
+j-r-install: @j_r_install@
+j-s-install: @j_s_install@
+j-t-install: $(J_P6LIB)/lib/Perl5/Terms.jar @j_t_install@
+j-u-install: @j_u_install@
+j-v-install: @j_v_install@
+j-w-install: @j_w_install@
+j-x-install: @j_x_install@
+
+j-install: j-core-install j-a-install j-b-install j-c-install j-d-install j-e-install j-f-install j-g-install j-h-install j-i-install j-l-install j-j-install j-n-install j-o-install j-j-install j-r-install j-s-install j-t-install j-u-install j-v-install j-w-install j-x-install
+
+j-uninstall:
+	$(RM_F) $(J_NQPLIB)/lib/Perl5.jar
+	$(RM_F) $(J_NQPLIB)/lib/Perl5/Actions.jar
+	$(RM_F) $(J_NQPLIB)/lib/Perl5/Grammar.jar
+	$(RM_F) $(J_NQPLIB)/lib/Perl5/World.jar
+
+j-summary:
+	V5DEBUG=0 NQP_EXE=nqp-j PERL6_EXE=perl6-j perl t/test_summary
