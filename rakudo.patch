@@ -1,5 +1,5 @@
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 169a4d2..03ce1b1 100644
+index 49d4c83..b40fee5 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
 @@ -854,6 +854,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
@@ -57,14 +57,3 @@ index 169a4d2..03ce1b1 100644
          <.ws>
      }
      
-@@ -3734,6 +3747,10 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
-             $prec := '%autoincrement';
-             $is_oper := 1;
-         }
-+        elsif $category eq 'postcircumfix' {
-+            $prec := '%methodcall';
-+            $is_oper := 1;
-+        }
-         elsif $category eq 'circumfix' {
-             $is_oper := 0;
-         }
