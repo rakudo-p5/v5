@@ -1,8 +1,8 @@
-PERL      := perl
-PERL6     := PERL6LIB=lib perl6
-RM_F      := $(PERL) -MExtUtils::Command -e rm_f
-CP        := $(PERL) -MExtUtils::Command -e cp
-MKPATH    := $(PERL) -MExtUtils::Command -e mkpath
+PERL      = perl
+PERL6     = PERL6LIB=lib perl6
+RM_F      = $(PERL) -MExtUtils::Command -e rm_f
+CP        = $(PERL) -MExtUtils::Command -e cp
+MKPATH    = $(PERL) -MExtUtils::Command -e mkpath
 
 all: p-all
 
