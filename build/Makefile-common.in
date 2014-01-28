@@ -1,5 +1,5 @@
 PERL      = perl
-PERL6     = PERL6LIB=lib perl6
+PERL6     = perl6 -Ilib
 RM_F      = $(PERL) -MExtUtils::Command -e rm_f
 CP        = $(PERL) -MExtUtils::Command -e cp
 MKPATH    = $(PERL) -MExtUtils::Command -e mkpath

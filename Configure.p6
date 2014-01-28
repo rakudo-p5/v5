@@ -8,9 +8,9 @@ my $have_jvm    = shell("perl6-j -e 1 >$devnull 2>$devnull").status == 0;
 
 # That goes into the Makefile.
 my %config =
-    p_perl6        => "PERL6LIB={cwd}/lib perl6-p",
-    m_perl6        => "PERL6LIB={cwd}/lib perl6-m",
-    j_perl6        => "PERL6LIB={cwd}/lib perl6-j",
+    p_perl6        => "perl6-p -I{cwd}/lib",
+    m_perl6        => "perl6-m -I{cwd}/lib",
+    j_perl6        => "perl6-j -I{cwd}/lib",
     p_nqplib       => qqx{nqp-p -e "my \%conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH]; print(\%conf<libdir> ~ \%conf<versiondir> ~ '/languages/nqp');"},
     m_nqplib       => qqx{nqp-m -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
     j_nqplib       => qqx{nqp-p -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
