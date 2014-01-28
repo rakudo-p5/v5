@@ -283,10 +283,10 @@ multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
 }
 
-multi postcircumfix:<P5[ ]>(Any \SELF)                        is export { SELF.list                   }
-multi postcircumfix:<P5[ ]>(Any \SELF, int $pos)        is rw is export { SELF.at_pos(P5Numeric($pos)) }
-multi postcircumfix:<P5[ ]>(Any \SELF, $pos)            is rw is export { SELF.at_pos(P5Numeric($pos)) }
-multi postcircumfix:<P5[ ]>(Any \SELF, Positional \pos) is rw is export {
+multi postcircumfix_atpos(Any \SELF)                        is export { SELF.list                   }
+multi postcircumfix_atpos(Any \SELF, int $pos)        is rw is export { SELF.at_pos(P5Numeric($pos)) }
+multi postcircumfix_atpos(Any \SELF, $pos)            is rw is export { SELF.at_pos(P5Numeric($pos)) }
+multi postcircumfix_atpos(Any \SELF, Positional \pos) is rw is export {
     if nqp::iscont(pos) {
         return SELF.at_pos(pos)
     }

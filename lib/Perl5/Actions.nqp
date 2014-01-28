@@ -1603,7 +1603,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $past;
         if $<index> {
             $past := QAST::Op.new( :op('call'), :name('&prefix:<P5.>'),
-                QAST::Op.new( :op('call'), :name('&postcircumfix:<P5[ ]>'),
+                QAST::Op.new( :op('call'), :name('&postcircumfix_atpos'),
                 QAST::Var.new(:name('$/'), :scope('lexical')),
                 $*W.add_constant('Int', 'int', +$<index> - 1),
             ) );
@@ -5058,7 +5058,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym<[ ]>($/) {
         $V5DEBUG && say("postcircumfix:sym<[ ]>($/)");
-        my $past := QAST::Op.new( :name('&postcircumfix:<P5[ ]>'), :op('call'), :node($/) );
+        my $past := QAST::Op.new( :name('&postcircumfix_atpos'), :op('call'), :node($/) );
         if $<semilist><statement> {
             my $slast := $<semilist>.ast;
             $past.push($slast);
