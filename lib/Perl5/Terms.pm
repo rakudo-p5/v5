@@ -1213,8 +1213,8 @@ multi P5unlink(Str:D \SELF) is export {
 }
 multi P5unlink(*@a) is export { [+] map { P5unlink($_) }, @a }
 
-multi P5unpack(\SELF, Mu $thing)         is export { SELF.P5unpack( ~$thing ) }
-multi P5unpack(Str:D \SELF)              is export { SELF.P5unpack( CALLER::DYNAMIC::<$_> ) }
+multi P5unpack(\SELF, Mu $thing)         is export { P5unpack(SELF, ~$thing ) }
+multi P5unpack(Str:D \SELF)              is export { P5unpack(SELF, CALLER::DYNAMIC::<$_> ) }
 multi P5unpack(Str:D \SELF, Str $string) is export {
     my $ret;
     try {
@@ -1223,7 +1223,7 @@ multi P5unpack(Str:D \SELF, Str $string) is export {
             default { $ret = $string.encode }
         }
     }
-    SELF.P5unpack($ret)
+    P5unpack(SELF, $ret)
 }
 multi P5unpack(Str:D \SELF, Blob $string) is export {
     my @bytes = $string.list;

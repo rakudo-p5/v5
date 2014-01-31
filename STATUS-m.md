@@ -3,13 +3,29 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5165</td><td>35970</td><td>4</td><td>1802</td><td>42854</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2172</td><td>12529</td><td>0</td><td>3</td><td>14704</td></tr>
-        <tr><td colspan='5'>No such method 'P5unpack' for invocant of type 'Str'<br />
-  in sub P5unpack at lib/Perl5/Terms.pm:1226<br />
-  in sub P5unpack at lib/Perl5/Terms.pm:1216<br />
-  in block  at t/spec/op/pack.v5:530<br />
+        <tr align='center'><td align='left'>summary</td><td>5372</td><td>35759</td><td>4</td><td>1806</td><td>42854</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2377</td><td>12320</td><td>0</td><td>7</td><td>14704</td></tr>
+        <tr><td colspan='5'>This type cannot unbox to a native string<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:12507<br />
+  in block  at src/gen/m-CORE.setting:12449<br />
+  in method reify at src/gen/m-CORE.setting:7370<br />
+  in method reify at src/gen/m-CORE.setting:7235<br />
+  in method gimme at src/gen/m-CORE.setting:7679<br />
+  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:12441<br />
+  in method match at src/gen/m-CORE.setting:6026<br />
+  in method match at src/gen/m-CORE.setting:3500<br />
+  in method match at src/gen/m-CORE.setting:3498<br />
+  in sub like_yn at /home/froggs/dev/v5/t/test.pl:97<br />
+  in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
+  in block  at t/spec/op/pack.v5:1276<br />
+  in method reify at src/gen/m-CORE.setting:7370<br />
+  in method reify at src/gen/m-CORE.setting:7235<br />
+  in method gimme at src/gen/m-CORE.setting:7679<br />
+  in method sink at src/gen/m-CORE.setting:8089<br />
+  in block  at t/spec/op/pack.v5:1008<br />
 <br />   2 skipped: (EBCDIC and) version strings are bad idea<br />
+   4 skipped: Not for EBCDIC<br />
    1 skipped: Couldn't generate infinity - got error ''<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>1106</td><td>264</td><td>0</td><td>0</td><td>1370</td></tr>
@@ -84,21 +100,13 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/_num_to_alpha.v5</td><td>24</td><td>1</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan='5'>Testing limit capabilities<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>22</td><td>30</td><td>0</td><td>0</td><td>52</td></tr>
+        <tr><td colspan='5'>'%*vd' is not valid in sprintf format sequence 'n%*vd'<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ord.v5</td><td>22</td><td>0</td><td>0</td><td>13</td><td>35</td></tr>
         <tr><td colspan='5'>  13 skipped: Invalid character for UTF-8 encoding<br />
 </td></tr>
         <tr align='center'><td align='left'>op/each_array.v5</td><td>21</td><td>42</td><td>0</td><td>0</td><td>63</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>20</td><td>32</td><td>0</td><td>0</td><td>52</td></tr>
-        <tr><td colspan='5'>No such method 'P5unpack' for invocant of type 'Str'<br />
-  in sub P5unpack at lib/Perl5/Terms.pm:1226<br />
-  in sub P5unpack at lib/Perl5/Terms.pm:1216<br />
-  in block  at t/spec/uni/sprintf.v5:119<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
-  in block  at t/spec/uni/sprintf.v5:1<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/fold.v5</td><td>19</td><td>7</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $SIG<br />
@@ -205,18 +213,7 @@ Useless use of constant integer 1 in sink context (line 117)<br />
 ce �ii tu, bã ?<br />
 </td></tr>
         <tr align='center'><td align='left'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
-        <tr><td colspan='5'>No such method 'P5unpack' for invocant of type 'Str'<br />
-  in sub P5unpack at lib/Perl5/Terms.pm:1226<br />
-  in sub P5unpack at lib/Perl5/Terms.pm:1216<br />
-  in sub hexes at t/spec/op/chr.v5:57<br />
-  in block  at t/spec/op/chr.v5:52<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
-  in block  at t/spec/op/chr.v5:1<br />
-</td></tr>
+        <tr align='center'><td align='left'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/mod.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;foo'<br />
@@ -1304,7 +1301,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp7980C' on target 'tmp7980B': link NYI<br />
+Failed to create link called 'tmp12113C' on target 'tmp12113B': link NYI<br />
   in block  at src/gen/m-CORE.setting:13791<br />
   in any  at /home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:13786<br />
@@ -1443,7 +1440,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp7555B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp11664B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1651,7 +1648,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1391169255.37667 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1391171573.49032 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1910,7 +1907,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp7241B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp11215B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
