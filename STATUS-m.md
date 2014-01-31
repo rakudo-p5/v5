@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5372</td><td>35759</td><td>4</td><td>1806</td><td>42854</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5383</td><td>35754</td><td>5</td><td>1808</td><td>42863</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2377</td><td>12320</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
   in sub MAKE_REGEX at src/gen/m-CORE.setting:12507<br />
@@ -28,18 +28,7 @@
    4 skipped: Not for EBCDIC<br />
    1 skipped: Couldn't generate infinity - got error ''<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>1106</td><td>264</td><td>0</td><td>0</td><td>1370</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/op/sprintf2.v5:177<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method eager at src/gen/m-CORE.setting:7651<br />
-  in block  at t/spec/op/sprintf2.v5:159<br />
-</td></tr>
+        <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1106</td><td>264</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr align='center'><td align='left'>op/pow.v5</td><td>268</td><td>0</td><td>0</td><td>0</td><td>268</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>112</td><td>5</td><td>1</td><td>0</td><td>118</td></tr>
@@ -230,6 +219,10 @@ Can't locate object method "ook" via package "Baro" (perhaps you forgot to load 
 Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left'>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>4</td><td>0</td><td>1</td><td>2</td><td>7</td></tr>
+        <tr><td colspan='5'>   2 skipped: typeglobs NYI<br />
+   1 todo   : rakudo doesnt support -l option<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/10-bind-sub-param.v5</td><td>4</td><td>0</td><td>1</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>   1 todo   : <br />
 </td></tr>
@@ -273,6 +266,20 @@ No such symbol '&amp;select'<br />
 No such symbol '&amp;delete'<br />
 </td></tr>
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>3</td><td>6</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
+===SORRY!=== Error while compiling tmp18512A.18512<br />
+Couldn't parse heredoc construct<br />
+at tmp18512A.18512:1<br />
+------&gt; use v5; print &lt;&lt;⏏;<br />
+===SORRY!=== Error while compiling tmp18512A.18512<br />
+Couldn't parse heredoc construct<br />
+at tmp18512A.18512:1<br />
+------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
+===SORRY!=== Error while compiling tmp18512A.18512<br />
+Confused<br />
+at tmp18512A.18512:4<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -293,13 +300,11 @@ No such symbol '&amp;C'<br />
         <tr align='center'><td align='left'>t/v5/05-lex-block-if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>run/switchI.v5</td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/run/switchI.v5:25<br />
+        <tr align='center'><td align='left' rowspan='2'>run/switcht.v5</td><td>2</td><td>11</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+No such symbol '&amp;FILE'<br />
 </td></tr>
+        <tr align='center'><td align='left'>run/switchI.v5</td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>run/noswitch.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>re/overload.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub.v5</td><td>2</td><td>14</td><td>0</td><td>0</td><td>16</td></tr>
@@ -307,6 +312,18 @@ No such symbol '&amp;C'<br />
 Can't locate object method "import" via package "main" (perhaps you forgot to load "main"?)<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+No such symbol '&amp;dbmopen'<br />
+===SORRY!===<br />
+No such symbol '&amp;dbmopen'<br />
+===SORRY!===<br />
+No such symbol '&amp;dbmopen'<br />
+===SORRY!===<br />
+MVMArray: Index out of bounds<br />
+===SORRY!===<br />
+No such symbol '&amp;dbmopen'<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;opendir'<br />
@@ -315,11 +332,6 @@ No such symbol '&amp;opendir'<br />
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;L'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in block  at t/spec/base/term.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/12-context.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
@@ -399,6 +411,13 @@ No such symbol '&amp;evalbytes'<br />
 ===SORRY!===<br />
 No such symbol '&amp;FILE'<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
+===SORRY!=== Error while compiling tmp18398A.18398<br />
+Couldn't find terminator |<br />
+at tmp18398A.18398:14<br />
+------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;warning_is'<br />
@@ -669,8 +688,11 @@ at t/spec/comp/require.v5:182<br />
     ------&gt; open my $fh⏏, '-|', $^X, '-Ilib', './makedef.pl', 'P<br />
 WARNINGS:<br />
 Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in expression "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in sink context (line 16)<br />
-openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
+Failed to open file: no such file or directory<br />
+  in method open at src/gen/m-CORE.setting:13175<br />
+  in method open at src/gen/m-CORE.setting:13165<br />
+  in sub P5open at lib/Perl5/Terms.pm:73<br />
+  in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/porting/globvar.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -776,13 +798,6 @@ at t/spec/re/reg_email.v5:76<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/re/reg_eval.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1015,18 +1030,6 @@ at t/spec/io/through.v5:90<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
   in block  at t/spec/lib/croak.v5:8<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>lib/no_load.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/lib/no_load.v5:25<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method eager at src/gen/m-CORE.setting:7651<br />
-  in block  at t/spec/lib/no_load.v5:15<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/lib/overload_fallback.v5<br />
 Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already exists in this lexical scope<br />
@@ -1100,11 +1103,10 @@ at t/spec/re/reg_fold.v5:30<br />
 ------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/io/bom.v5:1<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp18080A.18080<br />
+Unexpected closing bracket<br />
+at tmp18080A.18080:1<br />
+------&gt; use v5; ï⏏»¿print 1;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/cache.v5<br />
@@ -1208,30 +1210,22 @@ No such symbol '&amp;runperl'<br />
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;A'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>WARNINGS:<br />
-Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/op/concat2.v5:17<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
-  in block  at t/spec/op/concat2.v5:1<br />
-</td></tr>
+        <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;GR'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/op/print.v5:1<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at tmp18660A.18660:7<br />
+    ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
+Failed to open file: no such file or directory<br />
+  in method open at src/gen/m-CORE.setting:13175<br />
+  in method open at src/gen/m-CORE.setting:13165<br />
+  in sub P5open at lib/Perl5/Terms.pm:73<br />
+  in sub P5open at lib/Perl5/Terms.pm:69<br />
+  in block  at tmp18660A.18660:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utftaint.v5<br />
@@ -1239,9 +1233,8 @@ Variable '*is_utf8' is not declared<br />
 at t/spec/op/utftaint.v5:27<br />
 ------&gt; *is_utf8 ⏏= \&amp;utf8::is_utf8;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in block  at t/spec/run/script.v5:1<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+No such symbol '&amp;try'<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left'>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1301,7 +1294,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp12113C' on target 'tmp12113B': link NYI<br />
+Failed to create link called 'tmp19329C' on target 'tmp19329B': link NYI<br />
   in block  at src/gen/m-CORE.setting:13791<br />
   in any  at /home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:13786<br />
@@ -1360,13 +1353,6 @@ at t/v5/25-syntax-defined-or.v5:8<br />
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;alarm'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/op/dbm.v5:44<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1440,7 +1426,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp11664B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp18982B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1576,6 +1562,15 @@ Variable '&amp;Kooh' is not declared<br />
 at t/spec/opbasic/magic_phase.v5:46<br />
 ------&gt; our $affe = bless {}, ⏏Kooh::;<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
+===SORRY!===<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
+===SORRY!=== Error while compiling tmp19127A.19127<br />
+Two terms in a row<br />
+at tmp19127A.19127:38<br />
+------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/readline.v5<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
@@ -1626,19 +1621,6 @@ No such symbol '&amp;svref_2object'<br />
 Two terms in a row<br />
 at t/spec/comp/decl.v5:33<br />
 ------&gt; &lt;BOL&gt;⏏four();</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
-openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/op/heredoc.v5:27<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
-  in block  at t/spec/op/heredoc.v5:1<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/select.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Two terms in a row<br />
@@ -1648,11 +1630,14 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1391171573.49032 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1391184346.39235 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-openpipe NYI<br />
+        <tr><td colspan='5'>/bin/sh: 1: -V: not found<br />
+===SORRY!=== Error while compiling t/spec/run/dtrace.v5<br />
+Couldn't parse heredoc construct<br />
+at t/spec/run/dtrace.v5:70<br />
+------&gt; dtrace_like(&lt;&lt;⏏ 'MAGIC_OP',<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1812,11 +1797,6 @@ at t/spec/op/wantarray.v5:16<br />
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;runperl'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>openpipe NYI<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in block  at t/spec/run/switcht.v5:1<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/lib/universal.v5<br />
 Unable to parse expression in variable; couldn't find final '}' <br />
@@ -1907,7 +1887,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp11215B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp18439B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
