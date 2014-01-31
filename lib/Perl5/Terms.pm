@@ -66,6 +66,17 @@ class STDERR {
     method P5close(*@a) { }
 }
 
+multi P5open( \SELF, $expr ) is export {
+    SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) unless SELF ~~ any(STDOUT|STDERR)
+}
+multi P5open( \SELF, $m, $expr, *@list ) is export {
+    SELF = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) )
+         unless SELF ~~ any(STDOUT|STDERR)
+}
+
+sub P5close(\SELF) is export { SELF && SELF.close }
+
+
 role P5MatchPos {
     has $.last-match is rw;
 }
@@ -179,77 +190,77 @@ sub system(*@a) is export { shell(@a).status || '' }
 ### Operators by precedence
 
 # x=, autoincrement (++ and --)
-sub prefix:<P5++> (\a)    is export { ++a }
-sub prefix:<P5--> (\a)    is export { --a }
-sub postfix:<P5++>(\a)    is export { a++ }
-sub postfix:<P5-->(\a)    is export { a-- }
+sub ::('prefix:<P5++>') (\a)    is export { ++a }
+sub ::('prefix:<P5-->') (\a)    is export { --a }
+sub ::('postfix:<P5++>')(\a)    is export { a++ }
+sub ::('postfix:<P5-->')(\a)    is export { a-- }
 
 # w= exponentiation (right **)
-sub infix:<P5**> (\a, \b) is export { &prefix:<P5+>(a) ** &prefix:<P5+>(b) }
+sub ::('infix:<P5**>') (\a, \b) is export { &prefix:<P5+>(a) ** &prefix:<P5+>(b) }
 
 # v=, symbolic unary (right ! ~ \ and unary + and -)
-sub prefix:<P5!> (\a)     is export { !P5Bool(a)   }
-sub prefix:<P5~> (\a)     is export { 18446744073709551616 - (P5Numeric(a) + 1)   }
-sub prefix:<P5.> (\a)     is export {  P5Str(a)    }
-sub prefix:<P5+> (\a)     is export {  P5Numeric(a) }
-sub prefix:<P5-> (\a)     is export { -P5Numeric(a) }
-sub prefix:<P5bs>(\a)     is export { a }
+sub ::('prefix:<P5!>') (\a)     is export { !P5Bool(a)   }
+sub ::('prefix:<P5~>') (\a)     is export { 18446744073709551616 - (P5Numeric(a) + 1)   }
+sub ::('prefix:<P5.>') (\a)     is export {  P5Str(a)    }
+sub ::('prefix:<P5+>') (\a)     is export {  P5Numeric(a) }
+sub ::('prefix:<P5->') (\a)     is export { -P5Numeric(a) }
+sub ::('prefix:<P5bs>')(\a)     is export { a }
 
 # u=, binding (left =~ !~)
-#~ sub infix:<P5=~> (\a, \b) is export { say a; say b; a.match(b)           }
-#~ sub infix:<P5!~> (\a, \b) is export { !&infix:<P5=~>(a, b) }
+#~ sub ::('infix:<P5=~>') (\a, \b) is export { say a; say b; a.match(b)           }
+#~ sub ::('infix:<P5!~>') (\a, \b) is export { !&infix:<P5=~>(a, b) }
 
 # t=, subplicative (left * / % x)
-sub infix:<P5*>  (\a, \b) is export { &prefix:<P5+>(a) * &prefix:<P5+>(b) }
-sub infix:<P5/>  (\a, \b) is export { &prefix:<P5+>(a) / &prefix:<P5+>(b) }
-sub infix:<P5%>  (\a, \b) is export { &prefix:<P5+>(a) % &prefix:<P5+>(b) }
-sub infix:<P5x>  (\a, \b) is export { &prefix:<P5.>(a) x &prefix:<P5+>(b) }
+sub ::('infix:<P5*>')  (\a, \b) is export { &prefix:<P5+>(a) * &prefix:<P5+>(b) }
+sub ::('infix:<P5/>')  (\a, \b) is export { &prefix:<P5+>(a) / &prefix:<P5+>(b) }
+sub ::('infix:<P5%>')  (\a, \b) is export { &prefix:<P5+>(a) % &prefix:<P5+>(b) }
+sub ::('infix:<P5x>')  (\a, \b) is export { &prefix:<P5.>(a) x &prefix:<P5+>(b) }
 
 # s=, additive (left + - .)
-sub infix:<P5+>  (\a, \b) is export { &prefix:<P5+>(a) + &prefix:<P5+>(b) }
-sub infix:<P5->  (\a, \b) is export { &prefix:<P5+>(a) - &prefix:<P5+>(b) }
-sub infix:<P5.>  (*@a)    is export { [~] map { &prefix:<P5.>($_) }, @a   }
+sub ::('infix:<P5+>')  (\a, \b) is export { &prefix:<P5+>(a) + &prefix:<P5+>(b) }
+sub ::('infix:<P5->')  (\a, \b) is export { &prefix:<P5+>(a) - &prefix:<P5+>(b) }
+sub ::('infix:<P5.>')  (*@a)    is export { [~] map { &prefix:<P5.>($_) }, @a   }
 
 # r=, shift (left << >>)
-sub infix:«P5<<» (\a, \b) is export { &prefix:<P5+>(a) +< &prefix:<P5+>(b) }
-sub infix:«P5>>» (\a, \b) is export { &prefix:<P5+>(a) +> &prefix:<P5+>(b) }
+sub ::('infix:<P5<<>') (\a, \b) is export { &prefix:<P5+>(a) +< &prefix:<P5+>(b) }
+sub ::('infix:<P5>>>') (\a, \b) is export { &prefix:<P5+>(a) +> &prefix:<P5+>(b) }
 
 # p=, comparison (nonassoc < > <= >= lt gt le ge)
-sub infix:«P5<»  (\a, \b) is export { &prefix:<P5+>(a) <  &prefix:<P5+>(b) }
-sub infix:«P5>»  (\a, \b) is export { &prefix:<P5+>(a) >  &prefix:<P5+>(b) }
-sub infix:«P5<=» (\a, \b) is export { &prefix:<P5+>(a) <= &prefix:<P5+>(b) }
-sub infix:«P5>=» (\a, \b) is export { &prefix:<P5+>(a) >= &prefix:<P5+>(b) }
+sub ::('infix:<P5<>')  (\a, \b) is export { &prefix:<P5+>(a) <  &prefix:<P5+>(b) }
+sub ::('infix:<P5>>')  (\a, \b) is export { &prefix:<P5+>(a) >  &prefix:<P5+>(b) }
+sub ::('infix:<P5<=>') (\a, \b) is export { &prefix:<P5+>(a) <= &prefix:<P5+>(b) }
+sub ::('infix:<P5>=>') (\a, \b) is export { &prefix:<P5+>(a) >= &prefix:<P5+>(b) }
 
 # o=, equality (nonassoc == != <=> eq ne cmp ~~)
-sub infix:<P5==> (\a, \b) is export { &prefix:<P5+>(a) == &prefix:<P5+>(b) }
-sub infix:<P5!=> (\a, \b) is export { !&infix:<P5==>(a, b)                 }
-multi infix:«P5<=>»(\a, \b) is export { nqp::p6box_i(nqp::cmp_I(nqp::decont(&prefix:<P5+>(a)), nqp::decont(&prefix:<P5+>(b)))) }
-multi infix:«P5<=>»(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
-sub infix:<P5eq> (\a, \b) is export { &prefix:<P5.>(a) eq &prefix:<P5.>(b) }
-sub infix:<P5ne> (\a, \b) is export { !&infix:<P5eq>(a, b)                 }
-multi infix:<P5cmp>(\a, \b) is export { +(&prefix:<P5.>(a) cmp &prefix:<P5.>(b)) }
-multi infix:<P5cmp>(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
-sub infix:<P5~~> (\a, \b) is export { &prefix:<P5.>(a) ~~ &prefix:<P5.>(b) }
+sub ::('infix:<P5==>') (\a, \b) is export { &prefix:<P5+>(a) == &prefix:<P5+>(b) }
+sub ::('infix:<P5!=>') (\a, \b) is export { !&infix:<P5==>(a, b)                 }
+multi ::('infix:<P5<=>>')(\a, \b) is export { nqp::p6box_i(nqp::cmp_I(nqp::decont(&prefix:<P5+>(a)), nqp::decont(&prefix:<P5+>(b)))) }
+multi ::('infix:<P5<=>>')(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
+sub ::('infix:<P5eq>') (\a, \b) is export { &prefix:<P5.>(a) eq &prefix:<P5.>(b) }
+sub ::('infix:<P5ne>') (\a, \b) is export { !&infix:<P5eq>(a, b)                 }
+multi ::('infix:<P5cmp>')(\a, \b) is export { +(&prefix:<P5.>(a) cmp &prefix:<P5.>(b)) }
+multi ::('infix:<P5cmp>')(int $a, int $b) is export { nqp::p6box_i(nqp::cmp_i($a, $b)) }
+sub ::('infix:<P5~~>') (\a, \b) is export { &prefix:<P5.>(a) ~~ &prefix:<P5.>(b) }
 
 # n=, bitwise and (left &)
-multi infix:<P5&>(Str \a, Str \b) is export { &prefix:<P5.>(a) ~& &prefix:<P5.>(b) }
-multi infix:<P5&>(\a, \b)         is export { &prefix:<P5+>(a) +& &prefix:<P5+>(b) }
+multi ::('infix:<P5&>')(Str \a, Str \b) is export { &prefix:<P5.>(a) ~& &prefix:<P5.>(b) }
+multi ::('infix:<P5&>')(\a, \b)         is export { &prefix:<P5+>(a) +& &prefix:<P5+>(b) }
 
 # m=, bitwise or (left | ^)
-multi infix:<P5|>(\a, \b)         is export { &prefix:<P5+>(a) +| &prefix:<P5+>(b) }
-multi infix:<P5^>(\a, \b)         is export { &prefix:<P5+>(a) +^ &prefix:<P5+>(b) }
+multi ::('infix:<P5|>')(\a, \b)         is export { &prefix:<P5+>(a) +| &prefix:<P5+>(b) }
+multi ::('infix:<P5^>')(\a, \b)         is export { &prefix:<P5+>(a) +^ &prefix:<P5+>(b) }
 
 # l=, tight and (left &&)
 
 # k=, tight or (left || //)
 
 # j=, range (nonassoc .. ...)
-sub infix:<P5..> (\a, \b) is export is hidden_from_backtrace {
+sub ::('infix:<P5..>') (\a, \b) is export is hidden_from_backtrace {
     (a.defined ?? a !! P5warn(:cat<uninitialized>, "Use of uninitialized value {a.VAR.?name} in range (or flop)") || 0)
     ..
     (b.defined ?? b !! P5warn(:cat<uninitialized>, "Use of uninitialized value {b.VAR.?name} in range (or flop)") || 0)
 }
-sub infix:<P5...>(\a, \b) is export is hidden_from_backtrace {
+sub ::('infix:<P5...>')(\a, \b) is export is hidden_from_backtrace {
     (a.defined ?? a !! P5warn(:cat<uninitialized>, "Use of uninitialized value {a.VAR.?name} in range (or flop)") || 0)
     ...
     (b.defined ?? b !! P5warn(:cat<uninitialized>, "Use of uninitialized value {b.VAR.?name} in range (or flop)") || 0)
@@ -258,35 +269,35 @@ sub infix:<P5...>(\a, \b) is export is hidden_from_backtrace {
 # i=, conditional (right ?:)
 
 # h=, assignment (right = += -= *= etc.)
-sub infix:<P5|=> (\a, \b)  is rw is export { a = &infix:<P5|>(a, b); a }
-sub infix:<P5&=> (\a, \b)  is rw is export { a = &infix:<P5&>(a, b); a }
-sub infix:<P5||=>(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b unless P5Bool(a); a }
-sub infix:<P5&&=>(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b     if P5Bool(a); a }
-sub infix:<P5+=> (\a, \b)  is rw is export { a = &infix:<P5+>(a, b); a }
-sub infix:<P5-=> (\a, \b)  is rw is export { a = &infix:<P5->(a, b); a }
-sub infix:<P5*=> (\a, \b)  is rw is export { a = &infix:<P5*>(a, b); a }
-sub infix:<P5/=> (\a, \b)  is rw is export { a = &infix:<P5/>(a, b); a }
-sub infix:<P5.=> (\a, \b)  is rw is export { a = &infix:<P5.>(a, b); a }
+sub ::('infix:<P5|=>') (\a, \b)  is rw is export { a = &infix:<P5|>(a, b); a }
+sub ::('infix:<P5&=>') (\a, \b)  is rw is export { a = &infix:<P5&>(a, b); a }
+sub ::('infix:<P5||=>')(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b unless P5Bool(a); a }
+sub ::('infix:<P5&&=>')(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b     if P5Bool(a); a }
+sub ::('infix:<P5+=>') (\a, \b)  is rw is export { a = &infix:<P5+>(a, b); a }
+sub ::('infix:<P5-=>') (\a, \b)  is rw is export { a = &infix:<P5->(a, b); a }
+sub ::('infix:<P5*=>') (\a, \b)  is rw is export { a = &infix:<P5*>(a, b); a }
+sub ::('infix:<P5/=>') (\a, \b)  is rw is export { a = &infix:<P5/>(a, b); a }
+sub ::('infix:<P5.=>') (\a, \b)  is rw is export { a = &infix:<P5.>(a, b); a }
 
 # g=, comma (left , =>)
-multi infix:«P5=>»(*@a) is export { @a }
+multi ::('infix:<P5=>>')(*@a) is export { @a }
 
 # e=, loose not (right not)
-multi prefix:<P5not> (*@a) is export { +@a ?? !([&&] map { P5Bool($_) }, @a) !! 1 }
+multi ::('prefix:<P5not>') (*@a) is export { +@a ?? !([&&] map { P5Bool($_) }, @a) !! 1 }
 
 # d=, loose and (left and)
 
 # c=, loose or (left or xor)
 
 
-multi trait_mod:<is>(Routine:D $r, :$lvalue!) is export {
+multi ::('trait_mod:<is>')(Routine:D $r, :$lvalue!) is export {
     $r.set_rw();
 }
 
-multi postcircumfix_atpos(Any \SELF)                        is export { SELF.list                   }
-multi postcircumfix_atpos(Any \SELF, int $pos)        is rw is export { SELF.at_pos(P5Numeric($pos)) }
-multi postcircumfix_atpos(Any \SELF, $pos)            is rw is export { SELF.at_pos(P5Numeric($pos)) }
-multi postcircumfix_atpos(Any \SELF, Positional \pos) is rw is export {
+multi ::('postcircumfix<P5[ ]>')(Any \SELF)                        is export { SELF.list                   }
+multi ::('postcircumfix<P5[ ]>')(Any \SELF, int $pos)        is rw is export { SELF.at_pos(P5Numeric($pos)) }
+multi ::('postcircumfix<P5[ ]>')(Any \SELF, $pos)            is rw is export { SELF.at_pos(P5Numeric($pos)) }
+multi ::('postcircumfix<P5[ ]>')(Any \SELF, Positional \pos) is rw is export {
     if nqp::iscont(pos) {
         return SELF.at_pos(pos)
     }
@@ -728,6 +739,158 @@ multi P5Numeric(Str:D   \SELF) is export {
 multi P5ord(Mu         ) is export { 0             }
 multi P5ord(Str:D \SELF) is export { SELF.ord || 0 }
 
+sub P5pack(Mu \SELF, *@items) is export is hidden_from_backtrace {
+    return '' unless defined SELF;
+    my @bytes;
+    my $pos = 0;
+    my $amount;
+    sub next_item {
+        my $item = +@items > $pos ?? @items[$pos] !! '';
+        $pos++;
+        $item
+    }
+    sub loop( Callable $c ) {
+        my $items = $c.signature.count;
+        $amount  /= $items;
+        for ^$amount {
+            @bytes.push: $c( |@items[$pos ..^ ($pos + $items)] );
+            $pos += $items
+        }
+    }
+    
+    for SELF.subst(/'#'\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
+        my $directive = $unit.substr(0, 1);
+        $amount       = $unit.substr(1);
+        $amount       = +@items - $pos if $amount eq '*';
+        $amount       = 1              if $amount eq '';
+
+        given $directive {
+            when 'a' { # distinguish between Str and utf8
+                my $binary = next_item;
+                for $binary.comb -> $char {
+                    @bytes.push: ord($char);
+                }
+                if $amount > $binary.chars {
+                    @bytes.push: 0x00 xx ($amount - $binary.chars);
+                }
+            }
+            when 'A' {
+                my $ascii = next_item;
+                for $ascii.comb -> $char {
+                    X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
+                    @bytes.push: ord($char);
+                }
+                if $amount > $ascii.chars {
+                    @bytes.push: 0x20 xx ($amount - $ascii.chars);
+                }
+            }
+            when 'Z' {
+                my $ascii = next_item;
+                for $ascii.comb -> $char {
+                    X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
+                    @bytes.push: ord($char);
+                }
+                if $amount > $ascii.chars {
+                    @bytes.push: 0x00 xx ($amount - $ascii.chars);
+                }
+            }
+            when 'H' {
+                my $hexstring = next_item;
+                if $hexstring.chars % 2 {
+                    $hexstring ~= '0';
+                }
+                @bytes.push: map { :16($_) }, $hexstring.comb(/../);
+            }
+            when 'x' {
+                @bytes.push: 0x00 xx $amount;
+            }
+            # signed char, perl/pp_pack.c#L2972
+            when 'c' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a).Int;
+                        P5warn( :cat<pack>, "Character in 'c' format wrapped in pack" ) if -128 > $a || $a > 127;
+                        $a % 0x100
+                    } );
+            }
+            # unsigned char
+            when 'C' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a).Int;
+                        P5warn( :cat<pack>, "Character in 'C' format wrapped in pack" ) if 0 > $a || $a > 256;
+                        $a % 0x100
+                    } );
+            }
+            # signed short | unsigned short (16bit, little endian)
+            when 's'       | 'S' | 'v' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a).Int;
+                        ($a, $a +> 0x08) >>%>> 0x100
+                    } );
+            }
+            # signed long | unsigned long (32bit, little endian)
+            when 'l'      | 'L' | 'V' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a).Int;
+                        ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18) >>%>> 0x100
+                    } );
+            }
+            # signed | unsigned integer (%Config<intsize>, little endian)
+            when 'i' | 'I' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a).Int;
+                        my @b;
+                        @b.push( ($a +> ($_ * 0x08)) % 0x100 ) for ^$CONFIG_INTSIZE;
+                        @b
+                    } );
+            }
+            # signed | unsigned quad (64bit)
+            when 'q' | 'Q' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a);
+                        ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18, $a +> 0x20, $a +> 0x28, $a +> 0x30, $a +> 0x38) >>%>> 0x100
+                    } );
+            }
+            # unsigned short (16bit, big endian)
+            when 'n' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a).Int;
+                        ($a +> 0x08, $a) >>+&>> 0xFF
+                    } );
+            }
+            # unsigned long (32bit, big endian)
+            when 'N' {
+                loop( -> $a is copy {
+                        $a = &prefix:<P5+>($a).Int;
+                        ($a +> 0x18, $a +> 0x10, $a +> 0x08, $a) >>+&>> 0xFF
+                    } );
+            }
+            # Unicode codepoint to utf8 integer sequence
+            when 'U' {
+                loop( -> $a {
+                        &prefix:<P5+>($a).chr.encode.list.flat
+                    } );
+            }
+            when 'w' {
+                sub pack-w($int) {
+                    if $int > 0x80 {
+                        @bytes.push: (($int +> 7) +& 0x7F) +| 0x80;
+                        pack-w( $int % 0x80 )
+                    }
+                    else {
+                        @bytes.push: $int;
+                    }
+                }
+                loop( -> $a { pack-w($a) } );
+            }
+            when 'X' {
+                $pos ?? @bytes.pop !! P5warn "'X' outside of string";
+            }
+            P5die ~X::Buf::Pack.new(:$directive);
+        }
+    }
+    return utf8.new(@bytes);
+}
+
 sub P5pop(Mu \SELF) is export {
     my $r;
     try {
@@ -893,7 +1056,7 @@ multi P5Str(Mu:D     \SELF) is export { SELF.Str }
 multi P5Str(Bool:D   \SELF) is export { ?SELF ?? 1 !! '' }
 multi P5Str(Array:D  \SELF) is export { join ' ', map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
 multi P5Str(List:D   \SELF) is export { join '',  map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
-multi P5Str(utf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'binary')) }
+multi P5Str(utf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'ascii')) }
 multi P5Str(Int:D    \SELF) is export { SELF.Int }
 multi P5Str(Num:D    \SELF) is export { SELF.Num }
 multi P5Str(Parcel:D \SELF) is export { SELF.Int }
@@ -1050,366 +1213,183 @@ multi P5unlink(Str:D \SELF) is export {
 }
 multi P5unlink(*@a) is export { [+] map { P5unlink($_) }, @a }
 
-use MONKEY_TYPING;
-
-augment class Mu { }
-
-augment class Any {
-    multi method P5open( \SELF: $expr )             { SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) }
-    multi method P5open( \SELF: $m, $expr, *@list ) {
-        # ($path, :r(:$r), :w(:$w), :a(:$a), :p(:$p), :bin(:$bin), :chomp(:$chomp) = { ... }, :enc(:encoding(:$encoding)) = { ... })
-        SELF = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) );
+multi P5unpack(\SELF, Mu $thing)         is export { SELF.P5unpack( ~$thing ) }
+multi P5unpack(Str:D \SELF)              is export { SELF.P5unpack( CALLER::DYNAMIC::<$_> ) }
+multi P5unpack(Str:D \SELF, Str $string) is export {
+    my $ret;
+    try {
+        $ret = $string.encode('ascii');
+        CATCH {
+            default { $ret = $string.encode }
+        }
     }
-
-    method P5close(\SELF:) { SELF && SELF.close }
+    SELF.P5unpack($ret)
 }
-
-augment class IO::Handle { }
-augment class Nil { }
-augment class Bool { }
-augment class Array { }
-augment class List { }
-augment class utf8 { }
-
-augment class Str {
-    multi method P5pack(*@items) is hidden_from_backtrace {
-        my @bytes;
-        my $pos = 0;
-        my $amount;
-        sub next_item {
-            my $item = +@items > $pos ?? @items[$pos] !! '';
-            $pos++;
-            $item
-        }
-        sub loop( Callable $c ) {
-            my $items = $c.signature.count;
-            $amount  /= $items;
-            for ^$amount {
-                @bytes.push: $c( |@items[$pos ..^ ($pos + $items)] );
-                $pos += $items
-            }
-        }
-        
-        for self.subst(/'#'\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
-            my $directive = $unit.substr(0, 1);
-            $amount       = $unit.substr(1);
-            $amount       = +@items - $pos if $amount eq '*';
-            $amount       = 1              if $amount eq '';
-
-            given $directive {
-                when 'a' { # distinguish between Str and utf8
-                    my $binary = next_item;
-                    for $binary.comb -> $char {
-                        @bytes.push: ord($char);
-                    }
-                    if $amount > $binary.chars {
-                        @bytes.push: 0x00 xx ($amount - $binary.chars);
-                    }
-                }
-                when 'A' {
-                    my $ascii = next_item;
-                    for $ascii.comb -> $char {
-                        X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
-                        @bytes.push: ord($char);
-                    }
-                    if $amount > $ascii.chars {
-                        @bytes.push: 0x20 xx ($amount - $ascii.chars);
-                    }
-                }
-                when 'Z' {
-                    my $ascii = next_item;
-                    for $ascii.comb -> $char {
-                        X::Buf::Pack::NonASCII.new(:$char).throw if ord($char) > 0x7f;
-                        @bytes.push: ord($char);
-                    }
-                    if $amount > $ascii.chars {
-                        @bytes.push: 0x00 xx ($amount - $ascii.chars);
-                    }
-                }
-                when 'H' {
-                    my $hexstring = next_item;
-                    if $hexstring.chars % 2 {
-                        $hexstring ~= '0';
-                    }
-                    @bytes.push: map { :16($_) }, $hexstring.comb(/../);
-                }
-                when 'x' {
-                    @bytes.push: 0x00 xx $amount;
-                }
-                # signed char, perl/pp_pack.c#L2972
-                when 'c' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a).Int;
-                            P5warn( :cat<pack>, "Character in 'c' format wrapped in pack" ) if -128 > $a || $a > 127;
-                            $a % 0x100
-                        } );
-                }
-                # unsigned char
-                when 'C' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a).Int;
-                            P5warn( :cat<pack>, "Character in 'C' format wrapped in pack" ) if 0 > $a || $a > 256;
-                            $a % 0x100
-                        } );
-                }
-                # signed short | unsigned short (16bit, little endian)
-                when 's'       | 'S' | 'v' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a).Int;
-                            ($a, $a +> 0x08) >>%>> 0x100
-                        } );
-                }
-                # signed long | unsigned long (32bit, little endian)
-                when 'l'      | 'L' | 'V' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a).Int;
-                            ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18) >>%>> 0x100
-                        } );
-                }
-                # signed | unsigned integer (%Config<intsize>, little endian)
-                when 'i' | 'I' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a).Int;
-                            my @b;
-                            @b.push( ($a +> ($_ * 0x08)) % 0x100 ) for ^$CONFIG_INTSIZE;
-                            @b
-                        } );
-                }
-                # signed | unsigned quad (64bit)
-                when 'q' | 'Q' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a);
-                            ($a, $a +> 0x08, $a +> 0x10, $a +> 0x18, $a +> 0x20, $a +> 0x28, $a +> 0x30, $a +> 0x38) >>%>> 0x100
-                        } );
-                }
-                # unsigned short (16bit, big endian)
-                when 'n' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a).Int;
-                            ($a +> 0x08, $a) >>+&>> 0xFF
-                        } );
-                }
-                # unsigned long (32bit, big endian)
-                when 'N' {
-                    loop( -> $a is copy {
-                            $a = &prefix:<P5+>($a).Int;
-                            ($a +> 0x18, $a +> 0x10, $a +> 0x08, $a) >>+&>> 0xFF
-                        } );
-                }
-                # Unicode codepoint to utf8 integer sequence
-                when 'U' {
-                    loop( -> $a {
-                            &prefix:<P5+>($a).chr.encode.list.flat
-                        } );
-                }
-                when 'w' {
-                    sub pack-w($int) {
-                        if $int > 0x80 {
-                            @bytes.push: (($int +> 7) +& 0x7F) +| 0x80;
-                            pack-w( $int % 0x80 )
-                        }
-                        else {
-                            @bytes.push: $int;
-                        }
-                    }
-                    loop( -> $a { pack-w($a) } );
-                }
-                when 'X' {
-                    $pos ?? @bytes.pop !! P5warn "'X' outside of string";
-                }
-                P5die ~X::Buf::Pack.new(:$directive);
-            }
-        }
-        return utf8.new(@bytes);
+multi P5unpack(Str:D \SELF, Blob $string) is export {
+    my @bytes = $string.list;
+    my $pos   = 0;
+    my $amount;
+    my @fields;
+    sub next_byte {
+        my $byte = +@bytes > $pos ?? @bytes[$pos] !! 0;
+        $pos++;
+        $byte
     }
-    multi method P5unpack(Mu $thing) { self.P5unpack( ~$thing ) }
-    multi method P5unpack(Str:D:) { self.P5unpack( CALLER::DYNAMIC::<$_> ) }
-    multi method P5unpack(Str:D: Str $string) {
-        my $ret;
-        try {
-            $ret = $string.encode('binary');
-            CATCH {
-                default { $ret = $string.encode }
+    sub loop( Callable $c ) {
+        my $bytes = $c.signature.count;
+        $amount  /= $bytes;
+        for ^$amount {
+            my @args = @bytes[$pos ..^ ($pos + $bytes)];
+            if [&&] @args>>.defined {
+                @fields.push: $c( |@args );
             }
+            $pos += $bytes;
         }
-        self.P5unpack($ret)
     }
-    multi method P5unpack(Str:D: Blob $string) {
-        my @bytes = $string.list;
-        my $pos   = 0;
-        my $amount;
-        my @fields;
-        sub next_byte {
-            my $byte = +@bytes > $pos ?? @bytes[$pos] !! 0;
-            $pos++;
-            $byte
-        }
-        sub loop( Callable $c ) {
-            my $bytes = $c.signature.count;
-            $amount  /= $bytes;
-            for ^$amount {
-                my @args = @bytes[$pos ..^ ($pos + $bytes)];
-                if [&&] @args>>.defined {
-                    @fields.push: $c( |@args );
-                }
-                $pos += $bytes;
-            }
-        }
-        for self.subst(/'#'\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
-            my $directive = $unit.substr(0, 1);
-            $amount       = $unit.substr(1);
-            $amount       = +@bytes - $pos if $amount eq '*';
-            $amount       = 1              if $amount eq '';
+    for SELF.subst(/'#'\N*<?before $$ >/, '', :g).comb(/<[a..zA..Z]>[\d+|'*']?/) -> $unit {
+        my $directive = $unit.substr(0, 1);
+        $amount       = $unit.substr(1);
+        $amount       = +@bytes - $pos if $amount eq '*';
+        $amount       = 1              if $amount eq '';
 
-            given $directive {
-                when 'a' | 'A' | 'Z' {
-                    my $asciistring;
-                    $asciistring ~= chr(next_byte) for ^$amount;
-                    @fields.push($asciistring);
-                }
-                when 'H' {
-                    my $hexstring;
-                    while +@bytes > $pos {
-                        my $byte = next_byte;
-                        $hexstring ~= ($byte +> 4).fmt('%x')
-                                    ~ ($byte % 16).fmt('%x');
-                    }
-                    @fields.push($hexstring);
-                }
-                when 'x' {
-                    loop( -> $a { } )
-                }
-                # signed char, perl/pp_pack.c#L1612
-                when 'c' {
-                    loop( -> $a is copy {
-                            $a -= 256 if $a >= 128;
-                            $a
-                        } )
-                }
-                # unsigned char
-                when 'C' {
-                    loop( -> $a { $a } )
-                }
-                # signed short (16bit, little endian, perl/pp_pack.c#L1728)
-                when 's' {
-                    loop( -> $a is copy, $b {
-                            $a +|= $b +< 0x08;
-                            $a -= 65536 if $a > 32767;
-                            $a
-                        } )
-                }
-                # unsigned short (16bit, little endian)
-                when 'S' | 'v' {
-                    loop( -> $a, $b { $a +| $b +< 0x08 } )
-                }
-                # signed long (32bit, little endian)
-                when 'l' {
-                    loop( -> $a is copy, $b, $c, $d {
-                            $a +|= $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18;
-                            $a -= 4294967296 if $a > 2147483647;
-                            $a
-                        } )
-                }
-                # unsigned long (32bit, little endian)
-                when 'L' | 'V' {
-                    loop( -> $a, $b, $c, $d { $a +| $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18 } )
-                }
-                # signed int
-                when 'i' {
-                    for ^$amount {
-                        my $a = 0;
-                        $a +|= next_byte() +< ($_ * 0x08) for ^$CONFIG_INTSIZE;
-                        $a -= 2 ** (8 * $CONFIG_INTSIZE) if $a >= (2 ** (8 * $CONFIG_INTSIZE)) / 2;
-                        @fields.push($a)
-                    }
-                }
-                # unsigned int
-                when 'I' {
-                    for ^$amount {
-                        my $a = 0;
-                        for ^$CONFIG_INTSIZE { # usually 4 or 8
-                            $a +|= next_byte() +< ($_ * 0x08);
-                        }
-                        @fields.push($a)
-                    }
-                }
-                # signed quad
-                when 'q' {
-                    loop( -> $a is copy, $b, $c, $d, $e, $f, $g, $h {
-                            $a +|= $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18
-                               +|  $e +< 0x20 +| $f +< 0x28 +| $g +< 0x30 +| $h +< 0x38;
-                            $a -= 18446744073709551616 if $a > 9223372036854775807;
-                            $a
-                        } )
-                }
-                # unsigned quad
-                when 'Q' {
-                    loop( -> $a, $b, $c, $d, $e, $f, $g, $h {
-                               $a         +| $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18
-                            +| $e +< 0x20 +| $f +< 0x28 +| $g +< 0x30 +| $h +< 0x38
-                        } )
-                }
-                # unsigned short (big-endian)
-                when 'n' {
-                    loop( -> $a, $b { $a +< 0x08 +| $b } )
-                }
-                # unsigned long (big-endian)
-                when 'N' {
-                    loop( -> $a, $b, $c, $d { $a +< 0x18 +| $b +< 0x10 +| $c +< 0x08 +| $d } )
-                }
-                when 'U' {
-                    my $shifted = 0;
-                    while $shifted < $amount {
-                        my $byte = next_byte;
-                        if $byte +> 7 == 0 {
-                            @fields.push: utf8.new( $byte ).decode.ord;
-                            $shifted++;
-                        }
-                        elsif $byte +> 5 == 0b110 {
-                            @fields.push: utf8.new( $byte, next_byte ).decode.ord;
-                            $shifted += 2;
-                        }
-                        elsif $byte +> 4 == 0b1110 {
-                            @fields.push: utf8.new( $byte, next_byte, next_byte ).decode.ord;
-                            $shifted += 3;
-                        }
-                        elsif $byte +> 3 == 0b11110 {
-                            @fields.push: utf8.new( $byte, next_byte, next_byte, next_byte ).decode.ord;
-                            $shifted += 4;
-                        }
-                        else {
-                            P5die "Cannot unpack byte '" ~ sprintf('%#x', $byte) ~ "' using directive 'U'";
-                        }
-                    }
-                }
-                when 'w' {
-                    sub unpack-w($byte, $i=7) {
-                        $byte > 0x80 ?? (($byte +& 0x7F) +< $i) + unpack-w(next_byte, $i+7) !! $byte
-                    }
-                    for ^$amount {
-                        @fields.push: unpack-w(next_byte)
-                    }
-                }
-                when 'X' {
-                    $pos ?? $pos-- !! P5warn "'X' outside of string";
-                }
-                P5die ~X::Buf::Pack.new(:$directive);
+        given $directive {
+            when 'a' | 'A' | 'Z' {
+                my $asciistring;
+                $asciistring ~= chr(next_byte) for ^$amount;
+                @fields.push($asciistring);
             }
+            when 'H' {
+                my $hexstring;
+                while +@bytes > $pos {
+                    my $byte = next_byte;
+                    $hexstring ~= ($byte +> 4).fmt('%x')
+                                ~ ($byte % 16).fmt('%x');
+                }
+                @fields.push($hexstring);
+            }
+            when 'x' {
+                loop( -> $a { } )
+            }
+            # signed char, perl/pp_pack.c#L1612
+            when 'c' {
+                loop( -> $a is copy {
+                        $a -= 256 if $a >= 128;
+                        $a
+                    } )
+            }
+            # unsigned char
+            when 'C' {
+                loop( -> $a { $a } )
+            }
+            # signed short (16bit, little endian, perl/pp_pack.c#L1728)
+            when 's' {
+                loop( -> $a is copy, $b {
+                        $a +|= $b +< 0x08;
+                        $a -= 65536 if $a > 32767;
+                        $a
+                    } )
+            }
+            # unsigned short (16bit, little endian)
+            when 'S' | 'v' {
+                loop( -> $a, $b { $a +| $b +< 0x08 } )
+            }
+            # signed long (32bit, little endian)
+            when 'l' {
+                loop( -> $a is copy, $b, $c, $d {
+                        $a +|= $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18;
+                        $a -= 4294967296 if $a > 2147483647;
+                        $a
+                    } )
+            }
+            # unsigned long (32bit, little endian)
+            when 'L' | 'V' {
+                loop( -> $a, $b, $c, $d { $a +| $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18 } )
+            }
+            # signed int
+            when 'i' {
+                for ^$amount {
+                    my $a = 0;
+                    $a +|= next_byte() +< ($_ * 0x08) for ^$CONFIG_INTSIZE;
+                    $a -= 2 ** (8 * $CONFIG_INTSIZE) if $a >= (2 ** (8 * $CONFIG_INTSIZE)) / 2;
+                    @fields.push($a)
+                }
+            }
+            # unsigned int
+            when 'I' {
+                for ^$amount {
+                    my $a = 0;
+                    for ^$CONFIG_INTSIZE { # usually 4 or 8
+                        $a +|= next_byte() +< ($_ * 0x08);
+                    }
+                    @fields.push($a)
+                }
+            }
+            # signed quad
+            when 'q' {
+                loop( -> $a is copy, $b, $c, $d, $e, $f, $g, $h {
+                        $a +|= $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18
+                           +|  $e +< 0x20 +| $f +< 0x28 +| $g +< 0x30 +| $h +< 0x38;
+                        $a -= 18446744073709551616 if $a > 9223372036854775807;
+                        $a
+                    } )
+            }
+            # unsigned quad
+            when 'Q' {
+                loop( -> $a, $b, $c, $d, $e, $f, $g, $h {
+                           $a         +| $b +< 0x08 +| $c +< 0x10 +| $d +< 0x18
+                        +| $e +< 0x20 +| $f +< 0x28 +| $g +< 0x30 +| $h +< 0x38
+                    } )
+            }
+            # unsigned short (big-endian)
+            when 'n' {
+                loop( -> $a, $b { $a +< 0x08 +| $b } )
+            }
+            # unsigned long (big-endian)
+            when 'N' {
+                loop( -> $a, $b, $c, $d { $a +< 0x18 +| $b +< 0x10 +| $c +< 0x08 +| $d } )
+            }
+            when 'U' {
+                my $shifted = 0;
+                while $shifted < $amount {
+                    my $byte = next_byte;
+                    if $byte +> 7 == 0 {
+                        @fields.push: utf8.new( $byte ).decode.ord;
+                        $shifted++;
+                    }
+                    elsif $byte +> 5 == 0b110 {
+                        @fields.push: utf8.new( $byte, next_byte ).decode.ord;
+                        $shifted += 2;
+                    }
+                    elsif $byte +> 4 == 0b1110 {
+                        @fields.push: utf8.new( $byte, next_byte, next_byte ).decode.ord;
+                        $shifted += 3;
+                    }
+                    elsif $byte +> 3 == 0b11110 {
+                        @fields.push: utf8.new( $byte, next_byte, next_byte, next_byte ).decode.ord;
+                        $shifted += 4;
+                    }
+                    else {
+                        P5die "Cannot unpack byte '" ~ sprintf('%#x', $byte) ~ "' using directive 'U'";
+                    }
+                }
+            }
+            when 'w' {
+                sub unpack-w($byte, $i=7) {
+                    $byte > 0x80 ?? (($byte +& 0x7F) +< $i) + unpack-w(next_byte, $i+7) !! $byte
+                }
+                for ^$amount {
+                    @fields.push: unpack-w(next_byte)
+                }
+            }
+            when 'X' {
+                $pos ?? $pos-- !! P5warn "'X' outside of string";
+            }
+            P5die ~X::Buf::Pack.new(:$directive);
         }
-
-        return |@fields;
     }
+
+    return |@fields;
 }
-
-augment class Int { }
-augment class Num { }
-augment class Capture { }
-augment class Match { }
-augment class Regex { }
-augment class Rat { }
-augment class Parcel { }
-augment class Pair { }
-augment class Sub { }
 
 # class A { method new { bless([], self)}; method a { 42 } }; my $a = A.new; say $a.a; $a[0] = 1; say $a.WHAT
 sub bless(*@a) is export {

@@ -637,7 +637,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
 
     sub add_param($block, @params, $name) {
-        $V5DEBUG && say("add_param($block, $name)");
+        $V5DEBUG && say("add_param(\$block, $name)");
         if !$block.symbol($name) || $block.symbol($name)<for_variable> || $name eq '$_' {
             if $*IMPLICIT {
                 @params.push(hash(
@@ -1603,7 +1603,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $past;
         if $<index> {
             $past := QAST::Op.new( :op('call'), :name('&prefix:<P5.>'),
-                QAST::Op.new( :op('call'), :name('&postcircumfix_atpos'),
+                QAST::Op.new( :op('call'), :name('&postcircumfix<P5[ ]>'),
                 QAST::Var.new(:name('$/'), :scope('lexical')),
                 $*W.add_constant('Int', 'int', +$<index> - 1),
             ) );
@@ -3768,9 +3768,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     )),
                 ),
                 QAST::VM.new(
-                    pirop => 'perl6_invoke_catchhandler 1PP',
-                    QAST::Op.new( :op('null') ),
-                    QAST::Op.new( :op('exception') )
+                    :parrot(QAST::VM.new(
+                        pirop => 'perl6_invoke_catchhandler 1PP',
+                        QAST::Op.new( :op('null') ),
+                        QAST::Op.new( :op('exception') )
+                    )),
+                    :jvm(QAST::Op.new( :op('null') )),
+                    :moar(QAST::Op.new( :op('null') )),
                 ),
                 QAST::WVal.new(
                     :value( $*W.find_symbol(['Nil']) ),
@@ -3964,7 +3968,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     my %builtin := nqp::hash(
         'chr',     [ '$_', '_',  'call', '&P5Numeric' ],
-        'close',   [ '',   '*@', '',     '',              'callmethod', 'P5close' ],
+        'close',   [ '',   '*@', '',     '',              'call',       '&P5close' ],
         'chdir',   [ '',   '$',  '',     '',              'call',       '&P5chdir' ],
         'each',    [ '',   '$',  '',     '',              'call',       '&P5each' ],
         'int',     [ '$_', '_',  'call', '&P5Numeric',    'callmethod', 'Int' ],
@@ -3972,13 +3976,13 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'ref',     [ '$_', '_',  '',     '',              'call',       '&P5ref' ],
         'not',     [ '',   '@',  '',     '',              'call',       '&prefix:<P5not>' ],
         'say',     [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5say' ],
-        'open',    [ '',   '*@', '',     '',              'callmethod', 'P5open' ],
-        'pack',    [ '',   '$@', '',     '',              'callmethod', 'P5pack' ],
+        'open',    [ '',   '*@', '',     '',              'call',       '&P5open' ],
+        'pack',    [ '',   '$@', '',     '',              'call',       '&P5pack' ],
         'print',   [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5print' ],
         'shift',   [ '@_', ';+', '',     '',              'call',       '&P5shift' ],
         'split',   [ '',   '$$$', '',    '',              'call',       '&P5split' ],
         'unlink',  [ '$_', '@',  '',     '',              'call',       '&P5unlink' ],
-        'unpack',  [ '@_', '$@', '',     '',              'callmethod', 'P5unpack' ],
+        'unpack',  [ '@_', '$@', '',     '',              'call',       '&P5unpack' ],
         'unshift', [ '@_', '+@', '',     '',              'call',       '&P5unshift' ],
         'push',    [ '@_', '+@', '',     '',              'call',       '&P5push' ],
         'pop',     [ '@_', ';+', '',     '',              'call',       '&P5pop' ],
@@ -4442,9 +4446,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $block := QAST::Stmts.new;
         $block.push( pblock_immediate($<sblock>.ast) );
         $block.push( pblock_immediate($<continue>.ast) ) if $<continue>;
-        make QAST::Op.new( :op<callmethod>, :name<map>,
+        make QAST::Op.new( :op<callmethod>, :name<map>, :node($/),
                 QAST::IVal.new(:value(1)),
-                make_topic_block_ref( $block, :name($*FOR_VARIABLE) ) );
+                block_closure( make_topic_block_ref( $block, :name($*FOR_VARIABLE) ) )
+            );
     }
 
     method circumfix:sym<[ ]>($/) {
@@ -5058,7 +5063,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method postcircumfix:sym<[ ]>($/) {
         $V5DEBUG && say("postcircumfix:sym<[ ]>($/)");
-        my $past := QAST::Op.new( :name('&postcircumfix_atpos'), :op('call'), :node($/) );
+        my $past := QAST::Op.new( :name('&postcircumfix<P5[ ]>'), :op('call'), :node($/) );
         if $<semilist><statement> {
             my $slast := $<semilist>.ast;
             $past.push($slast);

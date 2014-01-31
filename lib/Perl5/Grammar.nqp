@@ -1016,6 +1016,8 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     # example new infix operators add to the infix category. Augments the
     # grammar as needed.
     method add_categorical($category, $opname, $canname, $subname, $declarand?) {
+        return;
+        say("add_categorical($category, $opname, $canname, $subname, $declarand?)");
         my $self := self;
         
         # Ensure it's not a null name.
@@ -1455,7 +1457,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [ <?{ $*MAIN ne $OLD_MAIN }> {
             $*IN_DECL := '';
             $*SCOPE := '';
-        } <statementlist=.LANG($*MAIN, 'statementlist')> ]?
+        } <statementlist=.LANG($*MAIN, 'statementlist')> || <?> ]
         <.ws>
     }
 
