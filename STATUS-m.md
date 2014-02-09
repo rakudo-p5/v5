@@ -3,34 +3,34 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5383</td><td>35754</td><td>5</td><td>1808</td><td>42863</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2377</td><td>12320</td><td>0</td><td>7</td><td>14704</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5437</td><td>35700</td><td>5</td><td>1808</td><td>42863</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2380</td><td>12317</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
-  in sub MAKE_REGEX at src/gen/m-CORE.setting:12507<br />
-  in block  at src/gen/m-CORE.setting:12449<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:12441<br />
-  in method match at src/gen/m-CORE.setting:6026<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:12511<br />
+  in block  at src/gen/m-CORE.setting:12453<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:12445<br />
+  in method match at src/gen/m-CORE.setting:6028<br />
+  in method match at src/gen/m-CORE.setting:3502<br />
   in method match at src/gen/m-CORE.setting:3500<br />
-  in method match at src/gen/m-CORE.setting:3498<br />
   in sub like_yn at /home/froggs/dev/v5/t/test.pl:97<br />
   in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
   in block  at t/spec/op/pack.v5:1276<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/op/pack.v5:1008<br />
 <br />   2 skipped: (EBCDIC and) version strings are bad idea<br />
    4 skipped: Not for EBCDIC<br />
    1 skipped: Couldn't generate infinity - got error ''<br />
 </td></tr>
-        <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1106</td><td>264</td><td>0</td><td>0</td><td>1370</td></tr>
-        <tr align='center'><td align='left'>op/pow.v5</td><td>268</td><td>0</td><td>0</td><td>0</td><td>268</td></tr>
-        <tr align='center'><td align='left'>opbasic/arith.v5</td><td>157</td><td>10</td><td>0</td><td>0</td><td>167</td></tr>
+        <tr align='center'><td align='left'>op/sprintf2.v5</td><td>1155</td><td>215</td><td>0</td><td>0</td><td>1370</td></tr>
+        <tr align='center'><td align='left'>op/pow.v5</td><td>267</td><td>1</td><td>0</td><td>0</td><td>268</td></tr>
+        <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>112</td><td>5</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;a'<br />
@@ -64,12 +64,12 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/mydef.v5</td><td>36</td><td>16</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'STORE' for invocant of type 'List'<br />
-  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16093<br />
+  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16119<br />
   in block  at t/spec/op/mydef.v5:138<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/op/mydef.v5:1<br />
 <br />  52 tests more than planned were run<br />
 </td></tr>
@@ -102,7 +102,7 @@ Index out of range. Is: 1, should be in 0..0<br />
     at t/spec/comp/fold.v5:90<br />
     ------&gt;     local $SIG{__DIE__}  ⏏= sub { $c+= 2 };<br />
 No such symbol '&amp;INSTALL'<br />
-  in method fail at src/gen/m-CORE.setting:10831<br />
+  in method fail at src/gen/m-CORE.setting:10835<br />
   in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:400<br />
   in block  at t/spec/comp/fold.v5:124<br />
 </td></tr>
@@ -126,9 +126,9 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>9</td><td>27</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>Cannot call 'match'; none of these signatures match:<br />
 :(Cool:D: Any $target, *%adverbs)<br />
-  in method match at src/gen/m-CORE.setting:3498<br />
-  in method Bool at src/gen/m-CORE.setting:12581<br />
-  in method Bool at src/gen/m-CORE.setting:813<br />
+  in method match at src/gen/m-CORE.setting:3500<br />
+  in method Bool at src/gen/m-CORE.setting:12585<br />
+  in method Bool at src/gen/m-CORE.setting:815<br />
   in sub P5Bool at lib/Perl5/Terms.pm:311<br />
   in sub P5Bool at lib/Perl5/Terms.pm:311<br />
   in sub isnt at t/spec/comp/opsubs.v5:66<br />
@@ -137,23 +137,23 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>9</td><td>4</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
-  in sub MAKE_REGEX at src/gen/m-CORE.setting:12507<br />
-  in block  at src/gen/m-CORE.setting:12404<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
-  in block  at src/gen/m-CORE.setting:12398<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:12376<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:12378<br />
-  in method match at src/gen/m-CORE.setting:6026<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:12511<br />
+  in block  at src/gen/m-CORE.setting:12408<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
+  in block  at src/gen/m-CORE.setting:12402<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:12380<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:12382<br />
+  in method match at src/gen/m-CORE.setting:6028<br />
   in sub like_yn at /home/froggs/dev/v5/t/test.pl:97<br />
   in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
   in block  at t/spec/op/append.v5:43<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/op/append.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>8</td><td>33</td><td>0</td><td>0</td><td>41</td></tr>
@@ -172,19 +172,19 @@ No such symbol '&amp;tie'<br />
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Unhandled exception: chr codepoint cannot be negative<br />
-   at src/gen/m-CORE.setting:4291  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:chr:36)<br />
+   at src/gen/m-CORE.setting:4293  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:chr:36)<br />
  from t/spec/uni/chr.v5:24  (&lt;ephemeral file&gt;::77)<br />
  from t/spec/uni/chr.v5:24  (&lt;ephemeral file&gt;::16)<br />
- from src/gen/m-CORE.setting:7370  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm::535)<br />
- from src/gen/m-CORE.setting:7321  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:74)<br />
- from src/gen/m-CORE.setting:7235  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm::347)<br />
- from src/gen/m-CORE.setting:7207  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:74)<br />
- from src/gen/m-CORE.setting:7679  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:gimme:219)<br />
- from src/gen/m-CORE.setting:8089  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:sink:58)<br />
- from src/gen/m-main.nqp:47  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:39)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-CORE.setting:7372  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm::530)<br />
+ from src/gen/m-CORE.setting:7323  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:74)<br />
+ from src/gen/m-CORE.setting:7237  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm::347)<br />
+ from src/gen/m-CORE.setting:7209  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:74)<br />
+ from src/gen/m-CORE.setting:7683  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:gimme:219)<br />
+ from src/gen/m-CORE.setting:8093  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:sink:58)<br />
+ from src/gen/m-main.nqp:47  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:39)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>6</td><td>52</td><td>0</td><td>2</td><td>60</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
@@ -244,6 +244,20 @@ No such symbol '&amp;tie'<br />
         <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>4</td><td>0</td><td>0</td><td>1756</td><td>1760</td></tr>
         <tr><td colspan='5'><br /> 1756 skipped: Can't get bigint from something that isn't a SixModel object<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>4</td><td>5</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
+===SORRY!=== Error while compiling tmp10835A.10835<br />
+Couldn't parse heredoc construct<br />
+at tmp10835A.10835:1<br />
+------&gt; use v5; print &lt;&lt;⏏;<br />
+===SORRY!=== Error while compiling tmp10835A.10835<br />
+Couldn't parse heredoc construct<br />
+at tmp10835A.10835:1<br />
+------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
+===SORRY!=== Error while compiling tmp10835A.10835<br />
+Confused<br />
+at tmp10835A.10835:4<br />
+------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -266,20 +280,6 @@ No such symbol '&amp;select'<br />
 No such symbol '&amp;delete'<br />
 </td></tr>
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>3</td><td>6</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
-===SORRY!=== Error while compiling tmp18512A.18512<br />
-Couldn't parse heredoc construct<br />
-at tmp18512A.18512:1<br />
-------&gt; use v5; print &lt;&lt;⏏;<br />
-===SORRY!=== Error while compiling tmp18512A.18512<br />
-Couldn't parse heredoc construct<br />
-at tmp18512A.18512:1<br />
-------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
-===SORRY!=== Error while compiling tmp18512A.18512<br />
-Confused<br />
-at tmp18512A.18512:4<br />
-------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -311,6 +311,18 @@ No such symbol '&amp;FILE'<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "import" via package "main" (perhaps you forgot to load "main"?)<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at tmp10936A.10936:7<br />
+    ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
+Failed to open file: no such file or directory<br />
+  in method open at src/gen/m-CORE.setting:13198<br />
+  in method open at src/gen/m-CORE.setting:13169<br />
+  in sub P5open at lib/Perl5/Terms.pm:73<br />
+  in sub P5open at lib/Perl5/Terms.pm:69<br />
+  in block  at tmp10936A.10936:1<br />
+</td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -324,6 +336,13 @@ MVMArray: Index out of bounds<br />
 ===SORRY!===<br />
 No such symbol '&amp;dbmopen'<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>WARNINGS:<br />
+Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
+===SORRY!=== Error while compiling tmp10726A.10726<br />
+Couldn't find terminator |<br />
+at tmp10726A.10726:14<br />
+------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;opendir'<br />
@@ -332,6 +351,10 @@ No such symbol '&amp;opendir'<br />
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;L'<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/64bitint.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>'lld' is not valid in sprintf format sequence '%lld'<br />
+<br />   2 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/12-context.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
@@ -356,26 +379,35 @@ Could not find symbol '&amp;upgrade'<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
 No such symbol '&amp;POSIX::WIFEXITED'<br />
-  in method fail at src/gen/m-CORE.setting:10831<br />
+  in method fail at src/gen/m-CORE.setting:10835<br />
   in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:400<br />
   in block  at t/spec/run/exit.v5:56<br />
 Unhandled exception: No exception handler located for warn<br />
-   at &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:10985  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
+ from src/gen/m-CORE.setting:10989  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 <br />   3 tests more than planned were run<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
+===SORRY!===<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
+===SORRY!=== Error while compiling tmp11416A.11416<br />
+Two terms in a row<br />
+at tmp11416A.11416:38<br />
+------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
-  in method Bridge at src/gen/m-CORE.setting:4286<br />
-  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4209<br />
-  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4059<br />
+  in method Bridge at src/gen/m-CORE.setting:4288<br />
+  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4211<br />
+  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4061<br />
   in sub infix:&lt;P5&gt;&gt; at lib/Perl5/Terms.pm:230<br />
   in block  at t/spec/comp/term.v5:1<br />
 </td></tr>
@@ -411,13 +443,6 @@ No such symbol '&amp;evalbytes'<br />
 ===SORRY!===<br />
 No such symbol '&amp;FILE'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>WARNINGS:<br />
-Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-===SORRY!=== Error while compiling tmp18398A.18398<br />
-Couldn't find terminator |<br />
-at tmp18398A.18398:14<br />
-------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;warning_is'<br />
@@ -459,10 +484,6 @@ No such symbol 'kഌoんḰ'<br />
 Variable '*FFF' is not declared<br />
 at t/spec/mro/method_caching_utf8.v5:39<br />
 ------&gt;  { $_[1]+7 }; local *MC텟ᵀ::Bࡎᶓ::ᕘ = *FFF⏏; is(MC텟ᵀ::ድ리ᭉᛞ-&gt;ᕘ(0), 7); },</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/64bitint.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>'lld' is not valid in sprintf format sequence '%lld'<br />
-<br />   2 tests more than planned were run<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/anonsub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/anonsub.v5<br />
 Variable '*DATA' is not declared<br />
@@ -619,15 +640,15 @@ Could not find symbol '&amp;upgrade'<br />
     at t/spec/porting/args_assert.v5:38<br />
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13175<br />
-  in method open at src/gen/m-CORE.setting:13165<br />
+  in method open at src/gen/m-CORE.setting:13198<br />
+  in method open at src/gen/m-CORE.setting:13169<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/porting/args_assert.v5:24<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/porting/args_assert.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -670,8 +691,8 @@ No such symbol '&amp;maniread'<br />
     at t/spec/porting/filenames.v5:37<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13175<br />
-  in method open at src/gen/m-CORE.setting:13165<br />
+  in method open at src/gen/m-CORE.setting:13198<br />
+  in method open at src/gen/m-CORE.setting:13169<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/porting/filenames.v5:32<br />
@@ -689,8 +710,8 @@ at t/spec/comp/require.v5:182<br />
 WARNINGS:<br />
 Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in expression "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in sink context (line 16)<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13175<br />
-  in method open at src/gen/m-CORE.setting:13165<br />
+  in method open at src/gen/m-CORE.setting:13198<br />
+  in method open at src/gen/m-CORE.setting:13169<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/porting/globvar.v5:16<br />
@@ -705,8 +726,8 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/languages/per
     at t/spec/porting/manifest.v5:17<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13175<br />
-  in method open at src/gen/m-CORE.setting:13165<br />
+  in method open at src/gen/m-CORE.setting:13198<br />
+  in method open at src/gen/m-CORE.setting:13169<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/porting/manifest.v5:11<br />
@@ -894,32 +915,32 @@ at t/spec/uni/attrs.v5:160<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error encoding UTF-8 string near grapheme position 6614 with codepoint 393215<br />
-   at src/Perl6/Grammar.nqp:336  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Grammar.moarvm:TOP:476)<br />
- from gen/moar/stage2/QRegex.nqp:1289  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/QRegex.moarvm:parse:62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1368  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:parse:97)<br />
- from gen/moar/stage2/NQPHLL.nqp:1324  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::51)<br />
- from gen/moar/stage2/NQPHLL.nqp:1315  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:compile:164)<br />
- from gen/moar/stage2/NQPHLL.nqp:1073  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:eval:53)<br />
- from gen/moar/stage2/NQPHLL.nqp:1282  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:105)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at src/Perl6/Grammar.nqp:336  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Grammar.moarvm:TOP:476)<br />
+ from gen/moar/stage2/QRegex.nqp:1289  (/home/froggs/dev/nqp/install/languages/nqp/lib/QRegex.moarvm:parse:62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1368  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:parse:97)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1324  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::51)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1315  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:compile:164)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1073  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:eval:53)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1282  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:105)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-   at &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:10985  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
+ from src/gen/m-CORE.setting:10989  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>no kid script<br />
@@ -931,27 +952,27 @@ No such symbol '&amp;run_multiple_progs'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-   at &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:10985  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
+ from src/gen/m-CORE.setting:10989  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-   at &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:10985  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
+ from src/gen/m-CORE.setting:10989  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1220  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -998,20 +1019,20 @@ at t/spec/io/layers.v5:208<br />
     at t/spec/io/perlio_leaks.v5:29<br />
     ------&gt; 	    open my $fh⏏, "&lt;$layer", $0 or die $!;<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13175<br />
-  in method open at src/gen/m-CORE.setting:13165<br />
+  in method open at src/gen/m-CORE.setting:13198<br />
+  in method open at src/gen/m-CORE.setting:13169<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method eager at src/gen/m-CORE.setting:7651<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method eager at src/gen/m-CORE.setting:7655<br />
   in block  at t/spec/io/perlio_leaks.v5:20<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/io/perlio_leaks.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/say.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1103,9 +1124,9 @@ at t/spec/re/reg_fold.v5:30<br />
 ------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp18080A.18080<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp10443A.10443<br />
 Unexpected closing bracket<br />
-at tmp18080A.18080:1<br />
+at tmp10443A.10443:1<br />
 ------&gt; use v5; ï⏏»¿print 1;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1187,14 +1208,14 @@ No such symbol '&amp;Regexp::DESTROY'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Malformed UTF-8 at line 1 col 1<br />
-  in method decode at src/gen/m-CORE.setting:5266<br />
-  in method Str at src/gen/m-CORE.setting:5269<br />
-  in method Str at src/gen/m-CORE.setting:1019<br />
-  in method STORE_AT_KEY at src/gen/m-CORE.setting:8795<br />
-  in method STORE_AT_KEY at src/gen/m-CORE.setting:8895<br />
-  in method STORE at src/gen/m-CORE.setting:8907<br />
-  in method new at src/gen/m-CORE.setting:8845<br />
-  in sub circumfix:&lt;{ }&gt; at src/gen/m-CORE.setting:9233<br />
+  in method decode at src/gen/m-CORE.setting:5268<br />
+  in method Str at src/gen/m-CORE.setting:5271<br />
+  in method Str at src/gen/m-CORE.setting:1021<br />
+  in method STORE_AT_KEY at src/gen/m-CORE.setting:8799<br />
+  in method STORE_AT_KEY at src/gen/m-CORE.setting:8899<br />
+  in method STORE at src/gen/m-CORE.setting:8911<br />
+  in method new at src/gen/m-CORE.setting:8849<br />
+  in sub circumfix:&lt;{ }&gt; at src/gen/m-CORE.setting:9237<br />
   in block  at t/spec/uni/chomp.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1214,18 +1235,6 @@ No such symbol '&amp;A'<br />
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such symbol '&amp;GR'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>Potential difficulties:<br />
-    Redeclaration of symbol $fh<br />
-    at tmp18660A.18660:7<br />
-    ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
-Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13175<br />
-  in method open at src/gen/m-CORE.setting:13165<br />
-  in sub P5open at lib/Perl5/Terms.pm:73<br />
-  in sub P5open at lib/Perl5/Terms.pm:69<br />
-  in block  at tmp18660A.18660:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utftaint.v5<br />
@@ -1261,8 +1270,8 @@ No such symbol '&amp;crypt'<br />
     at t/spec/op/filehandle.v5:15<br />
     ------&gt; open my $fh⏏, "&lt;", \$str;<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13175<br />
-  in method open at src/gen/m-CORE.setting:13165<br />
+  in method open at src/gen/m-CORE.setting:13198<br />
+  in method open at src/gen/m-CORE.setting:13169<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/op/filehandle.v5:1<br />
@@ -1294,10 +1303,10 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp19329C' on target 'tmp19329B': link NYI<br />
-  in block  at src/gen/m-CORE.setting:13791<br />
-  in any  at /home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
-  in sub link at src/gen/m-CORE.setting:13786<br />
+Failed to create link called 'tmp11641C' on target 'tmp11641B': Failed to link file: no such file or directory<br />
+  in block  at src/gen/m-CORE.setting:13815<br />
+  in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
+  in sub link at src/gen/m-CORE.setting:13810<br />
   in block  at t/spec/win32/fs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/24-strict.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -1361,7 +1370,7 @@ No such symbol '&amp;lock'<br />
         <tr align='center'><td align='left' rowspan='2'>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Cannot call 'match'; none of these signatures match:<br />
 :(Cool:D: Any $target, *%adverbs)<br />
-  in method match at src/gen/m-CORE.setting:3498<br />
+  in method match at src/gen/m-CORE.setting:3500<br />
   in sub P5split at lib/Perl5/Terms.pm:988<br />
   in sub P5split at lib/Perl5/Terms.pm:979<br />
   in sub P5split at lib/Perl5/Terms.pm:980<br />
@@ -1426,7 +1435,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp18982B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp11276B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1443,27 +1452,27 @@ at t/spec/uni/tr_7jis.v5:19<br />
 ------&gt; my @hiragana =  map {chr} ord("$B⏏$!(B")..ord("$B$s(B");</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 at line 18 col 32<br />
-   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 at line 18 col 32<br />
-   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1481,10 +1490,10 @@ No such method 'IO' for invocant of type 'Any'<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/io/perlio_open.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
@@ -1523,12 +1532,12 @@ at t/spec/mro/pkg_gen_utf8.v5:37<br />
 ------&gt; undef %ᕘ::⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Cannot find method 'isatty': no method cache and no .^find_method<br />
-  in method t at src/gen/m-CORE.setting:13256<br />
+  in method t at src/gen/m-CORE.setting:13280<br />
   in block  at t/spec/op/filetest_t.v5:18<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/op/filetest_t.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
@@ -1549,7 +1558,7 @@ No such symbol '&amp;tie'<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 93)<br />
 No such symbol '&amp;eq'<br />
-  in method fail at src/gen/m-CORE.setting:10831<br />
+  in method fail at src/gen/m-CORE.setting:10835<br />
   in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:400<br />
   in block  at t/spec/comp/package_block.v5:1<br />
 </td></tr>
@@ -1562,15 +1571,6 @@ Variable '&amp;Kooh' is not declared<br />
 at t/spec/opbasic/magic_phase.v5:46<br />
 ------&gt; our $affe = bless {}, ⏏Kooh::;<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
-===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
-===SORRY!=== Error while compiling tmp19127A.19127<br />
-Two terms in a row<br />
-at tmp19127A.19127:38<br />
-------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/readline.v5<br />
 Unable to parse expression in argument list; couldn't find final ')' <br />
@@ -1630,7 +1630,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1391184346.39235 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1391978285.65433 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>/bin/sh: 1: -V: not found<br />
@@ -1698,7 +1698,7 @@ No such symbol '&amp;tie'<br />
 Oops<br />
 Oops<br />
 No such symbol '&amp;or'<br />
-  in method fail at src/gen/m-CORE.setting:10831<br />
+  in method fail at src/gen/m-CORE.setting:10835<br />
   in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:400<br />
   in block  at t/v5/23-eval.v5:1<br />
 </td></tr>
@@ -1708,8 +1708,8 @@ No such symbol '&amp;watchdog'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Failed to change the working directory to '/home/froggs/dev/v5/lib/deprecate': Directory does not exist<br />
-  in sub chdir at src/gen/m-CORE.setting:13708<br />
-  in sub chdir at src/gen/m-CORE.setting:13690<br />
+  in sub chdir at src/gen/m-CORE.setting:13732<br />
+  in sub chdir at src/gen/m-CORE.setting:13714<br />
   in sub P5chdir at lib/Perl5/Terms.pm:334<br />
   in sub P5chdir at lib/Perl5/Terms.pm:334<br />
   in block  at t/spec/lib/deprecate.v5:1<br />
@@ -1850,13 +1850,13 @@ No such symbol '&amp;IPC_PRIVATE'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Odd number of elements found where hash expected<br />
-  in method STORE at src/gen/m-CORE.setting:8909<br />
-  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16093<br />
+  in method STORE at src/gen/m-CORE.setting:8913<br />
+  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16119<br />
   in block  at t/spec/op/hashwarn.v5:27<br />
-  in method reify at src/gen/m-CORE.setting:7370<br />
-  in method reify at src/gen/m-CORE.setting:7235<br />
-  in method gimme at src/gen/m-CORE.setting:7679<br />
-  in method sink at src/gen/m-CORE.setting:8089<br />
+  in method reify at src/gen/m-CORE.setting:7372<br />
+  in method reify at src/gen/m-CORE.setting:7237<br />
+  in method gimme at src/gen/m-CORE.setting:7683<br />
+  in method sink at src/gen/m-CORE.setting:8093<br />
   in block  at t/spec/op/hashwarn.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -1887,7 +1887,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp18439B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp10766B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2223,15 +2223,15 @@ at t/spec/op/quotemeta.v5:35<br />
 ------&gt; is("aA\⏏UbB\LcC\EdD", "aABBccdD", 'aA\UbB\LcC\Ed</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 at line 21 col 21<br />
-   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grep.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/grep.v5<br />
@@ -2255,7 +2255,7 @@ at t/spec/uni/method.v5:43<br />
     at t/spec/op/inccode.v5:303<br />
     ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
 No such method 'substr' for invocant of type 'Any'<br />
-  in sub substr-rw at src/gen/m-CORE.setting:6646<br />
+  in sub substr-rw at src/gen/m-CORE.setting:6648<br />
   in sub P5substr at lib/Perl5/Terms.pm:1073<br />
   in sub P5substr at lib/Perl5/Terms.pm:1066<br />
   in sub fooinc at t/spec/op/inccode.v5:38<br />
@@ -2294,15 +2294,15 @@ No such symbol '&amp;tie'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 at line 63 col 18<br />
-   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2354,27 +2354,27 @@ at t/spec/run/runenv.v5:117<br />
 ------&gt;     ⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 at line 65 col 18<br />
-   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 at line 211 col 15<br />
-   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex_assign.v5</td><td>0</td><td>100</td><td>0</td><td>0</td><td>100</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/lex_assign.v5<br />
@@ -2452,15 +2452,15 @@ at t/spec/op/eval.v5:92<br />
 ------&gt;      is(eval⏏('"$b"'), $b);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8 at line 211 col 25<br />
-   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/rakudo/../nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/rakudo/../nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1278  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1259  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1212  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1161  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>japh/abigail.v5</td><td>0</td><td>129</td><td>0</td><td>1</td><td>130</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2622,9 +2622,9 @@ No such symbol '&amp;FOO'<br />
 No such symbol '&amp;binmode'<br />
 </td></tr>
 
-        <tr><td>nqp-m --version</td><td colspan='5'>This is nqp version 2014.01-7-gaa42129 built on MoarVM version 2014.01-4-gdd7ddb4
+        <tr><td>nqp-m --version</td><td colspan='5'>This is nqp version 2014.01-27-g7584c1a built on MoarVM version 2014.01-130-g5792266
 </td></tr>
-        <tr><td>perl6-m --version</td><td colspan='5'>This is perl6 version 2014.01-46-g04c4fba built on MoarVM version 2014.01-4-gdd7ddb4
+        <tr><td>perl6-m --version</td><td colspan='5'>This is perl6 version 2014.01-81-g46234b5 built on MoarVM version 2014.01-130-g5792266
 </td></tr>
     </tbody>
 </table>

@@ -1,8 +1,8 @@
 diff --git a/src/Perl6/Grammar.nqp b/src/Perl6/Grammar.nqp
-index 49d4c83..b40fee5 100644
+index 7ea0caa..0638594 100644
 --- a/src/Perl6/Grammar.nqp
 +++ b/src/Perl6/Grammar.nqp
-@@ -854,6 +854,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -856,6 +856,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          # Quasis and unquotes
          :my $*IN_QUASI := 0;                       # whether we're currently in a quasi block
@@ -10,7 +10,7 @@ index 49d4c83..b40fee5 100644
  
          # performance improvement stuff
          :my $*FAKE_INFIX_FOUND := 0;
-@@ -925,6 +926,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -927,6 +928,9 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                      %*LANG{$_.key} := $_.value;
                  }
              }
@@ -20,16 +20,16 @@ index 49d4c83..b40fee5 100644
              
              # Install unless we've no setting, in which case we've likely no
              # static lexpad class yet either. Also, UNIT needs a code object.
-@@ -947,7 +951,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -949,7 +953,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          
          <.finishpad>
          <.bom>?
--        <statementlist>
-+        <statementlist=.LANG($*MAIN, 'statementlist')>
+-        <statementlist(1)>
++        <statementlist=.LANG($*MAIN, 'statementlist', 1)>
  
          <.install_doc_phaser>
          
-@@ -1263,10 +1267,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1265,10 +1269,18 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
          :my $*IN_DECL := 'use';
          :my $*HAS_SELF := '';
          :my $*SCOPE   := 'use';
@@ -49,11 +49,11 @@ index 49d4c83..b40fee5 100644
          | <module_name>
              {
                  $longname := $<module_name><longname>;
-@@ -1317,6 +1329,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
+@@ -1319,6 +1331,7 @@ grammar Perl6::Grammar is HLL::Grammar does STD {
                  }
              ]
          ]
-+        [ <?{ $*MAIN ne $OLD_MAIN }> <statementlist=.LANG($*MAIN, 'statementlist')> || <?> ]
++        [ <?{ $*MAIN ne $OLD_MAIN }> <statementlist=.LANG($*MAIN, 'statementlist', 1)> || <?> ]
          <.ws>
      }
      

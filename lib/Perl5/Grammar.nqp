@@ -878,7 +878,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         
         <.finishlex>
         <.bom>?
-        <statementlist>
+        <statementlist(1)>
 
         <.install_doc_phaser>
         
@@ -1199,7 +1199,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         } ]?
         [
         | '{YOU_ARE_HERE}' <you_are_here>
-        | :dba('block') '{' ~ '}' <statementlist> <?ENDSTMT>
+        | :dba('block') '{' ~ '}' <statementlist(1)> <?ENDSTMT>
         | <?terminator> { $*W.throw($/, 'X::Syntax::Missing', what =>'block') }
         | <?> { $*W.throw($/, 'X::Syntax::Missing', what => 'block') }
         ]
@@ -1207,7 +1207,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     # statement semantics
-    rule statementlist {
+    rule statementlist($*statement_level = 0) {
         :my %*LANG    := self.shallow_copy(nqp::getlexdyn('%*LANG'));
         :my %*HOW     := self.shallow_copy(nqp::getlexdyn('%*HOW'));
         :my $*IN_DECL := '';
@@ -1457,7 +1457,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         [ <?{ $*MAIN ne $OLD_MAIN }> {
             $*IN_DECL := '';
             $*SCOPE := '';
-        } <statementlist=.LANG($*MAIN, 'statementlist')> || <?> ]
+        } <statementlist=.LANG($*MAIN, 'statementlist', 1)> || <?> ]
         <.ws>
     }
 
@@ -1959,7 +1959,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 ] ?
                 { $*IN_DECL := ''; }
                 <.finishlex>
-                <statementlist>     # whole rest of file, presumably
+                <statementlist(1)>     # whole rest of file, presumably
                 { $*CURPAD := $*W.pop_lexpad(); }
             || <.panic("Unable to parse $*PKGDECL definition")>
             ]
