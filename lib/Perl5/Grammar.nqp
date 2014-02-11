@@ -3799,7 +3799,7 @@ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
         token backslash:sym<e> { <sym> }
         token backslash:sym<f> { <sym> }
         token backslash:sym<n> { <sym> }
-        token backslash:sym<N> { <sym> '{' ~ '}' $<charname>=[.*?] }
+        token backslash:sym<N> { <sym> '{' ~ '}' $<charname>=[ <-[\}]>* ] }
         token backslash:sym<r> { <sym> }
         token backslash:sym<t> { <sym> }
         token backslash:sym<x> { :dba('hex character') <sym> [ <hexint> | '{' ~ '}' <hexints> ] }

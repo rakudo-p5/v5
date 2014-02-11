@@ -6298,6 +6298,12 @@ class Perl5::QActions is HLL::Actions does STDActions {
     method backslash:sym<e>($/) { make "\c[27]" }
     method backslash:sym<f>($/) { make "\c[12]" }
     method backslash:sym<n>($/) { make "\n" }
+    method backslash:sym<N>($/) {
+        my $name := ~$<charname>;
+        my $codepoint := $name eq 'NEL' ?? 0x85 !! nqp::codepointfromname($name);
+        $/.CURSOR.panic("Unrecognized character name $<charname>") if $codepoint < 0;
+        make nqp::chr($codepoint);
+    }
     method backslash:sym<r>($/) { make "\r" }
     method backslash:sym<t>($/) { make "\t" }
     method backslash:sym<x>($/) { make self.ints_to_string( $<hexint> ?? $<hexint> !! $<hexints><hexint> ) }

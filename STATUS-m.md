@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5437</td><td>35700</td><td>5</td><td>1808</td><td>42863</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5485</td><td>35652</td><td>5</td><td>1808</td><td>42863</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2380</td><td>12317</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
   in sub MAKE_REGEX at src/gen/m-CORE.setting:12511<br />
@@ -59,6 +59,7 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>   1 todo   : NYI<br />
 </td></tr>
+        <tr align='center'><td align='left'>op/split_unicode.v5</td><td>48</td><td>103</td><td>0</td><td>0</td><td>151</td></tr>
         <tr align='center'><td align='left'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
@@ -246,17 +247,17 @@ No such symbol '&amp;tie'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>4</td><td>5</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
-===SORRY!=== Error while compiling tmp10835A.10835<br />
+===SORRY!=== Error while compiling tmp26299A.26299<br />
 Couldn't parse heredoc construct<br />
-at tmp10835A.10835:1<br />
+at tmp26299A.26299:1<br />
 ------&gt; use v5; print &lt;&lt;⏏;<br />
-===SORRY!=== Error while compiling tmp10835A.10835<br />
+===SORRY!=== Error while compiling tmp26299A.26299<br />
 Couldn't parse heredoc construct<br />
-at tmp10835A.10835:1<br />
+at tmp26299A.26299:1<br />
 ------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
-===SORRY!=== Error while compiling tmp10835A.10835<br />
+===SORRY!=== Error while compiling tmp26299A.26299<br />
 Confused<br />
-at tmp10835A.10835:4<br />
+at tmp26299A.26299:4<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -314,14 +315,14 @@ Can't locate object method "import" via package "main" (perhaps you forgot to lo
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
-    at tmp10936A.10936:7<br />
+    at tmp26399A.26399:7<br />
     ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13198<br />
   in method open at src/gen/m-CORE.setting:13169<br />
   in sub P5open at lib/Perl5/Terms.pm:73<br />
   in sub P5open at lib/Perl5/Terms.pm:69<br />
-  in block  at tmp10936A.10936:1<br />
+  in block  at tmp26399A.26399:1<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
@@ -339,9 +340,9 @@ No such symbol '&amp;dbmopen'<br />
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-===SORRY!=== Error while compiling tmp10726A.10726<br />
+===SORRY!=== Error while compiling tmp26188A.26188<br />
 Couldn't find terminator |<br />
-at tmp10726A.10726:14<br />
+at tmp26188A.26188:14<br />
 ------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -399,9 +400,9 @@ Unhandled exception: No exception handler located for warn<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
 ===SORRY!===<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
-===SORRY!=== Error while compiling tmp11416A.11416<br />
+===SORRY!=== Error while compiling tmp26777A.26777<br />
 Two terms in a row<br />
-at tmp11416A.11416:38<br />
+at tmp26777A.26777:38<br />
 ------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
@@ -1124,9 +1125,9 @@ at t/spec/re/reg_fold.v5:30<br />
 ------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp10443A.10443<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp25895A.25895<br />
 Unexpected closing bracket<br />
-at tmp10443A.10443:1<br />
+at tmp25895A.25895:1<br />
 ------&gt; use v5; ï⏏»¿print 1;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1303,7 +1304,7 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp11641C' on target 'tmp11641B': Failed to link file: no such file or directory<br />
+Failed to create link called 'tmp26975C' on target 'tmp26975B': Failed to link file: no such file or directory<br />
   in block  at src/gen/m-CORE.setting:13815<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:13810<br />
@@ -1435,7 +1436,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp11276B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp26640B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1630,7 +1631,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1391978285.65433 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1392157444.71573 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>/bin/sh: 1: -V: not found<br />
@@ -1759,9 +1760,9 @@ at t/spec/uni/class.v5:12<br />
 ------&gt; is(($str =~ /(\⏏p{IsMyUniClass}+)/)[0], '0123456789:;&lt;=&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lex_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/lex_utf8.v5<br />
-Unable to parse expression in backslash:sym&lt;N&gt;; couldn't find final '}' <br />
-at t/spec/uni/lex_utf8.v5:25<br />
-------&gt; my $name_first = "b\N{⏏MICRO SIGN}Ɓ";<br />
+Unrecognized character name U+00B5<br />
+at t/spec/uni/lex_utf8.v5:27<br />
+------&gt; my $uname_first = "b\N{U+00B5}⏏Ɓ";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_c3.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1887,7 +1888,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp10766B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp26229B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2496,12 +2497,6 @@ at t/spec/op/range.v5:396<br />
 Variable '*_' is not declared<br />
 at t/spec/op/incfilter.v5:240<br />
 ------&gt;     unshift @INC, sub { sub { undef *_⏏; --$| }};</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/split_unicode.v5<br />
-Unable to parse expression in backslash:sym&lt;N&gt;; couldn't find final '}' <br />
-at t/spec/op/split_unicode.v5:28<br />
-------&gt; 	ord("\N{⏏NEL}"), # Cc       &lt;control-0085&gt;<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/parser.v5<br />
 Unrecognized backslash sequence: '\Q'<br />
@@ -2622,9 +2617,9 @@ No such symbol '&amp;FOO'<br />
 No such symbol '&amp;binmode'<br />
 </td></tr>
 
-        <tr><td>nqp-m --version</td><td colspan='5'>This is nqp version 2014.01-27-g7584c1a built on MoarVM version 2014.01-130-g5792266
+        <tr><td>nqp-m --version</td><td colspan='5'>This is nqp version 2014.01-37-g05c5d89 built on MoarVM version 2014.01-136-g4b1c237
 </td></tr>
-        <tr><td>perl6-m --version</td><td colspan='5'>This is perl6 version 2014.01-81-g46234b5 built on MoarVM version 2014.01-130-g5792266
+        <tr><td>perl6-m --version</td><td colspan='5'>This is perl6 version 2014.01-82-g260cd71 built on MoarVM version 2014.01-136-g4b1c237
 </td></tr>
     </tbody>
 </table>
