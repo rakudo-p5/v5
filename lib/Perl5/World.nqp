@@ -84,6 +84,21 @@ class Perl5::World {
             %info<default_value> := $*W.find_symbol(['Any']);
             %info<scalar_value> := $*W.find_symbol(['Any']);
         }
+        elsif $sigil eq '*' {
+            %info<container_base> := $*W.find_symbol(['Typeglob']);
+            %info<container_type> := %info<container_base>;
+            if @value_type {
+                %info<bind_constraint> := @value_type[0];
+                %info<value_type> := @value_type[0];
+                %info<default_value> := $*PACKAGE; #@value_type[0];
+            }
+            else {
+                %info<bind_constraint> := $*W.find_symbol(['Mu']);
+                %info<value_type> := $*W.find_symbol(['Any']);
+                %info<default_value> := $*PACKAGE; #@value_type[0];
+            }
+            %info<scalar_value> := %info<default_value>;
+        }
         else {
             %info<container_base> := $*W.find_symbol(['Scalar']);
             %info<container_type> := %info<container_base>;

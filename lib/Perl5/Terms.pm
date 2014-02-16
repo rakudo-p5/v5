@@ -74,6 +74,37 @@ multi P5open( \SELF, $m, $expr, *@list ) is export {
          unless SELF ~~ any(STDOUT|STDERR)
 }
 
+class Typeglob {
+    has $!descriptor;
+    has $!value;
+    has $.name;
+
+    method Str {
+        '*'  ~ ($!value =:= GLOBAL ?? 'main' !! $!value.^name) ~
+        '::' ~ $.name
+    }
+
+    method name {
+        $!name // ($!name = nqp::substr($!descriptor.name, 1))
+    }
+
+    method STORE($other) {
+        $!name = $other.name;
+    }
+
+    method item is rw {
+        $!value.WHO{ '$' ~ $.name }
+    }
+
+    method hash is rw {
+        $!value.WHO{ '%' ~ $.name }
+    }
+
+    method list is rw {
+        $!value.WHO{ '@' ~ $.name }
+    }
+}
+
 sub P5close(\SELF) is export { SELF && SELF.close }
 
 
@@ -83,6 +114,7 @@ role P5MatchPos {
 
 sub EXPORT(|) {
     my %ex;
+    %ex<Typeglob>                 := Typeglob;
     %ex<STDIN>                    := STDIN;
     %ex<STDOUT>                   := STDOUT;
     %ex<STDERR>                   := STDERR;
