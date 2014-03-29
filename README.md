@@ -34,6 +34,7 @@ cd rakudo                        # I assume you already have rakudo installed
 patch -i ../v5/rakudo.patch      # this is needed atm and will hopefully go away pretty soon
 make install                     # install the patched rakudo
 cd ../v5
+perl6 Configure.p6
 make install                     # install the Perl5 module
 ```
 
