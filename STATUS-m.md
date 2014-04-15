@@ -3,26 +3,25 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5513</td><td>35624</td><td>5</td><td>1808</td><td>42863</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5513</td><td>35623</td><td>5</td><td>1809</td><td>42863</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2380</td><td>12317</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
-  in sub MAKE_REGEX at src/gen/m-CORE.setting:12783<br />
-  in block  at src/gen/m-CORE.setting:12721<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:12713<br />
-  in method match at src/gen/m-CORE.setting:6139<br />
-  in method match at src/gen/m-CORE.setting:3570<br />
-  in method match at src/gen/m-CORE.setting:3568<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:12959<br />
+  in block  at src/gen/m-CORE.setting:12897<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:12889<br />
+  in method match at src/gen/m-CORE.setting:6238<br />
+  in method match at src/gen/m-CORE.setting:3655<br />
   in sub like_yn at /home/froggs/dev/v5/t/test.pl:97<br />
   in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
   in block  at t/spec/op/pack.v5:1276<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/op/pack.v5:1008<br />
 <br />   2 skipped: (EBCDIC and) version strings are bad idea<br />
    4 skipped: Not for EBCDIC<br />
@@ -32,8 +31,13 @@
         <tr align='center'><td align='left'>op/pow.v5</td><td>267</td><td>1</td><td>0</td><td>0</td><td>268</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>112</td><td>5</td><td>1</td><td>0</td><td>118</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;a'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/cmd/for.v5:661<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/cmd/for.v5:37<br />
 <br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>98</td><td>62</td><td>0</td><td>3</td><td>163</td></tr>
@@ -66,12 +70,12 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left'>op/unshift.v5</td><td>36</td><td>0</td><td>0</td><td>0</td><td>36</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/mydef.v5</td><td>36</td><td>16</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'STORE' for invocant of type 'List'<br />
-  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16465<br />
+  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16679<br />
   in block  at t/spec/op/mydef.v5:138<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/op/mydef.v5:1<br />
 <br />  52 tests more than planned were run<br />
 </td></tr>
@@ -79,7 +83,7 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>28</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'splice' for invocant of type 'Any'<br />
-  in sub P5splice at lib/Perl5/Terms.pm:1042<br />
+  in sub P5splice at lib/Perl5/Terms.pm:1047<br />
   in block  at t/spec/op/splice.v5:82<br />
 <br />  29 tests more than planned were run<br />
 </td></tr>
@@ -102,9 +106,7 @@ Index out of range. Is: 1, should be in 0..0<br />
     Redeclaration of symbol $SIG<br />
     at t/spec/comp/fold.v5:90<br />
     ------&gt;     local $SIG{__DIE__}  ⏏= sub { $c+= 2 };<br />
-No such symbol '&amp;INSTALL'<br />
-  in method fail at src/gen/m-CORE.setting:11061<br />
-  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:451<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
   in block  at t/spec/comp/fold.v5:124<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
@@ -127,34 +129,32 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>9</td><td>27</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>Cannot call 'match'; none of these signatures match:<br />
 :(Cool:D: Any $target, *%adverbs)<br />
-  in method match at src/gen/m-CORE.setting:3568<br />
-  in method Bool at src/gen/m-CORE.setting:12868<br />
-  in method Bool at src/gen/m-CORE.setting:829<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:360<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:360<br />
+  in method Bool at src/gen/m-CORE.setting:13044<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:365<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:365<br />
   in sub isnt at t/spec/comp/opsubs.v5:66<br />
   in block  at t/spec/comp/opsubs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/die_unwind.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>9</td><td>4</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
-  in sub MAKE_REGEX at src/gen/m-CORE.setting:12783<br />
-  in block  at src/gen/m-CORE.setting:12676<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
-  in block  at src/gen/m-CORE.setting:12670<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:12648<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:12650<br />
-  in method match at src/gen/m-CORE.setting:6139<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:12959<br />
+  in block  at src/gen/m-CORE.setting:12852<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at src/gen/m-CORE.setting:12846<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:12824<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:12826<br />
+  in method match at src/gen/m-CORE.setting:6238<br />
   in sub like_yn at /home/froggs/dev/v5/t/test.pl:97<br />
   in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
   in block  at t/spec/op/append.v5:43<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/op/append.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>8</td><td>50</td><td>0</td><td>2</td><td>60</td></tr>
@@ -162,10 +162,10 @@ to preserve list context inside function call<br />
 Useless use of constant integer 1 in sink context (line 117)<br />
 Type of arg 1 to push must be array (not constant item)<br />
   in block  at t/spec/op/push.v5:85<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/op/push.v5:1<br />
 <br />   2 skipped: implicit @-sigil on a barename in push/pop is rediculous<br />
 </td></tr>
@@ -174,8 +174,13 @@ Type of arg 1 to push must be array (not constant item)<br />
     Redeclaration of symbol $u<br />
     at t/spec/op/length.v5:176<br />
     ------&gt; my $u⏏;<br />
-===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/length.v5:124<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/length.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left'>comp/bproto.v5</td><td>8</td><td>8</td><td>0</td><td>0</td><td>16</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
@@ -185,17 +190,17 @@ No such symbol '&amp;tie'<br />
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Unhandled exception: chr codepoint cannot be negative<br />
-   at src/gen/m-CORE.setting:4377  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:chr:36)<br />
+   at src/gen/m-CORE.setting:4464  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:chr:34)<br />
  from t/spec/uni/chr.v5:24  (&lt;ephemeral file&gt;::77)<br />
  from t/spec/uni/chr.v5:24  (&lt;ephemeral file&gt;::16)<br />
- from src/gen/m-CORE.setting:7563  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm::560)<br />
- from src/gen/m-CORE.setting:7514  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:74)<br />
- from src/gen/m-CORE.setting:7426  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm::347)<br />
- from src/gen/m-CORE.setting:7398  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:74)<br />
- from src/gen/m-CORE.setting:7878  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:gimme:219)<br />
- from src/gen/m-CORE.setting:8281  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:sink:58)<br />
- from src/gen/m-main.nqp:47  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:39)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from src/gen/m-CORE.setting:7686  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm::555)<br />
+ from src/gen/m-CORE.setting:7637  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:69)<br />
+ from src/gen/m-CORE.setting:7549  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm::346)<br />
+ from src/gen/m-CORE.setting:7521  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:reify:69)<br />
+ from src/gen/m-CORE.setting:8001  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:gimme:214)<br />
+ from src/gen/m-CORE.setting:8404  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:sink:4294967295)<br />
+ from src/gen/m-main.nqp:47  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:37)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
@@ -210,22 +215,11 @@ No such symbol '&amp;tie'<br />
 ce �ii tu, bã ?<br />
 </td></tr>
         <tr align='center'><td align='left'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
-        <tr><td colspan='5'>Invalid code-point U+00D800<br />
-  in method chr at src/gen/m-CORE.setting:4377<br />
-  in sub hexes at t/spec/op/chr.v5:57<br />
-  in block  at t/spec/op/chr.v5:52<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
-  in block  at t/spec/op/chr.v5:1<br />
-</td></tr>
+        <tr align='center'><td align='left'>op/chr.v5</td><td>6</td><td>36</td><td>0</td><td>0</td><td>42</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/mod.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:72<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:74<br />
   in block  at t/spec/cmd/mod.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/isa_aliases_utf8.v5</td><td>6</td><td>6</td><td>0</td><td>0</td><td>12</td></tr>
@@ -251,33 +245,35 @@ Useless use of constant integer 42 in sink context (line 15)<br />
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>4</td><td>33</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
-  in sub exists at lib/Perl5/Terms.pm:230<br />
+  in sub exists at lib/Perl5/Terms.pm:235<br />
   in block  at t/spec/re/reg_nc_tie.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>4</td><td>8</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;DESTROY'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/pos.v5:42<br />
+  in block  at t/spec/op/pos.v5:42<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/or.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/or.v5:27<br />
+  in block  at t/spec/op/or.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>4</td><td>0</td><td>0</td><td>1756</td><td>1760</td></tr>
         <tr><td colspan='5'><br /> 1756 skipped: Can't get bigint from something that isn't a SixModel object<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>4</td><td>5</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
-===SORRY!=== Error while compiling tmp10833A.10833<br />
+===SORRY!=== Error while compiling tmp19643A.19643<br />
 Couldn't parse heredoc construct<br />
-at tmp10833A.10833:1<br />
+at tmp19643A.19643:1<br />
 ------&gt; use v5; print &lt;&lt;⏏;<br />
-===SORRY!=== Error while compiling tmp10833A.10833<br />
+===SORRY!=== Error while compiling tmp19643A.19643<br />
 Couldn't parse heredoc construct<br />
-at tmp10833A.10833:1<br />
+at tmp19643A.19643:1<br />
 ------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
-===SORRY!=== Error while compiling tmp10833A.10833<br />
+===SORRY!=== Error while compiling tmp19643A.19643<br />
 Confused<br />
-at tmp10833A.10833:4<br />
+at tmp19643A.19643:4<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -287,12 +283,12 @@ at tmp10833A.10833:4<br />
         <tr align='center'><td align='left' rowspan='2'>run/switcht.v5</td><td>3</td><td>10</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:982<br />
+  in sub P5print at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/run/switcht.v5:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>3</td><td>8</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;select'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/sselect.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sleep.v5</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/reverse.v5</td><td>3</td><td>23</td><td>0</td><td>0</td><td>26</td></tr>
@@ -303,14 +299,24 @@ No such symbol '&amp;select'<br />
     Redeclaration of symbol @empty<br />
     at t/spec/op/reverse.v5:82<br />
     ------&gt;     tie my @empty⏏, "Tie::StdArray";<br />
-===SORRY!===<br />
-No such symbol '&amp;delete'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/reverse.v5:30<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/reverse.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;C'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/v5/26-syntax-namespace.v5:52<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/v5/26-syntax-namespace.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -328,7 +334,9 @@ No such symbol '&amp;C'<br />
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>run/switchI.v5</td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align='center'><td align='left'>run/noswitch.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>2</td><td>0</td><td>0</td><td>1</td><td>3</td></tr>
+        <tr><td colspan='5'>   1 skipped: hangs<br />
+</td></tr>
         <tr align='center'><td align='left'>re/overload.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub.v5</td><td>2</td><td>14</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -337,14 +345,13 @@ Can't locate object method "import" via package "main" (perhaps you forgot to lo
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
-    at tmp10931A.10931:7<br />
+    at tmp19748A.19748:7<br />
     ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
-  in block  at tmp10931A.10931:1<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in block  at tmp19748A.19748:1<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defins.v5</td><td>2</td><td>25</td><td>0</td><td>0</td><td>27</td></tr>
@@ -360,44 +367,66 @@ Failed to open file: no such file or directory<br />
     ------&gt; while (my $name ⏏= each %hash)<br />
 Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:982<br />
+  in sub P5print at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/op/defins.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;dbmopen'<br />
-===SORRY!===<br />
-No such symbol '&amp;dbmopen'<br />
-===SORRY!===<br />
-No such symbol '&amp;dbmopen'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub new at tmp19549A.19549:7<br />
+  in block  at tmp19549A.19549:23<br />
+  in block  at tmp19549A.19549:2<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub new at tmp19549A.19549:6<br />
+  in block  at tmp19549A.19549:22<br />
+  in block  at tmp19549A.19549:1<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at tmp19549A.19549:1<br />
 ===SORRY!===<br />
 MVMArray: Index out of bounds<br />
-===SORRY!===<br />
-No such symbol '&amp;dbmopen'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/dbm.v5:63<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/dbm.v5:44<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-===SORRY!=== Error while compiling tmp10714A.10714<br />
+===SORRY!=== Error while compiling tmp19529A.19529<br />
 Couldn't find terminator |<br />
-at tmp10714A.10714:14<br />
+at tmp19529A.19529:14<br />
 ------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;opendir'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/chdir.v5:73<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/chdir.v5:37<br />
 <br />  16 skipped: no fchdir<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;L'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub local2 at t/spec/op/args.v5:76<br />
+  in block  at t/spec/op/args.v5:77<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/args.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/64bitint.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>'lld' is not valid in sprintf format sequence '%lld'<br />
 <br />   2 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>1</td><td>14</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;FH'<br />
+        <tr><td colspan='5'>No such method 'close' for invocant of type 'Any'<br />
+  in sub P5close at lib/Perl5/Terms.pm:123<br />
+  in sub P5close at lib/Perl5/Terms.pm:121<br />
+  in block  at t/spec/io/perlio_fail.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/12-context.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
@@ -406,14 +435,17 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>1</td><td>28</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>No such method 'STORE' for invocant of type 'STDOUT'<br />
-  in sub P5open at lib/Perl5/Terms.pm:72<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method assign_key at src/gen/m-CORE.setting:9217<br />
+  in sub postcircumfix:&lt;{ }&gt; at src/gen/m-CORE.setting:2605<br />
+  in sub P5open at lib/Perl5/Terms.pm:74<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/io/dup.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub goto_softref at t/spec/uni/goto.v5:18<br />
+  in block  at t/spec/uni/goto.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>1</td><td>4</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -424,17 +456,17 @@ Could not find symbol '&amp;upgrade'<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
 No such symbol '&amp;POSIX::WIFEXITED'<br />
-  in method fail at src/gen/m-CORE.setting:11061<br />
-  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:451<br />
+  in method fail at src/gen/m-CORE.setting:11236<br />
+  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:457<br />
   in block  at t/spec/run/exit.v5:56<br />
 Unhandled exception: No exception handler located for warn<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11221  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from src/gen/m-CORE.setting:11397  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:361)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 <br />   3 tests more than planned were run<br />
@@ -444,26 +476,25 @@ Unhandled exception: No exception handler located for warn<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
 ===SORRY!===<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
-===SORRY!=== Error while compiling tmp11234A.11234<br />
+===SORRY!=== Error while compiling tmp20122A.20122<br />
 Two terms in a row<br />
-at tmp11234A.11234:38<br />
+at tmp20122A.20122:38<br />
 ------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
-  in method Bridge at src/gen/m-CORE.setting:4372<br />
-  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4293<br />
-  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4141<br />
-  in sub infix:&lt;P5&gt;&gt; at lib/Perl5/Terms.pm:279<br />
+  in method Bridge at src/gen/m-CORE.setting:4459<br />
+  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4380<br />
+  in sub infix:&lt;P5&gt;&gt; at lib/Perl5/Terms.pm:284<br />
   in block  at t/spec/comp/term.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/setpgrpstack.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;setpgrp'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/setpgrpstack.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/multiline.v5</td><td>1</td><td>5</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:982<br />
+  in sub P5print at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/comp/multiline.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/hints.v5</td><td>1</td><td>30</td><td>0</td><td>0</td><td>31</td></tr>
@@ -473,16 +504,22 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Any \a, Any \b)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;getppid'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/getpid.v5:28<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>1</td><td>7</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;evalbytes'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/evalbytes.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;warning_is'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub test_op at t/spec/op/assignwarn.v5:43<br />
+  in block  at t/spec/op/assignwarn.v5:51<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method eager at src/gen/m-CORE.setting:7973<br />
+  in block  at t/spec/op/assignwarn.v5:49<br />
 <br />   1 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/next_ineval.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -497,8 +534,8 @@ Can't locate object method "foo" via package "Fuz" (perhaps you forgot to load "
         <tr align='center'><td align='left'>mro/inconsistent_c3_utf8.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;vec'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/bigmem/vec.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -572,7 +609,7 @@ Cannot call 'postcircumfix&lt;P5[ ]&gt;'; none of these signatures match:<br />
 :(Any \SELF, int $pos)<br />
 :(Any \SELF, Any $pos)<br />
 :(Any \SELF, Positional \pos)<br />
-  in sub postcircumfix&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:346<br />
+  in sub postcircumfix&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:351<br />
   in block  at t/spec/op/do.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -580,8 +617,8 @@ Cannot call 'postcircumfix&lt;P5[ ]&gt;'; none of these signatures match:<br />
 Cannot find method 'orig'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;run_multiple_progs'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/fork.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -594,13 +631,13 @@ Variable '$b' is not declared<br />
 at t/spec/op/inc.v5:56<br />
 ------&gt; $b ⏏= -$a;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/inccode-tie.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/op/index_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/leaky-magic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -616,9 +653,8 @@ at t/spec/op/my.v5:15<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 32)<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:77<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:79<br />
   in block  at t/spec/comp/line_debug.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -633,30 +669,36 @@ at t/spec/op/readdir.v5:75<br />
     ------&gt;     open my $fh⏏, '&lt;', 'README' or die "Can't open READM<br />
 Could not find file './test.pl' for module ./test.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/op/require_37033.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;run_multiple_progs'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/runlevel.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find version in any of: /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sprintf.v5<br />
+Unable to parse expression in variable; couldn't find final '}' <br />
+at t/spec/op/sprintf.v5:76<br />
+------&gt; ata, $result, $comment, $data) = @{shift⏏ @tests};</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/op/substr_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;run_multiple_progs'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/tie.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;v256'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/utf8decode.v5:10<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/utf8decode.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/write.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -685,29 +727,28 @@ Could not find symbol '&amp;upgrade'<br />
     at t/spec/porting/args_assert.v5:38<br />
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/porting/args_assert.v5:24<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/porting/args_assert.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;find_git_or_skip'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/porting/authors.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;find'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/porting/checkcase.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;find_git_or_skip'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/porting/cmp_version.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -719,16 +760,14 @@ Variable '$.' is not declared<br />
 at t/spec/porting/diag.v5:106<br />
 ------&gt; TA as it is already in $pod near line $.⏏";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;find'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/porting/dual-life.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/exec-bit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
     at t/spec/porting/exec-bit.v5:13<br />
     ------&gt;   open my $fh⏏, '&lt;', $fname or die "Can't open '$fname<br />
-===SORRY!===<br />
-No such symbol '&amp;maniread'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/filenames.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -736,10 +775,9 @@ No such symbol '&amp;maniread'<br />
     at t/spec/porting/filenames.v5:37<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/porting/filenames.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -755,10 +793,9 @@ at t/spec/comp/require.v5:182<br />
 WARNINGS:<br />
 Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in expression "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in sink context (line 16)<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/porting/globvar.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -771,10 +808,9 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/languages/per
     at t/spec/porting/manifest.v5:17<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/porting/manifest.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -782,13 +818,13 @@ Failed to open file: no such file or directory<br />
     Redeclaration of symbol $fh<br />
     at t/spec/porting/pending-author.v5:56<br />
     ------&gt; open my $fh⏏, '|-', "$^X Porting/checkAUTHORS.pl --t<br />
-===SORRY!===<br />
-No such symbol '&amp;find_git_or_skip'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/porting/pending-author.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;runperl'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/porting/pod_rules.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -805,8 +841,8 @@ at t/spec/porting/test_bootstrap.v5:36<br />
     Redeclaration of symbol $fh<br />
     at t/spec/porting/utils.v5:37<br />
     ------&gt; open my $fh⏏, '&lt;', 'MANIFEST' or die "Can't open MAN<br />
-===SORRY!===<br />
-No such symbol '&amp;find_git_or_skip'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/porting/utils.v5:26<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -820,37 +856,37 @@ at t/spec/re/pat_advanced.v5:35<br />
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/pat_advanced_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_psycho_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/pat_psycho_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/pat_re_eval_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/pat_rt_report_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/pat_special_cc_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/pat_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -861,12 +897,12 @@ at t/spec/re/reg_email.v5:76<br />
         <tr align='center'><td align='left' rowspan='2'>re/reg_email_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;warning_is'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/re/reg_mesg.v5:269<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -888,9 +924,8 @@ at t/spec/re/regex_sets.v5:38<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 401)<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:72<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:74<br />
   in block  at t/spec/re/regexp.v5:77<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -906,8 +941,8 @@ Failed to open file: no such file or directory<br />
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;useithreads'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/re/regexp_qr_embed_thr.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
@@ -920,7 +955,7 @@ at t/spec/re/regexp_unicode_prop.v5:174<br />
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -944,18 +979,17 @@ Useless use of constant integer 0 in sink context (line 10)<br />
     at t/spec/run/locale.v5:165<br />
     ------&gt; 	local $ENV{LC_ALL}⏏; # so it never overrides LC_NUMERIC<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:72<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:74<br />
   in block  at t/spec/run/locale.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;runperl'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/run/switchx.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;can_ok'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/test_pl/can_isa_ok.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/attrs.v5<br />
@@ -965,30 +999,30 @@ at t/spec/uni/attrs.v5:160<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error encoding UTF-8 string near grapheme position 6614 with codepoint 393215<br />
-   at src/Perl6/Grammar.nqp:336  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Grammar.moarvm:TOP:476)<br />
- from gen/moar/stage2/QRegex.nqp:1302  (/home/froggs/dev/nqp/install/languages/nqp/lib/QRegex.moarvm:parse:62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1369  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:parse:97)<br />
- from gen/moar/stage2/NQPHLL.nqp:1325  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::51)<br />
- from gen/moar/stage2/NQPHLL.nqp:1316  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:compile:164)<br />
- from gen/moar/stage2/NQPHLL.nqp:1074  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:eval:53)<br />
- from gen/moar/stage2/NQPHLL.nqp:1283  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:105)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at src/Perl6/Grammar.nqp:336  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Grammar.moarvm:TOP:473)<br />
+ from gen/moar/stage2/QRegex.nqp:1302  (/home/froggs/dev/nqp/install/languages/nqp/lib/QRegex.moarvm:parse:44)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1370  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:parse:80)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::71)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1316  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:compile:159)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1074  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:eval:55)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1283  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:86)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11221  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from src/gen/m-CORE.setting:11397  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:361)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
@@ -997,30 +1031,30 @@ at t/spec/uni/attrs.v5:160<br />
   in block  at t/spec/io/crlf_through.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;run_multiple_progs'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/data.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11221  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from src/gen/m-CORE.setting:11397  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:361)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11221  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:302)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+ from src/gen/m-CORE.setting:11397  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1221  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:361)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
@@ -1069,20 +1103,19 @@ at t/spec/io/layers.v5:208<br />
     at t/spec/io/perlio_leaks.v5:29<br />
     ------&gt; 	    open my $fh⏏, "&lt;$layer", $0 or die $!;<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method eager at src/gen/m-CORE.setting:7850<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method eager at src/gen/m-CORE.setting:7973<br />
   in block  at t/spec/io/perlio_leaks.v5:20<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/io/perlio_leaks.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/say.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1098,7 +1131,7 @@ at t/spec/io/through.v5:90<br />
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file 't/lib/common.pl' for module t/lib/common.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/lib/croak.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1107,13 +1140,14 @@ Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already e
 at t/spec/lib/overload_fallback.v5:6<br />
 ------&gt;  =&gt; sub { 'stringvalue' }, fallback =&gt; 1⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;ok'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/lib/overload_nomethod.v5:13<br />
+  in block  at t/spec/lib/overload_nomethod.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;DATA'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/bigmem/read.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1174,9 +1208,9 @@ at t/spec/re/reg_fold.v5:30<br />
 ------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp10433A.10433<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp19217A.19217<br />
 Unexpected closing bracket<br />
-at tmp10433A.10433:1<br />
+at tmp19217A.19217:1<br />
 ------&gt; use v5; ï⏏»¿print 1;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1189,17 +1223,19 @@ at t/spec/uni/cache.v5:29<br />
 Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;alarm'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/errnosig.v5:13<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/io/errnosig.v5:10<br />
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;infix:&lt;P50&gt;'<br />
-</td></tr>
+        <tr align='center'><td align='left'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;BAIL_OUT'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/lib/commonsense.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1238,8 +1274,8 @@ Variable '$.' is not declared<br />
 at t/spec/op/pwent.v5:161<br />
 ------&gt; 	push @{ $seen{$name_s} }, $.⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;watchdog'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/time_loop.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/porting/bincompat.v5<br />
@@ -1258,14 +1294,13 @@ No such symbol '&amp;Regexp::DESTROY'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Malformed UTF-8 at line 1 col 1<br />
-  in method decode at src/gen/m-CORE.setting:5360<br />
-  in method Str at src/gen/m-CORE.setting:5363<br />
-  in method Str at src/gen/m-CORE.setting:1035<br />
-  in method STORE_AT_KEY at src/gen/m-CORE.setting:9007<br />
-  in method STORE_AT_KEY at src/gen/m-CORE.setting:9109<br />
-  in method STORE at src/gen/m-CORE.setting:9121<br />
-  in method new at src/gen/m-CORE.setting:9059<br />
-  in sub circumfix:&lt;{ }&gt; at src/gen/m-CORE.setting:9447<br />
+  in method decode at src/gen/m-CORE.setting:5449<br />
+  in method Str at src/gen/m-CORE.setting:5452<br />
+  in method STORE_AT_KEY at src/gen/m-CORE.setting:9137<br />
+  in method STORE_AT_KEY at src/gen/m-CORE.setting:9255<br />
+  in method STORE at src/gen/m-CORE.setting:9267<br />
+  in method new at src/gen/m-CORE.setting:9189<br />
+  in sub circumfix:&lt;{ }&gt; at src/gen/m-CORE.setting:9622<br />
   in block  at t/spec/uni/chomp.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1274,22 +1309,19 @@ No such symbol '&amp;Regexp::DESTROY'<br />
   in block  at t/v5/11-class-open.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;runperl'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/iprefix.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:72<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:74<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/io/read.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>No such symbol '&amp;setgrent'<br />
-  in method fail at src/gen/m-CORE.setting:11061<br />
-  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:451<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
   in block  at t/spec/op/grent.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1300,7 +1332,7 @@ at t/spec/op/utftaint.v5:27<br />
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:982<br />
+  in sub P5print at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/run/script.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1319,8 +1351,13 @@ Missing block<br />
 at t/spec/op/attrhand.v5:19<br />
 ------&gt; sub TypeCheck :ATTR⏏(CODE,RAWDATA) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;crypt'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/crypt.v5:32<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/crypt.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1328,10 +1365,9 @@ No such symbol '&amp;crypt'<br />
     at t/spec/op/filehandle.v5:15<br />
     ------&gt; open my $fh⏏, "&lt;", \$str;<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/op/filehandle.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -1347,8 +1383,9 @@ at t/spec/op/sigsystem.v5:28<br />
     Redeclaration of symbol $ENV<br />
     at t/spec/run/mad.v5:42<br />
     ------&gt;     delete local $ENV{$_} ⏏for keys %ENV;<br />
-===SORRY!===<br />
-No such symbol '&amp;delete'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/run/mad.v5:34<br />
+  in block  at t/spec/run/mad.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1361,10 +1398,10 @@ No such symbol '&amp;delete'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp11526C' on target 'tmp11526B': Failed to link file: no such file or directory<br />
-  in block  at src/gen/m-CORE.setting:14117<br />
+Failed to create link called 'tmp20338C' on target 'tmp20338B': Failed to link file: no such file or directory<br />
+  in block  at src/gen/m-CORE.setting:14293<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
-  in sub link at src/gen/m-CORE.setting:14112<br />
+  in sub link at src/gen/m-CORE.setting:14288<br />
   in block  at t/spec/win32/fs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/24-strict.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -1418,21 +1455,20 @@ at t/v5/25-syntax-defined-or.v5:8<br />
   in block  at t/spec/mro/next_method_utf8.v5:53<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;alarm'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/alarm.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;lock'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/lock.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Cannot call 'match'; none of these signatures match:<br />
 :(Cool:D: Any $target, *%adverbs)<br />
-  in method match at src/gen/m-CORE.setting:3568<br />
-  in sub P5split at lib/Perl5/Terms.pm:1054<br />
-  in sub P5split at lib/Perl5/Terms.pm:1045<br />
-  in sub P5split at lib/Perl5/Terms.pm:1046<br />
-  in sub P5split at lib/Perl5/Terms.pm:1045<br />
+  in sub P5split at lib/Perl5/Terms.pm:1059<br />
+  in sub P5split at lib/Perl5/Terms.pm:1050<br />
+  in sub P5split at lib/Perl5/Terms.pm:1051<br />
+  in sub P5split at lib/Perl5/Terms.pm:1050<br />
   in block  at t/spec/op/yadayada.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1440,13 +1476,18 @@ No such symbol '&amp;lock'<br />
     Redeclaration of symbol $flile<br />
     at t/spec/re/qr.v5:82<br />
     ------&gt;  tie my $flile⏏, "qrBug";<br />
-===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/re/qr.v5:78<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/re/qr.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:982<br />
+  in sub P5print at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/run/switchF1.v5:29<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1456,13 +1497,14 @@ at t/spec/uni/opcroak.v5:21<br />
 ------&gt; Not enough arguments for main::\x{30cb}/⏏u, "Not enough arguments croak is UTF-8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such method 'IO' for invocant of type 'Typeglob'<br />
-  in sub P5open at lib/Perl5/Terms.pm:77<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in sub P5open at lib/Perl5/Terms.pm:79<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/uni/select.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/31-autoload.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;a'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/v5/31-autoload.v5:11<br />
+  in block  at t/v5/31-autoload.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/32-autoload-method.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such method 'a' for invocant of type 'A'<br />
@@ -1470,8 +1512,9 @@ No such symbol '&amp;a'<br />
   in block  at t/v5/32-autoload-method.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;wantarray'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub mkfiles at t/spec/io/nargv.v5:71<br />
+  in block  at t/spec/io/nargv.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/blocks.v5<br />
@@ -1479,8 +1522,8 @@ Missing block<br />
 at t/spec/op/blocks.v5:127<br />
 ------&gt; ::is INIT⏏, 5, 'constant named after a special blo</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;kill'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/kill0.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1493,7 +1536,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp11095B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp19901B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1510,31 +1553,31 @@ at t/spec/uni/tr_7jis.v5:19<br />
 ------&gt; my @hiragana =  map {chr} ord("$B⏏$!(B")..ord("$B$s(B");</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:59)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:59)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;runperl'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/inplace.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1545,18 +1588,18 @@ No such symbol '&amp;runperl'<br />
     at t/spec/io/perlio_open.v5:28<br />
     ------&gt;     ok((open my $fh⏏, "+&lt;", undef), "open my \$fh, '+&lt;', und<br />
 No such method 'IO' for invocant of type 'Any'<br />
-  in sub P5open at lib/Perl5/Terms.pm:84<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/io/perlio_open.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;delete'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/benchmark/rt26188-speed-up-keys-on-empty-hash.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1590,12 +1633,12 @@ at t/spec/mro/pkg_gen_utf8.v5:37<br />
 ------&gt; undef %ᕘ::⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Cannot find method 'isatty': no method cache and no .^find_method<br />
-  in method t at src/gen/m-CORE.setting:13573<br />
+  in method t at src/gen/m-CORE.setting:13749<br />
   in block  at t/spec/op/filetest_t.v5:18<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/op/filetest_t.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
@@ -1606,18 +1649,16 @@ at t/spec/op/lex.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/packagev.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find version in any of: ../lib/Perl5<br />
+Cannot find method 'ast'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/comp/our.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/package_block.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 93)<br />
-No such symbol '&amp;eq'<br />
-  in method fail at src/gen/m-CORE.setting:11061<br />
-  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:451<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
   in block  at t/spec/comp/package_block.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
@@ -1641,7 +1682,7 @@ at t/spec/uni/readline.v5:53<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
 Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:982<br />
+  in sub P5print at lib/Perl5/Terms.pm:987<br />
   in block  at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -1680,8 +1721,13 @@ Two terms in a row<br />
 at t/spec/uni/write.v5:103<br />
 ------&gt;   like $@, qr/Undefined format "놋웇ʱＦᚖṀŦ/⏏u, 'no such format, with format name in</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;svref_2object'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/lib/proxy_constant_subs.v5:22<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/lib/proxy_constant_subs.v5:20<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/decl.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/decl.v5<br />
@@ -1697,7 +1743,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1396077724.73502 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1397597359.38182 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>/bin/sh: 1: -V: not found<br />
@@ -1707,8 +1753,8 @@ at t/spec/run/dtrace.v5:70<br />
 ------&gt; dtrace_like(&lt;&lt;⏏ 'MAGIC_OP',<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;binmode'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/binmode.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/labels.v5<br />
@@ -1731,7 +1777,7 @@ at t/spec/op/hash.v5:77<br />
 ------&gt; *guard ⏏= sub (&amp;) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/srand.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/srand.v5<br />
-Calling 'srand' requires arguments<br />
+Calling 'srand' requires arguments (if you meant to operate on $_, please use .srand or use an explicit invocant or argument)<br />
     Expected: :(Int $seed --&gt; Int)<br />
 at t/spec/op/srand.v5:45<br />
 ------&gt;     srand(⏏);<br />
@@ -1742,17 +1788,12 @@ Could not find FindExt in any of: /home/froggs/dev/nqp/install/languages/perl6/l
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchd.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unexpected closing bracket<br />
-at t/spec/run/switchd.v5:161<br />
-------&gt;     ⏏],<br />
-Other potential difficulties:<br />
-    Redeclaration of symbol $f<br />
-    at t/spec/run/switchd.v5:19<br />
-    ------&gt; 	open my $f⏏, "&gt;$filename"<br />
-</td></tr>
+Unable to parse expression in argument list; couldn't find final ')' <br />
+at t/spec/run/switchd.v5:63<br />
+------&gt;    ⏏switches =&gt; [ '"-Mless ++INC-&gt;{q-Devel/_</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/uni/tie.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1764,21 +1805,18 @@ No such symbol '&amp;tie'<br />
         <tr><td colspan='5'>Oops<br />
 Oops<br />
 Oops<br />
-No such symbol '&amp;or'<br />
-  in method fail at src/gen/m-CORE.setting:11061<br />
-  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:451<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
   in block  at t/v5/23-eval.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;watchdog'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/openpid.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Failed to change the working directory to '/home/froggs/dev/v5/lib/deprecate': Directory does not exist<br />
-  in sub chdir at src/gen/m-CORE.setting:14034<br />
-  in sub chdir at src/gen/m-CORE.setting:14016<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:383<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:383<br />
+  in sub chdir at src/gen/m-CORE.setting:14210<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:388<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:388<br />
   in block  at t/spec/lib/deprecate.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
@@ -1839,12 +1877,22 @@ Could not find symbol 'next'<br />
 Could not find symbol 'next'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;object_ok'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/mro/next_edgecases.v5:11<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/mro/next_edgecases.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;object_ok'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/mro/next_edgecases_utf8.v5:14<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/mro/next_edgecases_utf8.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/protowarn.v5<br />
@@ -1852,8 +1900,9 @@ Unable to parse expression in signature; couldn't find final ')' <br />
 at t/spec/op/protowarn.v5:41<br />
 ------&gt; $sub = sub (⏏x) { };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;wantarray'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub foo at t/v5/13-op-context.v5:7<br />
+  in block  at t/v5/13-op-context.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/wantarray.v5<br />
@@ -1861,8 +1910,8 @@ Variable '$cona' is not declared<br />
 at t/spec/op/wantarray.v5:16<br />
 ------&gt;   my ( $cona⏏, $testnum ) = @_;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;runperl'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/run/switchC.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/lib/universal.v5<br />
@@ -1876,8 +1925,8 @@ at t/spec/comp/form_scope.v5:12<br />
 ------&gt; ok @&lt;&lt;&lt;&lt;&lt;⏏&lt;&lt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/studytied.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/package.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/package.v5<br />
@@ -1885,8 +1934,9 @@ Two terms in a row<br />
 at t/spec/comp/package.v5:18<br />
 ------&gt;     $main⏏'a = $'b;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;weaken'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub s1 at t/spec/re/qr-72922.v5:21<br />
+  in block  at t/spec/re/qr-72922.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_pmod.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/reg_pmod.v5<br />
@@ -1908,18 +1958,23 @@ Illegal redeclaration of 'OUTER'<br />
 at t/spec/re/pat_psycho.v5:107<br />
 ------&gt;           ⏏for my $a ("x","a","aa") {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;IPC_PRIVATE'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/shm.v5:43<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/io/shm.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Odd number of elements found where hash expected<br />
-  in method STORE at src/gen/m-CORE.setting:9123<br />
-  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16465<br />
+  in method STORE at src/gen/m-CORE.setting:9269<br />
+  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:16679<br />
   in block  at t/spec/op/hashwarn.v5:27<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/op/hashwarn.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -1928,15 +1983,14 @@ No such symbol '&amp;IPC_PRIVATE'<br />
     at t/spec/io/crlf.v5:38<br />
     ------&gt; 	open my $fh⏏, "&lt;:crlf", \$fcontents;<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:77<br />
-  in sub P5open at lib/Perl5/Terms.pm:68<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:79<br />
+  in sub P5open at lib/Perl5/Terms.pm:70<br />
   in block  at t/spec/io/crlf.v5:16<br />
-  in method reify at src/gen/m-CORE.setting:7563<br />
-  in method reify at src/gen/m-CORE.setting:7426<br />
-  in method gimme at src/gen/m-CORE.setting:7878<br />
-  in method sink at src/gen/m-CORE.setting:8281<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
   in block  at t/spec/io/crlf.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/defout.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -1947,7 +2001,7 @@ at t/spec/io/defout.v5:32<br />
         <tr align='center'><td align='left' rowspan='2'>io/errno.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
   in any load_module at lib/Perl5/ModuleLoader.nqp:72<br />
-  in any load_module at src/gen/m-ModuleLoader.nqp:157<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:159<br />
   in block  at t/spec/io/errno.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -1959,7 +2013,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp10754B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp19571B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -1969,8 +2023,8 @@ at t/spec/op/glob.v5:117<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;BIG'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/lfs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/caller.v5<br />
@@ -2006,19 +2060,19 @@ Error while compiling, type X::Redeclaration<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/mkdir.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Calling 'mkdir' requires arguments<br />
+Calling 'mkdir' requires arguments (if you meant to operate on $_, please use .mkdir or use an explicit invocant or argument)<br />
     Expected any of:     :(Any $path, Any $mode = { ... })<br />
 at t/spec/op/mkdir.v5:54<br />
 ------&gt;     ok(mkdir⏏);<br />
-Calling 'rmdir' requires arguments<br />
+Calling 'rmdir' requires arguments (if you meant to operate on $_, please use .rmdir or use an explicit invocant or argument)<br />
     Expected: :(Any $path)<br />
 at t/spec/op/mkdir.v5:58<br />
 ------&gt;     ok(rmdir⏏);<br />
-Calling 'mkdir' requires arguments<br />
+Calling 'mkdir' requires arguments (if you meant to operate on $_, please use .mkdir or use an explicit invocant or argument)<br />
     Expected any of:     :(Any $path, Any $mode = { ... })<br />
 at t/spec/op/mkdir.v5:45<br />
 ------&gt; ok(mkdir⏏);<br />
-Calling 'rmdir' requires arguments<br />
+Calling 'rmdir' requires arguments (if you meant to operate on $_, please use .rmdir or use an explicit invocant or argument)<br />
     Expected: :(Any $path)<br />
 at t/spec/op/mkdir.v5:47<br />
 ------&gt; ok(rmdir⏏);<br />
@@ -2026,7 +2080,7 @@ at t/spec/op/mkdir.v5:47<br />
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:982<br />
+  in sub P5print at lib/Perl5/Terms.pm:987<br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:52<br />
   in block  at t/spec/run/cloexec.v5:1<br />
 </td></tr>
@@ -2050,7 +2104,7 @@ at t/spec/mro/isarev_utf8.v5:25<br />
 ------&gt;      join(" ", sort @{mro::get_isarev⏏ $args[0]}),</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Error while compiling op bind: Local '_inline_arg_3' already declared<br />
+Error while compiling op bind: Local '_inline_arg__19' already declared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/print.v5<br />
@@ -2122,8 +2176,8 @@ at t/spec/io/pvbm.v5:52<br />
 ------&gt;     ok (!eval { truncate ⏏$pvbm, 0 }, 'truncate(PVBM) fails');<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;watchdog'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/sigdispatch.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/readline.v5<br />
@@ -2156,16 +2210,19 @@ Unable to parse expression in variable; couldn't find final '}' <br />
 at t/spec/op/qr.v5:73<br />
 ------&gt;     my $x = 1.1; $x = ${qr⏏//};</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;vec'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/vec.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find re in any of: lib, ../lib<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp20124A.20124<br />
+Lexical symbol '$x' is already bound to an outer symbol;<br />
+the implicit outer binding must be rewritten as OUTER::&lt;$x&gt;<br />
+before you can unambiguously declare a new '$x' in this scope<br />
+at tmp20124A.20124:2<br />
+------&gt;  print "a" =~ /(?{ print $x; my $x ⏏= 8; print $x; my $y })a/;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;TST'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2186,12 +2243,12 @@ at t/spec/cmd/subval.v5:110<br />
     Redeclaration of symbol $tf<br />
     at t/spec/re/recompile.v5:44<br />
     ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
-===SORRY!===<br />
-No such symbol '&amp;runperl'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/re/recompile.v5:29<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;delete'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/delete.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/avhv.v5<br />
@@ -2228,16 +2285,15 @@ at t/spec/comp/uproto.v5:123<br />
     Redeclaration of symbol $fh<br />
     at t/spec/io/perlio.v5:198<br />
     ------&gt;         open my $fh⏏, "&lt;", \(my $f = *f);<br />
-===SORRY!===<br />
-No such symbol '&amp;use_ok'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/io/perlio.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 239)<br />
 Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:72<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:74<br />
   in block  at t/spec/op/sysio.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
@@ -2300,13 +2356,13 @@ at t/spec/op/quotemeta.v5:35<br />
 ------&gt; is("aA\⏏UbB\LcC\EdD", "aABBccdD", 'aA\UbB\LcC\Ed</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:59)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
@@ -2332,16 +2388,17 @@ at t/spec/uni/method.v5:43<br />
     at t/spec/op/inccode.v5:303<br />
     ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
 No such method 'substr' for invocant of type 'Any'<br />
-  in sub substr-rw at src/gen/m-CORE.setting:6759<br />
-  in sub P5substr at lib/Perl5/Terms.pm:1139<br />
-  in sub P5substr at lib/Perl5/Terms.pm:1132<br />
+  in sub substr-rw at src/gen/m-CORE.setting:6866<br />
+  in sub P5substr at lib/Perl5/Terms.pm:1144<br />
+  in sub P5substr at lib/Perl5/Terms.pm:1137<br />
   in sub fooinc at t/spec/op/inccode.v5:38<br />
   in block  at t/spec/op/inccode.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tiehandle.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find Symbol in any of: ../lib<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tiehandle.v5<br />
+Two terms in a row<br />
+at t/spec/op/tiehandle.v5:97<br />
+------&gt; $r = printf $fh ⏏@expect[2,3];</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/localref.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Error while compiling op callmethod: QAST::Var with scope '' NYI<br />
@@ -2354,30 +2411,48 @@ Error while compiling op callmethod: QAST::Var with scope '' NYI<br />
     Redeclaration of symbol $x<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
-===SORRY!===<br />
-No such symbol '&amp;TEST1'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/loopctl.v5:51<br />
+  in block  at t/spec/op/loopctl.v5:44<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/loopctl.v5:39<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;watchdog'<br />
+        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/time.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol @dummy<br />
     at t/spec/op/tiearray.v5:295<br />
     ------&gt;     tie my @dummy⏏, "NegFetchsize";<br />
-===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/tiearray.v5:155<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/tiearray.v5:153<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/tiearray.v5:151<br />
+  in block  at t/spec/op/tiearray.v5:143<br />
+  in block  at t/spec/op/tiearray.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:59)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
@@ -2431,25 +2506,25 @@ at t/spec/run/runenv.v5:117<br />
 ------&gt;     ⏏);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:59)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:59)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
@@ -2477,7 +2552,7 @@ at t/spec/op/index.v5:67<br />
 ------&gt; $a ⏏= "foo \x{1234}bar";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/svleak.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such symbol '&amp;or'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/split.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2504,8 +2579,8 @@ at t/spec/op/split.v5:366<br />
     Redeclaration of symbol $f<br />
     at t/spec/run/switches.v5:432<br />
     ------&gt;     open my $f⏏, "&gt;$filename" or skip( "Can't write tem<br />
-===SORRY!===<br />
-No such symbol '&amp;runperl'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/run/switches.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2529,13 +2604,13 @@ at t/spec/op/eval.v5:92<br />
 ------&gt;      is(eval⏏('"$b"'), $b);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::65)<br />
- from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:73)<br />
- from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:292)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:134)<br />
- from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:122)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:20)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::207)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1279  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1260  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:59)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1187  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:212)<br />
+ from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1162  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
+ from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
+ from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
@@ -2651,8 +2726,8 @@ at t/spec/op/tie_fetch_count.v5:48<br />
     Redeclaration of symbol %tied_hash<br />
     at t/spec/op/smartmatch.v5:29<br />
     ------&gt; tie my %tied_hash⏏, 'Tie::StdHash';<br />
-===SORRY!===<br />
-No such symbol '&amp;tie'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in block  at t/spec/op/smartmatch.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/substr.v5<br />
@@ -2682,9 +2757,8 @@ at t/spec/re/pat_rt_report.v5:96<br />
 ------&gt;         ok("École" =~ /^\⏏C\C(.)/ &amp;&amp; $1 eq 'c', $message);</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'>Failed to open file: no such file or directory<br />
-  in method open at src/gen/m-CORE.setting:13491<br />
-  in method open at src/gen/m-CORE.setting:13462<br />
-  in sub P5open at lib/Perl5/Terms.pm:72<br />
+  in method open at src/gen/m-CORE.setting:13667<br />
+  in sub P5open at lib/Perl5/Terms.pm:74<br />
   in block  at t/spec/op/read.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
@@ -2692,13 +2766,24 @@ at t/spec/re/pat_rt_report.v5:96<br />
     Redeclaration of symbol $fh<br />
     at t/spec/comp/utf.v5:38<br />
     ------&gt;     open my $fh⏏, "&gt;", "utf$$.pl" or die "utf.pl: $!";<br />
-===SORRY!===<br />
-No such symbol '&amp;binmode'<br />
+Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+  in sub test at t/spec/comp/utf.v5:37<br />
+  in block  at t/spec/comp/utf.v5:60<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method eager at src/gen/m-CORE.setting:7973<br />
+  in block  at t/spec/comp/utf.v5:58<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method eager at src/gen/m-CORE.setting:7973<br />
+  in block  at t/spec/comp/utf.v5:1<br />
 </td></tr>
 
-        <tr><td>nqp-m --version</td><td colspan='5'>This is nqp version 2014.03-7-g73721c4 built on MoarVM version 2014.03-6-g572c043
+        <tr><td>nqp-m --version</td><td colspan='5'>This is nqp version 2014.03-66-g1cf05eb built on MoarVM version 2014.03-212-gb82bf10
 </td></tr>
-        <tr><td>perl6-m --version</td><td colspan='5'>This is perl6 version 2014.03.01-7-g68e0948 built on MoarVM version 2014.03-6-g572c043
+        <tr><td>perl6-m --version</td><td colspan='5'>This is perl6 version 2014.03.01-163-g7814401 built on MoarVM version 2014.03-212-gb82bf10
 </td></tr>
     </tbody>
 </table>

@@ -554,5 +554,8 @@ UNIVERSAL - base class for ALL classes (blessed references)
 User::grent - by-name interface to Perl's built-in getgr*() functions
 User::pwent - by-name interface to Perl's built-in getpw*() functions
 
+## V
+version - Perl extension for Version Objects
+
 ## X
 XSLoader - Dynamically load C libraries into Perl code
