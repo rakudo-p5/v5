@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>5513</td><td>35623</td><td>5</td><td>1809</td><td>42863</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>5513</td><td>35637</td><td>5</td><td>1809</td><td>42877</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>2380</td><td>12317</td><td>0</td><td>7</td><td>14704</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
   in sub MAKE_REGEX at src/gen/m-CORE.setting:12959<br />
@@ -263,17 +263,17 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>4</td><td>5</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
-===SORRY!=== Error while compiling tmp24437A.24437<br />
+===SORRY!=== Error while compiling tmp30453A.30453<br />
 Couldn't parse heredoc construct<br />
-at tmp24437A.24437:1<br />
+at tmp30453A.30453:1<br />
 ------&gt; use v5; print &lt;&lt;⏏;<br />
-===SORRY!=== Error while compiling tmp24437A.24437<br />
+===SORRY!=== Error while compiling tmp30453A.30453<br />
 Couldn't parse heredoc construct<br />
-at tmp24437A.24437:1<br />
+at tmp30453A.30453:1<br />
 ------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
-===SORRY!=== Error while compiling tmp24437A.24437<br />
+===SORRY!=== Error while compiling tmp30453A.30453<br />
 Confused<br />
-at tmp24437A.24437:4<br />
+at tmp30453A.30453:4<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -345,13 +345,13 @@ Can't locate object method "import" via package "main" (perhaps you forgot to lo
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
-    at tmp24537A.24537:7<br />
+    at tmp30552A.30552:7<br />
     ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
   in sub P5open at lib/Perl5/Terms.pm:93<br />
   in sub P5open at lib/Perl5/Terms.pm:77<br />
-  in block  at tmp24537A.24537:1<br />
+  in block  at tmp30552A.30552:1<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defins.v5</td><td>2</td><td>25</td><td>0</td><td>0</td><td>27</td></tr>
@@ -372,15 +372,15 @@ Too many positional parameters passed; got 2 but expected 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;Foo::dbmopen called<br />
-  in sub new at tmp24342A.24342:7<br />
-  in block  at tmp24342A.24342:23<br />
-  in block  at tmp24342A.24342:2<br />
+  in sub new at tmp30360A.30360:7<br />
+  in block  at tmp30360A.30360:23<br />
+  in block  at tmp30360A.30360:2<br />
 Undefined subroutine &amp;Foo::dbmopen called<br />
-  in sub new at tmp24342A.24342:6<br />
-  in block  at tmp24342A.24342:22<br />
-  in block  at tmp24342A.24342:1<br />
+  in sub new at tmp30360A.30360:6<br />
+  in block  at tmp30360A.30360:22<br />
+  in block  at tmp30360A.30360:1<br />
 Undefined subroutine &amp;main::dbmopen called<br />
-  in block  at tmp24342A.24342:1<br />
+  in block  at tmp30360A.30360:1<br />
 ===SORRY!===<br />
 MVMArray: Index out of bounds<br />
 Undefined subroutine &amp;main::dbmopen called<br />
@@ -394,9 +394,9 @@ Undefined subroutine &amp;main::dbmopen called<br />
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-===SORRY!=== Error while compiling tmp24325A.24325<br />
+===SORRY!=== Error while compiling tmp30342A.30342<br />
 Couldn't find terminator |<br />
-at tmp24325A.24325:14<br />
+at tmp30342A.30342:14<br />
 ------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::opendir called<br />
@@ -476,9 +476,9 @@ Unhandled exception: No exception handler located for warn<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
 ===SORRY!===<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
-===SORRY!=== Error while compiling tmp24889A.24889<br />
+===SORRY!=== Error while compiling tmp30847A.30847<br />
 Two terms in a row<br />
-at tmp24889A.24889:38<br />
+at tmp30847A.30847:38<br />
 ------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
@@ -845,9 +845,10 @@ Undefined subroutine &amp;main::find_git_or_skip called<br />
   in block  at t/spec/porting/utils.v5:26<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find POSIX in any of: /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/fold_grind.v5<br />
+Variable '$a' is not declared<br />
+at t/spec/re/fold_grind.v5:75<br />
+------&gt;     return $a ⏏&lt;=&gt; $b</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_advanced.v5<br />
 Unrecognized Perl 5 regex backslash sequence<br />
@@ -1208,9 +1209,9 @@ at t/spec/re/reg_fold.v5:30<br />
 ------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp24021A.24021<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp30043A.30043<br />
 Unexpected closing bracket<br />
-at tmp24021A.24021:1<br />
+at tmp30043A.30043:1<br />
 ------&gt; use v5; ï⏏»¿print 1;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1256,9 +1257,10 @@ Could not find symbol 'SUPER'<br />
         <tr align='center'><td align='left'>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Could not find POSIX in any of: /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5<br />
-</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/groups.v5<br />
+Variable '$groups_command' is not declared<br />
+at t/spec/op/groups.v5:39<br />
+------&gt;     my ( $groups_command⏏, $groups_string ) = system_groups()</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/magic-27839.v5<br />
 Variable '@+' is not declared<br />
@@ -1398,7 +1400,7 @@ Undefined subroutine &amp;main::delete called<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp25179C' on target 'tmp25179B': Failed to link file: no such file or directory<br />
+Failed to create link called 'tmp31127C' on target 'tmp31127B': Failed to link file: no such file or directory<br />
   in block  at src/gen/m-CORE.setting:14293<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:14288<br />
@@ -1536,7 +1538,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp24691B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp30679B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1743,7 +1745,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1397599641.39028 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1397601138.3643 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>/bin/sh: 1: -V: not found<br />
@@ -2013,7 +2015,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp24358B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp30375B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2214,11 +2216,11 @@ at t/spec/op/qr.v5:73<br />
   in block  at t/spec/op/vec.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp24893A.24893<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp30849A.30849<br />
 Lexical symbol '$x' is already bound to an outer symbol;<br />
 the implicit outer binding must be rewritten as OUTER::&lt;$x&gt;<br />
 before you can unambiguously declare a new '$x' in this scope<br />
-at tmp24893A.24893:2<br />
+at tmp30849A.30849:2<br />
 ------&gt;  print "a" =~ /(?{ print $x; my $x ⏏= 8; print $x; my $y })a/;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::TST called<br />
@@ -2376,24 +2378,6 @@ at t/spec/op/grep.v5:57<br />
 Two terms in a row<br />
 at t/spec/uni/method.v5:43<br />
 ------&gt; method "ｍｅｔｈｏｄ" on unblessed reference /⏏u;</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
-        <tr><td colspan='5'>Potential difficulties:<br />
-    Redeclaration of symbol $fh<br />
-    at t/spec/op/inccode.v5:29<br />
-    ------&gt;     open my $fh⏏, "&gt;$f" or die "Can't create $f: $!";<br />
-    Redeclaration of symbol $fh<br />
-    at t/spec/op/inccode.v5:274<br />
-    ------&gt;         open my $fh⏏, '&lt;',<br />
-    Redeclaration of symbol $fh<br />
-    at t/spec/op/inccode.v5:303<br />
-    ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
-No such method 'substr' for invocant of type 'Any'<br />
-  in sub substr-rw at src/gen/m-CORE.setting:6866<br />
-  in sub P5substr at lib/Perl5/Terms.pm:1151<br />
-  in sub P5substr at lib/Perl5/Terms.pm:1144<br />
-  in sub fooinc at t/spec/op/inccode.v5:38<br />
-  in block  at t/spec/op/inccode.v5:1<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tiehandle.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tiehandle.v5<br />
 Two terms in a row<br />
@@ -2459,6 +2443,24 @@ Undefined subroutine &amp;main::tie called<br />
         <tr align='center'><td align='left' rowspan='2'>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 MVMArray: Index out of bounds<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:29<br />
+    ------&gt;     open my $fh⏏, "&gt;$f" or die "Can't create $f: $!";<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:274<br />
+    ------&gt;         open my $fh⏏, '&lt;',<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:303<br />
+    ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
+No such method 'substr' for invocant of type 'Any'<br />
+  in sub substr-rw at src/gen/m-CORE.setting:6866<br />
+  in sub P5substr at lib/Perl5/Terms.pm:1151<br />
+  in sub P5substr at lib/Perl5/Terms.pm:1144<br />
+  in sub fooinc at t/spec/op/inccode.v5:38<br />
+  in block  at t/spec/op/inccode.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/oct.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/oct.v5<br />

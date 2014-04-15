@@ -61,10 +61,10 @@ j-g-install: @j_g_install@
 j-h-install: @j_h_install@
 j-i-install: @j_i_install@
 j-l-install: @j_l_install@
-j-j-install: @j_m_install@
+j-m-install: @j_m_install@
 j-n-install: @j_n_install@
 j-o-install: @j_o_install@
-j-j-install: @j_m_install@
+j-p-install: @j_p_install@
 j-r-install: @j_r_install@
 j-s-install: @j_s_install@
 j-t-install: $(J_P6LIB)/lib/Perl5/Terms.jar @j_t_install@
@@ -73,7 +73,7 @@ j-v-install: @j_v_install@
 j-w-install: @j_w_install@
 j-x-install: @j_x_install@
 
-j-install: j-core-install j-a-install j-b-install j-c-install j-d-install j-e-install j-f-install j-g-install j-h-install j-i-install j-l-install j-j-install j-n-install j-o-install j-j-install j-r-install j-s-install j-t-install j-u-install j-v-install j-w-install j-x-install
+j-install: j-core-install j-a-install j-b-install j-c-install j-d-install j-e-install j-f-install j-g-install j-h-install j-i-install j-l-install j-m-install j-n-install j-o-install j-p-install j-r-install j-s-install j-t-install j-u-install j-v-install j-w-install j-x-install
 
 j-uninstall:
 	$(RM_F) $(J_NQPLIB)/lib/Perl5.jar
