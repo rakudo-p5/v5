@@ -106,8 +106,8 @@ my ( @fail, @plan_hint );
 my %plan_per_file;
 
 my $last_status;
-if( -s 'STATUS.md' && eval 'require XML::Simple; 1' ) {
-    $last_status = XML::Simple::XMLin('STATUS.md');
+if( -s 'STATUS-m.md' && eval 'require XML::Simple; 1' ) {
+    $last_status = XML::Simple::XMLin('STATUS-m.md');
     for my $tr ( @{ $last_status->{tbody}->{tr} } ) {
         if( 'ARRAY' eq ref $tr->{td} && 'HASH' eq ref $tr->{td}[0] ) {
             @{ $last_status->{ $tr->{td}[0]{content} } } = @{ $tr->{td} }[1..5]
@@ -115,7 +115,7 @@ if( -s 'STATUS.md' && eval 'require XML::Simple; 1' ) {
     }
 }
 
-open STATUS, '>STATUS.md.new';
+open STATUS, '>STATUS-m.md.new';
 print STATUS "<table align='center'>
     <thead>
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
@@ -375,7 +375,7 @@ print STATUS "
         <tr><td>$ENV{PERL6_EXE} --version</td><td colspan='5'>" . `$ENV{PERL6_EXE} --version` . "</td></tr>
     </tbody>\n</table>\n";
 close STATUS;
-File::Copy::move('STATUS.md.new', 'STATUS.md');
+File::Copy::move('STATUS-m.md.new', 'STATUS-m.md');
 open REGRESSIONS, '>REGRESSIONS';
 print REGRESSIONS join('', @regressions);
 close REGRESSIONS;
