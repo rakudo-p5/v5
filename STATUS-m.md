@@ -31,7 +31,7 @@
         <tr align='center'><td align='left'>op/pow.v5</td><td>267</td><td>1</td><td>0</td><td>0</td><td>268</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>112</td><td>5</td><td>1</td><td>0</td><td>118</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
   in block  at t/spec/cmd/for.v5:661<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -83,7 +83,7 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr align='center'><td align='left'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>28</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'splice' for invocant of type 'Any'<br />
-  in sub P5splice at lib/Perl5/Terms.pm:1047<br />
+  in sub P5splice at lib/Perl5/Terms.pm:1054<br />
   in block  at t/spec/op/splice.v5:82<br />
 <br />  29 tests more than planned were run<br />
 </td></tr>
@@ -106,7 +106,7 @@ Index out of range. Is: 1, should be in 0..0<br />
     Redeclaration of symbol $SIG<br />
     at t/spec/comp/fold.v5:90<br />
     ------&gt;     local $SIG{__DIE__}  ⏏= sub { $c+= 2 };<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::INSTALL called<br />
   in block  at t/spec/comp/fold.v5:124<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
@@ -130,8 +130,8 @@ to preserve list context inside function call<br />
         <tr><td colspan='5'>Cannot call 'match'; none of these signatures match:<br />
 :(Cool:D: Any $target, *%adverbs)<br />
   in method Bool at src/gen/m-CORE.setting:13044<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:365<br />
-  in sub P5Bool at lib/Perl5/Terms.pm:365<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:372<br />
+  in sub P5Bool at lib/Perl5/Terms.pm:372<br />
   in sub isnt at t/spec/comp/opsubs.v5:66<br />
   in block  at t/spec/comp/opsubs.v5:1<br />
 </td></tr>
@@ -174,7 +174,7 @@ Type of arg 1 to push must be array (not constant item)<br />
     Redeclaration of symbol $u<br />
     at t/spec/op/length.v5:176<br />
     ------&gt; my $u⏏;<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/length.v5:124<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -219,7 +219,7 @@ ce �ii tu, bã ?<br />
         <tr align='center'><td align='left' rowspan='2'>cmd/mod.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:74<br />
+  in sub P5open at lib/Perl5/Terms.pm:81<br />
   in block  at t/spec/cmd/mod.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/isa_aliases_utf8.v5</td><td>6</td><td>6</td><td>0</td><td>0</td><td>12</td></tr>
@@ -245,16 +245,16 @@ Useless use of constant integer 42 in sink context (line 15)<br />
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>4</td><td>33</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
-  in sub exists at lib/Perl5/Terms.pm:235<br />
+  in sub exists at lib/Perl5/Terms.pm:242<br />
   in block  at t/spec/re/reg_nc_tie.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>4</td><td>8</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;Class::DESTROY called<br />
   in block  at t/spec/op/pos.v5:42<br />
   in block  at t/spec/op/pos.v5:42<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/or.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/or.v5:27<br />
   in block  at t/spec/op/or.v5:12<br />
 </td></tr>
@@ -263,17 +263,17 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>4</td><td>5</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
-===SORRY!=== Error while compiling tmp19643A.19643<br />
+===SORRY!=== Error while compiling tmp24437A.24437<br />
 Couldn't parse heredoc construct<br />
-at tmp19643A.19643:1<br />
+at tmp24437A.24437:1<br />
 ------&gt; use v5; print &lt;&lt;⏏;<br />
-===SORRY!=== Error while compiling tmp19643A.19643<br />
+===SORRY!=== Error while compiling tmp24437A.24437<br />
 Couldn't parse heredoc construct<br />
-at tmp19643A.19643:1<br />
+at tmp24437A.24437:1<br />
 ------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
-===SORRY!=== Error while compiling tmp19643A.19643<br />
+===SORRY!=== Error while compiling tmp24437A.24437<br />
 Confused<br />
-at tmp19643A.19643:4<br />
+at tmp24437A.24437:4<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -283,11 +283,11 @@ at tmp19643A.19643:4<br />
         <tr align='center'><td align='left' rowspan='2'>run/switcht.v5</td><td>3</td><td>10</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:987<br />
+  in sub P5print at lib/Perl5/Terms.pm:994<br />
   in block  at t/spec/run/switcht.v5:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>3</td><td>8</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::select called<br />
   in block  at t/spec/op/sselect.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left'>op/sleep.v5</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
@@ -299,7 +299,7 @@ at tmp19643A.19643:4<br />
     Redeclaration of symbol @empty<br />
     at t/spec/op/reverse.v5:82<br />
     ------&gt;     tie my @empty⏏, "Tie::StdArray";<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::delete called<br />
   in block  at t/spec/op/reverse.v5:30<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -310,7 +310,7 @@ Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
         <tr align='center'><td align='left'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr align='center'><td align='left'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>2</td><td>7</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::C called<br />
   in block  at t/v5/26-syntax-namespace.v5:52<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -345,13 +345,13 @@ Can't locate object method "import" via package "main" (perhaps you forgot to lo
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
-    at tmp19748A.19748:7<br />
+    at tmp24537A.24537:7<br />
     ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
-  in block  at tmp19748A.19748:1<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
+  in block  at tmp24537A.24537:1<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defins.v5</td><td>2</td><td>25</td><td>0</td><td>0</td><td>27</td></tr>
@@ -367,23 +367,23 @@ Failed to open file: no such file or directory<br />
     ------&gt; while (my $name ⏏= each %hash)<br />
 Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:987<br />
+  in sub P5print at lib/Perl5/Terms.pm:994<br />
   in block  at t/spec/op/defins.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
-  in sub new at tmp19549A.19549:7<br />
-  in block  at tmp19549A.19549:23<br />
-  in block  at tmp19549A.19549:2<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
-  in sub new at tmp19549A.19549:6<br />
-  in block  at tmp19549A.19549:22<br />
-  in block  at tmp19549A.19549:1<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
-  in block  at tmp19549A.19549:1<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;Foo::dbmopen called<br />
+  in sub new at tmp24342A.24342:7<br />
+  in block  at tmp24342A.24342:23<br />
+  in block  at tmp24342A.24342:2<br />
+Undefined subroutine &amp;Foo::dbmopen called<br />
+  in sub new at tmp24342A.24342:6<br />
+  in block  at tmp24342A.24342:22<br />
+  in block  at tmp24342A.24342:1<br />
+Undefined subroutine &amp;main::dbmopen called<br />
+  in block  at tmp24342A.24342:1<br />
 ===SORRY!===<br />
 MVMArray: Index out of bounds<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::dbmopen called<br />
   in block  at t/spec/op/dbm.v5:63<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -394,12 +394,12 @@ Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-===SORRY!=== Error while compiling tmp19529A.19529<br />
+===SORRY!=== Error while compiling tmp24325A.24325<br />
 Couldn't find terminator |<br />
-at tmp19529A.19529:14<br />
+at tmp24325A.24325:14<br />
 ------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::opendir called<br />
   in block  at t/spec/op/chdir.v5:73<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -409,7 +409,7 @@ at tmp19529A.19529:14<br />
 <br />  16 skipped: no fchdir<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::L called<br />
   in sub local2 at t/spec/op/args.v5:76<br />
   in block  at t/spec/op/args.v5:77<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
@@ -424,8 +424,8 @@ at tmp19529A.19529:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>1</td><td>14</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>No such method 'close' for invocant of type 'Any'<br />
-  in sub P5close at lib/Perl5/Terms.pm:123<br />
-  in sub P5close at lib/Perl5/Terms.pm:121<br />
+  in sub P5close at lib/Perl5/Terms.pm:130<br />
+  in sub P5close at lib/Perl5/Terms.pm:128<br />
   in block  at t/spec/io/perlio_fail.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
@@ -437,13 +437,13 @@ Useless use of "," in expression "= 6, 7" in sink context (lines 21, 22)<br />
         <tr><td colspan='5'>No such method 'STORE' for invocant of type 'STDOUT'<br />
   in method assign_key at src/gen/m-CORE.setting:9217<br />
   in sub postcircumfix:&lt;{ }&gt; at src/gen/m-CORE.setting:2605<br />
-  in sub P5open at lib/Perl5/Terms.pm:74<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:81<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/io/dup.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>1</td><td>3</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main:: called<br />
   in sub goto_softref at t/spec/uni/goto.v5:18<br />
   in block  at t/spec/uni/goto.v5:1<br />
 </td></tr>
@@ -457,7 +457,7 @@ Could not find symbol '&amp;upgrade'<br />
 Useless use of "," in expression "my $exit, $exit_arg" in sink context (line 49)<br />
 No such symbol '&amp;POSIX::WIFEXITED'<br />
   in method fail at src/gen/m-CORE.setting:11236<br />
-  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:457<br />
+  in sub P5INDIRECT_NAME_LOOKUP at lib/Perl5/Terms.pm:464<br />
   in block  at t/spec/run/exit.v5:56<br />
 Unhandled exception: No exception handler located for warn<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
@@ -476,25 +476,25 @@ Unhandled exception: No exception handler located for warn<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
 ===SORRY!===<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
-===SORRY!=== Error while compiling tmp20122A.20122<br />
+===SORRY!=== Error while compiling tmp24889A.24889<br />
 Two terms in a row<br />
-at tmp20122A.20122:38<br />
+at tmp24889A.24889:38<br />
 ------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
   in method Bridge at src/gen/m-CORE.setting:4459<br />
   in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4380<br />
-  in sub infix:&lt;P5&gt;&gt; at lib/Perl5/Terms.pm:284<br />
+  in sub infix:&lt;P5&gt;&gt; at lib/Perl5/Terms.pm:291<br />
   in block  at t/spec/comp/term.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/setpgrpstack.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::setpgrp called<br />
   in block  at t/spec/op/setpgrpstack.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/multiline.v5</td><td>1</td><td>5</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:987<br />
+  in sub P5print at lib/Perl5/Terms.pm:994<br />
   in block  at t/spec/comp/multiline.v5:50<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/hints.v5</td><td>1</td><td>30</td><td>0</td><td>0</td><td>31</td></tr>
@@ -504,15 +504,15 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Any \a, Any \b)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::getppid called<br />
   in block  at t/spec/op/getpid.v5:28<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>1</td><td>7</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::evalbytes called<br />
   in block  at t/spec/op/evalbytes.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
   in sub test_op at t/spec/op/assignwarn.v5:43<br />
   in block  at t/spec/op/assignwarn.v5:51<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
@@ -534,7 +534,7 @@ Can't locate object method "foo" via package "Fuz" (perhaps you forgot to load "
         <tr align='center'><td align='left'>mro/inconsistent_c3_utf8.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>mro/inconsistent_c3.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::vec called<br />
   in block  at t/spec/bigmem/vec.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -609,7 +609,7 @@ Cannot call 'postcircumfix&lt;P5[ ]&gt;'; none of these signatures match:<br />
 :(Any \SELF, int $pos)<br />
 :(Any \SELF, Any $pos)<br />
 :(Any \SELF, Positional \pos)<br />
-  in sub postcircumfix&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:351<br />
+  in sub postcircumfix&lt;P5[ ]&gt; at lib/Perl5/Terms.pm:358<br />
   in block  at t/spec/op/do.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -617,7 +617,7 @@ Cannot call 'postcircumfix&lt;P5[ ]&gt;'; none of these signatures match:<br />
 Cannot find method 'orig'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
   in block  at t/spec/op/fork.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -631,7 +631,7 @@ Variable '$b' is not declared<br />
 at t/spec/op/inc.v5:56<br />
 ------&gt; $b ⏏= -$a;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/inccode-tie.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -654,7 +654,7 @@ at t/spec/op/my.v5:15<br />
 Useless use of constant integer 1 in sink context (line 32)<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:79<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
   in block  at t/spec/comp/line_debug.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -673,7 +673,7 @@ Could not find file './test.pl' for module ./test.pl<br />
   in block  at t/spec/op/require_37033.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
   in block  at t/spec/op/runlevel.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -688,11 +688,11 @@ at t/spec/op/sprintf.v5:76<br />
   in block  at t/spec/op/substr_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
   in block  at t/spec/op/tie.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::v256 called<br />
   in block  at t/spec/op/utf8decode.v5:10<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -728,8 +728,8 @@ Could not find symbol '&amp;upgrade'<br />
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/porting/args_assert.v5:24<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -738,16 +738,16 @@ Failed to open file: no such file or directory<br />
   in block  at t/spec/porting/args_assert.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::find_git_or_skip called<br />
   in block  at t/spec/porting/authors.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::find called<br />
   in block  at t/spec/porting/checkcase.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::find_git_or_skip called<br />
   in block  at t/spec/porting/cmp_version.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -760,7 +760,7 @@ Variable '$.' is not declared<br />
 at t/spec/porting/diag.v5:106<br />
 ------&gt; TA as it is already in $pod near line $.⏏";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::find called<br />
   in block  at t/spec/porting/dual-life.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/exec-bit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -776,8 +776,8 @@ at t/spec/porting/diag.v5:106<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/porting/filenames.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -794,8 +794,8 @@ WARNINGS:<br />
 Useless use of "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in expression "\n\t  DBcv bitcount cshname force_link_funcs generation lastgotoprobe\n\t  mod_latin1_uc modcount no_symref_sv timesbuf uudmap\n\t  watchaddr watchok warn_uninit_sv\n     " in sink context (line 16)<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/porting/globvar.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/maintainers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -809,8 +809,8 @@ Could not find Maintainers in any of: /home/froggs/dev/nqp/install/languages/per
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/porting/manifest.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -818,12 +818,12 @@ Failed to open file: no such file or directory<br />
     Redeclaration of symbol $fh<br />
     at t/spec/porting/pending-author.v5:56<br />
     ------&gt; open my $fh⏏, '|-', "$^X Porting/checkAUTHORS.pl --t<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::find_git_or_skip called<br />
   in block  at t/spec/porting/pending-author.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/porting/pod_rules.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -841,7 +841,7 @@ at t/spec/porting/test_bootstrap.v5:36<br />
     Redeclaration of symbol $fh<br />
     at t/spec/porting/utils.v5:37<br />
     ------&gt; open my $fh⏏, '&lt;', 'MANIFEST' or die "Can't open MAN<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::find_git_or_skip called<br />
   in block  at t/spec/porting/utils.v5:26<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -901,7 +901,7 @@ at t/spec/re/reg_email.v5:76<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
   in block  at t/spec/re/reg_mesg.v5:269<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -925,7 +925,7 @@ at t/spec/re/regex_sets.v5:38<br />
 Useless use of constant integer 1 in sink context (line 401)<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:74<br />
+  in sub P5open at lib/Perl5/Terms.pm:81<br />
   in block  at t/spec/re/regexp.v5:77<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -941,7 +941,7 @@ Failed to open file: no such file or directory<br />
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::useithreads called<br />
   in block  at t/spec/re/regexp_qr_embed_thr.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -980,15 +980,15 @@ Useless use of constant integer 0 in sink context (line 10)<br />
     ------&gt; 	local $ENV{LC_ALL}⏏; # so it never overrides LC_NUMERIC<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:74<br />
+  in sub P5open at lib/Perl5/Terms.pm:81<br />
   in block  at t/spec/run/locale.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/run/switchx.v5:13<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::can_ok called<br />
   in block  at t/spec/test_pl/can_isa_ok.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1031,7 +1031,7 @@ at t/spec/uni/attrs.v5:160<br />
   in block  at t/spec/io/crlf_through.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
   in block  at t/spec/io/data.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1104,8 +1104,8 @@ at t/spec/io/layers.v5:208<br />
     ------&gt; 	    open my $fh⏏, "&lt;$layer", $0 or die $!;<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/io/perlio_leaks.v5:22<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1140,13 +1140,13 @@ Cannot import symbol &amp;prefix:&lt;P5.&gt; from overload, because it already e
 at t/spec/lib/overload_fallback.v5:6<br />
 ------&gt;  =&gt; sub { 'stringvalue' }, fallback =&gt; 1⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::ok called<br />
   in block  at t/spec/lib/overload_nomethod.v5:13<br />
   in block  at t/spec/lib/overload_nomethod.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::DATA called<br />
   in block  at t/spec/bigmem/read.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1208,9 +1208,9 @@ at t/spec/re/reg_fold.v5:30<br />
 ------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp19217A.19217<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp24021A.24021<br />
 Unexpected closing bracket<br />
-at tmp19217A.19217:1<br />
+at tmp24021A.24021:1<br />
 ------&gt; use v5; ï⏏»¿print 1;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1223,7 +1223,7 @@ at t/spec/uni/cache.v5:29<br />
 Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
   in block  at t/spec/io/errnosig.v5:13<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1234,7 +1234,7 @@ Could not find Perlito5::Test in any of: /home/froggs/dev/nqp/install/languages/
 </td></tr>
         <tr align='center'><td align='left'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::BAIL_OUT called<br />
   in block  at t/spec/lib/commonsense.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1274,7 +1274,7 @@ Variable '$.' is not declared<br />
 at t/spec/op/pwent.v5:161<br />
 ------&gt; 	push @{ $seen{$name_s} }, $.⏏;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
   in block  at t/spec/op/time_loop.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1309,19 +1309,19 @@ No such symbol '&amp;Regexp::DESTROY'<br />
   in block  at t/v5/11-class-open.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/io/iprefix.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:74<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:81<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/io/read.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>lib/no_load.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::setgrent called<br />
   in block  at t/spec/op/grent.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1332,7 +1332,7 @@ at t/spec/op/utftaint.v5:27<br />
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:987<br />
+  in sub P5print at lib/Perl5/Terms.pm:994<br />
   in block  at t/spec/run/script.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
@@ -1351,7 +1351,7 @@ Missing block<br />
 at t/spec/op/attrhand.v5:19<br />
 ------&gt; sub TypeCheck :ATTR⏏(CODE,RAWDATA) {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::crypt called<br />
   in block  at t/spec/op/crypt.v5:32<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1366,8 +1366,8 @@ at t/spec/op/attrhand.v5:19<br />
     ------&gt; open my $fh⏏, "&lt;", \$str;<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/op/filehandle.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigsystem.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -1383,7 +1383,7 @@ at t/spec/op/sigsystem.v5:28<br />
     Redeclaration of symbol $ENV<br />
     at t/spec/run/mad.v5:42<br />
     ------&gt;     delete local $ENV{$_} ⏏for keys %ENV;<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::delete called<br />
   in block  at t/spec/run/mad.v5:34<br />
   in block  at t/spec/run/mad.v5:33<br />
 </td></tr>
@@ -1398,7 +1398,7 @@ Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp20338C' on target 'tmp20338B': Failed to link file: no such file or directory<br />
+Failed to create link called 'tmp25179C' on target 'tmp25179B': Failed to link file: no such file or directory<br />
   in block  at src/gen/m-CORE.setting:14293<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:14288<br />
@@ -1455,20 +1455,20 @@ at t/v5/25-syntax-defined-or.v5:8<br />
   in block  at t/spec/mro/next_method_utf8.v5:53<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
   in block  at t/spec/op/alarm.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::lock called<br />
   in block  at t/spec/op/lock.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Cannot call 'match'; none of these signatures match:<br />
 :(Cool:D: Any $target, *%adverbs)<br />
-  in sub P5split at lib/Perl5/Terms.pm:1059<br />
-  in sub P5split at lib/Perl5/Terms.pm:1050<br />
-  in sub P5split at lib/Perl5/Terms.pm:1051<br />
-  in sub P5split at lib/Perl5/Terms.pm:1050<br />
+  in sub P5split at lib/Perl5/Terms.pm:1066<br />
+  in sub P5split at lib/Perl5/Terms.pm:1057<br />
+  in sub P5split at lib/Perl5/Terms.pm:1058<br />
+  in sub P5split at lib/Perl5/Terms.pm:1057<br />
   in block  at t/spec/op/yadayada.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1476,7 +1476,7 @@ at t/v5/25-syntax-defined-or.v5:8<br />
     Redeclaration of symbol $flile<br />
     at t/spec/re/qr.v5:82<br />
     ------&gt;  tie my $flile⏏, "qrBug";<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/re/qr.v5:78<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1487,7 +1487,7 @@ Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:987<br />
+  in sub P5print at lib/Perl5/Terms.pm:994<br />
   in block  at t/spec/run/switchF1.v5:29<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1497,12 +1497,12 @@ at t/spec/uni/opcroak.v5:21<br />
 ------&gt; Not enough arguments for main::\x{30cb}/⏏u, "Not enough arguments croak is UTF-8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>No such method 'IO' for invocant of type 'Typeglob'<br />
-  in sub P5open at lib/Perl5/Terms.pm:79<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/uni/select.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/31-autoload.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;A::a called<br />
   in block  at t/v5/31-autoload.v5:11<br />
   in block  at t/v5/31-autoload.v5:7<br />
 </td></tr>
@@ -1512,7 +1512,7 @@ at t/spec/uni/opcroak.v5:21<br />
   in block  at t/v5/32-autoload-method.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::wantarray called<br />
   in sub mkfiles at t/spec/io/nargv.v5:71<br />
   in block  at t/spec/io/nargv.v5:13<br />
 </td></tr>
@@ -1522,7 +1522,7 @@ Missing block<br />
 at t/spec/op/blocks.v5:127<br />
 ------&gt; ::is INIT⏏, 5, 'constant named after a special blo</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::kill called<br />
   in block  at t/spec/op/kill0.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
@@ -1536,7 +1536,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp19901B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp24691B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1576,7 +1576,7 @@ at t/spec/uni/tr_7jis.v5:19<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/io/inplace.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
@@ -1588,8 +1588,8 @@ at t/spec/uni/tr_7jis.v5:19<br />
     at t/spec/io/perlio_open.v5:28<br />
     ------&gt;     ok((open my $fh⏏, "+&lt;", undef), "open my \$fh, '+&lt;', und<br />
 No such method 'IO' for invocant of type 'Any'<br />
-  in sub P5open at lib/Perl5/Terms.pm:86<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:93<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/io/perlio_open.v5:20<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1598,7 +1598,7 @@ No such method 'IO' for invocant of type 'Any'<br />
   in block  at t/spec/io/perlio_open.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::delete called<br />
   in block  at t/spec/benchmark/rt26188-speed-up-keys-on-empty-hash.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
@@ -1652,13 +1652,13 @@ at t/spec/op/lex.v5:12<br />
 Cannot find method 'ast'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/comp/our.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/package_block.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 93)<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::eq called<br />
   in block  at t/spec/comp/package_block.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
@@ -1682,7 +1682,7 @@ at t/spec/uni/readline.v5:53<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
 Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:987<br />
+  in sub P5print at lib/Perl5/Terms.pm:994<br />
   in block  at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -1721,7 +1721,7 @@ Two terms in a row<br />
 at t/spec/uni/write.v5:103<br />
 ------&gt;   like $@, qr/Undefined format "놋웇ʱＦᚖṀŦ/⏏u, 'no such format, with format name in</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::svref_2object called<br />
   in block  at t/spec/lib/proxy_constant_subs.v5:22<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1743,7 +1743,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1397597359.38182 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1397599641.39028 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>/bin/sh: 1: -V: not found<br />
@@ -1753,7 +1753,7 @@ at t/spec/run/dtrace.v5:70<br />
 ------&gt; dtrace_like(&lt;&lt;⏏ 'MAGIC_OP',<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::binmode called<br />
   in block  at t/spec/io/binmode.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
@@ -1792,7 +1792,7 @@ Unable to parse expression in argument list; couldn't find final ')' <br />
 at t/spec/run/switchd.v5:63<br />
 ------&gt;    ⏏switches =&gt; [ '"-Mless ++INC-&gt;{q-Devel/_</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/uni/tie.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
@@ -1805,18 +1805,18 @@ at t/spec/run/switchd.v5:63<br />
         <tr><td colspan='5'>Oops<br />
 Oops<br />
 Oops<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::or called<br />
   in block  at t/v5/23-eval.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
   in block  at t/spec/io/openpid.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Failed to change the working directory to '/home/froggs/dev/v5/lib/deprecate': Directory does not exist<br />
   in sub chdir at src/gen/m-CORE.setting:14210<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:388<br />
-  in sub P5chdir at lib/Perl5/Terms.pm:388<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:395<br />
+  in sub P5chdir at lib/Perl5/Terms.pm:395<br />
   in block  at t/spec/lib/deprecate.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
@@ -1877,7 +1877,7 @@ Could not find symbol 'next'<br />
 Could not find symbol 'next'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::object_ok called<br />
   in block  at t/spec/mro/next_edgecases.v5:11<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1886,7 +1886,7 @@ Could not find symbol 'next'<br />
   in block  at t/spec/mro/next_edgecases.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_edgecases_utf8.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::object_ok called<br />
   in block  at t/spec/mro/next_edgecases_utf8.v5:14<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1900,7 +1900,7 @@ Unable to parse expression in signature; couldn't find final ')' <br />
 at t/spec/op/protowarn.v5:41<br />
 ------&gt; $sub = sub (⏏x) { };</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::wantarray called<br />
   in sub foo at t/v5/13-op-context.v5:7<br />
   in block  at t/v5/13-op-context.v5:1<br />
 </td></tr>
@@ -1910,7 +1910,7 @@ Variable '$cona' is not declared<br />
 at t/spec/op/wantarray.v5:16<br />
 ------&gt;   my ( $cona⏏, $testnum ) = @_;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/run/switchC.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
@@ -1925,7 +1925,7 @@ at t/spec/comp/form_scope.v5:12<br />
 ------&gt; ok @&lt;&lt;&lt;&lt;&lt;⏏&lt;&lt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/studytied.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/package.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
@@ -1934,7 +1934,7 @@ Two terms in a row<br />
 at t/spec/comp/package.v5:18<br />
 ------&gt;     $main⏏'a = $'b;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::weaken called<br />
   in sub s1 at t/spec/re/qr-72922.v5:21<br />
   in block  at t/spec/re/qr-72922.v5:1<br />
 </td></tr>
@@ -1958,7 +1958,7 @@ Illegal redeclaration of 'OUTER'<br />
 at t/spec/re/pat_psycho.v5:107<br />
 ------&gt;           ⏏for my $a ("x","a","aa") {</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::IPC_PRIVATE called<br />
   in block  at t/spec/io/shm.v5:43<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -1984,8 +1984,8 @@ at t/spec/re/pat_psycho.v5:107<br />
     ------&gt; 	open my $fh⏏, "&lt;:crlf", \$fcontents;<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:79<br />
-  in sub P5open at lib/Perl5/Terms.pm:70<br />
+  in sub P5open at lib/Perl5/Terms.pm:86<br />
+  in sub P5open at lib/Perl5/Terms.pm:77<br />
   in block  at t/spec/io/crlf.v5:16<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -2013,7 +2013,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp19571B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp24358B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -2023,7 +2023,7 @@ at t/spec/op/glob.v5:117<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::BIG called<br />
   in block  at t/spec/op/lfs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
@@ -2080,7 +2080,7 @@ at t/spec/op/mkdir.v5:47<br />
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1051<br />
-  in sub P5print at lib/Perl5/Terms.pm:987<br />
+  in sub P5print at lib/Perl5/Terms.pm:994<br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:52<br />
   in block  at t/spec/run/cloexec.v5:1<br />
 </td></tr>
@@ -2176,7 +2176,7 @@ at t/spec/io/pvbm.v5:52<br />
 ------&gt;     ok (!eval { truncate ⏏$pvbm, 0 }, 'truncate(PVBM) fails');<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
   in block  at t/spec/op/sigdispatch.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
@@ -2210,18 +2210,18 @@ Unable to parse expression in variable; couldn't find final '}' <br />
 at t/spec/op/qr.v5:73<br />
 ------&gt;     my $x = 1.1; $x = ${qr⏏//};</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::vec called<br />
   in block  at t/spec/op/vec.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp20124A.20124<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp24893A.24893<br />
 Lexical symbol '$x' is already bound to an outer symbol;<br />
 the implicit outer binding must be rewritten as OUTER::&lt;$x&gt;<br />
 before you can unambiguously declare a new '$x' in this scope<br />
-at tmp20124A.20124:2<br />
+at tmp24893A.24893:2<br />
 ------&gt;  print "a" =~ /(?{ print $x; my $x ⏏= 8; print $x; my $y })a/;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::TST called<br />
   in block  at t/spec/io/tell.v5:18<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
@@ -2243,11 +2243,11 @@ at t/spec/cmd/subval.v5:110<br />
     Redeclaration of symbol $tf<br />
     at t/spec/re/recompile.v5:44<br />
     ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/re/recompile.v5:29<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::delete called<br />
   in block  at t/spec/op/delete.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
@@ -2285,7 +2285,7 @@ at t/spec/comp/uproto.v5:123<br />
     Redeclaration of symbol $fh<br />
     at t/spec/io/perlio.v5:198<br />
     ------&gt;         open my $fh⏏, "&lt;", \(my $f = *f);<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::use_ok called<br />
   in block  at t/spec/io/perlio.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
@@ -2293,7 +2293,7 @@ Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
 Useless use of constant integer 1 in sink context (line 239)<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:74<br />
+  in sub P5open at lib/Perl5/Terms.pm:81<br />
   in block  at t/spec/op/sysio.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
@@ -2389,8 +2389,8 @@ at t/spec/uni/method.v5:43<br />
     ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
 No such method 'substr' for invocant of type 'Any'<br />
   in sub substr-rw at src/gen/m-CORE.setting:6866<br />
+  in sub P5substr at lib/Perl5/Terms.pm:1151<br />
   in sub P5substr at lib/Perl5/Terms.pm:1144<br />
-  in sub P5substr at lib/Perl5/Terms.pm:1137<br />
   in sub fooinc at t/spec/op/inccode.v5:38<br />
   in block  at t/spec/op/inccode.v5:1<br />
 </td></tr>
@@ -2411,7 +2411,7 @@ Error while compiling op callmethod: QAST::Var with scope '' NYI<br />
     Redeclaration of symbol $x<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::TEST1 called<br />
   in block  at t/spec/op/loopctl.v5:51<br />
   in block  at t/spec/op/loopctl.v5:44<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
@@ -2421,7 +2421,7 @@ Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
   in block  at t/spec/op/loopctl.v5:39<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
-        <tr><td colspan='5'>Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
   in block  at t/spec/op/time.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tiearray.v5</td><td>0</td><td>69</td><td>0</td><td>0</td><td>69</td></tr>
@@ -2429,7 +2429,7 @@ Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
     Redeclaration of symbol @dummy<br />
     at t/spec/op/tiearray.v5:295<br />
     ------&gt;     tie my @dummy⏏, "NegFetchsize";<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/tiearray.v5:155<br />
   in method reify at src/gen/m-CORE.setting:7686<br />
   in method reify at src/gen/m-CORE.setting:7549<br />
@@ -2552,7 +2552,7 @@ at t/spec/op/index.v5:67<br />
 ------&gt; $a ⏏= "foo \x{1234}bar";</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/svleak.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::or called<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/split.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2579,7 +2579,7 @@ at t/spec/op/split.v5:366<br />
     Redeclaration of symbol $f<br />
     at t/spec/run/switches.v5:432<br />
     ------&gt;     open my $f⏏, "&gt;$filename" or skip( "Can't write tem<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/run/switches.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
@@ -2726,7 +2726,7 @@ at t/spec/op/tie_fetch_count.v5:48<br />
     Redeclaration of symbol %tied_hash<br />
     at t/spec/op/smartmatch.v5:29<br />
     ------&gt; tie my %tied_hash⏏, 'Tie::StdHash';<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/smartmatch.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
@@ -2758,7 +2758,7 @@ at t/spec/re/pat_rt_report.v5:96<br />
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'>Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13667<br />
-  in sub P5open at lib/Perl5/Terms.pm:74<br />
+  in sub P5open at lib/Perl5/Terms.pm:81<br />
   in block  at t/spec/op/read.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
@@ -2766,7 +2766,7 @@ at t/spec/re/pat_rt_report.v5:96<br />
     Redeclaration of symbol $fh<br />
     at t/spec/comp/utf.v5:38<br />
     ------&gt;     open my $fh⏏, "&gt;", "utf$$.pl" or die "utf.pl: $!";<br />
-Cannot find method 'postcircumfix:&lt;( )&gt;'<br />
+Undefined subroutine &amp;main::binmode called<br />
   in sub test at t/spec/comp/utf.v5:37<br />
   in block  at t/spec/comp/utf.v5:60<br />
   in method reify at src/gen/m-CORE.setting:7686<br />

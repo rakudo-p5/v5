@@ -65,7 +65,14 @@ class STDERR {
     method P5close(*@a) { }
 }
 
-role P5Bareword { };
+role P5Bareword {
+    method postcircumfix:<( )>(|) is hidden_from_backtrace {
+        my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
+        P5die(sprintf('Undefined subroutine &%s::%s called',
+            $pkg =:= GLOBAL ?? 'main' !! $pkg.^name,
+            nqp::substr(~self, 1)))
+    }
+};
 
 multi P5open( Str \SELF, $expr is copy ) is export {
     my $m    = ~$expr.match(/^(<[\<\>|]>+)/);
