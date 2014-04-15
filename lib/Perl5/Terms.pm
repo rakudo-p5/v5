@@ -14,11 +14,10 @@ sub P5warn(:$cat, *@a) is hidden_from_backtrace {
         %SIG<__WARN__> ~~ Callable ?? %SIG<__WARN__>( |@a.list.map(P5Str(*)) ) !! warn( P5Str(@a.list) )
     }
 }
-sub P5die (:$cat, *@a) is hidden_from_backtrace {
-    if %WARNINGS_CATS<all> || ($cat && %WARNINGS_CATS{$cat}) {
-        my $*WITHIN_WARN = 1;
-        %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>( |@a.list.map(P5Str(*)) ) !! die( P5Str(@a.list) )
-    }
+
+# TODO get caller's $@ if no args passed
+sub P5die (*@a) is hidden_from_backtrace {
+    %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>( |@a.list.map(P5Str(*)) ) !! die( P5Str(@a.list) )
 }
 
 # We can't use modules here which will be exposed to user land. So we turn it around.
@@ -66,7 +65,21 @@ class STDERR {
     method P5close(*@a) { }
 }
 
-multi P5open( \SELF, $expr ) is export {
+role P5Bareword { };
+
+multi P5open( Str \SELF, $expr is copy ) is export {
+    my $m    = ~$expr.match(/^(<[\<\>|]>+)/);
+    $expr    = $expr.subst(/^(<[\<\>|]>+)/, '');
+    my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctx()), '$?PACKAGE');
+    $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) )
+}
+multi P5open( Str \SELF, $m, $expr, *@list ) is export {
+    my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctx()), '$?PACKAGE');
+    say SELF;
+    $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) )
+         unless SELF ~~ any(STDOUT|STDERR|'STDOUT'|'STDERR')
+}
+multi P5open( STDIN \SELF, $expr ) is export {
     SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) unless SELF ~~ any(STDOUT|STDERR)
 }
 multi P5open( \SELF, $m, $expr, *@list ) is export {
@@ -105,7 +118,16 @@ class Typeglob {
     }
 }
 
-sub P5close(\SELF) is export { SELF && SELF.close }
+multi P5close(P5Bareword \SELF) is export {
+    my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
+    $pkg.WHO{SELF}.close
+}
+multi P5close(\SELF) is export {
+    say SELF.WHAT;
+    say SELF.gist;
+    say SELF.perl;
+    SELF && SELF.close
+}
 
 
 role P5MatchPos {
@@ -416,7 +438,9 @@ sub P5INDIRECT_NAME_LOOKUP($root, *@chunks, :$object is copy, :$method) is expor
     my Str $name = @chunks.join('::');
     my @parts    = $name.split('::');
     my $first    = @parts.shift;
+    my $has_sigil;
     if @parts && '$@%&'.index($first.substr(0, 1)).defined {
+        $has_sigil = 1;
         # move sigil from first to last chunk, because
         # $Foo::Bar::baz is actually stored as Foo::Bar::$baz
         my $last_idx      = @parts.end;
@@ -430,6 +454,7 @@ sub P5INDIRECT_NAME_LOOKUP($root, *@chunks, :$object is copy, :$method) is expor
     $object //= $name;
     my Mu $thing := $root.exists_key($first) ?? $root{$first} !!
                     GLOBAL::.exists_key($first) ?? GLOBAL::{$first} !!
+                    !$method && !$has_sigil ?? (return $name but P5Bareword) !! # check that we do not have args?
                     !$method ?? X::NoSuchSymbol.new(symbol => $name).fail !!
                     $method eq 'isa' || $method eq 'can' ?? Str !!
                     X::AdHoc.new(payload => "Can't locate object method \"$method\" via package \"$object\" (perhaps you forgot to load \"$object\"?)").fail;
@@ -952,13 +977,23 @@ sub P5pos($s is rw) is export {
 }
 
 sub P5print(*@a is copy) is export {
-    my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle) ?? @a.shift !! $*OUT;
+    my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle|P5Bareword) ?? @a.shift !! $*OUT;
+    if $fh ~~ P5Bareword {
+        my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
+        $fh = $pkg.WHO{$fh};
+    }
     @a.push: CALLER::DYNAMIC::<$_> unless +@a;
 
-    $fh.print( @a.join('') )
+    $fh.print( P5Str(@a) )
 }
 
-sub P5push(Mu \SELF, *@a) is export {
+proto P5push(|) is hidden_from_backtrace { * }
+multi P5push(Mu \SELF, *@a) is export is hidden_from_backtrace {
+    SELF !~~ Hash && !SELF.VAR.isa(Scalar)
+        ?? P5die "Type of arg 1 to push must be array (not constant item)"
+        !! P5die "Not an ARRAY reference"
+}
+multi P5push(Positional \SELF, *@a) is export is hidden_from_backtrace {
     try SELF.list.push: |@a;
     SELF.list.elems // 0
 }
@@ -974,10 +1009,14 @@ multi P5ref(Any:D \SELF) is export {
 }
 
 sub P5say(*@a is copy) is export {
-    my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle) ?? @a.shift !! $*OUT;
+    my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle|P5Bareword) ?? @a.shift !! $*OUT;
+    if $fh ~~ P5Bareword {
+        my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
+        $fh = $pkg.WHO{$fh};
+    }
     @a.push: CALLER::DYNAMIC::<$_> unless +@a;
 
-    $fh.say( @a.join('') )
+    $fh.say( P5Str(@a) )
 }
 
 multi P5scalar(Mu      \SELF) is export { SELF     }
@@ -1086,8 +1125,8 @@ multi P5Str(Mu:U) is export is hidden_from_backtrace {
 }
 multi P5Str(Mu:D     \SELF) is export { SELF.Str }
 multi P5Str(Bool:D   \SELF) is export { ?SELF ?? 1 !! '' }
-multi P5Str(Array:D  \SELF) is export { join ' ', map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
-multi P5Str(List:D   \SELF) is export { join '',  map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
+multi P5Str(Array:D  \SELF, :$joiner = '') is export { join $joiner, map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
+multi P5Str(List:D   \SELF, :$joiner = '') is export { join $joiner, map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
 multi P5Str(utf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'ascii')) }
 multi P5Str(Int:D    \SELF) is export { SELF.Int }
 multi P5Str(Num:D    \SELF) is export { SELF.Num }

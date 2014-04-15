@@ -1600,7 +1600,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     }
 
     rule statement_control:sym<for> {
-        :my $var := '$_';
         :my $*SCOPE;
         ['for'|'foreach']
         [
@@ -1609,13 +1608,15 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
                 <e2=.EXPR>? ';'
                 <e3=.EXPR>?
             ')'
-        ||  [
+            <sblock>
+        ||  :my $var := '$_';
+            [
                 [ 'my' { $*SCOPE := 'my' } || 'our' { $*SCOPE := 'our' } ]?
                 <variable> { $var := $<variable>.ast.name }
             ]?
             '(' ~ ')' <EXPR>
+            <sblock(1, $var)>
         ]
-        <sblock(1, $var)>
         [ 'continue' <continue=.sblock> ]?
     }
 
@@ -2036,6 +2037,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     my %prototype := nqp::hash(
         'chr',    '$',
         'chdir',  '$',
+        'close',  '*',
         'each',   '$',
         'int',    '$',
         'keys',   '$',
@@ -2047,8 +2049,11 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         'unpack', '$@',
         'map',    '$@',
         'grep',   '$@',
+        'open',   '*@',
         'pos',    '$',
+        'print',  '*@',
         'rand',   '$',
+        'say',    '*@',
         'sort',   '$@',
         'splice', '@',
         'split',  '$$$',
@@ -2064,19 +2069,20 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*DECLARAND := $*W.stub_code_object('Sub');
         :my $*PROTOTYPE;
         :my $*SHIFT_FROM;
+        :my $*ROUTINE_NAME := '';
         [
         ||  <deflongname>
             <.newlex>
             [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
             <trait>*
-            { $*IN_DECL := 0; }
+            { $*IN_DECL := 0; $*ROUTINE_NAME := ~$<deflongname>; }
             [
             || <?terminator>
             || <blockoid>
             ]
         ||  <?before \W>
             <.newlex>
-            [ <parensig> { %prototype{ ~$<deflongname> } := ~$*PROTOTYPE } ]?
+            [ <parensig> ]?
             <trait>*
             { $*IN_DECL := 0; }
             <blockoid>
@@ -2990,6 +2996,20 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :dba('argument')
         [
         #~ | <?stdstopper>
+        || <?{ $*ARGUMENT_HAVE == 0 && $*IN_OPEN }> [ <name> <?{ !(~$<name> ~~ /'my'|'our'/) }> {
+                my $BLOCK := $*W.cur_lexpad();
+                #~ { nqp::say("token arg $*ARGUMENT_HAVE && $*IN_OPEN $<name> :barename") }
+                unless $BLOCK.symbol(~$<name>) {
+                    $BLOCK.symbol(~$<name>, :scope('lexical'), :barename(1) );
+                    $BLOCK[0].push(QAST::Var.new( :name(~$<name>), :scope('lexical'), :decl('var') ));
+                }
+            } || <EXPR('q=')> ] { $*ARGUMENT_HAVE := 1 }
+        || <?{ $*PROTOTYPE eq '*' }>
+            [
+            || <barename=.name> <?{ !(~$<name> ~~ /'my'|'our'/) && $*W.cur_lexpad().symbol(~$<barename>)<barename> }>
+            || <EXPR($prec)>
+            ]
+            { $*ARGUMENT_HAVE := 1 }
         || <?{ $*PROTOTYPE eq '@' }> <EXPR($prec)> { $*ARGUMENT_HAVE := 1 }
         || <?{ $*PROTOTYPE eq '$' }>
             [
@@ -3009,13 +3029,17 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $i := 0;
         [ <!{ $is_semiarglist }> <.ws> <indirect_object> ]?
         :dba('argument list')
-        <.ws>
+        \s*
         [
         | <?stdstopper>
         | <?[=]>
-        |   [
-            || <?{ $is_semiarglist }> <arg('@', 'a=')> ** 0..1
-            || [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
+        | [
+            ||  <?{ $is_semiarglist }>
+                [
+                || <?{ nqp::substr($s, 0, 1) eq '*' }> <arg('*')> [ <.ws> ',' <.ws> <arg('@', 'a=')> ] ** 0..1
+                || <arg('@', 'a=')> ** 0..1
+                ]
+            ||  [ <?{ $n := nqp::substr($s, $i, 1); $i := $i + 1; $n }> <arg($n)> ]+ % [ <.ws> ',' <.ws> ]
             ]
         ]
     }
@@ -3593,9 +3617,10 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $name;
         [
         | <?{ $*ALLOW_IOS_VAR }> <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] { $name := ~$<variable> }
-        | <?{ $*ALLOW_IOS_NAME }> <name> <!postfix> { $name := ~$<name> } <?{ $*W.is_type([$name]) }>
+        | <?{ $*ALLOW_IOS_NAME }> <name> <!postfix> <![,]> { $name := ~$<name> }
+          <?{ ($*W.cur_lexpad().symbol($name)<barename> && ($<name><barename> := 1)) || $*W.is_type([$name]) }>
         ]
-        <!{ nqp::defined(%prototype{$name}) }> { $*HAS_INDIRECT_OBJ := 1 }
+        { $*HAS_INDIRECT_OBJ := 1 }
     }
 
     token term:sym<...> { <sym> <args> }
@@ -3606,13 +3631,14 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
         :my $*ALLOW_IOS_VAR := 0;
         :my $*ALLOW_IOS_NAME := 1;
         :my $*IN_SPLIT := 0;
+        :my $*IN_OPEN := 0;
         <identifier> { $name := ~$<identifier> }
         <!{ $name ~~ /^ [ 'm' || 'q' || 'qq' || 'qr' || 'qw' || 'my' ] $/ }>
         <?{ nqp::defined(%prototype{$name}) || !$*W.is_type([$name]) }>
         {
             %prototype{$name} := '@' unless nqp::defined(%prototype{$name});
             $*ALLOW_IOS_VAR := $name ~~ /^ [ 'new' | 'print' | 'say' ] $/;
-            $*ALLOW_IOS_NAME := $name ne 'open';
+            $*IN_OPEN := $name eq 'open';
             $*IN_SPLIT := $name eq 'split' || $name eq 'grep';
         }
         [\h+ <?[(]>]?
@@ -3667,7 +3693,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token term:sym<name> {
         <longname>
         :my $*longname;
-        { $*longname := $*W.dissect_longname($<longname>) }
+        { $*longname := $*W.dissect_longname($<longname>); }
         [
         ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::' || $*W.is_name($*longname.components()) }>
             <.unsp>?

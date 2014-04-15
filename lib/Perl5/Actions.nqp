@@ -1643,7 +1643,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             if $<subname><desigilname><variable> {
                 $past.name(~$<subname><desigilname><variable>);
             }
-            elsif $*W.is_lexical('&' ~ $<subname>) {
+            elsif $*W.is_lexical('&' ~ $<subname>) || $<subname> eq $*ROUTINE_NAME {
                 $past.name('&' ~ $<subname>);
             }
             else {
@@ -1652,7 +1652,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         }
         # &routine
         elsif $<subname> {
-            if $*W.is_lexical('&' ~ $<subname>) {
+            if $*W.is_lexical('&' ~ $<subname>) || $<subname> eq $*ROUTINE_NAME {
                 $past := QAST::Op.new( :op<call>, :name('&' ~ $<subname>) );
             }
             else {
@@ -2362,7 +2362,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     }
     
     method add_inlining_info_if_possible($/, $code, $past, @params) {
-        $V5DEBUG && say("add_inlining_info_if_possible($/, $code, $past, @params)");
+        $V5DEBUG && say("add_inlining_info_if_possible($/, \$code, \$past, \@params)");
         # Make sure the block has the common structure we expect
         # (decls then statements).
         return 0 unless +@($past) == 2;
@@ -3801,7 +3801,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
             if $subname<desigilname><variable> {
                 $ast.name(~$<subname><desigilname><variable>);
             }
-            elsif $*W.is_lexical('&' ~ $subname) {
+            elsif $*W.is_lexical('&' ~ $subname) || $subname eq $*ROUTINE_NAME {
                 $ast.name('&' ~ $subname);
             }
             else {
@@ -3823,10 +3823,19 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method indirect_object($/) {
         $V5DEBUG && say("indirect_object($/)");
-        if $<name> {
+        if $<name><barename> {
+            $V5DEBUG && say("indirect_object($/) barename");
+            make QAST::Op.new( :op('call'), :name('&infix:<does>'),
+                $*W.add_string_constant(~$<name>),
+                QAST::WVal.new( :value($*W.find_symbol(['P5Bareword'])) )
+            )
+        }
+        elsif $<name> {
+            $V5DEBUG && say("indirect_object($/) name");
             make QAST::WVal.new( :value($*W.find_symbol([~$<name>])))
         }
         elsif $<variable> {
+            $V5DEBUG && say("indirect_object($/) variable");
             make $<variable>.ast
         }
         
@@ -3866,7 +3875,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     method term:sym«<filehandle>»($/) {
         $V5DEBUG && say("term:sym«<filehandle>»($/)");
-        make QAST::Var.new( :name('Nil'), :scope('lexical') );
+        make QAST::Op.new( :op('call'), :name('&lines') );
     }
 
     sub make_yada($name, $/) {
@@ -3963,17 +3972,17 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     my %builtin := nqp::hash(
         'chr',     [ '$_', '_',  'call', '&P5Numeric' ],
-        'close',   [ '',   '*@', '',     '',              'call',       '&P5close' ],
+        'close',   [ '',   '*',  '',     '',              'call',       '&P5close' ],
         'chdir',   [ '',   '$',  '',     '',              'call',       '&P5chdir' ],
         'each',    [ '',   '$',  '',     '',              'call',       '&P5each' ],
         'int',     [ '$_', '_',  'call', '&P5Numeric',    'callmethod', 'Int' ],
         'ord',     [ '$_', '_',  'call', '&infix:<P5.>',  'call',       '&P5ord' ],
         'ref',     [ '$_', '_',  '',     '',              'call',       '&P5ref' ],
         'not',     [ '',   '@',  '',     '',              'call',       '&prefix:<P5not>' ],
-        'say',     [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5say' ],
+        'say',     [ '$_', '@',  '',     '',              'call',       '&P5say' ],
         'open',    [ '',   '*@', '',     '',              'call',       '&P5open' ],
         'pack',    [ '',   '$@', '',     '',              'call',       '&P5pack' ],
-        'print',   [ '$_', '@',  'call', '&infix:<P5.>',  'call',       '&P5print' ],
+        'print',   [ '$_', '@',  '',     '',              'call',       '&P5print' ],
         'shift',   [ '@_', ';+', '',     '',              'call',       '&P5shift' ],
         'split',   [ '',   '$$$', '',    '',              'call',       '&P5split' ],
         'unlink',  [ '$_', '@',  '',     '',              'call',       '&P5unlink' ],
@@ -4071,7 +4080,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         else {
             $past := $<args>.ast;
             $past.op('call');
-            if $*W.is_lexical('&' ~ $name) {
+            if $*W.is_lexical('&' ~ $name) || $name eq $*ROUTINE_NAME {
                 $past.name('&' ~ $name);
             }
             else {
@@ -4315,6 +4324,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         if $<arg> {
             for $<arg> -> $arg {
                 if $arg<EXPR> {
+                    $V5DEBUG && say("arglist($/) EXPR");
                     my $expr := $arg<EXPR>.ast;
                     my @arg := nqp::istype($expr, QAST::Op) && $expr.name eq '&infix:<,>'
                         ?? $expr.list
@@ -4323,10 +4333,23 @@ class Perl5::Actions is HLL::Actions does STDActions {
                         @args.push($_);
                     }
                 }
+                elsif $arg<barename> {
+                    $V5DEBUG && say("arglist($/) barename");
+                    @args.push(QAST::Op.new( :op('call'), :name('&infix:<does>'),
+                        $*W.add_string_constant(~$arg<barename>),
+                        QAST::WVal.new( :value($*W.find_symbol(['P5Bareword'])) )
+                    ))
+                }
+                elsif $arg<name> {
+                    $V5DEBUG && say("arglist($/) name");
+                    @args.push($*W.add_string_constant(~$arg<name>));
+                }
             }
         }
         my $past := QAST::Op.new( :op('call'), :node($/), |@args );
         if $<indirect_object> {
+            $V5DEBUG && say("arglist($/) indirect_object");
+            
             $past.name('&infix:<,>');
             $past := +@args
                     ?? QAST::Op.new( :op('callmethod'), $<indirect_object>.ast, $past )
@@ -5496,9 +5519,16 @@ class Perl5::Actions is HLL::Actions does STDActions {
         my $rx_coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
             $<sibble><left>.ast, 'anon', '', %sig_info, $rx_block, :use_outer_match(1));
 
-        # Quote needs to be closure-i-fied.
-        my $closure := block_closure(make_thunk_ref($<sibble><right>.ast, $<sibble><right>));
+        my $rhs;
+        if $<rx_mods> && nqp::index(~$<rx_mods>.ast, 'e') >= 0 {
+            $rhs := QAST::Op.new( :op<callmethod>, :name<EVAL>, $*W.add_string_constant(~$<sibble><right>));
+        }
+        else {
+            $rhs := $<sibble><right>.ast;
+        }
 
+        # Quote needs to be closure-i-fied.
+        my $closure := block_closure(make_thunk_ref($rhs, $<sibble><right>));
         # make $_ = $_.subst(...)
         my $past := QAST::Op.new(
             :node($/),
@@ -6208,17 +6238,17 @@ class Perl5::QActions is HLL::Actions does STDActions {
     }
     
     method postprocess_null($/, $past) {
-        $V5DEBUG && say("method postprocess_null($/, $past)");
+        $V5DEBUG && say("method postprocess_null($/, \$past)");
         $past
     }
     
     method postprocess_run($/, $past) {
-        $V5DEBUG && say("method postprocess_run($/, $past)");
+        $V5DEBUG && say("method postprocess_run($/, \$past)");
         QAST::Op.new( :name('&QX'), :op('call'), :node($/), $past )
     }
     
     method postprocess_words($/, $past) {
-        $V5DEBUG && say("method postprocess_words($/, $past)");
+        $V5DEBUG && say("method postprocess_words($/, \$past)");
         if $past.has_compile_time_value {
             my @words := HLL::Grammar::split_words($/,
                 nqp::unbox_s($past.compile_time_value));
@@ -6238,7 +6268,7 @@ class Perl5::QActions is HLL::Actions does STDActions {
     }
     
     method postprocess_quotewords($/, $past) {
-        $V5DEBUG && say("method postprocess_quotewords($/, $past)");
+        $V5DEBUG && say("method postprocess_quotewords($/, \$past)");
         my $result := QAST::Op.new( :op('call'), :name('&infix:<,>'), :node($/) );
         sub walk($node) {
             if $node<ww_atom> {
@@ -6319,7 +6349,11 @@ class Perl5::QActions is HLL::Actions does STDActions {
     }
     
     method escape:sym<$>($/) { make $<EXPR>.ast; }
-    method escape:sym<@>($/) { make $<termish>.ast; }
+    method escape:sym<@>($/) {
+        my $joiner := $*W.add_string_constant(' ');
+        $joiner.named('joiner');
+        make QAST::Op.new( :op<call>, :name<&P5Str>, $<termish>.ast, $joiner )
+    }
     method escape:sym<%>($/) { make $<termish>.ast; }
     method escape:sym<&>($/) { make $<EXPR>.ast; }
 
