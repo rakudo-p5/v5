@@ -78,13 +78,15 @@ multi P5open( Str \SELF, $expr is copy ) is export {
     my $m    = ~$expr.match(/^(<[\<\>|]>+)/);
     $expr    = $expr.subst(/^(<[\<\>|]>+)/, '');
     my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctx()), '$?PACKAGE');
-    $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) )
+    if $expr.IO.e && SELF !~~ any(STDOUT|STDERR|'STDOUT'|'STDERR') {
+        ?( $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) ) )
+    }
 }
 multi P5open( Str \SELF, $m, $expr, *@list ) is export {
     my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctx()), '$?PACKAGE');
-    say SELF;
-    $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) )
-         unless SELF ~~ any(STDOUT|STDERR|'STDOUT'|'STDERR')
+    if $expr.IO.e && SELF !~~ any(STDOUT|STDERR|'STDOUT'|'STDERR') {
+        ?( $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) ) )
+    }
 }
 multi P5open( STDIN \SELF, $expr ) is export {
     SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) unless SELF ~~ any(STDOUT|STDERR)
