@@ -2034,31 +2034,35 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 #            <.getsig>
 #        ] || <.panic: "Malformed routine">
 #    }
+    # perl -E 'say prototype "CORE::seek"'
     my %prototype := nqp::hash(
-        'chr',    '$',
-        'chdir',  '$',
-        'close',  '*',
-        'each',   '$',
-        'int',    '$',
-        'keys',   '$',
-        'ord',    '$',
-        'ref',    '$',
-        'time',   '',
-        'not',    '@',
-        'unlink', '@',
-        'unpack', '$@',
-        'map',    '$@',
-        'grep',   '$@',
-        'open',   '*@',
-        'pos',    '$',
-        'print',  '*@',
-        'rand',   '$',
-        'say',    '*@',
-        'sort',   '$@',
-        'splice', '@',
-        'split',  '$$$',
-        'substr', '$$$$',
-        'values', '$',
+        'binmode', '*;$',
+        'chr',     '$',
+        'chdir',   '$',
+        'close',   '*',
+        'each',    '$',
+        'int',     '$',
+        'keys',    '$',
+        'ord',     '$',
+        'ref',     '$',
+        'time',    '',
+        'not',     '@',
+        'unlink',  '@',
+        'unpack',  '$@',
+        'map',     '$@',
+        'grep',    '$@',
+        'open',    '*@',
+        'pos',     '$',
+        'print',   '*@',
+        'rand',    '$',
+        'read',    '*\\$$;$',
+        'say',     '*@',
+        'seek',    '*$$',
+        'sort',    '$@',
+        'splice',  '@',
+        'split',   '$$$',
+        'substr',  '$$$$',
+        'values',  '$',
     );
     rule routine_def {
         :my $*IN_DECL := 'sub';
@@ -3016,7 +3020,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
             || <?{ $*ARGUMENT_HAVE }> <EXPR('h=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
             ||                        <EXPR('q=')> { $*ARGUMENT_HAVE := $*ARGUMENT_HAVE + 1 }
             ]
-        || <?{ $*PROTOTYPE eq ';' }>
+        #~ || <?{ $*PROTOTYPE eq ';' }>
         #~ | <?>
         ]
     }
