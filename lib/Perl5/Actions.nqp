@@ -3979,10 +3979,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'ord',     [ '$_', '_',  'call', '&infix:<P5.>',  'call',       '&P5ord' ],
         'ref',     [ '$_', '_',  '',     '',              'call',       '&P5ref' ],
         'not',     [ '',   '@',  '',     '',              'call',       '&prefix:<P5not>' ],
-        'say',     [ '$_', '@',  '',     '',              'call',       '&P5say' ],
+        'say',     [ '$_', '*@', '',     '',              'call',       '&P5say' ],
         'open',    [ '',   '*@', '',     '',              'call',       '&P5open' ],
         'pack',    [ '',   '$@', '',     '',              'call',       '&P5pack' ],
-        'print',   [ '$_', '@',  '',     '',              'call',       '&P5print' ],
+        'print',   [ '$_', '*@', '',     '',              'call',       '&P5print' ],
         'shift',   [ '@_', ';+', '',     '',              'call',       '&P5shift' ],
         'split',   [ '',   '$$$', '',    '',              'call',       '&P5split' ],
         'unlink',  [ '$_', '@',  '',     '',              'call',       '&P5unlink' ],
@@ -3992,6 +3992,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'pop',     [ '@_', ';+', '',     '',              'call',       '&P5pop' ],
         'pos',     [ '$_', '$',  '',     '',              'call',       '&P5pos' ],
         'rand',    [ '',   '',   '',     '',              'call',       '&P5rand' ],
+        'read',    [ '',   '*\\$$;$', '', '',             'call',       '&P5read' ],
         'seek',    [ '',   '*$$', '',    '',              'call',       '&P5seek' ],
         'splice',  [ '',   '@',  '',     '',              'call',       '&P5splice' ],
         'substr',  [ '',   '$$$$', '',   '',              'call',       '&P5substr' ],
@@ -4067,6 +4068,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
                     $past.name( $builtin[$arg_opname] );
                     $past := QAST::Op.new( $past );
                 }
+            }
+            
+            if $builtin[$proto] && nqp::substr($builtin[$proto],0, 1) eq '*' {
+                $past.push( QAST::Var.new( :name('$?PACKAGE'), :scope('lexical'), :named('pkg') ) );
             }
             
             if $builtin[$op] {

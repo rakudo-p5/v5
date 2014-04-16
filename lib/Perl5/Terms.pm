@@ -74,26 +74,28 @@ role P5Bareword {
     }
 };
 
-multi P5open( Str \SELF, $expr is copy ) is export {
+multi P5open( Str \SELF, $expr is copy, :$pkg ) is export {
     my $m    = ~$expr.match(/^(<[\<\>|]>+)/);
     $expr    = $expr.subst(/^(<[\<\>|]>+)/, '');
-    my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctx()), '$?PACKAGE');
-    if $expr.IO.e && SELF !~~ any(STDOUT|STDERR|'STDOUT'|'STDERR') {
-        ?( $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) ) )
+    my $r    = $m eq '<' || !$m;
+    if (!$r || $expr.IO.e) && SELF !~~ any(STDOUT|STDERR|'STDOUT'|'STDERR') {
+        ?( $pkg.WHO{SELF} = $expr.IO.open( :$r, :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) ) );
     }
 }
-multi P5open( Str \SELF, $m, $expr, *@list ) is export {
-    my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctx()), '$?PACKAGE');
-    if $expr.IO.e && SELF !~~ any(STDOUT|STDERR|'STDOUT'|'STDERR') {
-        ?( $pkg.WHO{SELF} = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) ) )
+multi P5open( Str \SELF, $m, $expr, *@list, :$pkg ) is export {
+    my $r    = $m eq '<' || !$m;
+    if (!$r || $expr.IO.e) && SELF !~~ any(STDOUT|STDERR|'STDOUT'|'STDERR') {
+        ?( $pkg.WHO{SELF} = $expr.IO.open( :$r, :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) ) );
     }
 }
-multi P5open( STDIN \SELF, $expr ) is export {
-    SELF.P5open( $expr.substr(0, 1), $expr.substr(1) ) unless SELF ~~ any(STDOUT|STDERR)
+multi P5open( STDIN \SELF, $expr, :$pkg ) is export {
+    SELF.P5open( $expr.substr(0, 1), $expr.substr(1) )
 }
-multi P5open( \SELF, $m, $expr, *@list ) is export {
-    SELF = $expr.IO.open( :r($m eq '<'), :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) )
-         unless SELF ~~ any(STDOUT|STDERR)
+multi P5open( \SELF, $m, $expr, *@list, :$pkg ) is export {
+    my $r = $m eq '<' || !$m;
+    if (!$r || $expr.IO.e) && SELF !~~ any(STDOUT|STDERR) {
+        ?( SELF = $expr.IO.open( :$r, :w($m eq '>'), :a($m eq '>>'), :p($m eq '|'), :bin(0) ) );
+    }
 }
 
 class Typeglob {
@@ -127,14 +129,10 @@ class Typeglob {
     }
 }
 
-multi P5close(P5Bareword \SELF) is export {
-    my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
-    $pkg.WHO{SELF}.close
+multi P5close(P5Bareword \SELF, :$pkg) is export {
+    $pkg.WHO{SELF} && $pkg.WHO{SELF}.close
 }
-multi P5close(\SELF) is export {
-    say SELF.WHAT;
-    say SELF.gist;
-    say SELF.perl;
+multi P5close(\SELF, :$pkg) is export {
     SELF && SELF.close
 }
 
@@ -985,12 +983,9 @@ sub P5pos($s is rw) is export {
     )
 }
 
-sub P5print(*@a is copy) is export {
+sub P5print(*@a is copy, :$pkg) is export {
     my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle|P5Bareword) ?? @a.shift !! $*OUT;
-    if $fh ~~ P5Bareword {
-        my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
-        $fh = $pkg.WHO{$fh};
-    }
+    $fh    = $pkg.WHO{$fh} if $fh ~~ P5Bareword;
     @a.push: CALLER::DYNAMIC::<$_> unless +@a;
 
     $fh.print( P5Str(@a) )
@@ -1010,6 +1005,25 @@ multi P5push(Positional \SELF, *@a) is export is hidden_from_backtrace {
 multi P5rand(        ) is export { 1.rand           }
 multi P5rand(Mu \SELF) is export { (SELF || 1).rand }
 
+# http://perldoc.perl.org/functions/read.html
+sub P5read($fh is copy, $target is rw, $length, $offset = 0, :$pkg) is export {
+    $fh        = $pkg.WHO{$fh} if $fh ~~ P5Bareword;
+    $target  //= '';
+    my $read   = P5Str(try $fh.read($length));
+    my $tchars = $target.chars;
+    if $offset > $tchars {
+        $target = $target ~ (0.chr x ($offset - $tchars)) ~ $read;
+    }
+    elsif $offset >= 0 {
+        $target = $target.substr(0, $offset) ~ $read;
+    }
+    else { # $offset is negetive
+        $target = $target.substr(0, $tchars + $offset) ~ $read;
+    }
+    $read.chars
+}
+
+
 multi P5ref(Mu    \SELF) is export { '' }
 multi P5ref(Cool  \SELF) is export { '' }
 multi P5ref(Any:D \SELF) is export {
@@ -1017,12 +1031,9 @@ multi P5ref(Any:D \SELF) is export {
     $name eq 'SUB' ?? 'CODE' !! $name
 }
 
-sub P5say(*@a is copy) is export {
+sub P5say(*@a is copy, :$pkg) is export {
     my $fh = +@a && @a[0] ~~ any($*OUT|$*ERR|STDOUT|STDERR|IO::Handle|P5Bareword) ?? @a.shift !! $*OUT;
-    if $fh ~~ P5Bareword {
-        my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
-        $fh = $pkg.WHO{$fh};
-    }
+    $fh    = $pkg.WHO{$fh} if $fh ~~ P5Bareword;
     @a.push: CALLER::DYNAMIC::<$_> unless +@a;
 
     $fh.say( P5Str(@a) )
@@ -1049,11 +1060,8 @@ sub P5shift(Mu \SELF) is export {
     $r
 }
 
-sub P5seek($fh is copy, $pos, $whence) is export {
-    if $fh ~~ P5Bareword {
-        my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
-        $fh = $pkg.WHO{$fh};
-    }
+sub P5seek($fh is copy, $pos, $whence, :$pkg) is export {
+    $fh = $pkg.WHO{$fh} if $fh ~~ P5Bareword;
     $fh.seek($pos, $whence)
 }
 
@@ -1144,6 +1152,7 @@ multi P5Str(Mu:D     \SELF) is export { SELF.Str }
 multi P5Str(Bool:D   \SELF) is export { ?SELF ?? 1 !! '' }
 multi P5Str(Array:D  \SELF, :$joiner = '') is export { join $joiner, map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
 multi P5Str(List:D   \SELF, :$joiner = '') is export { join $joiner, map { $_.defined ?? P5Str($_) !! '' }, @(SELF) }
+multi P5Str(buf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'ascii')) }
 multi P5Str(utf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'ascii')) }
 multi P5Str(Int:D    \SELF) is export { SELF.Int }
 multi P5Str(Num:D    \SELF) is export { SELF.Num }
