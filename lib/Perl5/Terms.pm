@@ -1049,6 +1049,14 @@ sub P5shift(Mu \SELF) is export {
     $r
 }
 
+sub P5seek($fh is copy, $pos, $whence) is export {
+    if $fh ~~ P5Bareword {
+        my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
+        $fh = $pkg.WHO{$fh};
+    }
+    $fh.seek($pos, $whence)
+}
+
 sub P5splice(\arr, $off is copy = 0, $len? is copy, *@lst) is export {
     $off  += +@(arr) if $off < 0;
     $len //= +@(arr) - $off;

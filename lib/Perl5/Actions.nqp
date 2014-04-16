@@ -3992,6 +3992,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
         'pop',     [ '@_', ';+', '',     '',              'call',       '&P5pop' ],
         'pos',     [ '$_', '$',  '',     '',              'call',       '&P5pos' ],
         'rand',    [ '',   '',   '',     '',              'call',       '&P5rand' ],
+        'seek',    [ '',   '*$$', '',    '',              'call',       '&P5seek' ],
         'splice',  [ '',   '@',  '',     '',              'call',       '&P5splice' ],
         'substr',  [ '',   '$$$$', '',   '',              'call',       '&P5substr' ],
         'time',    [ '',   '',   '',     '',              'call',       '&term:<time>' ],
