@@ -3971,6 +3971,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
     my $opname      := $i++;
 
     my %builtin := nqp::hash(
+        'binmode', [ '',   '*;$', '',    '',              'call',       '&P5binmode' ],
         'chr',     [ '$_', '_',  'call', '&P5Numeric' ],
         'close',   [ '',   '*',  '',     '',              'call',       '&P5close' ],
         'chdir',   [ '',   '$',  '',     '',              'call',       '&P5chdir' ],
@@ -4638,7 +4639,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
                 $past[0] := QAST::Op.new( :node($/), :op('call'), :name('&P5Bool'), $past[0] );
             }
         }
-        if $past.op eq 'xor' {
+        if $past.isa(QAST::Op) && $past.op eq 'xor' {
             $past.push(QAST::Var.new(:named<false>, :scope<lexical>, :name<Nil>));
         }
         if $key eq 'PREFIX' || $key eq 'INFIX' || $key eq 'POSTFIX' {
@@ -5109,8 +5110,11 @@ class Perl5::Actions is HLL::Actions does STDActions {
             }
             $past.push( $op );
         }
-        else {
+        elsif +$<semilist><statement> {
             $past.push( QAST::Op.new( :name('Stringy'), :op('callmethod'), :node($/), $<semilist><statement>[0].ast ) );
+        }
+        else {
+            return make QAST::Var.new(:name('Nil'), :scope('lexical'));
         }
         make $past;
     }

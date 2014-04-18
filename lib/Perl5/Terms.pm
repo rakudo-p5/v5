@@ -200,6 +200,8 @@ sub EXPORT(|) {
 
 sub fail($a?) is export { use Test; ::('&flunk')( $a // '' ) }
 
+sub P5binmode(|) is export { }
+
 multi sub chop()          is export { chop(CALLER::DYNAMIC::<$_>) }
 multi sub chop(*@s is rw) is export {
     my $chopped_of = '';
