@@ -3619,9 +3619,13 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
     token indirect_object {
         :my $name;
         [
-        | <?{ $*ALLOW_IOS_VAR }> <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] { $name := ~$<variable> }
-        | <?{ $*ALLOW_IOS_NAME }> <name> <!postfix> <![,]> { $name := ~$<name> }
-          <?{ ($*W.cur_lexpad().symbol($name)<barename> && ($<name><barename> := 1)) || $*W.is_type([$name]) }>
+        |   <?{ $*ALLOW_IOS_VAR }>
+            [
+            | <variable> <?before \s> <.ws> [ <?term> | <?prefix> | <!infix> ] { $name := ~$<variable> }
+            | <?[{]> <sblock>
+            ]
+        |   <?{ $*ALLOW_IOS_NAME }> <name> <!postfix> <![,]> { $name := ~$<name> }
+            <?{ ($*W.cur_lexpad().symbol($name)<barename> && ($<name><barename> := 1)) || $*W.is_type([$name]) }>
         ]
         { $*HAS_INDIRECT_OBJ := 1 }
     }

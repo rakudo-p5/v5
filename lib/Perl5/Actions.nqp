@@ -3834,6 +3834,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
             $V5DEBUG && say("indirect_object($/) name");
             make QAST::WVal.new( :value($*W.find_symbol([~$<name>])))
         }
+        elsif $<sblock> {
+            $V5DEBUG && say("indirect_object($/) sblock");
+            make $<sblock>.ast
+        }
         elsif $<variable> {
             $V5DEBUG && say("indirect_object($/) variable");
             make $<variable>.ast
