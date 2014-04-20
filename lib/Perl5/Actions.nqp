@@ -3972,7 +3972,7 @@ class Perl5::Actions is HLL::Actions does STDActions {
 
     my %builtin := nqp::hash(
         'binmode', [ '',   '*;$', '',    '',              'call',       '&P5binmode' ],
-        'chr',     [ '$_', '_',  'call', '&P5Numeric' ],
+        'chr',     [ '$_', '_',  'call', '&P5Numeric',    'call',       '&P5chr' ],
         'close',   [ '',   '*',  '',     '',              'call',       '&P5close' ],
         'chdir',   [ '',   '$',  '',     '',              'call',       '&P5chdir' ],
         'each',    [ '',   '$',  '',     '',              'call',       '&P5each' ],

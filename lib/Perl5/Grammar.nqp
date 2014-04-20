@@ -1371,7 +1371,6 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     my %pragma_defaults := nqp::hash(
         'base',      [],                       # http://perldoc.perl.org/base.html
-        'bytes',     [],                       # http://perldoc.perl.org/bytes.html
         'charnames', [],                       # http://perldoc.perl.org/charnames.html
         'feature',   [],                       # http://perldoc.perl.org/feature.html
         'integer',   [],                       # http://perldoc.perl.org/integer.html

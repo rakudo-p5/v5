@@ -202,6 +202,24 @@ sub fail($a?) is export { use Test; ::('&flunk')( $a // '' ) }
 
 sub P5binmode(|) is export { }
 
+# http://perldoc.perl.org/functions/chr.html
+sub P5chr($ord) is export is hidden_from_backtrace {
+    if $ord < 0 {
+        # Negative values give the Unicode replacement character (chr(0xfffd)), except under the bytes
+        # pragma, where the low eight bits of the value (truncated to an integer) are used.
+        if $*USE_BYTES {
+            chr($ord +& 0xFF)
+        }
+        else {
+            P5warn("Invalid negative number ($ord) in chr");
+            chr(0xfffd)
+        }
+    }
+    else {
+        chr($ord)
+    }
+}
+
 multi sub chop()          is export { chop(CALLER::DYNAMIC::<$_>) }
 multi sub chop(*@s is rw) is export {
     my $chopped_of = '';
