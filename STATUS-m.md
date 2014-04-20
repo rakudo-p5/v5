@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>7983</td><td>33708</td><td>5</td><td>1809</td><td>42906</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>8030</td><td>33711</td><td>5</td><td>1809</td><td>42906</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>2436</td><td>640</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'> 512 tests more than planned were run<br />
 </td></tr>
@@ -67,6 +67,29 @@ Index out of range. Is: 1, should be in 0..0<br />
         <tr><td colspan='5'>   1 todo   : NYI<br />
 </td></tr>
         <tr align='center'><td align='left'>op/split_unicode.v5</td><td>48</td><td>103</td><td>0</td><td>0</td><td>151</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/my.v5</td><td>47</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $i<br />
+    at t/spec/op/my.v5:71<br />
+    ------&gt; if (my $i ⏏= "inner") {<br />
+    Redeclaration of symbol $i<br />
+    at t/spec/op/my.v5:75<br />
+    ------&gt; if ((my $i ⏏= 1) == 0) {<br />
+    Redeclaration of symbol $i<br />
+    at t/spec/op/my.v5:83<br />
+    ------&gt; while (my $i ⏏= --$j) {<br />
+    Redeclaration of symbol $i<br />
+    at t/spec/op/my.v5:92<br />
+    ------&gt; for (my $i ⏏= 0; (my $k = $i) &lt; $j; ++$i) {<br />
+Undefined subroutine &amp;main::loop called<br />
+  in block  at t/spec/op/my.v5:140<br />
+  in method reify at src/gen/m-CORE.setting:7686<br />
+  in method reify at src/gen/m-CORE.setting:7549<br />
+  in method gimme at src/gen/m-CORE.setting:8001<br />
+  in method sink at src/gen/m-CORE.setting:8404<br />
+  in block  at t/spec/op/my.v5:92<br />
+<br />  49 tests more than planned were run<br />
+</td></tr>
         <tr align='center'><td align='left'>op/each_array.v5</td><td>46</td><td>17</td><td>0</td><td>0</td><td>63</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left'>op/auto.v5</td><td>41</td><td>6</td><td>0</td><td>0</td><td>47</td></tr>
@@ -214,7 +237,7 @@ Can't locate object method "ook" via package "Baro" (perhaps you forgot to load 
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switcht.v5</td><td>5</td><td>8</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp23519B' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp27312B' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left'>re/pos.v5</td><td>5</td><td>3</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
@@ -255,17 +278,17 @@ Useless use of constant integer 42 in sink context (line 15)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>4</td><td>5</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>Ending delimiter HEREDOC not found ---<br />
-===SORRY!=== Error while compiling tmp22925A.22925<br />
+===SORRY!=== Error while compiling tmp26719A.26719<br />
 Couldn't parse heredoc construct<br />
-at tmp22925A.22925:1<br />
+at tmp26719A.26719:1<br />
 ------&gt; use v5; print &lt;&lt;⏏;<br />
-===SORRY!=== Error while compiling tmp22925A.22925<br />
+===SORRY!=== Error while compiling tmp26719A.26719<br />
 Couldn't parse heredoc construct<br />
-at tmp22925A.22925:1<br />
+at tmp26719A.26719:1<br />
 ------&gt; use v5; print &lt;&lt;⏏&lt;EOL&gt;<br />
-===SORRY!=== Error while compiling tmp22925A.22925<br />
+===SORRY!=== Error while compiling tmp26719A.26719<br />
 Confused<br />
-at tmp22925A.22925:4<br />
+at tmp26719A.26719:4<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -342,13 +365,13 @@ Can't locate object method "import" via package "main" (perhaps you forgot to lo
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
-    at tmp23023A.23023:7<br />
+    at tmp26817A.26817:7<br />
     ------&gt; open my $fh⏏, "&lt;:utf8", \"\xC1\xAF\xC1\xAF\xC1\xB0\x<br />
 Failed to open file: no such file or directory<br />
   in method open at src/gen/m-CORE.setting:13669<br />
   in sub P5open at lib/Perl5/Terms.pm:97<br />
   in sub P5open at lib/Perl5/Terms.pm:77<br />
-  in block  at tmp23023A.23023:1<br />
+  in block  at tmp26817A.26817:1<br />
 </td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defins.v5</td><td>2</td><td>25</td><td>0</td><td>0</td><td>27</td></tr>
@@ -367,15 +390,15 @@ Undefined subroutine &amp;main::FILE called<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>2</td><td>3</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;Foo::dbmopen called<br />
-  in sub new at tmp22837A.22837:7<br />
-  in block  at tmp22837A.22837:23<br />
-  in block  at tmp22837A.22837:2<br />
+  in sub new at tmp26622A.26622:7<br />
+  in block  at tmp26622A.26622:23<br />
+  in block  at tmp26622A.26622:2<br />
 Undefined subroutine &amp;Foo::dbmopen called<br />
-  in sub new at tmp22837A.22837:6<br />
-  in block  at tmp22837A.22837:22<br />
-  in block  at tmp22837A.22837:1<br />
+  in sub new at tmp26622A.26622:6<br />
+  in block  at tmp26622A.26622:22<br />
+  in block  at tmp26622A.26622:1<br />
 Undefined subroutine &amp;main::dbmopen called<br />
-  in block  at tmp22837A.22837:1<br />
+  in block  at tmp26622A.26622:1<br />
 ===SORRY!===<br />
 MVMArray: Index out of bounds<br />
 Undefined subroutine &amp;main::dbmopen called<br />
@@ -389,9 +412,9 @@ Undefined subroutine &amp;main::dbmopen called<br />
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of "," in expression "= bless[chr 256],o::" in sink context (line 29)<br />
-===SORRY!=== Error while compiling tmp22817A.22817<br />
+===SORRY!=== Error while compiling tmp26604A.26604<br />
 Couldn't find terminator |<br />
-at tmp22817A.22817:14<br />
+at tmp26604A.26604:14<br />
 ------&gt; path(bless {},"Path::Class::Dir"), "\n";⏏&lt;EOL&gt;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>2</td><td>30</td><td>0</td><td>16</td><td>48</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::opendir called<br />
@@ -465,9 +488,9 @@ Unhandled exception: No exception handler located for warn<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏foo' (indicated by ⏏)<br />
 ===SORRY!===<br />
 Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏moo' (indicated by ⏏)<br />
-===SORRY!=== Error while compiling tmp23391A.23391<br />
+===SORRY!=== Error while compiling tmp27184A.27184<br />
 Two terms in a row<br />
-at tmp23391A.23391:38<br />
+at tmp27184A.27184:38<br />
 ------&gt; }⏏match("John Smith, 42 years old, secret</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
@@ -631,11 +654,6 @@ at t/spec/op/inc.v5:56<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Could not find tests in any of: /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/my.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/my.v5<br />
-Unable to parse expression in declarator; couldn't find final ')' <br />
-at t/spec/op/my.v5:15<br />
-------&gt;     { my($a, ⏏undef, $c) = ("ok 9\n", "not ok 10\n", "</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/line_debug.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 32)<br />
@@ -976,16 +994,9 @@ at t/spec/uni/attrs.v5:160<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-   at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11398  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1238  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:361)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
- from gen/moar/stage2/NQPHLL.nqp:1179  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;GLOBAL::prop_invmap called<br />
+  in sub casetest at /home/froggs/dev/v5/t/spec/uni/case.pl:31<br />
+  in block  at t/spec/uni/lower.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>no kid script<br />
@@ -996,28 +1007,15 @@ at t/spec/uni/attrs.v5:160<br />
   in block  at t/spec/io/data.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-   at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11398  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1238  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:361)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
- from gen/moar/stage2/NQPHLL.nqp:1179  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;GLOBAL::prop_invmap called<br />
+  in sub casetest at /home/froggs/dev/v5/t/spec/uni/case.pl:31<br />
+  in block  at t/spec/uni/title.v5:1<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Unhandled exception: Method 'Stringy' not found for invocant of class 'NQPMu'<br />
-   at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11398  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:41)<br />
- from gen/moar/stage2/NQPHLL.nqp:1238  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:361)<br />
- from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:116)<br />
- from gen/moar/stage2/NQPHLL.nqp:1179  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:109)<br />
- from src/gen/m-main.nqp:45  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:41  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::195)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+        <tr align='center'><td align='left' rowspan='2'>uni/upper.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Undefined subroutine &amp;GLOBAL::prop_invmap called<br />
+  in sub casetest at /home/froggs/dev/v5/t/spec/uni/case.pl:31<br />
+  in block  at t/spec/uni/upper.v5:1<br />
+<br />   1 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/runenv.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1150,14 +1148,14 @@ Could not find symbol '&amp;encode'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in declarator; couldn't find final ')' <br />
-at t/spec/re/reg_fold.v5:30<br />
-------&gt;     my ($invlist_ref, $invmap_ref, ⏏undef, $default)</td></tr>
+Unable to parse expression in argument list; couldn't find final ')' <br />
+at t/spec/re/reg_fold.v5:50<br />
+------&gt;                                         ⏏@{$invmap_ref-&gt;[$i]});</td></tr>
         <tr align='center'><td align='left'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp22520A.22520<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp26324A.26324<br />
 Unexpected closing bracket<br />
-at tmp22520A.22520:1<br />
+at tmp26324A.26324:1<br />
 ------&gt; use v5; ï⏏»¿print 1;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1338,7 +1336,7 @@ Undefined subroutine &amp;main::delete called<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp23605C' on target 'tmp23605B': Failed to link file: no such file or directory<br />
+Failed to create link called 'tmp27394C' on target 'tmp27394B': Failed to link file: no such file or directory<br />
   in block  at src/gen/m-CORE.setting:14295<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:14290<br />
@@ -1474,7 +1472,7 @@ at t/spec/op/threads-dirh.v5:123<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
 ===SORRY!===<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp23148B/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp26943B/aaa' (indicated by ⏏)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1614,7 +1612,7 @@ at t/spec/uni/readline.v5:53<br />
     Redeclaration of symbol $CMD<br />
     at t/spec/io/fflush.v5:126<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
-close tmp22540B: <br />
+close tmp26344B: <br />
   in block  at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -1668,7 +1666,7 @@ at t/spec/op/select.v5:20<br />
         <tr><td colspan='5'>WARNINGS:<br />
 Useless use of constant integer 1 in sink context (line 58)<br />
 ===SORRY!===<br />
-Error while compiling op bind: QAST::Block with cuid cuid_102_1398023389.78165 has not appeared<br />
+Error while compiling op bind: QAST::Block with cuid cuid_102_1398027238.61379 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>/bin/sh: 1: -V: not found<br />
@@ -1934,7 +1932,7 @@ Could not find Win32 in any of: ../lib/Perl5<br />
 Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>Can't open temp error file tmp22851B:  <br />
+        <tr><td colspan='5'>Can't open temp error file tmp26638B:  <br />
   in block  at t/spec/op/die_exit.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
@@ -1944,7 +1942,7 @@ at t/spec/op/glob.v5:117<br />
 ------&gt; &lt;BOL&gt;⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>binmode tmp22969C failed: <br />
+        <tr><td colspan='5'>binmode tmp26765C failed: <br />
   in block  at t/spec/op/lfs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
@@ -1999,7 +1997,7 @@ at t/spec/op/mkdir.v5:47<br />
 ------&gt; ok(rmdir⏏);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>close 'tmp23467C': <br />
+        <tr><td colspan='5'>close 'tmp27260C': <br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:52<br />
   in block  at t/spec/run/cloexec.v5:1<br />
 </td></tr>
@@ -2133,11 +2131,11 @@ at t/spec/op/qr.v5:73<br />
   in block  at t/spec/op/vec.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp23393A.23393<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling tmp27186A.27186<br />
 Lexical symbol '$x' is already bound to an outer symbol;<br />
 the implicit outer binding must be rewritten as OUTER::&lt;$x&gt;<br />
 before you can unambiguously declare a new '$x' in this scope<br />
-at tmp23393A.23393:2<br />
+at tmp27186A.27186:2<br />
 ------&gt;  print "a" =~ /(?{ print $x; my $x ⏏= 8; print $x; my $y })a/;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::TST called<br />

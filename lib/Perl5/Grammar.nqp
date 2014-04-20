@@ -2786,7 +2786,7 @@ grammar Perl5::Grammar is HLL::Grammar does STD5 {
 
     token signature {
         || <?{ $*IN_DECL eq 'sub' }> $<params>=['$'|'@'|'%'|'&'|'*'|'+'|';'|'_']* { $*PROTOTYPE := ~$<params> }
-        || <?{ $*IN_DECL ne 'sub' }> <variable_declarator>+ % [ <.ws> ',' <.ws> ]
+        || <?{ $*IN_DECL ne 'sub' }> ( 'undef' | <variable_declarator> )+ % [ <.ws> ',' <.ws> ]
     }
 
     token type_constraint {

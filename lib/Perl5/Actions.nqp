@@ -3151,13 +3151,24 @@ class Perl5::Actions is HLL::Actions does STDActions {
             # XXX translate things like '$;@' to a perl6 signature
         }
         else {
-            for $<variable_declarator> {
-                my %info                 := $_.ast;
-                %info<variable_name>     := ~$_<variable>;
-                %info<sigil>             := ~$_<variable><sigil>;
-                %info<desigilname>       := ~$_<variable><desigilname>;
-                %info<is_multi_invocant> := $multi_invocant;
-                @parameter_infos.push(%info);
+            for $/[0] {
+                if $_<variable_declarator> {
+                    my $v                    := $_<variable_declarator>;
+                    my %info                 := $v.ast;
+                    %info<variable_name>     := ~$v<variable>;
+                    %info<sigil>             := ~$v<variable><sigil>;
+                    %info<desigilname>       := ~$v<variable><desigilname>;
+                    %info<is_multi_invocant> := $multi_invocant;
+                    @parameter_infos.push(%info);
+                }
+                else {
+                    my %info                 := nqp::hash();
+                    %info<variable_name>     := '';
+                    %info<sigil>             := '$';
+                    %info<desigilname>       := '';
+                    %info<is_multi_invocant> := $multi_invocant;
+                    @parameter_infos.push(%info);
+                }
             }
         }
         %signature<parameters> := @parameter_infos;
