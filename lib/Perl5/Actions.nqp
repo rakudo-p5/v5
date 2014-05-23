@@ -971,7 +971,10 @@ class Perl5::Actions is HLL::Actions does STDActions {
         $V5DEBUG && say("statement_control:sym<use>($/)");
         my $past := $<statementlist>    ?? $<statementlist>.ast
                                         !! QAST::Var.new( :name('Nil'), :scope('lexical') );
-        if $<version> {
+        if $<statementlist> {
+            $past := $<statementlist>.ast;
+        }
+        elsif $<version> {
             # TODO: replace this by code that doesn't always die with
             # a useless error message
 #            my $i := -1;
@@ -1001,9 +1004,6 @@ class Perl5::Actions is HLL::Actions does STDActions {
             elsif ~$<module_name> eq 'Devel::Trace' {
                 $STATEMENT_PRINT := 1;
             }
-        }
-        elsif $<statementlist> {
-            $past := $<statementlist>.ast;
         }
         make $past;
     }

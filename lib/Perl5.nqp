@@ -13,7 +13,6 @@ sub EXPORT(*@a) {
     %*LANG<P5Q-actions>     := Perl5::QActions;
     %*LANG<P5Regex>         := Perl5::RegexGrammar;
     %*LANG<P5Regex-actions> := Perl5::RegexActions;
-    $*ACTIONS := %*LANG<Perl5-actions>;
     
     $*MAIN := 'Perl5';
     
