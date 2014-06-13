@@ -100,12 +100,16 @@ multi P5open( \SELF, $m, $expr, *@list, :$pkg ) is export {
 
 class Typeglob {
     has $!descriptor;
-    has $!value;
+    has $.value;
     has $.name;
 
     method Str {
-        '*'  ~ ($!value =:= GLOBAL ?? 'main' !! $!value.^name) ~
-        '::' ~ $.name
+        if $!value.WHO{ '$' ~ $.name }:exists
+        or $!value.WHO{ '%' ~ $.name }:exists
+        or $!value.WHO{ '@' ~ $.name }:exists {
+            '*'  ~ ($!value ~~ GLOBAL ?? 'main' !! $!value.^name) ~
+            '::' ~ $.name
+        }
     }
 
     method name {
@@ -126,6 +130,10 @@ class Typeglob {
 
     method list is rw {
         $!value.WHO{ '@' ~ $.name }
+    }
+    
+    method at_key($name) {
+        Typeglob.new( :$name, :$!value )
     }
 }
 
@@ -159,7 +167,7 @@ sub EXPORT(|) {
     %ex<$?>                       := $CHILD_ERROR;
 
     %ex<$^>                       := $FORMAT_TOP_NAME;
-    %ex<$^O>                      := $*OS;
+    %ex<$^O>                      := $*DISTRO.name;
     %ex<$^F>                      := $SYSTEM_FD_MAX;
     %ex<$^I>                      := $INPLACE_EDIT;
     %ex<$^T>                      := $BASETIME;
@@ -194,6 +202,8 @@ sub EXPORT(|) {
     %ex<$*CONFIG_INTSIZE>         := $CONFIG_INTSIZE;
     %ex<%*STASH>                  := %STASH;
     %ex<%*WARNINGS_CATS>          := %WARNINGS_CATS;
+
+    %ex<main>                     := GLOBAL;
 
     %ex
 }

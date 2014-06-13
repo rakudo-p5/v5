@@ -26,7 +26,7 @@ multi sub EXPORT() {
     %o<&getcwd>        := &Cwd::getcwd;
     %o<&fastcwd>       := &Cwd::fastcwd;
     %o<&fastgetcwd>    := &Cwd::fastgetcwd;
-    %o<&getdcwd>       := &Cwd::getdcwd if $*OS eq 'MSWin32';
+    %o<&getdcwd>       := &Cwd::getdcwd if $*DISTRO.name eq 'MSWin32';
 
     %o<&abs_path>      := &Cwd::abs_path;
     %o<&realpath>      := &Cwd::realpath;
