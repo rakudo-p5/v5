@@ -828,13 +828,13 @@ grammar Perl5::Grammar does STD5 {
     }
 
     method MARKER(str $markname) {
-        my %markhash = nqp::getattr(
+        my Mu $markhash := nqp::getattr(
             nqp::getattr(self, $cursor_class, '$!shared'), ParseShared, '%!marks');
-        my $cur := nqp::atkey(%markhash, $markname);
+        my Mu $cur := nqp::atkey($markhash, $markname);
         if nqp::isnull($cur) {
             $cur := self."!cursor_start_cur"();
             $cur."!cursor_pass"(self.pos());
-            nqp::bindkey(%markhash, $markname, $cur);
+            nqp::bindkey($markhash, $markname, $cur);
         }
         else {
             $cur."!cursor_pos"(self.pos());
@@ -843,11 +843,11 @@ grammar Perl5::Grammar does STD5 {
     }
     
     method MARKED(str $markname) {
-        my %markhash = nqp::getattr(
+        my Mu $markhash := nqp::getattr(
             nqp::getattr(self, $cursor_class, '$!shared'), ParseShared, '%!marks');
-        my $cur = nqp::atkey(%markhash, $markname);
+        my Mu $cur := nqp::atkey($markhash, $markname);
         unless nqp::istype($cur, Cursor) && $cur.pos() == self.pos() {
-            $cur = self.'!cursor_start_fail'();
+            $cur := self.'!cursor_start_fail'();
         }
         $cur
     }
@@ -1073,16 +1073,16 @@ grammar Perl5::Grammar does STD5 {
         ]?
     }
 
-    method ws() {
-        if self.MARKED('ws') {
-            self
-        }
-        else {
-            self._ws()
-        }
-    }
-    token _ws {
-        :my $old_highexpect := self.'!fresh_highexpect'();
+    #~ method ws() {
+        #~ if self.MARKED('ws') {
+            #~ self
+        #~ }
+        #~ else {
+            #~ self._ws()
+        #~ }
+    #~ }
+    token ws {
+        #~ :my $old_highexpect := self.'!fresh_highexpect'();
         #~ :dba('whitespace')
         <!ww>
         [
@@ -1090,7 +1090,7 @@ grammar Perl5::Grammar does STD5 {
         | <.unv>
         ]*
         <?MARKER('ws')>
-        :my $stub := self.'!set_highexpect'($old_highexpect);
+        #~ :my $stub := self.'!set_highexpect'($old_highexpect);
     }
 
     token unsp {
@@ -1577,7 +1577,7 @@ grammar Perl5::Grammar does STD5 {
     }
 
     # statement semantics
-    token statementlist($*statement_level = 0) {
+    rule statementlist($*statement_level = 0) {
         :my %*LANG        := self.shallow_copy(nqp::getlexdyn('%*LANG'));
         :my %*HOW         := self.shallow_copy(nqp::getlexdyn('%*HOW'));
         :my $*IN_DECL      = '';
@@ -1597,11 +1597,10 @@ grammar Perl5::Grammar does STD5 {
             }
         }
         ''
-        <.ws>
         [
         | $
         | <?before <[\)\]\}]>>
-        | [<statement><.eat_terminator>]*
+        | [ <statement> <.eat_terminator> ]*
         ]
     }
 
