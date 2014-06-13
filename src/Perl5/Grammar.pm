@@ -1592,8 +1592,7 @@ grammar Perl5::Grammar does STD5 {
             # 3) We are in a use'd Perl5 module, load Perl5::Terms.
             unless $*W.is_lexical('&P5Str') {
                 my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
-                #~ do_import($/, nqp::hllizefor($terms, 'perl6'), 'Perl5::Terms');
-                #~ do_import($/, $terms, 'Perl5::Terms');
+                do_import($/, $terms, 'Perl5::Terms');
                 #~ $/.CURSOR.import_EXPORTHOW($terms);
             }
         }
@@ -1845,10 +1844,8 @@ grammar Perl5::Grammar does STD5 {
     }
 
     sub do_import($/, Mu \module_context, $package_source_name, $arglist?) {
-        my $module := \module_context;
-        if nqp::existskey($module, 'EXPORT') {
-        #~ if $module<EXPORT> {
-            my $EXPORT := $*W.stash_hash(nqp::atkey($module, 'EXPORT'));
+        if nqp::existskey(module_context, 'EXPORT') {
+            my $EXPORT := $*W.stash_hash(nqp::atkey(module_context, 'EXPORT'));
             my @to_import = 'MANDATORY';
             my @positional_imports;
             if nqp::defined($arglist) {
@@ -1877,13 +1874,13 @@ grammar Perl5::Grammar does STD5 {
                     $*W.import($/, $hash, $package_source_name);
                 }
             }
-            if nqp::existskey($module, '&EXPORT') {
+            if nqp::existskey(module_context, '&EXPORT') {
                 my $result;
                 if $arglist {
-                    $result := nqp::atkey($module, '&EXPORT')(@positional_imports);
+                    $result := nqp::atkey(module_context, '&EXPORT')(@positional_imports);
                 }
                 else {
-                    $result := nqp::atkey($module, '&EXPORT')();
+                    $result := nqp::atkey(module_context, '&EXPORT')();
                 }
                 if nqp::istype($result, EnumMap) {
                     my $storage := $result.hash.FLATTENABLE_HASH();
@@ -1893,10 +1890,10 @@ grammar Perl5::Grammar does STD5 {
                     nqp::die("&EXPORT sub did not return an EnumMap");
                 }
             }
-            elsif nqp::existskey($module, $package_source_name) # sub import in package
-               && nqp::existskey($*W.stash_hash(nqp::atkey($module, $package_source_name)), '&import') {
+            elsif nqp::existskey(module_context, $package_source_name) # sub import in package
+               && nqp::existskey($*W.stash_hash(nqp::atkey(module_context, $package_source_name)), '&import') {
                 @positional_imports.unshift: $package_source_name;
-                my $result := $*W.stash_hash(nqp::atkey($module, $package_source_name))<&import>(
+                my $result := $*W.stash_hash(nqp::atkey(module_context, $package_source_name))<&import>(
                     @positional_imports );
                 if nqp::istype($result, EnumMap) {
                     my $storage := $result.hash.FLATTENABLE_HASH();
