@@ -18,6 +18,7 @@ grammar Foo {
         multi sub foo(*@args) {
             ...
         }
+    }
 }
 
 say "Back to Perl 6 on a $*OS box." # $*OS is Perl 6's special variable
