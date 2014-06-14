@@ -292,7 +292,7 @@ role STD5 {
                         
                         # Create a container descriptor. Default to rw and set a
                         # type if we have one; a trait may twiddle with that later.
-                        my %cont_info := Perl5::World::container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE.ast] !! []);
+                        my %cont_info  := container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE] !! []);
                         my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
                         my $package := $is_global ?? $*W.symbol_lookup(['GLOBAL'], $/) !! $*PACKAGE;
 
@@ -311,11 +311,12 @@ role STD5 {
                                     QAST::Op.new( :op('p6var'), $varast ),
                                     QAST::Op.new( :op('curlexpad') ));
                             }
-                            
-                            $BLOCK[0].push(QAST::Op.new(
+
+                            say "G$?LINE $name";
+                            nqp::push($BLOCK[0], QAST::Op.new(
                                 :op('bind'),
                                 $varast,
-                                $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
+                                $*W.symbol_lookup(nqp::list($name), $/, :package_only(1), :lvalue(1))
                             ));
                         }
                     }

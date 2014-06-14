@@ -6,14 +6,14 @@ use Perl5::World;
 #~ use QRegex:from<NQP>;
 use QAST:from<NQP>;
 
-my $V5DEBUG = %*ENV<V5DEBUG>;
-
-multi sub postcircumfix:<{ }>( QAST::Node \SELF, \key, :$BIND ) is rw {
+multi sub postcircumfix:<{ }>( QAST::Node \SELF, \key, :$BIND ) is rw is export {
     SELF.hash{key};
 }
-multi sub postcircumfix:<[ ]>( QAST::Node \SELF, \idx ) is rw {
+multi sub postcircumfix:<[ ]>( QAST::Node \SELF, \idx ) is rw is export {
     SELF.list[idx];
 }
+
+my $V5DEBUG = %*ENV<V5DEBUG>;
 
 # Represents a longname after having parsed it.
 my class LongName {
@@ -239,6 +239,123 @@ our sub dissect_longname($longname) {
     $result.colonpairs = @pairs;
     
     $result
+}
+
+# Given a sigil and the the value type specified, works out the
+# container type (what should we instantiate and bind into the
+# attribute/lexpad), bind constraint (what could we bind to this
+# slot later), and if specified a constraint on the inner value
+# and a default value.
+sub container_type_info($/, $sigil, @value_type, $shape?) is export {
+    my %info;
+    if $sigil eq '@' {
+        %info<container_base>  := Array;
+        %info<bind_constraint> := Positional;
+        if @value_type {
+            %info<container_type> := $*W.parameterize_type_with_args(
+                %info<container_base>, [@value_type[0]], nqp::hash());
+            %info<bind_constraint> := $*W.parameterize_type_with_args(
+                %info<bind_constraint>, [@value_type[0]], nqp::hash());
+            %info<value_type> := @value_type[0];
+            %info<default_value> := @value_type[0];
+        }
+        else {
+            %info<container_type> := %info<container_base>;
+            %info<value_type>     := Any;
+            %info<default_value>  := Any;
+        }
+        %info<default_value> := %info<value_type>;
+        if $shape {
+            $*W.throw($/, 'X::Comp::NYI', feature => 'Shaped arrays');
+        }
+    }
+    elsif $sigil eq '%' {
+        %info<container_base>  := Hash;
+        %info<bind_constraint> := Associative;
+        if $shape {
+            @value_type[0] := Any unless +@value_type;
+            my $shape_ast  := $shape[0].ast;
+            if $shape_ast.isa(QAST::Stmts) {
+                if +@($shape_ast) == 1 {
+                    if $shape_ast[0].has_compile_time_value {
+                        @value_type[1] := $shape_ast[0].compile_time_value;
+                    } elsif (my $op_ast := $shape_ast[0]).isa(QAST::Op) {
+                        if $op_ast.op eq "call" && +@($op_ast) == 2 {
+                            if !nqp::isconcrete($op_ast[0].value) && !nqp::isconcrete($op_ast[1].value) {
+                                $*W.throw($/, 'X::Comp::NYI',
+                                    feature => "coercive type declarations");
+                            }
+                        }
+                    } else {
+                        $*W.throw($/, "X::Comp::AdHoc",
+                            payload => "Invalid hash shape; type expected");
+                    }
+                } elsif +@($shape_ast) > 1 {
+                    $*W.throw($/, 'X::Comp::NYI',
+                        feature => "multidimensional shaped hashes");
+                }
+            } else {
+                $*W.throw($/, "X::Comp::AdHoc",
+                    payload => "Invalid hash shape; type expected");
+            }
+        }
+        if @value_type {
+            %info<container_type> := $*W.parameterize_type_with_args(
+                %info<container_base>, @value_type, nqp::hash());
+            %info<bind_constraint> := $*W.parameterize_type_with_args(
+                %info<bind_constraint>, @value_type, nqp::hash());
+            %info<value_type>    := @value_type[0];
+            %info<default_value> := @value_type[0];
+        }
+        else {
+            %info<container_type> := %info<container_base>;
+            %info<value_type>     := Any;
+            %info<default_value>  := Any;
+        }
+    }
+    elsif $sigil eq '&' {
+        %info<container_base>  := Scalar;
+        %info<container_type>  := %info<container_base>;
+        %info<bind_constraint> := Callable;
+        if @value_type {
+            %info<bind_constraint> := $*W.parameterize_type_with_args(
+                %info<bind_constraint>, [@value_type[0]], nqp::hash());
+        }
+        %info<value_type>    := %info<bind_constraint>;
+        %info<default_value> := Any;
+        %info<scalar_value>  := Any;
+    }
+    elsif $sigil eq '*' {
+        %info<container_base> := $*W.find_symbol(['Typeglob']);
+        %info<container_type> := %info<container_base>;
+        if @value_type {
+            %info<bind_constraint> := @value_type[0];
+            %info<value_type> := @value_type[0];
+            %info<default_value> := $*PACKAGE; #@value_type[0];
+        }
+        else {
+            %info<bind_constraint> := Mu;
+            %info<value_type>      := Any;
+            %info<default_value>   := $*PACKAGE; #@value_type[0];
+        }
+        %info<scalar_value> := %info<default_value>;
+    }
+    else {
+        %info<container_base> := Scalar;
+        %info<container_type> := %info<container_base>;
+        if @value_type {
+            %info<bind_constraint> := @value_type[0];
+            %info<value_type> := @value_type[0];
+            %info<default_value> := @value_type[0];
+        }
+        else {
+            %info<bind_constraint> := Mu;
+            %info<value_type>      := Any;
+            %info<default_value>   := Any;
+        }
+        %info<scalar_value> := %info<default_value>;
+    }
+    %info
 }
 
 my role STDActions {
@@ -1917,8 +2034,7 @@ class Perl5::Actions does STDActions {
                     )
                 }
                 else {
-                    $past := make_variable($/, $longname.variable_components(
-                        ~$<sigil>, $<twigil> ?? ~$<twigil> !! ''));
+                    $past := make_variable($/, $longname.variable_components(~$<sigil>, ''));
                 }
             }
             else {
@@ -1936,54 +2052,14 @@ class Perl5::Actions does STDActions {
     }
 
     sub make_variable($/, @name) {
-        #~ say($_) for @name;
-        make_variable_from_parts($/, @name, $<sigil>.Str, $<twigil>, ~$<desigilname>);
+        $V5DEBUG && say("make_variable($/, @name)");
+        make_variable_from_parts($/, @name, $<sigil>.Str, ~$<desigilname>);
     }
 
-    sub make_variable_from_parts($/, @name, $sigil, $twigil, $desigilname) {
+    sub make_variable_from_parts($/, @name, $sigil, $desigilname) {
+        $V5DEBUG && say("make_variable_from_parts($/, @name, $sigil, $desigilname)");
         my $past := QAST::Var.new( :name(@name[+@name - 1]), :node($/));
-        if $twigil eq '*' {
-            $past := QAST::Op.new(
-                :op('call'), :name('&DYNAMIC'),
-                $*W.add_string_constant($past.name()));
-        }
-        elsif $twigil eq '!' {
-            # In a declaration, don't produce anything here.
-            if $*IN_DECL ne 'variable' {
-                unless $*HAS_SELF {
-                    $*W.throw($/, ['X', 'Syntax', 'NoSelf'], variable => $past.name());
-                }
-                my $attr := get_attribute_meta_object($/, $past.name());
-                $past.scope('attribute');
-                $past.returns($attr.type);
-                $past.unshift(instantiated_type(['$?CLASS'], $/));
-                $past.unshift(QAST::Var.new( :name('self'), :scope('lexical') ));
-            }
-        }
-        elsif $twigil eq '.' && $*IN_DECL ne 'variable' {
-            if !$*HAS_SELF {
-                $*W.throw($/, ['X', 'Syntax', 'NoSelf'], variable => $past.name());
-            } elsif $*HAS_SELF eq 'partial' {
-                $*W.throw($/, ['X', 'Syntax', 'VirtualCall'], call => $past.name());
-            }
-            # Need to transform this to a method call.
-            $past := $<arglist> ?? $<arglist>.ast !! QAST::Op.new();
-            $past.op('callmethod');
-            $past.name($desigilname);
-            $past.unshift(QAST::Var.new( :name('self'), :scope('lexical') ));
-            # Contextualize based on sigil.
-            $past := QAST::Op.new(
-                :op('callmethod'),
-                :name($sigil eq '@' ?? 'list' !!
-                      $sigil eq '%' ?? 'hash' !!
-                      'item'),
-                $past);
-        }
-        elsif $twigil eq '^' || $twigil eq ':' {
-            $past := add_placeholder_parameter($/, $sigil, $desigilname,
-                                :named($twigil eq ':'), :full_name($past.name()));
-        }
-        elsif $past.name() eq '@_' || $past.name() eq '%_' {
+        if $past.name() eq '@_' || $past.name() eq '%_' {
             $past.scope('lexical');
         }
         elsif $past.name() eq '$?LINE' || $past.name eq '$?FILE' {
