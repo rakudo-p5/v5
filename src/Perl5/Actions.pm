@@ -15,6 +15,232 @@ multi sub postcircumfix:<[ ]>( QAST::Node \SELF, \idx ) is rw {
     SELF.list[idx];
 }
 
+# Represents a longname after having parsed it.
+my class LongName {
+    # a match object, so that error messages can get a proper line number
+    has $.match is rw;
+    
+    # Set of name components. Each one will be either a string
+    # or a PAST node that represents an expresison to produce it.
+    has @.components is rw;
+    
+    # The colonpairs, if any.
+    has @.colonpairs is rw;
+    
+    # Flag for if the name ends in ::, meaning we need to emit a
+    # .WHO on the end.
+    has $.get_who is rw;
+    
+    # Gets the textual name of the value.
+    method text() {
+        ~$!match
+    }
+    
+    # Gets the name, by default without any adverbs.
+    method name(:$decl, :$dba = '', :$with_adverbs) {
+        my @parts := self.type_name_parts($dba, :$decl);
+        unless $decl && $decl eq 'routine' {
+            @parts.shift() while self.is_pseudo_package(@parts[0]);
+        }
+        join('::', @parts)
+            ~ ($with_adverbs ?? join('', @!colonpairs) !! '');
+    }
+
+    # returns a QAST tree that represents the name
+    # currently needed for 'require ::($modulename) <importlist>'
+    # ignore adverbs for now
+    method name_past() {
+        if self.contains_indirect_lookup() {
+            if @!components == 1 {
+                return @!components[0];
+            }
+            else {
+                my $past := QAST::Op.new(:op<call>, :name('&infix:<,>'));
+                for @!components {
+                    $past.push: $_ ~~ QAST::Node ?? $_ !! QAST::SVal.new(:value($_));
+                }
+                return QAST::Op.new(:op<callmethod>, :name<join>,
+                    $past,
+                    QAST::SVal.new(:value<::>)
+                );
+            }
+        }
+        else {
+            my $value := join('::', @!components);
+            QAST::SVal.new(:$value);
+        }
+    }
+    
+    # Gets the individual components, which may be PAST nodes for
+    # unknown pieces.
+    method components() {
+        @!components
+    }
+    
+    # Gets the individual components (which should be strings) but
+    # taking a sigil and twigil and adding them to the last component.
+    method variable_components($sigil, $twigil) {
+        my @result;
+        for @!components {
+            @result.push($_);
+        }
+        @result[+@result - 1] := $sigil ~ $twigil ~ @result[+@result - 1];
+        @result
+    }
+    
+    # Checks if there is an indirect lookup required.
+    method contains_indirect_lookup() {
+        for @!components {
+            if nqp::istype($_, QAST::Node) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+    
+    # Fetches an array of components provided they are all known
+    # or resolvable at compile time.
+    method type_name_parts($dba, :$decl) {
+        my @name;
+        my int $beyond_pp;
+        if $decl && $!get_who {
+            my $name := self.text;
+            nqp::die("Name $name ends with '::' and cannot be used as a $dba");
+        }
+        if +@!components == 1 && self.is_pseudo_package(@!components[0]) {
+            my $c := @!components[0];
+            if !$decl || ($decl eq 'routine') {
+                nqp::push(@name, $c);
+                return @name;
+            }
+            if $c eq 'GLOBAL' {
+                nqp::die("Cannot declare pseudo-package GLOBAL");
+            }
+            $*W.throw($!match, 'X::PseudoPackage::InDeclaration',
+                pseudo-package  => $c,
+                action          => $dba,
+            );
+        }
+        for @!components {
+            if nqp::istype($_, QAST::Node) {
+                if $_.has_compile_time_value {
+                    for nqp::split('::', ~$_.compile_time_value) {
+                        @name.push($_);
+                    }
+                }
+                else {
+                    my $name := self.text;
+                    nqp::die("Name $name is not compile-time known, and can not serve as a $dba");
+                }
+            }
+            elsif $beyond_pp || !self.is_pseudo_package($_) {
+                nqp::push(@name, $_);
+                $beyond_pp = 1;
+            }
+            else {
+                if $decl {
+                    if $_ ne 'GLOBAL' {
+                        $*W.throw($!match, 'X::PseudoPackage::InDeclaration',
+                            pseudo-package  => $_,
+                            action          => $dba,
+                        );
+                    }
+                }
+                else {
+                    nqp::push(@name, $_);
+                }
+            }
+        }
+        @name
+    }
+    
+    method colonpairs_hash($dba) {
+        my %result;
+        for @!colonpairs {
+            if $_<identifier> {
+                my $pair := $*W.compile_time_evaluate($_, $_.ast);
+                %result{$pair.key} := $pair.value;
+            }
+            else {
+                $_.CURSOR.panic("Colonpair too complex in $dba");
+            }
+        }
+        %result
+    }
+    
+    method get_who() {
+        $!get_who
+    }
+
+    # Checks if a name component is a pseudo-package.
+    method is_pseudo_package($comp) {
+        !nqp::istype($comp, QAST::Node) && (
+        $comp eq 'CORE' || $comp eq 'SETTING' || $comp eq 'UNIT' ||
+        $comp eq 'OUTER' || $comp eq 'MY' || $comp eq 'OUR' ||
+        $comp eq 'PROCESS' || $comp eq 'GLOBAL' || $comp eq 'CALLER' ||
+        $comp eq 'DYNAMIC' || $comp eq 'COMPILING' || $comp eq 'PARENT')
+    }
+}
+
+# Takes a longname and turns it into an object representing the
+# name.
+our sub dissect_longname($longname) {
+    # Set up basic info about the long name.
+    my $result    = LongName.new;
+    $result.match = $longname;
+
+    # Pick out the pieces of the name.
+    my @components;
+    my $name = $longname<name>;
+    if $name<identifier> {
+        @components.push(~$name<identifier>);
+    }
+    for $name<morename>.list {
+        if $_<identifier> {
+            @components.push(~$_<identifier>);
+        }
+        elsif $_<EXPR> {
+            my $EXPR := $_<EXPR>.ast;
+            @components.push($EXPR);
+        }
+        else {
+            # Either it's :: as a name entirely, in which case it's anon,
+            # or we're ending in ::, in which case it implies .WHO.
+            if +@components {
+                $result.get_who = 1;
+            }
+        }
+    }
+    $result.components = @components;
+    
+    # Stash colon pairs with names; incorporate non-named one into
+    # the last part of the name (e.g. for infix:<+>). Need to be a
+    # little cheaty when compiling the setting due to bootstrapping.
+    my @pairs;
+    for $longname<colonpair>.list {
+        if $_<coloncircumfix> && !$_<identifier> {
+            my $cp_str;
+            if %*COMPILING<%?OPTIONS><setting> ne 'NULL' {
+                # Safe to evaluate it directly; no bootstrap issues.
+                $cp_str := ':<' ~ ~$*W.compile_time_evaluate($_, $_.ast) ~ '>';
+            }
+            else {
+                my $ast := $_.ast;
+                $cp_str := nqp::istype($ast, QAST::Want) && nqp::istype($ast[2], QAST::SVal)
+                    ?? ':<' ~ $ast[2].value ~ '>'
+                    !! ~$_;
+            }
+            @components[*-1] := @components[*-1] ~ $cp_str;
+        }
+        else {
+            @pairs.push($_);
+        }
+    }
+    $result.colonpairs = @pairs;
+    
+    $result
+}
+
 my role STDActions {
     method quibble($/) {
         make $<nibble>.ast;
@@ -1669,7 +1895,7 @@ class Perl5::Actions does STDActions {
         else {
             my $indirect;
             if $<desigilname> && $<desigilname><longname> {
-                my $longname := $*W.dissect_longname($<desigilname><longname>);
+                my $longname = dissect_longname($<desigilname><longname>);
                 if $longname.contains_indirect_lookup() {
                     if $*IN_DECL {
                         $*W.throw($/, ['X', 'Syntax', 'Variable', 'IndirectDeclaration']);
@@ -4098,7 +4324,7 @@ class Perl5::Actions does STDActions {
             }
             
             if $builtin[$proto] && nqp::substr($builtin[$proto],0, 1) eq '*' {
-                $past.push( QAST::Var.new( :name('$?PACKAGE'), :scope('lexical'), :named('pkg') ) );
+                nqp::push($past, QAST::Var.new( :name('$?PACKAGE'), :scope('lexical'), :named('pkg') ) );
             }
             
             if $builtin[$op] {
