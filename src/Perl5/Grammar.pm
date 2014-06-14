@@ -4479,7 +4479,7 @@ grammar Perl5::QGrammar does STD5 {
             || <escape>
                 {
                     my $c := $/.CURSOR;
-                    $to    = $<escape>[-1].from;
+                    $to    = $<escape>[*-1].from;
                     if $from != $to {
                         @*nibbles.push: $c.orig.substr($from, $to - $from);
                     }
