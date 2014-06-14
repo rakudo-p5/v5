@@ -1730,7 +1730,7 @@ grammar Perl5::Grammar does STD5 {
         <module_name> [ <.spacey> <arglist> ]? <.ws>
         :my $*HAS_SELF := '';
         #~ {
-            #~ my $longname := $*W.dissect_longname($<module_name><longname>);
+            #~ my $longname := dissect_longname($<module_name><longname>);
             #~ nqp::say(">>" ~ $<module_name><longname>);
             #~ my $module;
             #~ my $found := 0;
@@ -1812,7 +1812,7 @@ grammar Perl5::Grammar does STD5 {
             [ <.spacey> <arglist> <?{ $<arglist><arg>[0]<EXPR> }> ]?
             {
                 my $longname := $<module_name><longname>;
-                my $lnd      := $*W.dissect_longname($longname);
+                my $lnd      := dissect_longname($longname);
                 my $name     := $lnd.name;
                 my $arglist;
 
@@ -2354,7 +2354,7 @@ grammar Perl5::Grammar does STD5 {
         { unless $*SCOPE { $*SCOPE := 'our'; } }
         
         [
-            [ <longname> { $longname := $*W.dissect_longname($<longname>); } ]?
+            [ <longname> { $longname := dissect_longname($<longname>); } ]?
             <.newlex>
             
             #~ [ :dba('generic role')
@@ -2953,7 +2953,7 @@ grammar Perl5::Grammar does STD5 {
         | '::?'<identifier>                 # parse ::?CLASS as special case
         | <longname>
           <?{
-            my $longname := $*W.dissect_longname($<longname>);
+            my $longname := dissect_longname($<longname>);
             nqp::substr(~$<longname>, 0, 2) eq '::' ??
                 1 !! # ::T introduces a type, so always is one
                 $*W.is_name($longname.type_name_parts('type name'))
@@ -4178,7 +4178,7 @@ grammar Perl5::Grammar does STD5 {
     token term:sym<name> {
         <longname>
         :my $*longname;
-        { $*longname := $*W.dissect_longname($<longname>); }
+        { $*longname := dissect_longname($<longname>); }
         [
         ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::' || $*W.is_name($*longname.components()) }>
             <.unsp>?
