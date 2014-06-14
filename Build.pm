@@ -89,7 +89,7 @@ multi MAIN('test') {
 
 multi MAIN('summary') {
     %*ENV<V5DEBUG>   = '0';
-    %*ENV<NQP_EXE>   = 'nqp-m';
+    %*ENV<STATUS_MD> = 'STATUS-' ~ $*VM.name.substr(0,1) ~ '.md';
     %*ENV<PERL6_EXE> = $perl6;
     shell 'perl t/test_summary'
 }
