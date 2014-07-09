@@ -312,7 +312,6 @@ role STD5 {
                                     QAST::Op.new( :op('curlexpad') ));
                             }
 
-                            say "G$?LINE $name";
                             my Mu $list := nqp::list($name.list);
                             nqp::push($BLOCK[0], QAST::Op.new(
                                 :op('bind'),
@@ -435,10 +434,10 @@ grammar Perl5::Grammar does STD5 {
     method O(str $spec, $save?) {
         # See if we've already created a Hash for the current
         # specification string -- if so, use that.
-        my %hash = %ohash{$spec}.hash if %ohash{$spec};
-        unless %hash {
+        my $hash = %ohash{$spec} || {};
+        unless $hash {
             # Otherwise, we need to build a new one.
-            %hash       = ();
+            $hash       = {};
             my int $eos = nqp::chars($spec);
             my int $pos = 0;
             while ($pos = nqp::findnotcclass(nqp::const::CCLASS_WHITESPACE,
@@ -474,7 +473,7 @@ grammar Perl5::Grammar does STD5 {
                         $pos   = $lpos + 1;
                     }
                     # Done processing the pair, store it in the hash.
-                    %hash{$name} = $value;
+                    $hash{$name} = $value;
                 }
                 else {
                     # If whatever we found doesn't start with a colon, treat it
@@ -485,21 +484,21 @@ grammar Perl5::Grammar does STD5 {
                     my $index  = nqp::index($spec, ',', $pos);
                     $lpos      = $index unless $index < 0 || $index >= $lpos;
                     my $lookup = nqp::substr($spec, $pos, $lpos - $pos);
-                    my %lhash  = %ohash{$lookup};
+                    my %lhash  = %ohash{$lookup}.hash;
                     self.'panic'('Unknown operator precedence specification "',
                                  $lookup, '"') unless %lhash;
                     for %lhash {
-                        %hash{$_.key} = $_.value;
+                        $hash{$_.key} = $_.value;
                     }
                     $pos = $lpos;
                 }
             }
             # Done processing the spec string, cache the hash for later.
-            %ohash{$spec} = %hash;
+            %ohash{$spec} = $hash.hash;
         }
 
         if $save {
-            %ohash{$save} = %hash;
+            %ohash{$save} = $hash.hash;
             self;
         }
         else {
@@ -507,7 +506,7 @@ grammar Perl5::Grammar does STD5 {
             # to indicate success and set the hash as the subrule's match object.
             my $cur := self.'!cursor_start_cur'();
             $cur.'!cursor_pass'(nqp::getattr_i($cur, $cursor_class, '$!from'));
-            nqp::bindattr($cur, $cursor_class, '$!match', %hash.item);
+            nqp::bindattr($cur, $cursor_class, '$!match', $hash);
             $cur;
         }
     }
@@ -515,7 +514,41 @@ grammar Perl5::Grammar does STD5 {
     method MATCH() {
         my $match := nqp::getattr(self, Cursor, '$!match');
         return $match if $match ~~ Associative;
-        nextsame
+        return $match if nqp::istype($match, Match) && nqp::isconcrete($match);
+        $match := nqp::create(Match);
+        nqp::bindattr($match, Match, '$!orig', nqp::findmethod(self, 'orig')(self));
+        nqp::bindattr_i($match, Match, '$!from', nqp::getattr_i(self, Cursor, '$!from'));
+        nqp::bindattr_i($match, Match, '$!to', nqp::getattr_i(self, Cursor, '$!pos'));
+        nqp::bindattr($match, Match, '$!made', nqp::getattr(self, Cursor, '$!made'));
+        nqp::bindattr($match, Match, '$!CURSOR', self);
+        my Mu $list := nqp::list();
+        my Mu $hash := nqp::hash();
+        if $match.Bool {
+            my Mu $caphash := nqp::findmethod(Cursor, 'CAPHASH')(self);
+            my Mu $capiter := nqp::iterator($caphash);
+            while $capiter {
+                my Mu $kv := nqp::shift($capiter);
+                my str $key = nqp::iterkey_s($kv);
+                my Mu $value := nqp::hllize(nqp::atkey($caphash, $key));
+                if $key eq '$!from' || $key eq '$!to' {
+                    nqp::bindattr_i($match, Match, $key, $value.from);
+                }
+                else {
+                    $value := nqp::islist($value)
+                        ?? nqp::p6list($value, Array, Mu)
+                        !! nqp::istype($value, Match) || nqp::istype($value, Hash)
+                            ?? $value
+                            !! [$value];
+                    nqp::iscclass(nqp::const::CCLASS_NUMERIC, $key, 0)
+                      ?? nqp::bindpos($list, $key, $value)
+                      !! nqp::bindkey($hash, $key, $value);
+                }
+            }
+        }
+        nqp::bindattr($match, Capture, '$!list', $list);
+        nqp::bindattr($match, Capture, '$!hash', $hash);
+        nqp::bindattr(self, Cursor, '$!match', $match);
+        $match;
     }
 
     method panic(*@args) {
@@ -718,7 +751,7 @@ grammar Perl5::Grammar does STD5 {
                 $infix := $infixcur.MATCH();
 
                 # We got an infix.
-                $inO       = $infix<OPER><O>[0];
+                $inO       = $infix<OPER><O>;
                 $termishrx = $inO<nextterm> // 'termish';
                 $inprec    = ~$inO<prec>;
                 $infixcur.panic('Missing infixish operator precedence')
@@ -831,9 +864,12 @@ grammar Perl5::Grammar does STD5 {
         $cur.panic('"' ~ $op1 ~ '" and "' ~ $op2 ~ '" are non-associative and require parens');
     }
 
-    method ternary($match) {
-        $match[2] := $match[1];
-        $match[1] := $match{'infix'}{'EXPR'};
+    method ternary($match is rw) {
+        my $decont  := nqp::decont($match);
+        my Mu $list := nqp::getattr($decont, Capture, '$!list');
+        nqp::bindpos($list, 2, $list[1]);
+        nqp::bindpos($list, 1, $decont<infix><EXPR>);
+        nqp::bindattr($decont, Capture, '$!list', $list);
     }
 
     method MARKER(str $markname) {

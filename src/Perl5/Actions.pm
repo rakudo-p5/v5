@@ -9,7 +9,7 @@ use QAST:from<NQP>;
 multi sub postcircumfix:<{ }>( QAST::Node \SELF, \key, :$BIND ) is rw is export {
     SELF.hash{key};
 }
-multi sub postcircumfix:<[ ]>( QAST::Node \SELF, \idx ) is rw is export {
+multi sub postcircumfix:<[ ]>( QAST::Node \SELF, \idx, :$BIND ) is rw is export {
     SELF.list[idx];
 }
 
@@ -4954,9 +4954,17 @@ class Perl5::Actions does STDActions {
             }
         }
         else {
-            for $/.list { if $_.ast { $past.push($_.ast); } }
-            if $past.isa(QAST::Op) && ($past.op eq 'if' || $past.op eq 'unless') {
-                $past[0] := QAST::Op.new( :node($/), :op('call'), :name('&P5Bool'), $past[0] );
+            my $done = 0;
+            for $/.list {
+                if $_.ast {
+                    if !$done && $past.isa(QAST::Op) && ($past.op eq 'if' || $past.op eq 'unless') {
+                        $past.push(QAST::Op.new( :node($/), :op('call'), :name('&P5Bool'), $_.ast));
+                    }
+                    else {
+                        $past.push($_.ast);
+                    }
+                    $done = 1;
+                }
             }
         }
         if $past.isa(QAST::Op) && $past.op eq 'xor' {
@@ -6296,8 +6304,6 @@ class Perl5::Actions does STDActions {
         %curried{'callmethod'}    := 2;
     }
     sub whatever_curry($/, Mu $past is copy, $upto_arity) {
-        my $Whatever := $*W.find_symbol(['Whatever']);
-        my $WhateverCode := $*W.find_symbol(['WhateverCode']);
         my $curried :=
             # It must be an op and...
             nqp::istype($past, QAST::Op) && (
@@ -6321,8 +6327,8 @@ class Perl5::Actions does STDActions {
             $check := $check[0] if (nqp::istype($check, QAST::Stmts) || 
                                     nqp::istype($check, QAST::Stmt)) &&
                                    +@($check) == 1;
-            $whatevers = $whatevers + 1 if istype($check.returns, $WhateverCode)
-                            || $curried > 1 && istype($check.returns, $Whatever);
+            $whatevers = $whatevers + 1 if istype($check.returns, WhateverCode)
+                            || $curried > 1 && istype($check.returns, Whatever);
             $i = $i + 1;
         }
         if $whatevers {
@@ -6335,7 +6341,7 @@ class Perl5::Actions does STDActions {
                 $old := $old[0] if (nqp::istype($old, QAST::Stmts) || 
                                     nqp::istype($old, QAST::Stmt)) &&
                                    +@($old) == 1;
-                if istype($old.returns, $WhateverCode) {
+                if istype($old.returns, WhateverCode) {
                     my $new := QAST::Op.new( :op<call>, :node($/), $old);
                     my $acount := 0;
                     while $acount < $old.arity {
@@ -6351,7 +6357,7 @@ class Perl5::Actions does STDActions {
                     }
                     $past[$i] := $new;
                 }
-                elsif $curried > 1 && istype($old.returns, $Whatever) {
+                elsif $curried > 1 && istype($old.returns, Whatever) {
                     my $pname := '$x' ~ (+@params);
                     @params.push(hash(
                         :variable_name($pname),
@@ -6368,7 +6374,7 @@ class Perl5::Actions does STDActions {
             add_signature_binding_code($block, $signature, @params);
             my $code := $*W.create_code_object($block, 'WhateverCode', $signature);
             $past    := block_closure(reference_to_code_object($code, $block));
-            $past.returns($WhateverCode);
+            $past.returns(WhateverCode);
             $past.arity(+@params);
         }
         $past
