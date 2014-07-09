@@ -431,7 +431,7 @@ grammar Perl5::Grammar does STD5 {
     # cache for all grammars; eventually we may need a way to
     # separate them out by cursor type.
     my %ohash;
-    
+
     method O(str $spec, $save?) {
         # See if we've already created a Hash for the current
         # specification string -- if so, use that.
@@ -510,6 +510,12 @@ grammar Perl5::Grammar does STD5 {
             nqp::bindattr($cur, $cursor_class, '$!match', %hash.item);
             $cur;
         }
+    }
+
+    method MATCH() {
+        my $match := nqp::getattr(self, Cursor, '$!match');
+        return $match if $match ~~ Associative;
+        nextsame
     }
 
     method panic(*@args) {
@@ -774,8 +780,8 @@ grammar Perl5::Grammar does STD5 {
     method EXPR_reduce(@termstack, @opstack) { 
         my $op := nqp::decont(@opstack.pop);
 
-        my %opOPER      = $op<OPER>.hash;
-        my %opO         = %opOPER<O>.hash;
+        my %opOPER      = $op<OPER>.hash  if $op<OPER>.defined;
+        my %opO         = %opOPER<O>.hash if %opOPER<O>.defined;
         my str $opassoc = ~%opO<assoc>;
         my str $key;
         my $sym;
@@ -3617,7 +3623,6 @@ grammar Perl5::Grammar does STD5 {
 
     token infix:sym<x>
         { <sym> [ <?before \s+> || <?MARKER('ws')> ] <O('%multiplicative')> }
-
 
     ## additive
     token infix:sym<.> { <sym> <O('%additive')> }

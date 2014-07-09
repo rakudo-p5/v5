@@ -4659,7 +4659,7 @@ class Perl5::Actions does STDActions {
                         ?? $expr.list
                         !! $expr;
                     for @arg {
-                        nqp::push($past, $_);
+                        nqp::push($past, nqp::decont($_));
                     }
                 }
                 elsif $arg<barename> {
@@ -5522,19 +5522,23 @@ class Perl5::Actions does STDActions {
         make $<VALUE>.ast;
     }
 
+    sub add_numeric_constant($/, $type, $number) {
+        $V5DEBUG && say("add_numeric_constant($/, $type, $number)");
+        my Mu $value := nqp::decont($number);
+        return nqp::isbig_I($value)
+            ?? $*W.add_constant($type, 'bigint', $value)
+            !! $*W.add_constant($type, $type.lc, $value);
+    }
+
     method numish($/) {
         $V5DEBUG && say("method numish($/)");
         if $<integer> {
-            #~ make $*W.add_numeric_constant($/, 'Int', $<integer>.ast);
-            my Mu $value := nqp::decont($<integer>.ast);
-            make nqp::isbig_I($value)
-                ?? $*W.add_constant('Int', 'bigint', $value)
-                !! $*W.add_constant('Int', 'int',    $value);
+            make add_numeric_constant($/, 'Int', $<integer>.ast);
         }
         elsif $<dec_number> { make $<dec_number>.ast; }
         elsif $<rad_number> { make $<rad_number>.ast; }
         else {
-            make $*W.add_numeric_constant($/, 'Num', +$/);
+            make add_numeric_constant($/, 'Num', +$/);
         }
     }
 
@@ -5575,11 +5579,11 @@ class Perl5::Actions does STDActions {
         my $radix    := +($<radix>.Str);
         if $<bracket>   {
             make QAST::Op.new(:name('&unbase_bracket'), :op('call'),
-                $*W.add_numeric_constant($/, 'Int', $radix), $<bracket>.ast);
+                add_numeric_constant($/, 'Int', $radix), $<bracket>.ast);
         }
         elsif $<circumfix> {
             make QAST::Op.new(:name('&unbase'), :op('call'),
-                $*W.add_numeric_constant($/, 'Int', $radix), $<circumfix>.ast);
+                add_numeric_constant($/, 'Int', $radix), $<circumfix>.ast);
         } else {
             my $intpart  := $<intpart>.Str;
             my $fracpart := $<fracpart> ?? $<fracpart>.Str !! "0";
@@ -6494,9 +6498,9 @@ class Perl5::Actions does STDActions {
         if $num {
             if $iresult {
                 my Num $result = ($iresult.Num / $fdivide.Num) * $base**$exponent;
-                return $*W.add_numeric_constant($/, 'Num', $result);
+                return add_numeric_constant($/, 'Num', $result);
             } else {
-                return $*W.add_numeric_constant($/, 'Num', 0e0);
+                return add_numeric_constant($/, 'Num', 0e0);
             }
         } else {
             if nqp::defined($exponent) {
@@ -6509,7 +6513,7 @@ class Perl5::Actions does STDActions {
                     $iresult, $fdivide, :nocache(1)
                 );
             } else {
-                return $*W.add_numeric_constant($/, 'Int', $iresult);
+                return add_numeric_constant($/, 'Int', $iresult);
             }
         }
     }
