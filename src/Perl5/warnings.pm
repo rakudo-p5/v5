@@ -3,7 +3,7 @@ use v6.0.0;
 
 # http://perldoc.perl.org/warnings.html
 
-my %cats = {
+my %cats = (
     'FATAL' => 0,
     'NONFATAL' => 0,
     'all' => 0,
@@ -89,7 +89,7 @@ my %cats = {
     '_non_unicode' => 'utf8',
     '_nonchar' => 'utf8',
     'void' => 0,
-};
+);
 
 sub EXPORT(*@cats) {
     use Perl5::Terms <%*WARNINGS_CATS>;

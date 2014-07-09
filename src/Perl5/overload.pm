@@ -3,14 +3,14 @@ use v6.0.0;
 
 # http://perldoc.perl.org/overload.html
 my $fallback;
-my %ops = {
+my %ops = (
     # export both <+> and <P5+>, so that overloading works from v5 and v6 land?
     '0+'   => '&prefix:<P5+>', # like .Numeric
     '""'   => '&prefix:<P5.>', # like .Str
     'bool' => '&prefix:<P5?>', # like .Bool
     '+'    => '&infix:<P5+>',
     '<=>'  => '&infix:<P5<=>>',
-}
+);
 
 sub EXPORT(*@ops) {
     my %o;

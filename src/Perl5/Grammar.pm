@@ -91,7 +91,7 @@ role STD5 {
         # Get language from cache or derive it.
         my $key = lang_key();
         if %quote_lang_cache {
-            %quote_lang_cache = { };
+            %quote_lang_cache = ();
         }
         if %quote_lang_cache{$key} && $key ne 'NOCACHE' {
             %quote_lang_cache{$key};
@@ -313,10 +313,12 @@ role STD5 {
                             }
 
                             say "G$?LINE $name";
+                            my Mu $list := nqp::list($name.list);
                             nqp::push($BLOCK[0], QAST::Op.new(
                                 :op('bind'),
                                 $varast,
-                                $*W.symbol_lookup(nqp::list($name), $/, :package_only(1), :lvalue(1))
+                                #~ $*W.symbol_lookup(nqp::findmethod($name, 'FLATTENABLE_LIST')($name), $/, :package_only(1), :lvalue(1))
+                                $*W.symbol_lookup($list, $/, :package_only(1), :lvalue(1))
                             ));
                         }
                     }
@@ -433,7 +435,7 @@ grammar Perl5::Grammar does STD5 {
     method O(str $spec, $save?) {
         # See if we've already created a Hash for the current
         # specification string -- if so, use that.
-        my %hash = %ohash{$spec} if %ohash{$spec};
+        my %hash = %ohash{$spec}.hash if %ohash{$spec};
         unless %hash {
             # Otherwise, we need to build a new one.
             %hash       = ();
@@ -4180,7 +4182,8 @@ grammar Perl5::Grammar does STD5 {
         :my $*longname;
         { $*longname := dissect_longname($<longname>); }
         [
-        ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::' || $*W.is_name($*longname.components()) }>
+        ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::'
+                || $*W.is_name(nqp::findmethod($*longname.components(), 'FLATTENABLE_LIST')($*longname.components())) }>
             <.unsp>?
             [
                 <?{ $*W.is_type($*longname.components()) }>

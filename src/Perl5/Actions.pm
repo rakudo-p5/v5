@@ -70,13 +70,7 @@ my class LongName {
             QAST::SVal.new(:$value);
         }
     }
-    
-    # Gets the individual components, which may be PAST nodes for
-    # unknown pieces.
-    method components() {
-        @!components
-    }
-    
+
     # Gets the individual components (which should be strings) but
     # taking a sigil and twigil and adding them to the last component.
     method variable_components($sigil, $twigil) {
@@ -5531,7 +5525,11 @@ class Perl5::Actions does STDActions {
     method numish($/) {
         $V5DEBUG && say("method numish($/)");
         if $<integer> {
-            make $*W.add_numeric_constant($/, 'Int', $<integer>.ast);
+            #~ make $*W.add_numeric_constant($/, 'Int', $<integer>.ast);
+            my Mu $value := nqp::decont($<integer>.ast);
+            make nqp::isbig_I($value)
+                ?? $*W.add_constant('Int', 'bigint', $value)
+                !! $*W.add_constant('Int', 'int',    $value);
         }
         elsif $<dec_number> { make $<dec_number>.ast; }
         elsif $<rad_number> { make $<rad_number>.ast; }
