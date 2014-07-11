@@ -4409,7 +4409,7 @@ class Perl5::Actions does STDActions {
         else {
             $past := $<args>.ast;
             $past.op('call');
-            if $*W.is_lexical('&' ~ $name) || $name eq $*ROUTINE_NAME {
+            if $*W.is_lexical('&' ~ $name) || ($*ROUTINE_NAME && $name eq $*ROUTINE_NAME) {
                 $past.name('&' ~ $name);
             }
             else {
