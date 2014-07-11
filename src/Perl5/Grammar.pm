@@ -703,24 +703,22 @@ grammar Perl5::Grammar does STD5 {
             @prefixish   = $termOPER<prefixish>.list;
             @postfixish  = $termOPER<postfixish>.list;
  
-            if @prefixish && @postfixish {
-                while @prefixish && @postfixish {
-                    my $preO     = @prefixish[0]<OPER><O>;
-                    my $postO    = @postfixish[*-1]<OPER><O>;
-                    my $preprec  = $preO<prec>  // '';
-                    my $postprec = $postO<prec> // '';
+            while @prefixish && @postfixish {
+                my $preO     = @prefixish[0]<OPER><O>;
+                my $postO    = @postfixish[*-1]<OPER><O>;
+                my $preprec  = $preO<prec>  // '';
+                my $postprec = $postO<prec> // '';
 
-                    if $postprec gt $preprec
-                    || $postprec eq $preprec && $postO<uassoc> eq 'right' {
-                        @opstack[+@opstack] := @prefixish.shift;
-                    }
-                    else {
-                        @opstack[+@opstack] := @postfixish.pop;
-                    }
+                if $postprec gt $preprec
+                || $postprec eq $preprec && $postO<uassoc> eq 'right' {
+                    @opstack[+@opstack] := @prefixish.shift;
                 }
-                @opstack[+@opstack] := @prefixish.shift while @prefixish;
-                @opstack[+@opstack] := @postfixish.pop  while @postfixish;
+                else {
+                    @opstack[+@opstack] := @postfixish.pop;
+                }
             }
+            @opstack[+@opstack] := @prefixish.shift while @prefixish;
+            @opstack[+@opstack] := @postfixish.pop  while @postfixish;
             %termish<prefixish>:delete;
             %termish<postfixish>:delete;
             @termstack.push: %termish<term>;
@@ -3356,7 +3354,7 @@ grammar Perl5::Grammar does STD5 {
 
     token prefixish { 
         #~ :dba('prefix or meta-prefix')
-        <OPER=prefix> { $<O> := $<OPER><O>; $<sym> := $<OPER><sym> }
+        <OPER=prefix> {} <O=copyOPERx($/, 'O')> <sym=copyOPERx($/, 'sym')>
         <.ws>
     }
 
@@ -3444,6 +3442,14 @@ grammar Perl5::Grammar does STD5 {
         my $cur := self.'!cursor_start_cur'();
         $cur.'!cursor_pass'(self.pos());
         nqp::bindattr($cur, Cursor, '$!match', $O);
+        $cur
+    }
+
+    method copyOPERx($from, $key) {
+        my $v   := $from<OPER>{$key};
+        my $cur := self.'!cursor_start_cur'();
+        $cur.'!cursor_pass'(self.pos());
+        nqp::bindattr($cur, Cursor, '$!match', $v);
         $cur
     }
 
