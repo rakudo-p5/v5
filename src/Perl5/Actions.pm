@@ -3,10 +3,10 @@ use NQPP5QRegex:from<NQP>;
 use Perl5::World;
 use Perl6::World:from<NQP>;
 
-multi sub postcircumfix:<{ }>( QAST::Node \SELF, \key, :$BIND ) is rw is export {
+multi sub postcircumfix:<{ }>( QAST::Node \SELF, \key, Mu :$BIND ) is rw is export {
     SELF.hash{key};
 }
-multi sub postcircumfix:<[ ]>( QAST::Node \SELF, \idx, :$BIND ) is rw is export {
+multi sub postcircumfix:<[ ]>( QAST::Node \SELF, \idx, Mu :$BIND ) is rw is export {
     SELF.list[idx];
 }
 
