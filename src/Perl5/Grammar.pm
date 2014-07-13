@@ -2,8 +2,6 @@ use Perl5::Actions;
 use QRegex:from<NQP>;
 use Perl5::World;
 
-my $nqplist := nqp::gethllsym("nqp", "nqplist");
-
 role startstop5[$start,$stop] {
     token starter { $start }
     token stopper { $stop }
@@ -293,7 +291,7 @@ role STD5 {
                         # type if we have one; a trait may twiddle with that later.
                         my %cont_info  := container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE] !! []);
                         my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
-                        my $package := $is_global ?? $*W.symbol_lookup(['GLOBAL'], $/) !! $*PACKAGE;
+                        my $package := $is_global ?? $*W.symbol_lookup(nqp::gethllsym("nqp", "nqplist")('GLOBAL'), $/) !! $*PACKAGE;
 
                         $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
                             :scope('our'), :$package);
@@ -314,7 +312,7 @@ role STD5 {
                             nqp::push($BLOCK[0], QAST::Op.new(
                                 :op('bind'),
                                 $varast,
-                                $*W.symbol_lookup($nqplist($name), $/, :package_only(1), :lvalue(1))
+                                $*W.symbol_lookup(nqp::gethllsym("nqp", "nqplist")($name), $/, :package_only(1), :lvalue(1))
                             ));
                         }
                     }
@@ -1334,7 +1332,7 @@ grammar Perl5::Grammar does STD5 {
             }
             $/.CURSOR.unitstart();
             try {
-                my $EXPORTHOW := $*W.find_symbol(['EXPORTHOW']);
+                my $EXPORTHOW := find_symbol('EXPORTHOW');
                 for $EXPORTHOW.WHO {
                     %*HOW{$_.key} := $_.value;
                 }
@@ -1780,7 +1778,7 @@ grammar Perl5::Grammar does STD5 {
                 #~ if $<arglist> {
                     #~ $arglist := $*W.compile_time_evaluate($/, $<arglist><EXPR>.ast);
                     #~ $arglist := nqp::getattr($arglist.list.eager,
-                            #~ $*W.find_symbol(['List']), '$!items');
+                            #~ find_symbol('List'), '$!items');
                 #~ }
                 #~ do_import($/, $module.WHO, ~$<module_name><longname>, $arglist);
             #~ }
@@ -1813,7 +1811,7 @@ grammar Perl5::Grammar does STD5 {
             {
                 my $vars := $*W.compile_time_evaluate($/, $<quote>.ast);
                 $vars := nqp::getattr($vars.list.eager,
-                        $*W.find_symbol(['List']), '$!items');
+                        find_symbol('List'), '$!items');
                 my $*IN_DECL := 'variable';
                 my $*SCOPE := 'our';
                 for $vars {
@@ -1843,7 +1841,7 @@ grammar Perl5::Grammar does STD5 {
                     $BLOCK[0].push(QAST::Op.new(
                         :op('bind'),
                         $varast,
-                        $*W.symbol_lookup([$name], $/, :package_only(1), :lvalue(1))
+                        $*W.symbol_lookup(nqp::gethllsym("nqp", "nqplist")($name), $/, :package_only(1), :lvalue(1))
                     ));
                 }
             }
@@ -1859,7 +1857,7 @@ grammar Perl5::Grammar does STD5 {
                     $arglist := $*W.compile_time_evaluate($/,
                             $<arglist><arg>[0]<EXPR>.ast);
                     $arglist := nqp::getattr($arglist.list.eager,
-                            $*W.find_symbol(['List']), '$!items');
+                            find_symbol('List'), '$!items');
                 }
                 
                 if nqp::existskey(%pragma_defaults, $name) {
@@ -1888,7 +1886,7 @@ grammar Perl5::Grammar does STD5 {
             my @to_import = 'MANDATORY';
             my @positional_imports;
             if nqp::defined($arglist) {
-                my $Pair := $*W.find_symbol(['Pair']);
+                my $Pair := find_symbol('Pair');
                 for $arglist.list -> $tag {
                     if nqp::istype($tag, $Pair) {
                         $tag = nqp::unbox_s($tag.key);
@@ -2063,7 +2061,7 @@ grammar Perl5::Grammar does STD5 {
                 $arglist := $*W.compile_time_evaluate($/,
                         $<arglist><arg>[0]<EXPR>.ast);
                 $arglist := nqp::getattr($arglist.list.eager,
-                        $*W.find_symbol(['List']), '$!items');
+                        find_symbol('List'), '$!items');
             }
             
             if nqp::existskey(%pragma_defaults, $longname) {
