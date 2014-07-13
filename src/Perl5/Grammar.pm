@@ -1,9 +1,8 @@
 use Perl5::Actions;
 use QRegex:from<NQP>;
-#~ use NQPP6QRegex:from<NQP>;
-#~ use NQPP5QRegex:from<NQP>;
 use Perl5::World;
-#~ use Perl6::Pod:from<NQP>; # XXX do we need that?
+
+my $nqplist := nqp::gethllsym("nqp", "nqplist");
 
 role startstop5[$start,$stop] {
     token starter { $start }
@@ -312,12 +311,10 @@ role STD5 {
                                     QAST::Op.new( :op('curlexpad') ));
                             }
 
-                            my Mu $list := nqp::list($name.list);
                             nqp::push($BLOCK[0], QAST::Op.new(
                                 :op('bind'),
                                 $varast,
-                                #~ $*W.symbol_lookup(nqp::findmethod($name, 'FLATTENABLE_LIST')($name), $/, :package_only(1), :lvalue(1))
-                                $*W.symbol_lookup($list, $/, :package_only(1), :lvalue(1))
+                                $*W.symbol_lookup($nqplist($name), $/, :package_only(1), :lvalue(1))
                             ));
                         }
                     }

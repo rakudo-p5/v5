@@ -1,10 +1,7 @@
 use NQPP6QRegex:from<NQP>;
 use NQPP5QRegex:from<NQP>;
-#~ use Perl6::Pod:from<NQP>;
-use Perl6::Ops:from<NQP>;
 use Perl5::World;
-#~ use QRegex:from<NQP>;
-use QAST:from<NQP>;
+use Perl6::World:from<NQP>;
 
 multi sub postcircumfix:<{ }>( QAST::Node \SELF, \key, :$BIND ) is rw is export {
     SELF.hash{key};
