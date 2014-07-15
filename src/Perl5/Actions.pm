@@ -404,7 +404,7 @@ class Perl5::Actions does STDActions {
         $STATEMENT_PRINT := 0;
     }
 
-    sub sink(Mu $past) {
+    sub sink(Mu $past is rw) {
         $V5DEBUG && say("sub sink(\$past)");
         my $name := $past.unique('sink');
         QAST::Want.new(
@@ -443,7 +443,7 @@ class Perl5::Actions does STDActions {
         unless       => 1,
         handle       => 1,
         hllize       => 1;
-    sub autosink(Mu $past) {
+    sub autosink(Mu $past is rw) {
         $V5DEBUG && say("sub autosink(\$past)");
         nqp::istype($past, QAST::Op) && %sinkable{$past.op} && !$past<nosink>
             ?? sink($past)
@@ -464,18 +464,18 @@ class Perl5::Actions does STDActions {
     }
 
 
-    sub xblock_immediate($xblock) {
+    sub xblock_immediate(Mu $xblock is rw) {
         $V5DEBUG && say("sub xblock_immediate(\$xblock)");
         $xblock[1] := pblock_immediate($xblock[1]);
         $xblock;
     }
 
-    sub pblock_immediate($pblock) {
+    sub pblock_immediate(Mu $pblock is rw) {
         $V5DEBUG && say("sub pblock_immediate(\$pblock)");
         block_immediate($pblock<uninstall_if_immediately_used>.shift);
     }
 
-    our sub block_immediate($block) {
+    our sub block_immediate(Mu $block is rw) {
         $V5DEBUG && say("our sub block_immediate(\$block)");
         $block.blocktype('immediate');
         $block;
@@ -870,16 +870,15 @@ class Perl5::Actions does STDActions {
             for $<statement>.list {
                 my $ast := $_.ast;
                 if $ast {
-                    #~ if $ast<sink_past> {
-                        #~ $ast := QAST::Want.new($ast, 'v', $ast<sink_past>);
-                    #~ }
-                    #~ elsif $ast<bare_block> {
-                        #~ $ast := autosink($ast<bare_block>);
-                    #~ }
-                    #~ else {
-                        #~ $ast := QAST::Stmt.new(autosink($ast), :returns($ast.returns)) if $ast ~~ QAST::Node;
-                        $ast := QAST::Stmt.new($ast, :returns($ast.returns)) if $ast ~~ QAST::Node;
-                    #~ }
+                    if $ast<sink_past> {
+                        $ast := QAST::Want.new($ast, 'v', $ast<sink_past>);
+                    }
+                    elsif $ast<bare_block> {
+                        $ast := autosink($ast<bare_block>);
+                    }
+                    else {
+                        $ast := QAST::Stmt.new(autosink($ast), :returns($ast.returns)) if $ast ~~ QAST::Node;
+                    }
                     $past.push( $ast );
                 }
             }
@@ -996,7 +995,7 @@ class Perl5::Actions does STDActions {
         }
         else {
             # Locate or build a set of parameters.
-            my %sig_info;
+            my Mu $sig_info := nqp::hash();
             my @params;
             my $block := $<blockoid>.ast;
             if $*IN_SORT {
@@ -1009,14 +1008,14 @@ class Perl5::Actions does STDActions {
             elsif $*IMPLICIT {
                 add_param($block, @params, '$_');
             }
-            %sig_info<parameters> := @params;
+            nqp::bindkey($sig_info, 'parameters', nqp::gethllsym("nqp", "nqplist")(|@params));
 
             # Create signature object and set up binding.
             unless $*IN_SORT {
                 for @params { $_<is_rw> := 1 }
             }
             set_default_parameter_type(@params, 'Mu');
-            my $signature := create_signature_object($<signature>, %sig_info, $block);
+            my $signature := create_signature_object($<signature>, $sig_info, $block);
             add_signature_binding_code($block, $signature, @params);
             
             # Add a slot for a $*DISPATCHER, and a call to take one.
@@ -1033,7 +1032,7 @@ class Perl5::Actions does STDActions {
             $*W.attach_signature($*DECLARAND, $signature);
             $*W.finish_code_object($*DECLARAND, $block);
             my $ref := reference_to_code_object($*DECLARAND, $block);
-            $ref<uninstall_if_immediately_used> := $uninst;
+            nqp::bindkey($ref, 'uninstall_if_immediately_used', $uninst);
             make $ref;
         }
     }
@@ -1056,7 +1055,7 @@ class Perl5::Actions does STDActions {
         $*W.attach_signature($*DECLARAND, $*W.create_signature(nqp::hash('parameters', [])));
         $*W.finish_code_object($*DECLARAND, $block);
         my $ref := reference_to_code_object($*DECLARAND, $block);
-        $ref<uninstall_if_immediately_used> := $uninst;
+        nqp::bindkey($ref, 'uninstall_if_immediately_used', $uninst);
         make $ref;
     }
 
@@ -1074,8 +1073,8 @@ class Perl5::Actions does STDActions {
             my $BLOCK := $*CURPAD;
             $BLOCK.push($past);
             $BLOCK.node($/);
-            $BLOCK<statementlist> := $<statementlist>.ast;
-            $BLOCK<handlers>      := %*HANDLERS if %*HANDLERS;
+            nqp::bindkey($BLOCK, 'statementlist', $<statementlist>.ast);
+            nqp::bindkey($BLOCK, 'handlers',      %*HANDLERS) if %*HANDLERS;
             make $BLOCK;
         }
         else {
@@ -1152,6 +1151,8 @@ class Perl5::Actions does STDActions {
             $past := xblock_immediate( $<xblock>[$count].ast );
             $past.push($else);
         }
+        say $past.dump;
+        say $past[0].dump;
         $past;
     }
 
@@ -3815,7 +3816,7 @@ class Perl5::Actions does STDActions {
             # Add it to the signature.
             @parameters.push($param_obj);
         }
-        %signature_info<parameters> := @parameters;
+        nqp::bindkey(%signature_info, 'parameters', nqp::gethllsym("nqp", "nqplist")(|@parameters));
         $*W.create_signature(%signature_info)
     }
 
@@ -4774,9 +4775,11 @@ class Perl5::Actions does STDActions {
                 if nqp::istype($_, QAST::Stmt) {
                     # Mustn't use QAST::Stmt here, as it will cause register
                     # re-use within a statemnet, which is a problem.
-                    $_ := QAST::Stmts.new( |$_.list );
+                    $past.push(QAST::Stmts.new( |$_.list, :node($/) ));
                 }
-                $past.push($_);
+                else {
+                    $past.push($_);
+                }
             }
         }
         else {
@@ -4790,7 +4793,7 @@ class Perl5::Actions does STDActions {
 
     method statement_control:sym<{ }>($/) {
         $V5DEBUG && say("statement_control:sym<\{ }>($/)");
-        my $block := QAST::Stmts.new;
+        my Mu $block := QAST::Stmts.new;
         $block.push( pblock_immediate($<sblock>.ast) );
         $block.push( pblock_immediate($<continue>.ast) ) if $<continue>;
         make QAST::Op.new( :op<callmethod>, :name<map>, :node($/),
@@ -5932,7 +5935,7 @@ class Perl5::Actions does STDActions {
     }
 
     # Adds code to do the signature binding.
-    sub add_signature_binding_code($block, $sig_obj, @params) {
+    sub add_signature_binding_code(Mu $block is copy, $sig_obj, @params) {
         # Set arity.
         my int $arity = 0;
         for @params {
@@ -6020,25 +6023,25 @@ class Perl5::Actions does STDActions {
         return QAST::Var.new( :name($name), :scope('lexical') );
     }
 
-    sub reference_to_code_object($code_obj, $past_block) {
+    sub reference_to_code_object($code_obj is rw, Mu $past_block is rw) {
         my $ref := QAST::WVal.new( :value($code_obj) );
-        $ref<past_block> := $past_block;
-        $ref<code_object> := $code_obj;
+        nqp::bindkey($ref, 'past_block', $past_block);
+        nqp::bindkey($ref, 'code_object', $code_obj);
         return $ref;
     }
 
-    sub block_closure($code) {
-        my $closure := QAST::Op.new(
+    sub block_closure(Mu $code is rw) {
+        my Mu $closure := QAST::Op.new(
             :op('callmethod'), :name('clone'),
             $code
         );
-        $closure              := QAST::Op.new( :op('p6capturelex'), $closure);
-        $closure<past_block>  := $code<past_block>;
-        $closure<code_object> := $code<code_object>;
+        $closure := QAST::Op.new( :op('p6capturelex'), $closure);
+        nqp::bindkey($closure, 'past_block',  $code<past_block>);
+        nqp::bindkey($closure, 'code_object', $code<code_object>);
         return $closure;
     }
 
-    sub make_thunk_ref($to_thunk, $/) {
+    sub make_thunk_ref($to_thunk is rw, $/) {
         my $block := $*W.push_lexpad($/);
         #~ $block.push(QAST::Stmts.new(autosink($to_thunk)));
         $block.push(QAST::Stmts.new($to_thunk));
@@ -6048,23 +6051,24 @@ class Perl5::Actions does STDActions {
             $block);
     }
 
-    sub make_topic_block_ref($past, :$copy, :$name = '$_') {
+    sub make_topic_block_ref(Mu $past is rw, :$copy, :$name = '$_') {
         $V5DEBUG && say("sub make_topic_block_ref($copy, $name)");
-        my $block := QAST::Block.new(
+        my Mu $block := QAST::Block.new(
             QAST::Stmts.new(
                 QAST::Var.new( :name($name), :scope('lexical'), :decl('var') )
             ),
-            $past);
+            $past
+        );
         ($*W.cur_lexpad())[0].push($block);
         my $param := hash( :variable_name($name), :nominal_type(find_symbol('Mu')), :is_parcel(!$copy) );
         if $copy {
-            $param<container_descriptor> := $*W.create_container_descriptor(
+            nqp::bindkey($param, 'container_descriptor', $*W.create_container_descriptor(
                     find_symbol('Mu'), 0, $name
-            );
+            ));
         }
         my $param_obj := $*W.create_parameter($param);
         if $copy { $param_obj.set_copy() }
-        my $sig := $*W.create_signature(nqp::hash('parameters', [$param_obj]));
+        my $sig := $*W.create_signature(nqp::hash('parameters', nqp::gethllsym("nqp", "nqplist")($param_obj)));
         add_signature_binding_code($block, $sig, [$param]);
         return reference_to_code_object(
             $*W.create_code_object($block, 'Block', $sig),
