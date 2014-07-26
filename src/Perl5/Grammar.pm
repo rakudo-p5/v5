@@ -289,7 +289,7 @@ role STD5 {
                         
                         # Create a container descriptor. Default to rw and set a
                         # type if we have one; a trait may twiddle with that later.
-                        my %cont_info   = container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE] !! []);
+                        my %cont_info  := container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE] !! []);
                         my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
                         my $package := $is_global ?? $*W.symbol_lookup(nqp::gethllsym("nqp", "nqplist")('GLOBAL'), $/) !! $*PACKAGE;
 
@@ -1822,7 +1822,7 @@ grammar Perl5::Grammar does STD5 {
                     
                     # Create a container descriptor. Default to rw and set a
                     # type if we have one; a trait may twiddle with that later.
-                    my %cont_info   = container_type_info($/, $sigil, []);
+                    my %cont_info  := container_type_info($/, $sigil, []);
                     my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
                     $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
