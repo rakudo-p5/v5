@@ -181,7 +181,7 @@ role STD5 {
         }
     }
 
-    method nibble($lang) {
+    method nibble(Mu $lang) {
         #~ my $lang_cursor := $lang.'!cursor_init'(self.orig(), :p(self.pos()), :shared(self.'!shared'()));
         my $lang_cursor := $lang.'!cursor_init'(self.orig(), :p(self.pos()));
         my $*ACTIONS;
@@ -289,7 +289,7 @@ role STD5 {
                         
                         # Create a container descriptor. Default to rw and set a
                         # type if we have one; a trait may twiddle with that later.
-                        my %cont_info  := container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE] !! []);
+                        my %cont_info   = container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE] !! []);
                         my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
                         my $package := $is_global ?? $*W.symbol_lookup(nqp::gethllsym("nqp", "nqplist")('GLOBAL'), $/) !! $*PACKAGE;
 
@@ -352,12 +352,12 @@ grammar Perl5::Grammar does STD5 {
         self.panic("Unrecognized backslash sequence: '\\" ~ $sequence ~ "'");
     }
 
-    proto token term { <...> }
-    proto token infix { <...> }
-    proto token prefix { <...> }
-    proto token postfix { <...> }
-    proto token circumfix { <...> }
-    proto token postcircumfix { <...> }
+    proto token term { * }
+    proto token infix { * }
+    proto token prefix { * }
+    proto token postfix { * }
+    proto token circumfix { * }
+    proto token postcircumfix { * }
 
     token term:sym<circumfix> { <circumfix> }
 
@@ -389,7 +389,7 @@ grammar Perl5::Grammar does STD5 {
     token binint  { [<[ 0..1 ]>+]+ % '_' }
     token binints { [<.ws><binint><.ws>]+ % ',' }
 
-    proto token quote_escape { <...> }
+    proto token quote_escape { * }
     token quote_escape:sym<backslash> { \\ \\ <?quotemod_check('q')> }
     token quote_escape:sym<stopper>   { \\ <?quotemod_check('q')> <stopper> }
 
@@ -1024,72 +1024,72 @@ grammar Perl5::Grammar does STD5 {
 
     my $*endsym := "null";
 
-    #proto token category { <...> }
+    #proto token category { * }
 
     #token category:sym<category> { <sym> }
 
     #token category:sym<sigil> { <sym> }
-    proto token sigil { <...> }
+    proto token sigil { * }
 
     #token category:sym<special_variable> { <sym> }
-    proto token special_variable { <...> }
+    proto token special_variable { * }
 
     #token category:sym<comment> { <sym> }
-    proto token comment { <...> }
+    proto token comment { * }
 
     #token category:sym<module_name> { <sym> }
-    proto token module_name { <...> }
+    proto token module_name { * }
 
     #token category:sym<value> { <sym> }
-    proto token value { <...> }
+    proto token value { * }
 
     #token category:sym<number> { <sym> }
-    proto token number { <...> }
+    proto token number { * }
 
     #token category:sym<quote> { <sym> }
-    proto token quote { <...> }
+    proto token quote { * }
 
     #token category:sym<dotty> { <sym> }
     #proto token dotty( :$*endsym = 'unspacey' ) {
-    proto token dotty { <...> }
+    proto token dotty { * }
 
     #token category:sym<type_declarator> { <sym> }
-    #proto token type_declarator (:$*endsym = 'spacey') { <...> }
-    proto token type_declarator { <...> }
+    #proto token type_declarator (:$*endsym = 'spacey') { * }
+    proto token type_declarator { * }
 
     #token category:sym<scope_declarator> { <sym> }
-    #proto token scope_declarator (:$*endsym = 'nofun') { <...> }
-    proto token scope_declarator { <...> }
+    #proto token scope_declarator (:$*endsym = 'nofun') { * }
+    proto token scope_declarator { * }
 
     #token category:sym<package_declarator> { <sym> }
-    #proto token package_declarator (:$*endsym = 'spacey') { <...> }
-    proto token package_declarator { <...> }
+    #proto token package_declarator (:$*endsym = 'spacey') { * }
+    proto token package_declarator { * }
 
     #token category:sym<routine_declarator> { <sym> }
-    #proto token routine_declarator (:$*endsym = 'nofun') { <...> }
-    proto token routine_declarator { <...> }
+    #proto token routine_declarator (:$*endsym = 'nofun') { * }
+    proto token routine_declarator { * }
 
     #token category:sym<regex_declarator> { <sym> }
-    #proto token regex_declarator (:$*endsym = 'spacey') { <...> }
-    proto token regex_declarator { <...> }
+    #proto token regex_declarator (:$*endsym = 'spacey') { * }
+    proto token regex_declarator { * }
 
     #token category:sym<statement_prefix> { <sym> }
-    proto rule statement_prefix { <...> }
+    proto rule statement_prefix { * }
 
     #token category:sym<statement_control> { <sym> }
-    #proto rule statement_control (:$*endsym = 'spacey') { <...> }
-    proto rule statement_control { <...> }
+    #proto rule statement_control (:$*endsym = 'spacey') { * }
+    proto rule statement_control { * }
 
     #token category:sym<statement_mod_cond> { <sym> }
-    #proto rule statement_mod_cond (:$*endsym = 'nofun') { <...> }
-    proto rule statement_mod_cond { <...> }
+    #proto rule statement_mod_cond (:$*endsym = 'nofun') { * }
+    proto rule statement_mod_cond { * }
 
     #token category:sym<statement_mod_loop> { <sym> }
-    #proto rule statement_mod_loop (:$*endsym = 'nofun') { <...> }
-    proto rule statement_mod_loop { <...> }
+    #proto rule statement_mod_loop (:$*endsym = 'nofun') { * }
+    proto rule statement_mod_loop { * }
 
     #token category:sym<terminator> { <sym> }
-    proto token terminator { <...> }
+    proto token terminator { * }
 
     token unspacey { <.unsp>? }
     token endid { <?before <-[ \- \' \w ]> > }
@@ -1590,7 +1590,7 @@ grammar Perl5::Grammar does STD5 {
         <.ws>
     }
 
-    token newlex { <?> { $*W.push_lexpad($/) } }
+    token newlex { <?> { say "$?FILE:$?LINE $*IN_DECL"; $*W.push_lexpad($/) } }
     token finishlex { <?> }
 
     token blockoid {
@@ -1822,7 +1822,7 @@ grammar Perl5::Grammar does STD5 {
                     
                     # Create a container descriptor. Default to rw and set a
                     # type if we have one; a trait may twiddle with that later.
-                    my %cont_info := Perl5::World::container_type_info($/, $sigil, []);
+                    my %cont_info   = container_type_info($/, $sigil, []);
                     my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
                     $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
@@ -2500,7 +2500,7 @@ grammar Perl5::Grammar does STD5 {
         ]
     }
 
-    proto token initializer { <...> }
+    proto token initializer { * }
     token initializer:sym<=> {
         <sym> <.ws> <EXPR('h=')>
     }
@@ -3181,6 +3181,7 @@ grammar Perl5::Grammar does STD5 {
     token quote:sym</ />  {
         :my %*RX;
         :my $*INTERPOLATE := 1;
+        { nqp::bindlexdyn('%*RX', nqp::hash()) }
         '/' <nibble(self.quote_lang(%*LANG<P5Regex>, '/', '/'))> [ '/' || <.panic: "Unable to parse regex; couldn't find final '/'"> ]
         <rx_mods>?
     }
@@ -3213,7 +3214,7 @@ grammar Perl5::Grammar does STD5 {
         :my %*RX;
         :my $*INTERPOLATE = 1;
         <sym> »
-        { %*RX<s> = 1 if $/[0] }
+        { nqp::bindlexdyn('%*RX', nqp::hash('s', $/[0] ?? 1 !! 0)) }
         [
         | '#' <quibble=.nibble(self.quote_lang(%*LANG<P5Regex>, '#', '#'))> '#'
         | <quibble(%*LANG<P5Regex>)>
@@ -3424,13 +3425,13 @@ grammar Perl5::Grammar does STD5 {
         { $*LEFTSIGIL := '@'; }
     }
 
-    proto token infix_postfix_meta_operator { <...> }
+    proto token infix_postfix_meta_operator { * }
 
-    proto token infix_prefix_meta_operator { <...> }
+    proto token infix_prefix_meta_operator { * }
 
-    proto token infix_circumfix_meta_operator { <...> }
+    proto token infix_circumfix_meta_operator { * }
 
-    proto token postfix_prefix_meta_operator { <...> }
+    proto token postfix_prefix_meta_operator { * }
 
     method copyO($from) {
         my $O   := $from<OPER><O>;
@@ -4147,7 +4148,7 @@ grammar Perl5::Grammar does STD5 {
             | <?[{]> <sblock>
             ]
         |   <?{ $*ALLOW_IOS_NAME }> <name> <!postfix> <![,]> { $name := ~$<name> }
-            <?{ ($*W.cur_lexpad().symbol($name)<barename> && ($<name><barename> = 1)) || $*W.is_type([$name]) }>
+            <?{ (nqp::atkey($*W.cur_lexpad().symbol($name), 'barename') && ($<name><barename> = 1)) || $*W.is_type([$name]) }>
         ]
         { $*HAS_INDIRECT_OBJ := 1 }
     }
@@ -4219,24 +4220,24 @@ grammar Perl5::Grammar does STD5 {
     #    <args> # { self.add_mystery($name,$pos,'termish') unless $<args><invocant>; }
     #    <O('%term')>
     #}
-    token term:sym<name> {
-        <longname>
-        :my $*longname;
-        { $*longname := dissect_longname($<longname>); }
-        [
-        ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::'
-                || $*W.is_name(nqp::findmethod($*longname.components(), 'FLATTENABLE_LIST')($*longname.components())) }>
-            <.unsp>?
-            [
-                <?{ $*W.is_type($*longname.components()) }>
-                #~ <?before '['> :dba('type parameter') '[' ~ ']' <arglist>
-                <?before '['> '[' ~ ']' <arglist>
-            ]?
-        || <args> { self.add_mystery($<longname>, $<args>.from, 'termish')
-                        unless nqp::index($<longname>.Str, '::') >= 0 }
-        ]
-        <O('%term')>
-    }
+    #~ token term:sym<name> {
+        #~ <longname>
+        #~ :my $*longname;
+        #~ { $*longname := dissect_longname($<longname>); }
+        #~ [
+        #~ ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::'
+                #~ || $*W.is_name(nqp::findmethod($*longname.components(), 'FLATTENABLE_LIST')($*longname.components())) }>
+            #~ <.unsp>?
+            #~ [
+                #~ <?{ $*W.is_type($*longname.components()) }>
+                #~ #~ <?before '['> :dba('type parameter') '[' ~ ']' <arglist>
+                #~ <?before '['> '[' ~ ']' <arglist>
+            #~ ]?
+        #~ || <args> { self.add_mystery($<longname>, $<args>.from, 'termish')
+                        #~ unless nqp::index($<longname>.Str, '::') >= 0 }
+        #~ ]
+        #~ <O('%term')>
+    #~ }
 
     ## loose not
     #~ token prefix:sym<not>
@@ -4588,7 +4589,8 @@ grammar Perl5::QGrammar does STD5 {
     }
 } # end grammar
 
-grammar Perl5::RegexGrammar is QRegex::P5Regex::Grammar does STD5 {
+#~ grammar Perl5::RegexGrammar is QRegex::P5Regex::Grammar does STD5 {
+grammar Perl5::RegexGrammar does STD5 {
     token rxstopper { <stopper> }
     
     token p5metachar:sym<(?{ })> {

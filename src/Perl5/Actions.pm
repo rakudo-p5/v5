@@ -905,7 +905,7 @@ class Perl5::Actions does STDActions {
     }
 
     method statement($/, $key?) {
-        $V5DEBUG && say("statement($/, $key?)");
+        $V5DEBUG && say("statement($/, {$key // ''}?)");
         my $past;
         if $<EXPR> {
             my $mc = $<statement_mod_cond>;
@@ -971,7 +971,7 @@ class Perl5::Actions does STDActions {
                 $<sblock>.ast, :node($/) );
     }
 
-    sub add_param($block, @params, $name) {
+    sub add_param(Mu $block, @params, $name) {
         $V5DEBUG && say("add_param(\$block, $name)");
         if !$block.symbol($name) || $block.symbol($name)<for_variable> || $name eq '$_' {
             if $*IMPLICIT {
@@ -997,7 +997,7 @@ class Perl5::Actions does STDActions {
             # Locate or build a set of parameters.
             my Mu $sig_info := nqp::hash();
             my @params;
-            my $block := $<blockoid>.ast;
+            my Mu $block := $<blockoid>.ast;
             if $*IN_SORT {
                 add_param($block, @params, '$a');
                 add_param($block, @params, '$b');
@@ -1028,7 +1028,7 @@ class Perl5::Actions does STDActions {
             # We'll install PAST in current block so it gets capture_lex'd.
             # Then evaluate to a reference to the block (non-closure - higher
             # up stuff does that if it wants to).
-            ($*W.cur_lexpad())[0].push(my $uninst := QAST::Stmts.new($block));
+            $*W.cur_lexpad[0].push(my $uninst := QAST::Stmts.new($block));
             $*W.attach_signature($*DECLARAND, $signature);
             $*W.finish_code_object($*DECLARAND, $block);
             my $ref := reference_to_code_object($*DECLARAND, $block);
@@ -1092,9 +1092,9 @@ class Perl5::Actions does STDActions {
     }
 
     method newlex($/) {
-        $V5DEBUG && say("newlex($/)");
+        $V5DEBUG && say("newlex($/) $*IN_DECL");
         my Mu $new_block := $*W.cur_lexpad();
-        $new_block<IN_DECL> := $*IN_DECL;
+        nqp::bindkey($new_block, 'IN_DECL', $*IN_DECL);
     }
 
     method finishlex($/) {
@@ -1103,7 +1103,7 @@ class Perl5::Actions does STDActions {
         # already declared. For blocks, $_ will come from the outer if it
         # isn't already declared.
         my $BLOCK := $*W.cur_lexpad();
-        my $type := $BLOCK<IN_DECL>;
+        say my $type := $BLOCK<IN_DECL>;
         if $type eq 'mainline' && %*COMPILING<%?OPTIONS><setting> eq 'NULL' {
             # Don't do anything in the case where we are in the mainline of
             # the setting; we don't have any symbols (Scalar, etc.) yet.
@@ -2227,14 +2227,14 @@ class Perl5::Actions does STDActions {
             for @params {
                 if $_<variable_name> {
                     my $past := QAST::Var.new( :name($_<variable_name>) );
-                    $past := declare_variable($/, $past, $_<sigil>, $_<twigil>,
+                    $past := declare_variable($/, $past, $_<sigil>, '',
                         $_<desigilname>, []);
                     unless $past.isa(QAST::Op) && $past.op eq 'null' {
                         $list.push($past);
                     }
                 }
                 else {
-                    my %cont_info := Perl5::World::container_type_info($/, $_<sigil> || '$', []);
+                    my %cont_info = container_type_info($/, $_<sigil> || '$', []);
                     $list.push($*W.build_container_past(
                         %cont_info,
                         $*W.create_container_descriptor(%cont_info<value_type>, 1, 'anon')));
@@ -2333,8 +2333,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("variable_declarator($/)");
         my $past   := $<variable>.ast;
         my $sigil  := $<variable><sigil>;
-        my $twigil := $<variable><twigil>;
-        my $name   := ~$sigil ~ ~$twigil ~ ~$<variable><desigilname>;
+        my $name   := ~$sigil ~ ~$<variable><desigilname>;
         if $<variable><desigilname> {
             my $lex := $*W.cur_lexpad();
             if $lex.symbol($name) -> $sym {
@@ -2345,10 +2344,10 @@ class Perl5::Actions does STDActions {
             elsif $lex<also_uses> && $lex<also_uses>{$name} {
                 $/.CURSOR.typed_sorry('X::Redeclaration::Outer', symbol => $name);
             }
-            make declare_variable($/, $past, ~$sigil, ~$twigil, ~$<variable><desigilname>, $<trait>, $<semilist>);
+            make declare_variable($/, $past, ~$sigil, '', ~$<variable><desigilname>, $<trait>, $<semilist>);
         }
         else {
-            make declare_variable($/, $past, ~$sigil, ~$twigil, ~$<variable><desigilname>, $<trait>, $<semilist>);
+            make declare_variable($/, $past, ~$sigil, '', ~$<variable><desigilname>, $<trait>, $<semilist>);
         }
     }
 
@@ -2374,7 +2373,7 @@ class Perl5::Actions does STDActions {
                 $/.CURSOR.panic("Cannot declare an anonymous attribute");
             }
             my $attrname   := ~$sigil ~ '!' ~ $desigilname;
-            my %cont_info  := Perl5::World::container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
+            my %cont_info   = container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
             my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $attrname);
 
             # Create meta-attribute and add it.
@@ -2444,7 +2443,7 @@ class Perl5::Actions does STDActions {
 
             # Create a container descriptor. Default to rw and set a
             # type if we have one; a trait may twiddle with that later.
-            my %cont_info := Perl5::World::container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
+            my %cont_info   = container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
             my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $name);
 
             # Install the container.
@@ -3755,13 +3754,15 @@ class Perl5::Actions does STDActions {
     # Sets the default parameter type for a signature.
     sub set_default_parameter_type(@parameter_infos, $type_name) {
         my $type := find_symbol($type_name);
-        for @parameter_infos {
-            unless nqp::existskey($_, 'nominal_type') {
-                $_<nominal_type> := $type;
+        for @parameter_infos.kv -> $i, $_ {
+            my $p := hash(|nqp::decont($_));
+            unless nqp::existskey($p, 'nominal_type') {
+                nqp::bindkey($p, 'nominal_type', $type);
             }
-            if nqp::existskey($_, 'sub_signature_params') {
-                set_default_parameter_type($_<sub_signature_params><parameters>, $type_name);
+            if nqp::existskey($p, 'sub_signature_params') {
+                set_default_parameter_type($p<sub_signature_params><parameters>, $type_name);
             }
+            @parameter_infos[$i] := $p;
         }
     }
 
@@ -3772,6 +3773,7 @@ class Perl5::Actions does STDActions {
         my @parameters;
         my %seen_names;
         for %signature_info<parameters>.list {
+            my $p := hash(|nqp::decont($_));
             # Check we don't have duplicated named parameter names.
             if $_<named_names> {
                 for $_<named_names>.list {
@@ -3791,22 +3793,22 @@ class Perl5::Actions does STDActions {
             }
             
             # If we have a sub-signature, create that.
-            if nqp::existskey($_, 'sub_signature_params') {
-                $_<sub_signature> := create_signature_object($/, $_<sub_signature_params>, $lexpad);
+            if $_<sub_signature_params> {
+                nqp::bindkey($p, 'sub_signature', create_signature_object($/, $_<sub_signature_params>, $lexpad));
             }
             
             # Add variable as needed.
             if $_<variable_name> {
                 my %sym := $lexpad.symbol($_<variable_name>);
                 if +%sym && !nqp::existskey(%sym, 'descriptor') {
-                    $_<container_descriptor> := $*W.create_container_descriptor(
-                        $_<nominal_type>, $_<is_rw> ?? 1 !! 0, $_<variable_name>);
-                    $lexpad.symbol($_<variable_name>, :descriptor($_<container_descriptor>));
+                    nqp::bindkey($p, 'container_descriptor', $*W.create_container_descriptor(
+                        $_<nominal_type>, $_<is_rw> ?? 1 !! 0, $_<variable_name>));
+                    $lexpad.symbol($_<variable_name>, :descriptor($p<container_descriptor>));
                 }
             }
 
             # Create parameter object and apply any traits.
-            my $param_obj := $*W.create_parameter($_);
+            my Mu $param_obj := $*W.create_parameter($p);
             if $_<traits> {
                 for $_<traits>.list {
                     ($_.ast)($param_obj) if $_.ast;
@@ -3816,8 +3818,9 @@ class Perl5::Actions does STDActions {
             # Add it to the signature.
             @parameters.push($param_obj);
         }
-        nqp::bindkey(%signature_info, 'parameters', nqp::gethllsym("nqp", "nqplist")(|@parameters));
-        $*W.create_signature(%signature_info)
+        #~ nqp::bindkey(%signature_info, 'parameters', nqp::gethllsym("nqp", "nqplist")(|@parameters));
+        #~ $*W.create_signature(%signature_info)
+        $*W.create_signature(nqp::hash('parameters', nqp::gethllsym("nqp", "nqplist")(|@parameters)))
     }
 
     method trait($/) {
@@ -4765,13 +4768,13 @@ class Perl5::Actions does STDActions {
             #~ }
         #~ }
         if $is_hash && $past<past_block>.arity == 0 {
-            my @children := @($past<past_block>[1]);
+            my $children := $past<past_block>[1];
             $past := QAST::Op.new(
                 :op('call'),
                 :name('&circumfix:<{ }>'),
                 :node($/)
             );
-            for @children {
+            for $children.list {
                 if nqp::istype($_, QAST::Stmt) {
                     # Mustn't use QAST::Stmt here, as it will cause register
                     # re-use within a statemnet, which is a problem.
@@ -4866,7 +4869,7 @@ class Perl5::Actions does STDActions {
             '=>'  => '&infix:<P5=>>',
         };
     method EXPR($/, $key? is copy) {
-        $V5DEBUG && say("EXPR($/, $key?)");
+        $V5DEBUG && say("EXPR($/, {$key // ''}?)");
         unless $key { return 0; }
         my $past := $/.ast // $<OPER>.ast;
         my $sym   = ~($<infix><sym> // $<prefix><sym> // $<postfix><sym>);
@@ -5936,6 +5939,7 @@ class Perl5::Actions does STDActions {
 
     # Adds code to do the signature binding.
     sub add_signature_binding_code(Mu $block is copy, $sig_obj, @params) {
+        $V5DEBUG && say("add_signature_binding_code()");
         # Set arity.
         my int $arity = 0;
         for @params {
@@ -5954,6 +5958,7 @@ class Perl5::Actions does STDActions {
 
     # Adds a placeholder parameter to this block's signature.
     sub add_placeholder_parameter($/, $sigil, $ident, :$named, :$pos_slurpy, :$named_slurpy, :$full_name) {
+        $V5DEBUG && say("add_placeholder_parameter($/, $sigil, $ident, :$named, :$pos_slurpy, :$named_slurpy, :$full_name)");
         # Ensure we're not trying to put a placeholder in the mainline.
         my $block := $*W.cur_lexpad();
         if $block<IN_DECL> eq 'mainline' || $block<IN_DECL> eq 'eval' {
@@ -6024,6 +6029,7 @@ class Perl5::Actions does STDActions {
     }
 
     sub reference_to_code_object($code_obj is rw, Mu $past_block is rw) {
+        $V5DEBUG && say("reference_to_code_object($past_block.cuid())");
         my $ref := QAST::WVal.new( :value($code_obj) );
         nqp::bindkey($ref, 'past_block', $past_block);
         nqp::bindkey($ref, 'code_object', $code_obj);
@@ -6031,6 +6037,7 @@ class Perl5::Actions does STDActions {
     }
 
     sub block_closure(Mu $code is rw) {
+        $V5DEBUG && say("block_closure()");
         my Mu $closure := QAST::Op.new(
             :op('callmethod'), :name('clone'),
             $code
@@ -6042,6 +6049,7 @@ class Perl5::Actions does STDActions {
     }
 
     sub make_thunk_ref($to_thunk is rw, $/) {
+        $V5DEBUG && say("make_thunk_ref($/)");
         my $block := $*W.push_lexpad($/);
         #~ $block.push(QAST::Stmts.new(autosink($to_thunk)));
         $block.push(QAST::Stmts.new($to_thunk));
@@ -6069,7 +6077,7 @@ class Perl5::Actions does STDActions {
         my $param_obj := $*W.create_parameter($param);
         if $copy { $param_obj.set_copy() }
         my $sig := $*W.create_signature(nqp::hash('parameters', nqp::gethllsym("nqp", "nqplist")($param_obj)));
-        add_signature_binding_code($block, $sig, [$param]);
+        add_signature_binding_code($block, $sig, nqp::gethllsym("nqp", "nqplist")($param));
         return reference_to_code_object(
             $*W.create_code_object($block, 'Block', $sig),
             $block);
@@ -6269,7 +6277,7 @@ class Perl5::Actions does STDActions {
     # has a signature of the form :(\|$parcel), in which case we don't promote
     # the Parcel to a Capture when calling it. For now, we just worry about the
     # special case, return.
-    sub capture_or_parcel($args, $name) {
+    sub capture_or_parcel(Mu $args, $name) {
         if $name eq 'return' {
             # Need to demote pairs again.
             my $parcel := QAST::Op.new( :op('call') );
