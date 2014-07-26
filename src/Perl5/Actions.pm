@@ -6443,7 +6443,7 @@ class Perl5::Actions does STDActions {
         }
     }
     
-    sub istype($val, $type) {
+    sub istype(Mu $val, Mu $type) {
         try { return nqp::istype($val, $type) }
         0
     }
