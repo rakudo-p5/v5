@@ -4220,24 +4220,24 @@ grammar Perl5::Grammar does STD5 {
     #    <args> # { self.add_mystery($name,$pos,'termish') unless $<args><invocant>; }
     #    <O('%term')>
     #}
-    #~ token term:sym<name> {
-        #~ <longname>
-        #~ :my $*longname;
-        #~ { $*longname := dissect_longname($<longname>); }
-        #~ [
-        #~ ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::'
-                #~ || $*W.is_name(nqp::findmethod($*longname.components(), 'FLATTENABLE_LIST')($*longname.components())) }>
-            #~ <.unsp>?
-            #~ [
-                #~ <?{ $*W.is_type($*longname.components()) }>
-                #~ #~ <?before '['> :dba('type parameter') '[' ~ ']' <arglist>
-                #~ <?before '['> '[' ~ ']' <arglist>
-            #~ ]?
-        #~ || <args> { self.add_mystery($<longname>, $<args>.from, 'termish')
-                        #~ unless nqp::index($<longname>.Str, '::') >= 0 }
-        #~ ]
-        #~ <O('%term')>
-    #~ }
+    token term:sym<name> {
+        <longname>
+        :my $*longname;
+        { $*longname := dissect_longname($<longname>); }
+        [
+        ||  <?{ nqp::substr($<longname>.Str, 0, 2) eq '::'
+                || $*W.is_name(nqp::findmethod($*longname.components(), 'FLATTENABLE_LIST')($*longname.components())) }>
+            <.unsp>?
+            [
+                <?{ $*W.is_type($*longname.components()) }>
+                #~ <?before '['> :dba('type parameter') '[' ~ ']' <arglist>
+                <?before '['> '[' ~ ']' <arglist>
+            ]?
+        || <args> { self.add_mystery($<longname>, $<args>.from, 'termish')
+                        unless nqp::index($<longname>.Str, '::') >= 0 }
+        ]
+        <O('%term')>
+    }
 
     ## loose not
     #~ token prefix:sym<not>
