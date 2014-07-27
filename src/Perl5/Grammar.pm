@@ -1067,7 +1067,7 @@ grammar Perl5::Grammar does STD5 {
 
     #token category:sym<routine_declarator> { <sym> }
     #proto token routine_declarator (:$*endsym = 'nofun') { * }
-    proto token routine_declarator { * }
+    #~ proto token routine_declarator { * }
 
     #token category:sym<regex_declarator> { <sym> }
     #proto token regex_declarator (:$*endsym = 'spacey') { * }
@@ -1590,7 +1590,7 @@ grammar Perl5::Grammar does STD5 {
         <.ws>
     }
 
-    token newlex { <?> { say "$?FILE:$?LINE $*IN_DECL"; $*W.push_lexpad($/) } }
+    token newlex { <?> <?{ $*W.push_lexpad($/) }> }
     token finishlex { <?> }
 
     token blockoid {
@@ -2505,13 +2505,10 @@ grammar Perl5::Grammar does STD5 {
         <sym> <.ws> <EXPR('h=')>
     }
 
-    token multi_declarator:sym<null> {
-        :my $*MULTINESS := '';
-        <declarator>
+    #rule routine_declarator:sym<sub> { <sym> <routine_def> }
+    token routine_declarator {
+        'sub' <.end_keyword> <.ws> <routine_def>
     }
-
-    #rule routine_declarator:sym<sub>       { <sym> <routine_def> }
-    token routine_declarator:sym<sub>       { <sym> <.end_keyword> <.ws> <routine_def> }
 
     rule parensig {
         #~ :dba('signature')

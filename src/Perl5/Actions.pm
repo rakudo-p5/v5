@@ -129,7 +129,7 @@ my class LongName {
                 }
             }
             elsif $beyond_pp || !self.is_pseudo_package($_) {
-                nqp::push(@name, $_);
+                @name.push: $_;
                 $beyond_pp = 1;
             }
             else {
@@ -142,7 +142,7 @@ my class LongName {
                     }
                 }
                 else {
-                    nqp::push(@name, $_);
+                    @name.push: $_;
                 }
             }
         }
@@ -1014,7 +1014,7 @@ class Perl5::Actions does STDActions {
             unless $*IN_SORT {
                 for @params { $_<is_rw> := 1 }
             }
-            set_default_parameter_type(@params, 'Mu');
+            set_default_parameter_type(@params, Mu);
             my $signature := create_signature_object($<signature>, $sig_info, $block);
             add_signature_binding_code($block, $signature, @params);
             
@@ -1103,7 +1103,7 @@ class Perl5::Actions does STDActions {
         # already declared. For blocks, $_ will come from the outer if it
         # isn't already declared.
         my $BLOCK := $*W.cur_lexpad();
-        say my $type := $BLOCK<IN_DECL>;
+        my $type := $BLOCK<IN_DECL>;
         if $type eq 'mainline' && %*COMPILING<%?OPTIONS><setting> eq 'NULL' {
             # Don't do anything in the case where we are in the mainline of
             # the setting; we don't have any symbols (Scalar, etc.) yet.
@@ -1668,8 +1668,8 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("term:sym<scope_declarator>($/)  "); make $<scope_declarator>.ast; }
     method term:sym<routine_declarator>($/) {
         $V5DEBUG && say("term:sym<routine_declarator>($/)"); make $<routine_declarator>.ast; }
-    method term:sym<multi_declarator>($/)   {
-        $V5DEBUG && say("term:sym<multi_declarator>($/)  "); make $<multi_declarator>.ast; }
+    #~ method term:sym<multi_declarator>($/)   {
+        #~ $V5DEBUG && say("term:sym<multi_declarator>($/)  "); make $<multi_declarator>.ast; }
     method term:sym<regex_declarator>($/)   {
         $V5DEBUG && say("term:sym<regex_declarator>($/)  "); make $<regex_declarator>.ast; }
     method term:sym<type_declarator>($/)    {
@@ -2254,7 +2254,7 @@ class Perl5::Actions does STDActions {
                 else {
                     my %sig_info := $<signature>.ast;
                     my @params := %sig_info<parameters>;
-                    set_default_parameter_type(@params, 'Mu');
+                    set_default_parameter_type(@params, Mu);
                     my $signature := create_signature_object($/, %sig_info, $*W.cur_lexpad());
                     $list := QAST::Op.new(
                         :op('p6bindcaptosig'),
@@ -2514,12 +2514,8 @@ class Perl5::Actions does STDActions {
         install_method($/, $meth_name, 'has', $code, $install_in);
     }
 
-    method routine_declarator:sym<sub>($/) {
-        $V5DEBUG && say("routine_declarator:sym<sub>($/)"); make $<routine_def>.ast; }
-    method routine_declarator:sym<method>($/) {
-        $V5DEBUG && say("routine_declarator:sym<method>($/)"); make $<method_def>.ast; }
-    method routine_declarator:sym<submethod>($/) {
-        $V5DEBUG && say("routine_declarator:sym<submethod>($/)"); make $<method_def>.ast; }
+    method routine_declarator($/) {
+        $V5DEBUG && say("routine_declarator($/)"); make $<routine_def>.ast; }
 
     method routine_def($/) {
         $V5DEBUG && say("routine_def($/)");
@@ -2546,17 +2542,16 @@ class Perl5::Actions does STDActions {
 
         # Add an slurpy @_ parameter by default.
         my %sig_info;
-        %sig_info<parameters> := [];
+        %sig_info<parameters> = [];
         my @params := %sig_info<parameters>;
 
         my $param_name := '@_';
-        @params.push( hash(
+        %sig_info<parameters>.push( {
             variable_name => $param_name,
             pos_slurpy    => 1,
             named_slurpy  => 0,
-            #placeholder   => $param_name,
             sigil         => '@'
-        ) );
+        } );
 
         # Add variable declaration, and evaluate to a lookup of it.
         unless $block.symbol($param_name) {
@@ -2564,7 +2559,7 @@ class Perl5::Actions does STDActions {
         }
         $block.symbol($param_name, :scope('lexical'), :placeholder_parameter(0));
 
-        set_default_parameter_type(@params, 'Any');
+        set_default_parameter_type(@params, Any);
         my $signature := create_signature_object($/, %sig_info, $block);
         add_signature_binding_code($block, $signature, @params);
 
@@ -2574,7 +2569,6 @@ class Perl5::Actions does STDActions {
             :op('takedispatcher'),
             QAST::SVal.new( :value('$*DISPATCHER') )
         ));
-
 
         # Set name.
         if $<deflongname> {
@@ -2594,7 +2588,6 @@ class Perl5::Actions does STDActions {
         # Install &?ROUTINE.
         $*W.install_lexical_symbol($block, '&?ROUTINE', $code);
 
-        my $past;
         if $<deflongname> {
             # If it's a multi, need to associate it with the surrounding
             # proto.
@@ -2641,7 +2634,7 @@ class Perl5::Actions does STDActions {
             if $t.ast { $*W.ex-handle($t, { ($t.ast)($code) }) }
         }
 
-        my $closure := block_closure(reference_to_code_object($code, $past));
+        my $closure := block_closure(reference_to_code_object($code, $block));
         $closure<sink_past> := QAST::Op.new( :op('null') );
         # an anonymous sub can be called already
         if $<arglist><arg>[0]<EXPR> {
@@ -2670,7 +2663,7 @@ class Perl5::Actions does STDActions {
         $code
     }
     
-    method add_inlining_info_if_possible($/, $code, $past, @params) {
+    method add_inlining_info_if_possible($/, $code, Mu $past, @params) {
         $V5DEBUG && say("add_inlining_info_if_possible($/, \$code, \$past, \@params)");
         # Make sure the block has the common structure we expect
         # (decls then statements).
@@ -2704,17 +2697,17 @@ class Perl5::Actions does STDActions {
         # if we fail.
         my $PseudoStash;
         try $PseudoStash := find_symbol('PseudoStash');
-        sub clear_node($qast) {
+        sub clear_node(Mu $qast) {
             $qast.node(nqp::null());
             $qast
         }
-        sub clone_qast($qast) {
+        sub clone_qast(Mu $qast) {
             my $cloned := nqp::clone($qast);
             nqp::bindattr($cloned, QAST::Node, '@!array',
                 nqp::clone(nqp::getattr($cloned, QAST::Node, '@!array')));
             $cloned
         }
-        sub node_walker($node) {
+        sub node_walker(Mu $node) {
             # Simple values are always fine; just return them as they are, modulo
             # removing any :node(...).
             if nqp::istype($node, QAST::IVal) || nqp::istype($node, QAST::SVal)
@@ -2905,7 +2898,7 @@ class Perl5::Actions does STDActions {
                                                                 [];
         }
         my @params := %sig_info<parameters>;
-        set_default_parameter_type(@params, 'Any');
+        set_default_parameter_type(@params, Any);
         my $signature := create_signature_object($/, %sig_info, $block);
         add_signature_binding_code($block, $signature, @params);
 
@@ -2928,7 +2921,6 @@ class Perl5::Actions does STDActions {
         # Install &?ROUTINE.
         $*W.install_lexical_symbol($block, '&?ROUTINE', $code);
 
-        my $past;
         if $<deflongname> {
             my $name := '&' ~ ~$<deflongname>.ast;
             # Install.
@@ -2963,7 +2955,7 @@ class Perl5::Actions does STDActions {
             if $_.ast { ($_.ast)($code) }
         }
 
-        my $closure := block_closure(reference_to_code_object($code, $past));
+        my $closure := block_closure(reference_to_code_object($code, $block));
         $closure<sink_past> := QAST::Op.new( :op('null') );
         make $closure;
     }
@@ -2993,7 +2985,7 @@ class Perl5::Actions does STDActions {
                 $past.symbol('%_', :scope('lexical'));
             }
         }
-        set_default_parameter_type(@params, 'Any');
+        set_default_parameter_type(@params, Any);
         my $signature := create_signature_object($/, %sig_info, $past);
         add_signature_binding_code($past, $signature, @params);
 
@@ -3016,7 +3008,8 @@ class Perl5::Actions does STDActions {
     }
 
     # Installs a method into the various places it needs to go.
-    sub install_method($/, $name, $scope, $code, $outer, :$private) {
+    sub install_method($/, $name, $scope, Mu $code, Mu $outer is rw, :$private) {
+        $V5DEBUG && say("install_method($/, $name, $scope)");
         # Ensure that current package supports methods, and if so
         # add the method.
         my $meta_meth;
@@ -3041,8 +3034,8 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    sub is_clearly_returnless($block) {
-        sub returnless_past($past) {
+    sub is_clearly_returnless(Mu $block) {
+        sub returnless_past(Mu $past) {
             return 0 unless
                 # It's a simple operation.
                 nqp::istype($past, QAST::Op)
@@ -3089,7 +3082,7 @@ class Perl5::Actions does STDActions {
     sub is_yada($/) {
         if $<blockoid><statementlist> && +$<blockoid><statementlist><statement> == 1 {
             my $btxt := ~$<blockoid><statementlist><statement>[0];
-            if $btxt ~~ /^ \s* ['...'|'???'|'!!!'] \s* $/ {
+            if $btxt.match(/^ \s* ['...'|'???'|'!!!'] \s* $/) {
                 return 1;
             }
         }
@@ -3439,7 +3432,7 @@ class Perl5::Actions does STDActions {
         my $fake_pad := $*W.pop_lexpad();
         my %sig_info := $<signature>.ast;
         my @params := %sig_info<parameters>;
-        set_default_parameter_type(@params, 'Mu');
+        set_default_parameter_type(@params, Mu);
         my $sig := create_signature_object($/, %sig_info, $fake_pad, :no_attr_check(1));
 
         $*W.cur_lexpad()[0].push($fake_pad);
@@ -3752,17 +3745,20 @@ class Perl5::Actions does STDActions {
     }
 
     # Sets the default parameter type for a signature.
-    sub set_default_parameter_type(@parameter_infos, $type_name) {
-        my $type := find_symbol($type_name);
-        for @parameter_infos.kv -> $i, $_ {
-            my $p := hash(|nqp::decont($_));
-            unless nqp::existskey($p, 'nominal_type') {
-                nqp::bindkey($p, 'nominal_type', $type);
+    sub set_default_parameter_type(@parameter_infos, Mu $type) {
+        for @parameter_infos.kv -> $i, $_ is rw {
+            #~ my $p := nqp::decont($_);
+            #~ my $p := $_;
+            #~ unless nqp::existskey($p, 'nominal_type') {
+            unless $_<nominal_type> {
+                #~ nqp::bindkey(@parameter_infos[$i], 'nominal_type', $type);
+                $_<nominal_type> := $type;
             }
-            if nqp::existskey($p, 'sub_signature_params') {
-                set_default_parameter_type($p<sub_signature_params><parameters>, $type_name);
-            }
-            @parameter_infos[$i] := $p;
+            #~ if nqp::existskey($p, 'sub_signature_params') {
+            #~ if $p<sub_signature_params> {
+                #~ set_default_parameter_type(@parameter_infos[$i]<sub_signature_params><parameters>, $type);
+            #~ }
+            #~ @parameter_infos[$i] := hash($p);
         }
     }
 
@@ -3770,7 +3766,7 @@ class Perl5::Actions does STDActions {
     # if needed. Parameters will be bound into the specified
     # lexpad.
     sub create_signature_object($/, %signature_info, Mu $lexpad, :$no_attr_check) {
-        my @parameters;
+        my $parameters := nqp::gethllsym("nqp", "nqplist")();
         my %seen_names;
         for %signature_info<parameters>.list {
             my $p := hash(|nqp::decont($_));
@@ -3816,11 +3812,10 @@ class Perl5::Actions does STDActions {
             }
 
             # Add it to the signature.
-            @parameters.push($param_obj);
+            nqp::push($parameters, $param_obj);
         }
-        #~ nqp::bindkey(%signature_info, 'parameters', nqp::gethllsym("nqp", "nqplist")(|@parameters));
-        #~ $*W.create_signature(%signature_info)
-        $*W.create_signature(nqp::hash('parameters', nqp::gethllsym("nqp", "nqplist")(|@parameters)))
+        nqp::bindkey(%signature_info, 'parameters', $parameters);
+        $*W.create_signature(%signature_info)
     }
 
     method trait($/) {
