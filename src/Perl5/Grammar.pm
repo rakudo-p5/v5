@@ -2313,7 +2313,7 @@ grammar Perl5::Grammar does STD5 {
         <sym>
         [
         | <versionish>
-        | <module_name> <!['(']>
+        | <module_name> <![(]>
         | <file=.variable>
         | <!before <sigil>> <file=.term>
         ]
