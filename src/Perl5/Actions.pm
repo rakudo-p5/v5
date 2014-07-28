@@ -475,8 +475,8 @@ class Perl5::Actions does STDActions {
         block_immediate($pblock<uninstall_if_immediately_used>.shift);
     }
 
-    our sub block_immediate(Mu $block is rw) {
-        $V5DEBUG && say("our sub block_immediate(\$block)");
+    sub block_immediate(Mu $block is rw) {
+        $V5DEBUG && say("sub block_immediate(\$block)");
         $block.blocktype('immediate');
         $block;
     }
@@ -975,11 +975,11 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("add_param(\$block, $name)");
         if !$block.symbol($name) || $block.symbol($name)<for_variable> || $name eq '$_' {
             if $*IMPLICIT {
-                @params.push(hash(
+                @params.push({
                     :variable_name($name), :optional(1),
                     :nominal_type(find_symbol('Mu')),
                     :default_from_outer(1), :is_parcel(1),
-                ));
+                });
             }
             unless $block.symbol($name) {
                 $block[0].push(QAST::Var.new( :name($name), :scope('lexical'), :decl('var') ));
@@ -1028,7 +1028,7 @@ class Perl5::Actions does STDActions {
             # We'll install PAST in current block so it gets capture_lex'd.
             # Then evaluate to a reference to the block (non-closure - higher
             # up stuff does that if it wants to).
-            $*W.cur_lexpad[0].push(my $uninst := QAST::Stmts.new($block));
+            ($*W.cur_lexpad())[0].push(my $uninst := QAST::Stmts.new($block));
             $*W.attach_signature($*DECLARAND, $signature);
             $*W.finish_code_object($*DECLARAND, $block);
             my $ref := reference_to_code_object($*DECLARAND, $block);
@@ -1139,6 +1139,7 @@ class Perl5::Actions does STDActions {
     sub if_statement($/) {
         my $count := +$<xblock> - 1;
         my $past := xblock_immediate( $<xblock>[$count].ast );
+        #~ my $past := $<xblock>[$count].ast;
         # push the else block if any
         $past.push( $<else>
                     ?? pblock_immediate( $<else>.ast )
@@ -1151,8 +1152,10 @@ class Perl5::Actions does STDActions {
             $past := xblock_immediate( $<xblock>[$count].ast );
             $past.push($else);
         }
-        say $past.dump;
-        say $past[0].dump;
+        #~ say $past.dump;
+        #~ say $past[0].dump;
+        #~ say $past[1].dump;
+        #~ say $*W.cur_lexpad[0].dump;
         $past;
     }
 
@@ -6046,8 +6049,8 @@ class Perl5::Actions does STDActions {
     sub make_thunk_ref($to_thunk is rw, $/) {
         $V5DEBUG && say("make_thunk_ref($/)");
         my $block := $*W.push_lexpad($/);
-        #~ $block.push(QAST::Stmts.new(autosink($to_thunk)));
-        $block.push(QAST::Stmts.new($to_thunk));
+        $block.push(QAST::Stmts.new(autosink($to_thunk)));
+        #~ $block.push(QAST::Stmts.new($to_thunk));
         $*W.pop_lexpad();
         reference_to_code_object(
             $*W.create_simple_code_object($block, 'Code'),
