@@ -29,4 +29,11 @@ say( (foo() ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
 sub bar { $_[0] * 42 }
 say( (bar(2) == 84 ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
 
+if ($n) {
+    say "ok " . ++$n . " - at line " . __LINE__
+}
+else {
+    say "nok " . ++$n . " - at line " . __LINE__
+}
+
 say "1.." . $n;
