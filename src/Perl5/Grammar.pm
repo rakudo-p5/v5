@@ -665,7 +665,7 @@ grammar Perl5::Grammar does STD5 {
         @result
     }
 
-    method EXPR2(str $preclim = '', int :$noinfix = 0) {
+    method EXPR2($preclim = '', int :$noinfix = 0) {
         my $here         := self.'!cursor_start_cur'();
         my $pos           = nqp::getattr_i($here, $cursor_class, '$!from');
         my str $termishrx = 'termish';
@@ -2621,7 +2621,7 @@ grammar Perl5::Grammar does STD5 {
     # Nouns #
     #########
 
-    method EXPR(str $preclim = '') {
+    method EXPR($preclim = '') {
         # Override this so we can set $*LEFTSIGIL.
         my $*LEFTSIGIL := '';
         self.EXPR2($preclim, :noinfix($preclim eq 'z='));

@@ -10,5 +10,13 @@ say( (0+1 ? '' : 'n')   . "ok " . ++$n . " - at line " . __LINE__ );
 say( ("a" ? '' : 'n')   . "ok " . ++$n . " - at line " . __LINE__ );
 say( ("0" ? 'n' : '')   . "ok " . ++$n . " - at line " . __LINE__ );
 say( ("0e0" ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
+say "ok "  . ++$n . " - at line " . __LINE__ if 1;
+say "nok " . ++$n . " - at line " . __LINE__ if 0;
+say "ok "  . ++$n . " - at line " . __LINE__ unless 0;
+say "nok " . ++$n . " - at line " . __LINE__ unless 1;
+say "ok "  . ++$n . " - at line " . __LINE__ if 1 && 1;
+say "ok "  . ++$n . " - at line " . __LINE__ if 0 || 1;
+say "nok " . ++$n . " - at line " . __LINE__ if 0 || 0;
+say "nok " . ++$n . " - at line " . __LINE__ if 1 && 0;
 
 say "1.." . $n;
