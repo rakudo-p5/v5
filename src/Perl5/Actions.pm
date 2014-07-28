@@ -4898,17 +4898,19 @@ class Perl5::Actions does STDActions {
             make $past;
             return 1;
         }
-        elsif !$past && ($sym eq 'does' || $sym eq 'but') {
-            make mixin_op($/, $sym);
-            return 1;
-        }
-        elsif !$past && $sym eq 'xx' {
-            make xx_op($/, $/[0].ast, $/[1].ast);
-            return 1;
-        }
-        elsif !$past && $sym eq 'andthen' {
-            make andthen_op($/);
-            return 1;
+        elsif !nqp::defined($past) {
+            if ($sym eq 'does' || $sym eq 'but') {
+                make mixin_op($/, $sym);
+                return 1;
+            }
+            elsif $sym eq 'xx' {
+                make xx_op($/, $/[0].ast, $/[1].ast);
+                return 1;
+            }
+            elsif $sym eq 'andthen' {
+                make andthen_op($/);
+                return 1;
+            }
         }
         unless $past {
             if $<OPER><O><pasttype> {
@@ -6392,7 +6394,7 @@ class Perl5::Actions does STDActions {
         $past
     }
 
-    sub wrap_return_handler($past) {
+    sub wrap_return_handler(Mu $past) {
         QAST::Op.new(
             :op('p6typecheckrv'),
             QAST::Stmts.new(

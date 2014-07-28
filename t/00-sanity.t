@@ -23,4 +23,10 @@ $x = 0;
 for (3..5) { $x++ };
 say( ($x == 3 ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
 
+sub foo { 42 }
+say( (foo() ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
+
+sub bar { $_[0] * 42 }
+say( (bar(2) == 84 ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
+
 say "1.." . $n;

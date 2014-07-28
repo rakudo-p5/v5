@@ -275,9 +275,9 @@ role STD5 {
         $ok    := $ok || ($*IN_SORT && ($varast.name eq '$a' || $varast.name eq '$b'));
         if !$ok {
             # Change the sigil if needed.
-            $var<really> = '@' if ~$var<sigil> eq '$#';
-            $varast.name( ~$var<really> ~ ~$var<desigilname> ) if $var<really>;
-            $varast.name( ~$var<sigil>  ~ ~$var<name> )        if $var<name>;
+            $var<really>.make('@') if ~$var<sigil> eq '$#';
+            $varast.name( $var<really>.made ~ ~$var<desigilname> ) if $var<really>.made;
+            $varast.name( ~$var<sigil>      ~ ~$var<name> )        if $var<name>;
             my $name := $varast.name;
             my $is_global := nqp::substr(~$var<desigilname>, 0, 2) eq '::';
             if $name ne '@_' && !$*W.is_lexical($name) {
@@ -2698,12 +2698,12 @@ grammar Perl5::Grammar does STD5 {
         [
         ||  <!{ $*QSIGIL }>
             [
-            || <?before <ws> \s* '['> { $<variable><really> = '@' }
-            || <?before <ws> \s* '{'> { $<variable><really> = '%' }
+            || <?before <ws> \s* '['> { $<variable><really>.make('@') }
+            || <?before <ws> \s* '{'> { $<variable><really>.make('%') }
             ]
         ||  [
-            || <?[\[]> { $<variable><really> = '@' }
-            || <?[\{]> { $<variable><really> = '%' }
+            || <?[\[]> { $<variable><really>.make('@') }
+            || <?[\{]> { $<variable><really>.make('%') }
             ]
         ]?
         { $*VAR := $*VAR || $<variable> }
@@ -2933,10 +2933,8 @@ grammar Perl5::Grammar does STD5 {
               }}
             ]
         ]
-
+        $<really>=''
     }
-
-
 
     # Note, don't reduce on a bare sigil unless you don't care what the longest token is.
 
@@ -3535,7 +3533,7 @@ grammar Perl5::Grammar does STD5 {
             } || <EXPR('q=')> ] { $*ARGUMENT_HAVE := 1 }
         || <?{ $*PROTOTYPE eq '*' }>
             [
-            || <barename=.name> <?{ !(~$<name> ~~ /'my'|'our'/) && (my Mu $h := $*W.cur_lexpad().symbol(~$<barename>)) && $h<barename> }>
+            || <barename=.name> <?{ !(~$<barename> ~~ /'my'|'our'/) && (my Mu $h := $*W.cur_lexpad().symbol(~$<barename>)) && $h<barename> }>
             || <EXPR($prec)>
             ]
             { $*ARGUMENT_HAVE := 1 }
