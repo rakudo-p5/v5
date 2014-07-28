@@ -6535,14 +6535,14 @@ class Perl5::Actions does STDActions {
     }
 }
 
-class Perl5::QActions is HLL::Actions does STDActions {
+class Perl5::QActions does STDActions {
     method nibbler($/) {
         $V5DEBUG && say("method nibbler($/)");
         my Mu $asts := nqp::list();
         my $lastlit := '';
         
         for @*nibbles {
-            if nqp::istype($_, NQPMatch) {
+            if nqp::istype($_, Match) {
                 if nqp::istype($_.ast, QAST::Node) {
                     if $lastlit ne '' {
                         nqp::push($asts, $*W.add_string_constant($lastlit));

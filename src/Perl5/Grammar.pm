@@ -4324,7 +4324,6 @@ grammar Perl5::Grammar does STD5 {
     }
 }
 
-#~ grammar Perl5::QGrammar is HLL::Grammar does STD5 {
 grammar Perl5::QGrammar does STD5 {
 
     token charspec {
@@ -4344,7 +4343,7 @@ grammar Perl5::QGrammar does STD5 {
     proto token backslash {*}
 
     role b1 {
-        token escape:sym<\\> { <sym> <item=backslash> }
+        token escape:sym<\\> { <sym> <item=backslash> <?{ make $<item>.ast }> }
         token backslash:sym<qq> { <?before 'q'> { $<quote> = <quibble(%*LANG<P5Q>, 'qq')> } }
         token backslash:sym<\\> { <text=sym> }
         token backslash:sym<stopper> { <text=stopper> }
