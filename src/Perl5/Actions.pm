@@ -466,13 +466,14 @@ class Perl5::Actions does STDActions {
 
     sub xblock_immediate(Mu $xblock is rw) {
         $V5DEBUG && say("sub xblock_immediate(\$xblock)");
-        $xblock[1] := pblock_immediate($xblock[1]);
+        nqp::bindpos($xblock, 1, pblock_immediate($xblock[1]));
         $xblock;
     }
 
     sub pblock_immediate(Mu $pblock is rw) {
         $V5DEBUG && say("sub pblock_immediate(\$pblock)");
-        block_immediate($pblock<uninstall_if_immediately_used>.shift);
+        my $p := block_immediate($pblock<uninstall_if_immediately_used>.shift);
+        $p
     }
 
     sub block_immediate(Mu $block is rw) {
@@ -1139,7 +1140,6 @@ class Perl5::Actions does STDActions {
     sub if_statement($/) {
         my $count := +$<xblock> - 1;
         my $past := xblock_immediate( $<xblock>[$count].ast );
-        #~ my $past := $<xblock>[$count].ast;
         # push the else block if any
         $past.push( $<else>
                     ?? pblock_immediate( $<else>.ast )
@@ -1152,10 +1152,6 @@ class Perl5::Actions does STDActions {
             $past := xblock_immediate( $<xblock>[$count].ast );
             $past.push($else);
         }
-        #~ say $past.dump;
-        #~ say $past[0].dump;
-        #~ say $past[1].dump;
-        #~ say $*W.cur_lexpad[0].dump;
         $past;
     }
 
