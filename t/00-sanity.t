@@ -18,6 +18,7 @@ say "ok "  . ++$n . " - at line " . __LINE__ if 1 && 1;
 say "ok "  . ++$n . " - at line " . __LINE__ if 0 || 1;
 say "nok " . ++$n . " - at line " . __LINE__ if 0 || 0;
 say "nok " . ++$n . " - at line " . __LINE__ if 1 && 0;
+say "ok "  . ++$n . " - at line " . __LINE__ if "$n";
 
 $x = 0;
 for (3..5) { $x++ };
