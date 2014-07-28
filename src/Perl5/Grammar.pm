@@ -342,6 +342,13 @@ role STD5 {
         }
         self
     }
+
+    method LANG($lang, $regex, *@args) {
+        #~ my $lang_cursor = %*LANG{$lang}.'!cursor_init'(self.orig(), :p(self.pos()), :shared(self.'!shared'()));
+        my $lang_cursor = %*LANG{$lang}.'!cursor_init'(self.orig(), :p(self.pos()));
+        my $*ACTIONS   := %*LANG{$lang ~ '-actions'};
+        $lang_cursor."$regex"(|@args);
+    }
 }
 
 grammar Perl5::Grammar does STD5 {
@@ -888,16 +895,6 @@ grammar Perl5::Grammar does STD5 {
             $cur := self.'!cursor_start_fail'();
         }
         $cur
-    }
-
-    method LANG($lang, $regex, *@args) {
-        #~ my $lang_cursor = %*LANG{$lang}.'!cursor_init'(self.orig(), :p(self.pos()), :shared(self.'!shared'()));
-        my $lang_cursor = %*LANG{$lang}.'!cursor_init'(self.orig(), :p(self.pos()));
-        if self.HOW.traced(self) {
-            $lang_cursor.HOW.trace-on($lang_cursor, self.HOW.trace_depth(self));
-        }
-        my $*ACTIONS    := %*LANG{$lang ~ '-actions'};
-        $lang_cursor."$regex"(|@args);
     }
 
     method TOP() {
