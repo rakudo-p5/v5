@@ -4870,7 +4870,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("EXPR($/, {$key // ''}?)");
         unless $key { return 0; }
         my $past := $/.ast // $<OPER>.ast;
-        my $sym   = ~($<infix><sym> // $<prefix><sym> // $<postfix><sym>);
+        my $sym   = ~($<infix><sym> // $<prefix><sym> // $<postfix><sym> // '');
         my int $return_map = 0;
         if $past && nqp::substr($past.name, 0, 19) eq '&METAOP_TEST_ASSIGN' {
             $past.push($/[0].ast);
@@ -4920,23 +4920,24 @@ class Perl5::Actions does STDActions {
             else {
                 $past := QAST::Op.new( :node($/), :op('call') );
             }
-            my $name;
-            if $past.isa(QAST::Op) && !$past.name {
-                if $key eq 'LIST' { $key = 'infix'; }
-                my $sym := $<OPER><sym>;
-                $name := nqp::lc($key) ~ ':<' ~ $sym ~ '>';
-                $past.name('&' ~ $name);
-            }
-            my $macro := find_macro_routine(['&' ~ $name]);
-            if $macro {
-                make expand_macro($macro, $name, $/, sub () {
-                    my @argument_asts := [];
-                    for @($/) {
-                        add_macro_arguments($_.ast, @argument_asts);
-                    }
-                    return @argument_asts;
-                });
-                return 'an irrelevant value';
+            if $<OPER><sym> {
+                my $name;
+                if $past.isa(QAST::Op) && !$past.name {
+                    if $key eq 'LIST' { $key = 'infix'; }
+                    $name := nqp::lc($key) ~ ':<' ~ $<OPER><sym> ~ '>';
+                    $past.name('&' ~ $name);
+                }
+                my $macro := find_macro_routine(['&' ~ $name]);
+                if $macro {
+                    make expand_macro($macro, $name, $/, sub () {
+                        my @argument_asts := [];
+                        for @($/) {
+                            add_macro_arguments($_.ast, @argument_asts);
+                        }
+                        return @argument_asts;
+                    });
+                    return 'an irrelevant value';
+                }
             }
         }
         if $key eq 'POSTFIX' {
