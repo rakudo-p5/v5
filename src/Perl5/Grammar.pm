@@ -875,43 +875,6 @@ grammar Perl5::Grammar does STD5 {
         $cur
     }
 
-    method TOP() {
-        # Language braid.
-        my %*LANG;
-        %*LANG<Regex>           := Perl6::RegexGrammar;
-        %*LANG<Regex-actions>   := Perl6::RegexActions;
-        %*LANG<P5Regex>         := Perl6::P5RegexGrammar;
-        %*LANG<P5Regex-actions> := Perl6::P5RegexActions;
-        %*LANG<Q>               := Perl6::P5QGrammar;
-        %*LANG<Q-actions>       := Perl6::P5QActions;
-        %*LANG<MAIN>            := Perl6::P5Grammar;
-        %*LANG<MAIN-actions>    := Perl6::P5Actions;
-        
-        # Package declarator to meta-package mapping. Starts pretty much empty;
-        # we get the mappings either imported or supplied by the setting. One
-        # issue is that we may have no setting to provide them, e.g. when we
-        # compile the setting, but it still wants some kinda package. We just
-        # fudge in knowhow for that.
-        my %*HOW;
-        %*HOW<knowhow> := nqp::knowhow();
-        %*HOW<package> := nqp::knowhow();
-        
-        # Symbol table and serialization context builder - keeps track of
-        # objects that cross the compile-time/run-time boundary that are
-        # associated with this compilation unit.
-        my $file := nqp::getlexdyn('$?FILES');
-        my $source_id := nqp::sha1(self.target());
-        my $*W := nqp::isnull($file) ??
-            Perl6::P5World.new(:handle($source_id)) !!
-            Perl6::P5World.new(:handle($source_id), :description($file));
-        $*W.add_initializations();
-
-        my $cursor := self.comp_unit;
-        $*W.pop_lexpad(); # UNIT
-        $*W.pop_lexpad(); # UNIT_OUTER
-        $cursor;
-    }
-
     ##############
     # Precedence #
     ##############
@@ -920,34 +883,6 @@ grammar Perl5::Grammar does STD5 {
     # The current values are mere implementation; they may change at any time.
     # Users should specify precedence only in relation to existing levels.
 
-#    my %term           := (:dba('term')            , :prec<z=>);
-#    my %methodcall     := (:dba('methodcall')      , :prec<y=>, :assoc<unary>, :uassoc<left>, :fiddly(1));
-#    my %autoincrement  := (:dba('autoincrement')   , :prec<x=>, :assoc<unary>, :uassoc<non>);
-#    my %exponentiation := (:dba('exponentiation')  , :prec<w=>, :assoc<right>);
-#    my %symbolic_unary := (:dba('symbolic unary')  , :prec<v=>, :assoc<unary>, :uassoc<left>);
-#    my %binding        := (:dba('binding')         , :prec<u=>, :assoc<non>);
-#    my %multiplicative := (:dba('multiplicative')  , :prec<t=>, :assoc<left>);
-#    my %additive       := (:dba('additive')        , :prec<s=>, :assoc<left>);
-#    my %shift          := (:dba('shift')           , :prec<r=>, :assoc<left>);
-#    my %named_unary    := (:dba('named unary')     , :prec<q=>, :assoc<unary>, :uassoc<left>);
-#    my %comparison     := (:dba('comparison')      , :prec<p=>, :assoc<non>, :diffy(1));
-#    my %equality       := (:dba('equality')        , :prec<o=>, :assoc<chain>, :diffy(1), :iffy(1));
-#    my %bitwise_and    := (:dba('bitwise and')     , :prec<n=>, :assoc<left>);
-#    my %bitwise_or     := (:dba('bitwise or')      , :prec<m=>, :assoc<left>);
-#    my %tight_and      := (:dba('tight and')       , :prec<l=>, :assoc<left>);
-#    my %tight_or       := (:dba('tight or')        , :prec<k=>, :assoc<left>);
-#    my %range          := (:dba('range')           , :prec<j=>, :assoc<right>, :fiddly(1));
-#    my %conditional    := (:dba('conditional')     , :prec<i=>, :assoc<right>, :fiddly(1));
-#    my %assignment     := (:dba('assignment')      , :prec<h=>, :assoc<right>);
-#    my %comma          := (:dba('comma operator')  , :prec<g=>, :assoc<left>, :nextterm<nulltermish>, :fiddly(1));
-#    my %listop         := (:dba('list operator')   , :prec<f=>, :assoc<unary>, :uassoc<left>);
-#    my %loose_not      := (:dba('not operator')    , :prec<e=>, :assoc<unary>, :uassoc<left>);
-#    my %loose_and      := (:dba('loose and')       , :prec<d=>, :assoc<left>);
-#    my %loose_or       := (:dba('loose or')        , :prec<c=>, :assoc<left>);
-#    my %LOOSEST        := (:dba('LOOSEST')         , :prec<a=!>);
-#    my %terminator     := (:dba('terminator')      , :prec<a=>, :assoc<list>);
-    
-    
     INIT {
         Perl5::Grammar.O(':prec<z=>',                                                   '%term');
         Perl5::Grammar.O(':prec<y=>, :assoc<unary>, :uassoc<left>, :fiddly<1>',         '%methodcall');
@@ -977,11 +912,6 @@ grammar Perl5::Grammar does STD5 {
         Perl5::Grammar.O(':prec<a=!>',                                                  '%LOOSEST');
         Perl5::Grammar.O(':prec<a=>, :assoc<list>',                                     '%terminator');
     }
-
-    # "epsilon" tighter than terminator
-    #constant $LOOSEST = %LOOSEST<prec>;
-#    constant $LOOSEST := 'a=!'; # XXX preceding line is busted
-#    my $LOOSEST := 'a=!'; # XXX preceding line is busted
 
     ##############
     # Categories #
@@ -1171,259 +1101,6 @@ grammar Perl5::Grammar does STD5 {
     # Top-level rules #
     ###################
 
-#    # Note: we only check for the stopper.  We don't check for ^ because
-#    # we might be embedded in something else.
-#    rule comp_unit {
-#        :my $*begin_compunit := 1;
-#        :my %*LANG;
-#        :my $*PKGDECL := "";
-#        :my $*IN_DECL;
-#        :my $*DECLARAND;
-#        :my $*NEWPKG;
-#        :my $*NEWLEX;
-#        :my $*QSIGIL := '';
-#        :my $*IN_META := 0;
-#        :my $*QUASIMODO;
-#        :my $*SCOPE := "";
-#        :my $*LEFTSIGIL;
-#        :my %*MYSTERY := ();
-#        :my $*INVOCANT_OK;
-#        :my $*INVOCANT_IS;
-#        :my $*CURLEX;
-#        :my $*MULTINESS := '';
-#
-#        :my $*CURPKG;
-#        {{
-#            #%*LANG<MAIN>    = ::STD5 ;
-#            #%*LANG<Q>       = ::STD5::Q ;
-#            #%*LANG<Regex>   = ::STD5::Regex ;
-#            #%*LANG<Trans>   = ::STD5::Trans ;
-#            %*LANG<Regex>           := Perl6::RegexGrammar;
-#            %*LANG<Regex-actions>   := Perl6::RegexActions;
-#            %*LANG<P5Regex>         := Perl6::P5RegexGrammar;
-#            %*LANG<P5Regex-actions> := Perl6::P5RegexActions;
-#            %*LANG<Q>               := Perl6::QGrammar;
-#            %*LANG<Q-actions>       := Perl6::QActions;
-#            %*LANG<MAIN>            := Perl6::Grammar;
-#            %*LANG<MAIN-actions>    := Perl6::Actions;
-#
-#            @*WORRIES := ();
-#            self.load_setting($*SETTINGNAME);
-#            my $oid          := $*SETTING.id;
-#            my $id           := 'MY:file<' ~ $*FILE<name> ~ '>';
-#            #$*CURLEX         := Stash.new( :'OUTER::'([$oid]), :'!file'($*FILE), :'!line'(0), :'!id'([$id]) );
-#            #$STD::ALL{$id}   := $*CURLEX;
-#            $*UNIT           := $*CURLEX;
-#            #$STD::ALL<UNIT>  := $*UNIT;
-#            self.finishlex;
-#        }}
-#        <statementlist>
-#        [ <?unitstopper> || <.panic: "Confused"> ]
-#
-#        # "CHECK" time...
-#        {{
-#            if @*WORRIES {
-#                warn("Potential difficulties:\n  " ~ nqp::join( "\n  ", @*WORRIES) ~ "\n");
-#            }
-#            my $m := self.explain_mystery();
-#            warn($m) if $m;
-#        }}
-#    }
-    token comp_unit {
-        # From STD.pm.
-        :my $*LEFTSIGIL;                           # sigil of LHS for item vs list assignment
-        :my $*SCOPE := '';                         # which scope declarator we're under
-        :my $*MULTINESS := '';                     # which multi declarator we're under
-        :my $*QSIGIL := '';                        # sigil of current interpolation
-        :my $*IN_META := '';                       # parsing a metaoperator like [..]
-        :my $*IN_REDUCE := 0;                      # attempting to parse an [op] construct
-        :my $*IN_DECL;                             # what declaration we're in
-        :my $*HAS_SELF := '';                      # is 'self' available? (for $.foo style calls)
-        :my $*MONKEY_TYPING := 0;                  # whether augment/supersede are allowed
-        :my $*begin_compunit := 1;                 # whether we're at start of a compilation unit
-        :my $*DECLARAND;                           # the current thingy we're declaring, and subject of traits
-        :my $*METHODTYPE;                          # the current type of method we're in, if any
-        :my $*PKGDECL;                             # what type of package we're in, if any
-        :my %*MYSTERY;                             # names we assume may be post-declared functions
-        
-        # Error related. There are three levels: worry (just a warning), sorry
-        # (fatal but not immediately so) and panic (immediately deadly). There
-        # is a limit on the number of sorrows also. Unlike STD, which emits the
-        # textual messages as it goes, we keep track of the exception objects
-        # and, if needed, make a compositite exception group.
-        :my @*WORRIES;                             # exception objects resulting from worry
-        :my @*SORROWS;                             # exception objects resulting from sorry
-        :my $*SORRY_LIMIT := 10;                   # when sorrow turns to panic
-
-        # Extras.
-        :my %*METAOPGEN;                           # hash of generated metaops
-        :my %*HANDLERS;                            # block exception handlers
-        :my $*IMPLICIT;                            # whether we allow an implicit param
-        :my $*FORBID_PIR := 0;                     # whether pir::op and Q:PIR { } are disallowed
-        :my $*HAS_YOU_ARE_HERE := 0;               # whether {YOU_ARE_HERE} has shown up
-        :my $*OFTYPE;
-        :my $*VMARGIN    := 0;                     # pod stuff
-        :my $*ALLOW_CODE := 0;                     # pod stuff
-        :my $*POD_IN_FORMATTINGCODE := 0;          # pod stuff
-        :my $*IN_REGEX_ASSERTION := 0;
-        :my $*SOFT := 0;                           # is the soft pragma in effect
-        :my $*IN_PROTO := 0;                       # are we inside a proto?
-
-        # Various interesting scopes we'd like to keep to hand.
-        :my $*GLOBALish;
-        :my $*PACKAGE;
-        :my $*SETTING;
-        :my $*UNIT;
-        :my $*UNIT_OUTER;
-        :my $*EXPORT;
-        # stack of packages, which the 'is export' needs
-        :my @*PACKAGES := [];
-
-        # A place for Pod
-        :my $*POD_BLOCKS := [];
-        :my $*POD_BLOCKS_SEEN := {};
-        :my $*POD_PAST;
-        :my $*DECLARATOR_DOCS;
-        
-        # Quasis and unquotes
-        :my $*IN_QUASI := 0;                       # whether we're currently in a quasi block
-
-        # Setting loading and symbol setup.
-        {
-            # Create unit outer (where we assemble any lexicals accumulated
-            # from e.g. REPL) and the real UNIT.
-            $*UNIT_OUTER := $*W.push_lexpad($/);
-            $*UNIT := $*W.push_lexpad($/);
-            
-            # If we already have a specified outer context, then that's
-            # our setting. Otherwise, load one.
-            my $have_outer := nqp::defined(%*COMPILING<%?OPTIONS><outer_ctx>);
-            if $have_outer {
-                $*UNIT<IN_DECL> := 'eval';
-            }
-            else {
-                $*SETTING := $*W.load_setting($/, %*COMPILING<%?OPTIONS><setting> // 'CORE');
-                $*UNIT<IN_DECL> := 'mainline';
-            }
-            $/.CURSOR.unitstart();
-            try {
-                my $EXPORTHOW := find_symbol('EXPORTHOW');
-                for $EXPORTHOW.WHO {
-                    %*HOW{$_.key} := $_.value;
-                }
-            }
-            
-            # Create GLOBAL(ish), unless we were given one.
-            if nqp::existskey(%*COMPILING<%?OPTIONS>, 'global') {
-                $*GLOBALish := %*COMPILING<%?OPTIONS><global>;
-            }
-            elsif $have_outer && $*UNIT_OUTER.symbol('GLOBALish') {
-                $*GLOBALish := $*UNIT_OUTER.symbol('GLOBALish')<value>;
-            }
-            else {
-                $*GLOBALish := $*W.pkg_create_mo($/, %*HOW<package>, :name('GLOBAL'));
-                $*W.pkg_compose($*GLOBALish);
-            }
-                
-            # Create or pull in existing EXPORT.
-            if $have_outer && $*UNIT_OUTER.symbol('EXPORT') {
-                $*EXPORT := $*UNIT_OUTER.symbol('EXPORT')<value>;
-            }
-            else {
-                $*EXPORT := $*W.pkg_create_mo($/, %*HOW<package>, :name('EXPORT'));
-                $*W.pkg_compose($*EXPORT);
-            }
-            
-            # If there's a self in scope, set $*HAS_SELF.
-            if $have_outer && $*UNIT_OUTER.symbol('self') {
-                $*HAS_SELF := 'complete';
-            }
-                
-            # Take current package from outer context if any, otherwise for a
-            # fresh compilation unit we start in GLOBAL.
-            if $have_outer && $*UNIT_OUTER.symbol('$?PACKAGE') {
-                $*PACKAGE := $*UNIT_OUTER.symbol('$?PACKAGE')<value>;
-            }
-            else {
-                $*PACKAGE := $*GLOBALish;
-            }
-            
-            # If we're eval'ing in the context of a %?LANG, set up our own
-            # %*LANG based on it.
-            if $have_outer && $*UNIT_OUTER.symbol('%?LANG') {
-                for $*UNIT_OUTER.symbol('%?LANG')<value>.FLATTENABLE_HASH() {
-                    %*LANG{$_.key} := $_.value;
-                }
-            }
-            
-            # Install unless we've no setting, in which case we've likely no
-            # static lexpad class yet either. Also, UNIT needs a code object.
-            unless %*COMPILING<%?OPTIONS><setting> eq 'NULL' {
-                $*W.install_lexical_symbol($*UNIT, 'GLOBALish', $*GLOBALish);
-                $*W.install_lexical_symbol($*UNIT, 'EXPORT', $*EXPORT);
-                $*W.install_lexical_symbol($*UNIT, '$?PACKAGE', $*PACKAGE);
-                $*W.install_lexical_symbol($*UNIT, '::?PACKAGE', $*PACKAGE);
-                $*DECLARAND := $*W.stub_code_object('Block');
-            }
-            my $M := %*COMPILING<%?OPTIONS><M>;
-            if nqp::defined($M) {
-                for nqp::islist($M) ?? $M !! [$M] -> $longname {
-                    my $module := $*W.load_module($/, $longname, nqp::hash( 'from', 'Perl5' ), $*GLOBALish);
-                    do_import($/, $module, $longname);
-                    $/.CURSOR.import_EXPORTHOW($module);
-                }
-            }
-        }
-        
-        <.finishlex>
-        <.bom>?
-        <statementlist(1)>
-
-        <.install_doc_phaser>
-        
-        [ $ || <.typed_panic: 'X::Syntax::Confused'> ]
-        
-        {
-            # Emit any errors/worries.
-            self.explain_mystery();
-            if @*SORROWS {
-                if +@*SORROWS == 1 && !@*WORRIES {
-                    @*SORROWS[0].throw()
-                }
-                else {
-                    $*W.group_exception(@*SORROWS.pop).throw();
-                }
-            }
-            if @*WORRIES {
-                nqp::printfh(nqp::getstderr(), $*W.group_exception().gist());
-            }
-        
-            # Install POD-related variables.
-            $*POD_PAST := $*W.add_constant(
-                'Array', 'type_new', |$*POD_BLOCKS
-            );
-            $*W.install_lexical_symbol(
-                $*UNIT, '$=pod', $*POD_PAST.compile_time_value
-            );
-            
-            # Tag UNIT with a magical lexical. Also if we're compiling CORE,
-            # give it such a tag too.
-            if %*COMPILING<%?OPTIONS><setting> eq 'NULL' {
-                my $marker := $*W.pkg_create_mo($/, %*HOW<package>, :name('!CORE_MARKER'));
-                $marker.HOW.compose($marker);
-                $*W.install_lexical_symbol($*UNIT, '!CORE_MARKER', $marker);
-            }
-            else {
-                my $marker := $*W.pkg_create_mo($/, %*HOW<package>, :name('!UNIT_MARKER'));
-                $marker.HOW.compose($marker);
-                $*W.install_lexical_symbol($*UNIT, '!UNIT_MARKER', $marker);
-            }
-        }
-        
-        # CHECK time.
-        { $*W.CHECK(); }
-    }
-
     method import_EXPORTHOW(Mu \UNIT) {
         my $UNIT := UNIT;
         # See if we've exported any HOWs.
@@ -1451,65 +1128,6 @@ grammar Perl5::Grammar does STD5 {
             }
         }
         self;
-    }
-    
-    method explain_mystery() {
-        my %post_types;
-        my %unk_types;
-        my %unk_routines;
-        
-        sub push_lines(@target, @pos) {
-            for @pos {
-                nqp::push(@target, HLL::Compiler.lineof(self.orig, $_, :cache(1)));
-            }
-        }
-        
-        my %routine_suggestion := hash();
-        my %type_suggestion := hash();
-        
-        for %*MYSTERY {
-            my %sym  := $_.value;
-            my $name := %sym<name>;
-            my $decl := $*W.is_lexically_visible($name, %sym<lex>);
-            if $decl == 2 {
-                # types may not be post-declared
-                %post_types{$name} := [] unless %post_types{$name};
-                push_lines(%post_types{$name}, %sym<pos>);
-                next;
-            }
-
-            next if $decl == 1;
-            next if $*W.is_lexically_visible('&' ~ $name, %sym<lex>);
-
-            # just a guess, but good enough to improve error reporting
-            if $_ lt 'a' {
-                %unk_types{$name} := [] unless %unk_types{$name};
-                my @suggs := $*W.suggest_typename($name);
-                %type_suggestion{$name} := @suggs;
-                push_lines(%unk_types{$name}, %sym<pos>);
-            }
-            else {
-                %unk_routines{$name} := [] unless %unk_routines{$name};
-                my @suggs := $*W.suggest_routines($name);
-                %routine_suggestion{$name} := @suggs;
-                push_lines(%unk_routines{$name}, %sym<pos>);
-            }
-        }
-        
-        if %post_types || %unk_types || %unk_routines {
-            self.typed_sorry('X::Undeclared::Symbols',
-                :%post_types, :%unk_types, :%unk_routines,
-                :%routine_suggestion, :%type_suggestion);
-        }
-        
-        self;        
-    }
-
-    method add_variable($name) {
-        my $categorical := $name ~~ /^'&'((\w+)':<'\s*(\S+?)\s*'>')$/;
-        if $categorical {
-            self.add_categorical(~$categorical[0][0], ~$categorical[0][1], ~$categorical[0], $name);
-        }
     }
 
     # Called when we add a new choice to an existing syntactic category, for
@@ -2188,6 +1806,13 @@ grammar Perl5::Grammar does STD5 {
     # Declarators #
     ###############
 
+    method add_variable($name) {
+        my $categorical := $name ~~ /^'&'((\w+)':<'\s*(\S+?)\s*'>')$/;
+        if $categorical {
+            self.add_categorical(~$categorical[0][0], ~$categorical[0][1], ~$categorical[0], $name);
+        }
+    }
+
 #    token variable_declarator {
 #        :my $*IN_DECL := 1;
 #        :my $*DECLARAND;
@@ -2266,7 +1891,6 @@ grammar Perl5::Grammar does STD5 {
         | <DECL=package_declarator>
         ]
     }
-
 
     token scope_declarator:sym<my>        { <sym> <scoped('my')> }
     token scope_declarator:sym<local>     { <sym> <scoped('local')> }
