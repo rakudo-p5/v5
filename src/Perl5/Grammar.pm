@@ -236,29 +236,6 @@ role STD5 {
         self.typed_panic('X::Syntax::NonAssociative', :left(~$left), :right(~$right));
     }
 
-    # "when" arg assumes more things will become obsolete after Perl 6 comes out...
-    method obs($old, $new, $when = 'in Perl 6') {
-        $*W.throw(self.MATCH(), ['X', 'Obsolete'],
-            old         => $old,
-            replacement => $new,
-            when        => $when,
-        );
-    }
-    method sorryobs($old, $new, $when = ' in Perl 6') {
-        $*W.throw(self.MATCH(), ['X', 'Obsolete'],
-            old         => $old,
-            replacement => $new,
-            when        => $when,
-        );
-    }
-    method worryobs($old, $new, $when = ' in Perl 6') {
-        $*W.throw(self.MATCH(), ['X', 'Obsolete'],
-            old         => $old,
-            replacement => $new,
-            when        => $when,
-        );
-    }
-    
     my %pragmas;
     method pragma( $name, $args, $set ) {
         %pragmas{$name} = nqp::hash();
