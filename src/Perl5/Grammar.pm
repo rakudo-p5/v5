@@ -2279,9 +2279,9 @@ grammar Perl5::Grammar does STD5 {
 #            <!> # drop through
 #        || <.panic: "Malformed $*SCOPE">
 #    }
-    token scoped($*SCOPE) {
+    rule scoped($*SCOPE) {
         #~ :dba('scoped declarator')
-        <.ws>
+        <?>
         [
         | <DECL=declarator>
         | <DECL=regex_declarator>
