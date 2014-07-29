@@ -3584,75 +3584,41 @@ grammar Perl5::Grammar does STD5 {
     }
 
     ## methodcall
-
-#    token postfix:sym«->»
-#        { '->' }
-
     token postfix:sym«->» {
         <sym> <dottyop>
         <O('%methodcall')>
     }
 
     ## autoincrement
-    token postfix:sym<++>
-        { <sym> <O('%autoincrement')> }
-
-    token postfix:sym«--»
-        { <sym> <O('%autoincrement')> }
-
-    token prefix:sym<++>
-        { <sym> <O('%autoincrement')> }
-
-    token prefix:sym«--»
-        { <sym> <O('%autoincrement')> }
+    token postfix:sym<++> { <sym> <O('%autoincrement')> }
+    token postfix:sym«--» { <sym> <O('%autoincrement')> }
+    token prefix:sym<++>  { <sym> <O('%autoincrement')> }
+    token prefix:sym«--»  { <sym> <O('%autoincrement')> }
 
     ## exponentiation
-    token infix:sym<**>
-        { <sym> <O('%exponentiation')> }
+    token infix:sym<**>  { <sym> <O('%exponentiation')> }
 
     ## symbolic unary
-    token prefix:sym<!>
-        { <sym> <O('%symbolic_unary')> }
-
-    token prefix:sym<+>
-        { <sym> <O('%symbolic_unary')> }
-
-    token prefix:sym<->
-        { <sym> <O('%symbolic_unary')> }
-
-    token prefix:sym<~>
-        { <sym> <O('%symbolic_unary')> }
-
-    token prefix:sym<\\>
-        { <sym> <O('%symbolic_unary')> }
-
+    token prefix:sym<!>  { <sym> <O('%symbolic_unary')> }
+    token prefix:sym<+>  { <sym> <O('%symbolic_unary')> }
+    token prefix:sym<->  { <sym> <O('%symbolic_unary')> }
+    token prefix:sym<~>  { <sym> <O('%symbolic_unary')> }
+    token prefix:sym<\\> { <sym> <O('%symbolic_unary')> }
 
     ## binding
-    token infix:sym<!~>
-        { <sym> <O('%binding')> }
-
-    token infix:sym<=~>
-        { <sym> <O('%binding')> }
-
+    token infix:sym<!~> { <sym> <O('%binding')> }
+    token infix:sym<=~> { <sym> <O('%binding')> }
 
     ## multiplicative
-    token infix:sym<*>
-        { <sym> <O('%multiplicative')> }
-
-    token infix:sym</>
-        { <sym> <O('%multiplicative')> }
-
-    token infix:sym<%>
-        { <sym> <O('%multiplicative')> }
-
-    token infix:sym«<<»
-        { <sym> <O('%multiplicative')> }
-
-    token infix:sym«>>»
-        { <sym> <O('%multiplicative')> }
-
-    token infix:sym<x>
-        { <sym> [ <?before \s+> || <?MARKER('ws')> ] <O('%multiplicative')> }
+    token infix:sym<*>  { <sym> <O('%multiplicative')> }
+    token infix:sym</>  { <sym> <O('%multiplicative')> }
+    token infix:sym<%>  { <sym> <O('%multiplicative')> }
+    token infix:sym«<<» { <sym> <O('%multiplicative')> }
+    token infix:sym«>>» { <sym> <O('%multiplicative')> }
+    token infix:sym<x> {
+        <sym> [ <?before \s+> || <?MARKER('ws')> ]
+        <O('%multiplicative')>
+    }
 
     ## additive
     token infix:sym<.> { <sym> <O('%additive')> }
@@ -3660,20 +3626,12 @@ grammar Perl5::Grammar does STD5 {
     token infix:sym<-> { <sym> <O('%additive')> }
 
     ## bitwise and (all)
-    token infix:sym<&>
-        { <sym> <O('%bitwise_and')> }
-
-    token infix:sym<also>
-        { <sym> <O('%bitwise_and')> }
-
+    token infix:sym<&>    { <sym> <O('%bitwise_and')> }
+    token infix:sym<also> { <sym> <O('%bitwise_and')> }
 
     ## bitwise or (any)
-    token infix:sym<|>
-        { <sym> <O('%bitwise_or')> }
-
-    token infix:sym<^>
-        { <sym> <O('%bitwise_or')> }
-
+    token infix:sym<|> { <sym> <O('%bitwise_or')> }
+    token infix:sym<^> { <sym> <O('%bitwise_or')> }
 
     ## named unary examples
     # (need \s* to win LTM battle with listops)
