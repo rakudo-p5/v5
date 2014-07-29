@@ -2309,7 +2309,7 @@ grammar Perl5::Grammar does STD5 {
     }
 
     token term:sym<package_declarator> { <package_declarator> }
-    token term:sym<scope_declarator>   { <scope_declarator> }
+    token term:sym<scope_declarator>   { <?before my | our | local | state> <scope_declarator> }
     token term:sym<routine_declarator> { <routine_declarator> }
     token term:sym<dotty>              { <dotty> }
     token term:sym<value>              { <value> }
