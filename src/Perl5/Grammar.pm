@@ -2319,48 +2319,47 @@ grammar Perl5::Grammar does STD5 {
         '-'?<key=.identifier> \h* '=>' <.ws> <val=.EXPR('h=')>
     }
 
-    token special_variable:sym<$0> {
-        <sym> | '$PROGRAM_NAME'
-    }
-
-    token special_variable:sym<$!> {
-        <sym> <!before \w> | '$OS_ERROR' | '$ERRNO'
-    }
-
-    token special_variable:sym<%!> {
-        <sym> <!before \w> | '%OS_ERROR' | '%ERRNO'
-    }
-
-    token special_variable:sym<$!{ }> {
-        '$!{' ~ '}' <EXPR>
-    }
-
-    token special_variable:sym<$/> {
-        <sym>
-    }
-
-    token special_variable:sym<$~> {
-        <sym> | '$FORMAT_NAME'
-    }
-
-    token special_variable:sym<$`> {
-        <sym> | '$PREMATCH'
-    }
-
-    token special_variable:sym<$@> {
-        <sym> | '$EVAL_ERROR'
-    }
-
-    token special_variable:sym<$#> {
-        <sym>
-    }
-    token special_variable:sym<$$> {
-        <sym> <!alpha>
-    }
-    token special_variable:sym<$%> {
-        <sym> | '$FORMAT_PAGE_NUMBER'
-    }
-
+    token special_variable:sym<$0>    { <sym> | '$PROGRAM_NAME' }
+    token special_variable:sym<$!>    { <sym> <![\w]> | '$OS_ERROR' | '$ERRNO' }
+    token special_variable:sym<%!>    { <sym> <![\w]> | '%OS_ERROR' | '%ERRNO' }
+    token special_variable:sym<$!{ }> { '$!{' ~ '}' <EXPR> }
+    token special_variable:sym<$/>    { <sym> }
+    token special_variable:sym<$~>    { <sym> | '$FORMAT_NAME' }
+    token special_variable:sym<$`>    { <sym> | '$PREMATCH' }
+    token special_variable:sym<$@>    { <sym> | '$EVAL_ERROR' }
+    token special_variable:sym<$#>    { <sym> }
+    token special_variable:sym<$$>    { <sym> <!alpha> }
+    token special_variable:sym<$%>    { <sym> | '$FORMAT_PAGE_NUMBER' }
+    token special_variable:sym<$^>    { <sym> | '$FORMAT_TOP_NAME' }
+    token special_variable:sym<$&>    { <sym> | '$MATCH' }
+    token special_variable:sym<$*>    { <sym> }
+    token special_variable:sym<$(>    { <sym> | '$REAL_GROUP_ID' | '$GID' }
+    token special_variable:sym<$)>    { <sym> | '$EFFECTIVE_GROUP_ID' | '$EGID' }
+    token special_variable:sym<$->    { <sym> | '$FORMAT_LINES_LEFT' }
+    token special_variable:sym<$=>    { <sym> | '$FORMAT_LINES_PER_PAGE' }
+    token special_variable:sym<@+>    { <sym> | '@LAST_MATCH_END' }
+    token special_variable:sym<%+>    { <sym> | '%LAST_PAREN_MATCH' }
+    token special_variable:sym<$+[ ]> { '$+[' | '$LAST_PAREN_MATCH' }
+    token special_variable:sym<@+[ ]> { '@+[' }
+    token special_variable:sym<@+{ }> { '@+{' }
+    token special_variable:sym<@->    { <sym> | '@LAST_MATCH_START' }
+    token special_variable:sym<%->    { <sym> | '%LAST_MATCH_START' }
+    token special_variable:sym<$-[ ]> { '$-[' }
+    token special_variable:sym<@-[ ]> { '@-[' }
+    token special_variable:sym<%-{ }> { '@-{' }
+    token special_variable:sym<$+>    { <sym> }
+    token special_variable:sym<${^ }> { <sigil> '{^' $<text> = [.*?] '}' }
+    token special_variable:sym<::{ }> { '::' <?before '{'> }
+    token special_variable:sym<$[>    { <sym> }
+    token special_variable:sym<$\\>   { <sym> | '$OUTPUT_RECORD_SEPARATOR' | '$ORS' }
+    token special_variable:sym<$:>    { <sym> | '$FORMAT_LINE_BREAK_CHARACTERS' }
+    token special_variable:sym<$'>    { <sym> | '$POSTMATCH' }
+    token special_variable:sym<$">    { <sym> <!{ $*QSIGIL }> | '$LIST_SEPARATOR' }
+    token special_variable:sym<$,>    { <sym> | '$OUTPUT_FIELD_SEPARATOR' | '$OFS' }
+    token special_variable:sym«\$<»   { <sym> | '$REAL_USER_ID' | '$UID' }
+    token special_variable:sym«\$>»   { <sym> | '$EFFECTIVE_USER_ID' | '$EUID' }
+    token special_variable:sym<$.>    { <sym> | '$INPUT_LINE_NUMBER' | '$NR' }
+    token special_variable:sym<${ }>  { <!before { 1; }> }
     token special_variable:sym<$^X> {
         [
         | $<sigil>='$' '^' $<letter>=[<[A..Z]>]
@@ -2368,128 +2367,7 @@ grammar Perl5::Grammar does STD5 {
         ]
     }
 
-    token special_variable:sym<$^> {
-        <sym> | '$FORMAT_TOP_NAME'
-    }
-
-    token special_variable:sym<$&> {
-        <sym> | '$MATCH'
-    }
-
-    token special_variable:sym<$*> {
-        <sym>
-    }
-
-    token special_variable:sym<$(> {
-        <sym> | '$REAL_GROUP_ID' | '$GID'
-    }
-
-    token special_variable:sym<$)> {
-        <sym> | '$EFFECTIVE_GROUP_ID' | '$EGID'
-    }
-
-    token special_variable:sym<$-> {
-        <sym> | '$FORMAT_LINES_LEFT'
-    }
-
-    token special_variable:sym<$=> {
-        <sym> | '$FORMAT_LINES_PER_PAGE'
-    }
-
-    token special_variable:sym<@+> {
-        <sym> | '@LAST_MATCH_END'
-    }
-
-    token special_variable:sym<%+> {
-        <sym> | '%LAST_PAREN_MATCH'
-    }
-
-    token special_variable:sym<$+[ ]> {
-        '$+[' | '$LAST_PAREN_MATCH'
-    }
-
-    token special_variable:sym<@+[ ]> {
-        '@+['
-    }
-
-    token special_variable:sym<@+{ }> {
-        '@+{'
-    }
-
-    token special_variable:sym<@-> {
-        <sym> | '@LAST_MATCH_START'
-    }
-
-    token special_variable:sym<%-> {
-        <sym> | '%LAST_MATCH_START'
-    }
-
-    token special_variable:sym<$-[ ]> {
-        '$-['
-    }
-
-    token special_variable:sym<@-[ ]> {
-        '@-['
-    }
-
-    token special_variable:sym<%-{ }> {
-        '@-{'
-    }
-
-    token special_variable:sym<$+> {
-        <sym>
-    }
-
-    token special_variable:sym<${^ }> {
-        <sigil> '{^' $<text> = [.*?] '}'
-    }
-
-    token special_variable:sym<::{ }> {
-        '::' <?before '{'>
-    }
-
-    token special_variable:sym<$[> {
-        <sym>
-    }
-
-    token special_variable:sym<$\\> {
-        <sym> | '$OUTPUT_RECORD_SEPARATOR' | '$ORS'
-    }
-
-    token special_variable:sym<$:> {
-        <sym> | '$FORMAT_LINE_BREAK_CHARACTERS'
-    }
-
-    token special_variable:sym<$'> { #'
-        <sym> | '$POSTMATCH'
-    }
-
-    token special_variable:sym<$"> {
-        <sym> <!{ $*QSIGIL }> | '$LIST_SEPARATOR'
-    }
-
-    token special_variable:sym<$,> {
-        <sym> | '$OUTPUT_FIELD_SEPARATOR' | '$OFS'
-    }
-
-    token special_variable:sym«\$<» {
-        <sym> | '$REAL_USER_ID' | '$UID'
-    }
-
-    token special_variable:sym«\$>» {
-        <sym> | '$EFFECTIVE_USER_ID' | '$EUID'
-    }
-
-    token special_variable:sym<$.> {
-        <sym> | '$INPUT_LINE_NUMBER' | '$NR'
-    }
-
-    token special_variable:sym<${ }> {
-        <!before { 1; }>
-    }
-
     # desigilname should only follow a sigil
-
     token desigilname {
         [
         | <?before '$' > <variable> { $*VAR := $<variable>; }
@@ -2536,7 +2414,6 @@ grammar Perl5::Grammar does STD5 {
     }
 
     # Note, don't reduce on a bare sigil unless you don't care what the longest token is.
-
     token sigil:sym<$>  { <sym> }
     token sigil:sym<@>  { <sym> }
     token sigil:sym<%>  { <sym> }
@@ -2557,7 +2434,7 @@ grammar Perl5::Grammar does STD5 {
     token longname {
         <name> <colonpair>*
     }
-    
+
     token name {
         [
         | <identifier> <morename>*
