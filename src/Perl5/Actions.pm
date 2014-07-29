@@ -5690,29 +5690,6 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    #~ method quotepair($/) {
-        #~ $V5DEBUG && say("method quotepair($/)");
-        #~ unless $*value ~~ QAST::Node {
-            #~ if $*purpose eq 'rxadverb' && ($*key eq 'c' || $*key eq 'continue'
-            #~ || $*key eq 'p' || $*key eq 'pos') && $*value == 1 {
-                #~ $*value := QAST::Op.new(
-                    #~ :node($/),
-                    #~ :op<if>,
-                    #~ QAST::Var.new(:name('$/'), :scope('lexical')),
-                    #~ QAST::Op.new(:op('callmethod'),
-                        #~ QAST::Var.new(:name('$/'), :scope<lexical>),
-                        #~ :name<to>
-                    #~ ),
-                    #~ QAST::IVal.new(:value(0)),
-                #~ );
-            #~ } else {
-                #~ $*value := QAST::IVal.new( :value($*value) );
-            #~ }
-        #~ }
-        #~ $*value.named(~$*key);
-        #~ make $*value;
-    #~ }
-
     method rx_adverbs($/) {
         $V5DEBUG && say("method rx_adverbs($/)");
         my @pairs;
@@ -5726,30 +5703,6 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("method rx_mods($/)");
         make ~$/
     }
-
-    #~ method setup_quotepair($/) {
-        #~ $V5DEBUG && say("method setup_quotepair($/)");
-        #~ my %h;
-        #~ my $key := $*ADVERB.ast.named;
-        #~ my $value := $*ADVERB.ast;
-        #~ if $value ~~ QAST::IVal || $value ~~ QAST::SVal {
-            #~ $value := $value.value;
-        #~ }
-        #~ elsif $value.has_compile_time_value {
-            #~ $value := $value.compile_time_value;
-        #~ }
-        #~ else {
-            #~ if %SHARED_ALLOWED_ADVERBS{$key} {
-                #~ $*W.throw($/, ['X', 'Value', 'Dynamic'], what => "Adverb $key");
-            #~ }
-        #~ }
-        #~ $key := %REGEX_ADVERBS_CANONICAL{$key} // $key;
-        #~ %*RX{$key} := $value;
-        #~ if %REGEX_ADVERB_IMPLIES{$key} {
-            #~ %*RX{%REGEX_ADVERB_IMPLIES{$key}} := $value
-        #~ }
-        #~ $value;
-    #~ }
 
     method quote:sym<' '>($/)  { $V5DEBUG && say("method quote:sym<' '>($/)");   make $<nibble>.ast; }
     method quote:sym<" ">($/)  { $V5DEBUG && say("method quote:sym<\" \">($/)"); make $<nibble>.ast; }

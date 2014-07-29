@@ -2472,26 +2472,6 @@ grammar Perl5::Grammar does STD5 {
         <.ws> [ 'of' <.ws> <typename> ]?
     }
 
-    #~ token quotepair($*purpose = 'quoteadverb') {
-        #~ :my $*key;
-        #~ :my $*value;
-        #~ ':'
-        #~ :dba('colon pair (restricted)')
-        #~ [
-        #~ | '!' <identifier> [ <?before '('> <.sorry('Argument not allowed on negated pair')> ]?
-            #~ { $*key := ~$<identifier>; $*value := 0; }
-        #~ | <identifier> 
-            #~ { $*key := ~$<identifier> }
-            #~ [
-            #~ || <?before '('> <circumfix> { $*value := $<circumfix>.ast; }
-            #~ || { $*value := 1; }
-            #~ ]
-        #~ | (\d+) <identifier>
-            #~ [ <?before '('> <.circumfix> <.sorry('2nd argument not allowed on pair')> ]?
-            #~ { $*key := ~$<identifier>; $*value := +~$/[0] }
-        #~ ]
-    #~ }
-
     token numish {
         [
         | <integer>
