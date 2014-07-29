@@ -39,7 +39,7 @@ role STD5 {
         \xFF1C \xFF3B \xFF5B \xFF5F \xFF62
         ]>
     }
-    
+
     method balanced($start, $stop) {
         self.HOW.mixin(self, startstop5.HOW.curry(startstop5, $start, $stop));
         self.HOW.mixin(self, startstop5[$start, $stop]);
@@ -48,10 +48,11 @@ role STD5 {
         #~ self.HOW.mixin(self, stop5.HOW.curry(stop5, $stop));
         self.HOW.mixin(self, stop5[$stop]);
     }
-    
+
+    # overridden in subgrammars
     token starter { <!> }
     token stopper { <!> }
-    
+
     my %quote_lang_cache;
     method quote_lang(Mu $l, $start, $stop, @base_tweaks?, @extra_tweaks?) {
         sub lang_key {
@@ -97,7 +98,7 @@ role STD5 {
             %quote_lang_cache{$key} = con_lang();
         }
     }
-    
+
     token babble($l, @base_tweaks?) {
         :my @extra_tweaks;
         <.ws>
@@ -114,7 +115,7 @@ role STD5 {
             $<B>.'!make'([$lang, $start, $stop]);
         }
     }
-    
+
     my @herestub_queue;
 
     my class Herestub {
@@ -4194,55 +4195,27 @@ grammar Perl5::Grammar does STD5 {
         #~ { <sym> <?before \s*> <O('%loose_not')> }
 
     ## loose and
-    token infix:sym<and>
-        { <sym> <O('%loose_and, :pasttype<if>')> }
+    token infix:sym<and> { <sym> <O('%loose_and, :pasttype<if>')> }
 
     ## loose or
-    token infix:sym<or>
-        { <sym> <O('%loose_or, :assoc<left>, :pasttype<unless>')> }
-
-    token infix:sym<xor>
-        { <sym> <O('%loose_or')> }
+    token infix:sym<or>  { <sym> <O('%loose_or, :assoc<left>, :pasttype<unless>')> }
+    token infix:sym<xor> { <sym> <O('%loose_or')> }
 
     ## expression terminator
     # Note: must always be called as <?terminator> or <?before ...<terminator>...>
-    
-    token terminator:sym<;>
-        #{ ';' <O('%terminator')> }
-        { ';' <O('%terminator')> }
 
-    token terminator:sym<if>
-        { 'if' » <.nofun> <O('%terminator')> }
-
-    token terminator:sym<unless>
-        { 'unless' » <.nofun> <O('%terminator')> }
-
-    token terminator:sym<while>
-        { 'while' » <.nofun> <O('%terminator')> }
-
-    token terminator:sym<until>
-        { 'until' » <.nofun> <O('%terminator')> }
-
-    token terminator:sym<for>
-        { 'for' » <.nofun> <O('%terminator')> }
-
-    token terminator:sym<given>
-        { 'given' » <.nofun> <O('%terminator')> }
-
-    token terminator:sym<when>
-        { 'when' » <.nofun> <O('%terminator')> }
-
-    token terminator:sym<)>
-        { <sym> <O('%terminator')> }
-
-    token terminator:sym<]>
-        { ']' <O('%terminator')> }
-
-    token terminator:sym<}>
-        { '}' <O('%terminator')> }
-
-    token terminator:sym<:>
-        { ':' <?{ $*GOAL eq ':' }> <O('%terminator')> }
+    token terminator:sym<;>      { <sym> <O('%terminator')> }
+    token terminator:sym<}>      { <sym> <O('%terminator')> }
+    token terminator:sym<)>      { <sym> <O('%terminator')> }
+    token terminator:sym<]>      { <sym> <O('%terminator')> }
+    token terminator:sym<if>     { 'if'     » <.nofun> <O('%terminator')> }
+    token terminator:sym<unless> { 'unless' » <.nofun> <O('%terminator')> }
+    token terminator:sym<while>  { 'while'  » <.nofun> <O('%terminator')> }
+    token terminator:sym<until>  { 'until'  » <.nofun> <O('%terminator')> }
+    token terminator:sym<for>    { 'for'    » <.nofun> <O('%terminator')> }
+    token terminator:sym<given>  { 'given'  » <.nofun> <O('%terminator')> }
+    token terminator:sym<when>   { 'when'   » <.nofun> <O('%terminator')> }
+    token terminator:sym<:>      { ':' <?{ $*GOAL eq ':' }> <O('%terminator')> }
 
     regex infixstopper {
         #~ :dba('infix stopper')
@@ -4251,9 +4224,6 @@ grammar Perl5::Grammar does STD5 {
         | <?before ':' > <?{ $*GOAL eq ':' }>
         ]
     }
-
-    # overridden in subgrammars
-    #token stopper { <!> }
 
     # hopefully we can include these tokens in any outer LTM matcher
     #regex stdstopper {
