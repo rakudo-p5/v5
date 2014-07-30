@@ -2263,7 +2263,7 @@ grammar Perl5::Grammar does STD5 {
         #~ :dba('prefix or term')
         [
             [
-            | <prefixish> [ <!{
+            | <!filetest> <prefixish> [ <!{
                     my $p   = $<prefixish>;
                     $<term> = $p.pop if $p[*-1]<O><term>;
                 }> <!filetest> <prefixish> ]*
