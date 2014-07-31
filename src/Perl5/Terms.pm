@@ -999,18 +999,19 @@ sub P5pop(Mu \SELF) is export {
     $r
 }
 
+# RT #122447
 sub P5pos($s is rw) is export {
-    Proxy.new(
-        FETCH => sub ($) {
-            $s ~~ P5MatchPos && $s.last-match ~~ Match ?? $s.last-match.to !! Any
-        },
-        STORE => sub ($, $) {
-            if $s.defined {
-                $s does P5MatchPos unless $s ~~ P5MatchPos;
-                $s.last-match = Match.new
-            }
-        }
-    )
+    #~ Proxy.new(
+        #~ FETCH => sub ($) {
+            #~ $s ~~ P5MatchPos && $s.last-match ~~ Match ?? $s.last-match.to !! Any
+        #~ },
+        #~ STORE => sub ($, $) {
+            #~ if $s.defined {
+                #~ $s does P5MatchPos unless $s ~~ P5MatchPos;
+                #~ $s.last-match = Match.new
+            #~ }
+        #~ }
+    #~ )
 }
 
 sub P5print(*@a is copy, :$pkg) is export {

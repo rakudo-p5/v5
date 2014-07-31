@@ -238,8 +238,8 @@ role STD5 {
 
     my %pragmas;
     method pragma( $name, $args, $set ) {
-        %pragmas{$name} = nqp::hash();
-        %pragmas{$name}{$_} := $set for $args;
+        %pragmas{$name}   //= {};
+        %pragmas{$name}{$_} = $set for $args;
     }
     method check_variable($/, $var) {
         my $varast := $var.ast;
@@ -1462,7 +1462,7 @@ grammar Perl5::Grammar does STD5 {
                 if $name {
                     my $module := $*W.load_module($/, $name, nqp::hash( 'from', 'Perl5' ), $*GLOBALish);
                     do_import($/, $module, $name, $arglist);
-                    $/.CURSOR.import_EXPORTHOW($module);
+                    #~ $/.CURSOR.import_EXPORTHOW($module);
                 }
             }
         ]
