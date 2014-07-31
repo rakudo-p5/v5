@@ -259,7 +259,7 @@ role STD5 {
             my $name := $varast.name;
             my $is_global := nqp::substr(~$var<desigilname>, 0, 2) eq '::' if $var<desigilname>;
             if $name ne '@_' && !$*W.is_lexical($name) {
-                if $var<sigil> ne '&' {
+                if !$var<sigil> || $var<sigil> ne '&' {
                     if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) || $name eq '%_'
                     || $is_global {
                         
@@ -1636,7 +1636,8 @@ grammar Perl5::Grammar does STD5 {
                 $target.list[0].push(QAST::Var.new(
                     :scope('lexical'), :name($_.key), :decl('static'), :value($_.value)
                 ));
-                $*W.install_package_symbol($*PACKAGE, $_.key, $_.value);
+                # Otherwise @INC from Perl5::Terms will clobber @*INC for some reason...
+                # $*W.install_package_symbol($*PACKAGE, $_.key, $_.value);
                 $target.list[0].push(QAST::Op.new(
                     :op('bindkey'),
                     QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
