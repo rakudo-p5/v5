@@ -185,14 +185,14 @@ class Perl5::ModuleLoader {
     # details of exactly what that entails are a bit hazy to me at the
     # moment. We'll see how far this takes us.
     my $stub_how := 'Perl6::Metamodel::PackageHOW';
-    sub merge_globals($target, $source) {
+    sub merge_globals(Mu $target, Mu $source) {
         $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals(\$target, \$source)");
         # Start off merging top-level symbols. Easy when there's no
         # overlap. Otherwise, we need to recurse.
         my %known_symbols;
         for stash_hash($target) {
             %known_symbols{$_.key} := 1;
-            $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: %known_symbols<{$_.key}> := 1;");
+            $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: \%known_symbols<{$_.key()}> := 1;");
         }
         for stash_hash($source) {
             my $sym := $_.key;
@@ -200,7 +200,7 @@ class Perl5::ModuleLoader {
                 ($target.WHO){$sym} := $_.value;
                 $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: (\$target.WHO)<{$sym}> := \$_.value;");
             }
-            elsif ($target.WHO){$sym} =:= $_.value {
+            elsif nqp::decont($target.WHO{$sym}) =:= nqp::decont($_.value) {
                 # No problemo; a symbol can't conflict with itself.
             }
             else {
@@ -236,7 +236,7 @@ class Perl5::ModuleLoader {
         }
     }
     
-    sub stash_hash($pkg) {
+    sub stash_hash(Mu $pkg) {
         my $hash := $pkg.WHO;
         unless nqp::ishash($hash) {
             $hash := $hash.FLATTENABLE_HASH();

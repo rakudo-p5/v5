@@ -3476,13 +3476,13 @@ grammar Perl5::Grammar does STD5 {
     token terminator:sym<for>    { 'for'    » <.nofun> <O('%terminator')> }
     token terminator:sym<given>  { 'given'  » <.nofun> <O('%terminator')> }
     token terminator:sym<when>   { 'when'   » <.nofun> <O('%terminator')> }
-    token terminator:sym<:>      { ':' <?{ $*GOAL eq ':' }> <O('%terminator')> }
+    token terminator:sym<:>      { ':' <?{ $*GOAL && $*GOAL eq ':' }> <O('%terminator')> }
 
     regex infixstopper {
         #~ :dba('infix stopper')
         [
         | <?before <stopper> >
-        | <?before ':' > <?{ $*GOAL eq ':' }>
+        | <?before ':' > <?{ $*GOAL && $*GOAL eq ':' }>
         ]
     }
 
