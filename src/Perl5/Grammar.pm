@@ -41,7 +41,7 @@ role STD5 {
     }
 
     method balanced($start, $stop) {
-        self.HOW.mixin(self, startstop5.HOW.curry(startstop5, $start, $stop));
+        #~ self.HOW.mixin(self, startstop5.HOW.curry(startstop5, $start, $stop));
         self.HOW.mixin(self, startstop5[$start, $stop]);
     }
     method unbalanced($stop) {
