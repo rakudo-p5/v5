@@ -2397,7 +2397,7 @@ grammar Perl5::Grammar does STD5 {
     token special_variable:sym<::{ }> { '::' <?before '{'> }
     token special_variable:sym<$[>    { <sym> }
     token special_variable:sym<$\\>   { <sym> | '$OUTPUT_RECORD_SEPARATOR' | '$ORS' }
-    token special_variable:sym<$:>    { <sym> | '$FORMAT_LINE_BREAK_CHARACTERS' }
+    token special_variable:sym<$:>    { <sym> <![:]> | '$FORMAT_LINE_BREAK_CHARACTERS' }
     token special_variable:sym<$'>    { <sym> | '$POSTMATCH' }
     token special_variable:sym<$">    { <sym> <!{ $*QSIGIL }> | '$LIST_SEPARATOR' }
     token special_variable:sym<$,>    { <sym> | '$OUTPUT_FIELD_SEPARATOR' | '$OFS' }
