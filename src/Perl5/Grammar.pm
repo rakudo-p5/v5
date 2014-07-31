@@ -1253,6 +1253,24 @@ grammar Perl5::Grammar does STD5 {
         %result
     }
 
+    method lower_hash(Mu $hash) {
+        my Mu $result := nqp::hash();
+        if nqp::istype($hash, Hash) {
+            for $hash.keys {
+                nqp::bindkey($result, nqp::unbox_s($_), nqp::decont($hash{$_}));
+            }
+        }
+        else {
+            #~ my Mu $iter := nqp::iterator($hash);
+            #~ while $iter {
+                #~ my $elem      := nqp::shift($iter);
+                #~ my $key        = nqp::p6box_s(nqp::iterkey_s($elem));
+                #~ %result{$key} := nqp::p6box_s(nqp::iterval($elem));
+            #~ }
+        }
+        $result
+    }
+
     # embedded semis, context-dependent semantics
     rule semilist {
         :my $*INVOCANT_OK := 0;
@@ -1469,8 +1487,34 @@ grammar Perl5::Grammar does STD5 {
         [ <?{ $*MAIN ne $OLD_MAIN }> {
             $*IN_DECL := '';
             $*SCOPE := '';
-        } <statementlist=.LANG($*MAIN, 'statementlist', 1)> || <?> ]
+        } <statementlist=.FOREIGN_LANG($*MAIN, 'statementlist', 1)> || <?> ]
         <.ws>
+    }
+
+    # This is like HLL::Grammar.LANG but it allows to call a token of a Perl 6 level grammar.
+    method FOREIGN_LANG($lang, $regex, *@args) {
+        if !nqp::istype(%*LANG{$lang}, NQPCursor) {
+            return self.LANG($lang, $regex, @args)
+        }
+        else {
+            nqp::bindlexdyn('%*LANG', nqp::findmethod(self, 'lower_hash')(self, nqp::getlexdyn('%*LANG')));
+            nqp::bindlexdyn('%*HOW',  nqp::findmethod(self, 'lower_hash')(self, nqp::getlexdyn('%*HOW')));
+            my $lang_cursor := %*LANG{$lang}.'!cursor_init'(nqp::unbox_s(self.orig()), :p(self.pos()));
+            my $*ACTIONS    := %*LANG{$lang ~ '-actions'};
+            my $ret         := $lang_cursor."$regex"(nqp::gethllsym("nqp", "nqplist")(|@args));
+
+            # Build up something Perl6-levelish we can return.
+            my $new := Cursor.'!cursor_init'(self.orig(), :p(self.pos()));
+            nqp::bindattr_i($new, Cursor, '$!from',  nqp::getattr_i($ret, NQPCursor, '$!from'));
+            nqp::bindattr_i($new, Cursor, '$!pos',   nqp::getattr_i($ret, NQPCursor, '$!pos'));
+            nqp::bindattr($new,   Cursor, '$!name',  nqp::getattr($ret,   NQPCursor, '$!name'));
+
+            my $match    := nqp::create(Match);
+            my $nqpmatch := nqp::getattr($ret, NQPCursor, '$!match');
+            nqp::bindattr($match, Match, '$!made', nqp::getattr($nqpmatch, NQPMatch, '$!made'));
+            nqp::bindattr($new, Cursor, '$!match', $match);
+            $new;
+        }
     }
 
     sub do_import($/, Mu \module_context, $package_source_name, $arglist?) {
