@@ -253,11 +253,11 @@ role STD5 {
         $ok    := $ok || ($*IN_SORT && ($varast.name eq '$a' || $varast.name eq '$b'));
         if !$ok {
             # Change the sigil if needed.
-            $var<really>.make('@') if ~$var<sigil> eq '$#';
+            $var<really>.make('@') if $var<sigil> && ~$var<sigil> eq '$#';
             $varast.name( $var<really>.made ~ ~$var<desigilname> ) if $var<really>.made;
             $varast.name( ~$var<sigil>      ~ ~$var<name> )        if $var<name>;
             my $name := $varast.name;
-            my $is_global := nqp::substr(~$var<desigilname>, 0, 2) eq '::';
+            my $is_global := nqp::substr(~$var<desigilname>, 0, 2) eq '::' if $var<desigilname>;
             if $name ne '@_' && !$*W.is_lexical($name) {
                 if $var<sigil> ne '&' {
                     if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) || $name eq '%_'
