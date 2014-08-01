@@ -1,6 +1,6 @@
 use v6;
-use Panda::Common;
-use Panda::Builder;
+#~ use Panda::Common;
+#~ use Panda::Builder;
 
 my class X::Perl5::CannotBuildModule is Exception {
     has $.cmd;
@@ -10,9 +10,10 @@ my class X::Perl5::CannotBuildModule is Exception {
     }
 }
 
-my $perl6 = "$*EXECUTABLE -I{cwd}/lib";
+my $perl6 = "$*EXECUTABLE -I{cwd}/lib -I{cwd}/src"; # We need -Isrc as long as we can't precompile Perl5::Terms
 
-class Build is Panda::Builder {
+#~ class Build is Panda::Builder {
+class Build {
     method build(|) {
         my grammar CoreModules {
             token TOP     { [ <line> | <.comment> | <.blank> ]+ }
@@ -61,7 +62,7 @@ class Build is Panda::Builder {
             my @name_parts = $module<name>.split('::');
             my $basename   = @name_parts.join('/');
             my $pm         = $is_nqp ?? "src/$basename.pm" !! "src/Perl5/$basename.pm";
-            my $bc         = ($is_nqp ?? 'lib/' !! 'lib/Perl5/') ~ "{$basename}.{$*VM.precomp-ext}";
+            my $bc         = ($is_nqp ?? 'lib/' !! 'lib/Perl5/') ~ "{$basename}.pm.{$*VM.precomp-ext}";
 
             %build_time{$module<name>} //= $bc.IO.e ?? $bc.IO.changed !! 0;
 
