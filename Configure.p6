@@ -42,8 +42,8 @@ my $i = 0;
 my $l = 0;
 for @modules -> $module {
     my @name_parts         = $module<name>.split('::');
-    my $basename           = @name_parts.join('/');
-    my $pm                 = "lib/Perl5/$basename.pm";
+    my $basename           = @name_parts.join('/') ~ '.pm';
+    my $pm                 = "lib/Perl5/$basename";
     my $last               = $i == @modules.end;
     $l                    += $pm.chars + 2;
     my $break_modules_list = !$last && $l > 110;
@@ -86,7 +86,7 @@ for @modules -> $module {
         my $mbc                  = "lib/Perl5/$basename.moarvm";
         %config<m_modules_list> ~= "$mbc ";
         %config<m_modules_list> ~= "\\\n\t" if $break_modules_list;
-        my $deps                 = join ' ', $module<deps>>>.map({ 'lib/Perl5/' ~ .split('::').join('/') ~ '.moarvm' });
+        my $deps                 = join ' ', $module<deps>>>.map({ 'lib/Perl5/' ~ .split('::').join('/') ~ '.pm.moarvm' });
         %config<m_clean>{"$pattern.moarvm"} = 1;
 
         my $mk_path = '';

@@ -750,7 +750,7 @@ multi P5Numeric(Str:D   \SELF) is export {
         elsif nqp::iseq_s(nqp::substr($str, $pos, 3), 'Inf') {
             # 'Inf'
             $pos = nqp::add_i($pos, 3);
-            return $neg ?? -$Inf !! $Inf;
+            return $neg ?? -Inf !! Inf;
         }
         else {
             # Last chance: a simple decimal number
@@ -1125,7 +1125,7 @@ multi P5split(Cool $delimiter, $expr, $limit = *) {
     my $match-string = $delimiter.Str;
     return if $expr eq '' && $delimiter eq '';
 
-    my $l = $limit ~~ Whatever ?? $Inf !! $limit;
+    my $l = $limit ~~ Whatever ?? Inf !! $limit;
     return ().list      if $l <= 0;
     return ($expr).list if $l == 1;
 
