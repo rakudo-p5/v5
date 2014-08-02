@@ -63,11 +63,14 @@ class Build {
             my $basename   = @name_parts.join('/');
             my $pm         = $is_nqp ?? "src/$basename.pm" !! "src/Perl5/$basename.pm";
             my $bc         = ($is_nqp ?? 'lib/' !! 'lib/Perl5/') ~ "{$basename}.pm.{$*VM.precomp-ext}";
+            my $dir        = $bc.split('/')[0..(*-2)].join('/');
 
             %build_time{$module<name>} //= $bc.IO.e ?? $bc.IO.changed !! 0;
 
             next if $bc.IO.e && (!$module<deps>.elems
                               || %build_time{$module<name>} >= all @($module<deps>).map({ %build_time{$_} }));
+
+            shell("mkdir -p $dir") unless $dir.path.d;
 
             say "Compiling ({$i}) $module<name> to $*VM.precomp-target()";
             my $cmd = $perl6 ~ " --target=$*VM.precomp-target() --output=$bc $pm";
