@@ -15,30 +15,30 @@ $(M_P6LIB)/lib:
 $(M_P6LIB)/lib/Perl5: $(M_P6LIB)/lib
 	$(MKPATH) $(M_P6LIB)/lib/Perl5
 
-m-core-install: $(M_NQPLIB)/lib/Perl5/World.nqp.moarvm $(M_NQPLIB)/lib/Perl5/Actions.nqp.moarvm $(M_NQPLIB)/lib/Perl5/Grammar.nqp.moarvm $(M_NQPLIB)/lib/Perl5/ModuleLoader.nqp.moarvm $(M_P6LIB)/lib/Perl5.pm.moarvm
+m-core-install: $(M_NQPLIB)/lib/Perl5/World.moarvm $(M_NQPLIB)/lib/Perl5/Actions.moarvm $(M_NQPLIB)/lib/Perl5/Grammar.moarvm $(M_NQPLIB)/lib/Perl5/ModuleLoader.moarvm $(M_P6LIB)/lib/Perl5.pm.moarvm
 
-blib/Perl5/World.nqp.moarvm: lib/Perl5/World.nqp
+blib/Perl5/World.moarvm: lib/Perl5/World.nqp
 	@$(MKPATH) blib/Perl5
-	$(M_NQP) --target=mbc --output=blib/Perl5/World.nqp.moarvm lib/Perl5/World.nqp
-$(M_NQPLIB)/lib/Perl5/World.nqp.moarvm: blib/Perl5/World.nqp.moarvm $(M_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/World.nqp.moarvm $(M_NQPLIB)/lib/Perl5
+	$(M_NQP) --target=mbc --output=blib/Perl5/World.moarvm lib/Perl5/World.nqp
+$(M_NQPLIB)/lib/Perl5/World.moarvm: blib/Perl5/World.moarvm $(M_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/World.moarvm $(M_NQPLIB)/lib/Perl5
 
-blib/Perl5/Actions.nqp.moarvm: blib/Perl5/World.nqp.moarvm lib/Perl5/Actions.nqp
-	$(M_NQP) --target=mbc --stagestats --output=blib/Perl5/Actions.nqp.moarvm lib/Perl5/Actions.nqp
-$(M_NQPLIB)/lib/Perl5/Actions.nqp.moarvm: blib/Perl5/Actions.nqp.moarvm $(M_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/Actions.nqp.moarvm $(M_NQPLIB)/lib/Perl5
+blib/Perl5/Actions.moarvm: blib/Perl5/World.moarvm lib/Perl5/Actions.nqp
+	$(M_NQP) --target=mbc --stagestats --output=blib/Perl5/Actions.moarvm lib/Perl5/Actions.nqp
+$(M_NQPLIB)/lib/Perl5/Actions.moarvm: blib/Perl5/Actions.moarvm $(M_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Actions.moarvm $(M_NQPLIB)/lib/Perl5
 
-blib/Perl5/Grammar.nqp.moarvm: blib/Perl5/Actions.nqp.moarvm lib/Perl5/Grammar.nqp
-	$(M_NQP) --target=mbc --stagestats --output=blib/Perl5/Grammar.nqp.moarvm lib/Perl5/Grammar.nqp
-$(M_NQPLIB)/lib/Perl5/Grammar.nqp.moarvm: blib/Perl5/Grammar.nqp.moarvm $(M_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/Grammar.nqp.moarvm $(M_NQPLIB)/lib/Perl5
+blib/Perl5/Grammar.moarvm: blib/Perl5/Actions.moarvm lib/Perl5/Grammar.nqp
+	$(M_NQP) --target=mbc --stagestats --output=blib/Perl5/Grammar.moarvm lib/Perl5/Grammar.nqp
+$(M_NQPLIB)/lib/Perl5/Grammar.moarvm: blib/Perl5/Grammar.moarvm $(M_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/Grammar.moarvm $(M_NQPLIB)/lib/Perl5
 
-blib/Perl5/ModuleLoader.nqp.moarvm: lib/Perl5/ModuleLoader.nqp
-	$(M_NQP) --target=mbc --output=blib/Perl5/ModuleLoader.nqp.moarvm lib/Perl5/ModuleLoader.nqp
-$(M_NQPLIB)/lib/Perl5/ModuleLoader.nqp.moarvm: blib/Perl5/ModuleLoader.nqp.moarvm $(M_NQPLIB)/lib/Perl5
-	$(CP) blib/Perl5/ModuleLoader.nqp.moarvm $(M_NQPLIB)/lib/Perl5
+blib/Perl5/ModuleLoader.moarvm: lib/Perl5/ModuleLoader.nqp
+	$(M_NQP) --target=mbc --output=blib/Perl5/ModuleLoader.moarvm lib/Perl5/ModuleLoader.nqp
+$(M_NQPLIB)/lib/Perl5/ModuleLoader.moarvm: blib/Perl5/ModuleLoader.moarvm $(M_NQPLIB)/lib/Perl5
+	$(CP) blib/Perl5/ModuleLoader.moarvm $(M_NQPLIB)/lib/Perl5
 
-blib/Perl5.pm.moarvm: lib/Perl5.nqp blib/Perl5/World.nqp.moarvm blib/Perl5/Actions.nqp.moarvm blib/Perl5/Grammar.nqp.moarvm blib/Perl5/ModuleLoader.nqp.moarvm
+blib/Perl5.pm.moarvm: lib/Perl5.nqp blib/Perl5/World.moarvm blib/Perl5/Actions.moarvm blib/Perl5/Grammar.moarvm blib/Perl5/ModuleLoader.moarvm
 	$(M_NQP) --target=mbc --output=blib/Perl5.pm.moarvm lib/Perl5.nqp
 $(M_P6LIB)/lib/Perl5.pm.moarvm: blib/Perl5.pm.moarvm $(M_P6LIB)/lib/Perl5
 	$(CP) blib/Perl5.pm.moarvm $(M_P6LIB)/lib
@@ -77,9 +77,9 @@ m-install: m-core-install m-a-install m-b-install m-c-install m-d-install m-e-in
 
 m-uninstall:
 	$(RM_F) $(M_NQPLIB)/lib/Perl5.pm.moarvm
-	$(RM_F) $(M_NQPLIB)/lib/Perl5/Actions.nqp.moarvm
-	$(RM_F) $(M_NQPLIB)/lib/Perl5/Grammar.nqp.moarvm
-	$(RM_F) $(M_NQPLIB)/lib/Perl5/World.nqp.moarvm
+	$(RM_F) $(M_NQPLIB)/lib/Perl5/Actions.moarvm
+	$(RM_F) $(M_NQPLIB)/lib/Perl5/Grammar.moarvm
+	$(RM_F) $(M_NQPLIB)/lib/Perl5/World.moarvm
 
 m-summary:
 	V5DEBUG=0 NQP_EXE=nqp-m PERL6_EXE=perl6-m perl t/test_summary
