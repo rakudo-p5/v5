@@ -10,7 +10,7 @@ my class X::Perl5::CannotBuildModule is Exception {
     }
 }
 
-my $perl6 = "$*EXECUTABLE -I{cwd}/lib -I{cwd}/src"; # We need -Isrc as long as we can't precompile Perl5::Terms
+my $perl6 = "$*EXECUTABLE -I{cwd}/lib";
 
 #~ class Build is Panda::Builder {
 class Build {
