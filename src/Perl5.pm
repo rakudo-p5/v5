@@ -22,7 +22,9 @@ sub EXPORT(*@a) {
             my %INC := $INC.FLATTENABLE_HASH();
             unless nqp::existskey(%INC, 'Perl5') {
                 %INC<Perl5> = [];
-                %INC<Perl5>.unshift: $*W.p6ize_recursive( %INC<perl> ~ '/lib/Perl5');
+                %INC<Perl5>.unshift: '.';
+                %INC<Perl5>.unshift: %INC<perl> ~ '/lib/Perl5';
+                %INC<Perl5>.unshift: 'lib/Perl5';
                 my $PERL5LIB := nqp::atkey(nqp::getenvhash(), 'PERL5LIB');
                 if nqp::defined($PERL5LIB) {
                     %INC<Perl5>.unshift: $*W.p6ize_recursive( nqp::split(':', $PERL5LIB) )
@@ -33,10 +35,10 @@ sub EXPORT(*@a) {
                 if nqp::defined($I) {
                     if nqp::islist($I) {
                         my $iter := nqp::iterator($I);
-                        %INC<Perl5>.unshift: $*W.p6ize_recursive( nqp::shift($iter) ) while $iter;
+                        %INC<Perl5>.unshift: nqp::shift($iter) while $iter;
                     }
                     else {
-                        %INC<Perl5>.unshift: $*W.p6ize_recursive( $I );
+                        %INC<Perl5>.unshift: $I;
                     }
                 }
             }

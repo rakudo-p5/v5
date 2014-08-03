@@ -1,87 +1,62 @@
-#~ use Perl6::ModuleLoader:from<NQP>;
-
 my $V5MLDEBUG = %*ENV<V5MLDEBUG>;
-my $p6ml = nqp::gethllsym('perl6', 'ModuleLoader');
+my $p6ml      = nqp::gethllsym('perl6', 'ModuleLoader');
 
 class Perl5::ModuleLoader {
-#~ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
     my %modules_loaded;
-
-    method vm_search_paths() { $p6ml.vm_search_paths() }
-    method locate_candidates($module_name, @prefixes, :$file?) {
-        $p6ml.p6ml.locate_candidates($module_name, nqp::gethllsym("nqp", "nqplist")(|@prefixes), :$file)
-    }
-    method find_setting($setting_name) { $p6ml.find_setting($setting_name) }
 
     method ctxsave() {
         $V5MLDEBUG && say("Perl5::ModuleLoader.ctxsave()");
         $*MAIN_CTX := nqp::ctxcaller(nqp::ctx());
         $*CTXSAVE := 0;
     }
-    
-    method search_path(%opts) {
-        $V5MLDEBUG && say("Perl5::ModuleLoader.search_path(" ~ dump_hash(%opts) ~ ")");
-        # See if we have an @*INC set up, and if so just use that.
-        my $PROCESS := nqp::gethllsym('perl6', 'PROCESS');
-        
-        if %opts<from> && !nqp::isnull($PROCESS) && nqp::existskey($PROCESS.WHO, '%CUSTOM_LIB') {
-            my $INC := ($PROCESS.WHO)<%CUSTOM_LIB>;
-            if nqp::defined($INC) {
-                my %INC := $INC.FLATTENABLE_HASH();
-                if nqp::existskey(%INC, %opts<from>) {
-                    my @INC := %INC<Perl5>.FLATTENABLE_LIST();
-                    if +@INC {
-                        return @INC;
-                    }
+
+    method files($file, :$name, :$auth, :$ver, :@INC) {
+        for @INC {
+            if $_ ~~ Str ?? CompUnitRepo::Local::File.new($_) !! $_ -> $cur {
+                if $cur.files($file, :$name,:$auth,:$ver).list -> @candi {
+                    return @candi;
                 }
             }
         }
-        
-        if !nqp::isnull($PROCESS) && nqp::existskey($PROCESS.WHO, '@INC') {
-            my @INC := ($PROCESS.WHO)<@INC>;
-            if nqp::defined(@INC) {
-                if +@INC {
-                    if %opts<from> {
-                        @INC.push($*VM.prefix ~ '/languages/' ~ nqp::lc(%opts<from>) ~ '/lib');
-                    }
-                    return @INC;
-                }
-            }
-        }
-        
-        # Too early to have @*INC; probably no setting yet loaded to provide
-        # the PROCESS initialization.
-        my @search_paths;
-        @search_paths.push('.');
-        @search_paths.push('blib');
-        for Perl6::ModuleLoader.vm_search_paths() {
-            @search_paths.push($_);
-        }
-        @search_paths
+        ();
     }
-    
+
+    method candidates($name, :$file, :$auth, :$ver, :@INC) {
+        for @INC {
+            if $_ ~~ Str ?? CompUnitRepo::Local::File.new($_) !! $_ -> $cur {
+                if $cur.candidates($name, :$file,:$auth,:$ver).list -> @candi {
+                    return @candi;
+                }
+            }
+        }
+        ();
+    }
+
     method load_module($module_name, %opts, *@GLOBALish, :$line, :$file is copy) {
         $V5MLDEBUG && say("Perl5::ModuleLoader.load_module($module_name, " ~ dump_hash(%opts) ~ ", +\@GLOBALish=" ~  +@GLOBALish ~ ", ...)");
         # Locate all the things that we potentially could load. Choose
         # the first one for now (XXX need to filter by version and auth).
-        my @prefixes   := self.search_path( %opts );
-        if nqp::defined($file) {
-            for @prefixes {
-                $file = "$_/$file" if nqp::stat("$_/$file", 0)
-            }
+        my $PROCESS := nqp::gethllsym('perl6', 'PROCESS');
+        my $INC := ($PROCESS.WHO)<%CUSTOM_LIB>;
+        my %INC := $INC.FLATTENABLE_HASH() if nqp::defined($INC);
+        my @INC := %INC<Perl5>.FLATTENABLE_LIST() if %INC<Perl5>;
+        my %chosen;
+        if self.candidates($module_name, :$file, :@INC)[0] -> $candi {
+            %chosen<pm> = ~$candi.path;
+            $candi.has-precomp ??
+                ?? (%chosen<load> = %chosen<key> = %chosen<pm> ~ '.' ~ $candi.precomp-ext)
+                !! (%chosen<key>  = %chosen<pm>)
         }
-        my @candidates := self.locate_candidates($module_name, @prefixes, :$file);
-        if +@candidates == 0 {
-            if nqp::defined($file) {
-                nqp::die("Could not find file '$file' for module $module_name");
-            }
-            else {
-                nqp::die("Could not find $module_name in any of: " ~
-                    join(', ', @prefixes));
-            }
+        elsif $file && self.files($file, :@INC)[0] -> $candi {
+            %chosen<pm> = %chosen<key> = $candi<files>{$file};
         }
-        my %chosen := @candidates[0];
-        
+        elsif nqp::defined($file) {
+            nqp::die("Could not find file '$file' for module $module_name");
+        }
+        else {
+            nqp::die("Could not find $module_name in any of: " ~ join(', ', @INC));
+        }
+
         my @MODULES := nqp::clone(@*MODULES // []);
         for @MODULES -> $m {
             if $m<module> eq $module_name {
