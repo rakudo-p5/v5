@@ -3455,21 +3455,21 @@ class Perl5::Actions does STDActions {
         else {
             for $/[0].list {
                 if $_<variable_declarator> {
-                    my $v                    = $_<variable_declarator>;
-                    my %info                 = $v.ast;
-                    %info<variable_name>     = ~$v<variable>;
-                    %info<sigil>             = ~$v<variable><sigil>;
-                    %info<desigilname>       = ~$v<variable><desigilname>;
-                    %info<is_multi_invocant> = $multi_invocant;
-                    @parameter_infos.push(%info);
+                    my $v                    := $_<variable_declarator>;
+                    my $info                 := $v.ast;
+                    $info<variable_name>     := ~$v<variable>;
+                    $info<sigil>             := ~$v<variable><sigil>;
+                    $info<desigilname>       := ~$v<variable><desigilname>;
+                    $info<is_multi_invocant> := $multi_invocant;
+                    @parameter_infos.push($info);
                 }
                 else {
-                    my %info                 = nqp::hash();
-                    %info<variable_name>     = '';
-                    %info<sigil>             = '$';
-                    %info<desigilname>       = '';
-                    %info<is_multi_invocant> = $multi_invocant;
-                    @parameter_infos.push(%info);
+                    my $info                 := nqp::hash();
+                    $info<variable_name>     := '';
+                    $info<sigil>             := '$';
+                    $info<desigilname>       := '';
+                    $info<is_multi_invocant> := $multi_invocant;
+                    @parameter_infos.push($info);
                 }
             }
         }
@@ -5160,7 +5160,7 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    sub assign_op($/, $lhs_ast, $rhs_ast) {
+    sub assign_op($/, Mu $lhs_ast is rw, Mu $rhs_ast is rw) {
         my $past;
         my $var_sigil;
         if $lhs_ast.isa(QAST::Var) {
@@ -5173,7 +5173,7 @@ class Perl5::Actions does STDActions {
                 :op('bind'), :returns($lhs_ast.returns),
                 $lhs_ast, $rhs_ast);
         }
-        elsif $var_sigil eq '@' || $var_sigil eq '%' {
+        elsif $var_sigil && ($var_sigil eq '@' || $var_sigil eq '%') {
             # While the scalar container store op would end up calling .STORE,
             # it does it in a nested runloop, which gets pricey. This is a
             # simple heuristic check to try and avoid that by calling .STORE.
