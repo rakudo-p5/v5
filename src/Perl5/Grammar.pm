@@ -110,7 +110,7 @@ role STD5 {
             
             # Get the language.
             my $lang := self.quote_lang($l, $start, $stop, @base_tweaks, @extra_tweaks);
-            $<B>.'!make'([$lang, $start, $stop]);
+            $<B>.make([$lang, $start, $stop]);
         }
     }
 
@@ -548,7 +548,7 @@ grammar Perl5::Grammar does STD5 {
         self.panic("Unable to parse expression in $dba; couldn't find final $goal");
     }
 
-    method peek_delimiters(str $target, int $pos) {
+    method peek_delimiters(str $target, $pos is copy) {
         # peek at the next character
         my str $start = nqp::substr($target, $pos, 1);
     
