@@ -237,7 +237,7 @@ sub test_single_file {
     my $syn   = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
 
     $syn{$syn}++;
-    my $cmd = "$ENV{PERL6_EXE} $tfile";
+    my $cmd = "$ENV{PERL6_EXE} -Ilib $tfile";
     # Run the test, collecting all stdout in @results
     my $stderr;
     my @results;
