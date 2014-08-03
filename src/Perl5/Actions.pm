@@ -5511,11 +5511,11 @@ class Perl5::Actions does STDActions {
     method decint($/) {
         $V5DEBUG && say("decint($/)"); make :10(~$/); }
     method hexint($/) {
-        $V5DEBUG && say("hexint($/)"); make :16($/); }
+        $V5DEBUG && say("hexint($/)"); make :16(~$/); }
     method octint($/) {
-        $V5DEBUG && say("octint($/)"); make :8($/); }
+        $V5DEBUG && say("octint($/)"); make :8(~$/); }
     method binint($/) {
-        $V5DEBUG && say("binint($/)"); make :2($/); }
+        $V5DEBUG && say("binint($/)"); make :2(~$/); }
 
 
     method number:sym<complex>($/) {
