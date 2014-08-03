@@ -5535,10 +5535,10 @@ class Perl5::Actions does STDActions {
         make $<VALUE>.ast;
     }
 
-    sub add_numeric_constant($/, $type, $number) {
+    sub add_numeric_constant($/, $type is rw, $number) {
         $V5DEBUG && say("add_numeric_constant($/, $type, $number)");
         my Mu $value := nqp::decont($number);
-        return nqp::isbig_I($value)
+        return nqp::istype($value, Int) && nqp::isbig_I($value)
             ?? $*W.add_constant($type, 'bigint', $value)
             !! $*W.add_constant($type, $type.lc, $value);
     }
