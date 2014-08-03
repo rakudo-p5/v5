@@ -27,7 +27,9 @@ sub EXPORT(*@a) {
                 if nqp::defined($PERL5LIB) {
                     %INC<Perl5>.unshift: $*W.p6ize_recursive( nqp::split(':', $PERL5LIB) )
                 }
-                my $I := %*COMPILING<%?OPTIONS><I>;
+                my $I := %*COMPILING<%?OPTIONS><I> ~~ Parcel
+                    ?? nqp::getattr(%*COMPILING<%?OPTIONS><I>, Parcel, '$!storage')
+                    !! %*COMPILING<%?OPTIONS><I>;
                 if nqp::defined($I) {
                     if nqp::islist($I) {
                         my $iter := nqp::iterator($I);

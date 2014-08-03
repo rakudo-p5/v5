@@ -254,6 +254,7 @@ role STD5 {
             $var<really>.make('@') if $var<sigil> && ~$var<sigil> eq '$#';
             $varast.name( $var<really>.made ~ ~$var<desigilname> ) if $var<really>.made;
             $varast.name( ~$var<sigil>      ~ ~$var<name> )        if $var<name>;
+            $varast.name('__INC__')                                if $varast.name eq '@INC';
             my $name := $varast.name;
             my $is_global := nqp::substr(~$var<desigilname>, 0, 2) eq '::' if $var<desigilname>;
             if $name ne '@_' && !$*W.is_lexical($name) {
@@ -1635,7 +1636,7 @@ grammar Perl5::Grammar does STD5 {
                     :scope('lexical'), :name($_.key), :decl('static'), :value($_.value)
                 ));
                 # Otherwise @INC from Perl5::Terms will clobber @*INC for some reason...
-                # $*W.install_package_symbol($*PACKAGE, $_.key, $_.value);
+                $*W.install_package_symbol($*PACKAGE, $_.key, $_.value);
                 $target.list[0].push(QAST::Op.new(
                     :op('bindkey'),
                     QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),

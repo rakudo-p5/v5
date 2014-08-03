@@ -158,7 +158,7 @@ sub EXPORT(|) {
     %ex<@ARGV>                    := @*ARGS;
     %ex<%INC>                     := %INC;
     %ex<%ENV>                     := %*ENV;
-    %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
+    %ex<__INC__>                  := %*CUSTOM_LIB<Perl5>;
     %ex<%SIG>                     := %SIG;
     %ex<$$>                       := $*PID;
     %ex<$]>                       := $VERSION_FLOAT;
