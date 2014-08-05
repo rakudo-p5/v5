@@ -1029,7 +1029,7 @@ class Perl5::Actions does STDActions {
 
     ## Statement control
     sub if_statement($/) {
-        my $count := +$<xblock> - 1;
+        my $count = +$<xblock> - 1;
         my $past := xblock_immediate( $<xblock>[$count].ast );
         # push the else block if any
         $past.push( $<else>
