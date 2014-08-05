@@ -20,23 +20,23 @@ my $V5DEBUG = %*ENV<V5DEBUG>;
 my class LongName {
     # a match object, so that error messages can get a proper line number
     has $.match is rw;
-    
+
     # Set of name components. Each one will be either a string
     # or a PAST node that represents an expresison to produce it.
     has @.components is rw;
-    
+
     # The colonpairs, if any.
     has @.colonpairs is rw;
-    
+
     # Flag for if the name ends in ::, meaning we need to emit a
     # .WHO on the end.
     has $.get_who is rw;
-    
+
     # Gets the textual name of the value.
     method text() {
         ~$!match
     }
-    
+
     # Gets the name, by default without any adverbs.
     method name(:$decl, :$dba = '', :$with_adverbs) {
         my @parts := self.type_name_parts($dba, :$decl);
@@ -82,7 +82,7 @@ my class LongName {
         @result[+@result - 1] := $sigil ~ $twigil ~ @result[+@result - 1];
         @result
     }
-    
+
     # Checks if there is an indirect lookup required.
     method contains_indirect_lookup() {
         for @!components {
@@ -92,7 +92,7 @@ my class LongName {
         }
         return 0;
     }
-    
+
     # Fetches an array of components provided they are all known
     # or resolvable at compile time.
     method type_name_parts($dba, :$decl) {
@@ -148,7 +148,7 @@ my class LongName {
         }
         @name
     }
-    
+
     method colonpairs_hash($dba) {
         my %result;
         for @!colonpairs {
@@ -162,7 +162,7 @@ my class LongName {
         }
         %result
     }
-    
+
     method get_who() {
         $!get_who
     }
@@ -207,7 +207,7 @@ sub dissect_longname($longname) is export {
         }
     }
     $result.components = @components;
-    
+
     # Stash colon pairs with names; incorporate non-named one into
     # the last part of the name (e.g. for infix:<+>). Need to be a
     # little cheaty when compiling the setting due to bootstrapping.
@@ -232,7 +232,7 @@ sub dissect_longname($longname) is export {
         }
     }
     $result.colonpairs = @pairs;
-    
+
     $result
 }
 
@@ -357,7 +357,7 @@ my role STDActions {
     method quibble($/) {
         make $<nibble>.ast;
     }
-    
+
     method trim_heredoc($doc, $stop, $origast) {
         $origast.pop();
         $origast.pop();
@@ -373,7 +373,7 @@ my role STDActions {
                 $to_remove := 1 if $last eq "\n" || $last eq "\r";
                 $to_remove := 2 if $chars > 1
                     && nqp::substr($dedented, $chars - 2) eq "\r\n";
-                
+
                 $dedented := nqp::substr($dedented, 0, $chars - $to_remove);
             }
 
@@ -910,7 +910,7 @@ class Perl5::Actions does STDActions {
             set_default_parameter_type(@params, Mu);
             my $signature := create_signature_object($<signature>, $sig_info, $block);
             add_signature_binding_code($block, $signature, @params);
-            
+
             # Add a slot for a $*DISPATCHER, and a call to take one.
             $block[0].push(QAST::Var.new( :name('$*DISPATCHER'), :scope('lexical'), :decl('var') ));
             $block[0].push(QAST::Op.new(
@@ -1106,7 +1106,7 @@ class Perl5::Actions does STDActions {
             );
             $past := QAST::Op.new(
                 :op<callmethod>, :name<eager>, $past
-            ); 
+            );
             make $past;
         }
         else {
@@ -1147,7 +1147,7 @@ class Perl5::Actions does STDActions {
         }
         make $loop;
     }
-    
+
     sub tweak_loop(Mu $loop is copy) {
         $V5DEBUG && say("tweak_loop(\$loop)");
         # Handle phasers.
@@ -1244,7 +1244,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("statement_control:sym<require>($/) file") if $<file>;
         $V5DEBUG && say("statement_control:sym<require>($/) EXPR") if $<EXPR>;
         my $past := QAST::Stmts.new(:node($/));
-        
+
         if $<module_name> || $<file> {
             my $name_past := $<module_name>
                             ?? dissect_longname($<module_name><longname>).name_past()
@@ -1285,7 +1285,7 @@ class Perl5::Actions does STDActions {
                 $past.push($import_past);
             }
         }
-        
+
         $past.push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
 
         make $past;
@@ -1399,7 +1399,7 @@ class Perl5::Actions does STDActions {
         my $block := QAST::Op.new(:op<call>, $<block>.ast); # XXX should be immediate
         make QAST::Op.new(
             :op('handle'),
-            
+
             # Success path puts Any into $! and evaluates to the block.
             QAST::Stmt.new(
                 :resultchild(0),
@@ -1467,7 +1467,7 @@ class Perl5::Actions does STDActions {
             $block := QAST::Op.new(:op<call>, $block); # XXX should be immediate
             $past := QAST::Op.new(
                 :op('handle'),
-                
+
                 # Success path puts Any into $! and evaluates to the block.
                 QAST::Stmt.new(
                     :resultchild(0),
@@ -1528,7 +1528,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("statement_mod_cond:sym<when>($/)");
         make QAST::Op.new( :op<if>,
             QAST::Op.new( :name('ACCEPTS'), :op('callmethod'),
-                          $<modifier_expr>.ast, 
+                          $<modifier_expr>.ast,
                           QAST::Var.new( :name('$_'), :scope('lexical') ) ),
             :node($/)
         );
@@ -1791,7 +1791,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("fatarrow($/)");
         make QAST::Op.new( :op('call'), :name('&infix:<P5=>>'),  $*W.add_string_constant($<key>.Str), $<val>.ast);
     }
-    
+
     method coloncircumfix($/) {
         $V5DEBUG && say("coloncircumfix($/)");
         make $<circumfix>
@@ -1810,7 +1810,7 @@ class Perl5::Actions does STDActions {
             $key, $value
         )
     }
-    
+
     method desigilname($/) {
         $V5DEBUG && say("desigilname($/)");
         if $<variable> {
@@ -1924,7 +1924,7 @@ class Perl5::Actions does STDActions {
             else {
                 $past := make_variable($/, [~$/]);
             }
-            
+
             if ~$<sigil> eq '$#' {
                 $past := QAST::Op.new( :op('callmethod'), :name('end'), $past, :node($/) );
             }
@@ -1978,7 +1978,7 @@ class Perl5::Actions does STDActions {
                 my $type := $*W.find_lexical_container_type($past.name);
                 $past.returns($type);
             }
-            
+
             # If it's a late-bound sub lookup, we may not find it, so be sure
             # to handle the case where the lookup comes back null.
             if $sigil eq '&' {
@@ -1992,7 +1992,7 @@ class Perl5::Actions does STDActions {
         }
         $past
     }
-    
+
     sub get_attribute_meta_object($/, $name) {
         unless nqp::can($*PACKAGE.HOW, 'get_attribute_for_usage') {
             $/.CURSOR.panic("Cannot understand $name in this context");
@@ -2043,7 +2043,7 @@ class Perl5::Actions does STDActions {
 
         # Compose.
         $*W.pkg_compose($*PACKAGE);
-        
+
         # Make a code object for the block.
         $*W.create_code_object($block, 'Block',
             $*W.create_signature(nqp::hash('parameters', [])));
@@ -2128,7 +2128,7 @@ class Perl5::Actions does STDActions {
                         $*W.create_container_descriptor(%cont_info<value_type>, 1, 'anon')));
                 }
             }
-            
+
             if $<initializer> {
                 my $orig_list := $list;
                 if $<initializer><sym> eq '=' {
@@ -2159,7 +2159,7 @@ class Perl5::Actions does STDActions {
                         $list, $orig_list);
                 }
             }
-            
+
             make $list;
         }
         elsif $<identifier> {
@@ -2355,7 +2355,7 @@ class Perl5::Actions does STDActions {
 
             $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
                 :scope($*SCOPE), :package($package));
-            
+
             # Set scope and type on container, and if needed emit code to
             # reify a generic type.
             if $past.isa(QAST::Var) {
@@ -2368,7 +2368,7 @@ class Perl5::Actions does STDActions {
                         QAST::Op.new( :op('p6var'), $past ),
                         QAST::Op.new( :op('curlexpad') ));
                 }
-                
+
                 if $*SCOPE eq 'our' {
                     $BLOCK[0].push(QAST::Op.new(
                         :op('bind'),
@@ -2385,7 +2385,7 @@ class Perl5::Actions does STDActions {
 
         return $past;
     }
-    
+
     sub add_lexical_accessor($/, $var_past, $meth_name, $install_in) {
         # Generate and install code block for accessor.
         my $a_past := $*W.push_lexpad($/);
@@ -2397,7 +2397,7 @@ class Perl5::Actions does STDActions {
         # Produce a code object and install it.
         my $invocant_type := find_symbol($*W.is_lexical('$?CLASS') ?? '$?CLASS' !! 'Mu');
         my %sig_info := hash(parameters => []);
-        my $code := methodize_block($/, $*W.stub_code_object('Method'), 
+        my $code := methodize_block($/, $*W.stub_code_object('Method'),
             $a_past, %sig_info, $invocant_type);
         install_method($/, $meth_name, 'has', $code, $install_in);
     }
@@ -2462,7 +2462,7 @@ class Perl5::Actions does STDActions {
         if $<deflongname> {
             $block.name(~$<deflongname>.ast);
         }
-        
+
         # Finish code object, associating it with the routine body.
         my $code := $*DECLARAND;
         $*W.attach_signature($code, $signature);
@@ -2501,7 +2501,7 @@ class Perl5::Actions does STDActions {
                 QAST::SVal.new( :value($name) ),
                 QAST::Var.new( :name($name), :scope('lexical') )
             ));
-            
+
             # Add inlining information if it's inlinable.
             self.add_inlining_info_if_possible($/, $code, $block, @params);
 
@@ -2535,7 +2535,7 @@ class Perl5::Actions does STDActions {
             make $closure;
         }
     }
-    
+
     method autogenerate_proto($/, $name, $install_in) {
         $V5DEBUG && say("autogenerate_proto($/, $name, $install_in)");
         my $p_past := $*W.push_lexpad($/);
@@ -2550,7 +2550,7 @@ class Perl5::Actions does STDActions {
         $*W.apply_trait($/, '&trait_mod:<is>', $code, :onlystar(1));
         $code
     }
-    
+
     method add_inlining_info_if_possible($/, $code, Mu $past, @params) {
         $V5DEBUG && say("add_inlining_info_if_possible($/, \$code, \$past, \@params)");
         # Make sure the block has the common structure we expect
@@ -2602,7 +2602,7 @@ class Perl5::Actions does STDActions {
             || nqp::istype($node, QAST::NVal) {
                 return $node.node ?? clear_node(clone_qast($node)) !! $node;
             }
-            
+
             # WVal is OK, though special case for PseudoStash usage (which means
             # we are doing funny lookup stuff).
             elsif nqp::istype($node, QAST::WVal) {
@@ -2613,7 +2613,7 @@ class Perl5::Actions does STDActions {
                     return $node.node ?? clear_node(clone_qast($node)) !! $node;
                 }
             }
-            
+
             # Operations need checking for their inlinability. If they are OK in
             # themselves, it comes down to the children.
             elsif nqp::istype($node, QAST::Op) {
@@ -2631,7 +2631,7 @@ class Perl5::Actions does STDActions {
                     nqp::die("Non-inlinable op '" ~ $node.op ~ "' encountered");
                 }
             }
-            
+
             # Variables are fine *if* they are arguments.
             elsif nqp::istype($node, QAST::Var) && ($node.scope eq 'lexical' || $node.scope eq '') {
                 if nqp::existskey(%arg_placeholders, $node.name) {
@@ -2647,7 +2647,7 @@ class Perl5::Actions does STDActions {
                     nqp::die("Cannot inline with non-argument variables");
                 }
             }
-            
+
             # Statements need to be cloned and then each of the nodes below them
             # visited.
             elsif nqp::istype($node, QAST::Stmt) || nqp::istype($node, QAST::Stmts) {
@@ -2660,7 +2660,7 @@ class Perl5::Actions does STDActions {
                 }
                 return clear_node($replacement);
             }
-            
+
             # Want nodes need copying and every other child visiting.
             elsif nqp::istype($node, QAST::Want) {
                 my $replacement := clone_qast($node);
@@ -2672,7 +2672,7 @@ class Perl5::Actions does STDActions {
                 }
                 return clear_node($replacement);
             }
-            
+
             # Otherwise, we don't know what to do with it.
             else {
                 nqp::die("Unhandled node type; won't inline");
@@ -2947,7 +2947,7 @@ class Perl5::Actions does STDActions {
             }
             1;
         }
-        
+
         # Only analyse things with a single simple statement.
         if +$block[1].list == 1 && nqp::istype($block[1][0], QAST::Stmt) && +$block[1][0].list == 1 {
             # Ensure there's no nested blocks.
@@ -2967,7 +2967,7 @@ class Perl5::Actions does STDActions {
             0
         }
     }
-    
+
     sub is_yada($/) {
         if $<blockoid><statementlist> && +$<blockoid><statementlist><statement> == 1 {
             my $btxt := ~$<blockoid><statementlist><statement>[0];
@@ -3046,7 +3046,7 @@ class Perl5::Actions does STDActions {
         }
         $past.name($name);
         $past.blocktype("declaration");
-        
+
         # Install a $?REGEX (mostly for the benefit of <~~>).
         $block[0].push(QAST::Op.new(
             :op('bind'),
@@ -3071,14 +3071,14 @@ class Perl5::Actions does STDActions {
         # Install PAST block so that it gets capture_lex'd correctly.
         my $outer := $*W.cur_lexpad();
         $outer[0].push($past);
-        
+
         # Apply traits.
         if $traits {
             for $traits.list {
                 if $_.ast { ($_.ast)($code) }
             }
         }
-        
+
         # Install in needed scopes.
         install_method($/, $name, $scope, $code, $outer) if $name ne '';
 
@@ -3172,7 +3172,7 @@ class Perl5::Actions does STDActions {
             my $cur_key;
             if istype($_.returns(), $Pair) {
                 $cur_key := $_[1].compile_time_value;
-                $cur_value := $*W.compile_time_evaluate($<term>, $_[2]); 
+                $cur_value := $*W.compile_time_evaluate($<term>, $_[2]);
                 if $has_base_type {
                     unless istype($cur_value, $base_type) {
                         $/.CURSOR.panic("Type error in enum. Got '"
@@ -3294,7 +3294,7 @@ class Perl5::Actions does STDActions {
         # Evaluate to the constant.
         make QAST::WVal.new( :value($value) );
     }
-    
+
     method initializer:sym<=>($/) {
         $V5DEBUG && say("initializer:sym<=>($/)");
         make $<EXPR>.ast;
@@ -3326,7 +3326,7 @@ class Perl5::Actions does STDActions {
 
         $*W.cur_lexpad()[0].push($fake_pad);
         $*W.create_code_object($fake_pad, 'Block', $sig);
-        
+
         make QAST::WVal.new( :value($sig) );
     }
 
@@ -3670,18 +3670,18 @@ class Perl5::Actions does STDActions {
                     %seen_names{$_} := 1;
                 }
             }
-            
+
             # If it's !-twigil'd, ensure the attribute it mentions exists unless
             # we're in a context where we should not do that.
             if $_<bind_attr> && !$no_attr_check {
                 get_attribute_meta_object($/, $_<variable_name>);
             }
-            
+
             # If we have a sub-signature, create that.
             if $_<sub_signature_params> {
                 nqp::bindkey($p, 'sub_signature', create_signature_object($/, $_<sub_signature_params>, $lexpad));
             }
-            
+
             # Add variable as needed.
             if $_<variable_name> {
                 my %sym := $lexpad.symbol($_<variable_name>);
@@ -3723,11 +3723,8 @@ class Perl5::Actions does STDActions {
         make $<postfix> ?? $<postfix>.ast !! $<postcircumfix>.ast;
     }
 
-#    method dotty:sym<.>($/) { make $<dottyop>.ast; }
-    method dotty:sym«->»($/) {
-        $V5DEBUG && say("dotty:sym«->»($/)"); make $<dottyop>.ast; }
-    method postfix:sym«->»($/) {
-        $V5DEBUG && say("postfix:sym«->»($/)"); make $<dottyop>.ast; }
+    method dotty:sym«->»($/)   { $V5DEBUG && say("dotty:sym«->»($/)");   make $<dottyop>.ast; }
+    method postfix:sym«->»($/) { $V5DEBUG && say("postfix:sym«->»($/)"); make $<dottyop>.ast; }
 
     method dotty:sym<.*>($/) {
         $V5DEBUG && say("dotty:sym<.*>($/)");
@@ -3814,7 +3811,7 @@ class Perl5::Actions does STDActions {
         }
         make $past;
     }
-    
+
     sub whine_if_args($/, $past, $name) {
         if +@($past) > 0 {
            $*W.throw($/, ['X', 'Syntax', 'Argument', 'MOPMacro'], macro => $name);
@@ -3826,7 +3823,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("term:sym<boolean>($/)");
         make QAST::Op.new( :op<p6bool>, QAST::IVal.new( :value($<value> eq 'True') ) );
     }
-    
+
     method term:sym<::?IDENT>($/) {
         $V5DEBUG && say("term:sym<::?IDENT>($/)");
         make instantiated_type([~$/], $/);
@@ -3846,7 +3843,7 @@ class Perl5::Actions does STDActions {
         #~ $V5DEBUG && say("term:sym<time>($/)");
         #~ make QAST::Op.new( :op('call'), :name('&term:<time>'), :node($/) );
     #~ }
-    
+
     sub expr_or_topic( $/ ) {
         QAST::Op.new( :op('if'),
             # condition
@@ -3868,7 +3865,7 @@ class Perl5::Actions does STDActions {
             # like: $string // Str.new
             expr_or_topic( $/ )
         );
-        
+
         #~ QAST::Op.new(
                     #~ :op('callmethod'), :$name,
                     #~ $<EXPR> ?? $<EXPR>.ast
@@ -3880,7 +3877,7 @@ class Perl5::Actions does STDActions {
         my $exorto     := QAST::Node.unique('exorto');
         my $chopped    := QAST::Node.unique('chopped');
         my $chopped_of := QAST::Node.unique('chopped_of');
-        
+
         #~ $exorto.chars ?? {
             #~ my $chopped = chop($exorto);
             #~ my $chopped_of = $exorto.substr($chopped.chars);
@@ -3893,13 +3890,13 @@ class Perl5::Actions does STDActions {
                             !! QAST::Op.new( :op('bind'),
                                     QAST::Var.new( :name('$_'), :scope('lexical') ),
                                     QAST::Var.new( :name($chopped), :scope('lexical') ) );
-        
+
         make QAST::Stmts.new(
                 # $exorto = $<EXPR> // $_
                 QAST::Op.new( :op('bind'),
                     QAST::Var.new( :name($exorto), :scope('lexical'), :decl('var') ),
                     expr_or_topic( $/ ) ),
-                    
+
                 QAST::Op.new( :op('unless'),
                     # condition
                     QAST::Op.new( :op('callmethod'), :name('chars'),
@@ -3923,8 +3920,8 @@ class Perl5::Actions does STDActions {
                                     QAST::Var.new( :name($chopped), :scope('lexical') ) ) ) ),
                         # $exorto = $chopped;
                         $bind,
-                            
-                            
+
+
                         # return $chopped_of
                         QAST::Var.new( :name($chopped_of), :scope('lexical') )
                     )
@@ -3936,7 +3933,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("term:sym<defined>($/)");
         my $past := $<EXPR> ?? $<EXPR>.ast
                  !! QAST::Op.new( :op('call'), QAST::Var.new( :name('$_'), :scope('lexical') ) );
-        
+
         $past := QAST::Op.new( :op('callmethod'), :name('defined'), $past );
         make $past
     }
@@ -3946,7 +3943,7 @@ class Perl5::Actions does STDActions {
         my $block := call_expr_or_topic( $/, 'EVAL' );
         make QAST::Op.new(
             :op('handle'),
-            
+
             # Success path puts Any into $! and evaluates to the block.
             QAST::Stmt.new(
                 :resultchild(0),
@@ -4050,7 +4047,7 @@ class Perl5::Actions does STDActions {
             $V5DEBUG && say("indirect_object($/) variable");
             make $<variable>.ast
         }
-        
+
     }
 
     method term:sym<scalar>($/) {
@@ -4215,7 +4212,7 @@ class Perl5::Actions does STDActions {
         my $past;
         my $name    = ~$<identifier>;
         my $builtin = %builtin{$name};
-        
+
         if $name eq 'map' {
             my $i      = 0;
             my $items := QAST::Op.new(:op('call'), :name('&infix:<,>'));
@@ -4268,7 +4265,7 @@ class Perl5::Actions does STDActions {
             else {
                 $past := QAST::Op.new( :node($/) );
             }
-            
+
             # Wrap the args if needed.
             if $builtin[$arg_op] && $*ARGUMENT_HAVE {
                 if $*HAS_INDIRECT_OBJ {
@@ -4281,11 +4278,11 @@ class Perl5::Actions does STDActions {
                     $past := QAST::Op.new( $past );
                 }
             }
-            
+
             if $builtin[$proto] && nqp::substr($builtin[$proto],0, 1) eq '*' {
                 nqp::push($past, QAST::Var.new( :name('$?PACKAGE'), :scope('lexical'), :named('pkg') ) );
             }
-            
+
             if $builtin[$op] {
                 $past.op( $builtin[$op] );
                 $past.name( $builtin[$opname] );
@@ -4404,7 +4401,7 @@ class Perl5::Actions does STDActions {
             if $<arglist> {
                 # Look up parametric type.
                 my $ptype := $*W.find_symbol(@name);
-                
+
                 # Do we know all the arguments at compile time?
                 my int $all_compile_time = 1;
                 if $<arglist><arg> {
@@ -4444,7 +4441,7 @@ class Perl5::Actions does STDActions {
             else {
                 $past := instantiated_type(@name, $/);
             }
-            
+
             # Names ending in :: really want .WHO.
             if $*longname.get_who {
                 $past := QAST::Op.new( :op('who'), $past );
@@ -4598,7 +4595,7 @@ class Perl5::Actions does STDActions {
 
     method circumfix:sym«<< >>»($/) {
         $V5DEBUG && say("circumfix:sym«<< >>»($/)"); make $<nibble>.ast; }
-    
+
     method circumfix:sym<« »>($/) {
         $V5DEBUG && say("circumfix:sym<« »>($/)"); make $<nibble>.ast; }
 
@@ -4983,7 +4980,7 @@ class Perl5::Actions does STDActions {
                         name => ($target.name // ''),
                 );
             }
-            
+
             # We may need to decontainerize the right, depending on sigil.
             my $sigil := nqp::substr($target.name(), 0, 1);
             if $sigil eq '@' || $sigil eq '%' {
@@ -5077,7 +5074,7 @@ class Perl5::Actions does STDActions {
         }
         return $past;
     }
-    
+
     sub concat_op($/, $lhs_ast, $rhs_ast, $assign = 0) {
         my $past := QAST::Op.new(
             :op('call'), :name('&infix:<P5.>'),
@@ -5087,7 +5084,7 @@ class Perl5::Actions does STDActions {
         $past := QAST::Op.new( :op('bind'), $lhs_ast, $past ) if $assign;
         $past
     }
-    
+
     sub mixin_op($/, $sym) {
         my $rhs  := $/[1].ast;
         my $past := QAST::Op.new(
@@ -5117,7 +5114,7 @@ class Perl5::Actions does STDActions {
         }
         $past
     }
-    
+
     sub xx_op($/, $lhs, $rhs) {
         QAST::Op.new(
             :op('call'), :name('&infix:<xx>'), :node($/),
@@ -5161,7 +5158,7 @@ class Perl5::Actions does STDActions {
 
     sub baseop_reduce($/) {
         my str $reduce = 'LEFT';
-        if    $<assoc> eq 'right'  
+        if    $<assoc> eq 'right'
            || $<assoc> eq 'list'   { $reduce = nqp::uc($<assoc>); }
         elsif $<prec> eq 'm='      { $reduce = 'CHAIN'; }
         elsif $<pasttype> eq 'xor' { $reduce = 'XOR'; }
@@ -5297,7 +5294,7 @@ class Perl5::Actions does STDActions {
                     $past.name('&METAOP_HYPER_CALL');
                 }
                 else {
-                    my $basepast := $past.name 
+                    my $basepast := $past.name
                                     ?? QAST::Var.new( :name($past.name), :scope<lexical>)
                                     !! $past[0];
                     $past.push($basepast);
@@ -5674,7 +5671,7 @@ class Perl5::Actions does STDActions {
                 QAST::Op.new( :op('p6store'),
                     QAST::Var.new(:name('$/'), :scope('lexical')),
                     $past ) );
-            
+
             if !$<rx_mods> || nqp::index(~$<rx_mods>.ast, 'g') == -1 {
                 $past := QAST::Op.new( :node($/), :op('call'), :name('&P5Bool'), $past )
             }
@@ -5806,7 +5803,7 @@ class Perl5::Actions does STDActions {
                 placeholder => $full_name,
             );
         }
-        
+
         # Obtain/create placeholder parameter list.
         my @params := $block.ann('placeholder_sig') || $block.annotate('placeholder_sig', []);
 
@@ -5977,7 +5974,7 @@ class Perl5::Actions does STDActions {
             :name('&succeed'),
             $when_block,
         );
-        
+
         # wrap it in a handle op so that we can use a PROCEED exception
         # to skip the succeed call
         return QAST::Op.new(
@@ -5996,7 +5993,7 @@ class Perl5::Actions does STDActions {
         # Handler needs its own $/ and $!.
         $*W.install_lexical_magical($handler.ann('past_block'), '$!');
         $*W.install_lexical_magical($handler.ann('past_block'), '$/');
-        
+
         # unshift handler preamble: create exception object and store it into $_
         my $exceptionreg := $handler.unique('exception_');
         my $handler_preamble := QAST::Stmts.new(
@@ -6015,7 +6012,7 @@ class Perl5::Actions does STDActions {
             )
         );
         $handler.ann('past_block').unshift($handler_preamble);
-        
+
         # If the handler has a succeed handler, then make sure we sink
         # the exception it will produce.
         if $handler.ann('past_block')<handlers> && nqp::existskey($handler.ann('past_block')<handlers>, 'SUCCEED') {
@@ -6062,7 +6059,7 @@ class Perl5::Actions does STDActions {
                         QAST::Op.new( :op('exception') )
                     )),
                 )));
-                
+
             # rethrow the exception if we reach the end of the handler
             # (if a when {} clause matches this will get skipped due
             # to the BREAK exception)
@@ -6160,7 +6157,7 @@ class Perl5::Actions does STDActions {
         my $curried :=
             # It must be an op and...
             nqp::istype($past, QAST::Op) && (
-            
+
             # Either a call that we're allowed to curry...
                 (($past.op eq 'call' || $past.op eq 'chain') &&
                     (nqp::index($past.name, '&infix:') == 0 ||
@@ -6169,7 +6166,7 @@ class Perl5::Actions does STDActions {
                      (nqp::istype($past[0], QAST::Op) &&
                         nqp::index($past[0].name, '&METAOP') == 0)) &&
                     %curried{$past.name} // 2)
-            
+
             # Or not a call and an op in the list of alloweds.
                 || ($past.op ne 'call' && %curried{$past.op} // 0)
             );
@@ -6177,7 +6174,7 @@ class Perl5::Actions does STDActions {
         my int $whatevers = 0;
         while $curried && $i < $upto_arity {
             my $check := $past[$i];
-            $check := $check[0] if (nqp::istype($check, QAST::Stmts) || 
+            $check := $check[0] if (nqp::istype($check, QAST::Stmts) ||
                                     nqp::istype($check, QAST::Stmt)) &&
                                    +@($check) == 1;
             $whatevers = $whatevers + 1 if istype($check.returns, WhateverCode)
@@ -6191,7 +6188,7 @@ class Perl5::Actions does STDActions {
             $*W.cur_lexpad()[0].push($block);
             while $i < $upto_arity {
                 my $old := $past[$i];
-                $old := $old[0] if (nqp::istype($old, QAST::Stmts) || 
+                $old := $old[0] if (nqp::istype($old, QAST::Stmts) ||
                                     nqp::istype($old, QAST::Stmt)) &&
                                    +@($old) == 1;
                 if istype($old.returns, WhateverCode) {
@@ -6282,7 +6279,7 @@ class Perl5::Actions does STDActions {
             $*W.throw($/, ['X', 'Value', 'Dynamic'], what => $usage);
         }
     }
-    
+
     sub istype(Mu $val, Mu $type) {
         try { return nqp::istype($val, $type) }
         0
@@ -6383,7 +6380,7 @@ class Perl5::QActions does STDActions {
         $V5DEBUG && say("method nibbler($/)");
         my Mu $asts := nqp::list();
         my $lastlit := '';
-        
+
         for @*nibbles {
             if nqp::istype($_, Match) {
                 if nqp::istype($_.ast, QAST::Node) {
@@ -6406,31 +6403,31 @@ class Perl5::QActions does STDActions {
         if $lastlit ne '' || !nqp::elems($asts) {
             nqp::push($asts, $*W.add_string_constant($lastlit));
         }
-        
+
         my $past := nqp::shift($asts);
         while nqp::elems($asts) && ($_ := nqp::shift($asts)) {
             $past := QAST::Op.new( :op('call'), :name('&infix:<P5.>'), $past, $_ );
         }
-        
+
         if nqp::can($/.CURSOR, 'postprocessor') {
             my $pp := $/.CURSOR.postprocessor;
             $past := self."postprocess_$pp"($/, $past);
         }
-        
+
         $past.node($/);
         make $past;
     }
-    
+
     method postprocess_null($/, $past) {
         $V5DEBUG && say("method postprocess_null($/, \$past)");
         $past
     }
-    
+
     method postprocess_run($/, $past) {
         $V5DEBUG && say("method postprocess_run($/, \$past)");
         QAST::Op.new( :name('&QX'), :op('call'), :node($/), $past )
     }
-    
+
     method postprocess_words($/, Mu $past is copy) {
         $V5DEBUG && say("method postprocess_words($/, \$past)");
         if $past.has_compile_time_value {
@@ -6449,7 +6446,7 @@ class Perl5::QActions does STDActions {
         }
         return $past;
     }
-    
+
     method postprocess_quotewords($/, $past) {
         $V5DEBUG && say("method postprocess_quotewords($/, \$past)");
         my $result := QAST::Op.new( :op('call'), :name('&infix:<,>'), :node($/) );
@@ -6504,7 +6501,7 @@ class Perl5::QActions does STDActions {
     method backslash:sym<stopper>($/) { make $<text>.Str; }
     method backslash:sym<miscq>($/) { make '\\' ~ ~$/; }
     method backslash:sym<misc>($/) { make ~$/; }
-    
+
     method backslash:sym<a>($/) { make nqp::chr(7) }
     method backslash:sym<b>($/) { make "\b" }
     method backslash:sym<c>($/) { make $<charspec>.ast }
@@ -6530,7 +6527,7 @@ class Perl5::QActions does STDActions {
                 QAST::Op.new( :op('p6capturelex'), $<block>.ast ),
                 :node($/)));
     }
-    
+
     method escape:sym<$>($/) { make $<EXPR>.ast; }
     method escape:sym<@>($/) {
         my $joiner := $*W.add_string_constant(' ');
@@ -6574,7 +6571,7 @@ class Perl5::RegexActions does STDActions {
                     }
                     else {
                         $qast.push($_.ast);
-                        $lastlit := $ast.rxtype eq 'literal' 
+                        $lastlit := $ast.rxtype eq 'literal'
                                     && !QAST::Node.ACCEPTS($ast[0])
                                     ?? $ast !! 0;
                     }
@@ -6612,11 +6609,11 @@ class Perl5::RegexActions does STDActions {
             make $qast;
         }
     }
-    
+
     method p5metachar:sym<bs>($/) {
         make $<backslash>.ast;
     }
-    
+
     method p5metachar:sym<.>($/) {
         make %*RX<s>
             ?? QAST::Regex.new( :rxtype<cclass>, :name<.>, :node($/) )
@@ -6637,7 +6634,7 @@ class Perl5::RegexActions does STDActions {
             QAST::Regex.new( :rxtype<anchor>, :subtype(%*RX<m> ?? 'eol' !! 'eos'), :node($/) )
         );
     }
-    
+
     method p5metachar:sym<(? )>($/) { # like P6's $<name>=[ ... ]
         my $qast;
         if $<nibbler> {
@@ -6649,16 +6646,16 @@ class Perl5::RegexActions does STDActions {
         }
         make $qast;
     }
-    
+
     method p5metachar:sym<(?: )>($/) {
         make $<nibbler>.ast;
     }
-    
+
     method p5metachar:sym<( )>($/) {
         make QAST::Regex.new( :rxtype<subcapture>, :node($/),
             $<nibbler>.ast );
     }
-    
+
     method p5metachar:sym<[ ]>($/) {
         make $<cclass>.ast;
     }
@@ -6669,7 +6666,7 @@ class Perl5::RegexActions does STDActions {
     }
 
     method p5metachar:sym<(??{ })>($/) {
-        make QAST::Regex.new( 
+        make QAST::Regex.new(
                  QAST::Node.new(
                     QAST::SVal.new( :value('INTERPOLATE') ),
                     $<codeblock>.ast,
@@ -6775,7 +6772,7 @@ class Perl5::RegexActions does STDActions {
         $qast := +@alts == 1 ?? @alts[0] !!
             $<sign> eq '^' ??
                 QAST::Regex.new( :rxtype<concat>, :node($/),
-                    QAST::Regex.new( :rxtype<conj>, :subtype<zerowidth>, |@alts ), 
+                    QAST::Regex.new( :rxtype<conj>, :subtype<zerowidth>, |@alts ),
                     QAST::Regex.new( :rxtype<cclass>, :name<.> ) ) !!
                 QAST::Regex.new( :rxtype<altseq>, |@alts );
         make $qast;
@@ -6853,7 +6850,7 @@ class Perl5::RegexActions does STDActions {
                     QAST::SVal.new( :value(~$<number> - 1) ) ) );
         }
     }
-    
+
     method p5assertion:sym«<»($/) {
         if $<nibbler> {
             make QAST::Regex.new(
@@ -6867,7 +6864,7 @@ class Perl5::RegexActions does STDActions {
             make 0;
         }
     }
-   
+
     method p5assertion:sym<=>($/) {
         if $<nibbler> {
             make QAST::Regex.new(
@@ -6881,7 +6878,7 @@ class Perl5::RegexActions does STDActions {
             make 0;
         }
     }
-    
+
     method p5assertion:sym<!>($/) {
         if $<nibbler> {
             make QAST::Regex.new(
@@ -6906,7 +6903,7 @@ class Perl5::RegexActions does STDActions {
             }
         }
     }
-    
+
     method p5assertion:sym<mod>($/) {
         if $<nibbler> {
             make $<nibbler>[0].ast;
@@ -6918,7 +6915,7 @@ class Perl5::RegexActions does STDActions {
             make 0;
         }
     }
-    
+
     method p5quantifier:sym<*>($/) {
         my $qast := QAST::Regex.new( :rxtype<quant>, :min(0), :max(-1), :node($/) );
         make quantmod($qast, $<quantmod>);
@@ -6933,7 +6930,7 @@ class Perl5::RegexActions does STDActions {
         my $qast := QAST::Regex.new( :rxtype<quant>, :min(0), :max(1), :node($/) );
         make quantmod($qast, ~$<quantmod>);
     }
-    
+
     method p5quantifier:sym<{ }>($/) {
         my $qast;
         $qast := QAST::Regex.new( :rxtype<quant>, :min(+$<start>), :node($/) );
@@ -6942,13 +6939,13 @@ class Perl5::RegexActions does STDActions {
         else                          { $qast.max($qast.min); }
         make quantmod($qast, $<quantmod>);
     }
-    
+
     sub quantmod(Mu $ast, $mod) {
         if    $mod eq '?' { $ast.backtrack('f') }
         elsif $mod eq '+' { $ast.backtrack('g') }
         $ast;
     }
-    
+
     method qbuildsub(Mu $qast is rw, Mu $block = QAST::Block.new(), :$anon, :$addself, *%rest) {
         $block := nqp::decont($block);
         my $code_obj := nqp::existskey(%rest, 'code_obj')
@@ -6974,7 +6971,7 @@ class Perl5::RegexActions does STDActions {
                           QAST::Regex.new( :rxtype<pass> ) !!
                           QAST::Regex.new( :rxtype<pass>, :name(%*RX<name>) )));
         $block.push($qast);
-        
+
         $block;
     }
 
@@ -6989,7 +6986,7 @@ class Perl5::RegexActions does STDActions {
                         ?? +nqp::atkey($capnames, $_.key) + $_.value !! $_.value);
                 }
                 $count := $x{''};
-            } 
+            }
         }
         elsif $rxtype eq 'altseq' || $rxtype eq 'alt' {
             my $max := $count;
@@ -7034,7 +7031,7 @@ class Perl5::RegexActions does STDActions {
         nqp::deletekey($capnames, '$!to');
         $capnames;
     }
-    
+
     method flip_ast($qast) {
         return $qast unless nqp::istype($qast, QAST::Regex);
         if $qast.rxtype eq 'literal' {
@@ -7061,187 +7058,9 @@ class Perl5::RegexActions does STDActions {
         $V5DEBUG && say("store_regex_caps()");
         $code_obj.SET_CAPS(nqp::getattr($caps, EnumMap, '$!storage'));
     }
-    
+
     method store_regex_nfa($code_obj, Mu $block, Mu $nfa) {
         $code_obj.SET_NFA($nfa.save);
-    }
-
-    # XXX Below here copied from p6regex; needs review
-
-    method metachar:sym<'>($/) {
-        my $quote := $<quote_EXPR>.ast;
-        if QAST::SVal.ACCEPTS($quote) { $quote := $quote.value; }
-        my $qast := QAST::Regex.new( $quote, :rxtype<literal>, :node($/) );
-        $qast.subtype('ignorecase') if %*RX<i>;
-        make $qast;
-    }
-
-    method metachar:sym<">($/) {
-        my $quote := $<quote_EXPR>.ast;
-        if QAST::SVal.ACCEPTS($quote) { $quote := $quote.value; }
-        my $qast := QAST::Regex.new( $quote, :rxtype<literal>, :node($/) );
-        $qast.subtype('ignorecase') if %*RX<i>;
-        make $qast;
-    }
-
-    method metachar:sym<lwb>($/) {
-        make QAST::Regex.new( :rxtype<anchor>, :subtype<lwb>, :node($/) );
-    }
-
-    method metachar:sym<rwb>($/) {
-        make QAST::Regex.new( :rxtype<anchor>, :subtype<rwb>, :node($/) );
-    }
-
-    method metachar:sym<from>($/) {
-        make QAST::Regex.new( :rxtype<subrule>, :subtype<capture>,
-            :backtrack<r>, :name<$!from>, :node($/),
-            QAST::Node.new(
-                QAST::SVal.new( :value('!LITERAL') ),
-                QAST::SVal.new( :value('') ) ) );
-    }
-
-    method metachar:sym<to>($/) {
-        make QAST::Regex.new( :rxtype<subrule>, :subtype<capture>,
-            :backtrack<r>, :name<$!to>, :node($/),
-            QAST::Node.new(
-                QAST::SVal.new( :value('!LITERAL') ),
-                QAST::SVal.new( :value('') ) ) );
-    }
-
-    method metachar:sym<assert>($/) {
-        make $<assertion>.ast;
-    }
-
-    method metachar:sym<var>($/) {
-        my $qast;
-        my $name := $<pos> ?? +$<pos> !! ~$<name>;
-        if $<quantified_atom> {
-            $qast := $<quantified_atom>[0].ast;
-            if $qast.rxtype eq 'quant' && $qast[0].rxtype eq 'subrule' {
-                self.subrule_alias($qast[0], $name);
-            }
-            elsif $qast.rxtype eq 'subrule' { 
-                self.subrule_alias($qast, $name); 
-            }
-            else {
-                $qast := QAST::Regex.new( $qast, :name($name), 
-                                          :rxtype<subcapture>, :node($/) );
-            }
-        }
-        else {
-            $qast := QAST::Regex.new( :rxtype<subrule>, :subtype<method>, :node($/),
-                QAST::Node.new(
-                    QAST::SVal.new( :value('!BACKREF') ),
-                    QAST::SVal.new( :value($name) ) ) );
-        }
-        make $qast;
-    }
-
-    method backslash:sym<e>($/) {
-        my $qast := QAST::Regex.new( "\c[27]", :rxtype('enumcharlist'),
-                        :negate($<sym> eq 'E'), :node($/) );
-        make $qast;
-    }
-
-    method backslash:sym<f>($/) {
-        my $qast := QAST::Regex.new( "\c[12]", :rxtype('enumcharlist'),
-                        :negate($<sym> eq 'F'), :node($/) );
-        make $qast;
-    }
-
-    method backslash:sym<h>($/) {
-        my $qast := QAST::Regex.new( "\x[09,20,a0,1680,180e,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,200a,202f,205f,3000]", :rxtype('enumcharlist'),
-                        :negate($<sym> eq 'H'), :node($/) );
-        make $qast;
-    }
-
-    method backslash:sym<r>($/) {
-        my $qast := QAST::Regex.new( "\r", :rxtype('enumcharlist'),
-                        :negate($<sym> eq 'R'), :node($/) );
-        make $qast;
-    }
-
-    method backslash:sym<t>($/) {
-        my $qast := QAST::Regex.new( "\t", :rxtype('enumcharlist'),
-                        :negate($<sym> eq 'T'), :node($/) );
-        make $qast;
-    }
-
-    method backslash:sym<v>($/) {
-        my $qast := QAST::Regex.new( "\x[0a,0b,0c,0d,85,2028,2029]",
-                        :rxtype('enumcharlist'),
-                        :negate($<sym> eq 'V'), :node($/) );
-        make $qast;
-    }
-
-    method backslash:sym<o>($/) {
-        my $octlit :=
-            HLL::Actions.ints_to_string( $<octint> || $<octints><octint> );
-        make $<sym> eq 'O'
-             ?? QAST::Regex.new( $octlit, :rxtype('enumcharlist'),
-                                  :negate(1), :node($/) )
-             !! QAST::Regex.new( $octlit, :rxtype('literal'), :node($/) );
-    }
-
-    method backslash:sym<x>($/) {
-        my $hexlit :=
-            HLL::Actions.ints_to_string( $<hexint> || $<hexints><hexint> );
-        make $<sym> eq 'X'
-             ?? QAST::Regex.new( $hexlit, :rxtype('enumcharlist'),
-                                  :negate(1), :node($/) )
-             !! QAST::Regex.new( $hexlit, :rxtype('literal'), :node($/) );
-    }
-
-    method backslash:sym<c>($/) {
-        make QAST::Regex.new( $<charspec>.ast, :rxtype('literal'), :node($/) );
-    }
-
-    method assertion:sym<name>($/) {
-        my $name := ~$<longname>;
-        my $qast;
-        if $<assertion> {
-            $qast := $<assertion>.ast;
-            if $qast.rxtype eq 'subrule' {
-                self.subrule_alias($qast, $name);
-            }
-            else {
-                $qast := QAST::Regex.new( $qast, :name($name), 
-                                          :rxtype<subcapture>, :node($/) );
-            }
-        }
-        elsif $name eq 'sym' {
-            my $loc := nqp::index(%*RX<name>, ':sym<');
-            $loc := nqp::index(%*RX<name>, ':sym«')
-                if $loc < 0;
-            my $rxname := nqp::substr(%*RX<name>, $loc + 5);
-            $rxname := nqp::substr($rxname, 0, nqp::chars($rxname) - 1);
-            $qast := QAST::Regex.new(:name('sym'), :rxtype<subcapture>, :node($/),
-                QAST::Regex.new(:rxtype<literal>, $rxname, :node($/)));
-        }
-        else {
-            $qast := QAST::Regex.new(:rxtype<subrule>, :subtype<capture>,
-                                     :node($/), :name($name),
-                                     QAST::Node.new(QAST::SVal.new( :value($name) )));
-            if $<arglist> {
-                for $<arglist>.ast.list { $qast[0].push( $_ ) }
-            }
-            elsif $<nibbler> {
-                $name eq 'after' ??
-                    $qast[0].push(self.qbuildsub(self.flip_ast($<nibbler>.ast), :anon(1), :addself(1))) !!
-                    $qast[0].push(self.qbuildsub($<nibbler>.ast, :anon(1), :addself(1)));
-            }
-        }
-        make $qast;
-    }
-    
-    method arg($/) {
-        make $<quote_EXPR> ?? $<quote_EXPR>.ast !! +$<val>;
-    }
-
-    method arglist($/) {
-        my $ast := QAST::Op.new( :op('list') );
-        for $<arg> { $ast.push( $_.ast ); }
-        make $ast;
     }
 
     method subrule_alias($ast, $name) {

@@ -107,7 +107,7 @@ role STD5 {
             my @delims := $c.peek_delimiters($c.target, $c.pos);
             my $start := @delims[0];
             my $stop  := @delims[1];
-            
+
             # Get the language.
             my $lang := self.quote_lang($l, $start, $stop, @base_tweaks, @extra_tweaks);
             $<B>.make([$lang, $start, $stop]);
@@ -145,7 +145,7 @@ role STD5 {
                     self.panic("Ending delimiter $*DELIM not found");
                 }
                 $here.'!cursor_pos'($stop.pos);
-                
+
                 # Get it trimmed and AST updated.
                 $*ACTIONS.trim_heredoc($doc, $stop, $herestub.orignode.MATCH.ast);
             }
@@ -192,7 +192,7 @@ role STD5 {
         }
         $lang_cursor.nibbler();
     }
-    
+
     method panic(*@args) {
         self.typed_panic('X::Comp::AdHoc', payload => nqp::join('', @args))
     }
@@ -219,7 +219,7 @@ role STD5 {
         @*WORRIES.push($*W.typed_exception(self.MATCH(), $type_str, |%opts));
         self
     }
-    
+
     method malformed($what) {
         self.typed_panic('X::Syntax::Malformed', :$what);
     }
@@ -261,9 +261,9 @@ role STD5 {
                 if !$var<sigil> || $var<sigil> ne '&' {
                     if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) || $name eq '%_'
                     || $is_global {
-                        
+
                         my $BLOCK := $*W.cur_lexpad();
-                        
+
                         # Create a container descriptor. Default to rw and set a
                         # type if we have one; a trait may twiddle with that later.
                         my %cont_info  := container_type_info($/, $var<really> || $var<sigil>, $*OFTYPE ?? [$*OFTYPE] !! []);
@@ -272,7 +272,7 @@ role STD5 {
 
                         $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
                             :scope('our'), :$package);
-                        
+
                         # Set scope and type on container, and if needed emit code to
                         # reify a generic type.
                         if $varast.isa(QAST::Var) {
@@ -430,7 +430,7 @@ grammar Perl5::Grammar does STD5 {
                 }
                 elsif $s eq ':' { # Parse whatever comes next like a pair.
                     $pos = $pos + 1;
-                  
+
                     # If the pair is of the form :!name, then reverse the value
                     # and skip the exclamation mark.
                     my $value = 1;
@@ -541,7 +541,7 @@ grammar Perl5::Grammar does STD5 {
         @args.push('"');
         nqp::die(join('', @args))
     }
-    
+
     method FAILGOAL($goal, $dba? is copy) {
         unless $dba {
             $dba = nqp::getcodename(nqp::callercode());
@@ -552,7 +552,7 @@ grammar Perl5::Grammar does STD5 {
     method peek_delimiters(str $target, $pos is copy) {
         # peek at the next character
         my str $start = nqp::substr($target, $pos, 1);
-    
+
         # colon, word and whitespace characters aren't valid delimiters
         if $start eq ':' {
             self.panic('Colons may not be used to delimit quoting constructs');
@@ -676,13 +676,13 @@ grammar Perl5::Grammar does STD5 {
 
             my $match    = nqp::getattr($termcur, $cursor_class, '$!match');
             my %termish  = $match ~~ Associative ?? $match.hash !! $termcur.MATCH().hash;
-            
+
             # Interleave any prefix/postfix we might have found.
             my $termOPER = %termish;
             $termOPER    = $termOPER<OPER> while $termOPER<OPER>:exists;
             @prefixish   = $termOPER<prefixish>.list;
             @postfixish  = $termOPER<postfixish>.list;
- 
+
             while @prefixish && @postfixish {
                 my $preO     = @prefixish[0]<OPER><O>;
                 my $postO    = @postfixish[*-1]<OPER><O>;
@@ -788,7 +788,7 @@ grammar Perl5::Grammar does STD5 {
         $here2
     }
 
-    method EXPR_reduce(@termstack, @opstack) { 
+    method EXPR_reduce(@termstack, @opstack) {
         my $op := nqp::decont(@opstack.pop);
 
         my %opOPER      = $op<OPER>.hash  if $op<OPER>.defined;
@@ -808,7 +808,7 @@ grammar Perl5::Grammar does STD5 {
             $sym = %opOPER<sym> // '';
             my @list;
             @list.unshift: @termstack.pop;
-            while @opstack {    
+            while @opstack {
                 last if $sym ne (@opstack[*-1]<OPER><sym> // '');
                 @list.unshift: @termstack.pop;
                 @opstack.pop;
@@ -864,7 +864,7 @@ grammar Perl5::Grammar does STD5 {
             $cur
         }
     }
-    
+
     method MARKED(str $markname) {
         my Mu $markhash := nqp::getattr(
             nqp::getattr(self, $cursor_class, '$!shared'), ParseShared, '%!marks');
@@ -929,71 +929,22 @@ grammar Perl5::Grammar does STD5 {
 
     my $*endsym := "null";
 
-    #proto token category { * }
-
-    #token category:sym<category> { <sym> }
-
-    #token category:sym<sigil> { <sym> }
     proto token sigil { * }
-
-    #token category:sym<special_variable> { <sym> }
     proto token special_variable { * }
-
-    #token category:sym<comment> { <sym> }
     proto token comment { * }
-
-    #token category:sym<module_name> { <sym> }
     proto token module_name { * }
-
-    #token category:sym<value> { <sym> }
     proto token value { * }
-
-    #token category:sym<number> { <sym> }
     proto token number { * }
-
-    #token category:sym<quote> { <sym> }
     proto token quote { * }
-
-    #token category:sym<dotty> { <sym> }
-    #proto token dotty( :$*endsym = 'unspacey' ) {
     proto token dotty { * }
-
-    #token category:sym<type_declarator> { <sym> }
-    #proto token type_declarator (:$*endsym = 'spacey') { * }
     proto token type_declarator { * }
-
-    #token category:sym<scope_declarator> { <sym> }
-    #proto token scope_declarator (:$*endsym = 'nofun') { * }
     proto token scope_declarator { * }
-
-    #token category:sym<package_declarator> { <sym> }
-    #proto token package_declarator (:$*endsym = 'spacey') { * }
     proto token package_declarator { * }
-
-    #token category:sym<routine_declarator> { <sym> }
-    #proto token routine_declarator (:$*endsym = 'nofun') { * }
-    #~ proto token routine_declarator { * }
-
-    #token category:sym<regex_declarator> { <sym> }
-    #proto token regex_declarator (:$*endsym = 'spacey') { * }
     proto token regex_declarator { * }
-
-    #token category:sym<statement_prefix> { <sym> }
     proto rule statement_prefix { * }
-
-    #token category:sym<statement_control> { <sym> }
-    #proto rule statement_control (:$*endsym = 'spacey') { * }
     proto rule statement_control { * }
-
-    #token category:sym<statement_mod_cond> { <sym> }
-    #proto rule statement_mod_cond (:$*endsym = 'nofun') { * }
     proto rule statement_mod_cond { * }
-
-    #token category:sym<statement_mod_loop> { <sym> }
-    #proto rule statement_mod_loop (:$*endsym = 'nofun') { * }
     proto rule statement_mod_loop { * }
-
-    #token category:sym<terminator> { <sym> }
     proto token terminator { * }
 
     token unspacey { <.unsp>? }
@@ -1090,7 +1041,7 @@ grammar Perl5::Grammar does STD5 {
             ]
         | 'begin' » \h* [ $$ || '#' || <.panic: "Unrecognized token after =begin"> ]
             [ .*? "\n" \h* '=' <.unsp>? 'end' » \N* || { self.panic("=begin without matching =end"); } ]
-            
+
         | 'for' » \h* [ <identifier> || $$ || '#' || <.panic: "Unrecognized token after =for"> ]
             [.*?  ^^ \h* $$ || .*]
         | .*? ^^ '=cut' » \N*
@@ -1430,7 +1381,7 @@ grammar Perl5::Grammar does STD5 {
                     my $sigil := nqp::substr($name, 0, 1);
                     my $varast := QAST::Var.new( :name($name), :node($/), :scope<lexical> );
                     my $BLOCK := $*W.cur_lexpad();
-                    
+
                     # Create a container descriptor. Default to rw and set a
                     # type if we have one; a trait may twiddle with that later.
                     my %cont_info  := container_type_info($/, $sigil, []);
@@ -1438,7 +1389,7 @@ grammar Perl5::Grammar does STD5 {
 
                     $*W.install_lexical_container($BLOCK, $name, %cont_info, $descriptor,
                         :scope('our'), :package($*PACKAGE));
-                    
+
                     # Set scope and type on container, and if needed emit code to
                     # reify a generic type.
                     $varast.returns(%cont_info<bind_constraint>);
@@ -1448,7 +1399,7 @@ grammar Perl5::Grammar does STD5 {
                             QAST::Op.new( :op('p6var'), $varast ),
                             QAST::Op.new( :op('curlexpad') ));
                     }
-                    
+
                     $BLOCK[0].push(QAST::Op.new(
                         :op('bind'),
                         $varast,
@@ -1470,13 +1421,13 @@ grammar Perl5::Grammar does STD5 {
                     $arglist := nqp::getattr($arglist.list.eager,
                             find_symbol('List'), '$!items');
                 }
-                
+
                 if nqp::existskey(%pragma_defaults, $name) {
                     $arglist := %pragma_defaults{$name} unless $<arglist><arg>[0]<EXPR>;
                     self.pragma($name, $arglist, 1);
                     $name := '' unless $name eq 'warnings';
                 }
-                
+
                 if $name {
                     my $module := $*W.load_module($/, $name, nqp::hash( 'from', 'Perl5' ), $*GLOBALish);
                     do_import($/, $module, $name, $arglist);
@@ -1586,7 +1537,7 @@ grammar Perl5::Grammar does STD5 {
     sub import_symbols($/, %stash, $source_package_name) is export {
         # What follows is a two-pass thing for historical reasons.
         my $target := $*W.cur_lexpad();
-        
+
         # First pass: QAST::Block symbol table installation. Also detect any
         # outright conflicts, and handle any situations where we need to merge.
         my $to_install := nqp::hash;
@@ -1610,7 +1561,7 @@ grammar Perl5::Grammar does STD5 {
                         # weird action at a distance.
                         $installed := $*W.derive_dispatcher($installed);
                         $*W.install_lexical_symbol($target, $_.key, $installed, :clone(1));
-                        
+
                         # Incorporate dispatchees of foreign proto, avoiding
                         # duplicates.
                         my %seen;
@@ -1645,7 +1596,7 @@ grammar Perl5::Grammar does STD5 {
                     QAST::Var.new( :name($_.key), :scope('lexical') )
                 ));
                 $to_install{$_.key} := $_.value;
-                
+
             }
         }
 
@@ -1662,7 +1613,7 @@ grammar Perl5::Grammar does STD5 {
                 source-package-name => $source_package_name,
             );
         }
-        
+
         # Second pass: make sure installed things are in an SC and handle
         # categoricals.
         my Mu $iter := nqp::iterator($to_install);
@@ -1674,7 +1625,7 @@ grammar Perl5::Grammar does STD5 {
             $key  := nqp::p6box_s(nqp::iterkey_s($elem));
             $val  := nqp::iterval($elem);
             my $/;
-            
+
             if nqp::isnull(nqp::getobjsc($val)) {
                 $*W.add_object($val);
             }
@@ -1694,14 +1645,14 @@ grammar Perl5::Grammar does STD5 {
         {
             my $longname := ~$<module_name><longname>;
             my $arglist;
-            
+
             if $<arglist><arg>[0]<EXPR> {
                 $arglist := $*W.compile_time_evaluate($/,
                         $<arglist><arg>[0]<EXPR>.ast);
                 $arglist := nqp::getattr($arglist.list.eager,
                         find_symbol('List'), '$!items');
             }
-            
+
             if nqp::existskey(%pragma_defaults, $longname) {
                 self.pragma($longname, $<arglist><arg>[0]<EXPR>
                     ?? $arglist
@@ -1710,18 +1661,6 @@ grammar Perl5::Grammar does STD5 {
         }
     }
 
-
-    #rule statement_control:sym<if> {
-    #    $<sym>=['if'|'unless']
-    #    <xblock>
-    #    [
-    #        [ <!before 'else'\s*'if'> || <.panic: "Please use 'elsif'"> ]
-    #        'elsif'<?spacey> <elsif=xblock>
-    #    ]*
-    #    [
-    #        'else'<?spacey> <else=sblock>
-    #    ]?
-    #}
     rule statement_control:sym<if> {
         <sym>
         <xblock>
@@ -1779,17 +1718,13 @@ grammar Perl5::Grammar does STD5 {
         [ 'continue' <continue=.sblock> ]?
     }
 
-    token statement_control:sym<foreach> {
-        <!>
-    }
-
     rule statement_control:sym<given> {
         <sym> <xblock>
     }
     rule statement_control:sym<when> {
         <sym> <xblock>
     }
-    rule statement_control:sym<default> {<sym> <sblock> }
+    rule statement_control:sym<default> { <sym> <sblock> }
 
     rule statement_prefix:sym<BEGIN>     { :my $*SHIFT_FROM := '@ARGV'; <sym> <sblock> }
     rule statement_prefix:sym<CHECK>     { :my $*SHIFT_FROM := '@ARGV'; <sym> <sblock> }
@@ -1803,18 +1738,14 @@ grammar Perl5::Grammar does STD5 {
 
     rule modifier_expr { <EXPR> }
 
-    rule statement_mod_cond:sym<if>     {<sym> <modifier_expr> }
-    rule statement_mod_cond:sym<unless> {<sym> <modifier_expr> }
-    rule statement_mod_cond:sym<when>   {<sym> <modifier_expr> }
+    rule statement_mod_cond:sym<if>     { <sym> <modifier_expr> }
+    rule statement_mod_cond:sym<unless> { <sym> <modifier_expr> }
+    rule statement_mod_cond:sym<when>   { <sym> <modifier_expr> }
 
-#    rule statement_mod_loop:sym<while> {<sym> <modifier_expr> }
-#    rule statement_mod_loop:sym<until> {<sym> <modifier_expr> }
-#    rule statement_mod_loop:sym<for>   {<sym> <modifier_expr> }
-#    rule statement_mod_loop:sym<given> {<sym> <modifier_expr> }
-    token statement_mod_loop:sym<while> { <sym> <.ws> <smexpr=.EXPR> }
-    token statement_mod_loop:sym<until> { <sym> <.ws> <smexpr=.EXPR> }
+    token statement_mod_loop:sym<while> { <sym>         <.ws> <smexpr=.EXPR> }
+    token statement_mod_loop:sym<until> { <sym>         <.ws> <smexpr=.EXPR> }
     token statement_mod_loop:sym<for>   { <sym> 'each'? <.ws> <smexpr=.EXPR> }
-    token statement_mod_loop:sym<given> { <sym> <.ws> <smexpr=.EXPR> }
+    token statement_mod_loop:sym<given> { <sym>         <.ws> <smexpr=.EXPR> }
 
     ################
     # module names #
@@ -1858,15 +1789,6 @@ grammar Perl5::Grammar does STD5 {
         }
     }
 
-#    token variable_declarator {
-#        :my $*IN_DECL := 1;
-#        :my $*DECLARAND;
-#        <variable>
-#        { $*IN_DECL := 0; self.add_variable(~$<variable>) }
-#        <.ws>
-#
-#        <trait>*
-#    }
     token variable_declarator {
         :my $*IN_DECL := 'variable';
         :my $var;
@@ -1876,57 +1798,10 @@ grammar Perl5::Grammar does STD5 {
             $/.CURSOR.add_variable($var);
             $*IN_DECL := '';
         }
-        [
-            <.unsp>?
-            $<shape>=[
-            | '(' ~ ')' <signature>
-                {
-                    my $sigil := nqp::substr($var, 0, 1);
-                    if $sigil eq '&' {
-                        self.typed_sorry('X::Syntax::Reserved',
-                            reserved => '() shape syntax in routine declarations',
-                            instead => ' (maybe use :() to declare a longname?)'
-                        );
-                    }
-                    elsif $sigil eq '@' {
-                        self.typed_sorry('X::Syntax::Reserved',
-                            reserved => '() shape syntax in array declarations');
-                    }
-                    elsif $sigil eq '%' {
-                        self.typed_sorry('X::Syntax::Reserved',
-                            reserved => '() shape syntax in hash declarations');
-                    }
-                    else {
-                        self.typed_sorry('X::Syntax::Reserved',
-                            reserved => '() shape syntax in variable declarations');
-                    }
-                }
-            | <?{ $*SCOPE eq 'local' }> '[' ~ ']' <semilist> { $*W.give_cur_block_temp($/) }
-            | <?{ $*SCOPE eq 'local' }> '{' ~ '}' <semilist> { $*W.give_cur_block_temp($/) }
-            ]+
-        ]?
         <.ws>
-        
         <trait>*
-#        <post_constraint>*
     }
 
-#    rule scoped($*SCOPE) {
-#        :dba('scoped declarator')
-#        [
-#        | <declarator>
-#        | <regex_declarator>
-#        | <package_declarator>
-#        ]
-#        || <?before <[A..Z]>><longname>{{
-#                my $t := $<longname>.Str;
-#                if !self.is_known($t) {
-#                    self.sorry("In \"$*SCOPE\" declaration, typename $t must be predeclared (or marked as declarative with :: prefix)");
-#                }
-#            }}
-#            <!> # drop through
-#        || <.panic: "Malformed $*SCOPE">
-#    }
     rule scoped($*SCOPE) {
         #~ :dba('scoped declarator')
         <?>
@@ -1942,11 +1817,6 @@ grammar Perl5::Grammar does STD5 {
     token scope_declarator:sym<our>       { <sym> <scoped('our')> }
     token scope_declarator:sym<state>     { <sym> <scoped('state')> }
 
-    #rule package_declarator:sym<package> {
-    #    :my $*OUTERPACKAGE := $*PACKAGE;
-    #    :my $*PKGDECL := 'package';
-    #    <sym> <package_def>
-    #}
     token package_declarator:sym<package> {
         :my $*OUTERPACKAGE := $*PACKAGE;
         :my $*PKGDECL := 'class';
@@ -1964,57 +1834,6 @@ grammar Perl5::Grammar does STD5 {
         [ <EXPR> ]?
     }
 
-#    rule package_def {
-#        :my $longname;
-#        :my $*IN_DECL := 'package';
-#        :my $*HAS_SELF := '';
-#        :my $*DECLARAND;
-#        :my $*NEWPKG;
-#        :my $*NEWLEX;
-#        :my $outer := $*CURLEX;
-#        :my $*CURPKG;
-#        :my $*CURLEX;
-##        { $*SCOPE := $*SCOPE || 'our'; }
-#        '' # XXX
-#        [
-#            [ <longname> { $longname := $<longname>; self.add_name( ~$longname<name> ); } ]?
-#            <.newlex>
-#            <trait>*
-#            <.getdecl>
-#            [
-#            || <?before '{'>
-#                [
-#                    {
-#                        # figure out the actual full package name (nested in outer package)
-#                        if $longname && $*NEWPKG {
-#                            my $shortname := ~$longname<name>;
-#                            $*CURPKG      := $*NEWPKG // $*CURPKG{$shortname ~ '::'};
-#                        }
-#                        $*begin_compunit   := 0;
-#                        $*UNIT<$?LONGNAME> := $*UNIT<$?LONGNAME> || $longname ?? ~$longname<name> !! '';
-#                    }
-#                    { $*IN_DECL := ''; }
-#                    <blockoid>
-#                    <.checkyada>
-#                ]
-#            || <?before ';'>
-#                {
-#                $longname || self.panic("Compilation unit cannot be anonymous");
-#                my $shortname    := ~$longname<name>;
-#                $*CURPKG         := $*NEWPKG // $*CURPKG{$shortname ~ '::'};
-#                $*begin_compunit := 0;
-#
-#                # XXX throws away any role sig above
-#                $*CURLEX := $outer;
-#
-#                $*UNIT<$?LONGNAME> := ~$longname<name>;
-#                }
-#                { $*IN_DECL := ''; }
-#                <statementlist>     # whole rest of file, presumably
-#            || <.panic: "Unable to parse $*PKGDECL definition">
-#            ]
-#        ] || <.panic: "Malformed $*PKGDECL">
-#    }
     rule package_def {
         :my $longname;
         :my $outer := $*W.cur_lexpad();
@@ -2024,29 +1843,20 @@ grammar Perl5::Grammar does STD5 {
         :my $*CURPAD;
         :my $*DOC := $*DECLARATOR_DOCS;
         :my $*DOCEE;
-#        <.attach_docs>
         ''
         # Meta-object will live in here; also set default REPR (a trait
         # may override this, e.g. is repr('...')).
         :my $*PACKAGE;
         :my $*REPR;
-        
+
         # Default to our scoped.
-        { unless $*SCOPE { $*SCOPE := 'our'; } }
-        
+        { $*SCOPE := 'our' unless $*SCOPE }
+
         [
             [ <longname> { $longname := dissect_longname($<longname>); } ]?
             <.newlex>
-            
-            #~ [ :dba('generic role')
-            #~ <?{ ($*PKGDECL//'') eq 'role' }>
-            #~ { $*PACKAGE := $*OUTERPACKAGE } # in case signature tries to declare a package
-            #~ '[' ~ ']' <signature>
-            #~ { $*IN_DECL := ''; }
-            #~ ]?
-            
             <trait>*
-            
+
             {
                 # Locate any existing symbol. Note that it's only a match
                 # with "my" if we already have a declaration in this scope.
@@ -2054,11 +1864,10 @@ grammar Perl5::Grammar does STD5 {
                 my @name := $longname ??
                     $longname.type_name_parts('package name', :decl(1)) !!
                     [];
-                if @name && $*SCOPE ne 'anon' {
-                    if @name && $*W.already_declared($*SCOPE, $*OUTERPACKAGE, $outer, @name) {
-                        $*PACKAGE := $*W.find_symbol(@name);
-                        $exists := 1;
-                    }
+                if @name && $*SCOPE ne 'anon'
+                && $*W.already_declared($*SCOPE, $*OUTERPACKAGE, $outer, @name) {
+                    $*PACKAGE := $*W.find_symbol(@name);
+                    $exists   := 1;
                 }
 
                 # If it exists already it is an illegal redecl.
@@ -2067,22 +1876,18 @@ grammar Perl5::Grammar does STD5 {
                         symbol => $longname.name(),
                     );
                 }
-                
+
                 # Construct meta-object for this package.
                 my %args;
-                if @name {
-                    %args<name> = $longname.name();
-                }
-                if $*REPR ne '' {
-                    %args<repr> = $*REPR;
-                }
-                $*PACKAGE := $*W.pkg_create_mo($/, %*HOW{$*PKGDECL}, |%args);
-                
+                %args<name> = $longname.name() if @name;
+                %args<repr> = $*REPR if $*REPR ne '';
+                $*PACKAGE  := $*W.pkg_create_mo($/, %*HOW{$*PKGDECL}, |%args);
+
                 # Install it in the symbol table if needed.
                 if @name {
                     $*W.install_package($/, @name, $*SCOPE, $*PKGDECL, $*OUTERPACKAGE, $outer, $*PACKAGE);
                 }
-                
+
                 # Install $?PACKAGE, $?ROLE, $?CLASS, and :: variants as needed.
                 my $curpad := $*W.cur_lexpad();
                 unless $curpad.symbol('$?PACKAGE') {
@@ -2091,30 +1896,21 @@ grammar Perl5::Grammar does STD5 {
                     $*W.install_lexical_symbol($curpad, '$?CLASS', $*PACKAGE);
                     $*W.install_lexical_symbol($curpad, '::?CLASS', $*PACKAGE);
                 }
-                
+
                 # Set declarand as the package.
                 $*DECLARAND := $*PACKAGE;
-                
-                # Apply any traits.
-                #for $<trait> {
-                #    my $applier := $_.ast;
-                #    if $applier {
-                #        $applier($*DECLARAND);
-                #    }
-                #}
             }
-            
+
             { nqp::push(@*PACKAGES, $*PACKAGE); }
             [
-            || <?[{]> 
+            || <?[{]>
                 [
-                {
-                    $*IN_DECL := '';
-                    $*begin_compunit := 0;
-                }
-                <blockoid>
+                    {
+                        $*IN_DECL := '';
+                        $*begin_compunit := 0;
+                    }
+                    <blockoid>
                 ]
-            
             || ';'
                 [ <?{ $*begin_compunit }>
                     {
@@ -2123,7 +1919,7 @@ grammar Perl5::Grammar does STD5 {
                         }
                         $*begin_compunit := 0;
                     }
-                ] ?
+                ]?
                 { $*IN_DECL := ''; }
                 <.finishlex>
                 <statementlist(1)>     # whole rest of file, presumably
@@ -2149,7 +1945,6 @@ grammar Perl5::Grammar does STD5 {
         <sym> <.ws> <EXPR('h=')>
     }
 
-    #rule routine_declarator:sym<sub> { <sym> <routine_def> }
     token routine_declarator {
         'sub' <.end_keyword> <.ws> <routine_def>
     }
@@ -2169,34 +1964,6 @@ grammar Perl5::Grammar does STD5 {
         return self;
     }
 
-#    rule routine_def {
-#        :my $*CURLEX;
-#        :my $*IN_DECL := 1;
-#        :my $*DECLARAND;
-#        [
-#        ||  <deflongname>
-#            <.newlex(1)>
-#            <parensig>?
-#            <trait>*
-#            <!{
-#                $*IN_DECL := 0;
-#            }>
-#            <blockoid>:!s
-#            { @*MEMOS[self.pos]<endstmt> := 2; }
-#            <.checkyada>
-#            <.getsig>
-#        || <?before \W>
-#            <.newlex(1)>
-#            <parensig>?
-#            <trait>*
-#            <!{
-#                $*IN_DECL := 0;
-#            }>
-#            <blockoid>:!s
-#            <.checkyada>
-#            <.getsig>
-#        ] || <.panic: "Malformed routine">
-#    }
     # perl -E 'say prototype "CORE::seek"'
     my %prototype =
         'binmode' => '*;$',
@@ -2271,33 +2038,6 @@ grammar Perl5::Grammar does STD5 {
         self.EXPR2($preclim, :noinfix($preclim eq 'z='));
     }
 
-#    token termish {
-#        :my $*SCOPE := "";
-#        :my $*VAR;
-#        :dba('prefix or term')
-#        [
-#        | <PRE> [ <!{
-#                my $p   := $<PRE>;
-#                my @p   := @( $p );
-#                $<term> := nqp::pop( @p ) if @p[-1]<O><term>;
-#            }> <PRE> ]*
-#            [ <?{ $<term> }> || <term> ]
-#        | <term>
-#        ]
-#
-#        # also queue up any postfixes
-#        :dba('postfix')
-#        [
-#        || <?{ $*QSIGIL }>
-#            [ <?before '[' | '{' > <POST> ]*!
-#        || <!{ $*QSIGIL }>
-#            <POST>*
-#        ]
-#        {
-#            self.check_variable($*VAR) if $*VAR;
-#            #self<~CAPS> := $<term><~CAPS>;
-#        }
-#    }
     token termish {
         :my $*SCOPE         := "";
         :my $*MULTINESS     := "";
@@ -2315,7 +2055,7 @@ grammar Perl5::Grammar does STD5 {
                 [ <?{ $<term> }> || <term> ]
             | <term>
             ]
-            
+
             #~ :dba('postfix')
             [
             || <?{ $*QSIGIL && $*QSIGIL eq '$' }> [ <postfixish>+! <?{ bracket_ending($<postfixish>) }> ]?
@@ -2531,16 +2271,6 @@ grammar Perl5::Grammar does STD5 {
 
     token number:sym<numish> { <numish> }
 
-    #token integer {
-    #    [
-    #    | 0 $<VALUE>=[ b <[01]>+           [ _ <[01]>+ ]*
-    #        | x <.xdigit>+ [ _ <.xdigit>+ ]*
-    #        | d \d+               [ _ \d+]*
-    #        | <[0..7]>+         [ _ <[0..7]>+ ]*
-    #        ]
-    #    | $<VALUE>=[\d+[_\d+]*]
-    #    ]
-    #}
     token integer {
         [
         || 0 [ <[bB]> '_'? <VALUE=binint>
@@ -2639,7 +2369,7 @@ grammar Perl5::Grammar does STD5 {
             <right=.nibble($lang)> [ $stop || <.panic("Malformed replacement part; couldn't find final $stop")> ]
         ]
     }
- 
+
 
     #~ token quote:sym<' '>  { :dba('single quotes') "'" ~ "'" <nibble(self.quote_lang(%*LANG<P5Q>, "'", "'", ['q']))> }
     #~ token quote:sym<" ">  { :dba('double quotes') '"' ~ '"' <nibble(self.quote_lang(%*LANG<P5Q>, '"', '"', ['qq']))> }
@@ -2800,17 +2530,7 @@ grammar Perl5::Grammar does STD5 {
 #        <sym> » <O('%term')>
 #    }
 
-    token term:sym<continue>
-        { <sym> » <O('%term')> }
-
-    token circumfix:sym<sigil> {
-        #~ :dba('contextualizer')
-        <sigil> '(' ~ ')' <semilist>
-        {
-            $*LEFTSIGIL := $*LEFTSIGIL || ~$<sigil>
-        }
-        <O('%term')>
-    }
+    token term:sym<continue> { <sym> » <O('%term')> }
 
     token circumfix:sym<( )> {
         #~ :dba('parenthesized expression')
@@ -2830,38 +2550,18 @@ grammar Perl5::Grammar does STD5 {
     # Operators #
     #############
 
-#   PRE is prefixish?
-#    token PRE {
-#        :dba('prefix operator')
-#        <prefix>
-#            { $<O> := $<prefix><O>; $<sym> := $<prefix><sym> }
-#        <.ws>
-#    }
-
-    token prefixish { 
+    token prefixish {
         #~ :dba('prefix or meta-prefix')
         <OPER=prefix> {} <O=copyOPERx($/, 'O')> <sym=copyOPERx($/, 'sym')>
         <.ws>
     }
 
-    #token infixish ($in_meta = nqp::getlexdyn('$*IN_META')) {
-    #    :my $*IN_META := $in_meta;
-    #    <!stdstopper>
-    #    <!infixstopper>
-    #    :dba('infix or meta-infix')
-    #    <infix>
-    #    { $<O> := $<infix><O>; $<sym> := $<infix><sym>; }
-    #}
     token infixish($in_meta = nqp::getlexdyn('$*IN_META')) {
         :my $*IN_META := $in_meta;
         <!stdstopper>
         <!infixstopper>
         #~ :dba('infix or meta-infix')
         <OPER=infix> <![=]>
-    }
-
-    token dotty:sym<.> {
-        <!>
     }
 
     token dotty:sym«->» {
@@ -2886,20 +2586,6 @@ grammar Perl5::Grammar does STD5 {
 
     # Note, this rule mustn't do anything irreversible because it's used
     # as a lookahead by the quote interpolator.
-
-    # POST is postfixish?
-#    token POST {
-#        <!stdstopper>
-#
-#        # last whitespace didn't end here
-#        <!{ @*MEMOS[self.pos]<ws> }>
-#
-#        :dba('postfix')
-#        [
-#        | <dotty>  { $<O> := $<dotty><O>;  $<sym> := $<dotty><sym>;  $<~CAPS> := $<dotty><~CAPS>;  }
-#        | <postop> { $<O> := $<postop><O>; $<sym> := $<postop><sym>; $<~CAPS> := $<postop><~CAPS>; }
-#        ]
-#    }
     token postfixish {
         <!stdstopper>
 
@@ -2944,8 +2630,6 @@ grammar Perl5::Grammar does STD5 {
         $cur
     }
 
-#    token postcircumfix:sym<( )>
-#        { :dba('argument list') '(' ~ ')' <semiarglist> <O('%methodcall')> }
     token postcircumfix:sym<( )> {
         #~ :dba('argument list')
         '(' ~ ')' [ <.ws> <arglist> ]
@@ -2991,27 +2675,6 @@ grammar Perl5::Grammar does STD5 {
         <.ws>
     }
 
-#    token arglist {
-#        :my $inv_ok  := $*INVOCANT_OK;
-#        :my $*GOAL   := 'endargs';
-#        :my $*QSIGIL := '';
-#        <.ws>
-#        :dba('argument list')
-#        [
-#        | <?stdstopper>
-#        | <EXPR('%listop')> {{
-#                my $delims := $<EXPR><delims>;
-#                for @( $delims ) {
-#                    if ($_<sym> // '') eq ':' {
-#                        if $inv_ok {
-#                            $*INVOCANT_IS := $<EXPR><list>[0];
-#                        }
-#                    }
-#                }
-#            }}
-#        ]
-#    }
-    
     token arg($*PROTOTYPE = '@', $prec = 'f=') {
         #~ :dba('argument')
         [
@@ -3390,21 +3053,8 @@ grammar Perl5::Grammar does STD5 {
         # { self.add_mystery($<identifier>, $<args>.from, nqp::substr(~$<args>, 0, 1)) unless $<args><invocant>; }
         [ <?{ $name eq 'not' }> <O('%loose_not')> ]?
     }
-    
 
-#    token args ($istype = 0) {
-#        :my $listopish := 0;
-#        :my $*GOAL := '';
-#        :my $*INVOCANT_OK := 1;
-#        :my $*INVOCANT_IS;
-#        [
-#    #    | :dba('argument list') '.(' ~ ')' <semiarglist>
-#        | :dba('argument list') '(' ~ ')' <semiarglist>
-#        | :dba('argument list') <.unsp> '(' ~ ')' <semiarglist>
-#        |  { $listopish := 1 } [<?before \s> <!{ $istype }> <.ws> <!infixstopper> <arglist>]?
-#        ]
-#        { $<invocant> := $*INVOCANT_IS; }
-#    }
+
     token args($prototype = '@') {
         :my $*GOAL := '';
         #~ :dba('argument list')
@@ -3420,19 +3070,6 @@ grammar Perl5::Grammar does STD5 {
 
     # names containing :: may or may not be function calls
     # bare identifier without parens also handled here if no other rule parses it
-    #token term:sym<name>
-    #{
-    #    :my $name;
-    #    :my $pos;
-    #    <longname>
-    #    {
-    #        $name := $<longname>.Str;
-    #        $pos  := self.pos;
-    #    }
-    #    [\h+ <?before '('>]?
-    #    <args> # { self.add_mystery($name,$pos,'termish') unless $<args><invocant>; }
-    #    <O('%term')>
-    #}
     token term:sym<name> {
         <longname>
         :my $*longname;
@@ -3487,17 +3124,6 @@ grammar Perl5::Grammar does STD5 {
         ]
     }
 
-    # hopefully we can include these tokens in any outer LTM matcher
-    #regex stdstopper {
-    #    { if nqp::existskey(@*MEMOS[self.pos], 'endstmt') { my @*STUB := self; return self } }
-    #    :dba('standard stopper')
-    #    [
-    #    | <?terminator>
-    #    | <?unitstopper>
-    #    | $                                 # unlikely, check last (normal LTM behavior)
-    #    ]
-    #    { @*MEMOS[self.pos]<endstmt> := @*MEMOS[self.pos]<endstmt> || 1; }
-    #}
     token stdstopper {
         #~ :dba('standard stopper')
         [
@@ -3667,23 +3293,11 @@ grammar Perl5::QGrammar does STD5 {
         method tweak_qq($v) { self.panic("Too late for :qq") }
     } # end role
 
-#    role p5 {
-#        # begin tweaks (DO NOT ERASE)
-#        multi method tweak (:$g!) { self }
-#        multi method tweak (:$i!) { self }
-#        multi method tweak (:$m!) { self }
-#        multi method tweak (:$s!) { self }
-#        multi method tweak (:$x!) { self }
-#        multi method tweak (:$p!) { self }
-#        multi method tweak (:$c!) { self }
-#        # end tweaks (DO NOT ERASE)
-#    } # end role
-
     token nibbler {
         :my @*nibbles;
         <.do_nibbling>
     }
-    
+
     token do_nibbling {
         :my $from = self.pos;
         :my $to   = $from;
@@ -3732,7 +3346,7 @@ grammar Perl5::QGrammar does STD5 {
         self.sorry("Cannot negate $opt adverb") unless $bool;
         self;
     }
-    
+
     method tweak_q($v)          { self.truly($v, ':q'); self.HOW.mixin(self, Perl5::QGrammar::q) }
     method tweak_single($v)     { self.tweak_q($v) }
     method tweak_qq($v)         { self.truly($v, ':qq'); self.HOW.mixin(self, Perl5::QGrammar::qq); }
@@ -3770,18 +3384,7 @@ grammar Perl5::QGrammar does STD5 {
     }
 } # end grammar
 
-#~ grammar Perl5::RegexGrammar is QRegex::P5Regex::Grammar does STD5 {
 grammar Perl5::RegexGrammar does STD5 {
-    #~ my $cur_handle = 0;
-    #~ token TOP {
-        #~ :my %*RX;
-        #~ :my $*INTERPOLATE := 1;
-        #~ :my $handle := '__QREGEX_P5REGEX__' ~ $cur_handle++;
-        #~ :my $*W := QRegex::P5Regex::World.new(:$handle);
-        #~ <nibbler>
-        #~ [ $ || <.panic: 'Confused'> ]
-    #~ }
-
     token nibbler {
         :my $OLDRX := nqp::getlexdyn('%*RX');
         :my %*RX;
@@ -3790,27 +3393,24 @@ grammar Perl5::RegexGrammar does STD5 {
         }
         <alternation>
     }
-    
-    #~ token rxstopper { $ }
-    token rxstopper { <stopper> }
-    
+
     token alternation {
         <sequence>+ % '|'
     }
-    
+
     token sequence {
         <.ws>  # XXX assuming old /x here?
         <quantified_atom>*
     }
-    
+
     token quantified_atom {
         <![|)]>
-        <!rxstopper>
+        <!stopper>
         <atom>
-        [ <.ws> <!before <rxstopper> > <quantifier=p5quantifier> ]**0..1
+        [ <.ws> <!before <stopper> > <quantifier=p5quantifier> ]**0..1
         <.ws>
     }
-    
+
     token atom {
         [
         | \w
@@ -3820,7 +3420,7 @@ grammar Perl5::RegexGrammar does STD5 {
     }
 
     proto token p5metachar { * }
-    
+
     token p5metachar:sym<quant> {
         <![(?]>
         <quantifier=p5quantifier>
@@ -3847,7 +3447,7 @@ grammar Perl5::RegexGrammar does STD5 {
     token p5metachar:sym<(?{ })> {
         '(?' <?[{]> <codeblock> ')'
     }
-    
+
     token p5metachar:sym<(??{ })> {
         '(??' <?[{]> <codeblock> ')'
     }
@@ -3879,7 +3479,6 @@ grammar Perl5::RegexGrammar does STD5 {
     }
 
     proto token p5backslash { <...> }
-    
     token p5backslash:sym<A> { <sym> }
     token p5backslash:sym<b> { $<sym>=[<[bB]>] }
     token p5backslash:sym<r> { <sym> }
@@ -3901,11 +3500,10 @@ grammar Perl5::RegexGrammar does STD5 {
     token p5backslash:sym<oops> { <.panic: "Unrecognized Perl 5 regex backslash sequence"> }
 
     proto token p5assertion { <...> }
-    
     token p5assertion:sym«<» { <sym> $<neg>=['='|'!'] [ <?before ')'> | <nibbler> ] }
     token p5assertion:sym<=> { <sym> [ <?before ')'> | <nibbler> ] }
     token p5assertion:sym<!> { <sym> [ <?before ')'> | <nibbler> ] }
-    
+
     token p5mod  { <[imsox]>* }
     token p5mods { <on=p5mod> [ '-' <off=p5mod> ]**0..1 }
     #~ token p5assertion:sym<mod> {
@@ -3927,8 +3525,8 @@ grammar Perl5::RegexGrammar does STD5 {
     token p5quantifier:sym<+>  { <sym> <quantmod> }
     token p5quantifier:sym<?>  { <sym> <quantmod> }
     token p5quantifier:sym<{ }> {
-        '{' 
-        $<start>=[\d+] 
+        '{'
+        $<start>=[\d+]
         [ $<comma>=',' $<end>=[\d*] ]**0..1
         '}' <quantmod>
     }
@@ -3940,68 +3538,6 @@ grammar Perl5::RegexGrammar does STD5 {
         | '(?#' ~ ')' <-[)]>*
         | <?{ %*RX<x> }> [ \s+ | '#' \N* ]
         ]*
-    }
-
-    # XXX Below here is straight from P6Regex and unreviewed.
-
-    token normspace { <?before \s | '#' > <.ws> }
-
-    token identifier { <.ident> [ <[\-']> <.ident> ]* }
-
-    token arg {
-        [
-        | <?[']> <quote_EXPR: ':q'>
-        | <?["]> <quote_EXPR: ':qq'>
-        | $<val>=[\d+]
-        ]
-    }
-
-    rule arglist { <arg> [ ',' <arg>]* }
-
-    proto token metachar { <...> }
-    token metachar:sym<'> { <?[']> <quote_EXPR: ':q'> }
-    token metachar:sym<"> { <?["]> <quote_EXPR: ':qq'> }
-    token metachar:sym<lwb> { $<sym>=['<<'|'«'] }
-    token metachar:sym<rwb> { $<sym>=['>>'|'»'] }
-    token metachar:sym<from> { '<(' }
-    token metachar:sym<to>   { ')>' }
-
-    token metachar:sym<var> {
-        [
-        | '$<' $<name>=[<-[>]>+] '>'
-        | '$' $<pos>=[\d+]
-        ]
-
-        [ <.ws> '=' <.ws> <quantified_atom> ]**0..1
-    }
-
-    proto token backslash { <...> }
-    token backslash:sym<e> { $<sym>=[<[eE]>] }
-    token backslash:sym<f> { $<sym>=[<[fF]>] }
-    token backslash:sym<h> { $<sym>=[<[hH]>] }
-    token backslash:sym<r> { $<sym>=[<[rR]>] }
-    token backslash:sym<t> { $<sym>=[<[tT]>] }
-    token backslash:sym<v> { $<sym>=[<[vV]>] }
-    token backslash:sym<o> { $<sym>=[<[oO]>] [ <octint> | '[' <octints> ']' ] }
-    token backslash:sym<x> { $<sym>=[<[xX]>] [ <hexint> | '[' <hexints> ']' ] }
-    token backslash:sym<c> { $<sym>=[<[cC]>] <charspec> }
-    token backslash:sym<A> { 'A' <.obs: '\\A as beginning-of-string matcher', '^'> }
-    token backslash:sym<z> { 'z' <.obs: '\\z as end-of-string matcher', '$'> }
-    token backslash:sym<Z> { 'Z' <.obs: '\\Z as end-of-string matcher', '\\n?$'> }
-    token backslash:sym<Q> { 'Q' <.obs: '\\Q as quotemeta', 'quotes or literal variable match'> }
-    token backslash:sym<unrec> { {} \w <.panic: 'Unrecognized backslash sequence'> }
-
-    proto token assertion { <...> }
-
-    token assertion:sym<name> {
-        <longname=.identifier>
-            [
-            | <?before '>'>
-            | '=' <assertion>
-            | ':' <arglist>
-            | '(' <arglist> ')'
-            | <.normspace> <nibbler>
-            ]?
     }
 }
 
