@@ -312,8 +312,9 @@ role STD5 {
                     # Add mention-only record (used to poison outer
                     # usages and disambiguate hashes/blocks by use of
                     # $_ when $*IMPLICIT is in force).
-                    $lex<also_uses>        := nqp::hash() unless $lex<also_uses>;
-                    $lex<also_uses>{$name} := 1;
+                    my Mu $au := $lex.ann('also_uses');
+                    $lex.annotate('also_uses', ($au := {})) unless $au;
+                    $au{$name} := 1;
                 }
             }
         }

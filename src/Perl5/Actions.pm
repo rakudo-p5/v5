@@ -445,7 +445,7 @@ class Perl5::Actions does STDActions {
         hllize       => 1;
     sub autosink(Mu $past is rw) {
         $V5DEBUG && say("sub autosink(\$past)");
-        nqp::istype($past, QAST::Op) && %sinkable{$past.op} && !$past<nosink>
+        nqp::istype($past, QAST::Op) && %sinkable{$past.op} && !nqp::p6bool($past.ann('nosink'))
             ?? sink($past)
             !! $past;
     }
@@ -472,7 +472,7 @@ class Perl5::Actions does STDActions {
 
     sub pblock_immediate(Mu $pblock is rw) {
         $V5DEBUG && say("sub pblock_immediate(\$pblock)");
-        my $p := block_immediate($pblock<uninstall_if_immediately_used>.shift);
+        my $p := block_immediate($pblock.ann('uninstall_if_immediately_used').shift);
         $p
     }
 
@@ -524,114 +524,6 @@ class Perl5::Actions does STDActions {
         );
     }
 
-    method comp_unit($/) {
-        $V5DEBUG && say("comp_unit($/)");
-        # Finish up code object for the mainline.
-        if $*DECLARAND {
-            $*W.attach_signature($*DECLARAND, $*W.create_signature(nqp::hash('parameters', [])));
-            $*W.finish_code_object($*DECLARAND, $*UNIT);
-        }
-        
-        # Checks.
-        $*W.assert_stubs_defined($/);
-
-        # Get the block for the unit mainline code.
-        my $unit := $*UNIT;
-        my $mainline := QAST::Stmts.new(
-            $*POD_PAST,
-            $<statementlist>.ast,
-        );
-
-        if %*COMPILING<%?OPTIONS><p> { # also covers the -np case, like Perl 5
-            $mainline := wrap_option_p_code($/, $mainline);
-        }
-        elsif %*COMPILING<%?OPTIONS><n> {
-            $mainline := wrap_option_n_code($/, $mainline);
-        }
-
-        # We'll install our view of GLOBAL as the main one; any other
-        # compilation unit that is using this one will then replace it
-        # with its view later (or be in a position to restore it).
-        my $global_install := QAST::Op.new(
-            :op('bindcurhllsym'),
-            QAST::SVal.new( :value('GLOBAL') ),
-            QAST::WVal.new( :value($*GLOBALish) )
-        );
-        $*W.add_fixup_task(:deserialize_ast($global_install), :fixup_ast($global_install));
-
-        # Get the block for the entire compilation unit.
-        my $outer := $*UNIT_OUTER;
-        $outer.node($/);
-        $*UNIT_OUTER.unshift(QAST::Var.new( :name('__args__'), :scope('local'), :decl('param'), :slurpy(1) ));
-
-        # Load the needed libraries.
-        $*W.add_libs($unit);
-
-        # If the unit defines &MAIN, and this is in the mainline,
-        # add a &MAIN_HELPER.
-        if !$*W.is_precompilation_mode && +@*MODULES == 0 && $unit.symbol('&MAIN') {
-            $mainline := QAST::Op.new(
-                :op('call'),
-                :name('&MAIN_HELPER'),
-                $mainline,
-            );
-        }
-
-        # If our caller wants to know the mainline ctx, provide it here.
-        # (CTXSAVE is inherited from HLL::Actions.) Don't do this when
-        # there was an explicit {YOU_ARE_HERE}.
-        unless $*HAS_YOU_ARE_HERE {
-            $unit.push( self.CTXSAVE() );
-        }
-
-        # Add the mainline code to the unit.
-        $unit.push($mainline);
-
-        # Executing the compilation unit causes the mainline to be executed.
-        $outer.push(QAST::Op.new( :op<call>, $unit ));
-
-        # Wrap everything in a QAST::CompUnit.
-        my $compunit := QAST::CompUnit.new(
-            :hll('perl6'),
-            
-            # Serialization related bits.
-            :sc($*W.sc()),
-            :code_ref_blocks($*W.code_ref_blocks()),
-            :compilation_mode($*W.is_precompilation_mode()),
-            :pre_deserialize($*W.load_dependency_tasks()),
-            :post_deserialize($*W.fixup_tasks()),
-            :repo_conflict_resolver(QAST::Op.new(
-                :op('callmethod'), :name('resolve_repossession_conflicts'),
-                QAST::Op.new(
-                    :op('getcurhllsym'),
-                    QAST::SVal.new( :value('ModuleLoader') )
-                )
-            )),
-
-            # If this unit is loaded as a module, we want it to automatically
-            # execute the mainline code above after all other initializations
-            # have occurred.
-            :load(QAST::Op.new(
-                :op('call'),
-                QAST::BVal.new( :value($outer) ),
-            )),
-
-            # Finally, the outer block, which in turn contains all of the
-            # other program elements.
-            $outer
-        );
-
-        # Pass some extra bits along to the optimizer.
-        $compunit<UNIT>      := $unit;
-        $compunit<GLOBALish> := $*GLOBALish;
-        $compunit<W>         := $*W;
-        
-        # Do any final compiler state cleanup tasks.
-        $*W.cleanup();
-
-        make $compunit;
-    }
-    
     # XXX Move to HLL::Actions after NQP gets QAST.
     method CTXSAVE() {
         $V5DEBUG && say("CTXSAVE()");
@@ -871,11 +763,11 @@ class Perl5::Actions does STDActions {
             for $<statement>.list {
                 my $ast := $_.ast;
                 if $ast {
-                    if $ast<sink_past> {
-                        $ast := QAST::Want.new($ast, 'v', $ast<sink_past>);
+                    if $ast.ann('sink_past') {
+                        $ast := QAST::Want.new($ast, 'v', $ast.ann('sink_past'));
                     }
-                    elsif $ast<bare_block> {
-                        $ast := autosink($ast<bare_block>);
+                    elsif $ast.ann('bare_block') {
+                        $ast := autosink($ast.ann('bare_block'));
                     }
                     else {
                         $ast := QAST::Stmt.new(autosink($ast), :returns($ast.returns)) if $ast ~~ QAST::Node;
@@ -927,7 +819,7 @@ class Perl5::Actions does STDActions {
                     );
                 }
                 elsif ~$ml<sym> eq 'for' {
-                    unless $past<past_block> {
+                    unless $past.ann('past_block') {
                         $past := make_topic_block_ref( $past,
                             :copy(nqp::istype($cond, QAST::Op) && ($cond.name eq '&keys' || $cond.name eq '&values')) );
                     }
@@ -1033,7 +925,7 @@ class Perl5::Actions does STDActions {
             $*W.attach_signature($*DECLARAND, $signature);
             $*W.finish_code_object($*DECLARAND, $block);
             my $ref := reference_to_code_object($*DECLARAND, $block);
-            nqp::bindkey($ref, 'uninstall_if_immediately_used', $uninst);
+            $ref.annotate('uninstall_if_immediately_used', $uninst);
             make $ref;
         }
     }
@@ -1041,8 +933,8 @@ class Perl5::Actions does STDActions {
     method block($/) {
         $V5DEBUG && say("block($/)");
         my $block := $<blockoid>.ast;
-        if $block<placeholder_sig> {
-            my $name := $block<placeholder_sig><variable_name>;
+        if $block.ann('placeholder_sig') {
+            my $name := $block.ann('placeholder_sig')<variable_name>;
             unless $name eq '%_' || $name eq '@_' {
                 $name := nqp::concat(nqp::substr($name, 0, 1),
                         nqp::concat('^', nqp::substr($name, 1)));
@@ -1056,7 +948,7 @@ class Perl5::Actions does STDActions {
         $*W.attach_signature($*DECLARAND, $*W.create_signature(nqp::hash('parameters', [])));
         $*W.finish_code_object($*DECLARAND, $block);
         my $ref := reference_to_code_object($*DECLARAND, $block);
-        nqp::bindkey($ref, 'uninstall_if_immediately_used', $uninst);
+        $ref.annotate('uninstall_if_immediately_used', $uninst);
         make $ref;
     }
 
@@ -1074,8 +966,7 @@ class Perl5::Actions does STDActions {
             my $BLOCK := $*CURPAD;
             $BLOCK.push($past);
             $BLOCK.node($/);
-            nqp::bindkey($BLOCK, 'statementlist', $<statementlist>.ast);
-            nqp::bindkey($BLOCK, 'handlers',      %*HANDLERS) if %*HANDLERS;
+            $BLOCK.annotate('handlers', %*HANDLERS) if %*HANDLERS;
             make $BLOCK;
         }
         else {
@@ -1095,7 +986,7 @@ class Perl5::Actions does STDActions {
     method newlex($/) {
         $V5DEBUG && say("newlex($/) $*IN_DECL");
         my Mu $new_block := $*W.cur_lexpad();
-        nqp::bindkey($new_block, 'IN_DECL', $*IN_DECL);
+        $new_block.annotate('IN_DECL', $*IN_DECL);
     }
 
     method finishlex($/) {
@@ -1104,7 +995,7 @@ class Perl5::Actions does STDActions {
         # already declared. For blocks, $_ will come from the outer if it
         # isn't already declared.
         my $BLOCK := $*W.cur_lexpad();
-        my $type := $BLOCK<IN_DECL>;
+        my $type := $BLOCK.ann('IN_DECL');
         if $type eq 'mainline' && %*COMPILING<%?OPTIONS><setting> eq 'NULL' {
             # Don't do anything in the case where we are in the mainline of
             # the setting; we don't have any symbols (Scalar, etc.) yet.
@@ -1260,7 +1151,7 @@ class Perl5::Actions does STDActions {
     sub tweak_loop(Mu $loop is copy) {
         $V5DEBUG && say("tweak_loop(\$loop)");
         # Handle phasers.
-        my $code := $loop[1]<code_object>;
+        my $code := $loop[1].ann('code_object');
         my $block_type := find_symbol('Block');
         my $phasers := nqp::getattr($code, $block_type, '$!phasers');
         unless nqp::isnull($phasers) {
@@ -1458,38 +1349,38 @@ class Perl5::Actions does STDActions {
     }
 
     method statement_prefix:sym<BEGIN>($/) {
-        $V5DEBUG && say("statement_prefix:sym<BEGIN>($/)"); make $*W.add_phaser($/, 'BEGIN', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<BEGIN>($/)"); make $*W.add_phaser($/, 'BEGIN', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<CHECK>($/) {
-        $V5DEBUG && say("statement_prefix:sym<CHECK>($/)"); make $*W.add_phaser($/, 'CHECK', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<CHECK>($/)"); make $*W.add_phaser($/, 'CHECK', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<INIT>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<INIT>($/) "); make $*W.add_phaser($/, 'INIT', ($<sblock>.ast)<code_object>, ($<sblock>.ast)<past_block>); }
+        $V5DEBUG && say("statement_prefix:sym<INIT>($/) "); make $*W.add_phaser($/, 'INIT', ($<sblock>.ast).ann('code_object'), ($<sblock>.ast).ann('past_block')); }
     method statement_prefix:sym<START>($/) {
-        $V5DEBUG && say("statement_prefix:sym<START>($/)"); make $*W.add_phaser($/, 'START', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<START>($/)"); make $*W.add_phaser($/, 'START', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<ENTER>($/) {
-        $V5DEBUG && say("statement_prefix:sym<ENTER>($/)"); make $*W.add_phaser($/, 'ENTER', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<ENTER>($/)"); make $*W.add_phaser($/, 'ENTER', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<FIRST>($/) {
-        $V5DEBUG && say("statement_prefix:sym<FIRST>($/)"); make $*W.add_phaser($/, 'FIRST', ($<sblock>.ast)<code_object>); }
-    
+        $V5DEBUG && say("statement_prefix:sym<FIRST>($/)"); make $*W.add_phaser($/, 'FIRST', ($<sblock>.ast).ann('code_object')); }
+
     method statement_prefix:sym<END>($/)   {
-        $V5DEBUG && say("statement_prefix:sym<END>($/)  "); make $*W.add_phaser($/, 'END', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<END>($/)  "); make $*W.add_phaser($/, 'END', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<LEAVE>($/) {
-        $V5DEBUG && say("statement_prefix:sym<LEAVE>($/)"); make $*W.add_phaser($/, 'LEAVE', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<LEAVE>($/)"); make $*W.add_phaser($/, 'LEAVE', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<KEEP>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<KEEP>($/) "); make $*W.add_phaser($/, 'KEEP', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<KEEP>($/) "); make $*W.add_phaser($/, 'KEEP', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<UNDO>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<UNDO>($/) "); make $*W.add_phaser($/, 'UNDO', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<UNDO>($/) "); make $*W.add_phaser($/, 'UNDO', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<NEXT>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<NEXT>($/) "); make $*W.add_phaser($/, 'NEXT', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<NEXT>($/) "); make $*W.add_phaser($/, 'NEXT', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<LAST>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<LAST>($/) "); make $*W.add_phaser($/, 'LAST', ($<sblock>.ast)<code_object>); }
+        $V5DEBUG && say("statement_prefix:sym<LAST>($/) "); make $*W.add_phaser($/, 'LAST', ($<sblock>.ast).ann('code_object')); }
     method statement_prefix:sym<PRE>($/)   {
-        $V5DEBUG && say("statement_prefix:sym<PRE>($/)  "); make $*W.add_phaser($/, 'PRE', ($<sblock>.ast)<code_object>, ($<sblock>.ast)<past_block>); }
+        $V5DEBUG && say("statement_prefix:sym<PRE>($/)  "); make $*W.add_phaser($/, 'PRE', ($<sblock>.ast).ann('code_object'), ($<sblock>.ast).ann('past_block')); }
     method statement_prefix:sym<POST>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<POST>($/) "); make $*W.add_phaser($/, 'POST', ($<sblock>.ast)<code_object>, ($<sblock>.ast)<past_block>); }
+        $V5DEBUG && say("statement_prefix:sym<POST>($/) "); make $*W.add_phaser($/, 'POST', ($<sblock>.ast).ann('code_object'), ($<sblock>.ast).ann('past_block')); }
 
     method statement_prefix:sym<DOC>($/)   {
         $V5DEBUG && say("statement_prefix:sym<DOC>($/)  ");
-        $*W.add_phaser($/, ~$<phase>, ($<sblock>.ast)<code_object>)
+        $*W.add_phaser($/, ~$<phase>, ($<sblock>.ast).ann('code_object'))
             if %*COMPILING<%?OPTIONS><doc>;
     }
 
@@ -1551,7 +1442,7 @@ class Perl5::Actions does STDActions {
     method statement_prefix:sym<gather>($/) {
         $V5DEBUG && say("statement_prefix:sym<gather>($/)");
         my $past := block_closure($<sblock>.ast);
-        $past<past_block>.push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
+        $past.ann('past_block').push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
         make QAST::Op.new( :op('call'), :name('&GATHER'), $past );
     }
 
@@ -1569,7 +1460,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("statement_prefix:sym<try>($/)");
         my $block := $<sblock>.ast;
         my $past;
-        if $block<past_block><handlers> && $block<past_block><handlers><CATCH> {
+        if $block.ann('past_block')<handlers> && $block.ann('past_block')<handlers><CATCH> {
             # we already have a CATCH block, nothing to do here
             $past := QAST::Op.new( :op('call'), $block );
         } else {
@@ -1667,8 +1558,6 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("term:sym<scope_declarator>($/)  "); make $<scope_declarator>.ast; }
     method term:sym<routine_declarator>($/) {
         $V5DEBUG && say("term:sym<routine_declarator>($/)"); make $<routine_declarator>.ast; }
-    #~ method term:sym<multi_declarator>($/)   {
-        #~ $V5DEBUG && say("term:sym<multi_declarator>($/)  "); make $<multi_declarator>.ast; }
     method term:sym<regex_declarator>($/)   {
         $V5DEBUG && say("term:sym<regex_declarator>($/)  "); make $<regex_declarator>.ast; }
     method term:sym<type_declarator>($/)    {
@@ -2041,7 +1930,7 @@ class Perl5::Actions does STDActions {
             }
         }
         if $*IN_DECL eq 'variable' {
-            $past<sink_ok> := 1;
+            $past.annotate('sink_ok', 1);
         }
         make $past;
     }
@@ -2193,7 +2082,7 @@ class Perl5::Actions does STDActions {
                 my $orig_past := $past;
                 if $*SCOPE eq 'has' {
                     if $<initializer><sym> eq '=' {
-                        self.install_attr_init($<initializer>, $past<metaattr>,
+                        self.install_attr_init($<initializer>, $past.ann('metaattr'),
                             $<initializer>.ast, $*ATTR_INIT_BLOCK);
                     }
                     else {
@@ -2340,7 +2229,7 @@ class Perl5::Actions does STDActions {
                     $/.CURSOR.typed_worry('X::Redeclaration', symbol => $name);
                 }
             }
-            elsif $lex<also_uses> && $lex<also_uses>{$name} {
+            elsif $lex.ann('also_uses') && $lex.ann('also_uses'){$name} {
                 $/.CURSOR.typed_sorry('X::Redeclaration::Outer', symbol => $name);
             }
             make declare_variable($/, $past, ~$sigil, '', ~$<variable><desigilname>, $<trait>, $<semilist>);
@@ -2404,7 +2293,7 @@ class Perl5::Actions does STDActions {
 
             # Nothing to emit here; hand back a Nil.
             $past := QAST::Var.new(:name('Nil'), :scope('lexical'));
-            $past<metaattr> := $attr;
+            $past.annotate('metaattr', $attr);
         }
         elsif $*SCOPE eq 'my' || $*SCOPE eq 'our' || $*SCOPE eq 'state' || $*SCOPE eq 'local' {
             my $package := $*PACKAGE;
@@ -2634,7 +2523,7 @@ class Perl5::Actions does STDActions {
         }
 
         my $closure := block_closure(reference_to_code_object($code, $block));
-        $closure<sink_past> := QAST::Op.new( :op('null') );
+        $closure.annotate('sink_past', QAST::Op.new( :op('null') ));
         # an anonymous sub can be called already
         if $<arglist><arg>[0]<EXPR> {
             make QAST::Op.new( :op('call'), $closure, $<arglist><arg>[0]<EXPR>.ast );
@@ -2654,7 +2543,7 @@ class Perl5::Actions does STDActions {
         $p_past.push(QAST::Op.new( :op('p6multidispatch') ));
         $*W.pop_lexpad();
         $install_in.push(QAST::Stmt.new($p_past));
-        my @p_params := [hash(is_capture => 1, nominal_type => find_symbol('Mu') )];
+        my @p_params = { is_capture => 1, nominal_type => find_symbol('Mu') };
         my $p_sig := $*W.create_signature(nqp::hash('parameters', [$*W.create_parameter(@p_params[0])]));
         add_signature_binding_code($p_past, $p_sig, @p_params);
         my $code := $*W.create_code_object($p_past, 'Sub', $p_sig, 1);
@@ -2861,7 +2750,7 @@ class Perl5::Actions does STDActions {
         }
 
         my $closure := block_closure(reference_to_code_object($code, $past));
-        $closure<sink_past> := QAST::Op.new( :op('null') );
+        $closure.annotate('sink_past', QAST::Op.new( :op('null') ));
         make $closure;
     }
 
@@ -2883,9 +2772,9 @@ class Perl5::Actions does STDActions {
 
         # Obtain parameters, create signature object and generate code to
         # call binder.
-        if $block<placeholder_sig> && $<parensig> {
+        if $block.ann('placeholder_sig') && $<parensig> {
             $*W.throw($/, 'X::Signature::Placeholder',
-                placeholder => $block<placeholder_sig><placeholder>,
+                placeholder => $block.ann('placeholder_sig')<placeholder>,
             );
         }
         my %sig_info;
@@ -2893,8 +2782,8 @@ class Perl5::Actions does STDActions {
             %sig_info := $<parensig>.ast;
         }
         else {
-            %sig_info<parameters> := $block<placeholder_sig> ?? $block<placeholder_sig> !!
-                                                                [];
+            %sig_info<parameters> := $block.ann('placeholder_sig')
+                ?? $block.ann('placeholder_sig') !! [];
         }
         my @params := %sig_info<parameters>;
         set_default_parameter_type(@params, Any);
@@ -2955,7 +2844,7 @@ class Perl5::Actions does STDActions {
         }
 
         my $closure := block_closure(reference_to_code_object($code, $block));
-        $closure<sink_past> := QAST::Op.new( :op('null') );
+        $closure.annotate('sink_past', QAST::Op.new( :op('null') ));
         make $closure;
     }
 
@@ -2963,7 +2852,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("sub methodize_block($/)");
         # Get signature and ensure it has an invocant and *%_.
         my @params := %sig_info<parameters>;
-        if $past<placeholder_sig> {
+        if $past.ann('placeholder_sig') {
             $/.CURSOR.panic('Placeholder variables cannot be used in a method');
         }
         unless @params[0]<is_invocant> {
@@ -3136,7 +3025,7 @@ class Perl5::Actions does STDActions {
 
         # Return closure if not in sink context.
         my $closure := block_closure($coderef);
-        $closure<sink_past> := QAST::Op.new( :op('null') );
+        $closure.annotate('sink_past', QAST::Op.new( :op('null') ));
         make $closure;
     }
 
@@ -3455,21 +3344,21 @@ class Perl5::Actions does STDActions {
         else {
             for $/[0].list {
                 if $_<variable_declarator> {
-                    my $v                    := $_<variable_declarator>;
-                    my $info                 := $v.ast;
-                    $info<variable_name>     := ~$v<variable>;
-                    $info<sigil>             := ~$v<variable><sigil>;
-                    $info<desigilname>       := ~$v<variable><desigilname>;
-                    $info<is_multi_invocant> := $multi_invocant;
-                    @parameter_infos.push($info);
+                    my $v := $_<variable_declarator>;
+                    @parameter_infos.push({
+                        variable_name     => ~$v<variable>,
+                        sigil             => ~$v<variable><sigil>,
+                        desigilname       => ~$v<variable><desigilname>,
+                        is_multi_invocant => $multi_invocant,
+                    });
                 }
                 else {
-                    my $info                 := nqp::hash();
-                    $info<variable_name>     := '';
-                    $info<sigil>             := '$';
-                    $info<desigilname>       := '';
-                    $info<is_multi_invocant> := $multi_invocant;
-                    @parameter_infos.push($info);
+                    @parameter_infos.push({
+                        variable_name     => '',
+                        sigil             => '$',
+                        desigilname       => '',
+                        is_multi_invocant => $multi_invocant,
+                    });
                 }
             }
         }
@@ -3815,7 +3704,7 @@ class Perl5::Actions does STDActions {
             nqp::push($parameters, $param_obj);
         }
         nqp::bindkey(%signature_info, 'parameters', $parameters);
-        $*W.create_signature(%signature_info)
+        $*W.create_signature(%signature_info) # XXX use a Perl 6 Hash and then pass along its $!storage.
     }
 
     method trait($/) {
@@ -4729,7 +4618,7 @@ class Perl5::Actions does STDActions {
         my int $is_hash = 0;
         my $stmts := +$<sblock><blockoid><statementlist><statement>;
         my $bast  := $<sblock><blockoid>.ast;
-        if $bast.symbol('$_')<used> || $bast<also_uses> && $bast<also_uses><$_> {
+        if $bast.symbol('$_')<used> || $bast.ann('also_uses') && $bast.ann('also_uses')<$_> {
             # Uses $_, so not a hash.
         }
         elsif $stmts == 0 {
@@ -4737,7 +4626,7 @@ class Perl5::Actions does STDActions {
             $is_hash = 1;
         }
         elsif $stmts == 1 {
-            my $elem := $past<past_block>[1][0][0];
+            my $elem := $past.ann('past_block')[1][0][0];
             $elem := $elem[0] if $elem ~~ QAST::Want;
             if $elem ~~ QAST::Op && $elem.name eq '&infix:<,>' {
                 # block contains a list, so test the first element
@@ -4762,8 +4651,8 @@ class Perl5::Actions does STDActions {
                 #~ }
             #~ }
         #~ }
-        if $is_hash && $past<past_block>.arity == 0 {
-            my $children := $past<past_block>[1];
+        if $is_hash && $past.ann('past_block').arity == 0 {
+            my $children := $past.ann('past_block')[1];
             $past := QAST::Op.new(
                 :op('call'),
                 :name('&circumfix:<{ }>'),
@@ -4782,9 +4671,9 @@ class Perl5::Actions does STDActions {
         }
         else {
             $past := block_closure($past);
-            $past<bare_block> := QAST::Op.new(
+            $past.annotate('bare_block', QAST::Op.new(
                 :op('call'),
-                QAST::BVal.new( :value($past<past_block>) ));
+                QAST::BVal.new( :value($past.ann('past_block')) )));
         }
         make $past;
     }
@@ -4997,12 +4886,12 @@ class Perl5::Actions does STDActions {
         #~ say($rhs.dump);
 
         # In case of a tr/// we return the number of translated chars.
-        if $rhs<is_trans> {
+        if $rhs.ann('is_trans') {
             $sm_call := $rhs
         }
         # In case the rhs is a substitution, the result should say if it actually
         # matched something. Calling ACCEPTS will always be True for this case.
-        elsif $rhs<is_subst> {
+        elsif $rhs.ann('is_subst') {
             $sm_call := QAST::Stmt.new(
                 $rhs,
                 QAST::Op.new(
@@ -5180,7 +5069,7 @@ class Perl5::Actions does STDActions {
             $past := QAST::Op.new(
                 :op('callmethod'), :name('STORE'),
                 $lhs_ast, $rhs_ast);
-            $past<nosink> := 1;
+            $past.annotate('nosink', 1);
         }
         else {
             $past := QAST::Op.new( :node($/), :op('p6store'),
@@ -5248,7 +5137,7 @@ class Perl5::Actions does STDActions {
         my int $e = +@($/);
         while ($i < $e) {
             my $ast := $/[$i].ast;
-            if $ast<past_block> {
+            if $ast.ann('past_block') {
                 $past.push($ast);
             }
             else {
@@ -5732,7 +5621,7 @@ class Perl5::Actions does STDActions {
         my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
             $<quibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
         my $past := block_closure($coderef);
-        $past<sink_past> := QAST::Op.new(:op<call>, :name<P5Bool>, $past);
+        $past.annonate('sink_past', QAST::Op.new(:op<call>, :name<P5Bool>, $past));
         make $past;
     }
     method quote:sym</ />($/) {
@@ -5853,7 +5742,7 @@ class Perl5::Actions does STDActions {
             $past
         );
 
-        $past<is_subst> := 1;
+        $past.annotate('is_subst', 1);
         $past
     }
 
@@ -5865,7 +5754,7 @@ class Perl5::Actions does STDActions {
             QAST::Var.new(:name('$_'), :scope<lexical>),
             make_pair($left, QAST::SVal.new(:value($right))),
         );
-        $past<is_trans> := 1;
+        $past.annotate('is_trans', 1);
         $past
     }
 
@@ -5873,7 +5762,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("method quote:sym<quasi>($/)");
         my $ast_class := find_symbol('AST');
         my $quasi_ast := $ast_class.new();
-        my $past := $<block>.ast<past_block>.pop;
+        my $past := $<block>.ast.ann('past_block').pop;
         nqp::bindattr($quasi_ast, $ast_class, '$!past', $past);
         $*W.add_object($quasi_ast);
         my $throwaway_block := QAST::Block.new();
@@ -5912,14 +5801,14 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("add_placeholder_parameter($/, $sigil, $ident, :$named, :$pos_slurpy, :$named_slurpy, :$full_name)");
         # Ensure we're not trying to put a placeholder in the mainline.
         my $block := $*W.cur_lexpad();
-        if $block<IN_DECL> eq 'mainline' || $block<IN_DECL> eq 'eval' {
+        if $block.ann('IN_DECL') eq 'mainline' || $block.ann('IN_DECL') eq 'eval' {
             $*W.throw($/, ['X', 'Placeholder', 'Mainline'],
                 placeholder => $full_name,
             );
         }
         
         # Obtain/create placeholder parameter list.
-        my @params := $block<placeholder_sig> || ($block<placeholder_sig> := []);
+        my @params := $block.ann('placeholder_sig') || $block.annotate('placeholder_sig', []);
 
         # If we already declared this as a placeholder, we're done.
         my $name := ~$sigil ~ ~$ident;
@@ -5982,8 +5871,8 @@ class Perl5::Actions does STDActions {
     sub reference_to_code_object($code_obj is rw, Mu $past_block is rw) {
         $V5DEBUG && say("reference_to_code_object($past_block.cuid())");
         my $ref := QAST::WVal.new( :value($code_obj) );
-        nqp::bindkey($ref, 'past_block', $past_block);
-        nqp::bindkey($ref, 'code_object', $code_obj);
+        $ref.annotate('past_block', $past_block);
+        $ref.annotate('code_object', $code_obj);
         return $ref;
     }
 
@@ -5994,8 +5883,8 @@ class Perl5::Actions does STDActions {
             $code
         );
         $closure := QAST::Op.new( :op('p6capturelex'), $closure);
-        nqp::bindkey($closure, 'past_block',  $code<past_block>);
-        nqp::bindkey($closure, 'code_object', $code<code_object>);
+        $closure.annotate('past_block',  $code.ann('past_block'));
+        $closure.annotate('code_object', $code.ann('code_object'));
         return $closure;
     }
 
@@ -6036,8 +5925,8 @@ class Perl5::Actions does STDActions {
 
     sub make_where_block($expr) {
         # If it's already a block, nothing to do at all.
-        if $expr<past_block> {
-            return $expr<code_object>;
+        if $expr.ann('past_block') {
+            return $expr.ann('code_object');
         }
 
         # Build a block that'll smartmatch the topic against the
@@ -6077,7 +5966,7 @@ class Perl5::Actions does STDActions {
         }
 
         # if this is not an immediate block create a call
-        if ($when_block<past_block>) {
+        if $when_block.ann('past_block') {
             $when_block := QAST::Op.new( :op('call'), $when_block);
         }
 
@@ -6105,8 +5994,8 @@ class Perl5::Actions does STDActions {
     # XXX This isn't quite right yet... need to evaluate these semantics
     sub set_block_handler($/, $handler, $type) {
         # Handler needs its own $/ and $!.
-        $*W.install_lexical_magical($handler<past_block>, '$!');
-        $*W.install_lexical_magical($handler<past_block>, '$/');
+        $*W.install_lexical_magical($handler.ann('past_block'), '$!');
+        $*W.install_lexical_magical($handler.ann('past_block'), '$/');
         
         # unshift handler preamble: create exception object and store it into $_
         my $exceptionreg := $handler.unique('exception_');
@@ -6125,12 +6014,12 @@ class Perl5::Actions does STDActions {
                 QAST::Var.new( :scope('lexical'), :name('$_') ),
             )
         );
-        $handler<past_block>.unshift($handler_preamble);
+        $handler.ann('past_block').unshift($handler_preamble);
         
         # If the handler has a succeed handler, then make sure we sink
         # the exception it will produce.
-        if $handler<past_block><handlers> && nqp::existskey($handler<past_block><handlers>, 'SUCCEED') {
-            my $suc := $handler<past_block><handlers><SUCCEED>;
+        if $handler.ann('past_block')<handlers> && nqp::existskey($handler.ann('past_block')<handlers>, 'SUCCEED') {
+            my $suc := $handler.ann('past_block')<handlers><SUCCEED>;
             $suc[0] := QAST::Stmts.new(
                 sink(QAST::Op.new(
                     :op('getpayload'),
@@ -6144,7 +6033,7 @@ class Perl5::Actions does STDActions {
         # handlers from unwanted frames will get skipped if the
         # code in our handler throws an exception.
         my $ex := QAST::Op.new( :op('exception') );
-        if $handler<past_block><handlers> && nqp::existskey($handler<past_block><handlers>, $type) {
+        if $handler.ann('past_block')<handlers> && nqp::existskey($handler.ann('past_block')<handlers>, $type) {
             if $*VM.name eq 'parrot' {
                 $ex := QAST::VM.new( :pirop('perl6_skip_handlers_in_rethrow__0Pi'),
                     $ex, QAST::IVal.new( :value(1) ));
@@ -6152,9 +6041,9 @@ class Perl5::Actions does STDActions {
         }
         else {
             my $prev_content := QAST::Stmts.new();
-            $prev_content.push($handler<past_block>.shift()) while +@($handler<past_block>);
+            $prev_content.push($handler.ann('past_block').shift()) while +@($handler.ann('past_block'));
             $prev_content.push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
-            $handler<past_block>.push(QAST::Op.new(
+            $handler.ann('past_block').push(QAST::Op.new(
                 :op('handle'),
                 $prev_content,
                 'CATCH',
@@ -6177,7 +6066,7 @@ class Perl5::Actions does STDActions {
             # rethrow the exception if we reach the end of the handler
             # (if a when {} clause matches this will get skipped due
             # to the BREAK exception)
-            $handler<past_block>.push(QAST::Op.new(
+            $handler.ann('past_block').push(QAST::Op.new(
                 :op('rethrow'),
                 QAST::Var.new( :name($exceptionreg), :scope('local') )));
         }
@@ -6502,7 +6391,7 @@ class Perl5::QActions does STDActions {
                         nqp::push($asts, $*W.add_string_constant($lastlit));
                         $lastlit := '';
                     }
-                    nqp::push($asts, $_.ast<ww_atom>
+                    nqp::push($asts, $_.ast.ann('ww_atom')
                         ?? $_.ast
                         !! QAST::Op.new( :op('call'), :name('&prefix:<P5.>'),  $_.ast ));
                 }
@@ -6565,7 +6454,7 @@ class Perl5::QActions does STDActions {
         $V5DEBUG && say("method postprocess_quotewords($/, \$past)");
         my $result := QAST::Op.new( :op('call'), :name('&infix:<,>'), :node($/) );
         sub walk($node) {
-            if $node<ww_atom> {
+            if $node.ann('ww_atom') {
                 $result.push($node);
             }
             elsif nqp::istype($node, QAST::Op) && $node.name eq '&infix:<P5.>' {
@@ -6655,7 +6544,7 @@ class Perl5::QActions does STDActions {
     method escape:sym<" ">($/) { make mark_ww_atom($<quote>.ast); }
 #    method escape:sym<colonpair>($/) { make mark_ww_atom($<colonpair>.ast); }
     sub mark_ww_atom($ast) {
-        $ast<ww_atom> := 1;
+        $ast.annotate('ww_atom', 1);
         $ast;
     }
 }
@@ -7077,7 +6966,7 @@ class Perl5::RegexActions does STDActions {
         self.store_regex_caps($code_obj, $block, capnames($qast, 0));
         self.store_regex_nfa($code_obj, $block, QRegex::NFA.new.addnode($qast));
 
-        $block<orig_qast> := $qast;
+        $block.annotate('orig_qast', $qast);
         $qast := QAST::Regex.new( :rxtype<concat>,
                      QAST::Regex.new( :rxtype<scan> ),
                      $qast,
