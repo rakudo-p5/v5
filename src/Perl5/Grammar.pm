@@ -1188,6 +1188,7 @@ grammar Perl5::Grammar does STD5 {
 
     method shallow_copy(Mu $hash) {
         my %result;
+        return %result unless nqp::p6bool($hash);
         if nqp::istype($hash, Hash) {
             for $hash.keys {
                 %result{$_} := $hash{$_};
