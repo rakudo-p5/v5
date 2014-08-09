@@ -1698,7 +1698,7 @@ class Perl5::Actions does STDActions {
             !! QAST::Var.new( :name('Nil'), :scope('lexical') );
     }
 
-    sub make_pair($key_str, $value) {
+    sub make_pair(Mu $key_str, Mu $value) {
         $V5DEBUG && say("make_pair($key_str, $value)");
         my $key := $*W.add_string_constant($key_str);
         $key.named('key');
@@ -1930,22 +1930,12 @@ class Perl5::Actions does STDActions {
         }
         $block.blocktype('immediate');
 
-        # If it's a stub, add it to the "must compose at some point" list,
-        # then just evaluate to the type object. Don't need to do any more
-        # just yet.
-        if nqp::substr($<blockoid><statementlist><statement>[0], 0, 3) eq '...' {
-            $*W.add_stub_to_check($*PACKAGE);
-            $block.blocktype('declaration');
-            make QAST::Stmts.new( $block, QAST::WVal.new( :value($*PACKAGE) ) );
-            return 1;
-        }
-
         # Compose.
         $*W.pkg_compose($*PACKAGE);
 
         # Make a code object for the block.
         $*W.create_code_object($block, 'Block',
-            $*W.create_signature(nqp::hash('parameters', [])));
+            $*W.create_signature(nqp::hash('parameters', nqp::gethllsym("nqp", "nqplist")())));
 
         # Document
         #~ Perl6::Pod::document($/, $*PACKAGE, $*DOC);
@@ -3399,7 +3389,7 @@ class Perl5::Actions does STDActions {
 
     method indirect_object($/) {
         $V5DEBUG && say("indirect_object($/)");
-        if $<name><barename> {
+        if $<name><barename>.ast {
             $V5DEBUG && say("indirect_object($/) barename");
             make QAST::Op.new( :op('call'), :name('&infix:<does>'),
                 $*W.add_string_constant(~$<name>),
@@ -4527,7 +4517,7 @@ class Perl5::Actions does STDActions {
         if $<longname> {
             if nqp::substr(~$<longname>, 0, 2) ne '::' {
                 my $longname := dissect_longname($<longname>);
-                my $type := $*W.find_symbol($longname.type_name_parts('type name').list);
+                my $type := find_symbol($longname.type_name_parts('type name').list);
                 if $<arglist> {
                     $type := $*W.parameterize_type($type, $<arglist>, $/);
                 }
@@ -4637,7 +4627,7 @@ class Perl5::Actions does STDActions {
         my $coderef := regex_coderef($/, $*W.stub_code_object('Regex'),
             $<quibble>.ast, 'anon', '', %sig_info, $block, :use_outer_match(1));
         my $past := block_closure($coderef);
-        $past.annonate('sink_past', QAST::Op.new(:op<call>, :name<P5Bool>, $past));
+        $past.annotate('sink_past', QAST::Op.new(:op<call>, :name<P5Bool>, $past));
         make $past;
     }
     method quote:sym</ />($/) {
@@ -5253,7 +5243,7 @@ class Perl5::Actions does STDActions {
     # Works out how to look up a type. If it's not generic we statically
     # resolve it. Otherwise, we punt to a runtime lexical lookup.
     sub instantiated_type(@name, $/) {
-        my $type := $*W.find_symbol(@name);
+        my $type := find_symbol(@name);
         my $is_generic := 0;
         try { $is_generic := $type.HOW.archetypes.generic }
         my $past;

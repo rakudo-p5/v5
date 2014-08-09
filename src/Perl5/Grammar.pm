@@ -1865,8 +1865,8 @@ grammar Perl5::Grammar does STD5 {
                     $longname.type_name_parts('package name', :decl(1)) !!
                     [];
                 if @name && $*SCOPE ne 'anon'
-                && $*W.already_declared($*SCOPE, $*OUTERPACKAGE, $outer, @name) {
-                    $*PACKAGE := $*W.find_symbol(@name);
+                && $*W.already_declared($*SCOPE, $*OUTERPACKAGE, $outer, nqp::gethllsym("nqp", "nqplist")(|@name)) {
+                    $*PACKAGE := find_symbol(@name);
                     $exists   := 1;
                 }
 
@@ -2071,7 +2071,7 @@ grammar Perl5::Grammar does STD5 {
     sub bracket_ending($matches) {
         my $check = $matches[*-1];
         my $str   = $check.Str;
-        my $last  = nqp::substr($str, nqp::chars($check) - 1, 1);
+        my $last  = $str.substr($check.chars - 1, 1);
         $last eq ')' || $last eq '}' || $last eq ']'
     }
 
@@ -2221,6 +2221,7 @@ grammar Perl5::Grammar does STD5 {
         | <identifier> <morename>*
         | <morename>+
         ]
+        $<barename>=''
     }
 
     token morename {
@@ -3009,7 +3010,7 @@ grammar Perl5::Grammar does STD5 {
             | <?[{]> <sblock>
             ]
         |   <?{ $*ALLOW_IOS_NAME }> <name> <!postfix> <![,]> { $name := ~$<name> }
-            <?{ (nqp::atkey($*W.cur_lexpad().symbol($name), 'barename') && ($<name><barename> = 1)) || $*W.is_type([$name]) }>
+            <?{ (nqp::atkey($*W.cur_lexpad().symbol($name), 'barename') && ($<name><barename>.make(1))) || $*W.is_type([$name]) }>
         ]
         { $*HAS_INDIRECT_OBJ := 1 }
     }
@@ -3290,8 +3291,8 @@ grammar Perl5::QGrammar does STD5 {
             [
             || <starter> <nibbler> <stopper>
                 {
-                    my $c := $/.CURSOR;
-                    $to    = $<starter>[*-1].from;
+                    my $c = $/.CURSOR;
+                    $to   = $<starter>[*-1].from;
                     if $from != $to {
                         @*nibbles.push: $c.orig.substr($from, $to - $from);
                     }
@@ -3300,12 +3301,12 @@ grammar Perl5::QGrammar does STD5 {
                     @*nibbles.push: $<nibbler>[*-1];
                     @*nibbles.push: $<stopper>[*-1].Str;
 
-                    $from := $to := $c.pos;
+                    $from = $to = $c.pos;
                 }
             || <escape>
                 {
-                    my $c := $/.CURSOR;
-                    $to    = $<escape>[*-1].from;
+                    my $c = $/.CURSOR;
+                    $to   = $<escape>[*-1].from;
                     if $from != $to {
                         @*nibbles.push: $c.orig.substr($from, $to - $from);
                     }
@@ -3318,8 +3319,8 @@ grammar Perl5::QGrammar does STD5 {
             ]
         ]*
         {
-            my $c := $/.CURSOR;
-            $to    = $c.pos;
+            my $c = $/.CURSOR;
+            $to   = $c.pos;
             if $from != $to || !@*nibbles {
                 @*nibbles.push: $c.orig.substr($from, $to - $from);
             }
