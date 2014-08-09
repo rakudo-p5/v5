@@ -5885,7 +5885,7 @@ class Perl5::Actions does STDActions {
         return $closure;
     }
 
-    sub make_thunk_ref($to_thunk is rw, $/) {
+    sub make_thunk_ref(Mu $to_thunk is rw, $/) {
         $V5DEBUG && say("make_thunk_ref($/)");
         my $block := $*W.push_lexpad($/);
         $block.push(QAST::Stmts.new(autosink($to_thunk)));
