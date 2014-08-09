@@ -2589,18 +2589,12 @@ class Perl5::Actions does STDActions {
             $qast.node(nqp::null());
             $qast
         }
-        sub clone_qast(Mu $qast) {
-            my $cloned := nqp::clone($qast);
-            nqp::bindattr($cloned, QAST::Node, '@!array',
-                nqp::clone(nqp::getattr($cloned, QAST::Node, '@!array')));
-            $cloned
-        }
         sub node_walker(Mu $node) {
             # Simple values are always fine; just return them as they are, modulo
             # removing any :node(...).
             if nqp::istype($node, QAST::IVal) || nqp::istype($node, QAST::SVal)
             || nqp::istype($node, QAST::NVal) {
-                return $node.node ?? clear_node(clone_qast($node)) !! $node;
+                return $node.node ?? clear_node($node.shallow_clone()) !! $node;
             }
 
             # WVal is OK, though special case for PseudoStash usage (which means
@@ -2610,7 +2604,7 @@ class Perl5::Actions does STDActions {
                     nqp::die("Routines using pseudo-stashes are not inlinable");
                 }
                 else {
-                    return $node.node ?? clear_node(clone_qast($node)) !! $node;
+                    return $node.node ?? clear_node($node.shallow_clone()) !! $node;
                 }
             }
 
@@ -2618,7 +2612,7 @@ class Perl5::Actions does STDActions {
             # themselves, it comes down to the children.
             elsif nqp::istype($node, QAST::Op) {
                 if nqp::getcomp('QAST').operations.is_inlinable('perl6', $node.op) {
-                    my $replacement := clone_qast($node);
+                    my $replacement := $node.shallow_clone();
                     my int $i = 0;
                     my int $n = +@($node);
                     while $i < $n {
@@ -2637,7 +2631,7 @@ class Perl5::Actions does STDActions {
                 if nqp::existskey(%arg_placeholders, $node.name) {
                     my $replacement := %arg_placeholders{$node.name};
                     if $node.named || $node.flat {
-                        $replacement := clone_qast($replacement);
+                        $replacement := $replacement.shallow_clone();
                         if $node.named { $replacement.named($node.named) }
                         if $node.flat { $replacement.flat($node.flat) }
                     }
@@ -2651,7 +2645,7 @@ class Perl5::Actions does STDActions {
             # Statements need to be cloned and then each of the nodes below them
             # visited.
             elsif nqp::istype($node, QAST::Stmt) || nqp::istype($node, QAST::Stmts) {
-                my $replacement := clone_qast($node);
+                my $replacement := $node.shallow_clone();
                 my int $i = 0;
                 my int $n = +@($node);
                 while $i < $n {
@@ -2663,7 +2657,7 @@ class Perl5::Actions does STDActions {
 
             # Want nodes need copying and every other child visiting.
             elsif nqp::istype($node, QAST::Want) {
-                my $replacement := clone_qast($node);
+                my $replacement := $node.shallow_clone();
                 my int $i = 0;
                 my int $n = +@($node);
                 while $i < $n {
@@ -2962,6 +2956,9 @@ class Perl5::Actions does STDActions {
 
             # Ensure that the PAST is whitelisted things.
             returnless_past($block[1][0][0])
+        }
+        elsif +$block[1].list == 1 && nqp::istype($block[1][0], QAST::WVal) {
+            1
         }
         else {
             0
@@ -4623,7 +4620,7 @@ class Perl5::Actions does STDActions {
             $is_hash = 1;
         }
         elsif $stmts == 1 {
-            my $elem := $past.ann('past_block')[1][0][0];
+            my $elem := try $past.ann('past_block')[1][0][0];
             $elem := $elem[0] if $elem ~~ QAST::Want;
             if $elem ~~ QAST::Op && $elem.name eq '&infix:<,>' {
                 # block contains a list, so test the first element
@@ -5232,12 +5229,13 @@ class Perl5::Actions does STDActions {
 
     method filetest($/) {
         $V5DEBUG && say("filetest($/)");
+        my $name = ~$<letter>;
         make QAST::Op.new(
-                :op('callmethod'), :name($<letter>),
+                :op('callmethod'), :$name,
                 QAST::Op.new(
                     :op('callmethod'), :name('IO'),
                     $<EXPR> ?? $<EXPR>.ast
-                            !! $<letter> eq 't' # http://perldoc.perl.org/functions/-X.html
+                            !! $name eq 't' # http://perldoc.perl.org/functions/-X.html
                                 ?? QAST::Var.new( :name('STDIN'), :scope('lexical') )
                                 !! QAST::Var.new( :name('$_'), :scope('lexical') ) ) )
     }
@@ -6667,7 +6665,7 @@ class Perl5::RegexActions does STDActions {
 
     method p5metachar:sym<(??{ })>($/) {
         make QAST::Regex.new(
-                 QAST::Node.new(
+                 QAST::NodeList.new(
                     QAST::SVal.new( :value('INTERPOLATE') ),
                     $<codeblock>.ast,
                     QAST::IVal.new( :value(%*RX<i> ?? 1 !! 0) ),
@@ -6678,7 +6676,7 @@ class Perl5::RegexActions does STDActions {
 
     method p5metachar:sym<var>($/) {
         if $*INTERPOLATE {
-            make QAST::Regex.new( QAST::Node.new(
+            make QAST::Regex.new( QAST::NodeList.new(
                                         QAST::SVal.new( :value('INTERPOLATE') ),
                                         $<var>.ast,
                                         QAST::IVal.new( :value(%*RX<i> ?? 1 !! 0) ),
@@ -6687,7 +6685,7 @@ class Perl5::RegexActions does STDActions {
                                   :rxtype<subrule>, :subtype<method>, :node($/));
         }
         else {
-            make QAST::Regex.new( QAST::Node.new(
+            make QAST::Regex.new( QAST::NodeList.new(
                                         QAST::SVal.new( :value('!LITERAL') ),
                                         $<var>.ast,
                                         QAST::IVal.new( :value(%*RX<i> ?? 1 !! 0) ) ),
@@ -6785,7 +6783,7 @@ class Perl5::RegexActions does STDActions {
     method p5backslash:sym<b>($/) {
         make QAST::Regex.new(:rxtype<subrule>, :subtype<zerowidth>,
                              :node($/), :negate($<sym> eq 'B'), :name(''),
-                             QAST::Node.new( QAST::SVal.new( :value('wb') ) ));
+                             QAST::NodeList.new( QAST::SVal.new( :value('wb') ) ));
     }
 
     method p5backslash:sym<h>($/) {
@@ -6845,7 +6843,7 @@ class Perl5::RegexActions does STDActions {
         }
         else {
             make QAST::Regex.new( :rxtype<subrule>, :subtype<method>, :node($/),
-                QAST::Node.new(
+                QAST::NodeList.new(
                     QAST::SVal.new( :value('!BACKREF') ),
                     QAST::SVal.new( :value(~$<number> - 1) ) ) );
         }
@@ -6855,7 +6853,7 @@ class Perl5::RegexActions does STDActions {
         if $<nibbler> {
             make QAST::Regex.new(
                 :rxtype<subrule>, :subtype<zerowidth>, :negate($<neg> eq '!'), :node($/),
-                QAST::Node.new(
+                QAST::NodeList.new(
                     QAST::SVal.new( :value('after') ),
                     self.qbuildsub(self.flip_ast($<nibbler>.ast), :anon(1), :addself(1))
                 ));
@@ -6869,7 +6867,7 @@ class Perl5::RegexActions does STDActions {
         if $<nibbler> {
             make QAST::Regex.new(
                 :rxtype<subrule>, :subtype<zerowidth>, :node($/),
-                QAST::Node.new(
+                QAST::NodeList.new(
                     QAST::SVal.new( :value('before') ),
                     self.qbuildsub($<nibbler>.ast, :anon(1), :addself(1))
                 ));
@@ -6883,7 +6881,7 @@ class Perl5::RegexActions does STDActions {
         if $<nibbler> {
             make QAST::Regex.new(
                 :rxtype<subrule>, :subtype<zerowidth>, :negate(1), :node($/),
-                QAST::Node.new(
+                QAST::NodeList.new(
                     QAST::SVal.new( :value('before') ),
                     self.qbuildsub($<nibbler>.ast, :anon(1), :addself(1))
                 ));
