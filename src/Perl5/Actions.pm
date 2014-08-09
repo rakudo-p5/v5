@@ -945,7 +945,8 @@ class Perl5::Actions does STDActions {
             );
         }
         ($*W.cur_lexpad())[0].push(my $uninst := QAST::Stmts.new($block));
-        $*W.attach_signature($*DECLARAND, $*W.create_signature(nqp::hash('parameters', [])));
+        $*W.attach_signature($*DECLARAND, $*W.create_signature(
+            nqp::hash('parameters', nqp::gethllsym("nqp", "nqplist")())));
         $*W.finish_code_object($*DECLARAND, $block);
         my $ref := reference_to_code_object($*DECLARAND, $block);
         $ref.annotate('uninstall_if_immediately_used', $uninst);
@@ -6429,7 +6430,7 @@ class Perl5::QActions does STDActions {
     method postprocess_words($/, Mu $past is copy) {
         $V5DEBUG && say("method postprocess_words($/, \$past)");
         if $past.has_compile_time_value {
-            my @words := $past.compile_time_value.words;
+            my @words = $past.compile_time_value.words.list;
             if +@words != 1 {
                 $past := QAST::Op.new( :op('call'), :name('&infix:<,>'), :node($/) );
                 for @words { $past.push($*W.add_string_constant(~$_)); }
