@@ -7009,9 +7009,9 @@ class Perl5::RegexActions does STDActions {
             }
         }
         elsif $rxtype eq 'subcapture' {
-            my $name := $ast.name;
-            if $name eq '' { $name := $count; $ast.name($name); }
-            for nqp::split(' ', $name) {
+            my $name = $ast.name;
+            unless $name { $name = $count; $ast.name($name); }
+            for $name.Str.split(' ') {
                 if $_ eq '0' || $_ > 0 { $count := $_ + 1; }
                 nqp::bindkey($capnames, $_, 1);
             }
