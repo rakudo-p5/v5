@@ -24,7 +24,7 @@ sub EXPORT(*@a) {
                 %INC<Perl5> = [];
                 %INC<Perl5>.unshift: '.';
                 %INC<Perl5>.unshift: %INC<perl> ~ '/lib/Perl5';
-                %INC<Perl5>.unshift: 'lib/Perl5';
+                %INC<Perl5>.unshift: 'lib/Perl5'.path.absolute.Str;
                 my $PERL5LIB := nqp::atkey(nqp::getenvhash(), 'PERL5LIB');
                 if nqp::defined($PERL5LIB) {
                     %INC<Perl5>.unshift: $*W.p6ize_recursive( nqp::split(':', $PERL5LIB) )
