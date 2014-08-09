@@ -6938,7 +6938,7 @@ class Perl5::RegexActions does STDActions {
         make quantmod($qast, $<quantmod>);
     }
 
-    sub quantmod(Mu $ast, $mod) {
+    sub quantmod(Mu $ast is rw, $mod) {
         if    $mod eq '?' { $ast.backtrack('f') }
         elsif $mod eq '+' { $ast.backtrack('g') }
         $ast;
