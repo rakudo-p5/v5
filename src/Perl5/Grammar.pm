@@ -1149,7 +1149,6 @@ grammar Perl5::Grammar does STD5 {
             $BLOCK[0].push(QAST::Var.new( :name($*FOR_VARIABLE), :scope('lexical'), :decl('var') ))
         } ]?
         [
-        | '{YOU_ARE_HERE}' <you_are_here>
         #~ | :dba('block') '{' ~ '}' <statementlist(1)> <?ENDSTMT>
         | '{' ~ '}' <statementlist(1)> <?ENDSTMT>
         | <?terminator> { $*W.throw($/, 'X::Syntax::Missing', what =>'block') }
@@ -2209,16 +2208,12 @@ grammar Perl5::Grammar does STD5 {
 
     token deflongname {
         #~ :dba('new name to be defined')
-        <name> <colonpair>*
+        <name>
 #        { self.add_routine( ~$<name> ) if $*IN_DECL; }
     }
 
-    token colonpair {
-        <!>
-    }
-
     token longname {
-        <name> <colonpair>*
+        <name>
     }
 
     token name {
@@ -2513,11 +2508,6 @@ grammar Perl5::Grammar does STD5 {
         || <?{ $*IN_DECL ne 'sub' }> ( 'undef' | <variable_declarator> )+ % [ <.ws> ',' <.ws> ]
     }
 
-    token type_constraint {
-        <typename>
-        <.ws>
-    }
-
     rule statement_prefix:sym<do>   { <sym> [ <?[{]> <block> | <EXPR('q=')> ] }
     rule statement_prefix:sym<eval> { <sym> <.ws> <block> }
 
@@ -2593,7 +2583,6 @@ grammar Perl5::Grammar does STD5 {
         [ <!{ $*QSIGIL }> <.ws> \s* ]?
 
         #~ :dba('postfix')
-        <postfix_prefix_meta_operator>?
         [
         | <OPER=postfix>
         | <OPER=postcircumfix>
@@ -2601,11 +2590,6 @@ grammar Perl5::Grammar does STD5 {
         ]
         { $*LEFTSIGIL := '@'; }
     }
-
-    proto token infix_postfix_meta_operator { * }
-    proto token infix_prefix_meta_operator { * }
-    proto token infix_circumfix_meta_operator { * }
-    proto token postfix_prefix_meta_operator { * }
 
     method copyO($from) {
         my $O   := $from<OPER><O>;

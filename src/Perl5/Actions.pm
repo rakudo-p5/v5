@@ -216,31 +216,6 @@ sub dissect_longname($longname) is export {
     }
     $result.components = @components;
 
-    # Stash colon pairs with names; incorporate non-named one into
-    # the last part of the name (e.g. for infix:<+>). Need to be a
-    # little cheaty when compiling the setting due to bootstrapping.
-    my @pairs;
-    for $longname<colonpair>.list {
-        if $_<coloncircumfix> && !$_<identifier> {
-            my $cp_str;
-            if %*COMPILING<%?OPTIONS><setting> ne 'NULL' {
-                # Safe to evaluate it directly; no bootstrap issues.
-                $cp_str := ':<' ~ ~$*W.compile_time_evaluate($_, $_.ast) ~ '>';
-            }
-            else {
-                my $ast := $_.ast;
-                $cp_str := nqp::istype($ast, QAST::Want) && nqp::istype($ast[2], QAST::SVal)
-                    ?? ':<' ~ $ast[2].value ~ '>'
-                    !! ~$_;
-            }
-            @components[*-1] := @components[*-1] ~ $cp_str;
-        }
-        else {
-            @pairs.push($_);
-        }
-    }
-    $result.colonpairs = @pairs;
-
     $result
 }
 
@@ -396,7 +371,6 @@ my role STDActions {
     }
 }
 
-#~ class Perl5::Actions is HLL::Actions does STDActions {
 class Perl5::Actions does STDActions {
     our @MAX_PERL_VERSION;
 
@@ -891,51 +865,46 @@ class Perl5::Actions does STDActions {
 
     method sblock($/) {
         $V5DEBUG && say("sblock($/)");
-        if $<blockoid><you_are_here> {
-            make $<blockoid>.ast;
+        # Locate or build a set of parameters.
+        my Mu $sig_info := nqp::hash();
+        my @params;
+        my Mu $block := $<blockoid>.ast;
+        if $*IN_SORT {
+            add_param($block, @params, '$a');
+            add_param($block, @params, '$b');
         }
-        else {
-            # Locate or build a set of parameters.
-            my Mu $sig_info := nqp::hash();
-            my @params;
-            my Mu $block := $<blockoid>.ast;
-            if $*IN_SORT {
-                add_param($block, @params, '$a');
-                add_param($block, @params, '$b');
-            }
-            elsif $*FOR_VARIABLE {
-                add_param($block, @params, $*FOR_VARIABLE);
-            }
-            elsif $*IMPLICIT {
-                add_param($block, @params, '$_');
-            }
-            nqp::bindkey($sig_info, 'parameters', nqp::gethllsym("nqp", "nqplist")(|@params));
-
-            # Create signature object and set up binding.
-            unless $*IN_SORT {
-                for @params { $_<is_rw> := 1 }
-            }
-            set_default_parameter_type(@params, Mu);
-            my $signature := create_signature_object($<signature>, $sig_info, $block);
-            add_signature_binding_code($block, $signature, @params);
-
-            # Add a slot for a $*DISPATCHER, and a call to take one.
-            $block[0].push(QAST::Var.new( :name('$*DISPATCHER'), :scope('lexical'), :decl('var') ));
-            $block[0].push(QAST::Op.new(
-                :op('takedispatcher'),
-                QAST::SVal.new( :value('$*DISPATCHER') )
-            ));
-
-            # We'll install PAST in current block so it gets capture_lex'd.
-            # Then evaluate to a reference to the block (non-closure - higher
-            # up stuff does that if it wants to).
-            ($*W.cur_lexpad())[0].push(my $uninst := QAST::Stmts.new($block));
-            $*W.attach_signature($*DECLARAND, $signature);
-            $*W.finish_code_object($*DECLARAND, $block);
-            my $ref := reference_to_code_object($*DECLARAND, $block);
-            $ref.annotate('uninstall_if_immediately_used', $uninst);
-            make $ref;
+        elsif $*FOR_VARIABLE {
+            add_param($block, @params, $*FOR_VARIABLE);
         }
+        elsif $*IMPLICIT {
+            add_param($block, @params, '$_');
+        }
+        nqp::bindkey($sig_info, 'parameters', nqp::gethllsym("nqp", "nqplist")(|@params));
+
+        # Create signature object and set up binding.
+        unless $*IN_SORT {
+            for @params { $_<is_rw> := 1 }
+        }
+        set_default_parameter_type(@params, Mu);
+        my $signature := create_signature_object($<signature>, $sig_info, $block);
+        add_signature_binding_code($block, $signature, @params);
+
+        # Add a slot for a $*DISPATCHER, and a call to take one.
+        $block[0].push(QAST::Var.new( :name('$*DISPATCHER'), :scope('lexical'), :decl('var') ));
+        $block[0].push(QAST::Op.new(
+            :op('takedispatcher'),
+            QAST::SVal.new( :value('$*DISPATCHER') )
+        ));
+
+        # We'll install PAST in current block so it gets capture_lex'd.
+        # Then evaluate to a reference to the block (non-closure - higher
+        # up stuff does that if it wants to).
+        ($*W.cur_lexpad())[0].push(my $uninst := QAST::Stmts.new($block));
+        $*W.attach_signature($*DECLARAND, $signature);
+        $*W.finish_code_object($*DECLARAND, $block);
+        my $ref := reference_to_code_object($*DECLARAND, $block);
+        $ref.annotate('uninstall_if_immediately_used', $uninst);
+        make $ref;
     }
 
     method block($/) {
@@ -985,11 +954,6 @@ class Perl5::Actions does STDActions {
             $*HAS_YOU_ARE_HERE := 1;
             make $<you_are_here>.ast;
         }
-    }
-
-    method you_are_here($/) {
-        $V5DEBUG && say("you_are_here($/)");
-        make self.CTXSAVE();
     }
 
     method newlex($/) {
@@ -1141,22 +1105,6 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    method statement_control:sym<loop>($/) {
-        $V5DEBUG && say("statement_control:sym<loop>($/)");
-        my $block := pblock_immediate($<block>.ast);
-        my $cond := $<e2> ?? $<e2>.ast !! QAST::Var.new(:name<True>, :scope<lexical>);
-        my $loop := QAST::Op.new( $cond, :op('while'), :node($/) );
-        $loop.push($block);
-        if $<e3> {
-            $loop.push($<e3>.ast);
-        }
-        $loop := tweak_loop($loop);
-        if $<e1> {
-            $loop := QAST::Stmts.new( $<e1>.ast, $loop, :node($/) );
-        }
-        make $loop;
-    }
-
     sub tweak_loop(Mu $loop is copy) {
         $V5DEBUG && say("tweak_loop(\$loop)");
         # Handle phasers.
@@ -1186,15 +1134,6 @@ class Perl5::Actions does STDActions {
             }
         }
         $loop
-    }
-
-    method statement_control:sym<need>($/) {
-        $V5DEBUG && say("statement_control:sym<need>($/)");
-        my $past := QAST::Var.new( :name('Nil'), :scope('lexical') );
-        for $<version>.list {
-            # XXX TODO: Version checks.
-        }
-        make $past;
     }
 
     method statement_control:sym<import>($/) {
@@ -1337,60 +1276,29 @@ class Perl5::Actions does STDActions {
         make when_handler_helper($<block>.ast);
     }
 
-    method statement_control:sym<CATCH>($/) {
-        $V5DEBUG && say("statement_control:sym<CATCH>($/)");
-        if nqp::existskey(%*HANDLERS, 'CATCH') {
-            $*W.throw($/, ['X', 'Phaser', 'Multiple'], block => 'CATCH');
-        }
-        my $block := $<block>.ast;
-        set_block_handler($/, $block, 'CATCH');
-        make QAST::Var.new( :name('Nil'), :scope('lexical') );
-    }
-
-    method statement_control:sym<CONTROL>($/) {
-        $V5DEBUG && say("statement_control:sym<CONTROL>($/)");
-        if nqp::existskey(%*HANDLERS, 'CONTROL') {
-            $*W.throw($/, ['X', 'Phaser', 'Multiple'], block => 'CONTROL');
-        }
-        my $block := $<block>.ast;
-        set_block_handler($/, $block, 'CONTROL');
-        make QAST::Var.new( :name('Nil'), :scope('lexical') );
-    }
-
     method statement_prefix:sym<BEGIN>($/) {
-        $V5DEBUG && say("statement_prefix:sym<BEGIN>($/)"); make $*W.add_phaser($/, 'BEGIN', ($<sblock>.ast).ann('code_object')); }
+        $V5DEBUG && say("statement_prefix:sym<BEGIN>($/)");
+        make $*W.add_phaser($/, 'BEGIN', ($<sblock>.ast).ann('code_object'));
+    }
+
+    method statement_prefix:sym<UNITCHECK>($/) {
+        $V5DEBUG && say("statement_prefix:sym<UNITCHECK>($/)");
+        make $*W.add_phaser($/, 'UNITCHECK', ($<sblock>.ast).ann('code_object'));
+    }
+
     method statement_prefix:sym<CHECK>($/) {
-        $V5DEBUG && say("statement_prefix:sym<CHECK>($/)"); make $*W.add_phaser($/, 'CHECK', ($<sblock>.ast).ann('code_object')); }
+        $V5DEBUG && say("statement_prefix:sym<CHECK>($/)");
+        make $*W.add_phaser($/, 'CHECK', ($<sblock>.ast).ann('code_object'));
+    }
+
     method statement_prefix:sym<INIT>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<INIT>($/) "); make $*W.add_phaser($/, 'INIT', ($<sblock>.ast).ann('code_object'), ($<sblock>.ast).ann('past_block')); }
-    method statement_prefix:sym<START>($/) {
-        $V5DEBUG && say("statement_prefix:sym<START>($/)"); make $*W.add_phaser($/, 'START', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<ENTER>($/) {
-        $V5DEBUG && say("statement_prefix:sym<ENTER>($/)"); make $*W.add_phaser($/, 'ENTER', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<FIRST>($/) {
-        $V5DEBUG && say("statement_prefix:sym<FIRST>($/)"); make $*W.add_phaser($/, 'FIRST', ($<sblock>.ast).ann('code_object')); }
+        $V5DEBUG && say("statement_prefix:sym<INIT>($/) ");
+        make $*W.add_phaser($/, 'INIT', ($<sblock>.ast).ann('code_object'), ($<sblock>.ast).ann('past_block'));
+    }
 
     method statement_prefix:sym<END>($/)   {
-        $V5DEBUG && say("statement_prefix:sym<END>($/)  "); make $*W.add_phaser($/, 'END', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<LEAVE>($/) {
-        $V5DEBUG && say("statement_prefix:sym<LEAVE>($/)"); make $*W.add_phaser($/, 'LEAVE', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<KEEP>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<KEEP>($/) "); make $*W.add_phaser($/, 'KEEP', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<UNDO>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<UNDO>($/) "); make $*W.add_phaser($/, 'UNDO', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<NEXT>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<NEXT>($/) "); make $*W.add_phaser($/, 'NEXT', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<LAST>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<LAST>($/) "); make $*W.add_phaser($/, 'LAST', ($<sblock>.ast).ann('code_object')); }
-    method statement_prefix:sym<PRE>($/)   {
-        $V5DEBUG && say("statement_prefix:sym<PRE>($/)  "); make $*W.add_phaser($/, 'PRE', ($<sblock>.ast).ann('code_object'), ($<sblock>.ast).ann('past_block')); }
-    method statement_prefix:sym<POST>($/)  {
-        $V5DEBUG && say("statement_prefix:sym<POST>($/) "); make $*W.add_phaser($/, 'POST', ($<sblock>.ast).ann('code_object'), ($<sblock>.ast).ann('past_block')); }
-
-    method statement_prefix:sym<DOC>($/)   {
-        $V5DEBUG && say("statement_prefix:sym<DOC>($/)  ");
-        $*W.add_phaser($/, ~$<phase>, ($<sblock>.ast).ann('code_object'))
-            if %*COMPILING<%?OPTIONS><doc>;
+        $V5DEBUG && say("statement_prefix:sym<END>($/)  ");
+        make $*W.add_phaser($/, 'END', ($<sblock>.ast).ann('code_object'));
     }
 
     method statement_prefix:sym<do>($/) {
@@ -1446,23 +1354,6 @@ class Perl5::Actions does STDActions {
                 ),
             )
         )
-    }
-
-    method statement_prefix:sym<gather>($/) {
-        $V5DEBUG && say("statement_prefix:sym<gather>($/)");
-        my $past := block_closure($<sblock>.ast);
-        $past.ann('past_block').push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
-        make QAST::Op.new( :op('call'), :name('&GATHER'), $past );
-    }
-
-    method statement_prefix:sym<sink>($/) {
-        $V5DEBUG && say("statement_prefix:sym<sink>($/)");
-        my $blast := QAST::Op.new( :op('call'), $<sblock>.ast );
-        make QAST::Stmts.new(
-            QAST::Op.new( :name('&eager'), :op('call'), $blast ),
-            QAST::Var.new( :name('Nil'), :scope('lexical')),
-            :node($/)
-        );
     }
 
     method statement_prefix:sym<try>($/) {
@@ -1556,7 +1447,6 @@ class Perl5::Actions does STDActions {
 
     method term:sym<fatarrow>($/)           {
         $V5DEBUG && say("term:sym<fatarrow>($/)          "); make $<fatarrow>.ast; }
-#    method term:sym<colonpair>($/)          { make $<colonpair>.ast; }
     method term:sym<variable>($/)           {
         $V5DEBUG && say("term:sym<variable>($/)");
         make $<variable>.ast;
@@ -2065,20 +1955,25 @@ class Perl5::Actions does STDActions {
         );
     }
 
-    method scope_declarator:sym<my>($/)      {
-        $V5DEBUG && say("scope_declarator:sym<my>($/)     "); make $<scoped>.ast; }
-    method scope_declarator:sym<local>($/)   {
-        $V5DEBUG && say("scope_declarator:sym<local>($/)  "); make $<scoped>.ast; }
-    method scope_declarator:sym<our>($/)     {
-        $V5DEBUG && say("scope_declarator:sym<our>($/)    "); make $<scoped>.ast; }
-    method scope_declarator:sym<has>($/)     {
-        $V5DEBUG && say("scope_declarator:sym<has>($/)    "); make $<scoped>.ast; }
-    method scope_declarator:sym<anon>($/)    {
-        $V5DEBUG && say("scope_declarator:sym<anon>($/)   "); make $<scoped>.ast; }
-    method scope_declarator:sym<augment>($/) {
-        $V5DEBUG && say("scope_declarator:sym<augment>($/)"); make $<scoped>.ast; }
-    method scope_declarator:sym<state>($/)   {
-        $V5DEBUG && say("scope_declarator:sym<state>($/)  "); make $<scoped>.ast; }
+    method scope_declarator:sym<my>($/) {
+        $V5DEBUG && say("scope_declarator:sym<my>($/)     ");
+        make $<scoped>.ast;
+    }
+
+    method scope_declarator:sym<local>($/) {
+        $V5DEBUG && say("scope_declarator:sym<local>($/)  ");
+        make $<scoped>.ast;
+    }
+
+    method scope_declarator:sym<our>($/) {
+        $V5DEBUG && say("scope_declarator:sym<our>($/)    ");
+        make $<scoped>.ast;
+    }
+
+    method scope_declarator:sym<state>($/) {
+        $V5DEBUG && say("scope_declarator:sym<state>($/)  ");
+        make $<scoped>.ast;
+    }
 
     method declarator($/) {
         $V5DEBUG && say("declarator($/)");
@@ -2212,15 +2107,6 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    method multi_declarator:sym<multi>($/) {
-        $V5DEBUG && say("multi_declarator:sym<multi>($/)"); make $<declarator> ?? $<declarator>.ast !! $<routine_def>.ast }
-    method multi_declarator:sym<proto>($/) {
-        $V5DEBUG && say("multi_declarator:sym<proto>($/)"); make $<declarator> ?? $<declarator>.ast !! $<routine_def>.ast }
-    method multi_declarator:sym<only>($/)  {
-        $V5DEBUG && say("multi_declarator:sym<only>($/) "); make $<declarator> ?? $<declarator>.ast !! $<routine_def>.ast }
-    method multi_declarator:sym<null>($/)  {
-        $V5DEBUG && say("multi_declarator:sym<null>($/) "); make $<declarator>.ast }
-
     method scoped($/) {
         $V5DEBUG && say("scoped($/)");
         make $<DECL>.ast;
@@ -2252,59 +2138,7 @@ class Perl5::Actions does STDActions {
         my $name  := $sigil ~ $twigil ~ $desigilname;
         my $BLOCK := $*W.cur_lexpad();
 
-        if $*SCOPE eq 'has' {
-            # Ensure current package can take attributes.
-            unless nqp::can($*PACKAGE.HOW, 'add_attribute') {
-                if $*PKGDECL {
-                    $*W.throw($/, ['X', 'Attribute', 'Package'],
-                        package-kind => $*PKGDECL,
-                        :$name,
-                    );
-                } else {
-                    $*W.throw($/, ['X', 'Attribute', 'NoPackage'], :$name);
-                }
-            }
-
-            # Create container descriptor and decide on any default value.
-            if $desigilname eq '' {
-                $/.CURSOR.panic("Cannot declare an anonymous attribute");
-            }
-            my $attrname   := ~$sigil ~ '!' ~ $desigilname;
-            my %cont_info  := container_type_info($/, $sigil, $*OFTYPE ?? [$*OFTYPE.ast] !! [], $shape);
-            my $descriptor := $*W.create_container_descriptor(%cont_info<value_type>, 1, $attrname);
-
-            # Create meta-attribute and add it.
-            my $metaattr := %*HOW{$*PKGDECL ~ '-attr'};
-            my $attr := $*W.pkg_add_attribute($/, $*PACKAGE, $metaattr,
-                hash(
-                    name => $attrname,
-                    has_accessor => $twigil eq '.'
-                ),
-                hash(
-                    container_descriptor => $descriptor,
-                    type => %cont_info<bind_constraint>,
-                    package => find_symbol(['$?CLASS'])),
-                %cont_info, $descriptor);
-
-            # Document it
-            # Perl6::Pod::document($/, $attr, $*DOC); #XXX var traits NYI
-
-            # If no twigil, note $foo is an alias to $!foo.
-            if $twigil eq '' {
-                $BLOCK.symbol($name, :attr_alias($attrname));
-            }
-
-            # Apply any traits.
-            for $trait_list.list {
-                my $applier := $_.ast;
-                if $applier { $applier($attr); }
-            }
-
-            # Nothing to emit here; hand back a Nil.
-            $past := QAST::Var.new(:name('Nil'), :scope('lexical'));
-            $past.annotate('metaattr', $attr);
-        }
-        elsif $*SCOPE eq 'my' || $*SCOPE eq 'our' || $*SCOPE eq 'state' || $*SCOPE eq 'local' {
+        if $*SCOPE eq 'my' || $*SCOPE eq 'our' || $*SCOPE eq 'state' || $*SCOPE eq 'local' {
             my $package := $*PACKAGE;
             # Twigil handling.
             if $twigil eq '.' {
@@ -2462,8 +2296,7 @@ class Perl5::Actions does STDActions {
 
         # Needs a slot that can hold a (potentially unvivified) dispatcher;
         $block[0].push(QAST::Var.new( :name('$*DISPATCHER'), :scope('lexical'), :decl('var') ));
-        $block[0].push(QAST::Op.new(
-            :op('takedispatcher'),
+        $block[0].push(QAST::Op.new( :op('takedispatcher'),
             QAST::SVal.new( :value('$*DISPATCHER') )
         ));
 
@@ -2488,7 +2321,6 @@ class Perl5::Actions does STDActions {
         if $<deflongname> {
             # If it's a multi, need to associate it with the surrounding
             # proto.
-            # XXX Also need to auto-multi things with a proto in scope.
             my $name := '&' ~ ~$<deflongname>.ast;
             # Install.
             if $outer.symbol($name) {
@@ -2757,100 +2589,6 @@ class Perl5::Actions does STDActions {
         make $closure;
     }
 
-    method macro_def($/) {
-        $V5DEBUG && say("macro_def($/)");
-        my $block;
-
-        $block := $<blockoid>.ast;
-        $block.blocktype('declaration');
-        if is_clearly_returnless($block) {
-            $block[1] := QAST::Op.new(
-                :op('p6decontrv'),
-                QAST::WVal.new( :value($*DECLARAND) ),
-                $block[1]);
-        }
-        else {
-            $block[1] := wrap_return_handler($block[1]);
-        }
-
-        # Obtain parameters, create signature object and generate code to
-        # call binder.
-        if $block.ann('placeholder_sig') && $<parensig> {
-            $*W.throw($/, 'X::Signature::Placeholder',
-                placeholder => $block.ann('placeholder_sig')<placeholder>,
-            );
-        }
-        my %sig_info;
-        if $<parensig> {
-            %sig_info := $<parensig>.ast;
-        }
-        else {
-            %sig_info<parameters> := $block.ann('placeholder_sig')
-                ?? $block.ann('placeholder_sig') !! [];
-        }
-        my @params := %sig_info<parameters>;
-        set_default_parameter_type(@params, Any);
-        my $signature := create_signature_object($/, %sig_info, $block);
-        add_signature_binding_code($block, $signature, @params);
-
-        # Finish code object, associating it with the routine body.
-        if $<deflongname> {
-            $block.name(~$<deflongname>.ast);
-        }
-        my $code := $*DECLARAND;
-        $*W.attach_signature($code, $signature);
-        $*W.finish_code_object($code, $block, $*MULTINESS eq 'proto');
-
-        # Document it
-        #~ Perl6::Pod::document($/, $code, $*DOC);
-
-        # Install PAST block so that it gets capture_lex'd correctly and also
-        # install it in the lexpad.
-        my $outer := $*W.cur_lexpad();
-        $outer[0].push(QAST::Stmt.new($block));
-
-        # Install &?ROUTINE.
-        $*W.install_lexical_symbol($block, '&?ROUTINE', $code);
-
-        if $<deflongname> {
-            my $name := '&' ~ ~$<deflongname>.ast;
-            # Install.
-            if $outer.symbol($name) {
-                $/.CURSOR.panic("Illegal redeclaration of macro '" ~
-                    ~$<deflongname>.ast ~ "'");
-            }
-            if $*SCOPE eq '' || $*SCOPE eq 'my' {
-                $*W.install_lexical_symbol($outer, $name, $code);
-            }
-            elsif $*SCOPE eq 'our' {
-                # Install in lexpad and in package, and set up code to
-                # re-bind it per invocation of its outer.
-                $*W.install_lexical_symbol($outer, $name, $code);
-                $*W.install_package_symbol($*PACKAGE, $name, $code);
-                $outer[0].push(QAST::Op.new(
-                    :op('bind'),
-                    symbol_lookup([$name], $/, :package_only(1)),
-                    QAST::Var.new( :name($name), :scope('lexical') )
-                ));
-            }
-            else {
-                $/.CURSOR.panic("Cannot use '$*SCOPE' scope with a macro");
-            }
-        }
-        elsif $*MULTINESS {
-            $/.CURSOR.panic('Cannot put ' ~ $*MULTINESS ~ ' on anonymous macro');
-        }
-
-        # Apply traits.
-        for $<trait>.list {
-            if $_.ast { ($_.ast)($code) }
-        }
-
-        my $closure := block_closure(reference_to_code_object($code, $block));
-        $closure.annotate('sink_past', QAST::Op.new( :op('null') ));
-        make $closure;
-    }
-
     sub methodize_block($/, $code is rw, Mu $past is rw, %sig_info, Mu $invocant_type, :$yada) {
         $V5DEBUG && say("sub methodize_block($/)");
         # Get signature and ensure it has an invocant and *%_.
@@ -2909,7 +2647,7 @@ class Perl5::Actions does STDActions {
             $meta_meth := 'add_private_method';
         }
         else {
-            $meta_meth := $*MULTINESS eq 'multi' ?? 'add_multi_method' !! 'add_method';
+            $meta_meth := 'add_method';
         }
         if $scope ne 'anon' && nqp::can($*PACKAGE.HOW, $meta_meth) {
             $*W.pkg_add_method($/, $*PACKAGE, $meta_meth, $name, $code);
@@ -2989,21 +2727,6 @@ class Perl5::Actions does STDActions {
         $BLOCK.push(QAST::Op.new( :op('p6multidispatch') ));
         $BLOCK.node($/);
         make $BLOCK;
-    }
-
-    method regex_declarator:sym<regex>($/, $key?) {
-        $V5DEBUG && say("regex_declarator:sym<regex>($/, $key?)");
-        make $<regex_def>.ast;
-    }
-
-    method regex_declarator:sym<token>($/, $key?) {
-        $V5DEBUG && say("regex_declarator:sym<token>($/, $key?)");
-        make $<regex_def>.ast;
-    }
-
-    method regex_declarator:sym<rule>($/, $key?) {
-        $V5DEBUG && say("regex_declarator:sym<rule>($/, $key?)");
-        make $<regex_def>.ast;
     }
 
     method regex_def($/) {
@@ -3091,248 +2814,13 @@ class Perl5::Actions does STDActions {
         reference_to_code_object($code, $past);
     }
 
-    method type_declarator:sym<enum>($/) {
-        $V5DEBUG && say("type_declarator:sym<enum>($/)");
-        # If it's an anonymous enum, just call anonymous enum former
-        # and we're done.
-        unless $<longname> || $<variable> {
-            make QAST::Op.new( :op('call'), :name('&ANON_ENUM'), $<term>.ast );
-            return 1;
-        }
-
-        # Get, or find, enumeration base type and create type object with
-        # correct base type.
-        my $longname  := $<longname> ?? dissect_longname($<longname>) !! 0;
-        my $name      := $<longname> ?? $longname.name() !! $<variable><desigilname>;
-
-        my $type_obj;
-        my sub make_type_obj($base_type) {
-            $type_obj := $*W.pkg_create_mo($/, %*HOW<enum>, :$name, :$base_type);
-            # Add roles (which will provide the enum-related methods).
-            $*W.apply_trait($/, '&trait_mod:<does>', $type_obj, find_symbol(['Enumeration']));
-            if istype($type_obj, find_symbol(['Numeric'])) {
-                $*W.apply_trait($/, '&trait_mod:<does>', $type_obj, find_symbol(['NumericEnumeration']));
-            }
-            if istype($type_obj, find_symbol(['Stringy'])) {
-                $*W.apply_trait($/, '&trait_mod:<does>', $type_obj, find_symbol(['StringyEnumeration']));
-            }
-            # Apply traits, compose and install package.
-            for $<trait>.list {
-                ($_.ast)($type_obj) if $_.ast;
-            }
-            $*W.pkg_compose($type_obj);
-        }
-        my $base_type;
-        my int $has_base_type = 0;
-        if $*OFTYPE {
-            $base_type    := $*OFTYPE.ast;
-            $has_base_type = 1;
-            make_type_obj($base_type);
-        }
-
-        if $<variable> {
-            $*W.throw($/, 'X::Comp::NYI',
-                feature => "Variable case of enums",
-            );
-        }
-
-        # Get list of either values or pairs; fail if we can't.
-        my $Pair := find_symbol(['Pair']);
-        my @values;
-        my $term_ast := $<term>.ast;
-        if $term_ast.isa(QAST::Stmts) && +@($term_ast) == 1 {
-            $term_ast := $term_ast[0];
-        }
-        if $term_ast.isa(QAST::Op) && $term_ast.name eq '&infix:<,>' {
-            for @($term_ast) {
-                if istype($_.returns(), $Pair) && $_[1].has_compile_time_value {
-                    @values.push($_);
-                }
-                elsif $_.has_compile_time_value {
-                    @values.push($_);
-                }
-                else {
-                    @values.push($*W.compile_time_evaluate($<term>, $_));
-                }
-            }
-        }
-        elsif $term_ast.has_compile_time_value {
-            @values.push($term_ast);
-        }
-        elsif istype($term_ast.returns, $Pair) && $term_ast[1].has_compile_time_value {
-            @values.push($term_ast);
-        }
-        else {
-            @values.push($*W.compile_time_evaluate($<term>, $<term>.ast));
-        }
-
-        # Now we have them, we can go about computing the value
-        # for each of the keys, unless they have them supplied.
-        # XXX Should not assume integers, and should use lexically
-        # scoped &postfix:<++> or so.
-        my $cur_value := nqp::box_i(-1, find_symbol(['Int']));
-        for @values {
-            # If it's a pair, take that as the value; also find
-            # key.
-            my $cur_key;
-            if istype($_.returns(), $Pair) {
-                $cur_key := $_[1].compile_time_value;
-                $cur_value := $*W.compile_time_evaluate($<term>, $_[2]);
-                if $has_base_type {
-                    unless istype($cur_value, $base_type) {
-                        $/.CURSOR.panic("Type error in enum. Got '"
-                                ~ $cur_value.HOW.name($cur_value)
-                                ~ "' Expected: '"
-                                ~ $base_type.HOW.name($base_type)
-                                ~ "'"
-                        );
-                    }
-                }
-                else {
-                    $base_type    :=  $cur_value.WHAT;
-                    $has_base_type = 1;
-                    make_type_obj($base_type);
-                }
-            }
-            else {
-                unless $has_base_type {
-                    $base_type := find_symbol(['Int']);
-                    make_type_obj($base_type);
-                    $has_base_type = 1;
-                }
-
-                $cur_key := $_.compile_time_value;
-                $cur_value := $cur_value.succ();
-            }
-
-            # Create and install value.
-            my $val_obj := $*W.create_enum_value($type_obj, $cur_key, $cur_value);
-            $*W.install_package_symbol($type_obj, nqp::unbox_s($cur_key), $val_obj);
-            if $*SCOPE ne 'anon' {
-                $*W.install_lexical_symbol($*W.cur_lexpad(), nqp::unbox_s($cur_key), $val_obj);
-            }
-            if $*SCOPE eq '' || $*SCOPE eq 'our' {
-                $*W.install_package_symbol($*PACKAGE, nqp::unbox_s($cur_key), $val_obj);
-            }
-        }
-        # create a type object even for empty enums
-        make_type_obj(find_symbol(['Int'])) unless $has_base_type;
-
-        $*W.install_package($/, $longname.type_name_parts('enum name', :decl(1)),
-            ($*SCOPE || 'our'), 'enum', $*PACKAGE, $*W.cur_lexpad(), $type_obj);
-
-        # We evaluate to the enum type object.
-        make QAST::WVal.new( :value($type_obj) );
-    }
-
-    method type_declarator:sym<subset>($/) {
-        $V5DEBUG && say("type_declarator:sym<subset>($/)");
-        # We refine Any by default; "of" may override.
-        my $refinee := find_symbol(['Any']);
-
-        # If we have a refinement, make sure it's thunked if needed. If none,
-        # just always true.
-        my $refinement := make_where_block($<EXPR> ?? $<EXPR>.ast !!
-            QAST::Op.new( :op('p6bool'), QAST::IVal.new( :value(1) ) ));
-
-        # Create the meta-object.
-        my $longname := $<longname> ?? dissect_longname($<longname>) !! 0;
-        my $subset := $<longname> ??
-            $*W.create_subset(%*HOW<subset>, $refinee, $refinement, :name($longname.name())) !!
-            $*W.create_subset(%*HOW<subset>, $refinee, $refinement);
-
-        # Apply traits.
-        for $<trait>.list {
-            ($_.ast)($subset) if $_.ast;
-        }
-
-        # Install it as needed.
-        if $<longname> && $longname.type_name_parts('subset name', :decl(1)) {
-            $*W.install_package($/, $longname.type_name_parts('subset name', :decl(1)),
-                ($*SCOPE || 'our'), 'subset', $*PACKAGE, $*W.cur_lexpad(), $subset);
-        }
-
-        # We evaluate to the refinement type object.
-        make QAST::WVal.new( :value($subset) );
-    }
-
-    method type_declarator:sym<constant>($/) {
-        $V5DEBUG && say("type_declarator:sym<constant>($/)");
-        # Get constant value.
-        my $con_block := $*W.pop_lexpad();
-        my $value_ast := $<initializer>.ast;
-        my $value;
-        if $value_ast.has_compile_time_value {
-            $value := $value_ast.compile_time_value;
-        }
-        else {
-            $con_block.push($value_ast);
-            my $value_thunk := $*W.create_simple_code_object($con_block, 'Block');
-            $value := $value_thunk();
-            $*W.add_constant_folded_result($value);
-        }
-
-        # Provided it's named, install it.
-        my $name;
-        if $<identifier> {
-            $name := ~$<identifier>;
-        }
-        elsif $<variable> {
-            # Don't handle twigil'd case yet.
-            if $<variable><twigil> {
-                $*W.throw($/, 'X::Comp::NYI',
-                    feature => "Twigil-Variable constants"
-                );
-            }
-            $name := ~$<variable>;
-        }
-        if $name {
-            $*W.install_package($/, [$name], ($*SCOPE || 'our'),
-                'constant', $*PACKAGE, $*W.cur_lexpad(), $value);
-        }
-        $*W.ex-handle($/, {
-            for $<trait>.list -> $t {
-                ($t.ast)($value, :SYMBOL($name));
-            }
-        });
-
-        # Evaluate to the constant.
-        make QAST::WVal.new( :value($value) );
-    }
-
     method initializer:sym<=>($/) {
         $V5DEBUG && say("initializer:sym<=>($/)");
         make $<EXPR>.ast;
     }
-    method initializer:sym<:=>($/) {
-        $V5DEBUG && say("initializer:sym<:=>($/)");
-        make $<EXPR>.ast;
-    }
-    method initializer:sym<::=>($/) {
-        $V5DEBUG && say("initializer:sym<::=>($/)");
-        make $<EXPR>.ast;
-    }
-#    method initializer:sym<.=>($/) {
-#        $V5DEBUG && say("initializer:sym<.=>($/)");
-#        make $<dottyopish><term>.ast;
-#    }
 
     method parensig($/) {
         make $<signature>.ast;
-    }
-
-    method fakesignature($/) {
-        $V5DEBUG && say("fakesignature($/)");
-        my $fake_pad := $*W.pop_lexpad();
-        my %sig_info := $<signature>.ast;
-        my @params := %sig_info<parameters>;
-        set_default_parameter_type(@params, Mu);
-        my $sig := create_signature_object($/, %sig_info, $fake_pad, :no_attr_check(1));
-
-        $*W.cur_lexpad()[0].push($fake_pad);
-        $*W.create_code_object($fake_pad, 'Block', $sig);
-
-        make QAST::WVal.new( :value($sig) );
     }
 
     method signature($/) {
@@ -3544,100 +3032,6 @@ class Perl5::Actions does STDActions {
         make $<EXPR>.ast;
     }
 
-    method type_constraint($/) {
-        $V5DEBUG && say("type_constraint($/)");
-        if $<typename> {
-            if nqp::substr(~$<typename>, 0, 2) eq '::' && nqp::substr(~$<typename>, 2, 1) ne '?' {
-                # Set up signature so it will find the typename.
-                my $desigilname := nqp::substr(~$<typename>, 2);
-                unless %*PARAM_INFO<type_captures> {
-                    %*PARAM_INFO<type_captures> := []
-                }
-                %*PARAM_INFO<type_captures>.push($desigilname);
-
-                # Install type variable in the static lexpad. Of course,
-                # we'll find the real thing at runtime, but in the static
-                # view it's a type variable to be reified.
-                $*W.install_lexical_symbol($*W.cur_lexpad(), $desigilname,
-                    $<typename>.ast);
-            }
-            else {
-                if nqp::existskey(%*PARAM_INFO, 'nominal_type') {
-                    $*W.throw($/, ['X', 'Parameter', 'MultipleTypeConstraints'],
-                        parameter => (%*PARAM_INFO<variable_name> // ''),
-                    );
-                }
-                my $type := $<typename>.ast;
-                if nqp::isconcrete($type) {
-                    # Actual a value that parses type-ish.
-                    %*PARAM_INFO<nominal_type> := $type.WHAT;
-                    unless %*PARAM_INFO<post_constraints> {
-                        %*PARAM_INFO<post_constraints> := [];
-                    }
-                    %*PARAM_INFO<post_constraints>.push($type);
-                }
-                elsif $type.HOW.archetypes.nominal {
-                    %*PARAM_INFO<nominal_type> := $type;
-                }
-                elsif $type.HOW.archetypes.generic {
-                    %*PARAM_INFO<nominal_type> := $type;
-                    %*PARAM_INFO<nominal_generic> := 1;
-                }
-                elsif $type.HOW.archetypes.nominalizable {
-                    my $nom := $type.HOW.nominalize($type);
-                    %*PARAM_INFO<nominal_type> := $nom;
-                    unless %*PARAM_INFO<post_constraints> {
-                        %*PARAM_INFO<post_constraints> := [];
-                    }
-                    %*PARAM_INFO<post_constraints>.push($type);
-                }
-                else {
-                    $/.CURSOR.panic("Type " ~ ~$<typename><longname> ~
-                        " cannot be used as a nominal type on a parameter");
-                }
-            }
-        }
-        elsif $<value> {
-            if nqp::existskey(%*PARAM_INFO, 'nominal_type') {
-                $*W.throw($/, ['X', 'Parameter', 'MultipleTypeConstraints'],
-                        parameter => (%*PARAM_INFO<variable_name> // ''),
-                );
-            }
-            my $ast := $<value>.ast;
-            unless $ast.has_compile_time_value {
-                $/.CURSOR.panic('Cannot use a value type constraints whose value is unknown at compile time');
-            }
-            my $val := $ast.compile_time_value;
-            %*PARAM_INFO<nominal_type> := $val.WHAT;
-            unless %*PARAM_INFO<post_constraints> {
-                %*PARAM_INFO<post_constraints> := [];
-            }
-            %*PARAM_INFO<post_constraints>.push($val);
-        }
-        else {
-            $/.CURSOR.panic('Cannot do non-typename cases of type_constraint yet');
-        }
-    }
-
-    method post_constraint($/) {
-        $V5DEBUG && say("post_constraint($/)");
-        if $<signature> {
-            if nqp::existskey(%*PARAM_INFO, 'sub_signature_params') {
-                $/.CURSOR.panic('Cannot have more than one sub-signature for a parameter');
-            }
-            %*PARAM_INFO<sub_signature_params> := $<signature>.ast;
-            if nqp::substr(~$/, 0, 1) eq '[' {
-                %*PARAM_INFO<sigil> := '@';
-            }
-        }
-        else {
-            unless %*PARAM_INFO<post_constraints> {
-                %*PARAM_INFO<post_constraints> := [];
-            }
-            %*PARAM_INFO<post_constraints>.push(make_where_block($<EXPR>.ast));
-        }
-    }
-
     # Sets the default parameter type for a signature.
     sub set_default_parameter_type(@parameter_infos, Mu $type) {
         for @parameter_infos.kv -> $i, $_ is rw {
@@ -3731,18 +3125,6 @@ class Perl5::Actions does STDActions {
     method dotty:sym«->»($/)   { $V5DEBUG && say("dotty:sym«->»($/)");   make $<dottyop>.ast; }
     method postfix:sym«->»($/) { $V5DEBUG && say("postfix:sym«->»($/)"); make $<dottyop>.ast; }
 
-    method dotty:sym<.*>($/) {
-        $V5DEBUG && say("dotty:sym<.*>($/)");
-        my $past := $<dottyop>.ast;
-        unless $past.isa(QAST::Op) && $past.op() eq 'callmethod' {
-            $/.CURSOR.panic("Cannot use " ~ $<sym>.Str ~ " on a non-identifier method call");
-        }
-        $past.unshift($*W.add_string_constant($past.name))
-            if $past.name ne '';
-        $past.name('dispatch:<' ~ ~$<sym> ~ '>');
-        make $past;
-    }
-
     method dottyop($/) {
         $V5DEBUG && say("dottyop($/)");
         if $<methodop> {
@@ -3821,22 +3203,6 @@ class Perl5::Actions does STDActions {
         if +@($past) > 0 {
            $*W.throw($/, ['X', 'Syntax', 'Argument', 'MOPMacro'], macro => $name);
         }
-    }
-
-    ## temporary Bool::True/False generation
-    method term:sym<boolean>($/) {
-        $V5DEBUG && say("term:sym<boolean>($/)");
-        make QAST::Op.new( :op<p6bool>, QAST::IVal.new( :value($<value> eq 'True') ) );
-    }
-
-    method term:sym<::?IDENT>($/) {
-        $V5DEBUG && say("term:sym<::?IDENT>($/)");
-        make instantiated_type([~$/], $/);
-    }
-
-    method term:sym<self>($/) {
-        $V5DEBUG && say("term:sym<self>($/)");
-        make QAST::Var.new( :name('self'), :scope('lexical'), :returns($*PACKAGE), :node($/) );
     }
 
     method term:sym<now>($/) {
@@ -4093,12 +3459,12 @@ class Perl5::Actions does STDActions {
     }
 
     sub make_yada($name, $/) {
-	    my $past := $<args>.ast;
-	    $past.name($name);
-	    $past.node($/);
-	    unless +$past.list() {
+        my $past := $<args>.ast;
+        $past.name($name);
+        $past.node($/);
+        unless +$past.list() {
             $past.push($*W.add_string_constant('Stub code executed'));
-	    }
+        }
         return $past;
     }
 
@@ -4122,50 +3488,6 @@ class Perl5::Actions does STDActions {
         my $past := $<dotty>.ast;
         $past.unshift(QAST::Var.new( :name('$_'), :scope('lexical') ) );
         make QAST::Op.new( :op('hllize'), $past);
-    }
-
-    sub find_macro_routine(@symbol) {
-        my $routine;
-        try {
-            $routine := $*W.find_symbol(@symbol);
-            if istype($routine, find_symbol(['Macro'])) {
-                return $routine;
-            }
-        }
-        return 0;
-    }
-
-    sub expand_macro($macro, $name, $/, &collect_argument_asts) {
-        my @argument_asts := &collect_argument_asts();
-        my $macro_ast := $*W.ex-handle($/, { $macro(|@argument_asts) });
-        my $nil_class := find_symbol(['Nil']);
-        if istype($macro_ast, $nil_class) {
-            return QAST::Var.new(:name('Nil'), :scope('lexical'));
-        }
-        my $ast_class := find_symbol(['AST']);
-        unless istype($macro_ast, $ast_class) {
-            $*W.throw('X::TypeCheck::Splice',
-                got         => $macro_ast,
-                expected    => $ast_class,
-                symbol      => $name,
-                action      => 'macro application',
-            );
-        }
-        my $macro_ast_qast := nqp::getattr(
-            nqp::decont($macro_ast),
-            $ast_class,
-            '$!past'
-        );
-        unless nqp::defined($macro_ast_qast) {
-            return QAST::Var.new(:name('Nil'), :scope('lexical'));
-        }
-        my $block := QAST::Block.new(:blocktype<raw>, $macro_ast_qast);
-        $*W.add_quasi_fixups($macro_ast, $block);
-        my $past := QAST::Stmts.new(
-            $block,
-            QAST::Op.new( :op('call'), QAST::BVal.new( :value($block) ) )
-        );
-        return $past;
     }
 
     method term:sym<blocklist>($/) {
@@ -4310,26 +3632,6 @@ class Perl5::Actions does STDActions {
         make $past;
     }
 
-    sub add_macro_arguments($expr, @argument_asts) {
-        my $ast_class := find_symbol(['AST']);
-
-        sub wrap_and_add_expr($expr) {
-            my $quasi_ast := $ast_class.new();
-            my $wrapped := QAST::Op.new( :op('call'), make_thunk_ref($expr, $expr.node) );
-            nqp::bindattr($quasi_ast, $ast_class, '$!past', $wrapped);
-            @argument_asts.push($quasi_ast);
-        }
-
-        if nqp::istype($expr, QAST::Op) && $expr.name eq '&infix:<,>' {
-            for $expr.list {
-                wrap_and_add_expr($_);
-            }
-        }
-        else {
-            wrap_and_add_expr($expr);
-        }
-    }
-
     method make_indirect_lookup(@components, $sigil?, :$object, :$method) {
         $V5DEBUG && say("make_indirect_lookup(@components, $sigil?)");
         my $past := QAST::Op.new(
@@ -4369,34 +3671,12 @@ class Perl5::Actions does STDActions {
             if nqp::substr($final, 0, 1) ne '&' {
                 @name[+@name - 1] := '&' ~ $final;
             }
-            # XXX do we have macros?
-            my $macro := find_macro_routine(@name);
-            if $macro {
-                $past := expand_macro($macro, $*longname.text, $/, sub () {
-                    my @argument_asts := [];
-                    if $<args><semiarglist> {
-                        for $<args><semiarglist><arglist>.list {
-                            if $_<EXPR> {
-                                add_macro_arguments($_<EXPR>.ast, @argument_asts);
-                            }
-                        }
-                    }
-                    elsif $<args><arglist><arg> {
-                        if $<args><arglist><arg>[0]<EXPR> {
-                            add_macro_arguments($<args><arglist><arg>[0]<EXPR>.ast, @argument_asts);
-                        }
-                    }
-                    return @argument_asts;
-                });
+            $past := capture_or_parcel($<args>.ast, ~$<longname>);
+            if +@name == 1 {
+                $past.name(@name[0]);
             }
             else {
-                $past := capture_or_parcel($<args>.ast, ~$<longname>);
-                if +@name == 1 {
-                    $past.name(@name[0]);
-                }
-                else {
-                    $past.unshift(symbol_lookup(@name, $/));
-                }
+                $past.unshift(symbol_lookup(@name, $/));
             }
         }
         else {
@@ -4455,60 +3735,6 @@ class Perl5::Actions does STDActions {
 
         $past.node($/);
         make $past;
-    }
-
-    method term:sym<pir::op>($/) {
-        $V5DEBUG && say("term:sym<pir::op>($/)");
-        #if $FORBID_PIR {
-        #    nqp::die("pir::op forbidden in safe mode\n");
-        #}
-        my $pirop := nqp::join(' ', nqp::split('__', ~$<op>));
-        unless nqp::index($pirop, ' ') > 0 {
-            nqp::die("pir::$pirop missing a signature");
-        }
-        my $past := QAST::VM.new( :pirop($pirop), :node($/) );
-        if $<args> {
-            for $<args>.ast.list {
-                $past.push($_);
-            }
-        }
-        make $past;
-    }
-
-    method term:sym<pir::const>($/) {
-        $V5DEBUG && say("term:sym<pir::const>($/)");
-        make QAST::VM.new( :pirconst(~$<const>) );
-    }
-
-    method term:sym<nqp::op>($/) {
-        $V5DEBUG && say("term:sym<nqp::op>($/)");
-        #$/.CURSOR.panic("nqp::op forbidden in safe mode\n") if $FORBID_PIR;
-        my @args := $<args> ?? $<args>.ast.list !! [];
-        my $past := QAST::Op.new( :op(~$<op>), |@args );
-        if $past.op eq 'want' {
-            $past[1] := compile_time_value_str($past[1], 'want specification', $/);
-        }
-        nqp::getcomp('QAST').operations.attach_result_type('perl6', $past);
-        make $past;
-    }
-
-    method term:sym<nqp::const>($/) {
-        $V5DEBUG && say("term:sym<nqp::const>($/)");
-        make QAST::Op.new( :op('const'), :name(~$<const>) );
-    }
-
-    method term:sym<*>($/) {
-        $V5DEBUG && say("term:sym<*>($/)");
-        my $whatever := find_symbol(['Whatever']);
-        make QAST::Op.new(
-            :op('callmethod'), :name('new'), :node($/), :returns($whatever),
-            QAST::Var.new( :name('Whatever'), :scope('lexical') )
-        )
-    }
-
-    method term:sym<onlystar>($/) {
-        $V5DEBUG && say("term:sym<onlystar>($/)");
-        make QAST::Op.new( :op('p6multidispatchlex') );
     }
 
     method args($/) {
@@ -4786,20 +4012,6 @@ class Perl5::Actions does STDActions {
             make $past;
             return 1;
         }
-        elsif !nqp::defined($past) {
-            if ($sym eq 'does' || $sym eq 'but') {
-                make mixin_op($/, $sym);
-                return 1;
-            }
-            elsif $sym eq 'xx' {
-                make xx_op($/, $/[0].ast, $/[1].ast);
-                return 1;
-            }
-            elsif $sym eq 'andthen' {
-                make andthen_op($/);
-                return 1;
-            }
-        }
         unless $past {
             if $<OPER><O><pasttype> {
                 $past := QAST::Op.new( :node($/), :op( ~$<OPER><O><pasttype> ) );
@@ -4816,17 +4028,6 @@ class Perl5::Actions does STDActions {
                     if $key eq 'LIST' { $key = 'infix'; }
                     $name := nqp::lc($key) ~ ':<' ~ $<OPER><sym> ~ '>';
                     $past.name('&' ~ $name);
-                }
-                my $macro := find_macro_routine(['&' ~ $name]);
-                if $macro {
-                    make expand_macro($macro, $name, $/, sub () {
-                        my @argument_asts := [];
-                        for @($/) {
-                            add_macro_arguments($_.ast, @argument_asts);
-                        }
-                        return @argument_asts;
-                    });
-                    return 'an irrelevant value';
                 }
             }
         }
@@ -5090,149 +4291,15 @@ class Perl5::Actions does STDActions {
         $past
     }
 
-    sub mixin_op($/, $sym) {
-        my $rhs  := $/[1].ast;
-        my $past := QAST::Op.new(
-            :op('call'), :name('&infix:<' ~ $sym ~ '>'),
-            $/[0].ast);
-        if $rhs.isa(QAST::Op) && $rhs.op eq 'call' {
-            if $rhs.name && +@($rhs) == 1 {
-                try {
-                    $past.push(QAST::WVal.new( :value(find_symbol([nqp::substr($rhs.name, 1)])) ));
-                    $rhs[0].named('value');
-                    $past.push($rhs[0]);
-                    CATCH { $past.push($rhs); }
-                }
-            }
-            else {
-                if +@($rhs) == 2 && $rhs[0].has_compile_time_value {
-                    $past.push($rhs[0]); $rhs[1].named('value');
-                    $past.push($rhs[1]);
-                }
-                else {
-                    $past.push($rhs);
-                }
-            }
-        }
-        else {
-            $past.push($rhs);
-        }
-        $past
-    }
-
-    sub xx_op($/, $lhs, $rhs) {
-        QAST::Op.new(
-            :op('call'), :name('&infix:<xx>'), :node($/),
-            block_closure(make_thunk_ref($lhs, $/)),
-            $rhs,
-            QAST::Op.new( :op('p6bool'), QAST::IVal.new( :value(1) ), :named('thunked') ))
-    }
-
-    sub andthen_op($/) {
-        my $past := QAST::Op.new(
-            :op('call'),
-            :name('&infix:<andthen>'),
-            # don't need to thunk the first operand
-            $/[0].ast,
-        );
-        my int $i = 1;
-        my int $e = +@($/);
-        while ($i < $e) {
-            my $ast := $/[$i].ast;
-            if $ast.ann('past_block') {
-                $past.push($ast);
-            }
-            else {
-                $past.push(block_closure(make_thunk_ref($ast, $/[$i]))),
-            }
-            $i = $i + 1;
-        }
-        $past;
-    }
-
     method prefixish($/) {
         $V5DEBUG && say("prefixish($/)");
-        if $<prefix_postfix_meta_operator> {
-            make QAST::Op.new( :node($/),
-                     :name<&METAOP_HYPER_PREFIX>,
-                     :op<call>,
-                     QAST::Var.new( :name('&prefix:<' ~ $<OPER>.Str ~ '>'),
-                                    :scope<lexical> ));
-        }
-    }
-
-    sub baseop_reduce($/) {
-        my str $reduce = 'LEFT';
-        if    $<assoc> eq 'right'
-           || $<assoc> eq 'list'   { $reduce = nqp::uc($<assoc>); }
-        elsif $<prec> eq 'm='      { $reduce = 'CHAIN'; }
-        elsif $<pasttype> eq 'xor' { $reduce = 'XOR'; }
-        '&METAOP_REDUCE_' ~ $reduce;
     }
 
     method infixish($/) {
         $V5DEBUG && say("infixish($/)");
-        if $<infix_postfix_meta_operator> {
-            my $base     := $<infix>;
-            my $basesym  := ~$base<sym>;
-            my $basepast := $base.ast
-                              ?? $base.ast[0]
-                              !! QAST::Var.new(:name("&infix:<$basesym>"),
-                                               :scope<lexical>);
-            if $basesym eq '||' || $basesym eq '&&' || $basesym eq '//' {
-                make QAST::Op.new( :op<call>,
-                        :name('&METAOP_TEST_ASSIGN:<' ~ $basesym ~ '>') );
-            }
-            else {
-                make QAST::Op.new( :node($/), :op<call>,
-                        QAST::Op.new( :op<call>,
-                            :name<&METAOP_ASSIGN>, $basepast ));
-            }
-        }
-
-        if $<infix_prefix_meta_operator> {
-            my $metasym  := ~$<infix_prefix_meta_operator><sym>;
-            my $base     := $<infix_prefix_meta_operator><infixish>;
-            my $basesym  := ~$base<OPER>;
-            my $basepast := $base.ast
-                              ?? $base.ast[0]
-                              !! QAST::Var.new(:name("&infix:<$basesym>"),
-                                               :scope<lexical>);
-            my $helper   := '';
-            if    $metasym eq '!' { $helper := '&METAOP_NEGATE'; }
-            if    $metasym eq 'R' { $helper := '&METAOP_REVERSE'; }
-            elsif $metasym eq 'X' { $helper := '&METAOP_CROSS'; }
-            elsif $metasym eq 'Z' { $helper := '&METAOP_ZIP'; }
-
-            my $metapast := QAST::Op.new( :op<call>, :name($helper), $basepast );
-            $metapast.push(QAST::Var.new(:name(baseop_reduce($base<OPER><O>)),
-                                         :scope<lexical>))
-                if $metasym eq 'X' || $metasym eq 'Z';
-            make QAST::Op.new( :node($/), :op<call>, $metapast );
-        }
-
         if $<infixish> {
             make $<infixish>.ast;
         }
-    }
-
-    method term:sym<reduce>($/) {
-        $V5DEBUG && say("term:sym<reduce>($/)");
-        my $base     := $<op>;
-        my $basepast := $base.ast
-                          ?? $base.ast[0]
-                          !! QAST::Var.new(:name("&infix:<" ~ $base<OPER><sym> ~ ">"),
-                                           :scope<lexical>);
-        my $metaop   := baseop_reduce($base<OPER><O>);
-        my $metapast := QAST::Op.new( :op<call>, :name($metaop), $basepast);
-        if $<triangle> {
-            my $tri := $*W.add_constant('Int', 'int', 1);
-            $tri.named('triangle');
-            $metapast.push($tri);
-        }
-        my $args := $<args>.ast;
-        $args.name('&infix:<,>');
-        make QAST::Op.new(:node($/), :op<call>, $metapast, $args);
     }
 
     method filetest($/) {
@@ -5253,62 +4320,8 @@ class Perl5::Actions does STDActions {
         make $<filetest>.ast
     }
 
-    method infix_circumfix_meta_operator:sym«<< >>»($/) {
-        $V5DEBUG && say("infix_circumfix_meta_operator:sym«<< >>»($/)");
-        make make_hyperop($/);
-    }
-
-    method infix_circumfix_meta_operator:sym<« »>($/) {
-        $V5DEBUG && say("infix_circumfix_meta_operator:sym<« »>($/)");
-        make make_hyperop($/);
-    }
-
-    sub make_hyperop($/) {
-        my $base     := $<infixish>;
-        my $basesym  := ~ $base<OPER>;
-        my $basepast := $base.ast
-                          ?? $base.ast[0]
-                          !! QAST::Var.new(:name("&infix:<$basesym>"),
-                                           :scope<lexical>);
-        my $hpast    := QAST::Op.new(:op<call>, :name<&METAOP_HYPER>, $basepast);
-        if $<opening> eq '<<' || $<opening> eq '«' {
-            my $dwim := $*W.add_constant('Int', 'int', 1);
-            $dwim.named('dwim-left');
-            $hpast.push($dwim);
-        }
-        if $<closing> eq '>>' || $<closing> eq '»' {
-            my $dwim := $*W.add_constant('Int', 'int', 1);
-            $dwim.named('dwim-right');
-            $hpast.push($dwim);
-        }
-        return QAST::Op.new( :node($/), :op<call>, $hpast );
-    }
-
     method postfixish($/) {
         $V5DEBUG && say("postfixish($/)");
-        if $<postfix_prefix_meta_operator> {
-            my $past := $<OPER>.ast || QAST::Op.new( :name('&postfix:<' ~ $<OPER>.Str ~ '>'),
-                                                     :op<call> );
-            if $past.isa(QAST::Op) && $past.op() eq 'callmethod' {
-                if $past.name -> $name {
-                    $past.unshift(QAST::SVal.new( :value($name) ));
-                }
-                $past.name('dispatch:<hyper>');
-            }
-            elsif $past.isa(QAST::Op) && $past.op() eq 'call' {
-                if $<dotty> {
-                    $past.name('&METAOP_HYPER_CALL');
-                }
-                else {
-                    my $basepast := $past.name
-                                    ?? QAST::Var.new( :name($past.name), :scope<lexical>)
-                                    !! $past[0];
-                    $past.push($basepast);
-                    $past.name('&METAOP_HYPER_POSTFIX');
-                }
-            }
-            make $past;
-        }
     }
 
     method postcircumfix:sym<[ ]>($/) {
@@ -5759,25 +4772,6 @@ class Perl5::Actions does STDActions {
         );
         $past.annotate('is_trans', 1);
         $past
-    }
-
-    method quote:sym<quasi>($/) {
-        $V5DEBUG && say("method quote:sym<quasi>($/)");
-        my $ast_class := find_symbol(['AST']);
-        my $quasi_ast := $ast_class.new();
-        my $past := $<block>.ast.ann('past_block').pop;
-        nqp::bindattr($quasi_ast, $ast_class, '$!past', $past);
-        $*W.add_object($quasi_ast);
-        my $throwaway_block := QAST::Block.new();
-        my $quasi_context := block_closure(
-            reference_to_code_object(
-                $*W.create_simple_code_object($throwaway_block, 'Block'),
-                $throwaway_block
-            ));
-        make QAST::Op.new(:op<callmethod>, :name<incarnate>,
-                          QAST::WVal.new( :value($quasi_ast) ),
-                          $quasi_context,
-                          QAST::Op.new( :op('list'), |@*UNQUOTE_ASTS ));
     }
 
     # Adds code to do the signature binding.
@@ -6545,7 +5539,6 @@ class Perl5::QActions does STDActions {
 
     method escape:sym<' '>($/) { make mark_ww_atom($<quote>.ast); }
     method escape:sym<" ">($/) { make mark_ww_atom($<quote>.ast); }
-#    method escape:sym<colonpair>($/) { make mark_ww_atom($<colonpair>.ast); }
     sub mark_ww_atom($ast) {
         $ast.annotate('ww_atom', 1);
         $ast;
