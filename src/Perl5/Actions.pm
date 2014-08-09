@@ -6553,7 +6553,7 @@ class Perl5::RegexActions does STDActions {
         my $qast := $<sequence>[0].ast;
         if +$<sequence> > 1 {
             $qast := QAST::Regex.new( :rxtype<altseq>, :node($/) );
-            for $<sequence> { $qast.push($_.ast); }
+            for $<sequence>.list { $qast.push($_.ast); }
         }
         make $qast;
     }
@@ -6960,7 +6960,9 @@ class Perl5::RegexActions does STDActions {
             $block.symbol('$¢', :scope<lexical>);
         }
 
-        self.store_regex_caps($code_obj, $block, capnames($qast, 0));
+        my $capnames := capnames($qast, 0);
+        $capnames    := nqp::getattr($capnames, EnumMap, '$!storage');
+        self.store_regex_caps($code_obj, $block, $capnames);
         self.store_regex_nfa($code_obj, $block, QRegex::NFA.new.addnode($qast));
 
         $block.annotate('orig_qast', $qast);
@@ -6975,61 +6977,60 @@ class Perl5::RegexActions does STDActions {
         $block;
     }
 
-    sub capnames(Mu $ast is rw, Mu $count is rw) {
-        my $capnames := nqp::hash();
+    sub capnames(Mu $ast is rw, $count is copy) {
+        my %capnames;
         my $rxtype := $ast.rxtype;
         if $rxtype eq 'concat' {
             for $ast.list {
-                my $x := capnames($_, $count);
-                for $x {
-                    nqp::bindkey($capnames, $_.key, nqp::existskey($capnames, $_.key)
-                        ?? +nqp::atkey($capnames, $_.key) + $_.value !! $_.value);
+                my %x = capnames($_, $count);
+                for %x {
+                    %capnames{$_.key} = %capnames{$_.key}:exists
+                        ?? +%capnames{$_.key} + $_.value !! $_.value;
                 }
-                $count := $x{''};
+                $count = %x{''};
             }
         }
         elsif $rxtype eq 'altseq' || $rxtype eq 'alt' {
-            my $max := $count;
+            my $max = $count;
             for $ast.list {
-                my $x := capnames($_, $count);
-                for $x {
-                    nqp::bindkey($capnames, $_.key,
-                        +nqp::atkey($capnames, $_.key) < 2 && nqp::atkey($x, $_.key) == 1 ?? 1 !! 2);
+                my %x = capnames($_, $count);
+                for %x {
+                    %capnames{$_.key} = %capnames{$_.key} < 2 && %x{$_.key} == 1 ?? 1 !! 2;
                 }
-                $count := nqp::atkey($x, '');
+                $count = %x{''};
             }
         }
         elsif $rxtype eq 'subrule' && $ast.subtype eq 'capture' {
-            my $name := $ast.name;
-            if $name eq '' { $name := $count; $ast.name($name); }
-            my @names := nqp::split('=', $name);
+            my $name = $ast.name;
+            if $name eq '' { $name = $count; $ast.name($name); }
+            my @names = $name.split('=');
             for @names {
-                if $_ eq '0' || $_ > 0 { $count := $_ + 1; }
-                nqp::bindkey($capnames, $_, 1);
+                if $_ eq '0' || $_ > 0 { $count = $_ + 1; }
+                %capnames{$_} = 1;
             }
         }
         elsif $rxtype eq 'subcapture' {
             my $name = $ast.name;
             unless $name { $name = $count; $ast.name($name); }
             for $name.Str.split(' ') {
-                if $_ eq '0' || $_ > 0 { $count := $_ + 1; }
-                nqp::bindkey($capnames, $_, 1);
+                if $_ eq '0' || $_ > 0 { $count = $_ + 1; }
+                %capnames{$_} = 1;
             }
-            my $x := capnames($ast[0], $count);
-            for $x {
-                nqp::bindkey($capnames, $_.key, nqp::existskey($capnames, $_.key)
-                    ?? +nqp::atkey($capnames, $_.key) + nqp::atkey($x, $_.key) !! nqp::atkey($x, $_.key));
+            my %x = capnames($ast[0], $count);
+            for %x {
+                %capnames{$_.key} = %capnames{$_.key}:exists
+                    ?? +%capnames{$_.key} + %x{$_.key} !! %x{$_.key};
             }
-            $count := nqp::atkey($x, '');
+            $count = %x{''};
         }
         elsif $rxtype eq 'quant' {
-            my $astcap := capnames($ast[0], $count);
-            $count := nqp::atkey($astcap, '');
+            my %astcap = capnames($ast[0], $count);
+            $count = %astcap{''};
         }
-        nqp::bindkey($capnames, '', $count);
-        nqp::deletekey($capnames, '$!from');
-        nqp::deletekey($capnames, '$!to');
-        $capnames;
+        %capnames{''} = $count;
+        %capnames<$!from>:delete;
+        %capnames<$!to>:delete;
+        %capnames;
     }
 
     method flip_ast($qast) {
