@@ -6743,8 +6743,8 @@ class Perl5::RegexActions does STDActions {
                     $rhs := ~$_[1][0][0];
                 }
                 sub add_range($from, $to) {
-                    my int $ord0 = nqp::ord($from);
-                    my int $ord1 = nqp::ord($to);
+                    my $ord0 = nqp::ord($from);
+                    my $ord1 = nqp::ord($to);
                     $/.CURSOR.panic("Illegal reversed character range in regex: " ~ ~$_)
                         if $ord0 > $ord1;
                     $str := nqp::concat($str, nqp::chr($ord0++)) while $ord0 <= $ord1;
@@ -6975,7 +6975,7 @@ class Perl5::RegexActions does STDActions {
         $block;
     }
 
-    sub capnames(Mu $ast, Mu $count is rw) {
+    sub capnames(Mu $ast is rw, Mu $count is rw) {
         my $capnames := nqp::hash();
         my $rxtype := $ast.rxtype;
         if $rxtype eq 'concat' {
@@ -6991,12 +6991,12 @@ class Perl5::RegexActions does STDActions {
         elsif $rxtype eq 'altseq' || $rxtype eq 'alt' {
             my $max := $count;
             for $ast.list {
-                my %x := capnames($_, $count);
-                for %x {
+                my $x := capnames($_, $count);
+                for $x {
                     nqp::bindkey($capnames, $_.key,
-                        +nqp::atkey($capnames, $_.key) < 2 && %x{$_.key} == 1 ?? 1 !! 2);
+                        +nqp::atkey($capnames, $_.key) < 2 && nqp::atkey($x, $_.key) == 1 ?? 1 !! 2);
                 }
-                $count := %x{''};
+                $count := nqp::atkey($x, '');
             }
         }
         elsif $rxtype eq 'subrule' && $ast.subtype eq 'capture' {
@@ -7015,16 +7015,16 @@ class Perl5::RegexActions does STDActions {
                 if $_ eq '0' || $_ > 0 { $count := $_ + 1; }
                 nqp::bindkey($capnames, $_, 1);
             }
-            my %x := capnames($ast[0], $count);
-            for %x {
+            my $x := capnames($ast[0], $count);
+            for $x {
                 nqp::bindkey($capnames, $_.key, nqp::existskey($capnames, $_.key)
-                    ?? +nqp::atkey($capnames, $_.key) + %x{$_.key} !! %x{$_.key});
+                    ?? +nqp::atkey($capnames, $_.key) + nqp::atkey($x, $_.key) !! nqp::atkey($x, $_.key));
             }
-            $count := %x{''};
+            $count := nqp::atkey($x, '');
         }
         elsif $rxtype eq 'quant' {
-            my %astcap := capnames($ast[0], $count);
-            $count := %astcap{''};
+            my $astcap := capnames($ast[0], $count);
+            $count := nqp::atkey($astcap, '');
         }
         nqp::bindkey($capnames, '', $count);
         nqp::deletekey($capnames, '$!from');
