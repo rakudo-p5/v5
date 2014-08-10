@@ -31,6 +31,7 @@ INSTALLATION
 --
 ```bash
 git clone git://github.com/rakudo-p5/v5.git
+cd v5
 (perl6 Build.pm clean) # in case it was already built and rakudo got updated
 perl6 Build.pm build   # it can only be used from lib now, installation will
                        # be done in future by panda
