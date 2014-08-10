@@ -2258,7 +2258,7 @@ class Perl5::Actions does STDActions {
                 QAST::WVal.new( :value($*DECLARAND) ));
         }
         else {
-            $block[1] := wrap_return_handler($block[1]);
+            nqp::bindpos($block, 1, wrap_return_handler($block[1]));
         }
 
         # Add an slurpy @_ parameter by default.
@@ -2509,74 +2509,6 @@ class Perl5::Actions does STDActions {
 
         # Attach inlining information.
         $*W.apply_trait($/, '&trait_mod:<is>', $code, inlinable => $inline_info)
-    }
-
-    method method_def($/) {
-        $V5DEBUG && say("method_def($/)");
-        my $past := $<blockoid>.ast;
-        $past.blocktype('declaration');
-        if is_clearly_returnless($past) {
-            $past[1] := QAST::Op.new(
-                :op('p6typecheckrv'),
-                QAST::Op.new( :op('p6decontrv'), QAST::WVal.new( :value($*DECLARAND) ), $past[1]),
-                QAST::WVal.new( :value($*DECLARAND) ));
-        }
-        else {
-            $past[1] := wrap_return_handler($past[1]);
-        }
-
-        my $name;
-        if $<longname> {
-            my $longname := dissect_longname($<longname>);
-            $name := $longname.name(:dba('method name'),
-                            :decl<routine>, :with_adverbs);
-        }
-        elsif $<sigil> {
-            if $<sigil> eq '@'    { $name := 'postcircumfix:<[ ]>' }
-            elsif $<sigil> eq '%' { $name := 'postcircumfix:<{ }>' }
-            elsif $<sigil> eq '&' { $name := 'postcircumfix:<( )>' }
-            else {
-                $/.CURSOR.panic("Cannot use " ~ $<sigil> ~ " sigil as a method name");
-            }
-        }
-        $past.name($name ?? $name !! '<anon>');
-
-        # Do the various tasks to trun the block into a method code object.
-        my %sig_info := $<parensig> ?? $<parensig>.ast !! hash(parameters => []);
-        my $inv_type  := $*W.find_symbol([
-            $<longname> && $*W.is_lexical('$?CLASS') ?? '$?CLASS' !! 'Mu']);
-        my $code := methodize_block($/, $*DECLARAND, $past, %sig_info, $inv_type, :yada(is_yada($/)));
-
-        # Document it
-        #~ Perl6::Pod::document($/, $code, $*DOC);
-
-        # Install &?ROUTINE.
-        $*W.install_lexical_symbol($past, '&?ROUTINE', $code);
-
-        # Install PAST block so that it gets capture_lex'd correctly.
-        my $outer := $*W.cur_lexpad();
-        $outer[0].push($past);
-
-        # Apply traits.
-        for $<trait>.list {
-            if $_.ast { ($_.ast)($code) }
-        }
-
-        # Install method.
-        if $name {
-            install_method($/, $name, $*SCOPE, $code, $outer,
-                :private($<specials> && ~$<specials> eq '!'));
-        }
-        elsif $*MULTINESS {
-            $*W.throw($/, 'X::Anon::Multi',
-                multiness       => $*MULTINESS,
-                routine-type    => 'method',
-            );
-        }
-
-        my $closure := block_closure(reference_to_code_object($code, $past));
-        $closure.annotate('sink_past', QAST::Op.new( :op('null') ));
-        make $closure;
     }
 
     sub methodize_block($/, $code is rw, Mu $past is rw, %sig_info, Mu $invocant_type, :$yada) {
@@ -5105,6 +5037,7 @@ class Perl5::Actions does STDActions {
     # the Parcel to a Capture when calling it. For now, we just worry about the
     # special case, return.
     sub capture_or_parcel(Mu $args, $name) {
+        $V5DEBUG && say("sub capture_or_parcel($name)");
         if $name eq 'return' {
             # Need to demote pairs again.
             my $parcel := QAST::Op.new( :op('call') );
@@ -5220,7 +5153,7 @@ class Perl5::Actions does STDActions {
         $past
     }
 
-    sub wrap_return_handler(Mu $past) {
+    sub wrap_return_handler(Mu $past is rw) {
         QAST::Op.new(
             :op('p6typecheckrv'),
             QAST::Stmts.new(
