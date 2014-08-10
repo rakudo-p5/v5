@@ -31,9 +31,7 @@ INSTALLATION
 --
 ```bash
 git clone git://github.com/rakudo-p5/v5.git
-cd rakudo                        # I assume you already have rakudo installed
-make install                     # install the patched rakudo
-cd ../v5
+cd v5
 perl6 Configure.p6
 make install                     # install the Perl5 module
 ```
