@@ -3375,8 +3375,8 @@ class Perl5::Actions does STDActions {
         make QAST::Var.new( :name('$?PACKAGE'), :scope('lexical') );
     }
 
-    method term:sym«<filehandle>»($/) {
-        $V5DEBUG && say("term:sym«<filehandle>»($/)");
+    method term:sym<filehandle>($/) {
+        $V5DEBUG && say("term:sym<filehandle>($/)");
         make QAST::Op.new( :op('call'), :name('&lines') );
     }
 

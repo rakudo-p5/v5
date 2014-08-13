@@ -2854,7 +2854,7 @@ grammar Perl5::Grammar does STD5 {
 #    token term:sym<readdir> { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 #    token term:sym<readline> { <sym> » <?before \s*> <.ws> <EXPR('q=')>? }
 
-    token term:sym«<filehandle>» {
+    token term:sym<filehandle> {
         '<'
         [
         | <longname>
