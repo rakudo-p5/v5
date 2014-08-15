@@ -2572,7 +2572,7 @@ grammar Perl5::Grammar does STD5 {
 
         [
         | <methodop>
-        | <!alpha> <postcircumfix> { $<O> = $<postcircumfix><O>; $<sym> = $<postcircumfix><sym>; }
+        | <!alpha> <OPER=postcircumfix> {} <O=copyOPERx($/, 'O')> <sym=copyOPERx($/, 'sym')>
         ]
     }
 

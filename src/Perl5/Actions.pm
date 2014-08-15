@@ -171,10 +171,6 @@ my class LongName {
         %result
     }
 
-    method get_who() {
-        $!get_who
-    }
-
     # Checks if a name component is a pseudo-package.
     method is_pseudo_package($comp) {
         !nqp::istype($comp, QAST::Node) && (
