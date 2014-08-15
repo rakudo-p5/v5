@@ -3,15 +3,15 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>534</td><td>39802</td><td>2</td><td>1</td><td>40337</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>537</td><td>39809</td><td>2</td><td>1</td><td>40347</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>61</td><td>56</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
   in block  at t/spec/cmd/for.v5:665<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in block  at t/spec/cmd/for.v5:20<br />
 <br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
 </td></tr>
@@ -58,7 +58,7 @@
 # Failed test '-z *gv returns single value'<br />
 # at lib/Test.pm line 75<br />
 '' is not a regular file while trying to do '.z'<br />
-  in method Str at src/gen/m-CORE.setting:12977<br />
+  in method Str at src/gen/m-CORE.setting:13018<br />
   in sub P5Str at src/Perl5/Terms.pm:1182<br />
   in sub P5Str at /home/froggs/dev/v5/lib/Perl5/Terms.pm.moarvm:1<br />
   in sub is at /home/froggs/dev/v5/t/./test.pl:64<br />
@@ -169,6 +169,11 @@ to preserve list context inside function call<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 2 tests of 5<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'># Failed test 'IO::File now loaded'<br />
+# at lib/Test.pm line 75<br />
+# Looks like you failed 1 tests of 3<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $x<br />
@@ -193,6 +198,10 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>1</td><td>35</td><td>0</td><td>0</td><td>36</td></tr>
+        <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
+  in block  at t/spec/comp/opsubs.v5:1<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/multiline.v5</td><td>1</td><td>5</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Could not close: <br />
   in block  at t/spec/comp/multiline.v5:1<br />
@@ -204,10 +213,8 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 :(Any \a, Any \b)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/getpid.v5<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/op/getpid.v5:32<br />
-------&gt; { ($pid2, $ppid2) = ($$, getppid()); } )⏏ -&gt; join();<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::getppid called<br />
+  in block  at t/spec/op/getpid.v5:28<br />
 # Looks like you planned 3 tests, but ran 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
@@ -246,14 +253,14 @@ Iteration past end of iterator<br />
         <tr align='center'><td align='left' rowspan='2'>op/anonsub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/anonsub.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -320,7 +327,7 @@ Cannot modify an immutable Any<br />
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/index_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/leaky-magic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -356,20 +363,20 @@ Other potential difficulties:<br />
 Could not find file './test.pl' for module ./test.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/require_37033.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/runlevel.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -388,20 +395,20 @@ Unable to parse expression in variable; couldn't find final '}'  at line 77, nea
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/substr_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/tie.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/upgrade.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -430,10 +437,10 @@ No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
 Can't open ../proto.h: <br />
   in block  at t/spec/porting/args_assert.v5:24<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in block  at t/spec/porting/args_assert.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -441,9 +448,8 @@ Can't open ../proto.h: <br />
   in block  at t/spec/porting/authors.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 0<br />
-  in sub find at /home/froggs/dev/nqp/install/languages/perl6/site/lib/File/Find.pm:38<br />
-  in block  at t/spec/porting/checkcase.v5:15<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
@@ -466,7 +472,7 @@ Cannot call 'Real'; none of these signatures match:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support elems<br />
+Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/exec-bit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -548,42 +554,42 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/pat_advanced_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_psycho_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/pat_psycho_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/pat_re_eval_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/pat_rt_report_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/pat_special_cc_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/pat_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -594,7 +600,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -651,7 +657,7 @@ Bogus statement at line 39, near "L         "<br />
         <tr><td colspan='5'>Could not find file './thread_it.pl' for module ./thread_it.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -676,14 +682,14 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/run/switchx.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -693,11 +699,11 @@ Cannot modify an immutable Any<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at lib/Test.pm line 89<br />
-#      got: 'tmp12863A'<br />
-# expected: 'tmp12863B'<br />
+#      got: 'tmp11076A'<br />
+# expected: 'tmp11076B'<br />
 # Failed test at /home/froggs/dev/v5/t/./test.pl line 12<br />
-#      got: 'tmp12863B'<br />
-# expected: 'tmp12863C'<br />
+#      got: 'tmp11076B'<br />
+# expected: 'tmp11076C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:211<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -718,7 +724,7 @@ at t/spec/uni/attrs.v5:160<br />
  from gen/moar/stage2/NQPHLL.nqp:1398  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:parse:80)<br />
  from gen/moar/stage2/NQPHLL.nqp:1354  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:compile:197)<br />
  from gen/moar/stage2/NQPHLL.nqp:1101  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:eval:53)<br />
- from gen/moar/stage2/NQPHLL.nqp:1311  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:90)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1311  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:87)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -792,39 +798,6 @@ This type does not support positional operations<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot modify an immutable Any<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bind-method-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-bind-method-param.v5:17<br />
-------&gt; $x = Main⏏-&gt;subr( 1, 2 );<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-bind-method-param.v5:32<br />
-------&gt; $x = Main⏏-&gt;subr2( 1, 2, 4 );<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bless.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-bless.v5:30<br />
-------&gt; my $other = Other⏏-&gt;new();<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-bless.v5:33<br />
-------&gt; $x = $other⏏-&gt;subr( 1, 2 );<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-bless.v5:42<br />
-------&gt; $x = Other⏏-&gt;subr2( 1, 2, 4 );<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-class-open.v5:33<br />
-------&gt;     my $other = Other⏏-&gt;new();<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-class-open.v5:36<br />
-------&gt;     $x = $other⏏-&gt;subr( 1, 2 );<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/v5/11-class-open.v5:45<br />
-------&gt;     $x = Other⏏-&gt;subr2( 1, 2, 4 );<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-class.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot modify an immutable Any<br />
@@ -877,20 +850,20 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Failed to find '/home/froggs/dev/v5/lib/t/lib/common.pl.pm6' while trying to do '.f'<br />
-  in method f at src/gen/m-CORE.setting:13972<br />
-  in block  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:21274<br />
-  in method candidates at src/gen/m-CORE.setting:21271<br />
-  in block  at src/gen/m-CORE.setting:21087<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
-  in method candidates at src/gen/m-CORE.setting:21085<br />
-  in method load_module at src/gen/m-CORE.setting:21099<br />
+  in method f at src/gen/m-CORE.setting:14013<br />
+  in block  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:21315<br />
+  in method candidates at src/gen/m-CORE.setting:21312<br />
+  in block  at src/gen/m-CORE.setting:21128<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
+  in method candidates at src/gen/m-CORE.setting:21126<br />
+  in method load_module at src/gen/m-CORE.setting:21140<br />
   in block  at t/spec/lib/croak.v5:8<br />
 Unhandled exception: Element shifted from empty list<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11663  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:40)<br />
+ from src/gen/m-CORE.setting:11704  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:40)<br />
  from gen/moar/stage2/NQPHLL.nqp:1249  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:374)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -914,10 +887,8 @@ Other potential difficulties:<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/lib/overload_nomethod.v5<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/lib/overload_nomethod.v5:13<br />
-------&gt; my $foo = Foo⏏-&gt;new;<br />
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate object method "new" via package "Foo" (perhaps you forgot to load "Foo"?)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'># Failed test '... got the right MRO for t::lib::F'<br />
@@ -974,12 +945,8 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_ineval.v5:32<br />
-------&gt;         return 'B::foo =&gt; ' . (shift)⏏-&gt;next::method();<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_ineval.v5:41<br />
-------&gt; like(B⏏-&gt;foo, <br />
+Can't locate object method "foo" via package "B" (perhaps you forgot to load "B"?)<br />
+# Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1021,7 +988,7 @@ at t/spec/comp/final_line_num.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/podcheck.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Could not find file '../regen/regen_lib.pl' for module ../regen/regen_lib.pl<br />
+Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1062,10 +1029,10 @@ Could not find Perlito5::Test in any of: lib, /home/froggs/dev/v5/lib, /home/fro
         <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
   in block  at t/spec/io/errnosig.v5:13<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in block  at t/spec/io/errnosig.v5:10<br />
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
@@ -1076,100 +1043,46 @@ Could not find Perlito5::Test in any of: lib, /home/froggs/dev/v5/lib, /home/fro
 # Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_c3.v5:33<br />
-------&gt; sub foo { 'Diamond_B::foo =&gt; ' . (shift)⏏-&gt;SUPER::foo }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_c3.v5:46<br />
-------&gt; sub foo { 'Diamond_D::foo =&gt; ' . (shift)⏏-&gt;SUPER::foo }    <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_c3.v5:54<br />
-------&gt; is(Diamond_D⏏-&gt;foo, <br />
+        <tr><td colspan='5'># Failed test '... got the right MRO for Diamond_D'<br />
+# at lib/Test.pm line 75<br />
+===SORRY!===<br />
+Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
+# Looks like you planned 2 tests, but ran 1<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_c3_utf8.v5:35<br />
-------&gt;     sub ᕘ { 'Ｄiᚪၚd_B::ᕘ =&gt; ' . (shift)⏏-&gt;SUPER::ᕘ }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_c3_utf8.v5:48<br />
-------&gt;     sub ᕘ { 'Ｄiᚪၚd_D::ᕘ =&gt; ' . (shift)⏏-&gt;SUPER::ᕘ }    <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_c3_utf8.v5:56<br />
-------&gt; is(Ｄiᚪၚd_D⏏-&gt;ᕘ, <br />
+        <tr><td colspan='5'># Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
+# at lib/Test.pm line 75<br />
+===SORRY!===<br />
+Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot to load "Ｄiᚪၚd_D"?)<br />
+# Looks like you planned 2 tests, but ran 1<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_dfs.v5:33<br />
-------&gt; sub foo { 'Diamond_B::foo =&gt; ' . (shift)⏏-&gt;SUPER::foo }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_dfs.v5:46<br />
-------&gt; sub foo { 'Diamond_D::foo =&gt; ' . (shift)⏏-&gt;SUPER::foo }    <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_dfs.v5:54<br />
-------&gt; is(Diamond_D⏏-&gt;foo, <br />
+        <tr><td colspan='5'># Failed test '... got the right MRO for Diamond_D'<br />
+# at lib/Test.pm line 75<br />
+===SORRY!===<br />
+Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
+# Looks like you planned 2 tests, but ran 1<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_dfs_utf8.v5:36<br />
-------&gt;     sub ᕘ { 'Ｄiᚪၚd_B::ᕘ =&gt; ' . (shift)⏏-&gt;SUPER::ᕘ }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_dfs_utf8.v5:49<br />
-------&gt;     sub ᕘ { 'Ｄiᚪၚd_D::ᕘ =&gt; ' . (shift)⏏-&gt;SUPER::ᕘ }    <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/basic_05_dfs_utf8.v5:57<br />
-------&gt; is(Ｄiᚪၚd_D⏏-&gt;ᕘ, <br />
+        <tr><td colspan='5'># Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
+# at lib/Test.pm line 75<br />
+===SORRY!===<br />
+Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot to load "Ｄiᚪၚd_D"?)<br />
+# Looks like you planned 2 tests, but ran 1<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon.v5:36<br />
-------&gt;         return 'B::foo =&gt; ' . (shift)⏏-&gt;next::method();<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon.v5:38<br />
-------&gt;       return (shift)⏏-&gt;$code;<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon.v5:44<br />
-------&gt;           return 'B::bar =&gt; ' . (shift)⏏-&gt;next::method();<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon.v5:46<br />
-------&gt;         return (shift)⏏-&gt;$code2;<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon.v5:48<br />
-------&gt;       return (shift)⏏-&gt;$code1;<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon.v5:52<br />
-------&gt; is(B⏏-&gt;foo, "B::foo =&gt; A::foo",<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon.v5:55<br />
-------&gt; is(B⏏-&gt;bar, "B::bar =&gt; A::bar",<br />
+Can't locate object method "foo" via package "B" (perhaps you forgot to load "B"?)<br />
+# Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon_utf8.v5:37<br />
-------&gt;         return 'Ḃ::ᕘ =&gt; ' . (shift)⏏-&gt;next::method();<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon_utf8.v5:39<br />
-------&gt;       return (shift)⏏-&gt;$code;<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon_utf8.v5:45<br />
-------&gt;           return 'Ḃ::Ḃᛆ =&gt; ' . (shift)⏏-&gt;next::method();<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon_utf8.v5:47<br />
-------&gt;         return (shift)⏏-&gt;$code2;<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon_utf8.v5:49<br />
-------&gt;       return (shift)⏏-&gt;$code1;<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon_utf8.v5:53<br />
-------&gt; is(Ḃ⏏-&gt;ᕘ, "Ḃ::ᕘ =&gt; ㅏ::ᕘ",<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_inanon_utf8.v5:56<br />
-------&gt; is(Ḃ⏏-&gt;Ḃᛆ, "Ḃ::Ḃᛆ =&gt; ㅏ::Ḃᛆ",<br />
+Can't locate object method "ᕘ" via package "Ḃ" (perhaps you forgot to load "Ḃ"?)<br />
+# Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1220,6 +1133,18 @@ Merging GLOBAL symbols failed: duplicate definition of symbol $^P<br />
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bind-method-param.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate object method "subr" via package "Main" (perhaps you forgot to load "Main"?)<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bless.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate object method "new" via package "Other" (perhaps you forgot to load "Other"?)<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate object method "new" via package "Other" (perhaps you forgot to load "Other"?)<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/io/iprefix.v5:17<br />
@@ -1262,59 +1187,15 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/iofile.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/iofile.v5<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/io/iofile.v5:25<br />
-------&gt;     ok( eval { STDOUT⏏-&gt;autoflush(1); 1 }, 'STDOUT-&gt;autoflush(<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT.v5:25<br />
-------&gt;     sub foo { 'Fuz::foo =&gt; ' . (shift)⏏-&gt;next::method }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT.v5:33<br />
-------&gt;     sub foo { 'Bar::foo =&gt; ' . (shift)⏏-&gt;next::method }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT.v5:41<br />
-------&gt;     sub foo { 'Baz::foo =&gt; ' . (shift)⏏-&gt;NEXT::foo }    <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT.v5:44<br />
-------&gt; is(Foo⏏-&gt;foo, 'Foo::foo', '... got the right va<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT.v5:45<br />
-------&gt; is(Fuz⏏-&gt;foo, 'Fuz::foo =&gt; Foo::foo', '... got <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT.v5:46<br />
-------&gt; is(Bar⏏-&gt;foo, 'Bar::foo =&gt; Foo::foo', '... got <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT.v5:48<br />
-------&gt; is(Baz⏏-&gt;foo, 'Baz::foo =&gt; Bar::foo =&gt; Fuz::foo<br />
+Can't locate object method "foo" via package "Foo" (perhaps you forgot to load "Foo"?)<br />
+# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT_utf8.v5:27<br />
-------&gt;     sub fಓ { 'Fᶽ::fಓ =&gt; ' . (shift)⏏-&gt;next::method }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT_utf8.v5:35<br />
-------&gt;     sub fಓ { 'Bᛆ::fಓ =&gt; ' . (shift)⏏-&gt;next::method }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT_utf8.v5:43<br />
-------&gt;     sub fಓ { 'Baᕃ::fಓ =&gt; ' . (shift)⏏-&gt;NEXT::fಓ }    <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT_utf8.v5:46<br />
-------&gt; is(ᕘ⏏-&gt;fಓ, 'ᕘ::fಓ', '... got the right value <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT_utf8.v5:47<br />
-------&gt; is(Fᶽ⏏-&gt;fಓ, 'Fᶽ::fಓ =&gt; ᕘ::fಓ', '... got the ri<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT_utf8.v5:48<br />
-------&gt; is(Bᛆ⏏-&gt;fಓ, 'Bᛆ::fಓ =&gt; ᕘ::fಓ', '... got the ri<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_NEXT_utf8.v5:50<br />
-------&gt; is(Baᕃ⏏-&gt;fಓ, 'Baᕃ::fಓ =&gt; Bᛆ::fಓ =&gt; Fᶽ::fಓ =&gt; ᕘ:<br />
+Can't locate object method "fಓ" via package "ᕘ" (perhaps you forgot to load "ᕘ"?)<br />
+# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1350,13 +1231,10 @@ at t/spec/op/sigsystem.v5:28<br />
     Redeclaration of symbol $ENV<br />
     at t/spec/run/mad.v5:42<br />
     ------&gt;     delete local $ENV⏏{$_} for keys %ENV;<br />
-===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/run/mad.v5:35<br />
-------&gt;     my $fn = File::Spec⏏-&gt;catfile(File::Spec-&gt;curdir(), "without<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/run/mad.v5:43<br />
-------&gt;     my $fn = File::Spec⏏-&gt;catfile(File::Spec-&gt;curdir(), "withT.x<br />
+Undefined subroutine &amp;main::delete called<br />
+  in block  at t/spec/run/mad.v5:34<br />
+  in block  at t/spec/run/mad.v5:33<br />
+# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchI.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Cannot call method 'end' on a null object<br />
@@ -1384,15 +1262,6 @@ Missing block at line 4, near "('use stri"<br />
 Confused<br />
 at t/v5/25-syntax-defined-or.v5:8<br />
 ------&gt;     print "not " unless (shift // ⏏2) == 5;<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/lib/proxy_constant_subs.v5:28<br />
-------&gt;     is($ps⏏-&gt;GvFLAGS() &amp; GVf_IMPORTED_CV, 0,<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/lib/proxy_constant_subs.v5:31<br />
-------&gt;     is($ms⏏-&gt;GvFLAGS() &amp; GVf_IMPORTED_CV, GVf_IMPOR<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1496,11 +1365,14 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
-        <tr align='center'><td align='left'>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>uni/tr_7jis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Couldn't find terminator ) at line 49, near ""<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
    at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:61)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -1512,7 +1384,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr align='center'><td align='left' rowspan='2'>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
    at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:61)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -1565,14 +1437,14 @@ Cannot modify an immutable Any<br />
         <tr align='center'><td align='left' rowspan='2'>op/context.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/context.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_t.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
@@ -1588,25 +1460,8 @@ Couldn't parse heredoc construct at line 13, near ";   # Yow!"<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/our.v5:51<br />
-------&gt; is(TieAll⏏-&gt;calls, '', 'our $x has no runtime effe<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/our.v5:54<br />
-------&gt; is(TieAll⏏-&gt;calls, '', 'our ($x) has no runtime ef<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/our.v5:57<br />
-------&gt; is(TieAll⏏-&gt;calls, '', 'our %x has no runtime effe<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/our.v5:60<br />
-------&gt; is(TieAll⏏-&gt;calls, '', 'our (%x) has no runtime ef<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/our.v5:63<br />
-------&gt; is(TieAll⏏-&gt;calls, '', 'our @x has no runtime effe<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/our.v5:66<br />
-------&gt; is(TieAll⏏-&gt;calls, '', 'our (@x) has no runtime ef<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
+  in block  at t/spec/comp/our.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/package_block.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1655,14 +1510,14 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr align='center'><td align='left' rowspan='2'>op/or.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/or.v5:27<br />
   in block  at t/spec/op/or.v5:12<br />
 </td></tr>
@@ -1690,6 +1545,16 @@ at t/spec/uni/tr_utf8.v5:40<br />
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
+        <tr><td colspan='5'>Undefined subroutine &amp;main::svref_2object called<br />
+  in block  at t/spec/lib/proxy_constant_subs.v5:22<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
+  in block  at t/spec/lib/proxy_constant_subs.v5:20<br />
+# Looks like you planned 8 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/decl.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/decl.v5<br />
@@ -1734,61 +1599,12 @@ at t/spec/uni/labels.v5:49<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:31<br />
-------&gt; sub baz { 'Diamond_B::baz =&gt; ' . (shift)⏏-&gt;next::method() }         <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:47<br />
-------&gt; sub foo { 'Diamond_D::foo =&gt; ' . (shift)⏏-&gt;next::method() } <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:48<br />
-------&gt; sub bar { 'Diamond_D::bar =&gt; ' . (shift)⏏-&gt;next::method() }   <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:49<br />
-------&gt; sub buz { 'Diamond_D::buz =&gt; ' . (shift)⏏-&gt;baz() }  <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:50<br />
-------&gt; sub fuz { 'Diamond_D::fuz =&gt; ' . (shift)⏏-&gt;next::method() }  <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:52<br />
-------&gt; oz { 'Diamond_D::woz can =&gt; ' . ((shift)⏏-&gt;next::can() ? 1 : 0) }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:53<br />
-------&gt; oz { 'Diamond_D::noz can =&gt; ' . ((shift)⏏-&gt;next::can() ? 1 : 0) }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:55<br />
-------&gt; aybe { 'Diamond_D::maybe =&gt; ' . ((shift)⏏-&gt;maybe::next::method() || 0) }<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:56<br />
-------&gt; oybe { 'Diamond_D::moybe =&gt; ' . ((shift)⏏-&gt;maybe::next::method() || 0) }         <br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:69<br />
-------&gt; eval { Diamond_D⏏-&gt;fuz };<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:65<br />
-------&gt; is(Diamond_D⏏-&gt;foo, 'Diamond_D::foo =&gt; Diamond_C::foo<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:66<br />
-------&gt; is(Diamond_D⏏-&gt;bar, 'Diamond_D::bar =&gt; Diamond_A::bar<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:67<br />
-------&gt; is(Diamond_D⏏-&gt;baz, 'Diamond_B::baz =&gt; Diamond_A::baz<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:68<br />
-------&gt; is(Diamond_D⏏-&gt;buz, 'Diamond_D::buz =&gt; Diamond_B::baz<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:72<br />
-------&gt; is(Diamond_D⏏-&gt;woz, 'Diamond_D::woz can =&gt; 1', '... c<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:73<br />
-------&gt; is(Diamond_D⏏-&gt;noz, 'Diamond_D::noz can =&gt; 0', '... c<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:75<br />
-------&gt; is(Diamond_D⏏-&gt;maybe, 'Diamond_D::maybe =&gt; Diamond_C:<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/mro/next_skip.v5:76<br />
-------&gt; is(Diamond_D⏏-&gt;moybe, 'Diamond_D::moybe =&gt; 0', '... q<br />
+        <tr><td colspan='5'># Failed test '... got the right MRO for Diamond_D'<br />
+# at lib/Test.pm line 75<br />
+===SORRY!===<br />
+Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
+# Looks like you planned 10 tests, but ran 1<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1916,14 +1732,14 @@ No such method 'ast' for invocant of type 'Any'<br />
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/sselect.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/class.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
@@ -2059,14 +1875,14 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol $|<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/hashwarn.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -2089,7 +1905,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>Could not find file './test.pl' for module ./test.pl<br />
   in method load_module at src/Perl5/ModuleLoader.pm:54<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/io/errno.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -2285,18 +2101,6 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'ast' for invocant of type 'Any'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/opsubs.v5:83<br />
-------&gt;     if (eval { $class⏏-&gt;can($method) }) {<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/opsubs.v5:85<br />
-------&gt; 	    print "ok $test - $class⏏-&gt;can('$method') # TODO: $::TODO\n";<br />
-Variable '&amp;postfix:&lt;-&gt;&gt;' is not declared<br />
-at t/spec/comp/opsubs.v5:88<br />
-------&gt; 	    print "ok $test - $class⏏-&gt;can('$method')\n";<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
@@ -2421,7 +2225,7 @@ No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGramm
         <tr align='center'><td align='left' rowspan='2'>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
    at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:61)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -2449,14 +2253,14 @@ No such method 'ast' for invocant of type 'Any'<br />
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at src/Perl5/ModuleLoader.pm:208<br />
-  in method reify at src/gen/m-CORE.setting:7792<br />
-  in method reify at src/gen/m-CORE.setting:7628<br />
-  in method gimme at src/gen/m-CORE.setting:8140<br />
-  in method sink at src/gen/m-CORE.setting:8599<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
   in method load_module at src/Perl5/ModuleLoader.pm:147<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21109<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
   in block  at t/spec/op/list.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/localref.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
@@ -2485,7 +2289,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr align='center'><td align='left' rowspan='2'>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
    at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:61)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -2537,7 +2341,7 @@ Cannot modify an immutable Any<br />
         <tr align='center'><td align='left' rowspan='2'>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
    at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:61)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -2549,7 +2353,7 @@ Cannot modify an immutable Any<br />
         <tr align='center'><td align='left' rowspan='2'>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
    at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:61)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -2568,7 +2372,7 @@ No such method 'add_categorical' for invocant of type 'Cursor'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'annotate' for invocant of type 'Any'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2605,7 +2409,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr align='center'><td align='left' rowspan='2'>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
    at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:61)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
  from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -2763,7 +2567,7 @@ Bogus statement at line 9, near "'UTF-8'   "<br />
 No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
 </td></tr>
 
-        <tr><td>/home/froggs/dev/nqp/install/bin/perl6-m -I/home/froggs/dev/v5/lib --version</td><td colspan='5'>This is perl6 version 2014.07-157-g42dfe38 built on MoarVM version 2014.07-365-g29d2e7b
+        <tr><td>/home/froggs/dev/nqp/install/bin/perl6-m -I/home/froggs/dev/v5/lib --version</td><td colspan='5'>This is perl6 version 2014.07-179-g3c6bcff built on MoarVM version 2014.07-365-g29d2e7b
 </td></tr>
     </tbody>
 </table>

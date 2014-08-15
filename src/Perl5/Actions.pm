@@ -1668,7 +1668,7 @@ class Perl5::Actions does STDActions {
         make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
 
-    method special_variable:sym['$<']($/) {
+    method special_variable:sym«\$<»($/) {
         $V5DEBUG && say("special_variable:sym<\$<>($/)");
         make QAST::Var.new( :name(~$<sym>), :scope('lexical') )
     }
@@ -3121,7 +3121,7 @@ class Perl5::Actions does STDActions {
         make $past;
     }
 
-    sub whine_if_args($/, $past, $name) {
+    sub whine_if_args($/, Mu $past, $name) {
         if +@($past) > 0 {
            $*W.throw($/, ['X', 'Syntax', 'Argument', 'MOPMacro'], macro => $name);
         }
