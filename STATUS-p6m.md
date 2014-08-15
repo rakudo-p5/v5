@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>537</td><td>39809</td><td>2</td><td>1</td><td>40347</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>611</td><td>39836</td><td>3</td><td>1</td><td>40449</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>61</td><td>56</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
@@ -131,13 +131,39 @@ Undefined subroutine &amp;main::INSTALL called<br />
   in block  at t/spec/comp/fold.v5:124<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/06-bool.v5</td><td>16</td><td>16</td><td>0</td><td>0</td><td>32</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate object method "new" via package "Main" (perhaps you forgot to load "Main"?)<br />
+</td></tr>
+        <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/not.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>parens needed around second argument in next two tests<br />
 to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr align='center'><td align='left'>op/die_except.v5</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/die_unwind.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
+        <tr><td colspan='5'># Failed test 'true value assigned to $@ before 'end' block inside 'eval' block'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: 't1<br />
+# '<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: 't3<br />
+# '<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: 't3<br />
+# '<br />
+# Looks like you failed 3 tests of 12<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
+        <tr><td colspan='5'>   1 todo   : <br />
+</td></tr>
+        <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>6</td><td>10</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Cannot use Bool as Matcher with 'grep'.  Did you mean to use $_ inside a block?<br />
   in sub test_no_error at t/spec/comp/bproto.v5:31<br />
@@ -145,9 +171,11 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
         <tr align='center'><td align='left'>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align='center'><td align='left'>t/v5/05-anon-sub.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align='center'><td align='left'>t/v5/05-anon-sub-lex-block.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sleep.v5</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'Sleep says it slept at least 2 seconds'<br />
@@ -197,6 +225,10 @@ to preserve list context inside function call<br />
 # Looks like you planned 15 tests, but ran 1<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/11-accessor.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate object method "new1" via package "Other" (perhaps you forgot to load "Other"?)<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>1</td><td>35</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
@@ -240,7 +272,7 @@ Bogus statement at line 52, near "kഌoんḰ =&gt; ["<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -273,7 +305,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Bogus statement at line 182, near "'global_sc"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/cond.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -287,17 +319,9 @@ Bogus statement at line 31, near "evalbytes="<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/die_except.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/die_unwind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -317,7 +341,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Couldn't parse heredoc construct at line 218, near " \"EOC\" or "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
@@ -425,7 +449,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -540,7 +564,7 @@ Bogus statement at line 54, near "'Porting/g"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -617,7 +641,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regex_sets.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -694,16 +718,16 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at lib/Test.pm line 89<br />
-#      got: 'tmp11076A'<br />
-# expected: 'tmp11076B'<br />
+#      got: 'tmp13663A'<br />
+# expected: 'tmp13663B'<br />
 # Failed test at /home/froggs/dev/v5/t/./test.pl line 12<br />
-#      got: 'tmp11076B'<br />
-# expected: 'tmp11076C'<br />
+#      got: 'tmp13663B'<br />
+# expected: 'tmp13663C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:211<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -766,25 +790,11 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot modify an immutable Any<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/05-anon-sub-lex-block.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/05-anon-sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/05-array.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/06-bool.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/v5/05-hash.v5<br />
+Confused<br />
+at t/v5/05-hash.v5:60<br />
+------&gt; sub x1 () { 1230 } ⏏$v{x1()} = 120;        # '1230'     =&gt; 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/09-namespace.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -794,29 +804,15 @@ This type does not support positional operations<br />
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-accessor.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-class.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/18-array-autovivify.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/30-tie-array.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/v5/30-tie-array.v5<br />
+Cannot use pseudo package CORE in sub declaration<br />
+at t/v5/30-tie-array.v5:48<br />
+------&gt; sub CORE::shift⏏         { say "not ok 101 # CORE::shift<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/31-autoload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1008,7 +1004,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Unable to parse expression in args; couldn't find final ')'  at line 51, near "@{$invmap_"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1100,7 +1096,7 @@ Could not find Foo in any of: lib, /home/froggs/dev/v5/lib, /home/froggs/dev/v5/
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
@@ -1131,7 +1127,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol $^P<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-bind-method-param.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1172,7 +1168,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1199,11 +1195,13 @@ Can't locate object method "fಓ" via package "ᕘ" (perhaps you forgot to load 
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Can't locate object method "foo" via package "TTop" (perhaps you forgot to load "TTop"?)<br />
+# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Can't locate object method "ᕗ" via package "ᵗ톺" (perhaps you forgot to load "ᵗ톺"?)<br />
+# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1211,7 +1209,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1265,19 +1263,19 @@ at t/v5/25-syntax-defined-or.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1297,11 +1295,11 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_method.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_method_utf8.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
@@ -1330,15 +1328,19 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>t/v5/11-class.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate object method "new" via package "Other" (perhaps you forgot to load "Other"?)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1428,11 +1430,11 @@ No such method 'add_categorical' for invocant of type 'Cursor'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/pkg_gen_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/context.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
@@ -1469,7 +1471,7 @@ No such method 'ast' for invocant of type 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1535,7 +1537,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/tr_utf8.v5<br />
@@ -1544,7 +1546,7 @@ at t/spec/uni/tr_utf8.v5:40<br />
 ------&gt; $str = $hiragana; ⏏$str =~ s/([ぁ-ん])/$h2k{$1}/go;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::svref_2object called<br />
@@ -1612,7 +1614,7 @@ Unable to parse expression in args; couldn't find final ')'  at line 74, near "u
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hash.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Bogus statement at line 86, near "guard =&gt; g"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/srand.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1628,7 +1630,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1649,19 +1651,19 @@ Unable to parse expression in args; couldn't find final ')'  at line 16, near "(
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'># Failed test '... got the right DFS merge order for Test::A'<br />
@@ -1781,7 +1783,7 @@ Unable to parse expression in parensig; couldn't find final ')'  at line 42, nea
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::wantarray called<br />
@@ -1944,7 +1946,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Unknown QAST node type Match<br />
 # Looks like you planned 20 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/redef.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
@@ -2032,7 +2034,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/qq.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/rs.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2067,7 +2069,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/concat.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dor.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2079,7 +2081,7 @@ Unable to parse expression in variable; couldn't find final '}'  at line 74, nea
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chars.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2111,7 +2113,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/rxcode.v5</td><td>0</td><td>39</td><td>0</td><td>0</td><td>39</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2119,19 +2121,19 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Bogus statement at line 42, near "'abc' =&gt; 1"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>0</td><td>41</td><td>0</td><td>0</td><td>41</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Bogus statement at line 131, near "(1,2)x2);\n"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/study.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2143,7 +2145,7 @@ Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/negate.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2172,7 +2174,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+No such method 'Bool' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2190,7 +2192,7 @@ at t/spec/mro/basic_utf8.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/package_aliases.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+No such method 'Bool' for invocant of type 'NQPMu'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2202,11 +2204,11 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ver.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic.v5</td><td>0</td><td>59</td><td>0</td><td>0</td><td>59</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/basic.v5<br />
@@ -2336,7 +2338,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/runenv.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
@@ -2440,7 +2442,13 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/range.v5</td><td>0</td><td>141</td><td>0</td><td>0</td><td>141</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+Confused<br />
+at t/spec/op/range.v5:396<br />
+------&gt;  for (1..2) { for (1..4) { $s .= ++$_ } ⏏$s.=' ' if $_==1; }<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol @foo<br />
+    at t/spec/op/range.v5:355<br />
+    ------&gt; my @foo⏏;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>0</td><td>143</td><td>0</td><td>0</td><td>143</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2452,7 +2460,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 # Looks like you planned 151 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
@@ -2461,7 +2469,7 @@ No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGramm
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2495,7 +2503,7 @@ at t/spec/re/subst.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/gv.v5</td><td>0</td><td>212</td><td>0</td><td>0</td><td>212</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/overload.v5</td><td>0</td><td>215</td><td>0</td><td>0</td><td>215</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2507,7 +2515,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/gv.v5</td><td>0</td><td>245</td><td>0</td><td>0</td><td>245</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/cproto.v5</td><td>0</td><td>254</td><td>0</td><td>0</td><td>254</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2532,7 +2540,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexints' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2564,7 +2572,7 @@ Bogus statement at line 9, near "'UTF-8'   "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'hexint' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Bogus statement at line 285, near "$x = unpac"<br />
 </td></tr>
 
         <tr><td>/home/froggs/dev/nqp/install/bin/perl6-m -I/home/froggs/dev/v5/lib --version</td><td colspan='5'>This is perl6 version 2014.07-179-g3c6bcff built on MoarVM version 2014.07-365-g29d2e7b
