@@ -369,6 +369,28 @@ my role STDActions {
                 QAST::IVal.new( :value($indent) ))));
         }
     }
+
+    method decint($/) {
+        $V5DEBUG && say("decint($/)"); make :10(~$/); }
+    method hexint($/) {
+        $V5DEBUG && say("hexint($/)"); make :16(~$/); }
+    method octint($/) {
+        $V5DEBUG && say("octint($/)"); make :8(~$/); }
+    method binint($/) {
+        $V5DEBUG && say("binint($/)"); make :2(~$/); }
+
+    method ints_to_string($ints) {
+        $V5DEBUG && say("method ints_to_string($ints)");
+        if nqp::islist($ints) {
+            my $result = '';
+            for $ints.list {
+                $result = $result ~ nqp::chr(nqp::unbox_i($_.ast));
+            }
+            $result;
+        } else {
+            nqp::chr(nqp::unbox_i($ints.ast));
+        }
+    }
 }
 
 class Perl5::Actions does STDActions {
@@ -431,20 +453,6 @@ class Perl5::Actions does STDActions {
             ?? sink($past)
             !! $past;
     }
-
-    method ints_to_string($ints) {
-        $V5DEBUG && say("method ints_to_string($ints)");
-        if nqp::islist($ints) {
-            my $result = '';
-            for $ints.list {
-                $result = $result ~ nqp::chr(nqp::unbox_i($_.ast));
-            }
-            $result;
-        } else {
-            nqp::chr(nqp::unbox_i($ints.ast));
-        }
-    }
-
 
     sub xblock_immediate(Mu $xblock is rw) {
         $V5DEBUG && say("sub xblock_immediate(\$xblock)");
@@ -4334,16 +4342,6 @@ class Perl5::Actions does STDActions {
         $*W.add_object($v);
         make QAST::WVal.new( :value($v) );
     }
-
-    method decint($/) {
-        $V5DEBUG && say("decint($/)"); make :10(~$/); }
-    method hexint($/) {
-        $V5DEBUG && say("hexint($/)"); make :16(~$/); }
-    method octint($/) {
-        $V5DEBUG && say("octint($/)"); make :8(~$/); }
-    method binint($/) {
-        $V5DEBUG && say("binint($/)"); make :2(~$/); }
-
 
     method number:sym<complex>($/) {
         $V5DEBUG && say("number:sym<complex>($/)");

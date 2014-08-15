@@ -327,6 +327,15 @@ role STD5 {
         my $*ACTIONS   := %*LANG{$lang ~ '-actions'};
         $lang_cursor."$regex"(|@args);
     }
+
+    token decint  { [\d+]+ % '_' }
+    token decints { [<.ws><decint><.ws>]+ % ',' }
+
+    token hexint  { [<[ 0..9 a..f A..F ]>+]+ % '_' }
+    token hexints { [<.ws><hexint><.ws>]+ % ',' }
+
+    token binint  { [<[ 0..1 ]>+]+ % '_' }
+    token binints { [<.ws><binint><.ws>]+ % ',' }
 }
 
 grammar Perl5::Grammar does STD5 {
@@ -364,15 +373,6 @@ grammar Perl5::Grammar does STD5 {
         | <starter> <quote_atom>* <stopper>
         ]
     }
-
-    token decint  { [\d+]+ % '_' }
-    token decints { [<.ws><decint><.ws>]+ % ',' }
-
-    token hexint  { [<[ 0..9 a..f A..F ]>+]+ % '_' }
-    token hexints { [<.ws><hexint><.ws>]+ % ',' }
-
-    token binint  { [<[ 0..1 ]>+]+ % '_' }
-    token binints { [<.ws><binint><.ws>]+ % ',' }
 
     proto token quote_escape { * }
     token quote_escape:sym<backslash> { \\ \\ <?quotemod_check('q')> }
