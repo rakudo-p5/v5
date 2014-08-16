@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>611</td><td>39836</td><td>3</td><td>1</td><td>40449</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>727</td><td>39740</td><td>3</td><td>1</td><td>40469</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>61</td><td>56</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
@@ -20,9 +20,369 @@
 # Failed test at lib/Test.pm line 75<br />
 <br />   1 todo   : NYI<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/split_unicode.v5</td><td>48</td><td>103</td><td>0</td><td>0</td><td>151</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'Space: U+0009 - /\s+/ (count)'<br />
+# at lib/Test.pm line 89<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+0009 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+0009 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+0009 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+000a - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+000a - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+000a - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+000a - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+000c - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+000c - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+000c - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+000c - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+000d - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+000d - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+000d - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+000d - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+0020 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+0020 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+0020 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '5'<br />
+# Failed test 'Space: U+0020 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+0085 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+0085 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+0085 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+0085 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+00a0 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+00a0 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+00a0 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+00a0 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+1680 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+1680 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+1680 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+1680 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+180e - /\s+/'<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+180e - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A:᠎:B'<br />
+# expected: '1'<br />
+# Failed test 'Space: U+180e - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+180e - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+180e - /\s+/ No.2'<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+180e - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '᠎᠎:A:᠎᠎:B'<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2000 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2000 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2000 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2000 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2001 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2001 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2001 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2001 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2002 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2002 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2002 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2002 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2003 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2003 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2003 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2003 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2004 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2004 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2004 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2004 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2005 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2005 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2005 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2005 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2006 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2006 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2006 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2006 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2007 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2007 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2007 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2007 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2008 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2008 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2008 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2008 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2009 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2009 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2009 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2009 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+200a - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+200a - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+200a - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+200a - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2028 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2028 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2028 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2028 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2029 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2029 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+2029 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2029 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+202f - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+202f - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+202f - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+202f - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+205f - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+205f - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+205f - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+205f - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+3000 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+3000 - ' ''<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Space: U+3000 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+3000 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Looks like you planned 151 tests, but ran 150<br />
+# Looks like you failed 102 tests of 150<br />
+</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>34</td><td>101</td><td>0</td><td>0</td><td>135</td></tr>
-        <tr><td colspan='5'># Failed test '-r *gv returns single value'<br />
+        <tr><td colspan='5'><br />
+# Failed test '-r *gv returns single value'<br />
 # at lib/Test.pm line 75<br />
 # Failed test '-w *gv returns single value'<br />
 # at lib/Test.pm line 75<br />
@@ -65,6 +425,51 @@
   in block  at t/spec/op/filetest_stack_ok.v5:26<br />
 # Looks like you planned 135 tests, but ran 49<br />
 # Looks like you failed 15 tests of 49<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'Negation of string starting with "-" returns a string starting with "+" - non-numeric'<br />
+# at lib/Test.pm line 89<br />
+#      got: '10'<br />
+# expected: '+10foo'<br />
+# Failed test 'Negation of a negative string adds "-" to the front'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '-xyz'<br />
+# Failed test 'Negation of a negative string to positive'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '+xyz'<br />
+# Failed test 'Negation of a positive string to negative'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '-xyz'<br />
+# Failed test 'cached numeric value does not sabotage string negation'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '-dogs'<br />
+# Failed test 'Negation of string starting with "-" returns a string starting with "+" - non-numeric'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '10'<br />
+# expected: '+10foo'<br />
+# Failed test 'Negation of a negative string adds "-" to the front'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '-xyz'<br />
+# Failed test 'Negation of a negative string to positive'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '+xyz'<br />
+# Failed test 'Negation of a positive string to negative'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '-xyz'<br />
+# Failed test 'cached numeric value does not sabotage string negation'<br />
+# at /home/froggs/dev/v5/t/./test.pl line 12<br />
+#      got: '0'<br />
+# expected: '-dogs'<br />
+# Looks like you planned 45 tests, but ran 41<br />
+# Looks like you failed 10 tests of 41<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/_num_to_alpha.v5</td><td>24</td><td>1</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan='5'><br />
@@ -122,6 +527,73 @@ Testing limit capabilities<br />
 # expected: 'q r s t u v w x y z'<br />
 # Looks like you failed 14 tests of 36<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>21</td><td>21</td><td>0</td><td>0</td><td>42</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'c4 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'df bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'e0 a0 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'e0 bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'e1 80 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'ec bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'ed 80 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'ed 9f bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'ed a0 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'ed bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'ee 80 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'ef bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f0 90 80 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f0 bf bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f1 80 80 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f3 bf bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f4 80 80 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f4 8f bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f4 90 80 80'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f7 bf bf bf'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '3f'<br />
+# expected: 'f8 88 80 80 80'<br />
+# Looks like you failed 21 tests of 42<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/fold.v5</td><td>19</td><td>7</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $SIG<br />
@@ -145,7 +617,8 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_unwind.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'># Failed test 'true value assigned to $@ before 'end' block inside 'eval' block'<br />
+        <tr><td colspan='5'><br />
+# Failed test 'true value assigned to $@ before 'end' block inside 'eval' block'<br />
 # at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: 't1<br />
@@ -163,7 +636,27 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>   1 todo   : <br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>7</td><td>34</td><td>0</td><td>0</td><td>41</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $u<br />
+    at t/spec/op/length.v5:176<br />
+    ------&gt; my $u⏏;<br />
+Undefined subroutine &amp;main::tie called<br />
+  in block  at t/spec/op/length.v5:125<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
+  in block  at t/spec/op/length.v5:1<br />
+# Looks like you planned 41 tests, but ran 0<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test at lib/Test.pm line 75<br />
+# Failed test at lib/Test.pm line 75<br />
+# Looks like you failed 2 tests of 8<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>6</td><td>10</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Cannot use Bool as Matcher with 'grep'.  Did you mean to use $_ inside a block?<br />
   in sub test_no_error at t/spec/comp/bproto.v5:31<br />
@@ -183,7 +676,8 @@ to preserve list context inside function call<br />
 # Looks like you failed 1 tests of 4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'># Failed test at lib/Test.pm line 75<br />
+        <tr><td colspan='5'><br />
+# Failed test at lib/Test.pm line 75<br />
 # Failed test at lib/Test.pm line 75<br />
 # Failed test at lib/Test.pm line 75<br />
 # Failed test at lib/Test.pm line 75<br />
@@ -213,6 +707,14 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>t/v5/05-lex-block-if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'list context //g against overloaded object'<br />
+# at lib/Test.pm line 89<br />
+#      got: ''<br />
+# expected: 'foo:bar'<br />
+# Looks like you failed 1 tests of 3<br />
+</td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
@@ -228,6 +730,11 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-accessor.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "new1" via package "Other" (perhaps you forgot to load "Other"?)<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>1</td><td>28</td><td>0</td><td>0</td><td>29</td></tr>
+        <tr><td colspan='5'>Can't open stdout<br />
+  in block  at t/spec/io/dup.v5:1<br />
+# Looks like you planned 29 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>1</td><td>35</td><td>0</td><td>0</td><td>36</td></tr>
@@ -324,8 +831,27 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $do<br />
+    at t/spec/op/do.v5:72<br />
+    ------&gt; if (open my $do⏏, '&gt;', $file16) {<br />
+    Redeclaration of symbol $do<br />
+    at t/spec/op/do.v5:81<br />
+    ------&gt; if (open my $do⏏, '&gt;', $file17) {<br />
+    Redeclaration of symbol $do<br />
+    at t/spec/op/do.v5:81<br />
+    ------&gt; if (open my $do⏏, '&gt;', $file17) {<br />
+    Redeclaration of symbol $do<br />
+    at t/spec/op/do.v5:90<br />
+    ------&gt; if (open my $do⏏, '&gt;', $file18) {<br />
+    Redeclaration of symbol $do<br />
+    at t/spec/op/do.v5:90<br />
+    ------&gt; if (open my $do⏏, '&gt;', $file18) {<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/do.v5:280<br />
+    ------&gt;       open my $fh⏏, '&lt;', \$code;<br />
+===SORRY!===<br />
+Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -448,8 +974,15 @@ Cannot find method 'named'<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $i<br />
+    at t/spec/opbasic/cmp.v5:290<br />
+    ------&gt; while (my ($i⏏, $v) = each @utf8) {<br />
+    Redeclaration of symbol $v<br />
+    at t/spec/opbasic/cmp.v5:290<br />
+    ------&gt; while (my ($i, $v⏏) = each @utf8) {<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -537,8 +1070,12 @@ Could not find Maintainers in any of: lib, /home/froggs/dev/v5/lib, /home/froggs
 Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/pending-author.v5:56<br />
+    ------&gt; open my $fh⏏, '|-', "$^X Porting/checkAUTHORS.pl --t<br />
+Undefined subroutine &amp;main::find_git_or_skip called<br />
+  in block  at t/spec/porting/pending-author.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
@@ -564,11 +1101,7 @@ Bogus statement at line 54, near "'Porting/g"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'add_categorical' for invocant of type 'Cursor'<br />
+Bogus statement at line 25, near "\"\\xDF\" =&gt; "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -723,11 +1256,11 @@ This type does not support elems<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at lib/Test.pm line 89<br />
-#      got: 'tmp13663A'<br />
-# expected: 'tmp13663B'<br />
+#      got: 'tmp23677A'<br />
+# expected: 'tmp23677B'<br />
 # Failed test at /home/froggs/dev/v5/t/./test.pl line 12<br />
-#      got: 'tmp13663B'<br />
-# expected: 'tmp13663C'<br />
+#      got: 'tmp23677B'<br />
+# expected: 'tmp23677C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:211<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -887,7 +1420,8 @@ This type does not support positional operations<br />
 Can't locate object method "new" via package "Foo" (perhaps you forgot to load "Foo"?)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for t::lib::F'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for t::lib::F'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
@@ -897,37 +1431,44 @@ Can't locate object method "new" via package "Foo" (perhaps you forgot to load "
 # Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for Ƭ::ŁiƁ::Ḟ'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for Ƭ::ŁiƁ::Ḟ'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for t::lib::F'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for t::lib::F'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for Ƭ::ŁiƁ::Ḟ'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for Ƭ::ŁiƁ::Ḟ'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right C3 merge order for xx::DBIx::Class::Core'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right C3 merge order for xx::DBIx::Class::Core'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right C3 merge order for Ẋẋ::ḐʙIＸ::Cl았::Core'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right C3 merge order for Ẋẋ::ḐʙIＸ::Cl았::Core'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right DFS merge order for xx::DBIx::Class::Core'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right DFS merge order for xx::DBIx::Class::Core'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right DFS merge order for Ẋẋ::ḐʙIＸ::Cl았::Coﾚ'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right DFS merge order for Ẋẋ::ḐʙIＸ::Cl았::Coﾚ'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
@@ -949,22 +1490,26 @@ Can't locate object method "foo" via package "B" (perhaps you forgot to load "B"
 Unable to parse expression in args; couldn't find final ')'  at line 45, near "u, \n   'me"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for the Vulcan Dylan Example'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for the Vulcan Dylan Example'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for the ቩᓪ찬 Dylan Example'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for the ቩᓪ찬 Dylan Example'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for the Vulcan Dylan Example'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for the Vulcan Dylan Example'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for the ቩᓪ찬 Dylan Example'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for the ቩᓪ찬 Dylan Example'<br />
 # at lib/Test.pm line 75<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
@@ -1039,7 +1584,8 @@ Could not find Perlito5::Test in any of: lib, /home/froggs/dev/v5/lib, /home/fro
 # Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for Diamond_D'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for Diamond_D'<br />
 # at lib/Test.pm line 75<br />
 ===SORRY!===<br />
 Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
@@ -1047,7 +1593,8 @@ Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to 
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
 # at lib/Test.pm line 75<br />
 ===SORRY!===<br />
 Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot to load "Ｄiᚪၚd_D"?)<br />
@@ -1055,7 +1602,8 @@ Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for Diamond_D'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for Diamond_D'<br />
 # at lib/Test.pm line 75<br />
 ===SORRY!===<br />
 Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
@@ -1063,7 +1611,8 @@ Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to 
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
 # at lib/Test.pm line 75<br />
 ===SORRY!===<br />
 Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot to load "Ｄiᚪၚd_D"?)<br />
@@ -1127,7 +1676,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol $^P<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+Bogus statement at line 19, near "pack('C*',"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-bind-method-param.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1168,7 +1717,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1208,8 +1757,13 @@ Can't locate object method "ᕗ" via package "ᵗ톺" (perhaps you forgot to loa
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::crypt called<br />
+  in block  at t/spec/op/crypt.v5:32<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
+  in block  at t/spec/op/crypt.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1328,11 +1882,11 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/select.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1401,8 +1955,23 @@ Couldn't find terminator ) at line 49, near ""<br />
 # Looks like you planned 6 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/perlio_open.v5:20<br />
+    ------&gt;     ok((open my $fh⏏, "+&gt;", undef), "open my \$fh, '+&gt;', und<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/perlio_open.v5:28<br />
+    ------&gt;     ok((open my $fh⏏, "+&lt;", undef), "open my \$fh, '+&lt;', und<br />
+No such method 'IO' for invocant of type 'Any'<br />
+  in sub P5open at src/Perl5/Terms.pm:97<br />
+  in sub P5open at src/Perl5/Terms.pm:77<br />
+  in block  at t/spec/io/perlio_open.v5:19<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
+  in block  at t/spec/io/perlio_open.v5:1<br />
+# Looks like you planned 6 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1410,23 +1979,28 @@ Bogus statement at line 47, near "big =&gt; '1 "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'add_categorical' for invocant of type 'Cursor'<br />
+Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
+# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'add_categorical' for invocant of type 'Cursor'<br />
+Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
+# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'add_categorical' for invocant of type 'Cursor'<br />
+Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
+# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'add_categorical' for invocant of type 'Cursor'<br />
+Can't locate object method "ネᚹ" via package "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ" (perhaps you forgot to load "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ"?)<br />
+# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'add_categorical' for invocant of type 'Cursor'<br />
+Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
+# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1466,8 +2040,8 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
   in block  at t/spec/comp/our.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/package_block.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+        <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
+  in block  at t/spec/comp/package_block.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1535,10 +2109,6 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/tr_utf8.v5<br />
 Missing semicolon.<br />
@@ -1546,7 +2116,7 @@ at t/spec/uni/tr_utf8.v5:40<br />
 ------&gt; $str = $hiragana; ⏏$str =~ s/([ぁ-ん])/$h2k{$1}/go;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::svref_2object called<br />
@@ -1601,7 +2171,8 @@ at t/spec/uni/labels.v5:49<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right MRO for Diamond_D'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right MRO for Diamond_D'<br />
 # at lib/Test.pm line 75<br />
 ===SORRY!===<br />
 Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
@@ -1633,8 +2204,10 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $in<br />
+    at t/spec/io/eintr.v5:23<br />
+    ------&gt; 	pipe my $in⏏, my $out;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/23-eval.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1666,7 +2239,8 @@ This type does not support positional operations<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right DFS merge order for Test::A'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right DFS merge order for Test::A'<br />
 # at lib/Test.pm line 75<br />
 # Failed test '... got the right DFS merge order for Test::B'<br />
 # at lib/Test.pm line 75<br />
@@ -1691,7 +2265,8 @@ This type does not support positional operations<br />
 # Looks like you failed 11 tests of 11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'># Failed test '... got the right DFS merge order for 텟Ṱ::ᐊ'<br />
+        <tr><td colspan='5'><br />
+# Failed test '... got the right DFS merge order for 텟Ṱ::ᐊ'<br />
 # at lib/Test.pm line 75<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::ḅ'<br />
 # at lib/Test.pm line 75<br />
@@ -1728,8 +2303,12 @@ Unable to parse expression in term:sym&lt;scalar&gt;; couldn't find final ')'  a
 Unknown QAST node type Any<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $module_fh<br />
+    at t/spec/op/require_errors.v5:64<br />
+    ------&gt; open my $module_fh⏏, "&gt;", $mod_file or die $!;<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
@@ -1780,10 +2359,6 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in parensig; couldn't find final ')'  at line 42, near "x) { };\n\nB"<br />
 # Looks like you planned 12 tests, but ran 0<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::wantarray called<br />
@@ -2069,7 +2644,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/concat.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+Missing block at line 158, near "\"qr/\\x{fff"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dor.v5</td><td>0</td><td>31</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2080,8 +2655,17 @@ No such method 'is_composed' for invocant of type 'NQPClassHOW'<br />
 Unable to parse expression in variable; couldn't find final '}'  at line 74, near "//};\n    p"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+        <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
+  in block  at src/Perl5/ModuleLoader.pm:208<br />
+  in method reify at src/gen/m-CORE.setting:7828<br />
+  in method reify at src/gen/m-CORE.setting:7664<br />
+  in method gimme at src/gen/m-CORE.setting:8176<br />
+  in method sink at src/gen/m-CORE.setting:8635<br />
+  in sub merge_globals at src/Perl5/ModuleLoader.pm:172<br />
+  in method load_module at src/Perl5/ModuleLoader.pm:147<br />
+  in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
+  in method load_module at src/gen/m-CORE.setting:21150<br />
+  in block  at t/spec/op/vec.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chars.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2101,7 +2685,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/subval.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2123,14 +2707,6 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 42, near "'abc' =&gt; 1"<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>0</td><td>41</td><td>0</td><td>0</td><td>41</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 131, near "(1,2)x2);\n"<br />
@@ -2143,13 +2719,9 @@ Couldn't find terminator | at line 70, near ");\n\nok(/^$"<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot find method 'value'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/negate.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/auto.v5</td><td>0</td><td>47</td><td>0</td><td>0</td><td>47</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2174,7 +2746,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'Bool' for invocant of type 'NQPMu'<br />
+Bogus statement at line 47, near "name =&gt; 'a"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2192,7 +2764,7 @@ at t/spec/mro/basic_utf8.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/package_aliases.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'Bool' for invocant of type 'NQPMu'<br />
+Bogus statement at line 43, near "name =&gt; 'a"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2204,7 +2776,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ver.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+Unable to parse expression in args; couldn't find final ')'  at line 111, near "unpack 'U*"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/stash.v5</td><td>0</td><td>58</td><td>0</td><td>0</td><td>58</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2218,7 +2790,7 @@ at t/spec/mro/basic.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2249,8 +2821,10 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tiehandle.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tiehandle.v5<br />
+Confused<br />
+at t/spec/op/tiehandle.v5:97<br />
+------&gt; $r = printf $fh ⏏@expect[2,3];<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
@@ -2370,7 +2944,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/bless.v5</td><td>0</td><td>109</td><td>0</td><td>0</td><td>109</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'add_categorical' for invocant of type 'Cursor'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2394,7 +2968,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Any'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2457,11 +3031,6 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
         <tr align='center'><td align='left' rowspan='2'>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/split_unicode.v5</td><td>0</td><td>151</td><td>0</td><td>0</td><td>151</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
-# Looks like you planned 151 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2540,7 +3109,7 @@ Merging GLOBAL symbols failed: duplicate definition of symbol __INC__<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'ast' for invocant of type 'Array'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval.v5</td><td>0</td><td>463</td><td>0</td><td>0</td><td>463</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />

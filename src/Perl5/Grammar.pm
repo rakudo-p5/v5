@@ -1629,12 +1629,6 @@ grammar Perl5::Grammar does STD5 {
             if nqp::isnull(nqp::getobjsc($val)) {
                 $*W.add_object($val);
             }
-            my $categorical := $key ~~ /^ '&' (\w+) ':<' (.+) '>' $/;
-            if $categorical {
-                $/.CURSOR.add_categorical(~$categorical[0], ~$categorical[1],
-                    ~$categorical[0] ~ ':sym<' ~$categorical[1] ~ '>',
-                    $key, $val);
-            }
         }
     }
 
@@ -1782,20 +1776,12 @@ grammar Perl5::Grammar does STD5 {
     # Declarators #
     ###############
 
-    method add_variable($name) {
-        my $categorical := $name ~~ /^'&'((\w+)':<'\s*(\S+?)\s*'>')$/;
-        if $categorical {
-            self.add_categorical(~$categorical[0][0], ~$categorical[0][1], ~$categorical[0], $name);
-        }
-    }
-
     token variable_declarator {
         :my $*IN_DECL := 'variable';
         :my $var;
         <variable>
         {
             $var := $<variable>.Str;
-            $/.CURSOR.add_variable($var);
             $*IN_DECL := '';
         }
         <.ws>
@@ -1880,7 +1866,7 @@ grammar Perl5::Grammar does STD5 {
                 # Construct meta-object for this package.
                 my %args;
                 %args<name> = $longname.name() if @name;
-                %args<repr> = $*REPR if $*REPR ne '';
+                %args<repr> = $*REPR if $*REPR;
                 $*PACKAGE  := $*W.pkg_create_mo($/, %*HOW{$*PKGDECL}, |%args);
 
                 # Install it in the symbol table if needed.

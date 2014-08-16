@@ -377,13 +377,14 @@ my role STDActions {
 
     method ints_to_string($ints) {
         $V5DEBUG && say("method ints_to_string($ints)");
-        if nqp::islist($ints) {
+        if $ints ~~ Positional {
             my $result = '';
             for $ints.list {
                 $result = $result ~ nqp::chr(nqp::unbox_i($_.ast));
             }
             $result;
-        } else {
+        }
+        else {
             nqp::chr(nqp::unbox_i($ints.ast));
         }
     }
@@ -2109,22 +2110,35 @@ class Perl5::Actions does STDActions {
     method variable_declarator($/) {
         $V5DEBUG && say("variable_declarator($/)");
         my $past   := $<variable>.ast;
-        my $sigil  := $<variable><sigil>;
-        my $name   := ~$sigil ~ ~$<variable><desigilname>;
+        my $sigil  := ~($<variable><sigil> // '');
         if $<variable><desigilname> {
-            my $lex := $*W.cur_lexpad();
+            my $name := $sigil ~ ~$<variable><desigilname>;
+            my $lex  := $*W.cur_lexpad();
             if $lex.symbol($name) -> $sym {
                 unless $sym<for_variable> || $name eq '$_' {
                     $/.CURSOR.typed_worry('X::Redeclaration', symbol => $name);
                 }
+                make declare_variable($/, $past, $sigil, '', $<variable><desigilname> // '', $<trait>, $<semilist>);
             }
             elsif $lex.ann('also_uses') && $lex.ann('also_uses'){$name} {
-                $/.CURSOR.typed_sorry('X::Redeclaration::Outer', symbol => $name);
+                make QAST::Op.new( :op<call>, :name('&postcircumfix:<{ }>'),
+                    QAST::Op.new( :op<who>,
+                        QAST::Op.new( :op<call>, :name('&postcircumfix:<{ }>'),
+                            QAST::Op.new( :op<callmethod>, :name<new>,
+                                QAST::WVal.new( :value(PseudoStash) )
+                            ),
+                            QAST::SVal.new( :value<OUTER> )
+                        )
+                    ),
+                    QAST::SVal.new( :value($name) )
+                )
             }
-            make declare_variable($/, $past, ~$sigil, '', ~$<variable><desigilname>, $<trait>, $<semilist>);
+            else {
+                make declare_variable($/, $past, $sigil, '', $<variable><desigilname> // '', $<trait>, $<semilist>);
+            }
         }
         else {
-            make declare_variable($/, $past, ~$sigil, '', ~$<variable><desigilname>, $<trait>, $<semilist>);
+            make declare_variable($/, $past, $sigil, '', $<variable><desigilname> // '', $<trait>, $<semilist>);
         }
     }
 
@@ -2156,7 +2170,7 @@ class Perl5::Actions does STDActions {
                     $/.CURSOR.panic("Cannot have an anonymous 'our'-scoped variable");
                 }
             }
-            if nqp::substr($desigilname, 0, 2) eq '::' {
+            if $desigilname.substr(0, 2) eq '::' {
                 if $*SCOPE eq 'my' {
                     $/.CURSOR.panic("\"my\" variable $name can't be in a package");
                 }
@@ -3325,7 +3339,7 @@ class Perl5::Actions does STDActions {
 
     method indirect_object($/) {
         $V5DEBUG && say("indirect_object($/)");
-        if $<name><barename>.ast {
+        if $<name><barename>.?ast {
             $V5DEBUG && say("indirect_object($/) barename");
             make QAST::Op.new( :op('call'), :name('&infix:<does>'),
                 $*W.add_string_constant(~$<name>),
@@ -3645,9 +3659,9 @@ class Perl5::Actions does STDActions {
                 $past := symbol_lookup(@name, $/);
             }
             elsif +@name == 1 && is_name(@name)
-                    && !$*W.symbol_has_compile_time_value(@name) {
+                    && !nqp::p6bool($*W.symbol_has_compile_time_value(@name)) {
                 # it's a sigilless param or variable
-                $past := make_variable_from_parts($/, @name, '', '', @name[0]);
+                $past := make_variable_from_parts($/, @name, '', @name[0]);
             }
             else {
                 $past := instantiated_type(@name, $/);
