@@ -3366,7 +3366,6 @@ class Perl5::Actions does STDActions {
             $V5DEBUG && say("indirect_object($/) variable");
             make $<variable>.ast
         }
-
     }
 
     method term:sym<scalar>($/) {
@@ -3554,7 +3553,7 @@ class Perl5::Actions does STDActions {
                 }
             }
 
-            if $builtin[$proto] && nqp::substr($builtin[$proto],0, 1) eq '*' {
+            if $builtin[$proto] && $builtin[$proto].substr(0, 1) eq '*' {
                 nqp::push($past, QAST::Var.new( :name('$?PACKAGE'), :scope('lexical'), :named('pkg') ) );
             }
 
@@ -3566,6 +3565,12 @@ class Perl5::Actions does STDActions {
                 $past.op( 'callmethod' );
                 $past.name( $name );
             }
+        }
+        elsif $*W.is_lexical($name) {
+            $past := QAST::Op.new( :op('call'), :name('&infix:<does>'),
+                $*W.add_string_constant(~$name),
+                QAST::WVal.new( :value(find_symbol(['P5Bareword'])) )
+            )
         }
         else {
             $past := $<args>.ast;

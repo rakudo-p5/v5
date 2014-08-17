@@ -3,7 +3,42 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>1077</td><td>39429</td><td>3</td><td>16</td><td>40473</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>2639</td><td>37867</td><td>3</td><td>16</td><td>40473</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>1543</td><td>1021</td><td>0</td><td>0</td><td>2564</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'got 161 into 70 l 2 o 0'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '1'<br />
+# expected: '2'<br />
+# Failed test 'buffer 161 into 70 l 2 o 0'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '¡'<br />
+# expected: '¡¢'<br />
+# Failed test 'buffer 161 into 70 l 5 o 0'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+Negative character fed to cclass: '-62'<br />
+  in regex  at /home/froggs/dev/nqp/install/languages/perl6/lib/Test.pm.moarvm:1<br />
+  in method match at src/gen/m-CORE.setting:6395<br />
+  in method subst at src/gen/m-CORE.setting:6470<br />
+  in method subst at src/gen/m-CORE.setting:3822<br />
+  in method dispatch:&lt;.=&gt; at src/gen/m-CORE.setting:1215<br />
+  in sub diag at lib/Test.pm:189<br />
+  in sub is at lib/Test.pm:95<br />
+  in sub _is at /home/froggs/dev/v5/t/test.pl:12<br />
+  in block  at t/spec/op/read.v5:74<br />
+  in method reify at src/gen/m-CORE.setting:7877<br />
+  in method reify at src/gen/m-CORE.setting:7713<br />
+  in method gimme at src/gen/m-CORE.setting:8202<br />
+  in method eager at src/gen/m-CORE.setting:8174<br />
+  in block  at t/spec/op/read.v5:54<br />
+  in method reify at src/gen/m-CORE.setting:7877<br />
+  in method reify at src/gen/m-CORE.setting:7713<br />
+  in method gimme at src/gen/m-CORE.setting:8202<br />
+  in method eager at src/gen/m-CORE.setting:8174<br />
+  in block  at t/spec/op/read.v5:47<br />
+# Looks like you planned 2564 tests, but ran 1546<br />
+# Looks like you failed 3 tests of 1546<br />
+</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>61</td><td>56</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
@@ -495,7 +530,7 @@ Undefined subroutine &amp;main::loop called<br />
 # at lib/Test.pm line 75<br />
 '' is not a regular file while trying to do '.z'<br />
   in method Str at src/gen/m-CORE.setting:13050<br />
-  in sub P5Str at src/Perl5/Terms.pm:1182<br />
+  in sub P5Str at src/Perl5/Terms.pm:1181<br />
   in sub P5Str at /home/froggs/dev/v5/lib/Perl5/Terms.pm.moarvm:1<br />
   in sub is at /home/froggs/dev/v5/t/test.pl:64<br />
   in block  at t/spec/op/filetest_stack_ok.v5:26<br />
@@ -555,6 +590,7 @@ Undefined subroutine &amp;main::loop called<br />
 # expected: '0'<br />
 # Looks like you failed 1 tests of 28<br />
 </td></tr>
+        <tr align='center'><td align='left'>t/v5/06-bool.v5</td><td>26</td><td>6</td><td>0</td><td>0</td><td>32</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/rxcode.v5</td><td>26</td><td>12</td><td>0</td><td>1</td><td>39</td></tr>
         <tr><td colspan='5'># Failed test '..$^R after a =~ ab?'<br />
 # at lib/Test.pm line 75<br />
@@ -603,7 +639,7 @@ Testing limit capabilities<br />
 # Failed test at lib/Test.pm line 75<br />
 Cannot modify an immutable Int<br />
   in sub undefine at src/gen/m-CORE.setting:17429<br />
-  in sub undef at src/Perl5/Terms.pm:276<br />
+  in sub undef at src/Perl5/Terms.pm:275<br />
   in block  at t/spec/op/undef.v5:1<br />
 # Looks like you planned 85 tests, but ran 25<br />
 # Looks like you failed 2 tests of 25<br />
@@ -754,10 +790,6 @@ Undefined subroutine &amp;main::INSTALL called<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align='center'><td align='left'>op/lop.v5</td><td>17</td><td>0</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/06-bool.v5</td><td>16</td><td>16</td><td>0</td><td>0</td><td>32</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate object method "new" via package "Main" (perhaps you forgot to load "Main"?)<br />
-</td></tr>
         <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/not.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>parens needed around second argument in next two tests<br />
@@ -773,6 +805,23 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>10</td><td>5</td><td>0</td><td>0</td><td>15</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'Got errno'<br />
+# at lib/Test.pm line 102<br />
+# twice: '0'<br />
+# Failed test 'Got errno'<br />
+# at lib/Test.pm line 102<br />
+# twice: '0'<br />
+# Failed test 'All punctuation fails open'<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Bad package fails open'<br />
+# at lib/Test.pm line 75<br />
+# Failed test 'Got errno'<br />
+# at lib/Test.pm line 102<br />
+# twice: '0'<br />
+# Looks like you failed 5 tests of 15<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/05-if.v5</td><td>9</td><td>0</td><td>0</td><td>0</td><td>9</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_unwind.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'><br />
@@ -984,15 +1033,11 @@ Undefined subroutine &amp;main::select called<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
   in block  at t/spec/base/term.v5:1<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>1</td><td>14</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>Undefined subroutine &amp;main::FH called<br />
-  in block  at t/spec/io/perlio_fail.v5:13<br />
-# Looks like you planned 15 tests, but ran 1<br />
-</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-accessor.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate object method "new1" via package "Other" (perhaps you forgot to load "Other"?)<br />
+        <tr><td colspan='5'>No such method 'new1' for invocant of type 'Str+{P5Bareword}'<br />
+  in block  at t/v5/11-accessor.v5:17<br />
+  in block  at t/v5/11-accessor.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>1</td><td>28</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>Can't open stdout<br />
@@ -1189,7 +1234,7 @@ Bogus statement at line 36, near "hash =&gt; { "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'splice' for invocant of type 'Range'<br />
-  in sub P5splice at src/Perl5/Terms.pm:1103<br />
+  in sub P5splice at src/Perl5/Terms.pm:1102<br />
   in block  at t/spec/op/splice.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1257,7 +1302,7 @@ Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
         <tr align='center'><td align='left' rowspan='2'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub shell at src/gen/m-CORE.setting:747<br />
-  in sub system at src/Perl5/Terms.pm:279<br />
+  in sub system at src/Perl5/Terms.pm:278<br />
   in block  at t/spec/porting/checkcfgvar.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1326,7 +1371,7 @@ Undefined subroutine &amp;main::find_git_or_skip called<br />
         <tr align='center'><td align='left' rowspan='2'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub shell at src/gen/m-CORE.setting:747<br />
-  in sub system at src/Perl5/Terms.pm:279<br />
+  in sub system at src/Perl5/Terms.pm:278<br />
   in block  at t/spec/porting/perlfunc.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1500,13 +1545,13 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at lib/Test.pm line 89<br />
-#      got: 'tmp8746A'<br />
-# expected: 'tmp8746B'<br />
+#      got: 'tmp13976A'<br />
+# expected: 'tmp13976B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp8746B'<br />
-# expected: 'tmp8746C'<br />
+#      got: 'tmp13976B'<br />
+# expected: 'tmp13976C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
-  in sub fail at src/Perl5/Terms.pm:211<br />
+  in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
   in sub skip_files at t/spec/test_pl/tempfile.v5:13<br />
   in block  at t/spec/test_pl/tempfile.v5:1<br />
@@ -1660,8 +1705,9 @@ Other potential difficulties:<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate object method "new" via package "Foo" (perhaps you forgot to load "Foo"?)<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::ok called<br />
+  in block  at t/spec/lib/overload_nomethod.v5:13<br />
+  in block  at t/spec/lib/overload_nomethod.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
@@ -1883,10 +1929,7 @@ Can't locate object method "foo" via package "B" (perhaps you forgot to load "B"
 Can't locate object method "ᕘ" via package "Ḃ" (perhaps you forgot to load "Ḃ"?)<br />
 # Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
+        <tr align='center'><td align='left'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot call 'Real'; none of these signatures match:<br />
@@ -1934,16 +1977,17 @@ Merging GLOBAL symbols failed: duplicate definition of symbol $^P<br />
 Bogus statement at line 19, near "pack('C*',"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-bind-method-param.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate object method "subr" via package "Main" (perhaps you forgot to load "Main"?)<br />
+        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
+  in block  at t/v5/11-bind-method-param.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-bless.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate object method "new" via package "Other" (perhaps you forgot to load "Other"?)<br />
+        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
+  in block  at t/v5/11-bless.v5:7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate object method "new" via package "Other" (perhaps you forgot to load "Other"?)<br />
+        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
+  in block  at t/v5/11-class-open.v5:31<br />
+  in block  at t/v5/11-class-open.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
@@ -2194,8 +2238,9 @@ This type cannot unbox to a native string<br />
 # Looks like you planned 5 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/11-class.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate object method "new" via package "Other" (perhaps you forgot to load "Other"?)<br />
+        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
+  in block  at t/v5/11-class.v5:30<br />
+  in block  at t/v5/11-class.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2219,12 +2264,12 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp8477A/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp13644A/aaa' (indicated by ⏏)<br />
   in method Numeric at src/gen/m-CORE.setting:13049<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4363<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
-  in sub P5unlink at src/Perl5/Terms.pm:1334<br />
-  in sub P5unlink at src/Perl5/Terms.pm:1332<br />
+  in sub P5unlink at src/Perl5/Terms.pm:1333<br />
+  in sub P5unlink at src/Perl5/Terms.pm:1331<br />
   in block  at t/spec/op/unlink.v5:1<br />
 # Looks like you planned 6 tests, but ran 0<br />
 </td></tr>
@@ -2461,7 +2506,7 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1408288659.33946 has not appeared<br />
+QAST::Block with cuid cuid_101_1408307121.65973 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3455,11 +3500,6 @@ Bogus statement at line 155, near "[ '%lld' ="<br />
 Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/re/pat_rt_report.v5:96<br />
 ------&gt;         ok("École" =~ /^\⏏C\C(.)/ &amp;&amp; $1 eq 'c', $message);<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
-        <tr><td colspan='5'>Undefined subroutine &amp;main::FOO called<br />
-  in block  at t/spec/op/read.v5:1<br />
-# Looks like you planned 2564 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
