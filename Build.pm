@@ -97,9 +97,10 @@ multi MAIN('summary') {
         #~ shell 'cd t/spec/ && git config remote.origin.pushurl git@github.com:rakudo-p5/roast5.git'
     }
     shell 'cd t/spec/ && git pull';
-    %*ENV<V5DEBUG>   = '0';
-    %*ENV<STATUS_MD> = 'STATUS-' ~ $*VM.name.substr(0,1) ~ '.md';
-    %*ENV<PERL6_EXE> = $perl6;
+    %*ENV<ANSI_COLORS_DISABLED> = '1' if $*DISTRO.is-win;
+    %*ENV<V5DEBUG>              = '0';
+    %*ENV<STATUS_MD>            = 'STATUS-' ~ $*VM.name.substr(0,1) ~ '.md';
+    %*ENV<PERL6_EXE>            = $perl6;
     shell 'perl t/test_summary'
 }
 
