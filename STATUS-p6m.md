@@ -3510,7 +3510,7 @@ Bogus statement at line 9, near "'UTF-8'   "<br />
 Bogus statement at line 285, near "$x = unpac"<br />
 </td></tr>
 
-        <tr><td>/home/froggs/dev/nqp/install/bin/perl6-m -I/home/froggs/dev/v5/lib --version</td><td colspan='5'>This is perl6 version 2014.07-195-g95da918 built on MoarVM version 2014.07-407-g0d7dd40
+        <tr><td>compiler version</td><td colspan='5'>This is perl6 version 2014.07-195-g95da918 built on MoarVM version 2014.07-407-g0d7dd40
 </td></tr>
     </tbody>
 </table>
