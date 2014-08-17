@@ -51,10 +51,10 @@ class Perl5::ModuleLoader {
             %chosen<pm> = %chosen<key> = $candi<files>{$file};
         }
         elsif nqp::defined($file) {
-            nqp::die("Could not find file '$file' for module $module_name");
+            nqp::die("Can't locate $file in @INC (@INC contains: @INC[])");
         }
         else {
-            nqp::die("Could not find $module_name in any of: " ~ join(', ', @INC));
+            nqp::die("Can't locate $module_name in @INC (@INC contains: @INC[])");
         }
 
         my @MODULES := nqp::clone(@*MODULES // []);
