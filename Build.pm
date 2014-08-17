@@ -96,6 +96,7 @@ multi MAIN('summary') {
         shell 'git clone git://github.com/rakudo-p5/roast5.git t/spec'
         #~ shell 'cd t/spec/ && git config remote.origin.pushurl git@github.com:rakudo-p5/roast5.git'
     }
+    shell 'cd t/spec/ && git pull';
     %*ENV<V5DEBUG>   = '0';
     %*ENV<STATUS_MD> = 'STATUS-' ~ $*VM.name.substr(0,1) ~ '.md';
     %*ENV<PERL6_EXE> = $perl6;
