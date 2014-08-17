@@ -70,7 +70,7 @@ class Build {
             next if $bc.IO.e && (!$module<deps>.elems
                               || %build_time{$module<name>} >= all @($module<deps>).map({ %build_time{$_} }));
 
-            shell("mkdir -p $dir") unless $dir.path.d;
+            mkdir-p($dir) unless $dir.path.d;
 
             say "Compiling ({$i}) $module<name> to $*VM.precomp-target()";
             my $cmd = $perl6 ~ " --target=$*VM.precomp-target() --output=$bc $pm";
@@ -117,4 +117,8 @@ multi MAIN('clean') {
 
 multi MAIN('install') {
     
+}
+
+sub mkdir-p($path) {
+    $*DISTRO.is-win ?? shell("mkdir $path") !! shell("mkdir -p $path")
 }
