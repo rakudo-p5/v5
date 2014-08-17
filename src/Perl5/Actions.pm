@@ -1799,30 +1799,38 @@ class Perl5::Actions does STDActions {
         }
         else {
             my $indirect;
-            if $<desigilname> && $<desigilname><longname> {
-                my $longname = dissect_longname($<desigilname><longname>);
-                if $longname.contains_indirect_lookup() {
-                    if $*IN_DECL {
-                        $*W.throw($/, ['X', 'Syntax', 'Variable', 'IndirectDeclaration']);
-                    }
-                    $past := self.make_indirect_lookup($longname.components(), ~$<sigil>);
-                    $indirect := 1;
-                }
-                elsif $longname.get_who {
-                    my $pkg := nqp::join('::', $longname.components);
-                    $past := QAST::Op.new( :op('callmethod'), :name('new'),
-                        QAST::WVal.new( :value(find_symbol(['Typeglob']) ) ),
-                        QAST::WVal.new( :value(find_symbol([$pkg]) ), :named('value') )
-                    )
-                }
-                elsif ~$<desigilname><longname> eq '::' {
-                    $past := QAST::Op.new( :op('callmethod'), :name('new'),
-                        QAST::WVal.new( :value(find_symbol(['Typeglob']) ) ),
-                        QAST::WVal.new( :value(find_symbol(['GLOBAL']) ), :named('value') )
+            if $<desigilname> && $<desigilname><longname> -> $ln {
+                if $ln eq 'INC' && ~$<sigil> eq '@'|'$#' && !$*W.is_lexical('@INC') {
+                    $past := QAST::Op.new( :op('call'), :name('&postcircumfix:<{ }>'),
+                        QAST::Op.new( :op('call'), :name('&DYNAMIC'), $*W.add_string_constant('%*CUSTOM_LIB') ),
+                            QAST::SVal.new( :value<Perl5> )
                     )
                 }
                 else {
-                    $past := make_variable($/, $longname.variable_components(~$<sigil>, ''));
+                    my $longname = dissect_longname($<desigilname><longname>);
+                    if $longname.contains_indirect_lookup() {
+                        if $*IN_DECL {
+                            $*W.throw($/, ['X', 'Syntax', 'Variable', 'IndirectDeclaration']);
+                        }
+                        $past := self.make_indirect_lookup($longname.components(), ~$<sigil>);
+                        $indirect := 1;
+                    }
+                    elsif $longname.get_who {
+                        my $pkg := $longname.components.join('::');
+                        $past := QAST::Op.new( :op('callmethod'), :name('new'),
+                            QAST::WVal.new( :value(find_symbol(['Typeglob']) ) ),
+                            QAST::WVal.new( :value(find_symbol([$pkg]) ), :named('value') )
+                        )
+                    }
+                    elsif ~$<desigilname><longname> eq '::' {
+                        $past := QAST::Op.new( :op('callmethod'), :name('new'),
+                            QAST::WVal.new( :value(find_symbol(['Typeglob']) ) ),
+                            QAST::WVal.new( :value(find_symbol(['GLOBAL']) ), :named('value') )
+                        )
+                    }
+                    else {
+                        $past := make_variable($/, $longname.variable_components(~$<sigil>, ''));
+                    }
                 }
             }
             else {

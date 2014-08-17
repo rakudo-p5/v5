@@ -194,13 +194,13 @@ role STD5 {
     }
 
     method panic(*@args) {
-        self.typed_panic('X::Comp::AdHoc', payload => nqp::join('', @args))
+        self.typed_panic('X::Comp::AdHoc', payload => @args.join)
     }
     method sorry(*@args) {
-        self.typed_sorry('X::Comp::AdHoc', payload => nqp::join('', @args))
+        self.typed_sorry('X::Comp::AdHoc', payload => @args.join)
     }
     method worry(*@args) {
-        self.typed_worry('X::Comp::AdHoc', payload => nqp::join('', @args))
+        self.typed_worry('X::Comp::AdHoc', payload => @args.join)
     }
 
     method typed_panic($type_str, *%opts) {
@@ -254,10 +254,16 @@ role STD5 {
             $var<really>.make('@') if $var<sigil> && ~$var<sigil> eq '$#';
             $varast.name( $var<really>.made ~ ~$var<desigilname> ) if $var<really>.made;
             $varast.name( ~$var<sigil>      ~ ~$var<name> )        if $var<name>;
-            $varast.name('__INC__')                                if $varast.name eq '@INC';
+            #~ $varast.name('__INC__')                                if $varast.name eq '@INC';
             my $name := $varast.name;
             my $is_global := nqp::substr(~$var<desigilname>, 0, 2) eq '::' if $var<desigilname>;
-            if $name ne '@_' && !$*W.is_lexical($name) {
+            if $name eq '@INC' {# && !$*W.is_lexical($name) {
+                #~ $varast := QAST::Op.new( :op('call'), :name('&postcircumfix:<{ }>'),
+                    #~ QAST::Var.new( :name('%*CUSTOM_LIB'), :scope('lexical') ),
+                        #~ QAST::SVal.new( :value<Perl5> )
+                #~ )
+            }
+            elsif $name ne '@_' && !$*W.is_lexical($name) {
                 if !$var<sigil> || $var<sigil> ne '&' {
                     if !%pragmas<strict><vars> || ($*IN_SORT && ($name eq '$a' || $name eq '$b')) || $name eq '%_'
                     || $is_global {
