@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>1023</td><td>39483</td><td>3</td><td>16</td><td>40473</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>1077</td><td>39429</td><td>3</td><td>16</td><td>40473</td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>61</td><td>56</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
@@ -447,6 +447,14 @@ Undefined subroutine &amp;main::loop called<br />
   in block  at t/spec/op/my.v5:108<br />
 <br />  49 tests more than planned were run<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test '99a incr 100'<br />
+# at lib/Test.pm line 75<br />
+# Failed test '99\0a incr 100'<br />
+# at lib/Test.pm line 75<br />
+# Looks like you failed 2 tests of 47<br />
+</td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>34</td><td>101</td><td>0</td><td>0</td><td>135</td></tr>
         <tr><td colspan='5'><br />
@@ -782,6 +790,28 @@ to preserve list context inside function call<br />
 # expected: 't3<br />
 # '<br />
 # Looks like you failed 3 tests of 12<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>9</td><td>4</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr><td colspan='5'>This type cannot unbox to a native string<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:13393<br />
+  in block  at src/gen/m-CORE.setting:13274<br />
+  in method reify at src/gen/m-CORE.setting:7877<br />
+  in method reify at src/gen/m-CORE.setting:7713<br />
+  in method gimme at src/gen/m-CORE.setting:8202<br />
+  in method sink at src/gen/m-CORE.setting:8661<br />
+  in block  at src/gen/m-CORE.setting:13268<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:13351<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:13248<br />
+  in method match at src/gen/m-CORE.setting:6395<br />
+  in sub like_yn at /home/froggs/dev/v5/t/test.pl:96<br />
+  in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
+  in block  at t/spec/op/append.v5:43<br />
+  in method reify at src/gen/m-CORE.setting:7877<br />
+  in method reify at src/gen/m-CORE.setting:7713<br />
+  in method gimme at src/gen/m-CORE.setting:8202<br />
+  in method sink at src/gen/m-CORE.setting:8661<br />
+  in block  at t/spec/op/append.v5:1<br />
+# Looks like you planned 13 tests, but ran 9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>   1 todo   : <br />
@@ -1189,7 +1219,17 @@ Cannot find method 'named'<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 34, near "[ '@###', "<br />
 </td></tr>
-        <tr align='center'><td align='left'>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $i<br />
+    at t/spec/opbasic/cmp.v5:290<br />
+    ------&gt; while (my ($i⏏, $v) = each @utf8) {<br />
+    Redeclaration of symbol $v<br />
+    at t/spec/opbasic/cmp.v5:290<br />
+    ------&gt; while (my ($i, $v⏏) = each @utf8) {<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/args_assert.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
@@ -1399,7 +1439,7 @@ This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
@@ -1460,11 +1500,11 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at lib/Test.pm line 89<br />
-#      got: 'tmp6230A'<br />
-# expected: 'tmp6230B'<br />
+#      got: 'tmp8746A'<br />
+# expected: 'tmp8746B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp6230B'<br />
-# expected: 'tmp6230C'<br />
+#      got: 'tmp8746B'<br />
+# expected: 'tmp8746C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:211<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -1741,7 +1781,7 @@ Bogus statement at line 19, near "'\\w' =&gt; [ "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/no_utf8_pm.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qrstack.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1912,7 +1952,7 @@ Can't locate object method "new" via package "Other" (perhaps you forgot to load
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2008,7 +2048,7 @@ Undefined subroutine &amp;main::delete called<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2140,7 +2180,7 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/opcroak.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2179,7 +2219,7 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp5939A/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp8477A/aaa' (indicated by ⏏)<br />
   in method Numeric at src/gen/m-CORE.setting:13049<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4363<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
@@ -2421,7 +2461,7 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1408284628.25636 has not appeared<br />
+QAST::Block with cuid cuid_101_1408288659.33946 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2472,7 +2512,7 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/eintr.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2656,10 +2696,6 @@ This type does not support positional operations<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot find method 'named'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pow.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 17, near "[  3, 30, "<br />
@@ -2758,7 +2794,7 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/defout.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/defout.v5<br />
@@ -2807,7 +2843,7 @@ at t/spec/uni/package.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die.v5</td><td>0</td><td>19</td><td>0</td><td>0</td><td>19</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2897,8 +2933,10 @@ This type does not support positional operations<br />
 Cannot find method 'at_key': no method cache and no .^find_method<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/qq.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/opbasic/qq.v5<br />
+Unrecognized backslash sequence: '\x'<br />
+at t/spec/opbasic/qq.v5:45<br />
+------&gt; is ("\x⏏h", chr (0) . 'h');	# This will warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/rs.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2997,18 +3035,15 @@ Cannot find method 'value'<br />
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/auto.v5</td><td>0</td><td>47</td><td>0</td><td>0</td><td>47</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
 # Looks like you planned 48 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>sysio.t: cannot find myself: <br />
+  in block  at t/spec/op/sysio.v5:1<br />
+# Looks like you planned 48 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3038,7 +3073,7 @@ Bogus statement at line 43, near "name =&gt; 'a"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stash.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3063,8 +3098,10 @@ at t/spec/mro/basic.v5:7<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/quotemeta.v5<br />
+Unrecognized backslash sequence: '\U'<br />
+at t/spec/op/quotemeta.v5:35<br />
+------&gt; is("aA\⏏UbB\LcC\EdD", "aABBccdD", 'aA\UbB\LcC\Ed<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
@@ -3085,8 +3122,10 @@ at t/spec/op/grep.v5:57<br />
 ------&gt;            {a =&gt;$_},⏏&lt;EOL&gt;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/method.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/method.v5<br />
+Confused<br />
+at t/spec/uni/method.v5:43<br />
+------&gt; method "ｍｅｔｈｏｄ" on unblessed reference /⏏u;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each_array.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3140,8 +3179,12 @@ Cannot find method 'named'<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>No such method 'name' for invocant of type 'Any'<br />
+  in method name at src/Perl5/Terms.pm:116<br />
+  in method list at src/Perl5/Terms.pm:131<br />
+  in method keys at src/gen/m-CORE.setting:1563<br />
+  in sub keys at src/gen/m-CORE.setting:1957<br />
+  in block  at t/spec/comp/retainedlines.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/oct.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3294,19 +3337,21 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>0</td><td>143</td><td>0</td><td>0</td><td>143</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 30, near "\"# This is"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/parser.v5<br />
+Unrecognized backslash sequence: '\Q'<br />
+at t/spec/comp/parser.v5:115<br />
+------&gt; is( "\⏏Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Q\Qa", "a", "PL_le<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3406,12 +3451,15 @@ This type does not support positional operations<br />
 Bogus statement at line 155, near "[ '%lld' ="<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_rt_report.v5<br />
+Unrecognized Perl 5 regex backslash sequence<br />
+at t/spec/re/pat_rt_report.v5:96<br />
+------&gt;         ok("École" =~ /^\⏏C\C(.)/ &amp;&amp; $1 eq 'c', $message);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>0</td><td>2564</td><td>0</td><td>0</td><td>2564</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'throw_unrecog_backslash_seq' for invocant of type 'Perl5::QGrammar+{qq}+{stop5[Str]}'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::FOO called<br />
+  in block  at t/spec/op/read.v5:1<br />
+# Looks like you planned 2564 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
