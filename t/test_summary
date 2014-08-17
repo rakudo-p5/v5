@@ -371,7 +371,7 @@ for ( reverse sort { $a <=> $b } keys %status_rows ) {
     print STATUS $status_rows{$_};
 }
 print STATUS "
-        <tr><td>$ENV{PERL6_EXE} --version</td><td colspan='5'>" . `$ENV{PERL6_EXE} --version` . "</td></tr>
+        <tr><td>compiler version</td><td colspan='5'>" . `$ENV{PERL6_EXE} --version` . "</td></tr>
     </tbody>\n</table>\n";
 close STATUS;
 File::Copy::move($ENV{STATUS_MD} . '.new', $ENV{STATUS_MD});
