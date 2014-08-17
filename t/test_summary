@@ -63,10 +63,9 @@ close $fh or die $!;
 
 # Fudge any implementation specific tests by running the fudgeall script
 {
-    my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, 't/*/*.t t/*/*/*.t';
+    my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, @tfiles;
     # Fudgeall prints the name of each test script, but changes the name
     # ending to match the implementation instead of .t if tests were fudged.
-    print "$cmd\n";
     @tfiles = split ' ', `$cmd`; # execute fudgeall, collect test names
 }
 
@@ -77,6 +76,7 @@ my $max = 0;
 for my $tfile (@tfiles) {
     my $tname = $tfile;
     $tname =~ s{^t/spec/}{};
+    $tname =~ s{^\.\.}{t};
     $tname = substr($tname, 0, 49);
     if (length($tname) > $max) {
         $max = length($tname);
