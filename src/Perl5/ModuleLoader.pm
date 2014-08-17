@@ -41,11 +41,15 @@ class Perl5::ModuleLoader {
         my %INC := $INC.FLATTENABLE_HASH() if nqp::defined($INC);
         my @INC := %INC<Perl5>.FLATTENABLE_LIST() if %INC<Perl5>;
         my %chosen;
+        my $path = $file.path if $file;
         if self.candidates($module_name, :$file, :@INC)[0] -> $candi {
             %chosen<pm> = ~$candi.path;
             $candi.has-precomp ??
                 ?? (%chosen<load> = %chosen<key> = %chosen<pm> ~ '.' ~ $candi.precomp-ext)
                 !! (%chosen<key>  = %chosen<pm>)
+        }
+        elsif $file && ($path.is-absolute || $file ~~ / './' | '.\\' /) && $path.e { #'
+            %chosen<pm> = %chosen<key> = ~$path.absolute;
         }
         elsif $file && self.files($file, :@INC)[0] -> $candi {
             %chosen<pm> = %chosen<key> = $candi<files>{$file};
