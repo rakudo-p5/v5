@@ -13,7 +13,7 @@ my %config =
     j_perl6        => "perl6-j -I{cwd}/lib",
     p_nqplib       => qqx{nqp-p -e "my \%conf := pir::getinterp__P()[pir::const::IGLOBALS_CONFIG_HASH]; print(\%conf<libdir> ~ \%conf<versiondir> ~ '/languages/nqp');"},
     m_nqplib       => qqx{nqp-m -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
-    j_nqplib       => qqx{nqp-p -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
+    j_nqplib       => qqx{nqp-j -e "nqp::print(nqp::backendconfig<prefix> ~ '/languages/nqp')"},
     p_p6lib        => qqx{perl6-p -e "print \%*CUSTOM_LIB<perl>"},
     m_p6lib        => qqx{perl6-m -e "print \%*CUSTOM_LIB<perl>"},
     j_p6lib        => qqx{perl6-j -e "print \%*CUSTOM_LIB<perl>"},
