@@ -3,445 +3,63 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>2639</td><td>37867</td><td>3</td><td>16</td><td>40473</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>1543</td><td>1021</td><td>0</td><td>0</td><td>2564</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>2872</td><td>37809</td><td>2</td><td>16</td><td>40647</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>1542</td><td>1022</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'got 161 into 70 l 2 o 0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1'<br />
 # expected: '2'<br />
-# Failed test 'buffer 161 into 70 l 2 o 0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: '¡'<br />
-# expected: '¡¢'<br />
-# Failed test 'buffer 161 into 70 l 5 o 0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-Negative character fed to cclass: '-62'<br />
-  in regex  at /home/froggs/dev/nqp/install/languages/perl6/lib/Test.pm.moarvm:1<br />
-  in method match at src/gen/m-CORE.setting:6395<br />
-  in method subst at src/gen/m-CORE.setting:6470<br />
-  in method subst at src/gen/m-CORE.setting:3822<br />
-  in method dispatch:&lt;.=&gt; at src/gen/m-CORE.setting:1215<br />
-  in sub diag at lib/Test.pm:189<br />
-  in sub is at lib/Test.pm:95<br />
-  in sub _is at /home/froggs/dev/v5/t/test.pl:12<br />
-  in block  at t/spec/op/read.v5:74<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method eager at src/gen/m-CORE.setting:8174<br />
-  in block  at t/spec/op/read.v5:54<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method eager at src/gen/m-CORE.setting:8174<br />
-  in block  at t/spec/op/read.v5:47<br />
-# Looks like you planned 2564 tests, but ran 1546<br />
-# Looks like you failed 3 tests of 1546<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/pow.v5</td><td>267</td><td>1</td><td>0</td><td>0</td><td>268</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test '-2 ** 31 got[-2147483648] expect[-2147483648]'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Looks like you failed 1 tests of 268<br />
 </td></tr>
         <tr align='center'><td align='left'>opbasic/arith.v5</td><td>153</td><td>14</td><td>0</td><td>0</td><td>167</td></tr>
+        <tr align='center'><td align='left'>op/upgrade.v5</td><td>64</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>61</td><td>56</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
   in block  at t/spec/cmd/for.v5:665<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/cmd/for.v5:20<br />
 <br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
-        <tr><td colspan='5'><br />
-# Failed test at lib/Test.pm line 75<br />
-<br />   1 todo   : NYI<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>52</td><td>12</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'join list'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'long list assign'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'short list 1 defined'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'short list 2 defined'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'long list reassign'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'logical or f'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'slice ary nil'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 Index out of range. Is: 1, should be in 0..0<br />
-  in method Str at src/gen/m-CORE.setting:13050<br />
+  in method Str at src/gen/m-CORE.setting:13075<br />
   in method join at src/gen/m-CORE.setting:1733<br />
   in sub join at src/gen/m-CORE.setting:1946<br />
   in block  at t/spec/op/list.v5:169<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/op/list.v5:9<br />
 # Looks like you planned 64 tests, but ran 59<br />
 # Looks like you failed 7 tests of 59<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/split_unicode.v5</td><td>48</td><td>103</td><td>0</td><td>0</td><td>151</td></tr>
-        <tr><td colspan='5'><br />
-# Failed test 'Space: U+0009 - /\s+/ (count)'<br />
-# at lib/Test.pm line 89<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+0009 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+0009 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+0009 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+000a - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+000a - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+000a - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+000a - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+000c - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+000c - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+000c - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+000c - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+000d - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+000d - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+000d - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+000d - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+0020 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+0020 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+0020 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '5'<br />
-# Failed test 'Space: U+0020 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+0085 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+0085 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+0085 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+0085 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+00a0 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+00a0 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+00a0 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+00a0 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+1680 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+1680 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+1680 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+1680 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+180e - /\s+/'<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+180e - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A:᠎:B'<br />
-# expected: '1'<br />
-# Failed test 'Space: U+180e - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+180e - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+180e - /\s+/ No.2'<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+180e - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: '᠎᠎:A:᠎᠎:B'<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2000 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2000 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2000 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2000 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2001 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2001 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2001 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2001 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2002 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2002 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2002 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2002 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2003 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2003 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2003 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2003 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2004 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2004 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2004 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2004 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2005 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2005 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2005 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2005 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2006 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2006 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2006 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2006 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2007 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2007 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2007 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2007 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2008 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2008 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2008 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2008 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2009 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2009 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2009 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2009 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+200a - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+200a - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+200a - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+200a - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2028 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2028 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2028 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2028 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+2029 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+2029 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+2029 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+2029 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+202f - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+202f - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+202f - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+202f - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+205f - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+205f - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+205f - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+205f - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Failed test 'Space: U+3000 - /\s+/ (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'A::B'<br />
-# expected: '2'<br />
-# Failed test 'Space: U+3000 - ' ''<br />
-# at lib/Test.pm line 75<br />
-# Failed test 'Space: U+3000 - ' ' (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ''<br />
-# expected: '1'<br />
-# Failed test 'Space: U+3000 - /\s+/ No.2 (count)'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: ':A::B'<br />
-# expected: '3'<br />
-# Looks like you planned 151 tests, but ran 150<br />
-# Looks like you failed 102 tests of 150<br />
+        <tr align='center'><td align='left' rowspan='2'>base/num.v5</td><td>52</td><td>0</td><td>1</td><td>0</td><td>53</td></tr>
+        <tr><td colspan='5'>   1 todo   : NYI<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/my.v5</td><td>45</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -458,78 +76,78 @@ Index out of range. Is: 1, should be in 0..0<br />
     at t/spec/op/my.v5:92<br />
     ------&gt; for (my $i ⏏= 0; (my $k = $i) &lt; $j; ++$i) {<br />
 # Failed test 'correct number of elements in array'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: 'ok 16<br />
 # '<br />
 # expected: '1'<br />
 # Failed test 'correct number of elements in array'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'ok 17<br />
 # '<br />
 # expected: '1'<br />
 # Failed test '$k is only defined in the scope of the previous for loop'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '$i not modified by while/for/foreach using same variable name'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: '5'<br />
 # expected: 'outer'<br />
 Undefined subroutine &amp;main::loop called<br />
   in block  at t/spec/op/my.v5:140<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/op/my.v5:108<br />
 <br />  49 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '99a incr 100'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '99\0a incr 100'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 2 tests of 47<br />
 </td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>34</td><td>101</td><td>0</td><td>0</td><td>135</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '-r *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '-w *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '-x *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '-o *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
-# Failed test at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: '1'<br />
 # expected: '-o $overld did not leave $overld on the stack'<br />
 # Failed test '-R *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1'<br />
 # expected: '-R $overld did not leave $overld on the stack'<br />
 # Failed test '-W *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1'<br />
 # expected: '-W $overld did not leave $overld on the stack'<br />
 # Failed test '-X *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1'<br />
 # expected: '-X $overld did not leave $overld on the stack'<br />
 # Failed test '-O *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1'<br />
 # expected: '-O $overld did not leave $overld on the stack'<br />
 # Failed test '-e *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '-z *gv returns single value'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 '' is not a regular file while trying to do '.z'<br />
-  in method Str at src/gen/m-CORE.setting:13050<br />
+  in method Str at src/gen/m-CORE.setting:13075<br />
   in sub P5Str at src/Perl5/Terms.pm:1181<br />
   in sub P5Str at /home/froggs/dev/v5/lib/Perl5/Terms.pm.moarvm:1<br />
   in sub is at /home/froggs/dev/v5/t/test.pl:64<br />
@@ -537,46 +155,283 @@ Undefined subroutine &amp;main::loop called<br />
 # Looks like you planned 135 tests, but ran 49<br />
 # Looks like you failed 15 tests of 49<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/split_unicode.v5</td><td>31</td><td>120</td><td>0</td><td>0</td><td>151</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'Space: U+0009 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+0009 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+0009 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+0009 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+000a - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+000a - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+000a - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+000a - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+000c - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+000c - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+000c - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+000c - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+000d - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+000d - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+000d - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+000d - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+0020 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+0020 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+0020 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '5'<br />
+# Failed test 'Space: U+0020 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+0085 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+0085 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+0085 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+0085 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+00a0 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+00a0 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+00a0 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+00a0 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+1680 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+1680 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+1680 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+1680 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+180e - /\s+/'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+180e - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A:᠎:B'<br />
+# expected: '1'<br />
+# Failed test 'Space: U+180e - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+180e - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+180e - /\s+/ No.2'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+180e - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '᠎᠎:A:᠎᠎:B'<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2000 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2000 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+2000 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2000 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2001 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2001 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+2001 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2001 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2002 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2002 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+2002 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2002 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2003 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2003 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+2003 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2003 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2004 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2004 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+2004 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2004 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2005 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2005 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+2005 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2005 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2006 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2006 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'Space: U+2006 - ' ' (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '1'<br />
+# Failed test 'Space: U+2006 - /\s+/ No.2 (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ':A::B'<br />
+# expected: '3'<br />
+# Failed test 'Space: U+2007 - /\s+/ (count)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'A::B'<br />
+# expected: '2'<br />
+# Failed test 'Space: U+2007 - ' ''<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/negate.v5</td><td>31</td><td>14</td><td>0</td><td>0</td><td>45</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'Negation of string starting with "-" returns a string starting with "+" - non-numeric'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: '10'<br />
 # expected: '+10foo'<br />
 # Failed test 'Negation of a negative string adds "-" to the front'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '-xyz'<br />
 # Failed test 'Negation of a negative string to positive'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '+xyz'<br />
 # Failed test 'Negation of a positive string to negative'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '-xyz'<br />
 # Failed test 'cached numeric value does not sabotage string negation'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '-dogs'<br />
 # Failed test 'Negation of string starting with "-" returns a string starting with "+" - non-numeric'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '10'<br />
 # expected: '+10foo'<br />
 # Failed test 'Negation of a negative string adds "-" to the front'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '-xyz'<br />
 # Failed test 'Negation of a negative string to positive'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '+xyz'<br />
 # Failed test 'Negation of a positive string to negative'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '-xyz'<br />
 # Failed test 'cached numeric value does not sabotage string negation'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '0'<br />
 # expected: '-dogs'<br />
 # Looks like you planned 45 tests, but ran 41<br />
@@ -585,43 +440,42 @@ Undefined subroutine &amp;main::loop called<br />
         <tr align='center'><td align='left' rowspan='2'>op/recurse.v5</td><td>27</td><td>1</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '64K deep recursion - no coredump expected'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: '0'<br />
 # Looks like you failed 1 tests of 28<br />
 </td></tr>
-        <tr align='center'><td align='left'>t/v5/06-bool.v5</td><td>26</td><td>6</td><td>0</td><td>0</td><td>32</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/rxcode.v5</td><td>26</td><td>12</td><td>0</td><td>1</td><td>39</td></tr>
         <tr><td colspan='5'># Failed test '..$^R after a =~ ab?'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..$^R after ab =~ ab'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..$^R after ab =~ ab?'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..$^R after ab =~ ab? (2)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..$^R after ab =~ ab? (3)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..$^R after ac =~ ab?'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..nothing pushed'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..still nothing pushed'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..nothing pushed (package)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..still nothing pushed (package)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '$^R == 32'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '$^R == 37'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 12 tests of 39<br />
 <br />   1 skipped: hangs<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/_num_to_alpha.v5</td><td>24</td><td>1</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan='5'><br />
-# Failed test at lib/Test.pm line 89<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: 'Returns undef for negative numbers'<br />
 Testing limit capabilities<br />
@@ -635,10 +489,10 @@ Testing limit capabilities<br />
     Redeclaration of symbol @foo<br />
     at t/spec/op/undef.v5:102<br />
     ------&gt;     tie my @foo⏏, 'Tie::StdArray';<br />
-# Failed test at lib/Test.pm line 75<br />
-# Failed test at lib/Test.pm line 75<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
 Cannot modify an immutable Int<br />
-  in sub undefine at src/gen/m-CORE.setting:17429<br />
+  in sub undefine at src/gen/m-CORE.setting:17458<br />
   in sub undef at src/Perl5/Terms.pm:275<br />
   in block  at t/spec/op/undef.v5:1<br />
 # Looks like you planned 85 tests, but ran 25<br />
@@ -647,15 +501,15 @@ Cannot modify an immutable Int<br />
         <tr align='center'><td align='left' rowspan='2'>uni/sprintf.v5</td><td>22</td><td>30</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '\x{1234}'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f 1'<br />
 # expected: '1234 1'<br />
 # Failed test '%s \x{5678}'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f 1'<br />
 # expected: '5678 1'<br />
 # Failed test '\x{1234}%s \x{5678}'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f 3f 2'<br />
 # expected: '1234 5678 2'<br />
 '%*vd' is not valid in sprintf format sequence 'n%*vd'<br />
@@ -665,47 +519,47 @@ Cannot modify an immutable Int<br />
         <tr align='center'><td align='left' rowspan='2'>op/unshift.v5</td><td>22</td><td>14</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'unshift singleton list'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1 2 3'<br />
 # expected: '0 1 2 3'<br />
 # Failed test 'unshift count == 4'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'unshift list'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1 2 3'<br />
 # expected: '3 2 1 0 1 2 3'<br />
 # Failed test 'unshift count == 7'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'unshift array'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1 2 3'<br />
 # expected: '5 4 3 2 1 0 1 2 3'<br />
 # Failed test 'unshift count == 9'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'unshift count == 9 (ref)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'unshift arrays'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1 2 3'<br />
 # expected: '7 6 5 4 3 2 1 0 1 2 3'<br />
 # Failed test 'unshift count == 11'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'unshift count == 11 (ref)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'void unshift singleton list'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'y z'<br />
 # expected: 'x y z'<br />
 # Failed test 'void unshift list'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'y z'<br />
 # expected: 'u v w x y z'<br />
 # Failed test 'void unshift array'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'y z'<br />
 # expected: 's t u v w x y z'<br />
 # Failed test 'void unshift arrays'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'y z'<br />
 # expected: 'q r s t u v w x y z'<br />
 # Looks like you failed 14 tests of 36<br />
@@ -715,67 +569,67 @@ Cannot modify an immutable Int<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chr.v5</td><td>21</td><td>21</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'><br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'c4 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'df bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'e0 a0 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'e0 bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'e1 80 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'ec bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'ed 80 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'ed 9f bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'ed a0 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'ed bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'ee 80 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'ef bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f0 90 80 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f0 bf bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f1 80 80 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f3 bf bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f4 80 80 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f4 8f bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f4 90 80 80'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f7 bf bf bf'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3f'<br />
 # expected: 'f8 88 80 80 80'<br />
 # Looks like you failed 21 tests of 42<br />
@@ -790,7 +644,6 @@ Undefined subroutine &amp;main::INSTALL called<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align='center'><td align='left'>op/lop.v5</td><td>17</td><td>0</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr align='center'><td align='left'>t/v5/05-array.v5</td><td>16</td><td>1</td><td>0</td><td>0</td><td>17</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/not.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>parens needed around second argument in next two tests<br />
 to preserve list context inside function call<br />
@@ -799,26 +652,25 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>14</td><td>1</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'subtract from string length'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 15<br />
 </td></tr>
-        <tr align='center'><td align='left'>t/v5/05-for.v5</td><td>13</td><td>0</td><td>0</td><td>0</td><td>13</td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>10</td><td>5</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'Got errno'<br />
-# at lib/Test.pm line 102<br />
+# at /home/froggs/dev/v5/t/../t/test.pl line 13<br />
 # twice: '0'<br />
 # Failed test 'Got errno'<br />
-# at lib/Test.pm line 102<br />
+# at /home/froggs/dev/v5/t/../t/test.pl line 13<br />
 # twice: '0'<br />
 # Failed test 'All punctuation fails open'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/../t/test.pl line 10<br />
 # Failed test 'Bad package fails open'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/../t/test.pl line 10<br />
 # Failed test 'Got errno'<br />
-# at lib/Test.pm line 102<br />
+# at /home/froggs/dev/v5/t/../t/test.pl line 13<br />
 # twice: '0'<br />
 # Looks like you failed 5 tests of 15<br />
 </td></tr>
@@ -826,15 +678,15 @@ to preserve list context inside function call<br />
         <tr align='center'><td align='left' rowspan='2'>op/die_unwind.v5</td><td>9</td><td>3</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'true value assigned to $@ before 'end' block inside 'eval' block'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: ''<br />
 # expected: 't1<br />
 # '<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: ''<br />
 # expected: 't3<br />
 # '<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: ''<br />
 # expected: 't3<br />
 # '<br />
@@ -842,28 +694,25 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>9</td><td>4</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
-  in sub MAKE_REGEX at src/gen/m-CORE.setting:13393<br />
-  in block  at src/gen/m-CORE.setting:13274<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
-  in block  at src/gen/m-CORE.setting:13268<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:13351<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:13248<br />
-  in method match at src/gen/m-CORE.setting:6395<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:13422<br />
+  in block  at src/gen/m-CORE.setting:13303<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
+  in block  at src/gen/m-CORE.setting:13297<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:13380<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:13277<br />
+  in method match at src/gen/m-CORE.setting:6398<br />
   in sub like_yn at /home/froggs/dev/v5/t/test.pl:96<br />
   in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
   in block  at t/spec/op/append.v5:43<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/op/append.v5:1<br />
 # Looks like you planned 13 tests, but ran 9<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/17-hash-autovivify.v5</td><td>7</td><td>0</td><td>1</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>   1 todo   : <br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>7</td><td>34</td><td>0</td><td>0</td><td>41</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -872,18 +721,16 @@ to preserve list context inside function call<br />
     ------&gt; my $u⏏;<br />
 Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/length.v5:125<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/op/length.v5:1<br />
-# Looks like you planned 41 tests, but ran 0<br />
 </td></tr>
-        <tr align='center'><td align='left'>t/v5/18-array-autovivify.v5</td><td>6</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'><br />
-# Failed test at lib/Test.pm line 75<br />
-# Failed test at lib/Test.pm line 75<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 2 tests of 8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>6</td><td>10</td><td>0</td><td>0</td><td>16</td></tr>
@@ -894,34 +741,32 @@ Undefined subroutine &amp;main::tie called<br />
         <tr align='center'><td align='left' rowspan='2'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'foo called once'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # nr tests: before=1, after=1<br />
 # Looks like you failed 1 tests of 7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases_utf8.v5</td><td>6</td><td>6</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'isa after another stash has claimed the @ISA via glob assignment'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'isa on the stash that claimed the @ISA via glob assignment'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'isa after glob-to-ref assignment when *ISA is shared'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'isa after glob-to-ref assignment on another stash when *ISA is shared'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'isa after another stash has claimed the @ISA via ref-to-glob assignment'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'isa on the stash that claimed the @ISA via ref-to-glob assignment'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 6 tests of 12<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr align='center'><td align='left'>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align='center'><td align='left'>t/v5/05-anon-sub.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/or.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '|| short-circuited as expected'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: '1'<br />
 # expected: '3'<br />
 Undefined subroutine &amp;main::tie called<br />
@@ -930,34 +775,34 @@ Undefined subroutine &amp;main::tie called<br />
 # Looks like you planned 8 tests, but ran 5<br />
 # Looks like you failed 1 tests of 5<br />
 </td></tr>
-        <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr align='center'><td align='left'>base/while.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>base/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr align='center'><td align='left'>t/v5/05-anon-sub-lex-block.v5</td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sselect.v5</td><td>3</td><td>8</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'select undef  $blank $blank 0'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: 'Undefined subroutine &amp;main::select called'<br />
 # expected: ''<br />
 # Failed test 'select $blank undef  $blank 0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'Undefined subroutine &amp;main::select called'<br />
 # expected: ''<br />
 # Failed test 'select $blank $blank undef  0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'Undefined subroutine &amp;main::select called'<br />
 # expected: ''<br />
 # Failed test 'select ""     $blank $blank 0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'Undefined subroutine &amp;main::select called'<br />
 # expected: ''<br />
 # Failed test 'select $blank ""     $blank 0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'Undefined subroutine &amp;main::select called'<br />
 # expected: ''<br />
 # Failed test 'select $blank $blank ""     0'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: 'Undefined subroutine &amp;main::select called'<br />
 # expected: ''<br />
 Undefined subroutine &amp;main::select called<br />
@@ -968,41 +813,37 @@ Undefined subroutine &amp;main::select called<br />
         <tr align='center'><td align='left' rowspan='2'>op/sleep.v5</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'Sleep says it slept at least 2 seconds'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/my_stash.v5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'><br />
-# Failed test at lib/Test.pm line 75<br />
-# Failed test at lib/Test.pm line 75<br />
-# Failed test at lib/Test.pm line 75<br />
-# Failed test at lib/Test.pm line 75<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 4 tests of 7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defined.v5</td><td>3</td><td>2</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'defined( ... ? ... : @array)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'defined(scalar @array)'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 2 tests of 5<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'># Failed test 'IO::File now loaded'<br />
-# at lib/Test.pm line 75<br />
-# Looks like you failed 1 tests of 3<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>t/v5/16-var-redeclare.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $x<br />
-    at t/v5/16-var-redeclare.v5:13<br />
+    at t/spec/../v5/16-var-redeclare.v5:13<br />
     ------&gt;     my $x ⏏= 1;<br />
 </td></tr>
-        <tr align='center'><td align='left'>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left'>t/v5/05-lex-block.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left'>t/v5/05-lex-block-if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/iofile.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr><td colspan='5'># Failed test 'IO::File now loaded'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Looks like you failed 1 tests of 3<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/05-bind.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchI.v5</td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
@@ -1017,7 +858,7 @@ Undefined subroutine &amp;main::select called<br />
         <tr align='center'><td align='left' rowspan='2'>re/overload.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'list context //g against overloaded object'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: 'foo:bar'<br />
 # Looks like you failed 1 tests of 3<br />
@@ -1027,24 +868,14 @@ Undefined subroutine &amp;main::select called<br />
   in block  at t/spec/op/setpgrpstack.v5:1<br />
 # Looks like you planned 3 tests, but ran 2<br />
 </td></tr>
+        <tr align='center'><td align='left'>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in block  at t/spec/base/term.v5:1<br />
-</td></tr>
+        <tr align='center'><td align='left'>t/v5/01-sanity.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-accessor.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>No such method 'new1' for invocant of type 'Str+{P5Bareword}'<br />
-  in block  at t/v5/11-accessor.v5:17<br />
-  in block  at t/v5/11-accessor.v5:5<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>1</td><td>28</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>Can't open stdout<br />
   in block  at t/spec/io/dup.v5:1<br />
-# Looks like you planned 29 tests, but ran 0<br />
 </td></tr>
-        <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'># Looks like you planned 2 tests, but ran 1<br />
 </td></tr>
@@ -1072,45 +903,55 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
   in block  at t/spec/op/evalbytes.v5:1<br />
 # Looks like you planned 8 tests, but ran 1<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
-  in sub test_op at t/spec/op/assignwarn.v5:43<br />
-  in block  at t/spec/op/assignwarn.v5:51<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method eager at src/gen/m-CORE.setting:8174<br />
-  in block  at t/spec/op/assignwarn.v5:49<br />
-<br />   1 tests more than planned were run<br />
-</td></tr>
+        <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::vec called<br />
   in block  at t/spec/bigmem/vec.v5:10<br />
 # Looks like you planned 7 tests, but ran 1<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
+  in sub test_op at t/spec/op/assignwarn.v5:43<br />
+  in block  at t/spec/op/assignwarn.v5:51<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method eager at src/gen/m-CORE.setting:8177<br />
+  in block  at t/spec/op/assignwarn.v5:49<br />
+<br />   1 tests more than planned were run<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in block  at t/spec/base/term.v5:1<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 54, near "klonk =&gt; ["<br />
+No such symbol 'klonk'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 56, near "kഌoんḰ =&gt; ["<br />
+No such symbol 'kഌoんḰ'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 50, near "klonk =&gt; ["<br />
+No such symbol 'klonk'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_dfs_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 52, near "kഌoんḰ =&gt; ["<br />
+No such symbol 'kഌoんḰ'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 31, near "sub { is(M"<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol *A<br />
+    at t/spec/mro/method_caching.v5:92<br />
+    ------&gt;           local *A ⏏= sub { 21 };<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/method_caching_utf8.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 33, near "sub { is(M"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/64bitint.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1126,11 +967,11 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 182, near "'global_sc"<br />
+No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 31, near "evalbytes="<br />
+Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/coresubs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/coresubs.v5<br />
@@ -1140,7 +981,7 @@ at t/spec/op/coresubs.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 21, near "[   0,   0"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/do.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1189,7 +1030,7 @@ Couldn't parse heredoc construct at line 218, near " \"EOC\" or "<br />
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/op/index_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/leaky-magic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1199,9 +1040,6 @@ Can't locate tests in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/fro
         <tr align='center'><td align='left' rowspan='2'>op/mydef.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot find method 'value'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/line_debug.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readdir.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1221,7 +1059,7 @@ Other potential difficulties:<br />
 Can't locate ./test.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/op/require_37033.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1230,7 +1068,7 @@ Can't locate ./test.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 36, near "hash =&gt; { "<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'splice' for invocant of type 'Range'<br />
@@ -1245,16 +1083,16 @@ Unable to parse expression in variable; couldn't find final '}'  at line 77, nea
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/op/substr_thr.v5:4<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/svleak.pl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
   in block  at t/spec/op/tie.v5:15<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/upgrade.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 21, near "null =&gt; $n"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1262,7 +1100,13 @@ Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/write.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 34, near "[ '@###', "<br />
+Confused<br />
+at t/spec/op/write.v5:83<br />
+------&gt; &lt;BOL&gt;⏏jumped<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/write.v5:16<br />
+    ------&gt;     open my $fh⏏, $file or die "can't open '$file': $!";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>opbasic/cmp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1285,11 +1129,14 @@ This type does not support positional operations<br />
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
 Can't open ../proto.h: <br />
   in block  at t/spec/porting/args_assert.v5:24<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/porting/args_assert.v5:14<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/line_debug.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::find_git_or_skip called<br />
@@ -1335,10 +1182,6 @@ Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Can't open '../MANIFEST': <br />
   in block  at t/spec/porting/filenames.v5:32<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Not an ARRAY reference<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/globvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1390,15 +1233,37 @@ Other potential difficulties:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/test_bootstrap.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 22, near "hints =&gt; \""<br />
+Unrecognized backslash sequence: '\Q'<br />
+at t/spec/porting/test_bootstrap.v5:36<br />
+------&gt; +Test::More/, "$file doesn't use Test::\⏏QMore");<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/test_bootstrap.v5:18<br />
+    ------&gt; open my $fh⏏, '&lt;', '../MANIFEST' or die "Can't open <br />
+    Redeclaration of symbol $t<br />
+    at t/spec/porting/test_bootstrap.v5:33<br />
+    ------&gt;     open my $t⏏, '&lt;', $file or die "Can't open $file: $<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/utils.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 54, near "'Porting/g"<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/porting/utils.v5:37<br />
+    ------&gt; open my $fh⏏, '&lt;', 'MANIFEST' or die "Can't open MAN<br />
+Undefined subroutine &amp;main::find_git_or_skip called<br />
+  in block  at t/spec/porting/utils.v5:26<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 25, near "\"\\xDF\" =&gt; "<br />
+Confused<br />
+at t/spec/re/fold_grind.v5:262<br />
+------&gt; y $line = $_ =~ s/ (?: \s* \# .* )? $ //⏏rx;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $i<br />
+    at t/spec/re/fold_grind.v5:189<br />
+    ------&gt;         for (my $i ⏏= 0; $i &lt; $max_folds_to; $i++) {<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/re/fold_grind.v5:253<br />
+    ------&gt;     &amp;&amp; open my $fh⏏, "&lt;", $file)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_advanced.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_advanced.v5<br />
@@ -1410,44 +1275,45 @@ at t/spec/re/pat_advanced.v5:35<br />
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/pat_advanced_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_psycho_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/pat_psycho_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/pat_re_eval_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/pat_rt_report_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/pat_special_cc_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/pat_thr.v5:4<br />
 </td></tr>
+        <tr align='center'><td align='left'>re/re_tests.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type cannot unbox to a native string<br />
@@ -1456,7 +1322,7 @@ This type cannot unbox to a native string<br />
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1464,8 +1330,8 @@ This type cannot unbox to a native string<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 53, near "'/[[=foo=]"<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
+  in block  at t/spec/re/reg_mesg.v5:269<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1506,14 +1372,16 @@ Dynamic variable $*ROUTINE_NAME not found<br />
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 39, near "L         "<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/regexp_unicode_prop.v5<br />
+Unrecognized Perl 5 regex backslash sequence<br />
+at t/spec/re/regexp_unicode_prop.v5:174<br />
+------&gt;     $i ++, redo if $CLASSES [$i] =~ /^\⏏h*#\h*(.*)/;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_unicode_prop_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1534,6 +1402,10 @@ Dynamic variable $*ROUTINE_NAME not found<br />
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Not an ARRAY reference<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/run/switchx.v5:10<br />
@@ -1544,12 +1416,12 @@ Could not locate compile-time value for symbol Bar<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
-# Failed test at lib/Test.pm line 89<br />
-#      got: 'tmp13976A'<br />
-# expected: 'tmp13976B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp13976B'<br />
-# expected: 'tmp13976C'<br />
+#      got: 'tmp32320A'<br />
+# expected: 'tmp32320B'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'tmp32320B'<br />
+# expected: 'tmp32320C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -1563,6 +1435,7 @@ Unexpected closing bracket<br />
 at t/spec/uni/attrs.v5:160<br />
 ------&gt; FY_CODE_ATTRIBUTES { $proto = $_[1]; _: ⏏}<br />
 </td></tr>
+        <tr align='center'><td align='left'>uni/case.pl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/fold.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error encoding UTF-8 string near grapheme position 6613 with codepoint 64259<br />
    at src/Perl6/Grammar.nqp:338  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Grammar.moarvm:TOP:425)<br />
@@ -1583,14 +1456,6 @@ at t/spec/uni/attrs.v5:160<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Type check failed in binding; expected 'Positional' but got 'Parcel'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
-  in block  at t/spec/io/crlf_through.v5:1<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
-  in block  at t/spec/io/data.v5:1<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/title.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Type check failed in binding; expected 'Positional' but got 'Parcel'<br />
@@ -1608,41 +1473,13 @@ Can't locate Win32 in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/fro
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/04-string.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot modify an immutable Any<br />
+        <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
+  in block  at t/spec/io/crlf_through.v5:1<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/05-hash.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/v5/05-hash.v5<br />
-Confused<br />
-at t/v5/05-hash.v5:60<br />
-------&gt; sub x1 () { 1230 } ⏏$v{x1()} = 120;        # '1230'     =&gt; 1<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/09-namespace.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/10-bind-sub-param.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/19-local.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/30-tie-array.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/v5/30-tie-array.v5<br />
-Cannot use pseudo package CORE in sub declaration<br />
-at t/v5/30-tie-array.v5:48<br />
-------&gt; sub CORE::shift⏏         { say "not ok 101 # CORE::shift<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/31-autoload.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/32-autoload-method.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
+        <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
+  in block  at t/spec/io/data.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1668,20 +1505,20 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Failed to find '/home/froggs/dev/v5/lib/t/lib/common.pl.pm6' while trying to do '.f'<br />
-  in method f at src/gen/m-CORE.setting:14045<br />
-  in block  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:21596<br />
-  in method candidates at src/gen/m-CORE.setting:21593<br />
-  in block  at src/gen/m-CORE.setting:21409<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
-  in method candidates at src/gen/m-CORE.setting:21407<br />
-  in method load_module at src/gen/m-CORE.setting:21421<br />
+  in method f at src/gen/m-CORE.setting:14074<br />
+  in block  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:21625<br />
+  in method candidates at src/gen/m-CORE.setting:21622<br />
+  in block  at src/gen/m-CORE.setting:21438<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
+  in method candidates at src/gen/m-CORE.setting:21436<br />
+  in method load_module at src/gen/m-CORE.setting:21450<br />
   in block  at t/spec/lib/croak.v5:8<br />
 Unhandled exception: Element shifted from empty list<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11730  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:40)<br />
+ from src/gen/m-CORE.setting:11755  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:40)<br />
  from gen/moar/stage2/NQPHLL.nqp:1249  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:374)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
  from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
@@ -1692,13 +1529,7 @@ Unhandled exception: Element shifted from empty list<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/no_load.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unexpected closing bracket<br />
-at t/spec/lib/no_load.v5:22<br />
-------&gt; 		 ⏏) {<br />
-Other potential difficulties:<br />
-    Redeclaration of symbol $test<br />
-    at t/spec/lib/no_load.v5:22<br />
-    ------&gt; 		 ⏏) {<br />
+No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1712,54 +1543,49 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for t::lib::F'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>Undefined subroutine &amp;main::DATA called<br />
-  in block  at t/spec/bigmem/read.v5:10<br />
-# Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for Ƭ::ŁiƁ::Ḟ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for t::lib::F'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for Ƭ::ŁiƁ::Ḟ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right C3 merge order for xx::DBIx::Class::Core'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right C3 merge order for Ẋẋ::ḐʙIＸ::Cl았::Core'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right DFS merge order for xx::DBIx::Class::Core'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/dbic_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right DFS merge order for Ẋẋ::ḐʙIＸ::Cl았::Coﾚ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/inconsistent_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
@@ -1773,7 +1599,6 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "foo" via package "B" (perhaps you forgot to load "B"?)<br />
-# Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_ineval_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1782,26 +1607,30 @@ Unable to parse expression in args; couldn't find final ')'  at line 45, near "u
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for the Vulcan Dylan Example'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_c3_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for the ቩᓪ찬 Dylan Example'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for the Vulcan Dylan Example'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/vulcan_dfs_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for the ቩᓪ찬 Dylan Example'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 1 tests of 1<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan='5'>Undefined subroutine &amp;main::DATA called<br />
+  in block  at t/spec/bigmem/read.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1823,7 +1652,7 @@ Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 19, near "'\\w' =&gt; [ "<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/no_utf8_pm.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1844,18 +1673,10 @@ Unable to parse expression in args; couldn't find final ')'  at line 51, near "@
         <tr align='center'><td align='left' rowspan='2'>run/switch0.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '$/ set to 0 via switch'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: '10'<br />
 # expected: '0'<br />
 # Looks like you failed 1 tests of 1<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
-  in sub QX at src/gen/m-CORE.setting:765<br />
-  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
-  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/io/bom.v5:1<br />
-# Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/cache.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/cache.v5<br />
@@ -1863,17 +1684,20 @@ Unrecognized Perl 5 regex backslash sequence<br />
 at t/spec/uni/cache.v5:29<br />
 ------&gt; $s =~ m/[\⏏p{Hiragana}\x{101}]/;<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/21-test.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate Perlito5::Test in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
+        <tr align='center'><td align='left' rowspan='2'>io/bom.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
+  in block  at t/spec/io/bom.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
   in block  at t/spec/io/errnosig.v5:13<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/io/errnosig.v5:10<br />
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
@@ -1881,12 +1705,11 @@ Can't locate Perlito5::Test in @INC (@INC contains: lib /home/froggs/dev/v5/lib 
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::BAIL_OUT called<br />
   in block  at t/spec/lib/commonsense.v5:14<br />
-# Looks like you planned 1 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for Diamond_D'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 ===SORRY!===<br />
 Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
 # Looks like you planned 2 tests, but ran 1<br />
@@ -1895,7 +1718,7 @@ Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to 
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 ===SORRY!===<br />
 Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot to load "Ｄiᚪၚd_D"?)<br />
 # Looks like you planned 2 tests, but ran 1<br />
@@ -1904,7 +1727,7 @@ Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for Diamond_D'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 ===SORRY!===<br />
 Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
 # Looks like you planned 2 tests, but ran 1<br />
@@ -1913,7 +1736,7 @@ Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to 
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_dfs_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for Ｄiᚪၚd_D'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 ===SORRY!===<br />
 Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot to load "Ｄiᚪၚd_D"?)<br />
 # Looks like you planned 2 tests, but ran 1<br />
@@ -1922,19 +1745,19 @@ Can't locate object method "ᕘ" via package "Ｄiᚪၚd_D" (perhaps you forgot
         <tr align='center'><td align='left' rowspan='2'>mro/next_inanon.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "foo" via package "B" (perhaps you forgot to load "B"?)<br />
-# Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_inanon_utf8.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "ᕘ" via package "Ḃ" (perhaps you forgot to load "Ḃ"?)<br />
-# Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
-        <tr align='center'><td align='left'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/groups.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic-27839.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot call 'Real'; none of these signatures match:<br />
 :(Mu:U \v: *%_)<br />
-# Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/overload_integer.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1947,7 +1770,6 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
   in block  at t/spec/op/time_loop.v5:1<br />
-# Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/porting/bincompat.v5<br />
@@ -1962,7 +1784,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
         <tr align='center'><td align='left' rowspan='2'>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'testing split of string '''<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: 'ok'<br />
 # Looks like you planned 2 tests, but ran 1<br />
@@ -1974,25 +1796,11 @@ Merging GLOBAL symbols failed: duplicate definition of symbol $^P<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 19, near "pack('C*',"<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bind-method-param.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
-  in block  at t/v5/11-bind-method-param.v5:7<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-bless.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
-  in block  at t/v5/11-bless.v5:7<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-class-open.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
-  in block  at t/v5/11-class-open.v5:31<br />
-  in block  at t/v5/11-class-open.v5:19<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/io/iprefix.v5:17<br />
-# Looks like you planned 2 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2018,37 +1826,52 @@ Dynamic variable $*ROUTINE_NAME not found<br />
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
   in block  at t/spec/run/script.v5:1<br />
-# Looks like you planned 3 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'Checking line '<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: 'ok '<br />
 # expected: ''<br />
 # Looks like you planned 3 tests, but ran 1<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left'>run/switchp.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "foo" via package "Foo" (perhaps you forgot to load "Foo"?)<br />
-# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_NEXT_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "fಓ" via package "ᕘ" (perhaps you forgot to load "ᕘ"?)<br />
-# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "foo" via package "TTop" (perhaps you forgot to load "TTop"?)<br />
-# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_goto_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "ᕗ" via package "ᵗ톺" (perhaps you forgot to load "ᵗ톺"?)<br />
-# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrhand.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/attrhand.v5<br />
@@ -2059,10 +1882,10 @@ at t/spec/op/attrhand.v5:19<br />
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::crypt called<br />
   in block  at t/spec/op/crypt.v5:32<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/op/crypt.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
@@ -2088,7 +1911,6 @@ at t/spec/op/sigsystem.v5:28<br />
 Undefined subroutine &amp;main::delete called<br />
   in block  at t/spec/run/mad.v5:34<br />
   in block  at t/spec/run/mad.v5:33<br />
-# Looks like you planned 4 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2097,20 +1919,6 @@ Dynamic variable $*ROUTINE_NAME not found<br />
         <tr align='center'><td align='left' rowspan='2'>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/12-context.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/24-strict.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Missing block at line 4, near "('use stri"<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/25-syntax-defined-or.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/v5/25-syntax-defined-or.v5<br />
-Confused<br />
-at t/v5/25-syntax-defined-or.v5:8<br />
-------&gt;     print "not " unless (shift // ⏏2) == 5;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2121,26 +1929,6 @@ This type does not support positional operations<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_01_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_c3_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_03_dfs_utf8.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
@@ -2155,7 +1943,6 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
   in block  at t/spec/op/alarm.v5:1<br />
-# Looks like you planned 5 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2175,11 +1962,11 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
     at t/spec/re/qr.v5:82<br />
     ------&gt;  tie my $flile⏏, "qrBug";<br />
 # Failed test 'qr// blessed into 'Regexp' by default'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: 'REGEX'<br />
 # expected: 'Regexp'<br />
 # Failed test '$a_match_var =~ /$qr/'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1<br />
 # 1: 1<br />
 # 2: 1<br />
@@ -2189,7 +1976,7 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 # 2: 5<br />
 # '<br />
 # Failed test '/$qr/ with my $_ aliased to a match var'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1<br />
 # 1: 1<br />
 # 2: 1<br />
@@ -2199,7 +1986,7 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 # 2: 5<br />
 # '<br />
 # Failed test '/$qr/ with $'_ aliased to a match var'<br />
-# at /home/froggs/dev/v5/t/test.pl line 12<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1<br />
 # 1: 1<br />
 # 2: 1<br />
@@ -2210,10 +1997,10 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 # '<br />
 Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/re/qr.v5:79<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/re/qr.v5:1<br />
 # Looks like you planned 5 tests, but ran 4<br />
 # Looks like you failed 4 tests of 4<br />
@@ -2235,43 +2022,39 @@ This type cannot unbox to a native string<br />
   in sub P5open at src/Perl5/Terms.pm:88<br />
   in sub P5open at src/Perl5/Terms.pm:77<br />
   in block  at t/spec/uni/select.v5:1<br />
-# Looks like you planned 5 tests, but ran 0<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/11-class.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>No such method 'subr' for invocant of type 'Str+{P5Bareword}'<br />
-  in block  at t/v5/11-class.v5:30<br />
-  in block  at t/v5/11-class.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot find method 'value'<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr><td colspan='5'>Undefined subroutine &amp;main::delete called<br />
+  in block  at t/spec/benchmark/rt26188-speed-up-keys-on-empty-hash.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 37, near "[ undef , "<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::kill called<br />
+  in block  at t/spec/op/kill0.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
-# Looks like you planned 6 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp13644A/aaa' (indicated by ⏏)<br />
-  in method Numeric at src/gen/m-CORE.setting:13049<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp32030A/aaa' (indicated by ⏏)<br />
+  in method Numeric at src/gen/m-CORE.setting:13074<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4363<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub P5unlink at src/Perl5/Terms.pm:1333<br />
   in sub P5unlink at src/Perl5/Terms.pm:1331<br />
   in block  at t/spec/op/unlink.v5:1<br />
-# Looks like you planned 6 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2312,7 +2095,6 @@ Couldn't find terminator ) at line 49, near ""<br />
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
   in block  at t/spec/io/inplace.v5:15<br />
-# Looks like you planned 6 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2326,41 +2108,31 @@ No such method 'IO' for invocant of type 'Any'<br />
   in sub P5open at src/Perl5/Terms.pm:97<br />
   in sub P5open at src/Perl5/Terms.pm:77<br />
   in block  at t/spec/io/perlio_open.v5:19<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/io/perlio_open.v5:1<br />
-# Looks like you planned 6 tests, but ran 0<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 47, near "big =&gt; '1 "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_c3_utf8.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "ネᚹ" via package "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ" (perhaps you forgot to load "읺ҎꀀḮṆᵷꜰ롬ᵕveŔŁoad엗텟ᵵ"?)<br />
-# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/overload_dfs.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate object method "new" via package "InheritingFromOverloadedTest" (perhaps you forgot to load "InheritingFromOverloadedTest"?)<br />
-# Looks like you planned 7 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/pkg_gen.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2380,7 +2152,11 @@ Couldn't parse heredoc construct at line 13, near ";   # Yow!"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/packagev.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 15, near "'package F"<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
@@ -2389,10 +2165,6 @@ Bogus statement at line 15, near "'package F"<br />
         <tr align='center'><td align='left' rowspan='2'>comp/package_block.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
   in block  at t/spec/comp/package_block.v5:1<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>opbasic/magic_phase.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2404,29 +2176,27 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 70, near "sub { @E::"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 72, near "sub { @ǝ::"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 57, near "sub { @E::"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_dfs_utf8.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 59, near "sub { @ǝ::"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::fileno called<br />
   in block  at t/spec/op/fh.v5:1<br />
-# Looks like you planned 8 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getppid.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in declarator; couldn't find final ')'  at line 30, near "or die \"pi"<br />
-# Looks like you planned 8 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2435,32 +2205,31 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Undefined subroutine &amp;main::delete called<br />
-# Looks like you planned 8 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pos.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'><br />
-# Failed test at lib/Test.pm line 89<br />
-#      got: '2'<br />
-# expected: 'pos correct'<br />
-# Failed test at lib/Test.pm line 89<br />
-#      got: ''<br />
-# expected: 'pos undef after failed match'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: '2'<br />
 # expected: 'pos correct'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: 'pos undef after failed match'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '2'<br />
+# expected: 'pos correct'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: 'pos undef after failed match'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '4'<br />
 # expected: 'pos correct'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '4'<br />
 # expected: 'pos correct'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1'<br />
 # expected: 'pos correct'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '1'<br />
 # expected: 'pos correct'<br />
 # Looks like you failed 8 tests of 8<br />
@@ -2477,18 +2246,11 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::svref_2object called<br />
   in block  at t/spec/lib/proxy_constant_subs.v5:22<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in block  at t/spec/lib/proxy_constant_subs.v5:20<br />
-# Looks like you planned 8 tests, but ran 0<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/decl.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/decl.v5<br />
-Confused<br />
-at t/spec/comp/decl.v5:33<br />
-------&gt; &lt;BOL&gt;⏏four();<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2504,17 +2266,19 @@ Other potential difficulties:<br />
     at t/spec/op/select.v5:12<br />
     ------&gt; open my $fh⏏, "test.pl" or die "$0 unfortunately can<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/decl.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/decl.v5<br />
+Confused<br />
+at t/spec/comp/decl.v5:33<br />
+------&gt; &lt;BOL&gt;⏏four();<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1408307121.65973 has not appeared<br />
+QAST::Block with cuid cuid_101_1408574514.80104 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 P6opaque: no such attribute '$!storage'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/labels.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/labels.v5<br />
@@ -2522,14 +2286,30 @@ Confused<br />
 at t/spec/uni/labels.v5:49<br />
 ------&gt;  $@, qr/Label not found for "last Ｅ" at/⏏u, "last's error is UTF-8 clean";<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/26-syntax-namespace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/next_skip.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right MRO for Diamond_D'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 ===SORRY!===<br />
 Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to load "Diamond_D"?)<br />
 # Looks like you planned 10 tests, but ran 1<br />
@@ -2540,8 +2320,12 @@ Can't locate object method "foo" via package "Diamond_D" (perhaps you forgot to 
 Unable to parse expression in args; couldn't find final ')'  at line 74, near "u, '... ca"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hash.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 86, near "guard =&gt; g"<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol %h<br />
+    at t/spec/op/hash.v5:45<br />
+    ------&gt;     tie my %h⏏, "bar";<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/srand.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2565,85 +2349,64 @@ This type does not support positional operations<br />
     at t/spec/io/eintr.v5:23<br />
     ------&gt; 	pipe my $in⏏, my $out;<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/23-eval.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
   in block  at t/spec/io/openpid.v5:1<br />
-# Looks like you planned 10 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in args; couldn't find final ')'  at line 16, near "(File::Spe"<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/basic_02_dfs_utf8.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right DFS merge order for Test::A'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::B'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::C'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::D'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::E'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::F'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::G'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::H'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::I'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::J'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for Test::K'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 11 tests of 11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs_utf8.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::ᐊ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::ḅ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::ȼ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::Ḏ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::Ӭ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::Ḟ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::ḡ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::Ḣ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::ᶦ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::Ｊ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '... got the right DFS merge order for 텟Ṱ::Ḵ'<br />
-# at lib/Test.pm line 75<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Looks like you failed 11 tests of 11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/array_base.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
@@ -2694,27 +2457,27 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pos.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'><br />
-# Failed test at lib/Test.pm line 89<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: '2'<br />
 # expected: 'matching, pos() leaves off at offset 2'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '2'<br />
 # expected: 'not matching, pos() remains at offset 2'<br />
 # Failed test 'matching again, pos() next leaves off at offset 4'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: '4'<br />
 # Failed test 'pos() set inside //g'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: 'est string?'<br />
 # expected: '0123 5678910?'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '4'<br />
 # expected: 'matching, pos() leaves off at offset 4'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '4'<br />
 # expected: 'value of pos() unaffected by intermediate localization'<br />
-# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
 #      got: '3'<br />
 # expected: 'utf8_mg_len_cache_update() test'<br />
 Undefined subroutine &amp;Class::DESTROY called<br />
@@ -2726,12 +2489,6 @@ Undefined subroutine &amp;Class::DESTROY called<br />
         <tr align='center'><td align='left' rowspan='2'>op/protowarn.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in parensig; couldn't find final ')'  at line 42, near "x) { };\n\nB"<br />
-# Looks like you planned 12 tests, but ran 0<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>t/v5/13-op-context.v5</td><td>0</td><td>12</td><td>0</td><td>0</td><td>12</td></tr>
-        <tr><td colspan='5'>Undefined subroutine &amp;main::wantarray called<br />
-  in sub foo at t/v5/13-op-context.v5:7<br />
-  in block  at t/v5/13-op-context.v5:16<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2741,22 +2498,18 @@ This type does not support positional operations<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot find method 'named'<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/pow.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 17, near "[  3, 30, "<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchC.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 77, near "switches ="<br />
+Iteration past end of iterator<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switcht.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '${^TAINT} == -1'<br />
-# at lib/Test.pm line 89<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
 #      got: ''<br />
 # expected: '-1'<br />
 P6opaque: no such attribute '$!storage'<br />
@@ -2768,13 +2521,16 @@ P6opaque: no such attribute '$!storage'<br />
         <tr align='center'><td align='left' rowspan='2'>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
-# Looks like you planned 13 tests, but ran 0<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/form_scope.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Couldn't parse heredoc construct at line 13, near "&lt;&lt;\n$test\n."<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
@@ -2784,19 +2540,13 @@ Confused<br />
 at t/spec/comp/package.v5:18<br />
 ------&gt;     $main⏏'a = $'b;<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>re/qr-72922.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-# Looks like you planned 14 tests, but ran 0<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_pmod.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 16, near "[ '/p',   "<br />
+Found ? but no :; possible precedence problem at line 42, near "p\n\t\t\t  : $"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/mypragma.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate mypragma in @INC (@INC contains: lib lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
-# Looks like you planned 14 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2819,14 +2569,14 @@ Dynamic variable $*ROUTINE_NAME not found<br />
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol $|<br />
   in block  at src/Perl5/ModuleLoader.pm:212<br />
-  in method reify at src/gen/m-CORE.setting:7877<br />
-  in method reify at src/gen/m-CORE.setting:7713<br />
-  in method gimme at src/gen/m-CORE.setting:8202<br />
-  in method sink at src/gen/m-CORE.setting:8661<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:176<br />
   in method load_module at src/Perl5/ModuleLoader.pm:151<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/op/hashwarn.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -2851,7 +2601,7 @@ at t/spec/io/defout.v5:32<br />
         <tr><td colspan='5'>Can't locate ./test.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21431<br />
+  in method load_module at src/gen/m-CORE.setting:21460<br />
   in block  at t/spec/io/errno.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
@@ -2861,7 +2611,6 @@ Can't locate Win32 in @INC (@INC contains: ../lib/Perl5)<br />
         <tr align='center'><td align='left' rowspan='2'>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
-# Looks like you planned 17 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/glob.v5<br />
@@ -2878,7 +2627,6 @@ This type does not support positional operations<br />
 Confused<br />
 at t/spec/uni/caller.v5:20<br />
 ------&gt; ndefined subroutine &amp;ｍａｉｎ::ok called at/⏏u;<br />
-# Looks like you planned 18 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/package.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/package.v5<br />
@@ -2893,7 +2641,6 @@ This type cannot unbox to a native string<br />
         <tr align='center'><td align='left' rowspan='2'>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Unknown QAST node type Match<br />
-# Looks like you planned 20 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/redef.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2927,7 +2674,7 @@ Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 28, near "prog\t=&gt; 'w"<br />
+No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2957,7 +2704,6 @@ Cannot find method 'value'<br />
         <tr align='center'><td align='left' rowspan='2'>op/threads.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
-# Looks like you planned 26 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defins.v5</td><td>0</td><td>27</td><td>0</td><td>0</td><td>27</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2973,16 +2719,6 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 ===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'at_key': no method cache and no .^find_method<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>opbasic/qq.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/opbasic/qq.v5<br />
-Unrecognized backslash sequence: '\x'<br />
-at t/spec/opbasic/qq.v5:45<br />
-------&gt; is ("\x⏏h", chr (0) . 'h');	# This will warn<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/rs.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $T<br />
@@ -2994,9 +2730,24 @@ at t/spec/opbasic/qq.v5:45<br />
 ===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/pvbm.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 85, near "open \\$pvb"<br />
+Cannot find method 'at_key': no method cache and no .^find_method<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>opbasic/qq.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/opbasic/qq.v5<br />
+Unrecognized backslash sequence: '\x'<br />
+at t/spec/opbasic/qq.v5:45<br />
+------&gt; is ("\x⏏h", chr (0) . 'h');	# This will warn<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/pvbm.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/pvbm.v5<br />
+Calling 'truncate' will never work with argument types (Mu, Int)<br />
+    Expected any of: <br />
+    :(Real:D $x) <br />
+    :(Cool:D $x)<br />
+at t/spec/io/pvbm.v5:52<br />
+------&gt;     ok (!eval { truncate ⏏$pvbm, 0 }, 'truncate(PVBM) fails');<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3004,7 +2755,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 31, near "stdin =&gt; '"<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/reset.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3029,7 +2780,6 @@ Unable to parse expression in variable; couldn't find final '}'  at line 74, nea
         <tr align='center'><td align='left' rowspan='2'>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::vec called<br />
   in block  at t/spec/op/vec.v5:9<br />
-# Looks like you planned 32 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chars.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3049,7 +2799,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 30, near "switches ="<br />
+No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3061,8 +2811,10 @@ Cannot call 'Real'; none of these signatures match:<br />
 Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 42, near "'abc' =&gt; 1"<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/avhv.v5<br />
+Confused<br />
+at t/spec/op/avhv.v5:167<br />
+------&gt; $a = [{key =&gt; 1}⏏, 'a'];<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3083,12 +2835,10 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
-# Looks like you planned 48 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>sysio.t: cannot find myself: <br />
   in block  at t/spec/op/sysio.v5:1<br />
-# Looks like you planned 48 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3099,8 +2849,10 @@ Cannot modify an immutable Any<br />
 Can't locate Perl::OSType in @INC (@INC contains: ../lib)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/package_aliases_utf8.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 47, near "name =&gt; 'a"<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/package_aliases_utf8.v5<br />
+Confused<br />
+at t/spec/mro/package_aliases_utf8.v5:87<br />
+------&gt;    ~ =~ s\__code__\$$_{code}\⏏r; #\<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3113,8 +2865,10 @@ at t/spec/mro/basic_utf8.v5:9<br />
 ------&gt; BEGIN { require q(t/test.pl); } ⏏plan(tests =&gt; 53);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/package_aliases.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 43, near "name =&gt; 'a"<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/package_aliases.v5<br />
+Confused<br />
+at t/spec/mro/package_aliases.v5:75<br />
+------&gt;    ~ =~ s\__code__\$$_{code}\⏏r,<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3122,7 +2876,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stash.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 16, near "'%:: = \"\"'"<br />
+Could not locate compile-time value for symbol oedipa::maas<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/ver.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3235,15 +2989,15 @@ Cannot find method 'named'<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 35, near "'0'x10).'1"<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/use.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Can't locate test_use in @INC (@INC contains: ../lib lib)<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/bless.v5<br />
 Confused<br />
 at t/spec/uni/bless.v5:18<br />
 ------&gt; r/^\Q$package\E=(\w+)\(0x([0-9a-f]+)\)$/⏏u;<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/use.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Can't locate test_use in @INC (@INC contains: ../lib lib)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/lex.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3256,7 +3010,6 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
         <tr align='center'><td align='left' rowspan='2'>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate strict in @INC (@INC contains: ../lib)<br />
-# Looks like you planned 91 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/universal.v5</td><td>0</td><td>93</td><td>0</td><td>0</td><td>93</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3306,7 +3059,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 71, near "$a, \"bar\","<br />
+chr codepoint cannot be negative<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/svleak.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3318,7 +3071,7 @@ This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switches.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 34, near "'-0', ],\n "<br />
+No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3328,13 +3081,13 @@ This type does not support positional operations<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in term:sym&lt;scalar&gt;; couldn't find final ')'  at line 63, near "= ($foo =~"<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot iterate object with P6opaque representation<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/eval.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Missing block at line 93, near "('\"$b\"'), "<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>cmd/lexsub.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
@@ -3352,10 +3105,7 @@ Missing block at line 93, near "('\"$b\"'), "<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 107, near "add =&gt; sub"<br />
-</td></tr>
+        <tr align='center'><td align='left'>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tr.v5</td><td>0</td><td>132</td><td>0</td><td>0</td><td>132</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Couldn't find terminator | at line 203, near ");\n\n\n# v30"<br />
@@ -3386,7 +3136,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 30, near "\"# This is"<br />
+No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/parser.v5<br />
@@ -3451,7 +3201,7 @@ at t/spec/op/gv.v5:165<br />
         <tr align='center'><td align='left'>op/cproto.v5</td><td>0</td><td>254</td><td>0</td><td>0</td><td>254</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashassign.v5</td><td>0</td><td>309</td><td>0</td><td>0</td><td>309</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 182, near "'%', 'Asso"<br />
+Unable to parse expression in term:sym&lt;scalar&gt;; couldn't find final ')'  at line 362, near "= (1,1,1))"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/local.v5</td><td>0</td><td>310</td><td>0</td><td>0</td><td>310</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3460,7 +3210,6 @@ Unable to parse expression in declarator; couldn't find final ')'  at line 89, n
         <tr align='center'><td align='left' rowspan='2'>op/tie_fetch_count.v5</td><td>0</td><td>312</td><td>0</td><td>0</td><td>312</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
-# Looks like you planned 312 tests, but ran 0<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartmatch.v5</td><td>0</td><td>349</td><td>0</td><td>0</td><td>349</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -3493,7 +3242,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 155, near "[ '%lld' ="<br />
+Iteration past end of iterator<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report.v5</td><td>0</td><td>2530</td><td>0</td><td>0</td><td>2530</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_rt_report.v5<br />
@@ -3502,15 +3251,19 @@ at t/spec/re/pat_rt_report.v5:96<br />
 ------&gt;         ok("École" =~ /^\⏏C\C(.)/ &amp;&amp; $1 eq 'c', $message);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/utf.v5</td><td>0</td><td>4016</td><td>0</td><td>0</td><td>4016</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 9, near "'UTF-8'   "<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/comp/utf.v5:38<br />
+    ------&gt;     open my $fh⏏, "&gt;", "utf$$.pl" or die "utf.pl: $!";<br />
+It takes about 40 minutes to skip all tests<br />
+  in block  at t/spec/comp/utf.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 285, near "$x = unpac"<br />
 </td></tr>
 
-        <tr><td>compiler version</td><td colspan='5'>This is perl6 version 2014.07-195-g95da918 built on MoarVM version 2014.07-407-g0d7dd40
+        <tr><td>compiler version</td><td colspan='5'>This is perl6 version 2014.07-239-gb369683 built on MoarVM version 2014.08
 </td></tr>
     </tbody>
 </table>
