@@ -337,7 +337,7 @@ my role STDActions {
         make $<nibble>.ast;
     }
 
-    method trim_heredoc($doc, $stop, $origast) {
+    method trim_heredoc($doc, $stop, Mu $origast) {
         $origast.pop();
         $origast.pop();
         my int $indent = -nqp::chars($stop.MATCH<ws>.Str);
@@ -5391,7 +5391,7 @@ class Perl5::QActions does STDActions {
         return $past;
     }
 
-    method postprocess_quotewords($/, $past) {
+    method postprocess_quotewords($/, Mu $past) {
         $V5DEBUG && say("method postprocess_quotewords($/, \$past)");
         my $result := QAST::Op.new( :op('call'), :name('&infix:<,>'), :node($/) );
         sub walk($node) {
@@ -5414,7 +5414,7 @@ class Perl5::QActions does STDActions {
         return +@($result) == 1 ?? $result[0] !! $result;
     }
 
-    method postprocess_heredoc($/, $past) {
+    method postprocess_heredoc($/, Mu $past) {
         $V5DEBUG && say("method postprocess_heredoc($/)");
         return QAST::Stmts.new(
             QAST::Op.new( :op<die_s>, QAST::SVal.new( :value("Premature heredoc consumption") ) ),

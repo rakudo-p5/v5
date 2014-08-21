@@ -967,7 +967,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Missing block at line 540, near "'$x'}-&gt;(),"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/coreamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1088,7 +1088,7 @@ Unable to parse expression in variable; couldn't find final '}'  at line 77, nea
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/svleak.pl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+Ending delimiter END not found at line 4, near "\nsay \"# FU"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
@@ -1326,8 +1326,11 @@ This type cannot unbox to a native string<br />
   in block  at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
+  in block  at t/spec/re/reg_eval.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
@@ -1400,7 +1403,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
         <tr align='center'><td align='left'>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Unable to parse expression in args; couldn't find final ')'  at line 167, near "&lt;&lt;'EOF', \""<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1417,11 +1420,11 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp32320A'<br />
-# expected: 'tmp32320B'<br />
+#      got: 'tmp4452A'<br />
+# expected: 'tmp4452B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
-#      got: 'tmp32320B'<br />
-# expected: 'tmp32320C'<br />
+#      got: 'tmp4452B'<br />
+# expected: 'tmp4452C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -1471,7 +1474,7 @@ Can't locate Win32 in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/fro
         <tr align='center'><td align='left'>win32/system.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>x2p/s2p.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
@@ -1482,8 +1485,10 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
   in block  at t/spec/io/data.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/layers.v5<br />
+Confused<br />
+at t/spec/io/layers.v5:208<br />
+------&gt; 	use open⏏(IN =&gt; ":crlf", OUT =&gt; ":encoding(cp1252<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_leaks.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1500,8 +1505,10 @@ Error while creating error string: No exception handler located for warn<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/through.v5<br />
+Preceding context expects a term, but found infix , instead<br />
+at t/spec/io/through.v5:90<br />
+------&gt;   my @data = grep length,⏏ split /(.{1,$write_c})/s, $str;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Failed to find '/home/froggs/dev/v5/lib/t/lib/common.pl.pm6' while trying to do '.f'<br />
@@ -1528,8 +1535,16 @@ Unhandled exception: Element shifted from empty list<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/no_load.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
+  in block  at t/spec/lib/no_load.v5:25<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method eager at src/gen/m-CORE.setting:8177<br />
+  in block  at t/spec/lib/no_load.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1637,8 +1652,10 @@ Unable to parse expression in args; couldn't find final ')'  at line 45, near "u
 Unable to parse expression in args; couldn't find final ')'  at line 22, near "u, q!\"Can'"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hash-rt85026.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/hash-rt85026.v5<br />
+Confused<br />
+at t/spec/op/hash-rt85026.v5:63<br />
+------&gt; &lt;BOL&gt;⏏;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/final_line_num.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/final_line_num.v5<br />
@@ -1664,7 +1681,7 @@ Bogus statement at line 13, near "(1)x127,qr"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_60508.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_fold.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1764,7 +1781,23 @@ Cannot call 'Real'; none of these signatures match:<br />
 Can't locate Foo in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 . ../lib)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pwent.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/pwent.v5:71<br />
+    ------&gt; 	next unless open my $fh⏏, '-|', "$dscl . -readall /Users @{[keys<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/pwent.v5:71<br />
+    ------&gt; dall /Users @{[keys %want]} 2&gt;/dev/null"⏏;<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/pwent.v5:71<br />
+    ------&gt; dall /Users @{[keys %want]} 2&gt;/dev/null"⏏;<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/pwent.v5:71<br />
+    ------&gt; dall /Users @{[keys %want]} 2&gt;/dev/null"⏏;<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/pwent.v5:71<br />
+    ------&gt; dall /Users @{[keys %want]} 2&gt;/dev/null"⏏;<br />
+===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
@@ -1808,15 +1841,18 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
+  in block  at t/spec/op/print.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1945,16 +1981,31 @@ This type does not support positional operations<br />
   in block  at t/spec/op/alarm.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
+  in block  at t/spec/op/dbm.v5:44<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'><br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'Unimplemented'<br />
+# expected: 'Unimplemented at t/spec/op/yadayada.v5 line 16.<br />
+# '<br />
+Cannot call 'match'; none of these signatures match:<br />
+:(Cool:D: Any $target, *%adverbs)<br />
+  in sub P5split at src/Perl5/Terms.pm:1114<br />
+  in sub P5split at src/Perl5/Terms.pm:1105<br />
+  in sub P5split at src/Perl5/Terms.pm:1105<br />
+  in sub P5split at src/Perl5/Terms.pm:1105<br />
+  in block  at t/spec/op/yadayada.v5:1<br />
+# Looks like you planned 5 tests, but ran 1<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2006,8 +2057,8 @@ Undefined subroutine &amp;main::tie called<br />
 # Looks like you failed 4 tests of 4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>Close Run_switchF1.pl: <br />
+  in block  at t/spec/run/switchF1.v5:29<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2033,7 +2084,7 @@ Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Missing block at line 128, near ", 5, 'cons"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::kill called<br />
@@ -2041,14 +2092,14 @@ No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGro
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+No such method 'item' for invocant of type 'QAST::Regex'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/unlink.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp32030A/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp4170A/aaa' (indicated by ⏏)<br />
   in method Numeric at src/gen/m-CORE.setting:13074<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4363<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
@@ -2171,8 +2222,12 @@ Cannot iterate object with P6opaque representation<br />
 Unable to parse expression in args; couldn't find final ')'  at line 54, near "u, 'rcatli"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/fflush.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $CMD<br />
+    at t/spec/io/fflush.v5:126<br />
+    ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
+close tmp3118A: <br />
+  in block  at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2199,8 +2254,13 @@ This type does not support positional operations<br />
 Unable to parse expression in declarator; couldn't find final ')'  at line 30, near "or die \"pi"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+        <tr><td colspan='5'>postcircumfix:&lt;{ }&gt; not defined for type Parcel<br />
+  in block  at t/spec/op/rand.v5:45<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
+  in block  at t/spec/op/rand.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2240,8 +2300,10 @@ Missing semicolon.<br />
 at t/spec/uni/tr_utf8.v5:40<br />
 ------&gt; $str = $hiragana; ⏏$str =~ s/([ぁ-ん])/$h2k{$1}/go;</td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/write.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/write.v5<br />
+Confused<br />
+at t/spec/uni/write.v5:103<br />
+------&gt;   like $@, qr/Undefined format "놋웇ʱＦᚖṀŦ/⏏u, 'no such format, with format name in <br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::svref_2object called<br />
@@ -2253,8 +2315,23 @@ This type does not support positional operations<br />
   in block  at t/spec/lib/proxy_constant_subs.v5:20<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>Ending delimiter HEREDOC not found at line 3, near "testing fo" ---  in block  at t/spec/op/heredoc.v5:15<br />
+# Failed test 'no terminating newline in string-eval'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: 'testing for 65838'<br />
+P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
+  in block  at t/spec/op/heredoc.v5:27<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
+  in block  at t/spec/op/heredoc.v5:1<br />
+# Looks like you planned 9 tests, but ran 1<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/select.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2274,7 +2351,7 @@ at t/spec/comp/decl.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1408574514.80104 has not appeared<br />
+QAST::Block with cuid cuid_101_1408608780.00638 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2337,7 +2414,7 @@ Can't locate FindExt in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/f
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchd.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Unable to parse expression in args; couldn't find final ')'  at line 64, near "switches ="<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tie.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2520,7 +2597,7 @@ P6opaque: no such attribute '$!storage'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/universal.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Unable to parse expression in variable; couldn't find final '}'  at line 41, near "//};\nInter"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/studytied.v5</td><td>0</td><td>14</td><td>0</td><td>0</td><td>14</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2559,8 +2636,10 @@ at t/spec/op/utf8cache.v5:69<br />
 ------&gt; substr $x, 0, 1, =⏏ "\x{100}";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_psycho.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/pat_psycho.v5<br />
+Illegal redeclaration of 'OUTER'<br />
+at t/spec/re/pat_psycho.v5:107<br />
+------&gt;           ⏏for my $a ("x","a","aa") {<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2581,11 +2660,33 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+Cannot modify an immutable Any<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'><br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: 'Is empty'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: 'Is still empty'<br />
+# Failed test 'Didnt return anything'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: ''<br />
+# expected: '0'<br />
+# Failed test 'Didnt return anything'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '0'<br />
+No such method 'import' for invocant of type 'Str+{P5Bareword}'<br />
+  in block  at t/spec/op/sub.v5:26<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
+  in block  at t/spec/op/sub.v5:1<br />
+# Looks like you planned 16 tests, but ran 4<br />
+# Looks like you failed 4 tests of 4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2620,7 +2721,7 @@ at t/spec/op/glob.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/caller.v5<br />
@@ -2661,8 +2762,9 @@ Cannot iterate object with P6opaque representation<br />
 Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>close 'tmp4387B': <br />
+  in sub make_tmp_file at t/spec/run/cloexec.v5:53<br />
+  in block  at t/spec/run/cloexec.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2673,8 +2775,12 @@ Cannot find method 'named'<br />
 Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/argv.v5:118<br />
+    ------&gt;     open my $fh⏏, 'Io_argv1.tmp' or die "Could not open <br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isarev.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2703,7 +2809,7 @@ Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Unable to parse expression in args; couldn't find final ')'  at line 201, near "use thread"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/defins.v5</td><td>0</td><td>27</td><td>0</td><td>0</td><td>27</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2787,7 +2893,7 @@ This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2798,8 +2904,12 @@ Dynamic variable $*ROUTINE_NAME not found<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $tf<br />
+    at t/spec/re/recompile.v5:44<br />
+    ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
+Undefined subroutine &amp;main::runperl called<br />
+  in block  at t/spec/re/recompile.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2829,8 +2939,15 @@ Couldn't find terminator | at line 70, near ");\n\nok(/^$"<br />
 Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio.v5</td><td>0</td><td>45</td><td>0</td><td>0</td><td>45</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $x<br />
+    at t/spec/io/perlio.v5:109<br />
+    ------&gt;       ok(open(my $x⏏,"+&lt;",undef), 'TMPDIR honored by magic t<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/perlio.v5:198<br />
+    ------&gt;         open my $fh⏏, "&lt;", \(my $f = *f);<br />
+Undefined subroutine &amp;main::use_ok called<br />
+  in block  at t/spec/io/perlio.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3001,11 +3118,17 @@ Can't locate test_use in @INC (@INC contains: ../lib lib)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/lex.v5</td><td>0</td><td>85</td><td>0</td><td>0</td><td>85</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Cannot modify an immutable Any<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/goto.v5</td><td>0</td><td>89</td><td>0</td><td>0</td><td>89</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+Confused<br />
+at t/spec/op/goto.v5:513<br />
+------&gt;     F1⏏:++$x and eval 'return if ++$y == 10; go<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $f<br />
+    at t/spec/op/goto.v5:234<br />
+    ------&gt; open my $f⏏, "&gt;Op_goto01.pm" or die;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/caller.v5</td><td>0</td><td>91</td><td>0</td><td>0</td><td>91</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3055,7 +3178,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3071,11 +3194,11 @@ This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switches.v5</td><td>0</td><td>115</td><td>0</td><td>0</td><td>115</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+This type does not support elems<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/open.v5</td><td>0</td><td>121</td><td>0</td><td>0</td><td>121</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+Unable to parse expression in args; couldn't find final ')'  at line 117, near "u,        "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/array.v5</td><td>0</td><td>127</td><td>0</td><td>0</td><td>127</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3136,7 +3259,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/parser.v5<br />
@@ -3163,8 +3286,10 @@ at t/spec/comp/proto.v5:47<br />
 ------&gt; testing ⏏\&amp;no_proto, undef;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sub_lval.v5</td><td>0</td><td>191</td><td>0</td><td>0</td><td>191</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-No such method 'curry' for invocant of type 'Perl6::Metamodel::ParametricRoleGroupHOW'<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/sub_lval.v5<br />
+Preceding context expects a term, but found infix , instead<br />
+at t/spec/op/sub_lval.v5:282<br />
+------&gt; ok(!defined,⏏ 'implicitly returning undef in list con<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/switch.v5</td><td>0</td><td>201</td><td>0</td><td>0</td><td>201</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/switch.v5<br />
@@ -3238,7 +3363,13 @@ at t/spec/re/pat.v5:270<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/taint.v5</td><td>0</td><td>797</td><td>0</td><td>0</td><td>797</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+Confused<br />
+at t/spec/op/taint.v5:392<br />
+------&gt;     $res = $s =~ s/(.+)/xyz/⏏r;<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/taint.v5:129<br />
+    ------&gt; open my $fh⏏, '&gt;', $ECHO or die "Can't create $ECHO:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf2.v5</td><td>0</td><td>1370</td><td>0</td><td>0</td><td>1370</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />

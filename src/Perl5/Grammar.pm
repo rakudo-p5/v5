@@ -117,12 +117,9 @@ role STD5 {
     my @herestub_queue;
 
     my class Herestub {
-        has $!delim;
-        has $!orignode;
-        has $!lang;
-        method delim() { $!delim }
-        method orignode() { $!orignode }
-        method lang() { $!lang }
+        has $.delim;
+        has $.orignode;
+        has $.lang;
     }
 
     role herestop {
@@ -133,14 +130,15 @@ role STD5 {
     method heredoc () {
         my $here := self.'!cursor_start_cur'();
         $here.'!cursor_pos'(self.pos);
-        while +@herestub_queue {
-            my $herestub := nqp::shift(@herestub_queue);
+        while @herestub_queue {
+            my $herestub := @herestub_queue.shift;
             my $*DELIM := $herestub.delim;
             my $lang := $herestub.lang.HOW.mixin($herestub.lang, herestop);
             my $doc := $here.nibble($lang);
             if $doc {
                 # Match stopper.
-                my $stop := $lang.'!cursor_init'(self.orig(), :p($doc.pos), :shared(self.'!shared'())).stopper();
+                #~ my $stop := $lang.'!cursor_init'(self.orig(), :p($doc.pos), :shared(self.'!shared'())).stopper();
+                my $stop := $lang.'!cursor_init'(self.orig(), :p($doc.pos)).stopper();
                 unless $stop {
                     self.panic("Ending delimiter $*DELIM not found");
                 }
@@ -159,8 +157,8 @@ role STD5 {
 
     method queue_heredoc($delim, $lang) {
         #~ nqp::ifnull(@herestub_queue, @herestub_queue := []);
-        @herestub_queue := [];
-        nqp::push(@herestub_queue, Herestub.new(:$delim, :$lang, :orignode(self)));
+        @herestub_queue = ();
+        @herestub_queue.push: Herestub.new(:$delim, :$lang, :orignode(self));
         return self;
     }
 
@@ -3339,7 +3337,7 @@ grammar Perl5::QGrammar does STD5 {
 
     method tweak_to($v) {
         self.truly($v, ':to');
-        %*LANG<P5Q>.HOW.mixin(%*LANG<P5Q>, to.HOW.curry(to, self))
+        %*LANG<P5Q>.HOW.mixin(%*LANG<P5Q>, to[self])
     }
     method tweak_heredoc($v)    { self.tweak_to($v) }
 
