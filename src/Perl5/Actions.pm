@@ -1772,7 +1772,7 @@ class Perl5::Actions does STDActions {
             if $<subname><desigilname><variable> {
                 $past.name(~$<subname><desigilname><variable>);
             }
-            elsif $*W.is_lexical('&' ~ $<subname>) || $<subname> eq $*ROUTINE_NAME {
+            elsif $*W.is_lexical('&' ~ $<subname>) || ($*ROUTINE_NAME && $<subname> eq $*ROUTINE_NAME) {
                 $past.name('&' ~ $<subname>);
             }
             else {
@@ -1781,7 +1781,7 @@ class Perl5::Actions does STDActions {
         }
         # &routine
         elsif $<subname> {
-            if $*W.is_lexical('&' ~ $<subname>) || $<subname> eq $*ROUTINE_NAME {
+            if $*W.is_lexical('&' ~ $<subname>) || ($*ROUTINE_NAME && $<subname> eq $*ROUTINE_NAME) {
                 $past := QAST::Op.new( :op<call>, :name('&' ~ $<subname>) );
             }
             else {
@@ -3339,12 +3339,6 @@ class Perl5::Actions does STDActions {
         make $ast
     }
 
-    method term:sym<length>($/) {
-        $V5DEBUG && say("term:sym<length>($/)");
-        make QAST::Op.new( :op('call'), :name('&P5length'),
-            $<EXPR> ?? $<EXPR>.ast !! QAST::Var.new( :name('$_'), :scope('lexical') ) );
-    }
-
     method indirect_object($/) {
         $V5DEBUG && say("indirect_object($/)");
         if $<name><barename>.?ast {
@@ -3460,6 +3454,7 @@ class Perl5::Actions does STDActions {
         'chdir'   => [ '',   '$',  '',     '',              'call',       '&P5chdir' ],
         'each'    => [ '',   '$',  '',     '',              'call',       '&P5each' ],
         'int'     => [ '$_', '_',  'call', '&P5Numeric',    'callmethod', 'Int' ],
+        'length'  => [ '$_', '_',  '',     '',              'call',       '&P5length' ],
         'ord'     => [ '$_', '_',  'call', '&infix:<P5.>',  'call',       '&P5ord' ],
         'ref'     => [ '$_', '_',  '',     '',              'call',       '&P5ref' ],
         'not'     => [ '',   '@',  '',     '',              'call',       '&prefix:<P5not>' ],

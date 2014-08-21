@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>2872</td><td>37809</td><td>2</td><td>16</td><td>40647</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>2866</td><td>37814</td><td>2</td><td>17</td><td>40647</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>1542</td><td>1022</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'got 161 into 70 l 2 o 0'<br />
@@ -649,12 +649,6 @@ Undefined subroutine &amp;main::INSTALL called<br />
 to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left'>op/exp.v5</td><td>16</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>14</td><td>1</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'><br />
-# Failed test 'subtract from string length'<br />
-# at /home/froggs/dev/v5/t/test.pl line 10<br />
-# Looks like you failed 1 tests of 15<br />
-</td></tr>
         <tr align='center'><td align='left'>op/die_except.v5</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
         <tr align='center'><td align='left'>t/v5/04-op.v5</td><td>11</td><td>0</td><td>0</td><td>0</td><td>11</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_fail.v5</td><td>10</td><td>5</td><td>0</td><td>0</td><td>15</td></tr>
@@ -714,7 +708,7 @@ to preserve list context inside function call<br />
   in block  at t/spec/op/append.v5:1<br />
 # Looks like you planned 13 tests, but ran 9<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>7</td><td>34</td><td>0</td><td>0</td><td>41</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>8</td><td>33</td><td>0</td><td>0</td><td>41</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $u<br />
     at t/spec/op/length.v5:176<br />
@@ -737,6 +731,19 @@ Undefined subroutine &amp;main::tie called<br />
         <tr><td colspan='5'>Cannot use Bool as Matcher with 'grep'.  Did you mean to use $_ inside a block?<br />
   in sub test_no_error at t/spec/comp/bproto.v5:31<br />
   in block  at t/spec/comp/bproto.v5:49<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>6</td><td>9</td><td>0</td><td>0</td><td>15</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'x+y equals 3'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+Too many positional parameters passed; got 2 but expected 1<br />
+  in sub diag at lib/Test.pm:190<br />
+  in sub _diag at /home/froggs/dev/v5/t/test.pl:18<br />
+  in sub diag at /home/froggs/dev/v5/t/test.pl:77<br />
+  in block  at t/spec/op/int.v5:36<br />
+  in block  at t/spec/op/int.v5:29<br />
+# Looks like you planned 15 tests, but ran 7<br />
+# Looks like you failed 1 tests of 7<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/context.v5</td><td>6</td><td>1</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'><br />
@@ -876,6 +883,19 @@ Undefined subroutine &amp;main::select called<br />
         <tr><td colspan='5'>Can't open stdout<br />
   in block  at t/spec/io/dup.v5:1<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>1</td><td>8</td><td>0</td><td>0</td><td>9</td></tr>
+        <tr><td colspan='5'>Could not find symbol '&amp;Layer'<br />
+  in method &lt;anon&gt; at src/gen/m-CORE.setting:13080<br />
+  in any find_method_fallback at src/gen/m-Metamodel.nqp:2625<br />
+  in any find_method at src/gen/m-Metamodel.nqp:944<br />
+  in block  at t/spec/io/binmode.v5:16<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
+  in block  at t/spec/io/binmode.v5:1<br />
+# Looks like you planned 9 tests, but ran 1<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'># Looks like you planned 2 tests, but ran 1<br />
 </td></tr>
@@ -962,8 +982,10 @@ Iteration past end of iterator<br />
   in block  at t/spec/op/anonsub.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/attrs.v5<br />
+Unexpected closing bracket<br />
+at t/spec/op/attrs.v5:303<br />
+------&gt; FY_CODE_ATTRIBUTES { $proto = $_[1]; _: ⏏}<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/closure.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1008,7 +1030,7 @@ Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+Cannot find method 'orig'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
@@ -1338,7 +1360,7 @@ This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+No such symbol '&amp;DynaLoader::boot_DynaLoader'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_posixcc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1353,7 +1375,7 @@ This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_noamp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
@@ -1398,7 +1420,7 @@ at t/spec/re/subst_amp.v5:22<br />
         <tr align='center'><td align='left'>re/uniprops.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/exit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left'>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1420,11 +1442,11 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp4452A'<br />
-# expected: 'tmp4452B'<br />
+#      got: 'tmp27664A'<br />
+# expected: 'tmp27664B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
-#      got: 'tmp4452B'<br />
-# expected: 'tmp4452C'<br />
+#      got: 'tmp27664B'<br />
+# expected: 'tmp27664C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -1501,14 +1523,21 @@ at t/spec/io/layers.v5:208<br />
 Error while creating error string: No exception handler located for warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/say.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/say.v5<br />
+Confused<br />
+at t/spec/io/say.v5:60<br />
+------&gt;     CORE::say ⏏"ok 13 - CORE::say without feature.pm";<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/through.v5<br />
-Preceding context expects a term, but found infix , instead<br />
-at t/spec/io/through.v5:90<br />
-------&gt;   my @data = grep length,⏏ split /(.{1,$write_c})/s, $str;<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/through.v5:93<br />
+    ------&gt;   open my $fh⏏, '&gt;', $filename or die;<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/through.v5:116<br />
+    ------&gt; open my $fh⏏, '-|', qq[$Perl -we "eval qq(\\x24\\x7c<br />
+===SORRY!===<br />
+Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Failed to find '/home/froggs/dev/v5/lib/t/lib/common.pl.pm6' while trying to do '.f'<br />
@@ -1668,8 +1697,10 @@ at t/spec/comp/final_line_num.v5:14<br />
 Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/charset.v5<br />
+Unexpected closing bracket<br />
+at t/spec/re/charset.v5:52<br />
+------&gt;     ⏏}<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/no_utf8_pm.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1812,7 +1843,7 @@ at t/spec/porting/bincompat.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qr_gc.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+No such symbol '&amp;Regexp::DESTROY'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switcha.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
@@ -1836,8 +1867,10 @@ This type does not support positional operations<br />
   in block  at t/spec/io/iprefix.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
+  in method print at src/gen/m-CORE.setting:1046<br />
+  in sub P5print at src/Perl5/Terms.pm:1021<br />
+  in block  at t/spec/io/read.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1855,8 +1888,21 @@ This type does not support positional operations<br />
   in block  at t/spec/op/print.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $taint<br />
+    at t/spec/op/utftaint.v5:80<br />
+    ------&gt;     my $taint ⏏= $arg; substr($taint, 0) = $byte;<br />
+    Redeclaration of symbol $taint<br />
+    at t/spec/op/utftaint.v5:110<br />
+    ------&gt;     my $taint ⏏= $arg; substr($taint, 0) = $down;<br />
+    Redeclaration of symbol $taint<br />
+    at t/spec/op/utftaint.v5:121<br />
+    ------&gt;     my $taint ⏏= $arg; substr($taint, 0) = $up;<br />
+    Redeclaration of symbol $taint<br />
+    at t/spec/op/utftaint.v5:132<br />
+    ------&gt;     my $taint ⏏= $arg; substr($taint, 0) = $down;<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
@@ -1953,8 +1999,21 @@ Undefined subroutine &amp;main::delete called<br />
 Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>win32/fs.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/win32/fs.v5:21<br />
+    ------&gt; open my $fh⏏, "&gt;", $tmpfile1<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/win32/fs.v5:24<br />
+    ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/win32/fs.v5:24<br />
+    ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
+Failed to create link called 'tmp27740B' on target 'tmp27740A': Failed to link file: no such file or directory<br />
+  in block  at src/gen/m-CORE.setting:14843<br />
+  in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
+  in sub link at src/gen/m-CORE.setting:14838<br />
+  in block  at t/spec/win32/fs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1988,8 +2047,8 @@ This type does not support positional operations<br />
   in block  at t/spec/op/dbm.v5:44<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::lock called<br />
+  in block  at t/spec/op/lock.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'><br />
@@ -2099,7 +2158,7 @@ No such method 'item' for invocant of type 'QAST::Regex'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp4170A/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp27399A/aaa' (indicated by ⏏)<br />
   in method Numeric at src/gen/m-CORE.setting:13074<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4363<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
@@ -2226,7 +2285,7 @@ Unable to parse expression in args; couldn't find final ')'  at line 54, near "u
     Redeclaration of symbol $CMD<br />
     at t/spec/io/fflush.v5:126<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
-close tmp3118A: <br />
+close tmp26700A: <br />
   in block  at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -2351,7 +2410,7 @@ at t/spec/comp/decl.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1408608780.00638 has not appeared<br />
+QAST::Block with cuid cuid_101_1408649879.98179 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2362,10 +2421,6 @@ P6opaque: no such attribute '$!storage'<br />
 Confused<br />
 at t/spec/uni/labels.v5:49<br />
 ------&gt;  $@, qr/Label not found for "last Ｅ" at/⏏u, "last's error is UTF-8 clean";<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_02_c3.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2642,8 +2697,13 @@ at t/spec/re/pat_psycho.v5:107<br />
 ------&gt;           ⏏for my $a ("x","a","aa") {<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::IPC_PRIVATE called<br />
+  in block  at t/spec/io/shm.v5:43<br />
+  in method reify at src/gen/m-CORE.setting:7880<br />
+  in method reify at src/gen/m-CORE.setting:7716<br />
+  in method gimme at src/gen/m-CORE.setting:8205<br />
+  in method sink at src/gen/m-CORE.setting:8664<br />
+  in block  at t/spec/io/shm.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol $|<br />
@@ -2711,7 +2771,7 @@ Can't locate Win32 in @INC (@INC contains: ../lib/Perl5)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/current_sub.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+Cannot find method 'Any'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/glob.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/glob.v5<br />
@@ -2762,7 +2822,7 @@ Cannot iterate object with P6opaque representation<br />
 Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>close 'tmp4387B': <br />
+        <tr><td colspan='5'>close 'tmp27611B': <br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:53<br />
   in block  at t/spec/run/cloexec.v5:1<br />
 </td></tr>
@@ -2800,7 +2860,7 @@ Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/while.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+Unable to parse expression in args; couldn't find final ')'  at line 37, near "!/vt100/ &amp;"<br />
 </td></tr>
         <tr align='center'><td align='left'>comp/colon.v5</td><td>0</td><td>25</td><td>0</td><td>0</td><td>25</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/reverse.v5</td><td>0</td><td>26</td><td>0</td><td>0</td><td>26</td></tr>
@@ -2857,7 +2917,7 @@ at t/spec/io/pvbm.v5:52<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sigdispatch.v5</td><td>0</td><td>29</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/readline.v5</td><td>0</td><td>30</td><td>0</td><td>0</td><td>30</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2896,12 +2956,14 @@ This type cannot unbox to a native string<br />
 Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::TST called<br />
+  in block  at t/spec/io/tell.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/subval.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/cmd/subval.v5<br />
+Confused<br />
+at t/spec/cmd/subval.v5:110<br />
+------&gt; &amp;main⏏'somesub(28, 'foo', __FILE__, __LINE__);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/recompile.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2973,7 +3035,7 @@ at t/spec/mro/package_aliases_utf8.v5:87<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+Bogus statement at line 457, near "map chmod("<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_utf8.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/basic_utf8.v5<br />
@@ -2989,7 +3051,7 @@ at t/spec/mro/package_aliases.v5:75<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/each.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stash.v5</td><td>0</td><td>57</td><td>0</td><td>0</td><td>57</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3010,8 +3072,18 @@ at t/spec/mro/basic.v5:7<br />
 ------&gt; BEGIN { require q(t/test.pl); } ⏏plan(tests =&gt; 59);<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:29<br />
+    ------&gt;     open my $fh⏏, "&gt;$f" or die "Can't create $f: $!";<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:274<br />
+    ------&gt;         open my $fh⏏, '&lt;',<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/inccode.v5:303<br />
+    ------&gt; 	my $pid = open my $fh⏏, "-|";<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/quotemeta.v5</td><td>0</td><td>60</td><td>0</td><td>0</td><td>60</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/quotemeta.v5<br />
@@ -3177,8 +3249,12 @@ at t/spec/op/lex_assign.v5:28<br />
 This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/stat.v5</td><td>0</td><td>113</td><td>0</td><td>0</td><td>113</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/op/stat.v5:465<br />
+    ------&gt;     open my $fh⏏, "test.pl";<br />
+===SORRY!===<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index.v5</td><td>0</td><td>114</td><td>0</td><td>0</td><td>114</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3224,9 +3300,10 @@ Cannot iterate object with P6opaque representation<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
  from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>japh/abigail.v5</td><td>0</td><td>130</td><td>0</td><td>0</td><td>130</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>japh/abigail.v5</td><td>0</td><td>129</td><td>0</td><td>1</td><td>130</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+Cannot modify an immutable Num<br />
+<br />   1 skipped: <br />
 </td></tr>
         <tr align='center'><td align='left'>op/state.v5</td><td>0</td><td>131</td><td>0</td><td>0</td><td>131</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tr.v5</td><td>0</td><td>132</td><td>0</td><td>0</td><td>132</td></tr>
@@ -3269,7 +3346,7 @@ at t/spec/comp/parser.v5:115<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/bop.v5</td><td>0</td><td>174</td><td>0</td><td>0</td><td>174</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+Unable to parse expression in args; couldn't find final ')'  at line 105, near "v801), 801"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3334,7 +3411,52 @@ Unable to parse expression in declarator; couldn't find final ')'  at line 89, n
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie_fetch_count.v5</td><td>0</td><td>312</td><td>0</td><td>0</td><td>312</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Dynamic variable $*ROUTINE_NAME not found<br />
+Confused<br />
+at t/spec/op/tie_fetch_count.v5:257<br />
+------&gt; pos⏏$var = 0             ; check_count 'lval<br />
+Other potential difficulties:<br />
+    Redeclaration of symbol $var<br />
+    at t/spec/op/tie_fetch_count.v5:44<br />
+    ------&gt; tie my $var ⏏=&gt; 'main', 1;<br />
+    Redeclaration of symbol $v42<br />
+    at t/spec/op/tie_fetch_count.v5:68<br />
+    ------&gt; tie my $v42 ⏏=&gt; 'main', "z";<br />
+    Redeclaration of symbol $v_1<br />
+    at t/spec/op/tie_fetch_count.v5:104<br />
+    ------&gt; tie my $v_1⏏, "main", 0;<br />
+    Redeclaration of symbol $var0<br />
+    at t/spec/op/tie_fetch_count.v5:123<br />
+    ------&gt; tie my $var0⏏, "main", \*DATA;<br />
+    Redeclaration of symbol $var1<br />
+    at t/spec/op/tie_fetch_count.v5:166<br />
+    ------&gt; tie my $var1 ⏏=&gt; 'main', \1;<br />
+    Redeclaration of symbol $var2<br />
+    at t/spec/op/tie_fetch_count.v5:168<br />
+    ------&gt; tie my $var2 ⏏=&gt; 'main', [];<br />
+    Redeclaration of symbol $var3<br />
+    at t/spec/op/tie_fetch_count.v5:171<br />
+    ------&gt; tie my $var3 ⏏=&gt; 'main', {};<br />
+    Redeclaration of symbol $var4<br />
+    at t/spec/op/tie_fetch_count.v5:176<br />
+    ------&gt;     tie my $var4 ⏏=&gt; 'main', **;<br />
+    Redeclaration of symbol $var5<br />
+    at t/spec/op/tie_fetch_count.v5:180<br />
+    ------&gt; tie my $var5 ⏏=&gt; 'main', sub {1};<br />
+    Redeclaration of symbol $var1<br />
+    at t/spec/op/tie_fetch_count.v5:185<br />
+    ------&gt;     tie my $var1 ⏏=&gt; 'main', 1;<br />
+    Redeclaration of symbol $var6<br />
+    at t/spec/op/tie_fetch_count.v5:200<br />
+    ------&gt;     tie my $var6 ⏏=&gt; main =&gt; 988;<br />
+    Redeclaration of symbol $var7<br />
+    at t/spec/op/tie_fetch_count.v5:206<br />
+    ------&gt;     tie my $var7 ⏏=&gt; main =&gt; 973;<br />
+    Redeclaration of symbol $var8<br />
+    at t/spec/op/tie_fetch_count.v5:210<br />
+    ------&gt; tie my $var8 ⏏=&gt; 'main', 'main';<br />
+    Redeclaration of symbol $var9<br />
+    at t/spec/op/tie_fetch_count.v5:218<br />
+    ------&gt;     tie my $var9 ⏏=&gt; 'main', 'swibble';<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartmatch.v5</td><td>0</td><td>349</td><td>0</td><td>0</td><td>349</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
