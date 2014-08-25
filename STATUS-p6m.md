@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>2866</td><td>37814</td><td>2</td><td>17</td><td>40647</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>2919</td><td>37756</td><td>2</td><td>1773</td><td>42398</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>1542</td><td>1022</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'got 161 into 70 l 2 o 0'<br />
@@ -22,11 +22,11 @@
         <tr align='center'><td align='left' rowspan='2'>cmd/for.v5</td><td>61</td><td>56</td><td>1</td><td>0</td><td>118</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::a called<br />
   in block  at t/spec/cmd/for.v5:665<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/cmd/for.v5:20<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/cmd/for.v5:20<br />
 <br />   1 todo   : RT #1085: what should be output of perl -we 'print do { foreach (1, 2) { 1; } }'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/list.v5</td><td>52</td><td>12</td><td>0</td><td>0</td><td>64</td></tr>
@@ -46,15 +46,15 @@
 # Failed test 'slice ary nil'<br />
 # at /home/froggs/dev/v5/t/test.pl line 10<br />
 Index out of range. Is: 1, should be in 0..0<br />
-  in method Str at src/gen/m-CORE.setting:13075<br />
+  in method Str at src/gen/m-CORE.setting:13179<br />
   in method join at src/gen/m-CORE.setting:1733<br />
   in sub join at src/gen/m-CORE.setting:1946<br />
   in block  at t/spec/op/list.v5:169<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/list.v5:9<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/list.v5:9<br />
 # Looks like you planned 64 tests, but ran 59<br />
 # Looks like you failed 7 tests of 59<br />
 </td></tr>
@@ -93,11 +93,11 @@ Index out of range. Is: 1, should be in 0..0<br />
 # expected: 'outer'<br />
 Undefined subroutine &amp;main::loop called<br />
   in block  at t/spec/op/my.v5:140<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/my.v5:108<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/my.v5:108<br />
 <br />  49 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/auto.v5</td><td>45</td><td>2</td><td>0</td><td>0</td><td>47</td></tr>
@@ -109,6 +109,60 @@ Undefined subroutine &amp;main::loop called<br />
 # Looks like you failed 2 tests of 47<br />
 </td></tr>
         <tr align='center'><td align='left'>comp/cmdopt.v5</td><td>44</td><td>0</td><td>0</td><td>0</td><td>44</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/each_array.v5</td><td>41</td><td>22</td><td>0</td><td>0</td><td>63</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'got index when only index was assigned to variable'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '1zam'<br />
+# expected: '1'<br />
+# Failed test 'got expected index of remaining element'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '2RATTLE'<br />
+# expected: '2'<br />
+# Failed test '0'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '0'<br />
+# expected: 'bacon'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: 'no elements remaining to be iterated over; array reference case'<br />
+# Failed test 'got expected index'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '2'<br />
+# expected: '0'<br />
+# Failed test 'got expected value'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'bloop'<br />
+# expected: 'crunch'<br />
+# Failed test 'following 'keys', got expected index'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '0'<br />
+# Failed test 'following 'keys', got expected value'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: 'crunch'<br />
+# Failed test 'following 'values', 'each' and 'values', 'each' continues to return expected index'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '1'<br />
+# expected: '0'<br />
+# Failed test 'following 'values', 'each' and 'values', 'each' continues to return expected value'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'zam'<br />
+# expected: 'crunch'<br />
+# Failed test ''each' on array in scalar context in loop returns expected index '0''<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '0crunch'<br />
+# expected: '0'<br />
+# Failed test ''each' on array in scalar context in loop returns expected index '1''<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '1zam'<br />
+# expected: '1'<br />
+# Failed test ''each' on array in scalar context in loop returns expected index '2''<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '2bloop'<br />
+# expected: '2'<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filetest_stack_ok.v5</td><td>34</td><td>101</td><td>0</td><td>0</td><td>135</td></tr>
         <tr><td colspan='5'><br />
 # Failed test '-r *gv returns single value'<br />
@@ -147,11 +201,11 @@ Undefined subroutine &amp;main::loop called<br />
 # Failed test '-z *gv returns single value'<br />
 # at /home/froggs/dev/v5/t/test.pl line 10<br />
 '' is not a regular file while trying to do '.z'<br />
-  in method Str at src/gen/m-CORE.setting:13075<br />
+  in method Str at src/gen/m-CORE.setting:13179<br />
   in sub P5Str at src/Perl5/Terms.pm:1181<br />
   in sub P5Str at /home/froggs/dev/v5/lib/Perl5/Terms.pm.moarvm:1<br />
   in sub is at /home/froggs/dev/v5/t/test.pl:64<br />
-  in block  at t/spec/op/filetest_stack_ok.v5:26<br />
+  in block &lt;unit&gt; at t/spec/op/filetest_stack_ok.v5:26<br />
 # Looks like you planned 135 tests, but ran 49<br />
 # Looks like you failed 15 tests of 49<br />
 </td></tr>
@@ -492,9 +546,9 @@ Testing limit capabilities<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
 Cannot modify an immutable Int<br />
-  in sub undefine at src/gen/m-CORE.setting:17458<br />
+  in sub undefine at src/gen/m-CORE.setting:17562<br />
   in sub undef at src/Perl5/Terms.pm:275<br />
-  in block  at t/spec/op/undef.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/undef.v5:1<br />
 # Looks like you planned 85 tests, but ran 25<br />
 # Looks like you failed 2 tests of 25<br />
 </td></tr>
@@ -640,7 +694,7 @@ Cannot modify an immutable Int<br />
     at t/spec/comp/fold.v5:90<br />
     ------&gt;     local $SIG⏏{__DIE__}  = sub { $c+= 2 };<br />
 Undefined subroutine &amp;main::INSTALL called<br />
-  in block  at t/spec/comp/fold.v5:124<br />
+  in block &lt;unit&gt; at t/spec/comp/fold.v5:124<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/switch.v5</td><td>18</td><td>0</td><td>0</td><td>0</td><td>18</td></tr>
         <tr align='center'><td align='left'>op/lop.v5</td><td>17</td><td>0</td><td>0</td><td>0</td><td>17</td></tr>
@@ -688,24 +742,24 @@ to preserve list context inside function call<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/append.v5</td><td>9</td><td>4</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>This type cannot unbox to a native string<br />
-  in sub MAKE_REGEX at src/gen/m-CORE.setting:13422<br />
-  in block  at src/gen/m-CORE.setting:13303<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at src/gen/m-CORE.setting:13297<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:13380<br />
-  in method INTERPOLATE at src/gen/m-CORE.setting:13277<br />
-  in method match at src/gen/m-CORE.setting:6398<br />
+  in sub MAKE_REGEX at src/gen/m-CORE.setting:13526<br />
+  in block  at src/gen/m-CORE.setting:13407<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block  at src/gen/m-CORE.setting:13401<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:13484<br />
+  in method INTERPOLATE at src/gen/m-CORE.setting:13381<br />
+  in method match at src/gen/m-CORE.setting:6409<br />
   in sub like_yn at /home/froggs/dev/v5/t/test.pl:96<br />
   in sub like at /home/froggs/dev/v5/t/test.pl:90<br />
   in block  at t/spec/op/append.v5:43<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/append.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/append.v5:1<br />
 # Looks like you planned 13 tests, but ran 9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/length.v5</td><td>8</td><td>33</td><td>0</td><td>0</td><td>41</td></tr>
@@ -715,11 +769,11 @@ to preserve list context inside function call<br />
     ------&gt; my $u⏏;<br />
 Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/length.v5:125<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/length.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/length.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chr.v5</td><td>6</td><td>2</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'><br />
@@ -730,7 +784,7 @@ Undefined subroutine &amp;main::tie called<br />
         <tr align='center'><td align='left' rowspan='2'>comp/bproto.v5</td><td>6</td><td>10</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Cannot use Bool as Matcher with 'grep'.  Did you mean to use $_ inside a block?<br />
   in sub test_no_error at t/spec/comp/bproto.v5:31<br />
-  in block  at t/spec/comp/bproto.v5:49<br />
+  in block &lt;unit&gt; at t/spec/comp/bproto.v5:49<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/int.v5</td><td>6</td><td>9</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'><br />
@@ -741,7 +795,7 @@ Too many positional parameters passed; got 2 but expected 1<br />
   in sub _diag at /home/froggs/dev/v5/t/test.pl:18<br />
   in sub diag at /home/froggs/dev/v5/t/test.pl:77<br />
   in block  at t/spec/op/int.v5:36<br />
-  in block  at t/spec/op/int.v5:29<br />
+  in block &lt;unit&gt; at t/spec/op/int.v5:29<br />
 # Looks like you planned 15 tests, but ran 7<br />
 # Looks like you failed 1 tests of 7<br />
 </td></tr>
@@ -769,6 +823,11 @@ Too many positional parameters passed; got 2 but expected 1<br />
 # Looks like you failed 6 tests of 12<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>cmd/mod.v5</td><td>5</td><td>8</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr><td colspan='5'>Cannot assign to a readonly variable or a value<br />
+  in sub infix:&lt;=&gt; at src/gen/m-CORE.setting:17335<br />
+  in block &lt;unit&gt; at t/spec/cmd/mod.v5:29<br />
+</td></tr>
         <tr align='center'><td align='left'>t/v5/03-num.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/or.v5</td><td>4</td><td>4</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'><br />
@@ -778,9 +837,12 @@ Too many positional parameters passed; got 2 but expected 1<br />
 # expected: '3'<br />
 Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/op/or.v5:27<br />
-  in block  at t/spec/op/or.v5:12<br />
+  in block &lt;unit&gt; at t/spec/op/or.v5:12<br />
 # Looks like you planned 8 tests, but ran 5<br />
 # Looks like you failed 1 tests of 5<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>4</td><td>0</td><td>0</td><td>1756</td><td>1760</td></tr>
+        <tr><td colspan='5'><br /> 1756 skipped: Can't get bigint from something that isn't a SixModel object<br />
 </td></tr>
         <tr align='center'><td align='left'>cmd/elsif.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
         <tr align='center'><td align='left'>op/cond.v5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
@@ -813,7 +875,7 @@ Undefined subroutine &amp;main::tie called<br />
 #      got: 'Undefined subroutine &amp;main::select called'<br />
 # expected: ''<br />
 Undefined subroutine &amp;main::select called<br />
-  in block  at t/spec/op/sselect.v5:11<br />
+  in block &lt;unit&gt; at t/spec/op/sselect.v5:11<br />
 # Looks like you planned 11 tests, but ran 9<br />
 # Looks like you failed 6 tests of 9<br />
 </td></tr>
@@ -856,7 +918,7 @@ Undefined subroutine &amp;main::select called<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/run/switchI.v5:12<br />
+  in block &lt;unit&gt; at t/spec/run/switchI.v5:12<br />
 # Looks like you planned 4 tests, but ran 2<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/noswitch.v5</td><td>2</td><td>0</td><td>0</td><td>1</td><td>3</td></tr>
@@ -872,8 +934,48 @@ Undefined subroutine &amp;main::select called<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/setpgrpstack.v5</td><td>2</td><td>1</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::setpgrp called<br />
-  in block  at t/spec/op/setpgrpstack.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/setpgrpstack.v5:1<br />
 # Looks like you planned 3 tests, but ran 2<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>2</td><td>21</td><td>0</td><td>0</td><td>23</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'bless'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: '@'<br />
+# expected: 'y'<br />
+# Failed test 'bless'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '@'<br />
+# expected: 'x'<br />
+# Failed test 'splice'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '@abcx'<br />
+# expected: 'a b c x'<br />
+# Failed test 'splice'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '@abcy'<br />
+# expected: 'a b c y'<br />
+# Failed test 'goto: single element'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '@'<br />
+# expected: 'y'<br />
+# Failed test 'goto: single element'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '@'<br />
+# expected: 'x'<br />
+# Failed test 'goto: multiple elements'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '@abcx'<br />
+# expected: 'a b c x'<br />
+# Failed test 'goto: multiple elements'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: '@abcy'<br />
+# expected: 'a b c y'<br />
+Undefined subroutine &amp;main::L called<br />
+  in sub local2 at t/spec/op/args.v5:76<br />
+  in block &lt;unit&gt; at t/spec/op/args.v5:77<br />
+# Looks like you planned 23 tests, but ran 10<br />
+# Looks like you failed 8 tests of 10<br />
 </td></tr>
         <tr align='center'><td align='left'>base/pat.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
         <tr align='center'><td align='left'>base/if.v5</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
@@ -881,31 +983,38 @@ Undefined subroutine &amp;main::select called<br />
         <tr align='center'><td align='left'>t/v5/basic.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/dup.v5</td><td>1</td><td>28</td><td>0</td><td>0</td><td>29</td></tr>
         <tr><td colspan='5'>Can't open stdout<br />
-  in block  at t/spec/io/dup.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/dup.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/binmode.v5</td><td>1</td><td>8</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>Could not find symbol '&amp;Layer'<br />
-  in method &lt;anon&gt; at src/gen/m-CORE.setting:13080<br />
+  in method &lt;anon&gt; at src/gen/m-CORE.setting:13184<br />
   in any find_method_fallback at src/gen/m-Metamodel.nqp:2625<br />
   in any find_method at src/gen/m-Metamodel.nqp:944<br />
   in block  at t/spec/io/binmode.v5:16<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/io/binmode.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/io/binmode.v5:1<br />
 # Looks like you planned 9 tests, but ran 1<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>1</td><td>22</td><td>0</td><td>0</td><td>23</td></tr>
+        <tr><td colspan='5'>Invocant requires an instance, but a type object was passed<br />
+  in method Bridge at src/gen/m-CORE.setting:4600<br />
+  in sub infix:&lt;&gt;&gt; at src/gen/m-CORE.setting:4527<br />
+  in sub infix:&lt;P5&gt;&gt; at src/Perl5/Terms.pm:320<br />
+  in block &lt;unit&gt; at t/spec/comp/term.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF.v5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'># Looks like you planned 2 tests, but ran 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/opsubs.v5</td><td>1</td><td>35</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
-  in block  at t/spec/comp/opsubs.v5:1<br />
+  in block &lt;unit&gt; at t/spec/comp/opsubs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/multiline.v5</td><td>1</td><td>5</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Could not close: <br />
-  in block  at t/spec/comp/multiline.v5:1<br />
+  in block &lt;unit&gt; at t/spec/comp/multiline.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/hints.v5</td><td>1</td><td>30</td><td>0</td><td>0</td><td>31</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -915,35 +1024,35 @@ Cannot call 'infix:&lt;P5&amp;&gt;'; none of these signatures match:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getpid.v5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::getppid called<br />
-  in block  at t/spec/op/getpid.v5:28<br />
+  in block &lt;unit&gt; at t/spec/op/getpid.v5:28<br />
 # Looks like you planned 3 tests, but ran 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/evalbytes.v5</td><td>1</td><td>7</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::evalbytes called<br />
-  in block  at t/spec/op/evalbytes.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/evalbytes.v5:1<br />
 # Looks like you planned 8 tests, but ran 1<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/02-int.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/vec.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::vec called<br />
-  in block  at t/spec/bigmem/vec.v5:10<br />
+  in block &lt;unit&gt; at t/spec/bigmem/vec.v5:10<br />
 # Looks like you planned 7 tests, but ran 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/assignwarn.v5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
   in sub test_op at t/spec/op/assignwarn.v5:43<br />
   in block  at t/spec/op/assignwarn.v5:51<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method eager at src/gen/m-CORE.setting:8177<br />
-  in block  at t/spec/op/assignwarn.v5:49<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method eager at src/gen/m-CORE.setting:8188<br />
+  in block &lt;unit&gt; at t/spec/op/assignwarn.v5:49<br />
 <br />   1 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>base/term.v5</td><td>1</td><td>6</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
-  in block  at t/spec/base/term.v5:1<br />
+  in block &lt;unit&gt; at t/spec/base/term.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/isa_c3.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -979,7 +1088,7 @@ Iteration past end of iterator<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/anonsub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
-  in block  at t/spec/op/anonsub.v5:6<br />
+  in block &lt;unit&gt; at t/spec/op/anonsub.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/attrs.v5<br />
@@ -1026,7 +1135,7 @@ This type does not support positional operations<br />
     at t/spec/op/do.v5:280<br />
     ------&gt;       open my $fh⏏, '&lt;', \$code;<br />
 ===SORRY!===<br />
-Cannot find method 'named'<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1034,7 +1143,7 @@ Cannot find method 'orig'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fork.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
-  in block  at t/spec/op/fork.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/fork.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/gmagic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1046,14 +1155,14 @@ Couldn't parse heredoc construct at line 218, near " \"EOC\" or "<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/inccode-tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
-  in block  at t/spec/op/inccode-tie.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/inccode-tie.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/index_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/op/index_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/op/index_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/leaky-magic.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1081,12 +1190,12 @@ Other potential difficulties:<br />
 Can't locate ./test.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/op/require_37033.v5:8<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/op/require_37033.v5:8<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/runlevel.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
-  in block  at t/spec/op/runlevel.v5:12<br />
+  in block &lt;unit&gt; at t/spec/op/runlevel.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/smartkve.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1095,7 +1204,7 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>op/splice.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>No such method 'splice' for invocant of type 'Range'<br />
   in sub P5splice at src/Perl5/Terms.pm:1102<br />
-  in block  at t/spec/op/splice.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/splice.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sprintf.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1105,8 +1214,8 @@ Unable to parse expression in variable; couldn't find final '}'  at line 77, nea
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/op/substr_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/op/substr_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/svleak.pl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1114,11 +1223,16 @@ Ending delimiter END not found at line 4, near "\nsay \"# FU"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tie.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
-  in block  at t/spec/op/tie.v5:15<br />
+  in block &lt;unit&gt; at t/spec/op/tie.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8decode.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::v256 called<br />
+  in block  at t/spec/op/utf8decode.v5:10<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/utf8decode.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/write.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1151,36 +1265,33 @@ This type does not support positional operations<br />
     ------&gt;     open my $fh⏏, '&lt;', $manifest or die "Can't open $man<br />
 Can't open ../proto.h: <br />
   in block  at t/spec/porting/args_assert.v5:24<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/porting/args_assert.v5:14<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/porting/args_assert.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/line_debug.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/authors.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::find_git_or_skip called<br />
-  in block  at t/spec/porting/authors.v5:11<br />
+  in block &lt;unit&gt; at t/spec/porting/authors.v5:11<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
-</td></tr>
+        <tr align='center'><td align='left'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub shell at src/gen/m-CORE.setting:747<br />
   in sub system at src/Perl5/Terms.pm:278<br />
-  in block  at t/spec/porting/checkcfgvar.v5:1<br />
+  in block &lt;unit&gt; at t/spec/porting/checkcfgvar.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/cmp_version.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::find_git_or_skip called<br />
-  in block  at t/spec/porting/cmp_version.v5:15<br />
+  in block &lt;unit&gt; at t/spec/porting/cmp_version.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/customized.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Can't locate Maintainers in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
+Missing or wrong version of dependency 'src/Perl6/Grammar.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/diag.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1189,7 +1300,7 @@ Cannot call 'Real'; none of these signatures match:<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/dual-life.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
+Missing or wrong version of dependency 'src/Perl6/Grammar.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/exec-bit.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1203,7 +1314,7 @@ Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
     at t/spec/porting/filenames.v5:37<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
 Can't open '../MANIFEST': <br />
-  in block  at t/spec/porting/filenames.v5:32<br />
+  in block &lt;unit&gt; at t/spec/porting/filenames.v5:32<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/globvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1222,8 +1333,8 @@ Can't locate Maintainers in @INC (@INC contains: lib /home/froggs/dev/v5/lib /ho
     Redeclaration of symbol $m<br />
     at t/spec/porting/manifest.v5:17<br />
     ------&gt; open my $m⏏, '&lt;', $manifest or die "Can't open '$ma<br />
-===SORRY!===<br />
-Cannot find method 'named'<br />
+Can't open 'MANIFEST': <br />
+  in block &lt;unit&gt; at t/spec/porting/manifest.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pending-author.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1231,17 +1342,17 @@ Cannot find method 'named'<br />
     at t/spec/porting/pending-author.v5:56<br />
     ------&gt; open my $fh⏏, '|-', "$^X Porting/checkAUTHORS.pl --t<br />
 Undefined subroutine &amp;main::find_git_or_skip called<br />
-  in block  at t/spec/porting/pending-author.v5:30<br />
+  in block &lt;unit&gt; at t/spec/porting/pending-author.v5:30<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/perlfunc.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub shell at src/gen/m-CORE.setting:747<br />
   in sub system at src/Perl5/Terms.pm:278<br />
-  in block  at t/spec/porting/perlfunc.v5:1<br />
+  in block &lt;unit&gt; at t/spec/porting/perlfunc.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/pod_rules.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
-  in block  at t/spec/porting/pod_rules.v5:10<br />
+  in block &lt;unit&gt; at t/spec/porting/pod_rules.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/regen.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1272,7 +1383,7 @@ Other potential difficulties:<br />
     at t/spec/porting/utils.v5:37<br />
     ------&gt; open my $fh⏏, '&lt;', 'MANIFEST' or die "Can't open MAN<br />
 Undefined subroutine &amp;main::find_git_or_skip called<br />
-  in block  at t/spec/porting/utils.v5:26<br />
+  in block &lt;unit&gt; at t/spec/porting/utils.v5:26<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/fold_grind.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1297,43 +1408,43 @@ at t/spec/re/pat_advanced.v5:35<br />
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/pat_advanced_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/pat_advanced_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_psycho_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/pat_psycho_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/pat_psycho_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_re_eval_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/pat_re_eval_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/pat_re_eval_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_rt_report_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/pat_rt_report_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/pat_rt_report_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/pat_special_cc_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/pat_special_cc_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/pat_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/pat_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left'>re/re_tests.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_email.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1344,19 +1455,19 @@ This type cannot unbox to a native string<br />
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/reg_email_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/reg_email_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/re/reg_eval.v5:1<br />
+  in block &lt;unit&gt; at t/spec/re/reg_eval.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_mesg.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::warning_is called<br />
-  in block  at t/spec/re/reg_mesg.v5:269<br />
+  in block &lt;unit&gt; at t/spec/re/reg_mesg.v5:269<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_namedcapture.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1391,7 +1502,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_qr_embed_thr.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::useithreads called<br />
-  in block  at t/spec/re/regexp_qr_embed_thr.v5:5<br />
+  in block &lt;unit&gt; at t/spec/re/regexp_qr_embed_thr.v5:5<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/regexp_trielist.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Error while creating error string: No exception handler located for warn<br />
@@ -1406,8 +1517,8 @@ at t/spec/re/regexp_unicode_prop.v5:174<br />
         <tr><td colspan='5'>Can't locate ./thread_it.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/re/regexp_unicode_prop_thr.v5:4<br />
 </td></tr>
         <tr align='center'><td align='left'>re/substT.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/subst_amp.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1433,7 +1544,7 @@ Not an ARRAY reference<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchx.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
-  in block  at t/spec/run/switchx.v5:10<br />
+  in block &lt;unit&gt; at t/spec/run/switchx.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>test_pl/can_isa_ok.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1442,16 +1553,16 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp27664A'<br />
-# expected: 'tmp27664B'<br />
+#      got: 'tmp8182A'<br />
+# expected: 'tmp8182B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
-#      got: 'tmp27664B'<br />
-# expected: 'tmp27664C'<br />
+#      got: 'tmp8182B'<br />
+# expected: 'tmp8182C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
   in sub skip_files at t/spec/test_pl/tempfile.v5:13<br />
-  in block  at t/spec/test_pl/tempfile.v5:1<br />
+  in block &lt;unit&gt; at t/spec/test_pl/tempfile.v5:1<br />
 <br />   2 tests more than planned were run<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/attrs.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -1465,17 +1576,17 @@ at t/spec/uni/attrs.v5:160<br />
         <tr><td colspan='5'>Error encoding UTF-8 string near grapheme position 6613 with codepoint 64259<br />
    at src/Perl6/Grammar.nqp:338  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Grammar.moarvm:TOP:425)<br />
  from gen/moar/stage2/QRegex.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/QRegex.moarvm:parse:44)<br />
- from gen/moar/stage2/NQPHLL.nqp:1398  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:parse:80)<br />
- from gen/moar/stage2/NQPHLL.nqp:1354  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:compile:197)<br />
- from gen/moar/stage2/NQPHLL.nqp:1101  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:eval:53)<br />
- from gen/moar/stage2/NQPHLL.nqp:1311  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:87)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1510  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:parse:80)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1466  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:compile:197)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1213  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:eval:53)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1423  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:87)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/lower.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1500,11 +1611,11 @@ Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/crlf_through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
-  in block  at t/spec/io/crlf_through.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/crlf_through.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/data.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::run_multiple_progs called<br />
-  in block  at t/spec/io/data.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/data.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/layers.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/io/layers.v5<br />
@@ -1528,40 +1639,29 @@ Confused<br />
 at t/spec/io/say.v5:60<br />
 ------&gt;     CORE::say ⏏"ok 13 - CORE::say without feature.pm";<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>io/through.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>Potential difficulties:<br />
-    Redeclaration of symbol $fh<br />
-    at t/spec/io/through.v5:93<br />
-    ------&gt;   open my $fh⏏, '&gt;', $filename or die;<br />
-    Redeclaration of symbol $fh<br />
-    at t/spec/io/through.v5:116<br />
-    ------&gt; open my $fh⏏, '-|', qq[$Perl -we "eval qq(\\x24\\x7c<br />
-===SORRY!===<br />
-Cannot find method 'named'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/croak.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Failed to find '/home/froggs/dev/v5/lib/t/lib/common.pl.pm6' while trying to do '.f'<br />
-  in method f at src/gen/m-CORE.setting:14074<br />
-  in block  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:21625<br />
-  in method candidates at src/gen/m-CORE.setting:21622<br />
-  in block  at src/gen/m-CORE.setting:21438<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in method candidates at src/gen/m-CORE.setting:21436<br />
-  in method load_module at src/gen/m-CORE.setting:21450<br />
-  in block  at t/spec/lib/croak.v5:8<br />
+  in method f at src/gen/m-CORE.setting:14178<br />
+  in block  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:21737<br />
+  in method candidates at src/gen/m-CORE.setting:21734<br />
+  in block  at src/gen/m-CORE.setting:21550<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in method candidates at src/gen/m-CORE.setting:21548<br />
+  in method load_module at src/gen/m-CORE.setting:21562<br />
+  in block &lt;unit&gt; at t/spec/lib/croak.v5:8<br />
 Unhandled exception: Element shifted from empty list<br />
    at &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:print_exception:4294967295)<br />
- from src/gen/m-CORE.setting:11755  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:40)<br />
- from gen/moar/stage2/NQPHLL.nqp:1249  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:374)<br />
+ from src/gen/m-CORE.setting:11859  (/home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:&lt;anon&gt;:40)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1361  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:374)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/no_load.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
@@ -1569,11 +1669,11 @@ Unhandled exception: Element shifted from empty list<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
   in block  at t/spec/lib/no_load.v5:25<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method eager at src/gen/m-CORE.setting:8177<br />
-  in block  at t/spec/lib/no_load.v5:15<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method eager at src/gen/m-CORE.setting:8188<br />
+  in block &lt;unit&gt; at t/spec/lib/no_load.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/overload_fallback.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1582,7 +1682,7 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>lib/overload_nomethod.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::ok called<br />
   in block  at t/spec/lib/overload_nomethod.v5:13<br />
-  in block  at t/spec/lib/overload_nomethod.v5:6<br />
+  in block &lt;unit&gt; at t/spec/lib/overload_nomethod.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_04_c3.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'><br />
@@ -1674,7 +1774,7 @@ Unable to parse expression in args; couldn't find final ')'  at line 45, near "u
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>bigmem/read.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::DATA called<br />
-  in block  at t/spec/bigmem/read.v5:10<br />
+  in block &lt;unit&gt; at t/spec/bigmem/read.v5:10<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fresh_perl_utf8.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1694,7 +1794,7 @@ at t/spec/comp/final_line_num.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/podcheck.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Missing or wrong version of dependency 'src/gen/m-BOOTSTRAP.nqp'<br />
+Missing or wrong version of dependency 'src/Perl6/Grammar.nqp'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/charset.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/re/charset.v5<br />
@@ -1737,22 +1837,22 @@ at t/spec/uni/cache.v5:29<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/io/bom.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/bom.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/errnosig.v5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
   in block  at t/spec/io/errnosig.v5:13<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/io/errnosig.v5:10<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/io/errnosig.v5:10<br />
 <br />   1 skipped: Alarm not supported<br />
 </td></tr>
         <tr align='center'><td align='left'>lib/1_compile.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/commonsense.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::BAIL_OUT called<br />
-  in block  at t/spec/lib/commonsense.v5:14<br />
+  in block &lt;unit&gt; at t/spec/lib/commonsense.v5:14<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_05_c3.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'><br />
@@ -1833,7 +1933,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
-  in block  at t/spec/op/time_loop.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/time_loop.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/bincompat.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/porting/bincompat.v5<br />
@@ -1864,13 +1964,13 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
-  in block  at t/spec/io/iprefix.v5:17<br />
+  in block &lt;unit&gt; at t/spec/io/iprefix.v5:17<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/read.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Too many positional parameters passed; got 2 but expected 1<br />
   in method print at src/gen/m-CORE.setting:1046<br />
   in sub P5print at src/Perl5/Terms.pm:1021<br />
-  in block  at t/spec/io/read.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/read.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/concat2.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1885,7 +1985,7 @@ This type does not support positional operations<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/op/print.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/print.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utftaint.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1907,7 +2007,7 @@ This type does not support positional operations<br />
         <tr align='center'><td align='left' rowspan='2'>run/script.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
-  in block  at t/spec/run/script.v5:1<br />
+  in block &lt;unit&gt; at t/spec/run/script.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchn.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'><br />
@@ -1964,11 +2064,11 @@ at t/spec/op/attrhand.v5:19<br />
         <tr align='center'><td align='left' rowspan='2'>op/crypt.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::crypt called<br />
   in block  at t/spec/op/crypt.v5:32<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/crypt.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/crypt.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/filehandle.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -1992,7 +2092,7 @@ at t/spec/op/sigsystem.v5:28<br />
     ------&gt;     delete local $ENV⏏{$_} for keys %ENV;<br />
 Undefined subroutine &amp;main::delete called<br />
   in block  at t/spec/run/mad.v5:34<br />
-  in block  at t/spec/run/mad.v5:33<br />
+  in block &lt;unit&gt; at t/spec/run/mad.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/goto.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2009,11 +2109,11 @@ Dynamic variable $*ROUTINE_NAME not found<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp27740B' on target 'tmp27740A': Failed to link file: no such file or directory<br />
-  in block  at src/gen/m-CORE.setting:14843<br />
+Failed to create link called 'tmp8258B' on target 'tmp8258A': Failed to link file: no such file or directory<br />
+  in block  at src/gen/m-CORE.setting:14947<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
-  in sub link at src/gen/m-CORE.setting:14838<br />
-  in block  at t/spec/win32/fs.v5:1<br />
+  in sub link at src/gen/m-CORE.setting:14942<br />
+  in block &lt;unit&gt; at t/spec/win32/fs.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_01_c3.v5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>4</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2037,18 +2137,18 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/alarm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::alarm called<br />
-  in block  at t/spec/op/alarm.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/alarm.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/dbm.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
-  in block  at t/spec/op/dbm.v5:44<br />
+  in block &lt;unit&gt; at t/spec/op/dbm.v5:44<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lock.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::lock called<br />
-  in block  at t/spec/op/lock.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/lock.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/yadayada.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'><br />
@@ -2062,7 +2162,7 @@ Cannot call 'match'; none of these signatures match:<br />
   in sub P5split at src/Perl5/Terms.pm:1105<br />
   in sub P5split at src/Perl5/Terms.pm:1105<br />
   in sub P5split at src/Perl5/Terms.pm:1105<br />
-  in block  at t/spec/op/yadayada.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/yadayada.v5:1<br />
 # Looks like you planned 5 tests, but ran 1<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
@@ -2107,17 +2207,17 @@ Cannot call 'match'; none of these signatures match:<br />
 # '<br />
 Undefined subroutine &amp;main::tie called<br />
   in block  at t/spec/re/qr.v5:79<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/re/qr.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/re/qr.v5:1<br />
 # Looks like you planned 5 tests, but ran 4<br />
 # Looks like you failed 4 tests of 4<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/switchF1.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>Close Run_switchF1.pl: <br />
-  in block  at t/spec/run/switchF1.v5:29<br />
+  in block &lt;unit&gt; at t/spec/run/switchF1.v5:29<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/eval.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2131,7 +2231,7 @@ This type cannot unbox to a native string<br />
         <tr><td colspan='5'>No such method 'IO' for invocant of type 'Any'<br />
   in sub P5open at src/Perl5/Terms.pm:88<br />
   in sub P5open at src/Perl5/Terms.pm:77<br />
-  in block  at t/spec/uni/select.v5:1<br />
+  in block &lt;unit&gt; at t/spec/uni/select.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/nargv.v5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2139,7 +2239,7 @@ Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>benchmark/rt26188-speed-up-keys-on-empty-hash.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::delete called<br />
-  in block  at t/spec/benchmark/rt26188-speed-up-keys-on-empty-hash.v5:6<br />
+  in block &lt;unit&gt; at t/spec/benchmark/rt26188-speed-up-keys-on-empty-hash.v5:6<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/blocks.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2147,7 +2247,7 @@ Missing block at line 128, near ", 5, 'cons"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/kill0.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::kill called<br />
-  in block  at t/spec/op/kill0.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/kill0.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/threads-dirh.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2158,13 +2258,13 @@ No such method 'item' for invocant of type 'QAST::Regex'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp27399A/aaa' (indicated by ⏏)<br />
-  in method Numeric at src/gen/m-CORE.setting:13074<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp7928A/aaa' (indicated by ⏏)<br />
+  in method Numeric at src/gen/m-CORE.setting:13178<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4363<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub P5unlink at src/Perl5/Terms.pm:1333<br />
   in sub P5unlink at src/Perl5/Terms.pm:1331<br />
-  in block  at t/spec/op/unlink.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/unlink.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8magic.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2180,31 +2280,31 @@ Couldn't find terminator ) at line 49, near ""<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_eucjp.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1419  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/tr_sjis.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1419  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/inplace.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
-  in block  at t/spec/io/inplace.v5:15<br />
+  in block &lt;unit&gt; at t/spec/io/inplace.v5:15<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/perlio_open.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2218,11 +2318,22 @@ No such method 'IO' for invocant of type 'Any'<br />
   in sub P5open at src/Perl5/Terms.pm:97<br />
   in sub P5open at src/Perl5/Terms.pm:77<br />
   in block  at t/spec/io/perlio_open.v5:19<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/io/perlio_open.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/io/perlio_open.v5:1<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>io/through.v5</td><td>0</td><td>6</td><td>0</td><td>0</td><td>6</td></tr>
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/through.v5:93<br />
+    ------&gt;   open my $fh⏏, '&gt;', $filename or die;<br />
+    Redeclaration of symbol $fh<br />
+    at t/spec/io/through.v5:116<br />
+    ------&gt; open my $fh⏏, '-|', qq[$Perl -we "eval qq(\\x24\\x7c<br />
+Cannot find method 'at_key': no method cache and no .^find_method<br />
+  in block &lt;unit&gt; at t/spec/io/through.v5:31<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/c3_with_overload.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2270,11 +2381,11 @@ Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/our.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::tie called<br />
-  in block  at t/spec/comp/our.v5:1<br />
+  in block &lt;unit&gt; at t/spec/comp/our.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/package_block.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>Cannot find method 'at_key': no method cache and no .^find_method<br />
-  in block  at t/spec/comp/package_block.v5:1<br />
+  in block &lt;unit&gt; at t/spec/comp/package_block.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/readline.v5</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2285,8 +2396,8 @@ Unable to parse expression in args; couldn't find final ')'  at line 54, near "u
     Redeclaration of symbol $CMD<br />
     at t/spec/io/fflush.v5:126<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
-close tmp26700A: <br />
-  in block  at t/spec/io/fflush.v5:1<br />
+close tmp7287A: <br />
+  in block &lt;unit&gt; at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2306,7 +2417,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/fh.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::fileno called<br />
-  in block  at t/spec/op/fh.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/fh.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/getppid.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2315,11 +2426,11 @@ Unable to parse expression in declarator; couldn't find final ')'  at line 30, n
         <tr align='center'><td align='left' rowspan='2'>op/rand.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>postcircumfix:&lt;{ }&gt; not defined for type Parcel<br />
   in block  at t/spec/op/rand.v5:45<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/rand.v5:27<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/rand.v5:27<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/symbolcache.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2367,11 +2478,11 @@ at t/spec/uni/write.v5:103<br />
         <tr align='center'><td align='left' rowspan='2'>lib/proxy_constant_subs.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::svref_2object called<br />
   in block  at t/spec/lib/proxy_constant_subs.v5:22<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/lib/proxy_constant_subs.v5:20<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/lib/proxy_constant_subs.v5:20<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/heredoc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>Ending delimiter HEREDOC not found at line 3, near "testing fo" ---  in block  at t/spec/op/heredoc.v5:15<br />
@@ -2384,11 +2495,11 @@ P6opaque: no such attribute '$!storage'<br />
   in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
   in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
   in block  at t/spec/op/heredoc.v5:27<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/heredoc.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/heredoc.v5:1<br />
 # Looks like you planned 9 tests, but ran 1<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
@@ -2410,7 +2521,7 @@ at t/spec/comp/decl.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1408649879.98179 has not appeared<br />
+QAST::Block with cuid cuid_101_1408999630.82189 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2483,7 +2594,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/openpid.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
-  in block  at t/spec/io/openpid.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/openpid.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2551,7 +2662,7 @@ Unable to parse expression in term:sym&lt;scalar&gt;; couldn't find final ')'  a
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/goto_xs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unknown QAST node type Any<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/require_errors.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2614,7 +2725,7 @@ This type does not support positional operations<br />
 # expected: 'utf8_mg_len_cache_update() test'<br />
 Undefined subroutine &amp;Class::DESTROY called<br />
   in block  at t/spec/op/pos.v5:42<br />
-  in block  at t/spec/op/pos.v5:42<br />
+  in block &lt;unit&gt; at t/spec/op/pos.v5:42<br />
 # Looks like you planned 12 tests, but ran 7<br />
 # Looks like you failed 7 tests of 7<br />
 </td></tr>
@@ -2625,10 +2736,6 @@ Unable to parse expression in parensig; couldn't find final ')'  at line 42, nea
         <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type does not support positional operations<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>cmd/mod.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2646,7 +2753,7 @@ Iteration past end of iterator<br />
 # expected: '-1'<br />
 P6opaque: no such attribute '$!storage'<br />
   in sub QX at src/gen/m-CORE.setting:765<br />
-  in block  at t/spec/run/switcht.v5:14<br />
+  in block &lt;unit&gt; at t/spec/run/switcht.v5:14<br />
 # Looks like you planned 13 tests, but ran 1<br />
 # Looks like you failed 1 tests of 1<br />
 </td></tr>
@@ -2680,10 +2787,6 @@ Found ? but no :; possible precedence problem at line 42, near "p\n\t\t\t  : $"<
         <tr><td colspan='5'>===SORRY!===<br />
 Can't locate mypragma in @INC (@INC contains: lib lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/numconvert.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utf8cache.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/utf8cache.v5<br />
 Preceding context expects a term, but found infix = instead<br />
@@ -2699,24 +2802,24 @@ at t/spec/re/pat_psycho.v5:107<br />
         <tr align='center'><td align='left' rowspan='2'>io/shm.v5</td><td>0</td><td>15</td><td>0</td><td>0</td><td>15</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::IPC_PRIVATE called<br />
   in block  at t/spec/io/shm.v5:43<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/io/shm.v5:40<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/io/shm.v5:40<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/hashwarn.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>Merging GLOBAL symbols failed: duplicate definition of symbol $|<br />
   in block  at src/Perl5/ModuleLoader.pm:212<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
   in sub merge_globals at src/Perl5/ModuleLoader.pm:176<br />
   in method load_module at src/Perl5/ModuleLoader.pm:151<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/op/hashwarn.v5:9<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/op/hashwarn.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/push.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2740,11 +2843,11 @@ Cannot modify an immutable Any<br />
 # expected: '0'<br />
 No such method 'import' for invocant of type 'Str+{P5Bareword}'<br />
   in block  at t/spec/op/sub.v5:26<br />
-  in method reify at src/gen/m-CORE.setting:7880<br />
-  in method reify at src/gen/m-CORE.setting:7716<br />
-  in method gimme at src/gen/m-CORE.setting:8205<br />
-  in method sink at src/gen/m-CORE.setting:8664<br />
-  in block  at t/spec/op/sub.v5:1<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/sub.v5:1<br />
 # Looks like you planned 16 tests, but ran 4<br />
 # Looks like you failed 4 tests of 4<br />
 </td></tr>
@@ -2762,8 +2865,8 @@ at t/spec/io/defout.v5:32<br />
         <tr><td colspan='5'>Can't locate ./test.pl in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/froggs/dev/v5/lib/Perl5 /home/froggs/dev/nqp/install/languages/perl6/lib/Perl5 .)<br />
   in method load_module at src/Perl5/ModuleLoader.pm:58<br />
   in any load_module at src/gen/m-ModuleLoader.nqp:165<br />
-  in method load_module at src/gen/m-CORE.setting:21460<br />
-  in block  at t/spec/io/errno.v5:11<br />
+  in method load_module at src/gen/m-CORE.setting:21572<br />
+  in block &lt;unit&gt; at t/spec/io/errno.v5:11<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/cygwin.v5</td><td>0</td><td>16</td><td>0</td><td>0</td><td>16</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2780,8 +2883,8 @@ at t/spec/op/glob.v5:12<br />
 ------&gt; @oops = @ops = &lt;⏏op/*&gt;;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
+        <tr><td colspan='5'>binmode tmp7745B failed: <br />
+  in block &lt;unit&gt; at t/spec/op/lfs.v5:24<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/caller.v5<br />
@@ -2822,17 +2925,9 @@ Cannot iterate object with P6opaque representation<br />
 Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>close 'tmp27611B': <br />
+        <tr><td colspan='5'>close 'tmp8127B': <br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:53<br />
-  in block  at t/spec/run/cloexec.v5:1<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/args.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>comp/term.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
+  in block &lt;unit&gt; at t/spec/run/cloexec.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/argv.v5</td><td>0</td><td>23</td><td>0</td><td>0</td><td>23</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -2851,8 +2946,11 @@ Unable to parse expression in variable; couldn't find final '}'  at line 23, nea
 Unable to parse expression in variable; couldn't find final '}'  at line 26, near " $args[0]}"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/pipe.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in method open at src/gen/m-CORE.setting:14272<br />
+  in sub P5open at src/Perl5/Terms.pm:82<br />
+  in sub P5open at src/Perl5/Terms.pm:77<br />
+  in block &lt;unit&gt; at t/spec/io/pipe.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/print.v5</td><td>0</td><td>24</td><td>0</td><td>0</td><td>24</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2945,19 +3043,22 @@ Unable to parse expression in variable; couldn't find final '}'  at line 74, nea
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/vec.v5</td><td>0</td><td>32</td><td>0</td><td>0</td><td>32</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::vec called<br />
-  in block  at t/spec/op/vec.v5:9<br />
+  in block &lt;unit&gt; at t/spec/op/vec.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chars.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_eval_scope.v5</td><td>0</td><td>34</td><td>0</td><td>0</td><td>34</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
+        <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
+  in sub QX at src/gen/m-CORE.setting:765<br />
+  in sub _fresh_perl at /home/froggs/dev/v5/t/test.pl:34<br />
+  in sub fresh_perl_is at /home/froggs/dev/v5/t/test.pl:121<br />
+  in block &lt;unit&gt; at t/spec/re/reg_eval_scope.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/tell.v5</td><td>0</td><td>35</td><td>0</td><td>0</td><td>35</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::TST called<br />
-  in block  at t/spec/io/tell.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/tell.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>cmd/subval.v5</td><td>0</td><td>36</td><td>0</td><td>0</td><td>36</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/cmd/subval.v5<br />
@@ -2971,7 +3072,7 @@ at t/spec/cmd/subval.v5:110<br />
     at t/spec/re/recompile.v5:44<br />
     ------&gt;     open my $tf⏏, "&gt;$tmpfile" or die "Cannot open $tmpfi<br />
 Undefined subroutine &amp;main::runperl called<br />
-  in block  at t/spec/re/recompile.v5:1<br />
+  in block &lt;unit&gt; at t/spec/re/recompile.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_nc_tie.v5</td><td>0</td><td>37</td><td>0</td><td>0</td><td>37</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2979,8 +3080,8 @@ Cannot call 'Real'; none of these signatures match:<br />
 :(Mu:U \v: *%_)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/delete.v5</td><td>0</td><td>38</td><td>0</td><td>0</td><td>38</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::delete called<br />
+  in block &lt;unit&gt; at t/spec/op/delete.v5:9<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/avhv.v5</td><td>0</td><td>40</td><td>0</td><td>0</td><td>40</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/avhv.v5<br />
@@ -3009,7 +3110,7 @@ Cannot find method 'value'<br />
     at t/spec/io/perlio.v5:198<br />
     ------&gt;         open my $fh⏏, "&lt;", \(my $f = *f);<br />
 Undefined subroutine &amp;main::use_ok called<br />
-  in block  at t/spec/io/perlio.v5:1<br />
+  in block &lt;unit&gt; at t/spec/io/perlio.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/chdir.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3017,7 +3118,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sysio.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>sysio.t: cannot find myself: <br />
-  in block  at t/spec/op/sysio.v5:1<br />
+  in block &lt;unit&gt; at t/spec/op/sysio.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/parser.v5</td><td>0</td><td>48</td><td>0</td><td>0</td><td>48</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3093,15 +3194,15 @@ at t/spec/op/quotemeta.v5:35<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/utf8.v5</td><td>0</td><td>61</td><td>0</td><td>0</td><td>61</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1419  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grep.v5</td><td>0</td><td>62</td><td>0</td><td>0</td><td>62</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/grep.v5<br />
@@ -3114,10 +3215,6 @@ at t/spec/op/grep.v5:57<br />
 Confused<br />
 at t/spec/uni/method.v5:43<br />
 ------&gt; method "ｍｅｔｈｏｄ" on unblessed reference /⏏u;<br />
-</td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/each_array.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Cannot find method 'named'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/tiehandle.v5</td><td>0</td><td>63</td><td>0</td><td>0</td><td>63</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/tiehandle.v5<br />
@@ -3137,8 +3234,14 @@ Bogus statement at line 21, near "$x x2};$aa"<br />
     Redeclaration of symbol $x<br />
     at t/spec/op/loopctl.v5:964<br />
     ------&gt;     for ($i = 1; my $x ⏏= $i; ) {<br />
-===SORRY!===<br />
-Cannot find method 'named'<br />
+Undefined subroutine &amp;main::TEST1 called<br />
+  in block  at t/spec/op/loopctl.v5:51<br />
+  in block  at t/spec/op/loopctl.v5:44<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block &lt;unit&gt; at t/spec/op/loopctl.v5:42<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time.v5</td><td>0</td><td>66</td><td>0</td><td>0</td><td>66</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/time.v5<br />
@@ -3151,20 +3254,32 @@ at t/spec/op/time.v5:46<br />
     Redeclaration of symbol @dummy<br />
     at t/spec/op/tiearray.v5:295<br />
     ------&gt;     tie my @dummy⏏, "NegFetchsize";<br />
-===SORRY!===<br />
-Cannot find method 'named'<br />
+Undefined subroutine &amp;main::tie called<br />
+  in block  at t/spec/op/tiearray.v5:155<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block  at t/spec/op/tiearray.v5:153<br />
+  in method reify at src/gen/m-CORE.setting:7891<br />
+  in method reify at src/gen/m-CORE.setting:7727<br />
+  in method gimme at src/gen/m-CORE.setting:8216<br />
+  in method sink at src/gen/m-CORE.setting:8675<br />
+  in block  at t/spec/op/tiearray.v5:151<br />
+  in block  at t/spec/op/tiearray.v5:143<br />
+  in block &lt;unit&gt; at t/spec/op/tiearray.v5:12<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/greek.v5</td><td>0</td><td>72</td><td>0</td><td>0</td><td>72</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1419  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/retainedlines.v5</td><td>0</td><td>74</td><td>0</td><td>0</td><td>74</td></tr>
         <tr><td colspan='5'>No such method 'name' for invocant of type 'Any'<br />
@@ -3172,7 +3287,7 @@ Cannot find method 'named'<br />
   in method list at src/Perl5/Terms.pm:131<br />
   in method keys at src/gen/m-CORE.setting:1563<br />
   in sub keys at src/gen/m-CORE.setting:1957<br />
-  in block  at t/spec/comp/retainedlines.v5:1<br />
+  in block &lt;unit&gt; at t/spec/comp/retainedlines.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/oct.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3216,27 +3331,27 @@ This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/latin2.v5</td><td>0</td><td>94</td><td>0</td><td>0</td><td>94</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1419  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/utfhash.v5</td><td>0</td><td>99</td><td>0</td><td>0</td><td>99</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1419  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lex_assign.v5</td><td>0</td><td>100</td><td>0</td><td>0</td><td>100</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/lex_assign.v5<br />
@@ -3290,15 +3405,15 @@ Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lc.v5</td><td>0</td><td>128</td><td>0</td><td>0</td><td>128</td></tr>
         <tr><td colspan='5'>Error while reading from file: Malformed UTF-8<br />
-   at gen/moar/stage2/NQPHLL.nqp:1307  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
- from gen/moar/stage2/NQPHLL.nqp:1288  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
- from gen/moar/stage2/NQPHLL.nqp:1214  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
+   at gen/moar/stage2/NQPHLL.nqp:1419  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm::62)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1400  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:evalfiles:60)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1326  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_eval:211)<br />
  from src/Perl6/Compiler.nqp:17  (/home/froggs/dev/nqp/install/languages/nqp/lib/Perl6/Compiler.moarvm:command_eval:93)<br />
- from gen/moar/stage2/NQPHLL.nqp:1189  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
+ from gen/moar/stage2/NQPHLL.nqp:1301  (/home/froggs/dev/nqp/install/languages/nqp/lib/NQPHLL.moarvm:command_line:116)<br />
  from src/gen/m-main.nqp:39  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:MAIN:18)<br />
- from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::197)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::8)<br />
- from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm::9)<br />
+ from src/gen/m-main.nqp:35  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;mainline&gt;:197)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;main&gt;:8)<br />
+ from &lt;unknown&gt;:1  (/home/froggs/dev/nqp/install/languages/perl6/runtime/perl6.moarvm:&lt;entry&gt;:9)<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>japh/abigail.v5</td><td>0</td><td>129</td><td>0</td><td>1</td><td>130</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3467,7 +3582,7 @@ Other potential difficulties:<br />
     at t/spec/op/smartmatch.v5:29<br />
     ------&gt; tie my %tied_hash⏏, 'Tie::StdHash';<br />
 Undefined subroutine &amp;main::tie called<br />
-  in block  at t/spec/op/smartmatch.v5:19<br />
+  in block &lt;unit&gt; at t/spec/op/smartmatch.v5:19<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/substr.v5</td><td>0</td><td>387</td><td>0</td><td>0</td><td>387</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3509,14 +3624,14 @@ at t/spec/re/pat_rt_report.v5:96<br />
     at t/spec/comp/utf.v5:38<br />
     ------&gt;     open my $fh⏏, "&gt;", "utf$$.pl" or die "utf.pl: $!";<br />
 It takes about 40 minutes to skip all tests<br />
-  in block  at t/spec/comp/utf.v5:1<br />
+  in block &lt;unit&gt; at t/spec/comp/utf.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Bogus statement at line 285, near "$x = unpac"<br />
 </td></tr>
 
-        <tr><td>compiler version</td><td colspan='5'>This is perl6 version 2014.07-239-gb369683 built on MoarVM version 2014.08
+        <tr><td>compiler version</td><td colspan='5'>This is perl6 version 2014.08-6-gc793d80 built on MoarVM version 2014.08-37-g74883b4
 </td></tr>
     </tbody>
 </table>

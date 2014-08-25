@@ -1174,7 +1174,7 @@ multi P5split(Cool $delimiter, $expr, $limit = *) {
     }
 }
 
-multi P5Str(Mu:U) is export is hidden_from_backtrace {
+multi P5Str(Mu:U, :$joiner) is export is hidden_from_backtrace {
     P5warn(:cat<uninitialized>, 'Use of uninitialized value in string') unless $*WITHIN_WARN;
     ''
 }

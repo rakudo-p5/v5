@@ -4025,6 +4025,11 @@ class Perl5::Actions does STDActions {
         make $past;
     }
 
+    method termish($/) {
+        $V5DEBUG && say("termish($/)");
+        make $<term>.ast;
+    }
+
     sub make_match($/, $negated) {
         $V5DEBUG && say("make_match($/, $negated)");
         my $lhs := $/[0].ast;
