@@ -500,7 +500,8 @@ Undefined subroutine &amp;main::loop called<br />
 # Looks like you failed 1 tests of 28<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/rxcode.v5</td><td>26</td><td>12</td><td>0</td><td>1</td><td>39</td></tr>
-        <tr><td colspan='5'># Failed test '..$^R after a =~ ab?'<br />
+        <tr><td colspan='5'><br />
+# Failed test '..$^R after a =~ ab?'<br />
 # at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test '..$^R after ab =~ ab'<br />
 # at /home/froggs/dev/v5/t/test.pl line 10<br />
@@ -1278,7 +1279,10 @@ Can't open ../proto.h: <br />
         <tr><td colspan='5'>Undefined subroutine &amp;main::find_git_or_skip called<br />
   in block &lt;unit&gt; at t/spec/porting/authors.v5:11<br />
 </td></tr>
-        <tr align='center'><td align='left'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>porting/checkcase.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td colspan='5'>===SORRY!===<br />
+Missing or wrong version of dependency 'src/Perl6/Grammar.nqp'<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>porting/checkcfgvar.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
   in sub shell at src/gen/m-CORE.setting:747<br />
@@ -1535,8 +1539,20 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left'>run/fresh_perl.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/locale.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 167, near "&lt;&lt;'EOF', \""<br />
+        <tr><td colspan='5'>Potential difficulties:<br />
+    Redeclaration of symbol $ENV<br />
+    at t/spec/run/locale.v5:88<br />
+    ------&gt; 	local $ENV⏏{LC_ALL}; # so it never overrides LC_NUM<br />
+    Redeclaration of symbol $ENV<br />
+    at t/spec/run/locale.v5:165<br />
+    ------&gt; 	local $ENV⏏{LC_ALL}; # so it never overrides LC_NUM<br />
+postcircumfix:&lt;{ }&gt; not defined for type Parcel<br />
+  in method Str at src/gen/m-CORE.setting:13179<br />
+  in sub P5Str at src/Perl5/Terms.pm:1181<br />
+  in sub P5Str at src/Perl5/Terms.pm:1177<br />
+  in sub prefix:&lt;P5.&gt; at src/Perl5/Terms.pm:294<br />
+  in sub infix:&lt;P5eq&gt; at src/Perl5/Terms.pm:329<br />
+  in block &lt;unit&gt; at t/spec/run/locale.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/require.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1553,11 +1569,11 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp8182A'<br />
-# expected: 'tmp8182B'<br />
+#      got: 'tmp2065A'<br />
+# expected: 'tmp2065B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
-#      got: 'tmp8182B'<br />
-# expected: 'tmp8182C'<br />
+#      got: 'tmp2065B'<br />
+# expected: 'tmp2065C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -1807,8 +1823,10 @@ at t/spec/re/charset.v5:52<br />
 This type cannot unbox to a native string<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/qrstack.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 13, near "(1)x127,qr"<br />
+        <tr><td colspan='5'><br />
+# Failed test 'qr// should extend the stack properly'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Looks like you failed 1 tests of 1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/reg_60508.v5</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2109,7 +2127,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp8258B' on target 'tmp8258A': Failed to link file: no such file or directory<br />
+Failed to create link called 'tmp2493B' on target 'tmp2493A': Failed to link file: no such file or directory<br />
   in block  at src/gen/m-CORE.setting:14947<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:14942<br />
@@ -2258,7 +2276,7 @@ No such method 'item' for invocant of type 'QAST::Regex'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp7928A/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp1382A/aaa' (indicated by ⏏)<br />
   in method Numeric at src/gen/m-CORE.setting:13178<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4363<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
@@ -2396,7 +2414,7 @@ Unable to parse expression in args; couldn't find final ')'  at line 54, near "u
     Redeclaration of symbol $CMD<br />
     at t/spec/io/fflush.v5:126<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
-close tmp7287A: <br />
+close tmp32619A: <br />
   in block &lt;unit&gt; at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -2521,7 +2539,7 @@ at t/spec/comp/decl.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1408999630.82189 has not appeared<br />
+QAST::Block with cuid cuid_101_1409141378.98153 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2598,7 +2616,7 @@ This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>lib/deprecate.v5</td><td>0</td><td>10</td><td>0</td><td>0</td><td>10</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unable to parse expression in args; couldn't find final ')'  at line 16, near "(File::Spe"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/complex_dfs.v5</td><td>0</td><td>11</td><td>0</td><td>0</td><td>11</td></tr>
         <tr><td colspan='5'><br />
@@ -2883,7 +2901,7 @@ at t/spec/op/glob.v5:12<br />
 ------&gt; @oops = @ops = &lt;⏏op/*&gt;;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>binmode tmp7745B failed: <br />
+        <tr><td colspan='5'>binmode tmp896B failed: <br />
   in block &lt;unit&gt; at t/spec/op/lfs.v5:24<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
@@ -2925,7 +2943,7 @@ Cannot iterate object with P6opaque representation<br />
 Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>close 'tmp8127B': <br />
+        <tr><td colspan='5'>close 'tmp2011B': <br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:53<br />
   in block &lt;unit&gt; at t/spec/run/cloexec.v5:1<br />
 </td></tr>
@@ -3091,7 +3109,15 @@ at t/spec/op/avhv.v5:167<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/repeat.v5</td><td>0</td><td>42</td><td>0</td><td>0</td><td>42</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 131, near "(1,2)x2);\n"<br />
+Variable '&amp;infix:&lt;x=&gt;' is not declared<br />
+at t/spec/op/repeat.v5:47<br />
+------&gt; $a ⏏x= 2;<br />
+Variable '&amp;infix:&lt;x=&gt;' is not declared<br />
+at t/spec/op/repeat.v5:49<br />
+------&gt; $a ⏏x= 1;<br />
+Variable '&amp;infix:&lt;x=&gt;' is not declared<br />
+at t/spec/op/repeat.v5:51<br />
+------&gt; $a ⏏x= 0;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/study.v5</td><td>0</td><td>43</td><td>0</td><td>0</td><td>43</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3136,7 +3162,7 @@ at t/spec/mro/package_aliases_utf8.v5:87<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/fs.v5</td><td>0</td><td>52</td><td>0</td><td>0</td><td>52</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 457, near "map chmod("<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/basic_utf8.v5</td><td>0</td><td>53</td><td>0</td><td>0</td><td>53</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/mro/basic_utf8.v5<br />
@@ -3224,7 +3250,7 @@ at t/spec/op/tiehandle.v5:97<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/localref.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 21, near "$x x2};$aa"<br />
+This type does not support positional operations<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/loopctl.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -3290,8 +3316,10 @@ Undefined subroutine &amp;main::tie called<br />
   in block &lt;unit&gt; at t/spec/comp/retainedlines.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/oct.v5</td><td>0</td><td>77</td><td>0</td><td>0</td><td>77</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 35, near "'0'x10).'1"<br />
+        <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/op/oct.v5<br />
+Unrecognized backslash sequence: '\L'<br />
+at t/spec/op/oct.v5:65<br />
+------&gt; y $format = ($string =~ /([bx])/i) ? "0\⏏L$1%\U$1": '0%o';<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/bless.v5</td><td>0</td><td>84</td><td>0</td><td>0</td><td>84</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/uni/bless.v5<br />
@@ -3465,7 +3493,7 @@ Unable to parse expression in args; couldn't find final ')'  at line 105, near "
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/sort.v5</td><td>0</td><td>176</td><td>0</td><td>0</td><td>176</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 22, near "map scalar"<br />
+Unable to parse expression in args; couldn't find final ')'  at line 95, near "@harry);\n$"<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/magic.v5</td><td>0</td><td>178</td><td>0</td><td>0</td><td>178</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3628,7 +3656,7 @@ It takes about 40 minutes to skip all tests<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/pack.v5</td><td>0</td><td>14704</td><td>0</td><td>0</td><td>14704</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Bogus statement at line 285, near "$x = unpac"<br />
+Iteration past end of iterator<br />
 </td></tr>
 
         <tr><td>compiler version</td><td colspan='5'>This is perl6 version 2014.08-6-gc793d80 built on MoarVM version 2014.08-37-g74883b4

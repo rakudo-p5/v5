@@ -966,23 +966,18 @@ grammar Perl5::Grammar does STD5 {
         ]?
     }
 
-    #~ method ws() {
-        #~ if self.MARKED('ws') {
-            #~ self
-        #~ }
-        #~ else {
-            #~ self._ws()
-        #~ }
-    #~ }
     token ws {
         #~ :my $old_highexpect := self.'!fresh_highexpect'();
         #~ :dba('whitespace')
-        <!ww>
         [
-        | <.vws> <.heredoc>
-        | <.unv>
-        ]*
-        <?MARKER('ws')>
+        ||  <?MARKED('ws')> <?>
+        ||  <!ww>
+            [
+            | <.vws> <.heredoc>
+            | <.unv>
+            ]*
+            <?MARKER('ws')>
+        ]
         #~ :my $stub := self.'!set_highexpect'($old_highexpect);
     }
 
@@ -1437,7 +1432,7 @@ grammar Perl5::Grammar does STD5 {
         [ <?{ $*MAIN ne $OLD_MAIN }> {
             $*IN_DECL := '';
             $*SCOPE := '';
-        } <statementlist=.FOREIGN_LANG($*MAIN, 'statementlist', 1)> || <?> ]
+        } <statementlist=.FOREIGN_LANG($*MAIN, 'statementlist', 734)> || <?> ]
         <.ws>
     }
 
