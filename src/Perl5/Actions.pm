@@ -1849,7 +1849,7 @@ class Perl5::Actions does STDActions {
 
     sub make_variable($/, @name) {
         $V5DEBUG && say("make_variable($/, @name)");
-        make_variable_from_parts($/, @name, $<sigil>.Str, ~$<desigilname>);
+        make_variable_from_parts($/, @name, $<sigil>.Str, $<desigilname>);
     }
 
     sub make_variable_from_parts($/, @name, $sigil, $desigilname) {
@@ -1899,7 +1899,7 @@ class Perl5::Actions does STDActions {
                     QAST::Var.new(:name('Nil'), :scope('lexical')));
             }
             elsif $sigil eq '$#' {
-                $past.name('@' ~ ~($<desigilname> || $<name>));
+                $past.name('@' ~ ~($desigilname || $<name>));
             }
         }
         $past
@@ -5938,7 +5938,7 @@ class Perl5::RegexActions does STDActions {
             for $ast.list {
                 my %x = capnames($_, $count);
                 for %x {
-                    %capnames{$_.key} = %capnames{$_.key} < 2 && %x{$_.key} == 1 ?? 1 !! 2;
+                    %capnames{$_.key} = (%capnames{$_.key} // 0) < 2 && %x{$_.key} == 1 ?? 1 !! 2;
                 }
                 $count = %x{''};
             }
