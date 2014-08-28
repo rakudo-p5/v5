@@ -1162,7 +1162,7 @@ class Perl5::Actions does STDActions {
             # TODO: replace this by code that doesn't always die with
             # a useless error message
 #            my $i := -1;
-#            for $<version><vnum> {
+#            for $<version><vnum>.list {
 #                ++$i;
 #                if $_ ne '*' && $_ < @MAX_PERL_VERSION[$i] {
 #                    last;
@@ -5658,7 +5658,7 @@ class Perl5::RegexActions does STDActions {
         my $str := '';
         my $qast;
         my @alts;
-        for $<charspec> {
+        for $<charspec>.list {
             if $_[1] {
                 my $node;
                 my $lhs;
@@ -5953,7 +5953,7 @@ class Perl5::RegexActions does STDActions {
         elsif $rxtype eq 'subcapture' {
             my $name = $ast.name;
             unless $name { $name = $count; $ast.name($name); }
-            for $name.Str.split(' ') {
+            for $name.Str.split(' ').list {
                 if $_ eq '0' || $_ > 0 { $count = $_ + 1; }
                 %capnames{$_} = 1;
             }
