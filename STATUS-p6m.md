@@ -3,7 +3,7 @@
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
     </thead>
     <tbody>
-        <tr align='center'><td align='left'>summary</td><td>2925</td><td>37750</td><td>2</td><td>1773</td><td>42398</td></tr>
+        <tr align='center'><td align='left'>summary</td><td>2952</td><td>37723</td><td>2</td><td>1773</td><td>42398</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/read.v5</td><td>1542</td><td>1022</td><td>0</td><td>0</td><td>2564</td></tr>
         <tr><td colspan='5'><br />
 # Failed test 'got 161 into 70 l 2 o 0'<br />
@@ -689,6 +689,73 @@ Cannot modify an immutable Int<br />
 # expected: 'f8 88 80 80 80'<br />
 # Looks like you failed 21 tests of 42<br />
 </td></tr>
+        <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>21</td><td>122</td><td>0</td><td>0</td><td>143</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'optimized'<br />
+# at /home/froggs/dev/v5/t/test.pl line 12<br />
+#      got: 'abc'<br />
+# expected: 'cab'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'hi <br />
+#  there<br />
+#  !'<br />
+# expected: 'hi there!'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'hi <br />
+#  there<br />
+#  !'<br />
+# expected: 'hi there!'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'foo<br />
+# '<br />
+# expected: 'foo<br />
+# '<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'foo'<br />
+# expected: 'f'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'f<br />
+# '<br />
+# expected: 'f'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'f<br />
+# '<br />
+# expected: 'f'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'xx'<br />
+# expected: ''<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'axx'<br />
+# expected: 'a'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: 'ab'<br />
+# expected: 'ab<br />
+# '<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: '4'<br />
+# Failed test 'chomp ref (modify)'<br />
+# at /home/froggs/dev/v5/t/test.pl line 64<br />
+#      got: ''<br />
+# expected: 'ARRAY'<br />
+# Failed test at /home/froggs/dev/v5/t/test.pl line 10<br />
+postcircumfix:&lt;{ }&gt; not defined for type Array<br />
+  in method Str at src/gen/m-CORE.setting:13261<br />
+  in sub P5Str at src/Perl5/Terms.pm:1181<br />
+  in sub P5Str at /home/froggs/dev/v5/lib/Perl5/Terms.pm.moarvm:1<br />
+  in sub is at /home/froggs/dev/v5/t/test.pl:64<br />
+  in block  at t/spec/op/chop.v5:160<br />
+  in block &lt;unit&gt; at t/spec/op/chop.v5:153<br />
+# Looks like you planned 143 tests, but ran 41<br />
+# Looks like you failed 20 tests of 41<br />
+</td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/fold.v5</td><td>19</td><td>7</td><td>0</td><td>0</td><td>26</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
     Redeclaration of symbol $SIG<br />
@@ -864,6 +931,25 @@ ce �ii tu, bã ?<br />
 # at /home/froggs/dev/v5/t/test.pl line 10<br />
 # Failed test 'isa on the stash that claimed the @ISA via ref-to-glob assignment'<br />
 # at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Looks like you failed 6 tests of 12<br />
+</td></tr>
+        <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases.v5</td><td>6</td><td>7</td><td>0</td><td>0</td><td>13</td></tr>
+        <tr><td colspan='5'><br />
+# Failed test 'isa after another stash has claimed the @ISA via glob assignment'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'isa on the stash that claimed the @ISA via glob assignment'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'isa after glob-to-ref assignment when *ISA is shared'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'isa after glob-to-ref assignment on another stash when *ISA is shared'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'isa after another stash has claimed the @ISA via ref-to-glob assignment'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+# Failed test 'isa on the stash that claimed the @ISA via ref-to-glob assignment'<br />
+# at /home/froggs/dev/v5/t/test.pl line 10<br />
+===SORRY!===<br />
+Can't locate object method "ook" via package "Baro" (perhaps you forgot to load "Baro"?)<br />
+# Looks like you planned 13 tests, but ran 12<br />
 # Looks like you failed 6 tests of 12<br />
 </td></tr>
         <tr align='center'><td align='left'>t/v5/05-while.v5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td></tr>
@@ -1178,8 +1264,13 @@ This type does not support positional operations<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/do.v5:280<br />
     ------&gt;       open my $fh⏏, '&lt;', \$code;<br />
-===SORRY!===<br />
-This type does not support positional operations<br />
+Cannot call 'postcircumfix&lt;P5[ ]&gt;'; none of these signatures match:<br />
+:(Any \SELF)<br />
+:(Any \SELF, int $pos)<br />
+:(Any \SELF, Any $pos)<br />
+:(Any \SELF, Positional \pos)<br />
+  in sub postcircumfix&lt;P5[ ]&gt; at src/Perl5/Terms.pm:387<br />
+  in block &lt;unit&gt; at t/spec/op/do.v5:26<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/exists_sub.v5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -1613,11 +1704,11 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp31510A'<br />
-# expected: 'tmp31510B'<br />
+#      got: 'tmp7534A'<br />
+# expected: 'tmp7534B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
-#      got: 'tmp31510B'<br />
-# expected: 'tmp31510C'<br />
+#      got: 'tmp7534B'<br />
+# expected: 'tmp7534C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -1992,7 +2083,12 @@ Can't locate Foo in @INC (@INC contains: lib /home/froggs/dev/v5/lib /home/frogg
     at t/spec/op/pwent.v5:71<br />
     ------&gt; dall /Users @{[keys %want]} 2&gt;/dev/null"⏏;<br />
 ===SORRY!===<br />
-This type does not support positional operations<br />
+Variable '&amp;infix:&lt;//=&gt;' is not declared<br />
+at t/spec/op/pwent.v5:34<br />
+------&gt; $where ⏏//= try_prog('NetInfo passwd', 'passwd .<br />
+Variable '&amp;infix:&lt;//=&gt;' is not declared<br />
+at t/spec/op/pwent.v5:37<br />
+------&gt; $where ⏏//= try_prog('NIS+', 'passwd.org_dir', '<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/time_loop.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::watchdog called<br />
@@ -2022,8 +2118,15 @@ No such symbol '&amp;Regexp::DESTROY'<br />
 Merging GLOBAL symbols failed: duplicate definition of symbol $^P<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/chomp.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+        <tr><td colspan='5'>Malformed UTF-8 at line 1 col 1<br />
+  in method decode at src/gen/m-CORE.setting:5676<br />
+  in method Str at src/gen/m-CORE.setting:5679<br />
+  in method STORE_AT_KEY at src/gen/m-CORE.setting:9601<br />
+  in method STORE_AT_KEY at src/gen/m-CORE.setting:9716<br />
+  in method STORE at src/gen/m-CORE.setting:9741<br />
+  in method new at src/gen/m-CORE.setting:9650<br />
+  in sub circumfix:&lt;{ }&gt; at src/gen/m-CORE.setting:10118<br />
+  in block &lt;unit&gt; at t/spec/uni/chomp.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>io/iprefix.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
         <tr><td colspan='5'>Undefined subroutine &amp;main::runperl called<br />
@@ -2040,8 +2143,8 @@ This type does not support positional operations<br />
 Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/grent.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+        <tr><td colspan='5'>Undefined subroutine &amp;main::setgrent called<br />
+  in block &lt;unit&gt; at t/spec/op/grent.v5:87<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/print.v5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
         <tr><td colspan='5'>P6opaque: no such attribute '$!storage'<br />
@@ -2172,7 +2275,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp31595B' on target 'tmp31595A': Failed to link file: no such file or directory<br />
+Failed to create link called 'tmp7612B' on target 'tmp7612A': Failed to link file: no such file or directory<br />
   in block  at src/gen/m-CORE.setting:15021<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:15016<br />
@@ -2323,7 +2426,7 @@ No such method 'item' for invocant of type 'QAST::Regex'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp31248A/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp7272A/aaa' (indicated by ⏏)<br />
   in method Numeric at src/gen/m-CORE.setting:13260<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4440<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
@@ -2461,7 +2564,7 @@ Unable to parse expression in args; couldn't find final ')'  at line 54, near "u
     Redeclaration of symbol $CMD<br />
     at t/spec/io/fflush.v5:126<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
-close tmp30619A: <br />
+close tmp6633A: <br />
   in block &lt;unit&gt; at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -2586,7 +2689,7 @@ at t/spec/comp/decl.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1409222198.39768 has not appeared<br />
+QAST::Block with cuid cuid_101_1409227669.72756 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2800,10 +2903,6 @@ Undefined subroutine &amp;Class::DESTROY called<br />
         <tr><td colspan='5'>===SORRY!===<br />
 Unable to parse expression in parensig; couldn't find final ')'  at line 42, near "x) { };\n\nB"<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>mro/isa_aliases.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/wantarray.v5</td><td>0</td><td>13</td><td>0</td><td>0</td><td>13</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
 Cannot iterate object with P6opaque representation<br />
@@ -2950,7 +3049,7 @@ at t/spec/op/glob.v5:12<br />
 ------&gt; @oops = @ops = &lt;⏏op/*&gt;;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>binmode tmp31058B failed: <br />
+        <tr><td colspan='5'>binmode tmp7064B failed: <br />
   in block &lt;unit&gt; at t/spec/op/lfs.v5:24<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
@@ -2990,7 +3089,7 @@ Cannot iterate object with P6opaque representation<br />
 Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>close 'tmp31447B': <br />
+        <tr><td colspan='5'>close 'tmp7481B': <br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:53<br />
   in block &lt;unit&gt; at t/spec/run/cloexec.v5:1<br />
 </td></tr>
@@ -3059,7 +3158,7 @@ This type does not support positional operations<br />
     at t/spec/base/rs.v5:105<br />
     ------&gt;     if (open my $T⏏, "./foo") {<br />
 ===SORRY!===<br />
-This type does not support positional operations<br />
+Cannot iterate object with P6opaque representation<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/override.v5</td><td>0</td><td>28</td><td>0</td><td>0</td><td>28</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -3301,7 +3400,7 @@ at t/spec/op/tiehandle.v5:97<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/localref.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+QAST::Var with scope '' NYI<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/loopctl.v5</td><td>0</td><td>64</td><td>0</td><td>0</td><td>64</td></tr>
         <tr><td colspan='5'>Potential difficulties:<br />
@@ -3526,13 +3625,9 @@ Other potential difficulties:<br />
     at t/spec/op/range.v5:355<br />
     ------&gt; my @foo⏏;<br />
 </td></tr>
-        <tr align='center'><td align='left' rowspan='2'>op/chop.v5</td><td>0</td><td>143</td><td>0</td><td>0</td><td>143</td></tr>
-        <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
-</td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/incfilter.v5</td><td>0</td><td>145</td><td>0</td><td>0</td><td>145</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-This type does not support positional operations<br />
+Iteration past end of iterator<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/parser.v5</td><td>0</td><td>154</td><td>0</td><td>0</td><td>154</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/parser.v5<br />

@@ -2155,7 +2155,7 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    sub declare_variable($/, Mu $past is copy, $sigil, $twigil, $desigilname, $trait_list, $shape?) {
+    sub declare_variable($/, Mu $past is rw, $sigil, $twigil, $desigilname, $trait_list, $shape?) {
         my $name  := $sigil ~ $twigil ~ $desigilname;
         my $BLOCK := $*W.cur_lexpad();
 
