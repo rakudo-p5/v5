@@ -1,9 +1,7 @@
+my $V5MLDEBUG = %*ENV<V5MLDEBUG>;
+my $p6ml      = nqp::gethllsym('perl6', 'ModuleLoader');
 
-use Perl6::ModuleLoader;
-
-my $V5MLDEBUG := +nqp::getenvhash()<V5MLDEBUG>;
-
-class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
+class Perl5::ModuleLoader {
     my %modules_loaded;
 
     method ctxsave() {
@@ -11,73 +9,58 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
         $*MAIN_CTX := nqp::ctxcaller(nqp::ctx());
         $*CTXSAVE := 0;
     }
-    
-    method search_path(%opts) {
-        $V5MLDEBUG && say("Perl5::ModuleLoader.search_path(" ~ dump_hash(%opts) ~ ")");
-        # See if we have an @*INC set up, and if so just use that.
-        my $PROCESS := nqp::gethllsym('perl6', 'PROCESS');
-        
-        if %opts<from> && !nqp::isnull($PROCESS) && nqp::existskey($PROCESS.WHO, '%CUSTOM_LIB') {
-            my $INC := ($PROCESS.WHO)<%CUSTOM_LIB>;
-            if nqp::defined($INC) {
-                my %INC := $INC.FLATTENABLE_HASH();
-                if nqp::existskey(%INC, %opts<from>) {
-                    my @INC := %INC<Perl5>.FLATTENABLE_LIST();
-                    if +@INC {
-                        return @INC;
-                    }
+
+    method files($file, :$name, :$auth, :$ver, :@INC) {
+        for @INC {
+            if $_ ~~ Str ?? CompUnitRepo::Local::File.new($_) !! $_ -> $cur {
+                if $cur.files($file, :$name,:$auth,:$ver).list -> @candi {
+                    return @candi;
                 }
             }
         }
-        
-        if !nqp::isnull($PROCESS) && nqp::existskey($PROCESS.WHO, '@INC') {
-            my $INC := ($PROCESS.WHO)<@INC>;
-            if nqp::defined($INC) {
-                my @INC := $INC.FLATTENABLE_LIST();
-                if +@INC {
-                    if %opts<from> {
-                        my %conf := nqp::backendconfig();
-                        nqp::push(@INC, %conf<libdir> ~ %conf<versiondir> ~ '/languages/' ~ nqp::lc(%opts<from>) ~ '/lib') if %conf<libdir>;
-                        nqp::push(@INC, %conf<prefix> ~ '/languages/' ~ nqp::lc(%opts<from>) ~ '/lib') if %conf<prefix>;
-                    }
-                    return @INC;
-                }
-            }
-        }
-        
-        # Too early to have @*INC; probably no setting yet loaded to provide
-        # the PROCESS initialization.
-        my @search_paths;
-        @search_paths.push('.');
-        @search_paths.push('blib');
-        for Perl6::ModuleLoader.vm_search_paths() {
-            @search_paths.push($_);
-        }
-        @search_paths
+        ();
     }
-    
-    method load_module($module_name, %opts, *@GLOBALish, :$line, :$file) {
-        $V5MLDEBUG && say("Perl5::ModuleLoader.load_module($module_name, " ~ dump_hash(%opts) ~ ", +\@GLOBALish=" ~  +@GLOBALish ~ ", :\$line=$line, :\$file=$file)");
+
+    method candidates($name, :$file, :$auth, :$ver, :@INC) {
+        for @INC {
+            if $_ ~~ Str ?? CompUnitRepo::Local::File.new($_) !! $_ -> $cur {
+                if $cur.candidates($name, :$file,:$auth,:$ver).list -> @candi {
+                    return @candi;
+                }
+            }
+        }
+        ();
+    }
+
+    method load_module($module_name, %opts, *@GLOBALish, :$line, :$file is copy) {
+        $V5MLDEBUG && say("Perl5::ModuleLoader.load_module($module_name, " ~ dump_hash(%opts) ~ ", +\@GLOBALish=" ~  +@GLOBALish ~ ", ...)");
         # Locate all the things that we potentially could load. Choose
         # the first one for now (XXX need to filter by version and auth).
-        my @prefixes   := self.search_path( %opts );
-        if nqp::defined($file) {
-            for @prefixes {
-                $file := "$_/$file" if nqp::stat("$_/$file", 0)
-            }
+        my $PROCESS := nqp::gethllsym('perl6', 'PROCESS');
+        my $INC := ($PROCESS.WHO)<%CUSTOM_LIB>;
+        my %INC := $INC.FLATTENABLE_HASH() if nqp::defined($INC);
+        my @INC := %INC<Perl5>.FLATTENABLE_LIST() if %INC<Perl5>;
+        my %chosen;
+        my $path = $file.path if $file;
+        if self.candidates($module_name, :$file, :@INC)[0] -> $candi {
+            %chosen<pm> = ~$candi.path;
+            $candi.has-precomp ??
+                ?? (%chosen<load> = %chosen<key> = %chosen<pm> ~ '.' ~ $candi.precomp-ext)
+                !! (%chosen<key>  = %chosen<pm>)
         }
-        my @candidates := self.locate_candidates($module_name, @prefixes, :$file);
-        if +@candidates == 0 {
-            if nqp::defined($file) {
-                nqp::die("Could not find file '$file' for module $module_name");
-            }
-            else {
-                nqp::die("Could not find $module_name in any of: " ~
-                    join(', ', @prefixes));
-            }
+        elsif $file && ($path.is-absolute || $file ~~ / './' | '.\\' /) && $path.e { #'
+            %chosen<pm> = %chosen<key> = ~$path.absolute;
         }
-        my %chosen := @candidates[0];
-        
+        elsif $file && self.files($file, :@INC)[0] -> $candi {
+            %chosen<pm> = %chosen<key> = $candi<files>{$file};
+        }
+        elsif nqp::defined($file) {
+            nqp::die("Can't locate $file in @INC (@INC contains: @INC[])");
+        }
+        else {
+            nqp::die("Can't locate $module_name in @INC (@INC contains: @INC[])");
+        }
+
         my @MODULES := nqp::clone(@*MODULES // []);
         for @MODULES -> $m {
             if $m<module> eq $module_name {
@@ -93,21 +76,21 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
             $module_ctx := %modules_loaded{%chosen<key>};
         }
         else {
-            my @*MODULES := @MODULES;
+            my @*MODULES := nqp::gethllsym("nqp", "nqplist")(|@MODULES);
             if +@*MODULES  == 0 {
-                my %prev        := nqp::hash();
-                %prev<line>     := $line;
-                %prev<filename> := nqp::getlexdyn('$?FILES');
-                @*MODULES[0]    := %prev;
+                my %prev        = nqp::hash();
+                %prev<line>     = $line;
+                %prev<filename> = nqp::getlexdyn('$?FILES');
+                @*MODULES[0]    = %prev;
             }
             else {
                 @*MODULES[-1]<line> := $line;
             }
-            my %trace := nqp::hash();
+            my %trace;
             %trace<module>   := $module_name;
             %trace<filename> := %chosen<pm>;
-            my $preserve_global := nqp::ifnull(nqp::gethllsym('perl6', 'GLOBAL'), NQPMu);
-            nqp::push(@*MODULES, %trace);
+            my Mu $preserve_global := nqp::ifnull(nqp::gethllsym('perl6', 'GLOBAL'), Mu);
+            @*MODULES.push(%trace);
             if %chosen<load> {
                 %trace<precompiled> := %chosen<load>;
                 my %*COMPILING := {};
@@ -129,7 +112,7 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
 
                 # Read source file.
                 my $source;
-                if nqp::backendconfig<runtime.jars> || nqp::backendconfig<moar> {
+                if $*VM.name ne 'parrot' {
                     my $fh := nqp::open(%chosen<pm>, 'r');
                     nqp::setencoding($fh, 'utf8');
                     $source := nqp::readallfh($fh);
@@ -154,7 +137,8 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
             nqp::bindhllsym('perl6', 'GLOBAL', $preserve_global);
             CATCH {
                 nqp::bindhllsym('perl6', 'GLOBAL', $preserve_global);
-                nqp::rethrow($_);
+                #~ say $_;
+                #~ nqp::rethrow($_);
             }
         }
 
@@ -163,8 +147,8 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
             # Merge any globals.
             my $UNIT := nqp::ctxlexpad($module_ctx);
             if +@GLOBALish {
-                unless nqp::isnull($UNIT<GLOBALish>) {
-                    merge_globals(@GLOBALish[0], $UNIT<GLOBALish>);
+                unless nqp::isnull(nqp::atkey($UNIT, 'GLOBALish')) {
+                    merge_globals(@GLOBALish[0], nqp::atkey($UNIT, 'GLOBALish'));
                 }
             }
             return $UNIT;
@@ -180,14 +164,14 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
     # details of exactly what that entails are a bit hazy to me at the
     # moment. We'll see how far this takes us.
     my $stub_how := 'Perl6::Metamodel::PackageHOW';
-    sub merge_globals($target, $source) {
+    sub merge_globals(Mu $target, Mu $source) {
         $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals(\$target, \$source)");
         # Start off merging top-level symbols. Easy when there's no
         # overlap. Otherwise, we need to recurse.
         my %known_symbols;
         for stash_hash($target) {
             %known_symbols{$_.key} := 1;
-            $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: %known_symbols<{$_.key}> := 1;");
+            $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: \%known_symbols<{$_.key()}> := 1;");
         }
         for stash_hash($source) {
             my $sym := $_.key;
@@ -195,7 +179,7 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
                 ($target.WHO){$sym} := $_.value;
                 $V5MLDEBUG && say("Perl5::ModuleLoader.merge_globals: (\$target.WHO)<{$sym}> := \$_.value;");
             }
-            elsif ($target.WHO){$sym} =:= $_.value {
+            elsif nqp::decont($target.WHO{$sym}) =:= nqp::decont($_.value) {
                 # No problemo; a symbol can't conflict with itself.
             }
             else {
@@ -231,7 +215,7 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
         }
     }
     
-    sub stash_hash($pkg) {
+    sub stash_hash(Mu $pkg) {
         my $hash := $pkg.WHO;
         unless nqp::ishash($hash) {
             $hash := $hash.FLATTENABLE_HASH();
@@ -241,12 +225,12 @@ class Perl5::ModuleLoader does Perl6::ModuleLoaderVMConfig {
 
     sub dump_hash($hash) {
         my $dump := '{ ';
-        for $hash {
-            $dump := $dump ~ $_.key ~ ' => ' ~ $_.value ~ ' ';
+        for $hash.kv -> $k, $v {
+            $dump := $dump ~ $k ~ ' => ' ~ $v ~ ' ';
         }
         $dump ~ '}'
     }
 }
 
-Perl6::ModuleLoader.register_language_module_loader('Perl5', Perl5::ModuleLoader);
+$p6ml.p6ml.register_language_module_loader('Perl5', Perl5::ModuleLoader);
 nqp::bindhllsym('perl6', 'Perl5ModuleLoader', Perl5::ModuleLoader);

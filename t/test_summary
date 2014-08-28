@@ -63,10 +63,9 @@ close $fh or die $!;
 
 # Fudge any implementation specific tests by running the fudgeall script
 {
-    my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, 't/*/*.t t/*/*/*.t';
+    my $cmd = join ' ', $^X, 't/spec/fudgeall',  '--add_use_v5', $implementation, @tfiles;
     # Fudgeall prints the name of each test script, but changes the name
     # ending to match the implementation instead of .t if tests were fudged.
-    print "$cmd\n";
     @tfiles = split ' ', `$cmd`; # execute fudgeall, collect test names
 }
 
@@ -77,6 +76,7 @@ my $max = 0;
 for my $tfile (@tfiles) {
     my $tname = $tfile;
     $tname =~ s{^t/spec/}{};
+    $tname =~ s{^\.\.}{t};
     $tname = substr($tname, 0, 49);
     if (length($tname) > $max) {
         $max = length($tname);
@@ -106,8 +106,8 @@ my ( @fail, @plan_hint );
 my %plan_per_file;
 
 my $last_status;
-if( -s 'STATUS-m.md' && eval 'require XML::Simple; 1' ) {
-    $last_status = XML::Simple::XMLin('STATUS-m.md');
+if( -s $ENV{STATUS_MD} && eval 'require XML::Simple; 1' ) {
+    $last_status = XML::Simple::XMLin($ENV{STATUS_MD});
     for my $tr ( @{ $last_status->{tbody}->{tr} } ) {
         if( 'ARRAY' eq ref $tr->{td} && 'HASH' eq ref $tr->{td}[0] ) {
             @{ $last_status->{ $tr->{td}[0]{content} } } = @{ $tr->{td} }[1..5]
@@ -115,7 +115,7 @@ if( -s 'STATUS-m.md' && eval 'require XML::Simple; 1' ) {
     }
 }
 
-open STATUS, '>STATUS-m.md.new';
+open STATUS, '>' . $ENV{STATUS_MD} . '.new';
 print STATUS "<table align='center'>
     <thead>
         <tr><th></th><th>pass</th><th>fail</th><th>todo</th><th>skip</th><th>spec</th></tr>
@@ -237,7 +237,7 @@ sub test_single_file {
     my $syn   = $tname =~ m|^\.\./v5| ? '../v5' : $tname =~ /^(\w+)/ && $1;
 
     $syn{$syn}++;
-    my $cmd = "$ENV{PERL6_EXE} $tfile";
+    my $cmd = "$ENV{PERL6_EXE} -Ilib $tfile";
     # Run the test, collecting all stdout in @results
     my $stderr;
     my @results;
@@ -371,11 +371,10 @@ for ( reverse sort { $a <=> $b } keys %status_rows ) {
     print STATUS $status_rows{$_};
 }
 print STATUS "
-        <tr><td>$ENV{NQP_EXE} --version</td><td colspan='5'>" . `$ENV{NQP_EXE} --version` . "</td></tr>
-        <tr><td>$ENV{PERL6_EXE} --version</td><td colspan='5'>" . `$ENV{PERL6_EXE} --version` . "</td></tr>
+        <tr><td>compiler version</td><td colspan='5'>" . `$ENV{PERL6_EXE} --version` . "</td></tr>
     </tbody>\n</table>\n";
 close STATUS;
-File::Copy::move('STATUS-m.md.new', 'STATUS-m.md');
+File::Copy::move($ENV{STATUS_MD} . '.new', $ENV{STATUS_MD});
 open REGRESSIONS, '>REGRESSIONS';
 print REGRESSIONS join('', @regressions);
 close REGRESSIONS;
@@ -579,7 +578,7 @@ sub log_script_times {
     for ( my $test_number=0; $test_number<$testcount; $test_number++) {
         unless ( defined($times[$test_number]) ) { $times[$test_number] = 0; }
         my ( @times_in_file );
-        if ( defined @{$logged_results[$test_number]} ) {
+        if ( @{$logged_results[$test_number]} ) {
             @times_in_file = ( @{$logged_results[$test_number]} );
         }
         push @times_in_file, $times[$test_number];

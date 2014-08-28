@@ -3,7 +3,7 @@ use v6.0.0;
 use Test;
 my $no_plan = 0;
 my $done_testing_has_been_run = 0;
-%*ENV<PERL6_EXE> //= $*EXECUTABLE_NAME;
+%*ENV<PERL6_EXE> //= ~$*EXECUTABLE;
 
 sub _plan($t)                { plan($no_plan = $t eq 'no_plan' ?? * !! $t)   }
 sub _pass(*@args)            { pass(|@args)                       }
@@ -206,7 +206,7 @@ END {
     }
     
     # This is the temporary file for _fresh_perl
-    $tmpfile = tempfile();
+    #~ $tmpfile = tempfile();
     
     
     sub which_perl {

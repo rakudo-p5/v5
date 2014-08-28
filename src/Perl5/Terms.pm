@@ -100,12 +100,16 @@ multi P5open( \SELF, $m, $expr, *@list, :$pkg ) is export {
 
 class Typeglob {
     has $!descriptor;
-    has $!value;
+    has $.value;
     has $.name;
 
     method Str {
-        '*'  ~ ($!value =:= GLOBAL ?? 'main' !! $!value.^name) ~
-        '::' ~ $.name
+        if $!value.WHO{ '$' ~ $.name }:exists
+        or $!value.WHO{ '%' ~ $.name }:exists
+        or $!value.WHO{ '@' ~ $.name }:exists {
+            '*'  ~ ($!value ~~ GLOBAL ?? 'main' !! $!value.^name) ~
+            '::' ~ $.name
+        }
     }
 
     method name {
@@ -126,6 +130,10 @@ class Typeglob {
 
     method list is rw {
         $!value.WHO{ '@' ~ $.name }
+    }
+    
+    method at_key($name) {
+        Typeglob.new( :$name, :$!value )
     }
 }
 
@@ -150,7 +158,6 @@ sub EXPORT(|) {
     %ex<@ARGV>                    := @*ARGS;
     %ex<%INC>                     := %INC;
     %ex<%ENV>                     := %*ENV;
-    %ex<@INC>                     := %*CUSTOM_LIB<Perl5>;
     %ex<%SIG>                     := %SIG;
     %ex<$$>                       := $*PID;
     %ex<$]>                       := $VERSION_FLOAT;
@@ -159,7 +166,7 @@ sub EXPORT(|) {
     %ex<$?>                       := $CHILD_ERROR;
 
     %ex<$^>                       := $FORMAT_TOP_NAME;
-    %ex<$^O>                      := $*OS;
+    %ex<$^O>                      := $*DISTRO.name;
     %ex<$^F>                      := $SYSTEM_FD_MAX;
     %ex<$^I>                      := $INPLACE_EDIT;
     %ex<$^T>                      := $BASETIME;
@@ -194,6 +201,8 @@ sub EXPORT(|) {
     %ex<$*CONFIG_INTSIZE>         := $CONFIG_INTSIZE;
     %ex<%*STASH>                  := %STASH;
     %ex<%*WARNINGS_CATS>          := %WARNINGS_CATS;
+
+    %ex<main>                     := GLOBAL;
 
     %ex
 }
@@ -989,18 +998,19 @@ sub P5pop(Mu \SELF) is export {
     $r
 }
 
+# RT #122447
 sub P5pos($s is rw) is export {
-    Proxy.new(
-        FETCH => sub ($) {
-            $s ~~ P5MatchPos && $s.last-match ~~ Match ?? $s.last-match.to !! Any
-        },
-        STORE => sub ($, $) {
-            if $s.defined {
-                $s does P5MatchPos unless $s ~~ P5MatchPos;
-                $s.last-match = Match.new
-            }
-        }
-    )
+    #~ Proxy.new(
+        #~ FETCH => sub ($) {
+            #~ $s ~~ P5MatchPos && $s.last-match ~~ Match ?? $s.last-match.to !! Any
+        #~ },
+        #~ STORE => sub ($, $) {
+            #~ if $s.defined {
+                #~ $s does P5MatchPos unless $s ~~ P5MatchPos;
+                #~ $s.last-match = Match.new
+            #~ }
+        #~ }
+    #~ )
 }
 
 sub P5print(*@a is copy, :$pkg) is export {
@@ -1164,7 +1174,7 @@ multi P5split(Cool $delimiter, $expr, $limit = *) {
     }
 }
 
-multi P5Str(Mu:U) is export is hidden_from_backtrace {
+multi P5Str(Mu:U, :$joiner) is export is hidden_from_backtrace {
     P5warn(:cat<uninitialized>, 'Use of uninitialized value in string') unless $*WITHIN_WARN;
     ''
 }
