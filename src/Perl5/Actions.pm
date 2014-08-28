@@ -22,6 +22,10 @@ sub is_name(@arr) is export {
     $*W.is_name(nqp::gethllsym("nqp", "nqplist")(|@arr))
 }
 
+sub throw($/, @pkg, *%opts) is export {
+    $*W.throw($/, nqp::gethllsym("nqp", "nqplist")(|@pkg), |%opts);
+}
+
 my $V5DEBUG = %*ENV<V5DEBUG>;
 
 # Represents a longname after having parsed it.
@@ -119,7 +123,7 @@ my class LongName {
             if $c eq 'GLOBAL' {
                 nqp::die("Cannot declare pseudo-package GLOBAL");
             }
-            $*W.throw($!match, 'X::PseudoPackage::InDeclaration',
+            throw($!match, <X PseudoPackage InDeclaration>,
                 pseudo-package  => $c,
                 action          => $dba,
             );
@@ -143,7 +147,7 @@ my class LongName {
             else {
                 if $decl {
                     if $_ ne 'GLOBAL' {
-                        $*W.throw($!match, 'X::PseudoPackage::InDeclaration',
+                        throw($!match, <X PseudoPackage InDeclaration>,
                             pseudo-package  => $_,
                             action          => $dba,
                         );
@@ -240,7 +244,7 @@ sub container_type_info($/, $sigil, @value_type, $shape?) is export {
         }
         %info<default_value> := %info<value_type>;
         if $shape {
-            $*W.throw($/, 'X::Comp::NYI', feature => 'Shaped arrays');
+            throw($/, <X Comp NYI>, feature => 'Shaped arrays');
         }
     }
     elsif $sigil eq '%' {
@@ -256,20 +260,20 @@ sub container_type_info($/, $sigil, @value_type, $shape?) is export {
                     } elsif (my $op_ast := $shape_ast[0]).isa(QAST::Op) {
                         if $op_ast.op eq "call" && +@($op_ast) == 2 {
                             if !nqp::isconcrete($op_ast[0].value) && !nqp::isconcrete($op_ast[1].value) {
-                                $*W.throw($/, 'X::Comp::NYI',
+                                throw($/, <X Comp NYI>,
                                     feature => "coercive type declarations");
                             }
                         }
                     } else {
-                        $*W.throw($/, "X::Comp::AdHoc",
+                        throw($/, <X Comp AdHoc>,
                             payload => "Invalid hash shape; type expected");
                     }
                 } elsif +@($shape_ast) > 1 {
-                    $*W.throw($/, 'X::Comp::NYI',
+                    throw($/, <X Comp NYI>,
                         feature => "multidimensional shaped hashes");
                 }
             } else {
-                $*W.throw($/, "X::Comp::AdHoc",
+                throw($/, <X Comp AdHoc>,
                     payload => "Invalid hash shape; type expected");
             }
         }
@@ -922,7 +926,7 @@ class Perl5::Actions does STDActions {
                         nqp::concat('^', nqp::substr($name, 1)));
             }
 
-            $*W.throw( $/, ['X', 'Placeholder', 'Block'],
+            throw( $/, <X Placeholder Block>,
                 placeholder => $name,
             );
         }
@@ -1228,7 +1232,7 @@ class Perl5::Actions does STDActions {
                                    $name_past);
                 for $arglist.list {
                     my $symbol := nqp::unbox_s($_.Str());
-                    $*W.throw($/, ['X', 'Redeclaration'], :$symbol)
+                    throw($/, <X Redeclaration>, :$symbol)
                         if $lexpad.symbol($symbol);
                     declare_variable($/, $past,
                             nqp::substr($symbol, 0, 1), '', nqp::substr($symbol, 1),
@@ -1810,7 +1814,7 @@ class Perl5::Actions does STDActions {
                     my $longname = dissect_longname($<desigilname><longname>);
                     if $longname.contains_indirect_lookup() {
                         if $*IN_DECL {
-                            $*W.throw($/, ['X', 'Syntax', 'Variable', 'IndirectDeclaration']);
+                            throw($/, <X Syntax Variable IndirectDeclaration>);
                         }
                         $past := self.make_indirect_lookup($longname.components(), ~$<sigil>);
                         $indirect := 1;
@@ -1860,7 +1864,7 @@ class Perl5::Actions does STDActions {
         }
         elsif $past.name() eq '$?LINE' || $past.name eq '$?FILE' {
             if $*IN_DECL eq 'variable' {
-                $*W.throw($/, 'X::Syntax::Variable::Twigil',
+                throw($/, <X Syntax Variable Twigil>,
                         twigil  => '?',
                         scope   => $*SCOPE,
                 );
@@ -1916,7 +1920,7 @@ class Perl5::Actions does STDActions {
             $found = 1;
         }
         unless $found {
-            $*W.throw($/, ['X', 'Attribute', 'Undeclared'],
+            throw($/, <X Attribute Undeclared>,
                     symbol       => $name,
                     package-kind => $*PKGDECL,
                     package-name => $*PACKAGE.HOW.name($*PACKAGE),
@@ -2072,13 +2076,13 @@ class Perl5::Actions does STDActions {
         elsif $<identifier> {
             # 'my \foo' style declaration
             if $*SCOPE ne 'my' {
-                $*W.throw($/, 'X::Comp::NYI',
+                throw($/, <X Comp NYI>,
                     feature => "$*SCOPE scoped term definitions (only 'my' is supported at the moment)");
             }
             my $name       :=  ~$<identifier>;
             my $cur_lexpad := $*W.cur_lexpad;
             if $cur_lexpad.symbol($name) {
-                $*W.throw($/, ['X', 'Redeclaration'], symbol => $name);
+                throw($/, <X Redeclaration>, symbol => $name);
             }
             if $*OFTYPE {
                 my $type := $*OFTYPE.ast;
@@ -2162,7 +2166,7 @@ class Perl5::Actions does STDActions {
                 $name := $sigil ~ $desigilname;
             }
             elsif $twigil eq '!' {
-                $*W.throw($/, ['X', 'Syntax', 'Variable', 'Twigil'],
+                throw($/, <X Syntax Variable Twigil>,
                     twigil => $twigil,
                     scope  => $*SCOPE,
                 );
@@ -2238,7 +2242,7 @@ class Perl5::Actions does STDActions {
             }
         }
         else {
-            $*W.throw($/, 'X::Comp::NYI',
+            throw($/, <X Comp NYI>,
                 feature => "$*SCOPE scoped variables");
         }
 
@@ -2340,7 +2344,7 @@ class Perl5::Actions does STDActions {
             my $name := '&' ~ ~$<deflongname>.ast;
             # Install.
             if $outer.symbol($name) {
-                $*W.throw($/, ['X', 'Redeclaration'],
+                throw($/, <X Redeclaration>,
                         symbol => ~$<deflongname>.ast,
                         what   => 'routine',
                 );
@@ -2943,7 +2947,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("declare_param($/, $name)");
         my $cur_pad := $*W.cur_lexpad();
         if $cur_pad.symbol($name) {
-            $*W.throw($/, ['X', 'Redeclaration'], symbol => $name);
+            throw($/, <X Redeclaration>, symbol => $name);
         }
         if nqp::existskey(%*PARAM_INFO, 'nominal_type') {
             $cur_pad[0].push(QAST::Var.new( :$name, :scope('lexical'),
@@ -3010,7 +3014,7 @@ class Perl5::Actions does STDActions {
             if $_<named_names> {
                 for $_<named_names>.list {
                     if %seen_names{$_} {
-                        $*W.throw($/, ['X', 'Signature', 'NameClash'],
+                        throw($/, <X Signature NameClash>,
                             name => $_
                         );
                     }
@@ -3149,7 +3153,7 @@ class Perl5::Actions does STDActions {
 
     sub whine_if_args($/, Mu $past, $name) {
         if +@($past) > 0 {
-           $*W.throw($/, ['X', 'Syntax', 'Argument', 'MOPMacro'], macro => $name);
+           throw($/, <X Syntax Argument MOPMacro>, macro => $name);
         }
     }
 
@@ -3334,7 +3338,7 @@ class Perl5::Actions does STDActions {
             $ast := QAST::Op.new( :op('call'), :name('&return'), $ast )
         }
         else {
-            $*W.throw($/, 'X::Comp::NYI', feature => "goto $<EXPR> NYI");
+            throw($/, <X Comp NYI>, feature => "goto $<EXPR> NYI");
         }
         make $ast
     }
@@ -4135,7 +4139,7 @@ class Perl5::Actions does STDActions {
         if $target.isa(QAST::Var) {
             # Check it's not a native type; we can't bind to those.
             if nqp::objprimspec($target.returns) {
-                $*W.throw($/, ['X', 'Bind', 'NativeType'],
+                throw($/, <X Bind NativeType>,
                         name => ($target.name // ''),
                 );
             }
@@ -4170,7 +4174,7 @@ class Perl5::Actions does STDActions {
                     $was_lexical = 1;
                 }
                 unless $was_lexical {
-                    $*W.throw($/, ['X', 'Bind']);
+                    throw($/, <X Bind>);
                 }
             }
 
@@ -4201,7 +4205,7 @@ class Perl5::Actions does STDActions {
         }
         # XXX Several more cases to do...
         else {
-            $*W.throw($/, ['X', 'Bind']);
+            throw($/, <X Bind>);
         }
     }
 
@@ -4649,7 +4653,7 @@ class Perl5::Actions does STDActions {
         for $<rx_adverbs>.ast.list {
             $multiple = 1 if %MATCH_ADVERBS_MULTIPLE{$_.named};
             unless %SHARED_ALLOWED_ADVERBS{$_.named} || %adverbs{$_.named} {
-                $*W.throw($/, 'X::Syntax::Regex::Adverb',
+                throw($/, <X Syntax Regex Adverb>,
                     adverb    => $_.named,
                     construct => $what,
                 );
@@ -4742,7 +4746,7 @@ class Perl5::Actions does STDActions {
         # Ensure we're not trying to put a placeholder in the mainline.
         my $block := $*W.cur_lexpad();
         if $block.ann('IN_DECL') eq 'mainline' || $block.ann('IN_DECL') eq 'eval' {
-            $*W.throw($/, ['X', 'Placeholder', 'Mainline'],
+            throw($/, <X Placeholder Mainline>,
                 placeholder => $full_name,
             );
         }
@@ -4798,7 +4802,7 @@ class Perl5::Actions does STDActions {
         # Add variable declaration, and evaluate to a lookup of it.
         my %existing := $block.symbol($name);
         if +%existing && !%existing<placeholder_parameter> {
-            $*W.throw($/, ['X', 'Redeclaration'],
+            throw($/, <X Redeclaration>,
                 symbol  => ~$/,
                 postfix => ' as a placeholder parameter',
             );
@@ -5220,7 +5224,7 @@ class Perl5::Actions does STDActions {
             nqp::unbox_s($past.compile_time_value);
         }
         else {
-            $*W.throw($/, ['X', 'Value', 'Dynamic'], what => $usage);
+            throw($/, <X Value Dynamic>, what => $usage);
         }
     }
 
@@ -5243,7 +5247,7 @@ class Perl5::Actions does STDActions {
     # return value: PAST for Int, Rat or Num
     sub radcalc($/, $radix is copy, $number is copy, $base?, $exponent?, :$num) {
         my $sign = 1;
-        $*W.throw($/, 'X::Syntax::Number::RadixOutOfRange', :$radix)
+        throw($/, <X Syntax Number RadixOutOfRange>, :$radix)
             if $radix < 2 || $radix > 36;
         nqp::die("You gave us a base for the magnitude, but you forgot the exponent.")
             if nqp::defined($base) && !nqp::defined($exponent);

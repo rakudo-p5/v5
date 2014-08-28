@@ -295,7 +295,7 @@ role STD5 {
                     }
                     else  {
                         my @suggestions := $*W.suggest_lexicals($name);
-                        $*W.throw($var, ['X', 'Undeclared'], symbol => $varast.name(), suggestions => @suggestions);
+                        throw($var, <X Undeclared>, symbol => $varast.name(), suggestions => @suggestions);
                     }
                 }
                 else {
@@ -1145,8 +1145,8 @@ grammar Perl5::Grammar does STD5 {
         [
         #~ | :dba('block') '{' ~ '}' <statementlist(1)> <?ENDSTMT>
         | '{' ~ '}' <statementlist(1)> <?ENDSTMT>
-        | <?terminator> { $*W.throw($/, 'X::Syntax::Missing', what =>'block') }
-        | <?> { $*W.throw($/, 'X::Syntax::Missing', what => 'block') }
+        | <?terminator> { throw($/, <X Syntax Missing>, what =>'block') }
+        | <?> { throw($/, <X Syntax Missing>, what => 'block') }
         ]
         { $*CURPAD := $*W.pop_lexpad() }
     }
@@ -1595,14 +1595,14 @@ grammar Perl5::Grammar does STD5 {
         }
 
         if +@clash_onlystar {
-            $*W.throw($/, 'X::Import::OnlystarProto',
+            throw($/, <X Import OnlystarProto>,
                 symbols             => @clash_onlystar,
                 source-package-name => $source_package_name,
             );
         }
 
         if +@clash {
-            $*W.throw($/, 'X::Import::Redeclaration',
+            throw($/, <X Import Redeclaration>,
                 symbols             => @clash,
                 source-package-name => $source_package_name,
             );
@@ -1852,9 +1852,7 @@ grammar Perl5::Grammar does STD5 {
 
                 # If it exists already it is an illegal redecl.
                 if $exists && $*PACKAGE.HOW.is_composed($*PACKAGE) {
-                    $*W.throw($/, ['X', 'Redeclaration'],
-                        symbol => $longname.name(),
-                    );
+                    throw($/, <X Redeclaration>, symbol => $longname.name());
                 }
 
                 # Construct meta-object for this package.
@@ -3066,7 +3064,7 @@ grammar Perl5::QGrammar does STD5 {
         token escape:sym<$> {
             :my $*QSIGIL := '$';
             <?before '$'>
-            [ <EXPR=.LANG('Perl5', 'EXPR', 'z=')> || { $*W.throw($/, 'X::Backslash::NonVariableDollar') } ]
+            [ <EXPR=.LANG('Perl5', 'EXPR', 'z=')> || { throw($/, <X Backslash NonVariableDollar>) } ]
         }
     }
 
