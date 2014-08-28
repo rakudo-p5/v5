@@ -2401,7 +2401,7 @@ class Perl5::Actions does STDActions {
         $*W.pop_lexpad();
         $install_in.push(QAST::Stmt.new($p_past));
         my @p_params = { is_capture => 1, nominal_type => find_symbol(['Mu']) };
-        my $p_sig := $*W.create_signature(nqp::hash('parameters', [$*W.create_parameter(@p_params[0])]));
+        my $p_sig := $*W.create_signature(nqp::hash('parameters', [$*W.create_parameter($/, @p_params[0])]));
         add_signature_binding_code($p_past, $p_sig, @p_params);
         my $code := $*W.create_code_object($p_past, 'Sub', $p_sig, 1);
         $*W.apply_trait($/, '&trait_mod:<is>', $code, :onlystar(1));
@@ -3040,7 +3040,7 @@ class Perl5::Actions does STDActions {
             }
 
             # Create parameter object and apply any traits.
-            my Mu $param_obj := $*W.create_parameter($p);
+            my Mu $param_obj := $*W.create_parameter($/, $p);
             if $_<traits> {
                 for $_<traits>.list {
                     ($_.ast)($param_obj) if $_.ast;
@@ -4854,7 +4854,7 @@ class Perl5::Actions does STDActions {
                     find_symbol(['Mu']), 0, $name
             ));
         }
-        my $param_obj := $*W.create_parameter($param);
+        my $param_obj := $*W.create_parameter($/, $param);
         if $copy { $param_obj.set_copy() }
         my $sig := $*W.create_signature(nqp::hash('parameters', nqp::gethllsym("nqp", "nqplist")($param_obj)));
         add_signature_binding_code($block, $sig, nqp::gethllsym("nqp", "nqplist")($param));
@@ -4887,7 +4887,7 @@ class Perl5::Actions does STDActions {
         my $param := hash(
             variable_name => '$_',
             nominal_type => find_symbol(['Mu']));
-        my $sig := $*W.create_signature(nqp::hash('parameters', [$*W.create_parameter($param)]));
+        my $sig := $*W.create_signature(nqp::hash('parameters', [$*W.create_parameter($/, $param)]));
         add_signature_binding_code($past, $sig, [$param]);
         return $*W.create_code_object($past, 'Block', $sig);
     }
@@ -5034,8 +5034,8 @@ class Perl5::Actions does STDActions {
             hash( variable_name => '$_', nominal_type => find_symbol(['Mu']))
         ];
         my $sig := $*W.create_signature(nqp::hash('parameters', [
-            $*W.create_parameter(@params[0]),
-            $*W.create_parameter(@params[1])
+            $*W.create_parameter($/, @params[0]),
+            $*W.create_parameter($/, @params[1])
         ]));
         $block[0].push(QAST::Var.new( :name('self'), :scope('lexical'), :decl('var') ));
         $block[0].push(QAST::Var.new( :name('$_'), :scope('lexical'), :decl('var') ));
