@@ -61,7 +61,7 @@ END {
     sub pass                    { $test = $test + 1; _pass(@_)                           }
     sub ok                      { $test = $test + 1; _ok(@_)                             }
     sub nok                     { $test = $test + 1; _nok(@_)                            }
-    sub is                      { $test = $test + 1; _is(P5Str($_[0]), P5Str($_[1]), $_[2] // '') }
+    sub is                      { $test = $test + 1; _is($_[0], $_[1], $_[2] // '') }
     sub isnt                    { $test = $test + 1; _isnt(@_)                           }
     sub is_approx               { $test = $test + 1; _is_approx(@_)                      }
     sub is_miniperl             { $test = $test + 1; 0                                   }
