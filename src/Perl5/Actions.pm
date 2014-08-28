@@ -5421,19 +5421,12 @@ class Perl5::QActions does STDActions {
             $past);
     }
 
-    sub string_to_int($src, $base) {
-        my $res := nqp::radix($base, $src, 0, 2);
-        $src.CURSOR.panic("'$src' is not a valid number")
-            unless nqp::atkey($res, 2) == nqp::chars($src);
-        nqp::atkey($res, 0);
-    }
-
     method charspec($/) {
         $V5DEBUG && say("charspec($/)");
         make $<charnames>
             ?? $<charnames>.ast
             !! $<number>
-                ?? nqp::chr(string_to_int( $<number>, 10 ))
+                ?? nqp::chr(+$<number>)
                 !! $<quest>
                     ?? nqp::chr(127)
                     !! nqp::chr(nqp::ord(nqp::uc($/)) - 64);
@@ -5761,8 +5754,8 @@ class Perl5::RegexActions does STDActions {
     }
 
     method p5backslash:sym<x>($/) {
-        my $hexlit := nqp::chars($<hexint>)
-            ?? nqp::chr( self.string_to_int($<hexint>, 16) )
+        my $hexlit := nqp::chars(~$<hexint>)
+            ?? nqp::chr( :16(~$<hexint>) )
             !! nqp::chr(0);
         make QAST::Regex.new( $hexlit, :rxtype('literal'), :node($/) );
     }
