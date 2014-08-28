@@ -1194,6 +1194,7 @@ class Perl5::Actions does STDActions {
 
     method statement_control:sym<no>($/) {
         $V5DEBUG && say("statement_control:sym<no>($/)");
+        make QAST::Var.new( :name('Nil'), :scope('lexical') )
     }
 
     method statement_control:sym<require>($/) {
@@ -4301,7 +4302,7 @@ class Perl5::Actions does STDActions {
             my $op := QAST::Op.new( :name('join'), :op('callmethod'), :node($/),
                 QAST::Var.new( :name('$;'), :scope('lexical') ) );
             for $<semilist><statement>.list -> $statement {
-                $op.push( $statement );
+                $op.push( $statement.ast );
             }
             $past.push( $op );
         }

@@ -1613,11 +1613,11 @@ Could not locate compile-time value for symbol Bar<br />
         <tr align='center'><td align='left' rowspan='2'>test_pl/tempfile.v5</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
         <tr><td colspan='5'>skipping the first filename because it is taken for use by _fresh_perl()<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 12<br />
-#      got: 'tmp28070A'<br />
-# expected: 'tmp28070B'<br />
+#      got: 'tmp31510A'<br />
+# expected: 'tmp31510B'<br />
 # Failed test at /home/froggs/dev/v5/t/test.pl line 64<br />
-#      got: 'tmp28070B'<br />
-# expected: 'tmp28070C'<br />
+#      got: 'tmp31510B'<br />
+# expected: 'tmp31510C'<br />
 Too many positional parameters passed; got 2 but expected between 0 and 1<br />
   in sub fail at src/Perl5/Terms.pm:210<br />
   in block  at t/spec/test_pl/tempfile.v5:31<br />
@@ -2172,7 +2172,7 @@ Dynamic variable $*ROUTINE_NAME not found<br />
     Redeclaration of symbol $fh<br />
     at t/spec/win32/fs.v5:24<br />
     ------&gt; open my $fh⏏, "&gt;", $tmpfile2<br />
-Failed to create link called 'tmp28151B' on target 'tmp28151A': Failed to link file: no such file or directory<br />
+Failed to create link called 'tmp31595B' on target 'tmp31595A': Failed to link file: no such file or directory<br />
   in block  at src/gen/m-CORE.setting:15021<br />
   in any  at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
   in sub link at src/gen/m-CORE.setting:15016<br />
@@ -2323,7 +2323,7 @@ No such method 'item' for invocant of type 'QAST::Regex'<br />
     Redeclaration of symbol $fh<br />
     at t/spec/op/unlink.v5:21<br />
     ------&gt;   open my $fh⏏, "&gt;", $file or die "Can't open $file: $<br />
-Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp27826A/aaa' (indicated by ⏏)<br />
+Cannot convert string to number: base-10 number must begin with valid digits or '.' in '⏏/home/froggs/dev/v5/t/tmp31248A/aaa' (indicated by ⏏)<br />
   in method Numeric at src/gen/m-CORE.setting:13260<br />
   in sub infix:&lt;==&gt; at src/gen/m-CORE.setting:4440<br />
   in sub infix:&lt;==&gt; at /home/froggs/dev/nqp/install/languages/perl6/runtime/CORE.setting.moarvm:1<br />
@@ -2461,7 +2461,7 @@ Unable to parse expression in args; couldn't find final ')'  at line 54, near "u
     Redeclaration of symbol $CMD<br />
     at t/spec/io/fflush.v5:126<br />
     ------&gt; open my $CMD⏏, "$cmd |" or die "Can't open pipe to '$<br />
-close tmp27157A: <br />
+close tmp30619A: <br />
   in block &lt;unit&gt; at t/spec/io/fflush.v5:1<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>mro/recursion_c3.v5</td><td>0</td><td>8</td><td>0</td><td>0</td><td>8</td></tr>
@@ -2586,7 +2586,7 @@ at t/spec/comp/decl.v5:33<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>re/pat_special_cc.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-QAST::Block with cuid cuid_101_1409217203.72206 has not appeared<br />
+QAST::Block with cuid cuid_101_1409222198.39768 has not appeared<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/dtrace.v5</td><td>0</td><td>9</td><td>0</td><td>0</td><td>9</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
@@ -2950,7 +2950,7 @@ at t/spec/op/glob.v5:12<br />
 ------&gt; @oops = @ops = &lt;⏏op/*&gt;;<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/lfs.v5</td><td>0</td><td>17</td><td>0</td><td>0</td><td>17</td></tr>
-        <tr><td colspan='5'>binmode tmp27567B failed: <br />
+        <tr><td colspan='5'>binmode tmp31058B failed: <br />
   in block &lt;unit&gt; at t/spec/op/lfs.v5:24<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>uni/caller.v5</td><td>0</td><td>18</td><td>0</td><td>0</td><td>18</td></tr>
@@ -2967,7 +2967,7 @@ at t/spec/uni/package.v5:37<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>op/die_keeperr.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>===SORRY!===<br />
-Unknown QAST node type Match<br />
+No such symbol 'End'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>comp/redef.v5</td><td>0</td><td>20</td><td>0</td><td>0</td><td>20</td></tr>
         <tr><td colspan='5'>===SORRY!=== Error while compiling t/spec/comp/redef.v5<br />
@@ -2990,7 +2990,7 @@ Cannot iterate object with P6opaque representation<br />
 Cannot find method 'value'<br />
 </td></tr>
         <tr align='center'><td align='left' rowspan='2'>run/cloexec.v5</td><td>0</td><td>22</td><td>0</td><td>0</td><td>22</td></tr>
-        <tr><td colspan='5'>close 'tmp28014B': <br />
+        <tr><td colspan='5'>close 'tmp31447B': <br />
   in sub make_tmp_file at t/spec/run/cloexec.v5:53<br />
   in block &lt;unit&gt; at t/spec/run/cloexec.v5:1<br />
 </td></tr>
