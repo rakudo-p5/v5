@@ -2092,7 +2092,7 @@ grammar Perl5::Grammar does STD5 {
     token special_variable:sym<$`>    { <sym> | '$PREMATCH' }
     token special_variable:sym<$@>    { <sym> | '$EVAL_ERROR' }
     token special_variable:sym<$#>    { <sym> <!alpha> }
-    token special_variable:sym<$$>    { <sym> <!alpha> }
+    token special_variable:sym<$$>    { <sym> <!alpha> <![$]> }
     token special_variable:sym<$%>    { <sym> | '$FORMAT_PAGE_NUMBER' }
     token special_variable:sym<$^>    { <sym> | '$FORMAT_TOP_NAME' }
     token special_variable:sym<$&>    { <sym> | '$MATCH' }
