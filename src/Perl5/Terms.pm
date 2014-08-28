@@ -833,7 +833,7 @@ multi P5ord(Mu         ) is export { 0             }
 multi P5ord(Str:D \SELF) is export { SELF.ord || 0 }
 
 sub P5pack(Mu \SELF, *@items) is export is hidden_from_backtrace {
-    return '' unless defined SELF;
+    return buf8.new unless defined SELF;
     my @bytes;
     my $pos = 0;
     my $amount;
@@ -981,7 +981,7 @@ sub P5pack(Mu \SELF, *@items) is export is hidden_from_backtrace {
             P5die ~X::Buf::Pack.new(:$directive);
         }
     }
-    return utf8.new(@bytes);
+    return buf8.new(@bytes);
 }
 
 sub P5pop(Mu \SELF) is export {
