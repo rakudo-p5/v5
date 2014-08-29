@@ -1,6 +1,6 @@
 use v6;
-#~ use Panda::Common;
-#~ use Panda::Builder;
+use Panda::Common;
+use Panda::Builder;
 
 my class X::Perl5::CannotBuildModule is Exception {
     has $.cmd;
@@ -12,8 +12,7 @@ my class X::Perl5::CannotBuildModule is Exception {
 
 my $perl6 = "$*EXECUTABLE -I{cwd}/lib";
 
-#~ class Build is Panda::Builder {
-class Build {
+class Build is Panda::Builder {
     method build(|) {
         my grammar CoreModules {
             token TOP     { [ <line> | <.comment> | <.blank> ]+ }
