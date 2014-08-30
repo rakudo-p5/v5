@@ -1,6 +1,7 @@
 use v6;
 use Panda::Common;
 use Panda::Builder;
+use Panda::Tester;
 
 my class X::Perl5::CannotBuildModule is Exception {
     has $.cmd;
@@ -12,7 +13,7 @@ my class X::Perl5::CannotBuildModule is Exception {
 
 my $perl6 = "$*EXECUTABLE -I{cwd}/lib";
 
-class Build is Panda::Builder {
+class Build is Panda::Builder is Panda::Tester {
     method build(|) {
         my grammar CoreModules {
             token TOP     { [ <line> | <.comment> | <.blank> ]+ }
@@ -78,6 +79,13 @@ class Build is Panda::Builder {
             %build_time{$module<name>} = nqp::time_n;
 
             NEXT { $i++ }
+        }
+    }
+
+    method test($where, :$prove-command = 'prove') {
+        withp6lib {
+            my $c = "$prove-command -e $*EXECUTABLE -r t/00-sanity.t";
+            shell $c or fail "Tests failed";
         }
     }
 }
