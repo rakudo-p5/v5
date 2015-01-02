@@ -84,7 +84,7 @@ class Perl5::ModuleLoader {
                 @*MODULES[0]    = %prev;
             }
             else {
-                @*MODULES[-1]<line> := $line;
+                @*MODULES[*-1]<line> := $line;
             }
             my %trace;
             %trace<module>   := $module_name;
