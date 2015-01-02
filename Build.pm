@@ -114,14 +114,14 @@ multi MAIN('summary') {
 multi MAIN('clean') {
     my sub recurse-and-clean($path) {
         if $path.d {
-            recurse-and-clean($_) for $path.contents
+            recurse-and-clean($_) for $path.dir
         }
         elsif $path ~~ / '.' <{$*VM.precomp-ext}> $/ {
             unlink $path
         }
     }
-    recurse-and-clean('blib'.path);
-    recurse-and-clean('lib'.path)
+    recurse-and-clean('blib'.IO);
+    recurse-and-clean('lib'.IO)
 }
 
 multi MAIN('install') {
