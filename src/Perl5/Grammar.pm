@@ -1166,7 +1166,7 @@ grammar Perl5::Grammar does STD5 {
             # 2) We are in an eval, Perl5::Terms should already be there.
             # 3) We are in a use'd Perl5 module, load Perl5::Terms.
             unless $*W.is_lexical('&P5Str') {
-                my $terms := $*W.load_module($/, 'Perl5::Terms', {}, $*GLOBALish);
+                my $terms := $*W.load_module($/, 'Perl5::Terms', nqp::hash(), $*GLOBALish);
                 do_import($/, $terms, 'Perl5::Terms');
                 #~ $/.CURSOR.import_EXPORTHOW($terms);
             }

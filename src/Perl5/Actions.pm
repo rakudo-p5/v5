@@ -3328,7 +3328,7 @@ class Perl5::Actions does STDActions {
                                 $*W.add_string_constant('@_') ) );
 
             if $subname<desigilname><variable> {
-                $ast.name(~$<subname><desigilname><variable>);
+                $ast.name(~$subname<desigilname><variable>);
             }
             elsif $*W.is_lexical('&' ~ $subname) || $subname eq $*ROUTINE_NAME {
                 $ast.name('&' ~ $subname);
