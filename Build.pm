@@ -11,7 +11,7 @@ my class X::Perl5::CannotBuildModule is Exception {
     }
 }
 
-my $perl6 = "$*EXECUTABLE -I{cwd}/lib";
+my $perl6 = "$*EXECUTABLE -I$*CWD/lib";
 
 class Build is Panda::Builder is Panda::Tester {
     method build(|) {
@@ -70,7 +70,7 @@ class Build is Panda::Builder is Panda::Tester {
             next if $bc.IO.e && (!$module<deps>.elems
                               || %build_time{$module<name>} >= all @($module<deps>).map({ %build_time{$_} }));
 
-            mkdir-p($dir) unless $dir.path.d;
+            mkdir-p($dir) unless $dir.IO.d;
 
             say "Compiling ({$i}) $module<name> to $*VM.precomp-target()";
             my $cmd = $perl6 ~ " --target=$*VM.precomp-target() --output=$bc $pm";
