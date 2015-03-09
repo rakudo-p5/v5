@@ -1,6 +1,6 @@
 {
     "name" : "v5",
-    "version" : "*",
+    "version" : "v0.0.1",
     "description" : "Reimplementation of Perl 5 Slang",
     "depends" : [ ],
     "source-url" : "git://github.com/rakudo-p5/v5.git"
