@@ -44,7 +44,7 @@ class Perl5::ModuleLoader {
         my $path = $file.path if $file;
         if self.candidates($module_name, :$file, :@INC)[0] -> $candi {
             %chosen<pm> = ~$candi.path;
-            $candi.has-precomp ??
+            $candi.has-precomp
                 ?? (%chosen<load> = %chosen<key> = %chosen<pm> ~ '.' ~ $candi.precomp-ext)
                 !! (%chosen<key>  = %chosen<pm>)
         }
