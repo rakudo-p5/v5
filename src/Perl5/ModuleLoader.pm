@@ -1,3 +1,5 @@
+use nqp;
+
 my $V5MLDEBUG = %*ENV<V5MLDEBUG>;
 my $p6ml      = nqp::gethllsym('perl6', 'ModuleLoader');
 
