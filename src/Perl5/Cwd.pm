@@ -1,5 +1,5 @@
-
 use v6.0.0;
+use nqp;
 
 module Cwd {
     our sub cwd             { nqp::p6box_s(nqp::cwd()) }

@@ -1,5 +1,5 @@
-
 use v6.0.0;
+use nqp;
 
 # http://perldoc.perl.org/overload.html
 my $fallback;

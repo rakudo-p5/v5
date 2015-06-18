@@ -1,3 +1,4 @@
+use nqp;
 use Perl5::Actions;
 use QRegex:from<NQP>;
 use Perl5::World;

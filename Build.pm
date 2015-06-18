@@ -1,4 +1,5 @@
 use v6;
+use nqp;
 use Panda::Common;
 use Panda::Builder;
 use Panda::Tester;

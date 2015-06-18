@@ -1,3 +1,4 @@
+use nqp;
 use NQPP6QRegex:from<NQP>;
 use NQPP5QRegex:from<NQP>;
 use Perl5::World;

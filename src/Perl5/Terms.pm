@@ -1,5 +1,5 @@
-
 use v6.0.0;
+use nqp;
 
 my %SIG;
 my %INC;
