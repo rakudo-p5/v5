@@ -1,5 +1,5 @@
 
-class Perl5::World;
+unit class Perl5::World;
 
 
 

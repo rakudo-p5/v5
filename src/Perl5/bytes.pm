@@ -7,4 +7,4 @@ sub EXPORT(|) {
     { '$*USE_BYTES' => +($*SCOPE eq 'use'); }
 }
 
-module bytes;
+unit module bytes;
