@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module TAP::Parser::Grammar {
     #~ our sub subname { ... }

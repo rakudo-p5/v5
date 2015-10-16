@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module Tie::Hash::NamedCapture {
     #~ our sub subname { ... }

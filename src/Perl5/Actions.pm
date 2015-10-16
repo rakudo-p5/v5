@@ -1876,7 +1876,7 @@ class Perl5::Actions does STDActions {
                         HLL::Compiler.lineof($/.orig, $/.from, :cache(1)));
             }
             else {
-                $past := $*W.add_string_constant(nqp::getlexdyn('$?FILES') // '<unknown file>');
+                $past := $*W.add_string_constant(nqp::getlexdyn('$*FILES') // '<unknown file>');
             }
         }
         elsif +@name > 1 {
@@ -2357,7 +2357,7 @@ class Perl5::Actions does STDActions {
             # Install in lexpad and in package, and set up code to
             # re-bind it per invocation of its outer.
             $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
-            $*W.install_package_symbol($*PACKAGE, $name, $code);
+            $*W.install_package_symbol_unchecked($*PACKAGE, $name, $code);
             $outer[0].push(QAST::Op.new(
                 :op('bindkey'),
                 QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
@@ -2613,7 +2613,7 @@ class Perl5::Actions does STDActions {
         }
         elsif $*SCOPE eq 'our' || $*SCOPE eq '' {
             $*W.install_lexical_symbol($outer, '&' ~ $name, $code, :clone(1));
-            $*W.install_package_symbol($*PACKAGE, '&' ~ $name, $code);
+            $*W.install_package_symbol_unchecked($*PACKAGE, '&' ~ $name, $code);
         }
     }
 
@@ -3391,7 +3391,7 @@ class Perl5::Actions does STDActions {
 
     method term:sym<__FILE__>($/) {
         $V5DEBUG && say("term:sym<__FILE__>($/)");
-        make $*W.add_string_constant(nqp::unbox_s(nqp::ifnull(nqp::getlexdyn('$?FILES'), '<unknown file>')));
+        make $*W.add_string_constant(nqp::unbox_s(nqp::ifnull(nqp::getlexdyn('$*FILES'), '<unknown file>')));
     }
 
     method term:sym<__PACKAGE__>($/) {
@@ -5061,7 +5061,7 @@ class Perl5::Actions does STDActions {
     # This is the hook where, in the future, we'll use this as the hook to check
     # if we have a proto or other declaration in scope that states that this sub
     # has a signature of the form :(\|$parcel), in which case we don't promote
-    # the Parcel to a Capture when calling it. For now, we just worry about the
+    # the List to a Capture when calling it. For now, we just worry about the
     # special case, return.
     sub capture_or_parcel(Mu $args, $name) {
         $V5DEBUG && say("sub capture_or_parcel($name)");
@@ -5903,7 +5903,7 @@ class Perl5::RegexActions does STDActions {
         }
 
         my $capnames := capnames($qast, 0);
-        $capnames    := nqp::getattr($capnames, EnumMap, '$!storage');
+        $capnames    := nqp::getattr($capnames, Map, '$!storage');
         self.store_regex_caps($code_obj, $block, $capnames);
         self.store_regex_nfa($code_obj, $block, QRegex::NFA.new.addnode($qast));
 
@@ -5999,7 +5999,7 @@ class Perl5::RegexActions does STDActions {
     # Stores the captures info for a regex.
     method store_regex_caps($code_obj, Mu $block, $caps is rw) {
         $V5DEBUG && say("store_regex_caps()");
-        $code_obj.SET_CAPS(nqp::getattr($caps, EnumMap, '$!storage'));
+        $code_obj.SET_CAPS(nqp::getattr($caps, Map, '$!storage'));
     }
 
     method store_regex_nfa($code_obj, Mu $block, Mu $nfa) {

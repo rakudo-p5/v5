@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module Memoize::SDBM_File {
     #~ our sub subname { ... }

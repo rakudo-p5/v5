@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module Encode::JP::JIS7 {
     #~ our sub subname { ... }

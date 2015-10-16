@@ -82,7 +82,7 @@ class Perl5::ModuleLoader {
             if +@*MODULES  == 0 {
                 my %prev        = nqp::hash();
                 %prev<line>     = $line;
-                %prev<filename> = nqp::getlexdyn('$?FILES');
+                %prev<filename> = nqp::getlexdyn('$*FILES');
                 @*MODULES[0]    = %prev;
             }
             else {
@@ -129,7 +129,7 @@ class Perl5::ModuleLoader {
 
                 # Get the compiler and compile the code, then run it
                 # (which runs the mainline and captures UNIT).
-                my $?FILES   := %chosen<pm>;
+                my $*FILES   := %chosen<pm>;
                 my $eval     := nqp::getcomp('perl6').compile($source, :M<Perl5>);
                 my $*CTXSAVE := self;
                 my $*MAIN_CTX;
@@ -234,5 +234,5 @@ class Perl5::ModuleLoader {
     }
 }
 
-$p6ml.p6ml.register_language_module_loader('Perl5', Perl5::ModuleLoader);
+$p6ml.register_language_module_loader('Perl5', Perl5::ModuleLoader);
 nqp::bindhllsym('perl6', 'Perl5ModuleLoader', Perl5::ModuleLoader);

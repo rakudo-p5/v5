@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module MIME::Base64 {
     #~ our sub subname { ... }

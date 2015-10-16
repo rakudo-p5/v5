@@ -1,5 +1,5 @@
 
-use v6.0.0;
+use v6;
 
 class File::Spec is IO::Spec { }
 

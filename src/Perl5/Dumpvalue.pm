@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module Dumpvalue {
     #~ our sub subname { ... }

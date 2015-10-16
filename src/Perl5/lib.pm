@@ -1,5 +1,5 @@
 
-use v6.0.0;
+use v6;
 
 module lib { };
 our sub EXPORT(*@a) {

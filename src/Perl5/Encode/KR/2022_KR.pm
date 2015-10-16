@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module Encode::KR::2022_KR {
     #~ our sub subname { ... }
