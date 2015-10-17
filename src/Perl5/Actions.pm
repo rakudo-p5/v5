@@ -1876,7 +1876,7 @@ class Perl5::Actions does STDActions {
                         HLL::Compiler.lineof($/.orig, $/.from, :cache(1)));
             }
             else {
-                $past := $*W.add_string_constant(nqp::getlexdyn('$*FILES') // '<unknown file>');
+                $past := $*W.add_string_constant(nqp::getlexdyn('$?FILES') // '<unknown file>');
             }
         }
         elsif +@name > 1 {
@@ -3391,7 +3391,7 @@ class Perl5::Actions does STDActions {
 
     method term:sym<__FILE__>($/) {
         $V5DEBUG && say("term:sym<__FILE__>($/)");
-        make $*W.add_string_constant(nqp::unbox_s(nqp::ifnull(nqp::getlexdyn('$*FILES'), '<unknown file>')));
+        make $*W.add_string_constant(nqp::unbox_s(nqp::ifnull(nqp::getlexdyn('$?FILES'), '<unknown file>')));
     }
 
     method term:sym<__PACKAGE__>($/) {
