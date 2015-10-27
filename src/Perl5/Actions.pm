@@ -2543,7 +2543,7 @@ class Perl5::Actions does STDActions {
         $*W.apply_trait($/, '&trait_mod:<is>', $code, inlinable => $inline_info)
     }
 
-    sub methodize_block($/, $code is rw, Mu $past is raw, %sig_info, Mu $invocant_type, :$yada) {
+    sub methodize_block($/, $code is raw, Mu $past is raw, %sig_info, Mu $invocant_type, :$yada) {
         $V5DEBUG && say("sub methodize_block($/)");
         # Get signature and ensure it has an invocant and *%_.
         my @params := %sig_info<parameters>;
@@ -2711,7 +2711,7 @@ class Perl5::Actions does STDActions {
         make $closure;
     }
 
-    sub regex_coderef($/, $code is rw, Mu $qast is raw, $scope, $name, %sig_info, Mu $block is raw, $traits?, :$proto, :$use_outer_match) {
+    sub regex_coderef($/, $code is raw, Mu $qast is raw, $scope, $name, %sig_info, Mu $block is raw, $traits?, :$proto, :$use_outer_match) {
         # create a code reference from a regex qast tree
         my $past;
         if $proto {
@@ -4389,7 +4389,7 @@ class Perl5::Actions does STDActions {
         make $<VALUE>.ast;
     }
 
-    sub add_numeric_constant($/, $type is rw, $number) {
+    sub add_numeric_constant($/, $type is raw, $number) {
         $V5DEBUG && say("add_numeric_constant($/, $type, $number)");
         my Mu $value := nqp::decont($number);
         return nqp::istype($value, Int) && nqp::isbig_I($value)
@@ -4814,7 +4814,7 @@ class Perl5::Actions does STDActions {
         return QAST::Var.new( :name($name), :scope('lexical') );
     }
 
-    sub reference_to_code_object($code_obj is rw, Mu $past_block is raw) {
+    sub reference_to_code_object($code_obj is raw, Mu $past_block is raw) {
         $V5DEBUG && say("reference_to_code_object($past_block.cuid())");
         my $ref := QAST::WVal.new( :value($code_obj) );
         $ref.annotate('past_block', $past_block);
@@ -5997,7 +5997,7 @@ class Perl5::RegexActions does STDActions {
     }
 
     # Stores the captures info for a regex.
-    method store_regex_caps($code_obj, Mu $block, $caps is rw) {
+    method store_regex_caps($code_obj, Mu $block, $caps is raw) {
         $V5DEBUG && say("store_regex_caps()");
         $code_obj.SET_CAPS(nqp::getattr($caps, Map, '$!storage'));
     }
