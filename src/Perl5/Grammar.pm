@@ -802,7 +802,7 @@ grammar Perl5::Grammar does STD5 {
             my $arg = @termstack.pop;
             $key    = $arg.from() < $op.from() ?? 'POSTFIX' !! 'PREFIX';
             nqp::bindattr($op, Capture, '$!list',
-                nqp::getattr(nqp::decont([$arg].List), List, '$!storage'));
+                nqp::getattr(nqp::decont([$arg].list), List, '$!reified'));
         }
         elsif $opassoc eq 'list' {
             $sym = %opOPER<sym> // '';
@@ -815,7 +815,7 @@ grammar Perl5::Grammar does STD5 {
             }
             @list.unshift: @termstack.pop;
             nqp::bindattr($op, Capture, '$!list',
-                nqp::getattr(nqp::decont(@list.List), List, '$!storage'));
+                nqp::getattr(nqp::decont(@list.list), List, '$!reified'));
             $key = 'LIST';
         }
         else { # infix op assoc: left|right|ternary|...
@@ -824,7 +824,7 @@ grammar Perl5::Grammar does STD5 {
             @list.unshift: @termstack.pop; # left
             $reducecheck = %opO<reducecheck>;
             nqp::bindattr($op, Capture, '$!list',
-                nqp::getattr(nqp::decont(@list.List), List, '$!storage'));
+                nqp::getattr(nqp::decont(@list.list), List, '$!reified'));
             self."$reducecheck"($op) if $reducecheck;
             $key = 'INFIX';
         }
