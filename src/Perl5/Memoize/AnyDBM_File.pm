@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module Memoize::AnyDBM_File {
     #~ our sub subname { ... }

@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module utf8 {
     #~ our sub subname { ... }

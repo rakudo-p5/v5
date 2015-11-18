@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module App::Prove::State::Result {
     #~ our sub subname { ... }

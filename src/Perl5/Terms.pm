@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 use nqp;
 
 my %SIG;
@@ -8,7 +8,7 @@ my %STASH; # for ${^SOMETHING} style variables
 
 our %WARNINGS_CATS;
 
-sub P5warn(:$cat, *@a) is hidden_from_backtrace {
+sub P5warn(:$cat, *@a) is hidden-from-backtrace {
     if %WARNINGS_CATS<all> || ($cat && %WARNINGS_CATS{$cat}) {
         my $*WITHIN_WARN = 1;
         %SIG<__WARN__> ~~ Callable ?? %SIG<__WARN__>( |@a.list.map(P5Str(*)) ) !! warn( P5Str(@a.list) )
@@ -16,7 +16,7 @@ sub P5warn(:$cat, *@a) is hidden_from_backtrace {
 }
 
 # TODO get caller's $@ if no args passed
-sub P5die (*@a) is hidden_from_backtrace {
+sub P5die (*@a) is hidden-from-backtrace {
     %SIG<__DIE__>  ~~ Callable ?? %SIG<__DIE__>( |@a.list.map(P5Str(*)) ) !! die( P5Str(@a.list) )
 }
 
@@ -66,7 +66,7 @@ class STDERR {
 }
 
 role P5Bareword {
-    method postcircumfix:<( )>(|) is hidden_from_backtrace {
+    method postcircumfix:<( )>(|) is hidden-from-backtrace {
         my $pkg := nqp::getlexrelcaller(nqp::ctxcaller(nqp::ctxcaller(nqp::ctx())), '$?PACKAGE');
         P5die(sprintf('Undefined subroutine &%s::%s called',
             $pkg =:= GLOBAL ?? 'main' !! $pkg.^name,
@@ -212,7 +212,7 @@ sub fail($a?) is export { use Test; ::('&flunk')( $a // '' ) }
 sub P5binmode(|) is export { }
 
 # http://perldoc.perl.org/functions/chr.html
-sub P5chr($ord) is export is hidden_from_backtrace {
+sub P5chr($ord) is export is hidden-from-backtrace {
     if $ord < 0 {
         # Negative values give the Unicode replacement character (chr(0xfffd)), except under the bytes
         # pragma, where the low eight bits of the value (truncated to an integer) are used.
@@ -229,8 +229,8 @@ sub P5chr($ord) is export is hidden_from_backtrace {
     }
 }
 
-multi sub chop()          is export { chop(CALLER::DYNAMIC::<$_>) }
-multi sub chop(*@s is rw) is export {
+multi sub chop()    is export { chop(CALLER::DYNAMIC::<$_>) }
+multi sub chop(*@s) is export {
     my $chopped_of = '';
     for @s -> $s is rw {
         if $s && $s.chars {
@@ -242,8 +242,8 @@ multi sub chop(*@s is rw) is export {
 }
 
 # http://perldoc.perl.org/functions/chomp.html
-multi sub chomp()          is export { chomp(CALLER::DYNAMIC::<$_>) }
-multi sub chomp(*@s is rw) is export {
+multi sub chomp()    is export { chomp(CALLER::DYNAMIC::<$_>) }
+multi sub chomp(*@s) is export {
     my $nr_chomped = 0;
     return 0 unless $INPUT_RECORD_SEPARATOR.defined;
     # TODO When in slurp mode ($/ = undef ) or fixed-length record mode
@@ -268,7 +268,11 @@ multi caller($o) is export {
     $f && [$p, $f.file, $f.line, $p ~ '::' ~ $f.subname] || ['','','']
 }
 
-sub exists( \a ) is export { a:exists ?? 1 !! '' }
+sub exists( \a ) is export {
+# FIXME
+#    a:exists ?? 1 !! ''
+    defined a
+}
 
 # http://perldoc.perl.org/functions/undef.html
 multi sub undef()         is export { Any              }
@@ -345,12 +349,12 @@ multi ::('infix:<P5^>')(\a, \b)         is export { &prefix:<P5+>(a) +^ &prefix:
 # k=, tight or (left || //)
 
 # j=, range (nonassoc .. ...)
-sub ::('infix:<P5..>') (\a, \b) is export is hidden_from_backtrace {
+sub ::('infix:<P5..>') (\a, \b) is export is hidden-from-backtrace {
     (a.defined ?? a !! P5warn(:cat<uninitialized>, "Use of uninitialized value {a.VAR.?name} in range (or flop)") || 0)
     ..
     (b.defined ?? b !! P5warn(:cat<uninitialized>, "Use of uninitialized value {b.VAR.?name} in range (or flop)") || 0)
 }
-sub ::('infix:<P5...>')(\a, \b) is export is hidden_from_backtrace {
+sub ::('infix:<P5...>')(\a, \b) is export is hidden-from-backtrace {
     (a.defined ?? a !! P5warn(:cat<uninitialized>, "Use of uninitialized value {a.VAR.?name} in range (or flop)") || 0)
     ...
     (b.defined ?? b !! P5warn(:cat<uninitialized>, "Use of uninitialized value {b.VAR.?name} in range (or flop)") || 0)
@@ -361,8 +365,8 @@ sub ::('infix:<P5...>')(\a, \b) is export is hidden_from_backtrace {
 # h=, assignment (right = += -= *= etc.)
 sub ::('infix:<P5|=>') (\a, \b)  is rw is export { a = &infix:<P5|>(a, b); a }
 sub ::('infix:<P5&=>') (\a, \b)  is rw is export { a = &infix:<P5&>(a, b); a }
-sub ::('infix:<P5||=>')(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b unless P5Bool(a); a }
-sub ::('infix:<P5&&=>')(\a, \b)  is rw is export { (a ~~ Parcel ?? a[*-1] !! a) = b     if P5Bool(a); a }
+sub ::('infix:<P5||=>')(\a, \b)  is rw is export { (a ~~ List ?? a[*-1] !! a) = b unless P5Bool(a); a }
+sub ::('infix:<P5&&=>')(\a, \b)  is rw is export { (a ~~ List ?? a[*-1] !! a) = b     if P5Bool(a); a }
 sub ::('infix:<P5+=>') (\a, \b)  is rw is export { a = &infix:<P5+>(a, b); a }
 sub ::('infix:<P5-=>') (\a, \b)  is rw is export { a = &infix:<P5->(a, b); a }
 sub ::('infix:<P5*=>') (\a, \b)  is rw is export { a = &infix:<P5*>(a, b); a }
@@ -395,11 +399,11 @@ multi ::('postcircumfix<P5[ ]>')(Any \SELF, Positional \pos) is rw is export {
     $list.gimme(*);
     $list.map($list.infinite
                ?? { last if $_ >= SELF.list.gimme($_ + 1); SELF[P5Numeric($_)] }
-               !! { SELF[P5Numeric($_)] }).eager.Parcel;
+               !! { SELF[P5Numeric($_)] }).eager.List;
 }
 
 multi P5Bool(Mu     \SELF) is export { SELF ?? 1                 !! '' }
-multi P5Bool(Parcel \SELF) is export { SELF ?? [||] SELF.list    !! '' }
+multi P5Bool(List \SELF) is export { SELF ?? [||] SELF.list    !! '' }
 multi P5Bool(List   \SELF) is export { SELF ?? [||] SELF.list    !! '' }
 multi P5Bool(Pair   \SELF) is export { SELF ?? [||] SELF.kv.list !! '' }
 
@@ -424,7 +428,7 @@ sub P5can(Mu $pkg, $method, *@a) is export {
 multi P5chdir(\SELF) is export { chdir(SELF) }
 multi P5chdir()      is export { %*ENV<HOME> ?? chdir(%*ENV<HOME>) !! %*ENV<LOGDIR> ?? chdir(%*ENV<LOGDIR>) !! False }
 
-sub P5do(Mu \SELF) is export is hidden_from_backtrace {
+sub P5do(Mu \SELF) is export is hidden-from-backtrace {
     my $ret;
     if SELF {
         if SELF.IO.e {
@@ -448,7 +452,7 @@ multi P5each(Mu:D) is export {
     P5warn 'Type of argument to each on reference must be unblessed hashref or arrayref';
     Nil
 }
-multi P5each(List:D \SELF is rw) {
+multi P5each(List:D \SELF) {
     SELF does IteratorPosition unless SELF ~~ IteratorPosition;
     if SELF.iterator-position > SELF.list.end {
         SELF.iterator-position = 0;
@@ -460,7 +464,7 @@ multi P5each(List:D \SELF is rw) {
         @kv
     }
 }
-multi P5each(Hash:D \SELF is rw) is export {
+multi P5each(Hash:D \SELF) is export {
     SELF does IteratorPosition unless SELF ~~ IteratorPosition;
     SELF.iterator-position > SELF.list.end
         ?? (SELF.iterator-position = 0) || Nil
@@ -504,8 +508,8 @@ sub P5INDIRECT_NAME_LOOKUP($root, *@chunks, :$object is copy, :$method) is expor
     $thing;
 }
 
-multi P5isa()           is hidden_from_backtrace is export { P5die "Usage: UNIVERSAL::isa(reference, kind)" }
-multi P5isa(\reference) is hidden_from_backtrace is export { P5die "Usage: UNIVERSAL::isa(reference, kind)" }
+multi P5isa()           is hidden-from-backtrace is export { P5die "Usage: UNIVERSAL::isa(reference, kind)" }
+multi P5isa(\reference) is hidden-from-backtrace is export { P5die "Usage: UNIVERSAL::isa(reference, kind)" }
 multi P5isa(\reference, \kind) is export { reference.isa(kind) }
 
 multi P5length(Mu     \SELF) is export { 0 }
@@ -832,7 +836,7 @@ multi P5Numeric(Str:D   \SELF) is export {
 multi P5ord(Mu         ) is export { 0             }
 multi P5ord(Str:D \SELF) is export { SELF.ord || 0 }
 
-sub P5pack(Mu \SELF, *@items) is export is hidden_from_backtrace {
+sub P5pack(Mu \SELF, *@items) is export is hidden-from-backtrace {
     return buf8.new unless defined SELF;
     my @bytes;
     my $pos = 0;
@@ -1021,13 +1025,13 @@ sub P5print(*@a is copy, :$pkg) is export {
     $fh.print( P5Str(@a) )
 }
 
-proto P5push(|) is hidden_from_backtrace { * }
-multi P5push(Mu \SELF, *@a) is export is hidden_from_backtrace {
+proto P5push(|) is hidden-from-backtrace { * }
+multi P5push(Mu \SELF, *@a) is export is hidden-from-backtrace {
     SELF !~~ Hash && !SELF.VAR.isa(Scalar)
         ?? P5die "Type of arg 1 to push must be array (not constant item)"
         !! P5die "Not an ARRAY reference"
 }
-multi P5push(Positional \SELF, *@a) is export is hidden_from_backtrace {
+multi P5push(Positional \SELF, *@a) is export is hidden-from-backtrace {
     try SELF.list.push: |@a;
     SELF.list.elems // 0
 }
@@ -1174,7 +1178,7 @@ multi P5split(Cool $delimiter, $expr, $limit = *) {
     }
 }
 
-multi P5Str(Mu:U, :$joiner) is export is hidden_from_backtrace {
+multi P5Str(Mu:U, :$joiner) is export is hidden-from-backtrace {
     P5warn(:cat<uninitialized>, 'Use of uninitialized value in string') unless $*WITHIN_WARN;
     ''
 }
@@ -1186,7 +1190,7 @@ multi P5Str(buf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp:
 multi P5Str(utf8:D   \SELF) is export { try { SELF.decode } // nqp::unbox_s(nqp::decode(nqp::decont(SELF), 'ascii')) }
 multi P5Str(Int:D    \SELF) is export { SELF.Int }
 multi P5Str(Num:D    \SELF) is export { SELF.Num }
-multi P5Str(Parcel:D \SELF) is export { SELF.Int }
+multi P5Str(List:D \SELF) is export { SELF.Int }
 multi P5Str(Pair:D   \SELF) is export { P5Str(SELF.kv.list) }
 multi P5Str(Sub:D    \SELF) is export { 'CODE(' ~ SELF.WHERE.fmt('0x%X').lc ~ ')' }
 

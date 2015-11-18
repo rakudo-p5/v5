@@ -1,3 +1,6 @@
+use v6;
+use nqp;
+
 use Perl5::Grammar;
 use Perl5::ModuleLoader;
 
@@ -28,8 +31,8 @@ sub EXPORT(*@a) {
                 if nqp::defined($PERL5LIB) {
                     %INC<Perl5>.unshift: $*W.p6ize_recursive( nqp::split(':', $PERL5LIB) )
                 }
-                my $I := %*COMPILING<%?OPTIONS><I> ~~ Parcel
-                    ?? nqp::getattr(%*COMPILING<%?OPTIONS><I>, Parcel, '$!storage')
+                my $I := %*COMPILING<%?OPTIONS><I> ~~ List
+                    ?? nqp::getattr(%*COMPILING<%?OPTIONS><I>, List, '$!reified')
                     !! %*COMPILING<%?OPTIONS><I>;
                 if nqp::defined($I) {
                     if nqp::islist($I) {

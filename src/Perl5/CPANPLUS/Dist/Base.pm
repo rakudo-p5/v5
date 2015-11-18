@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module CPANPLUS::Dist::Base {
     #~ our sub subname { ... }

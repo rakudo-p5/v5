@@ -1,5 +1,5 @@
 
-use v6.0.0;
+use v6;
 
 module File::Spec::Functions {
     our sub canonpath(*@a)             { IO::Spec.canonpath(|@a) }

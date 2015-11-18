@@ -1,5 +1,5 @@
 
-use v6.0.0;
+use v6;
 
 module mro {
     our sub get_linear_isa($pkg) {

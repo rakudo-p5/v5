@@ -1,4 +1,4 @@
-use v6.0.0;
+use v6;
 
 module Filter::Util::Call {
     #~ our sub subname { ... }

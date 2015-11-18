@@ -410,7 +410,7 @@ class Perl5::Actions does STDActions {
         $STATEMENT_PRINT := 0;
     }
 
-    sub sink(Mu $past is rw) {
+    sub sink(Mu $past is raw) {
         $V5DEBUG && say("sub sink(\$past)");
         my $name := $past.unique('sink');
         QAST::Want.new(
@@ -449,26 +449,26 @@ class Perl5::Actions does STDActions {
         unless       => 1,
         handle       => 1,
         hllize       => 1;
-    sub autosink(Mu $past is rw) {
+    sub autosink(Mu $past is raw) {
         $V5DEBUG && say("sub autosink(\$past)");
         nqp::istype($past, QAST::Op) && %sinkable{$past.op} && !nqp::p6bool($past.ann('nosink'))
             ?? sink($past)
             !! $past;
     }
 
-    sub xblock_immediate(Mu $xblock is rw) {
+    sub xblock_immediate(Mu $xblock is raw) {
         $V5DEBUG && say("sub xblock_immediate(\$xblock)");
         nqp::bindpos($xblock, 1, pblock_immediate($xblock[1]));
         $xblock;
     }
 
-    sub pblock_immediate(Mu $pblock is rw) {
+    sub pblock_immediate(Mu $pblock is raw) {
         $V5DEBUG && say("sub pblock_immediate(\$pblock)");
         my $p := block_immediate($pblock.ann('uninstall_if_immediately_used').shift);
         $p
     }
 
-    sub block_immediate(Mu $block is rw) {
+    sub block_immediate(Mu $block is raw) {
         $V5DEBUG && say("sub block_immediate(\$block)");
         $block.blocktype('immediate');
         $block;
@@ -2156,7 +2156,7 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    sub declare_variable($/, Mu $past is rw, $sigil, $twigil, $desigilname, $trait_list, $shape?) {
+    sub declare_variable($/, Mu $past is raw, $sigil, $twigil, $desigilname, $trait_list, $shape?) {
         my $name  := $sigil ~ $twigil ~ $desigilname;
         my $BLOCK := $*W.cur_lexpad();
 
@@ -2357,7 +2357,7 @@ class Perl5::Actions does STDActions {
             # Install in lexpad and in package, and set up code to
             # re-bind it per invocation of its outer.
             $*W.install_lexical_symbol($outer, $name, $code, :clone(1));
-            $*W.install_package_symbol($*PACKAGE, $name, $code);
+            $*W.install_package_symbol_unchecked($*PACKAGE, $name, $code);
             $outer[0].push(QAST::Op.new(
                 :op('bindkey'),
                 QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
@@ -2543,7 +2543,7 @@ class Perl5::Actions does STDActions {
         $*W.apply_trait($/, '&trait_mod:<is>', $code, inlinable => $inline_info)
     }
 
-    sub methodize_block($/, $code is rw, Mu $past is rw, %sig_info, Mu $invocant_type, :$yada) {
+    sub methodize_block($/, $code is raw, Mu $past is raw, %sig_info, Mu $invocant_type, :$yada) {
         $V5DEBUG && say("sub methodize_block($/)");
         # Get signature and ensure it has an invocant and *%_.
         my @params := %sig_info<parameters>;
@@ -2591,7 +2591,7 @@ class Perl5::Actions does STDActions {
     }
 
     # Installs a method into the various places it needs to go.
-    sub install_method($/, $name, $scope, Mu $code, Mu $outer is rw, :$private) {
+    sub install_method($/, $name, $scope, Mu $code, Mu $outer is raw, :$private) {
         $V5DEBUG && say("install_method($/, $name, $scope)");
         # Ensure that current package supports methods, and if so
         # add the method.
@@ -2613,7 +2613,7 @@ class Perl5::Actions does STDActions {
         }
         elsif $*SCOPE eq 'our' || $*SCOPE eq '' {
             $*W.install_lexical_symbol($outer, '&' ~ $name, $code, :clone(1));
-            $*W.install_package_symbol($*PACKAGE, '&' ~ $name, $code);
+            $*W.install_package_symbol_unchecked($*PACKAGE, '&' ~ $name, $code);
         }
     }
 
@@ -2711,7 +2711,7 @@ class Perl5::Actions does STDActions {
         make $closure;
     }
 
-    sub regex_coderef($/, $code is rw, Mu $qast is rw, $scope, $name, %sig_info, Mu $block is rw, $traits?, :$proto, :$use_outer_match) {
+    sub regex_coderef($/, $code is raw, Mu $qast is raw, $scope, $name, %sig_info, Mu $block is raw, $traits?, :$proto, :$use_outer_match) {
         # create a code reference from a regex qast tree
         my $past;
         if $proto {
@@ -4211,7 +4211,7 @@ class Perl5::Actions does STDActions {
         }
     }
 
-    sub assign_op($/, Mu $lhs_ast is rw, Mu $rhs_ast is rw) {
+    sub assign_op($/, Mu $lhs_ast is raw, Mu $rhs_ast is raw) {
         my $past;
         my $var_sigil;
         if $lhs_ast.isa(QAST::Var) {
@@ -4389,7 +4389,7 @@ class Perl5::Actions does STDActions {
         make $<VALUE>.ast;
     }
 
-    sub add_numeric_constant($/, $type is rw, $number) {
+    sub add_numeric_constant($/, $type is raw, $number) {
         $V5DEBUG && say("add_numeric_constant($/, $type, $number)");
         my Mu $value := nqp::decont($number);
         return nqp::istype($value, Int) && nqp::isbig_I($value)
@@ -4814,7 +4814,7 @@ class Perl5::Actions does STDActions {
         return QAST::Var.new( :name($name), :scope('lexical') );
     }
 
-    sub reference_to_code_object($code_obj is rw, Mu $past_block is rw) {
+    sub reference_to_code_object($code_obj is raw, Mu $past_block is raw) {
         $V5DEBUG && say("reference_to_code_object($past_block.cuid())");
         my $ref := QAST::WVal.new( :value($code_obj) );
         $ref.annotate('past_block', $past_block);
@@ -4822,7 +4822,7 @@ class Perl5::Actions does STDActions {
         return $ref;
     }
 
-    sub block_closure(Mu $code is rw) {
+    sub block_closure(Mu $code is raw) {
         $V5DEBUG && say("block_closure()");
         my Mu $closure := QAST::Op.new(
             :op('callmethod'), :name('clone'),
@@ -4834,7 +4834,7 @@ class Perl5::Actions does STDActions {
         return $closure;
     }
 
-    sub make_thunk_ref(Mu $to_thunk is rw, $/) {
+    sub make_thunk_ref(Mu $to_thunk is raw, $/) {
         $V5DEBUG && say("make_thunk_ref($/)");
         my $block := $*W.push_lexpad($/);
         $block.push(QAST::Stmts.new(autosink($to_thunk)));
@@ -4845,7 +4845,7 @@ class Perl5::Actions does STDActions {
             $block);
     }
 
-    sub make_topic_block_ref(Mu $past is rw, :$copy, :$name = '$_') {
+    sub make_topic_block_ref(Mu $past is raw, :$copy, :$name = '$_') {
         $V5DEBUG && say("sub make_topic_block_ref($copy, $name)");
         my Mu $block := QAST::Block.new(
             QAST::Stmts.new(
@@ -5061,7 +5061,7 @@ class Perl5::Actions does STDActions {
     # This is the hook where, in the future, we'll use this as the hook to check
     # if we have a proto or other declaration in scope that states that this sub
     # has a signature of the form :(\|$parcel), in which case we don't promote
-    # the Parcel to a Capture when calling it. For now, we just worry about the
+    # the List to a Capture when calling it. For now, we just worry about the
     # special case, return.
     sub capture_or_parcel(Mu $args, $name) {
         $V5DEBUG && say("sub capture_or_parcel($name)");
@@ -5180,7 +5180,7 @@ class Perl5::Actions does STDActions {
         $past
     }
 
-    sub wrap_return_handler(Mu $past is rw) {
+    sub wrap_return_handler(Mu $past is raw) {
         QAST::Op.new(
             :op('p6typecheckrv'),
             QAST::Stmts.new(
@@ -5882,13 +5882,13 @@ class Perl5::RegexActions does STDActions {
         make quantmod($qast, $<quantmod>);
     }
 
-    sub quantmod(Mu $ast is rw, $mod) {
+    sub quantmod(Mu $ast is raw, $mod) {
         if    $mod eq '?' { $ast.backtrack('f') }
         elsif $mod eq '+' { $ast.backtrack('g') }
         $ast;
     }
 
-    method qbuildsub(Mu $qast is rw, Mu $block = QAST::Block.new(), :$anon, :$addself, *%rest) {
+    method qbuildsub(Mu $qast is raw, Mu $block = QAST::Block.new(), :$anon, :$addself, *%rest) {
         $block := nqp::decont($block);
         my $code_obj := nqp::existskey(%rest, 'code_obj')
             ?? %rest<code_obj>
@@ -5903,7 +5903,7 @@ class Perl5::RegexActions does STDActions {
         }
 
         my $capnames := capnames($qast, 0);
-        $capnames    := nqp::getattr($capnames, EnumMap, '$!storage');
+        $capnames    := nqp::getattr($capnames, Map, '$!storage');
         self.store_regex_caps($code_obj, $block, $capnames);
         self.store_regex_nfa($code_obj, $block, QRegex::NFA.new.addnode($qast));
 
@@ -5919,7 +5919,7 @@ class Perl5::RegexActions does STDActions {
         $block;
     }
 
-    sub capnames(Mu $ast is rw, $count is copy) {
+    sub capnames(Mu $ast is raw, $count is copy) {
         my %capnames;
         my $rxtype := $ast.rxtype;
         if $rxtype eq 'concat' {
@@ -5997,9 +5997,9 @@ class Perl5::RegexActions does STDActions {
     }
 
     # Stores the captures info for a regex.
-    method store_regex_caps($code_obj, Mu $block, $caps is rw) {
+    method store_regex_caps($code_obj, Mu $block, $caps is raw) {
         $V5DEBUG && say("store_regex_caps()");
-        $code_obj.SET_CAPS(nqp::getattr($caps, EnumMap, '$!storage'));
+        $code_obj.SET_CAPS(nqp::getattr($caps, Map, '$!storage'));
     }
 
     method store_regex_nfa($code_obj, Mu $block, Mu $nfa) {

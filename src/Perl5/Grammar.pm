@@ -123,7 +123,7 @@ role STD5 {
         has $.lang;
     }
 
-    role herestop {
+    my role herestop {
         token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ <+[\v]-[\x85]>? }
         #~ token stopper { ^^ {} $<ws>=(\h*?) $*DELIM \h* <.unv>?? $$ \v? }
     }
@@ -515,7 +515,7 @@ grammar Perl5::Grammar does STD5 {
                 }
                 else {
                     $value := nqp::islist($value)
-                        ?? nqp::p6list($value, Array, Mu)
+                        ?? nqp::list($value, Array, Mu)
                         !! nqp::istype($value, Match) || nqp::istype($value, Hash)
                             ?? $value
                             !! [$value];
@@ -802,7 +802,7 @@ grammar Perl5::Grammar does STD5 {
             my $arg = @termstack.pop;
             $key    = $arg.from() < $op.from() ?? 'POSTFIX' !! 'PREFIX';
             nqp::bindattr($op, Capture, '$!list',
-                nqp::getattr(nqp::decont([$arg].Parcel), Parcel, '$!storage'));
+                nqp::getattr(nqp::decont([$arg].list), List, '$!reified'));
         }
         elsif $opassoc eq 'list' {
             $sym = %opOPER<sym> // '';
@@ -815,7 +815,7 @@ grammar Perl5::Grammar does STD5 {
             }
             @list.unshift: @termstack.pop;
             nqp::bindattr($op, Capture, '$!list',
-                nqp::getattr(nqp::decont(@list.Parcel), Parcel, '$!storage'));
+                nqp::getattr(nqp::decont(@list.list), List, '$!reified'));
             $key = 'LIST';
         }
         else { # infix op assoc: left|right|ternary|...
@@ -824,7 +824,7 @@ grammar Perl5::Grammar does STD5 {
             @list.unshift: @termstack.pop; # left
             $reducecheck = %opO<reducecheck>;
             nqp::bindattr($op, Capture, '$!list',
-                nqp::getattr(nqp::decont(@list.Parcel), Parcel, '$!storage'));
+                nqp::getattr(nqp::decont(@list.list), List, '$!reified'));
             self."$reducecheck"($op) if $reducecheck;
             $key = 'INFIX';
         }
@@ -1502,12 +1502,12 @@ grammar Perl5::Grammar does STD5 {
                 else {
                     $result := nqp::atkey(module_context, '&EXPORT')();
                 }
-                if nqp::istype($result, EnumMap) {
+                if nqp::istype($result, Map) {
                     my $storage := $result.hash.FLATTENABLE_HASH();
                     import_symbols($/, $storage, $package_source_name);
                 }
                 else {
-                    nqp::die("&EXPORT sub did not return an EnumMap");
+                    nqp::die("&EXPORT sub did not return an Map");
                 }
             }
             elsif nqp::existskey(module_context, $package_source_name) # sub import in package
@@ -1515,7 +1515,7 @@ grammar Perl5::Grammar does STD5 {
                 @positional_imports.unshift: $package_source_name;
                 my $result := $*W.stash_hash(nqp::atkey(module_context, $package_source_name))<&import>(
                     @positional_imports );
-                if nqp::istype($result, EnumMap) {
+                if nqp::istype($result, Map) {
                     my $storage := $result.hash.FLATTENABLE_HASH();
                     import_symbols($/, $storage, $package_source_name);
                 }
@@ -1583,7 +1583,7 @@ grammar Perl5::Grammar does STD5 {
                     :scope('lexical'), :name($_.key), :decl('static'), :value($_.value)
                 ));
                 # Otherwise @INC from Perl5::Terms will clobber @*INC for some reason...
-                $*W.install_package_symbol($*PACKAGE, $_.key, $_.value);
+                $*W.install_package_symbol_unchecked($*PACKAGE, $_.key, $_.value);
                 $target.list[0].push(QAST::Op.new(
                     :op('bindkey'),
                     QAST::Op.new( :op('who'), QAST::WVal.new( :value($*PACKAGE) ) ),
