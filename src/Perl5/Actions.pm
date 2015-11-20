@@ -255,11 +255,11 @@ sub container_type_info($/, $sigil, @value_type, $shape?) is export {
             @value_type[0] := Any unless +@value_type;
             my $shape_ast  := $shape[0].ast;
             if $shape_ast.isa(QAST::Stmts) {
-                if +@($shape_ast) == 1 {
+                if +$shape_ast.list == 1 {
                     if $shape_ast[0].has_compile_time_value {
                         @value_type[1] := $shape_ast[0].compile_time_value;
                     } elsif (my $op_ast := $shape_ast[0]).isa(QAST::Op) {
-                        if $op_ast.op eq "call" && +@($op_ast) == 2 {
+                        if $op_ast.op eq "call" && +$op_ast.list == 2 {
                             if !nqp::isconcrete($op_ast[0].value) && !nqp::isconcrete($op_ast[1].value) {
                                 throw($/, <X Comp NYI>,
                                     feature => "coercive type declarations");
@@ -269,7 +269,7 @@ sub container_type_info($/, $sigil, @value_type, $shape?) is export {
                         throw($/, <X Comp AdHoc>,
                             payload => "Invalid hash shape; type expected");
                     }
-                } elsif +@($shape_ast) > 1 {
+                } elsif +$shape_ast.list > 1 {
                     throw($/, <X Comp NYI>,
                         feature => "multidimensional shaped hashes");
                 }
@@ -783,7 +783,7 @@ class Perl5::Actions does STDActions {
         if $<statement> {
             for $<statement>.list { $past.push($_.ast) if $_.ast; }
         }
-        unless +@($past) {
+        unless +$past.list {
             $past.push( QAST::Op.new( :op('call'), :name('&infix:<,>') ) );
         }
         make $past;
@@ -1124,7 +1124,7 @@ class Perl5::Actions does STDActions {
         unless nqp::isnull($phasers) {
             if nqp::existskey($phasers, 'NEXT') {
                 my $phascode := $*W.run_phasers_code($code, $block_type, 'NEXT');
-                if +@($loop) == 2 {
+                if +$loop.list == 2 {
                     $loop.push($phascode);
                 }
                 else {
@@ -2207,8 +2207,8 @@ class Perl5::Actions does STDActions {
             # If this variable has a lookup (getlexouter), replace it with a declaration.
             if $BLOCK.symbol($name) {
                 my $i := 0;
-                for @($BLOCK[0]) {
-                    if nqp::istype($_, QAST::Op) && +@($_) == 2
+                for $BLOCK[0].list {
+                    if nqp::istype($_, QAST::Op) && +$_.list == 2
                     && nqp::istype($_[0], QAST::Var) && $_[0].name eq $name
                     && nqp::istype($_[1], QAST::Op)  && $_[1].op   eq 'getlexouter' {
                         $BLOCK[0][$i] := QAST::Var.new( :$name, :scope('lexical'), :decl('var') );
@@ -2418,7 +2418,7 @@ class Perl5::Actions does STDActions {
         $V5DEBUG && say("add_inlining_info_if_possible($/, \$code, \$past, \@params)");
         # Make sure the block has the common structure we expect
         # (decls then statements).
-        return 0 unless +@($past) == 2;
+        return 0 unless +$past.list == 2;
 
         # Ensure all parameters are simple and build placeholders for
         # them.
@@ -2435,7 +2435,7 @@ class Perl5::Actions does STDActions {
         }
 
         # Ensure nothing extra is declared.
-        for @($past[0]) {
+        for $past[0].list {
             if nqp::istype($_, QAST::Var) && $_.scope eq 'lexical' {
                 my $name := $_.name;
                 return 0 if $name ne '$*DISPATCHER' && $name ne '$_' &&
@@ -2477,7 +2477,7 @@ class Perl5::Actions does STDActions {
                 if nqp::getcomp('QAST').operations.is_inlinable('perl6', $node.op) {
                     my $replacement := $node.shallow_clone();
                     my int $i = 0;
-                    my int $n = +@($node);
+                    my int $n = +$node.list;
                     while $i < $n {
                         $replacement[$i] := node_walker($node[$i]);
                         $i = $i + 1;
@@ -2510,7 +2510,7 @@ class Perl5::Actions does STDActions {
             elsif nqp::istype($node, QAST::Stmt) || nqp::istype($node, QAST::Stmts) {
                 my $replacement := $node.shallow_clone();
                 my int $i = 0;
-                my int $n = +@($node);
+                my int $n = +$node.list;
                 while $i < $n {
                     $replacement[$i] := node_walker($node[$i]);
                     $i = $i + 1;
@@ -2522,7 +2522,7 @@ class Perl5::Actions does STDActions {
             elsif nqp::istype($node, QAST::Want) {
                 my $replacement := $node.shallow_clone();
                 my int $i = 0;
-                my int $n = +@($node);
+                my int $n = +$node.list;
                 while $i < $n {
                     $replacement[$i] := node_walker($node[$i]);
                     $i = $i + 2;
@@ -2632,7 +2632,7 @@ class Perl5::Actions does STDActions {
                 nqp::istype($past, QAST::IVal) ||
                 nqp::istype($past, QAST::NVal) ||
                 nqp::istype($past, QAST::SVal);
-            for @($past) {
+            for $past.list {
                 if nqp::istype($_, QAST::Node) {
                     if !returnless_past($_) {
                         return 0;
@@ -2645,10 +2645,10 @@ class Perl5::Actions does STDActions {
         # Only analyse things with a single simple statement.
         if +$block[1].list == 1 && nqp::istype($block[1][0], QAST::Stmt) && +$block[1][0].list == 1 {
             # Ensure there's no nested blocks.
-            for @($block[0]) {
+            for $block[0].list {
                 if nqp::istype($_, QAST::Block) { return 0; }
                 if nqp::istype($_, QAST::Stmts) {
-                    for @($_) {
+                    for $_.list {
                         if nqp::istype($_, QAST::Block) { return 0; }
                     }
                 }
@@ -3056,7 +3056,7 @@ class Perl5::Actions does STDActions {
             # Add it to the signature.
             nqp::push($parameters, $param_obj);
         }
-        nqp::bindkey(%signature_info, 'parameters', $parameters);
+        nqp::bindkey(%signature_info, 'parameter_objects', $parameters);
         $*W.create_signature(%signature_info) # XXX use a Perl 6 Hash and then pass along its $!storage.
     }
 
@@ -3154,7 +3154,7 @@ class Perl5::Actions does STDActions {
     }
 
     sub whine_if_args($/, Mu $past, $name) {
-        if +@($past) > 0 {
+        if +$past.list > 0 {
            throw($/, <X Syntax Argument MOPMacro>, macro => $name);
         }
     }
@@ -3644,7 +3644,7 @@ class Perl5::Actions does STDActions {
                 # Do we know all the arguments at compile time?
                 my int $all_compile_time = 1;
                 if $<arglist><arg> {
-                    for @($<arglist><arg>.ast) {
+                    for $<arglist><arg>.ast.list {
                         unless $_.has_compile_time_value {
                             $all_compile_time = 0;
                         }
@@ -4322,7 +4322,7 @@ class Perl5::Actions does STDActions {
         my $nib  := $<nibble>.ast;
         $past.push($nib)
             unless nqp::istype($nib, QAST::Stmts) && nqp::istype($nib[0], QAST::Op) &&
-            $nib[0].name eq '&infix:<,>' && +@($nib[0]) == 0;
+            $nib[0].name eq '&infix:<,>' && +$nib[0].list == 0;
         make $past;
     }
 
@@ -4332,7 +4332,7 @@ class Perl5::Actions does STDActions {
         my $nib  := $<nibble>.ast;
         $past.push($nib)
             unless nqp::istype($nib, QAST::Stmts) && nqp::istype($nib[0], QAST::Op) &&
-            $nib[0].name eq '&infix:<,>' && +@($nib[0]) == 0;
+            $nib[0].name eq '&infix:<,>' && +$nib[0].list == 0;
         make $past;
     }
 
@@ -4342,7 +4342,7 @@ class Perl5::Actions does STDActions {
         my $nib  := $<nibble>.ast;
         $past.push($nib)
             unless nqp::istype($nib, QAST::Stmts) && nqp::istype($nib[0], QAST::Op) &&
-            $nib[0].name eq '&infix:<,>' && +@($nib[0]) == 0;
+            $nib[0].name eq '&infix:<,>' && +$nib[0].list == 0;
         make $past;
     }
 
@@ -4987,7 +4987,7 @@ class Perl5::Actions does STDActions {
         }
         else {
             my $prev_content := QAST::Stmts.new();
-            $prev_content.push($handler.ann('past_block').shift()) while +@($handler.ann('past_block'));
+            $prev_content.push($handler.ann('past_block').shift()) while +$handler.ann('past_block'.list);
             $prev_content.push(QAST::Var.new( :name('Nil'), :scope('lexical') ));
             $handler.ann('past_block').push(QAST::Op.new(
                 :op('handle'),
@@ -5068,7 +5068,7 @@ class Perl5::Actions does STDActions {
         if $name eq 'return' {
             # Need to demote pairs again.
             my $parcel := QAST::Op.new( :op('call') );
-            for @($args) {
+            for $args.list {
                 $parcel.push($_<before_promotion> ?? $_<before_promotion> !! $_);
             }
             $parcel
@@ -5126,7 +5126,7 @@ class Perl5::Actions does STDActions {
             my $check := $past[$i];
             $check := $check[0] if (nqp::istype($check, QAST::Stmts) ||
                                     nqp::istype($check, QAST::Stmt)) &&
-                                   +@($check) == 1;
+                                   +$check.list == 1;
             $whatevers = $whatevers + 1 if istype($check.returns, WhateverCode)
                             || $curried > 1 && istype($check.returns, Whatever);
             $i = $i + 1;
@@ -5140,7 +5140,7 @@ class Perl5::Actions does STDActions {
                 my $old := $past[$i];
                 $old := $old[0] if (nqp::istype($old, QAST::Stmts) ||
                                     nqp::istype($old, QAST::Stmt)) &&
-                                   +@($old) == 1;
+                                   +$old.list == 1;
                 if istype($old.returns, WhateverCode) {
                     my $new := QAST::Op.new( :op<call>, :node($/), $old);
                     my $acount := 0;
@@ -5411,13 +5411,13 @@ class Perl5::QActions does STDActions {
             }
             else {
                 my $ppw := self.postprocess_words($/, $node);
-                unless nqp::istype($ppw, QAST::Stmts) && +@($ppw[0]) == 0 {
+                unless nqp::istype($ppw, QAST::Stmts) && +$ppw[0].list == 0 {
                     $result.push($ppw);
                 }
             }
         }
         walk($past);
-        return +@($result) == 1 ?? $result[0] !! $result;
+        return +$result.list == 1 ?? $result[0] !! $result;
     }
 
     method postprocess_heredoc($/, Mu $past) {
@@ -5982,11 +5982,11 @@ class Perl5::RegexActions does STDActions {
         }
         elsif $qast.rxtype eq 'concat' {
             my @tmp;
-            while +@($qast) { @tmp.push(@($qast).shift) }
-            while @tmp      { @($qast).push(self.flip_ast(@tmp.pop)) }
+            while +$qast.list { @tmp.push($qast.list.shift) }
+            while @tmp      { $qast.list.push(self.flip_ast(@tmp.pop)) }
         }
         else {
-            for @($qast) { self.flip_ast($_) }
+            for $qast.list { self.flip_ast($_) }
         }
         $qast
     }

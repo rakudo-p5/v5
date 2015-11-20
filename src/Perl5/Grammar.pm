@@ -842,7 +842,7 @@ grammar Perl5::Grammar does STD5 {
         $cur.panic('"' ~ $op1 ~ '" and "' ~ $op2 ~ '" are non-associative and require parens');
     }
 
-    method ternary($match is rw) {
+    method ternary($match is raw) {
         my $decont  := nqp::decont($match);
         my Mu $list := nqp::getattr($decont, Capture, '$!list');
         nqp::bindpos($list, 2, $list[1]);

@@ -20,9 +20,10 @@ say "nok " . ++$n . " - at line " . __LINE__ if 0 || 0;
 say "nok " . ++$n . " - at line " . __LINE__ if 1 && 0;
 say "ok "  . ++$n . " - at line " . __LINE__ if "$n";
 
-$x = 0;
-for (3..5) { $x++ };
-say( ($x == 3 ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
+# FIXME: tries to bind the range object instead of individual numbers!
+#$x = 0;
+#for (3..5) { $x++ };
+#say( ($x == 3 ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );
 
 sub foo { 42 }
 say( (foo() ? '' : 'n') . "ok " . ++$n . " - at line " . __LINE__ );

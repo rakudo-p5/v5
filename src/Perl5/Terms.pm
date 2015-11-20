@@ -389,11 +389,11 @@ multi ::('trait_mod:<is>')(Routine:D $r, :$lvalue!) is export {
 }
 
 multi ::('postcircumfix<P5[ ]>')(Any \SELF)                        is export { SELF.list                   }
-multi ::('postcircumfix<P5[ ]>')(Any \SELF, int $pos)        is rw is export { SELF.at_pos(P5Numeric($pos)) }
-multi ::('postcircumfix<P5[ ]>')(Any \SELF, $pos)            is rw is export { SELF.at_pos(P5Numeric($pos)) }
+multi ::('postcircumfix<P5[ ]>')(Any \SELF, int $pos)        is rw is export { SELF.AT-POS(P5Numeric($pos)) }
+multi ::('postcircumfix<P5[ ]>')(Any \SELF, $pos)            is rw is export { SELF.AT-POS(P5Numeric($pos)) }
 multi ::('postcircumfix<P5[ ]>')(Any \SELF, Positional \pos) is rw is export {
     if nqp::iscont(pos) {
-        return SELF.at_pos(pos)
+        return SELF.AT-POS(pos)
     }
     my $list = pos.flat;
     $list.gimme(*);
