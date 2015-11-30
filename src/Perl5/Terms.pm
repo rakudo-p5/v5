@@ -171,7 +171,7 @@ sub EXPORT(|) {
     %ex<$^I>                      := $INPLACE_EDIT;
     %ex<$^T>                      := $BASETIME;
     %ex<$^V>                      := $VERSION_V;
-    %ex<$^X>                      := $*EXECUTABLE_NAME;
+    %ex<$^X>                      := $*EXECUTABLE-NAME;
     %ex<$^M>                      := Mu;
         
     ## Variables related to regular expressions
