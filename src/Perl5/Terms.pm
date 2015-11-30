@@ -492,14 +492,14 @@ sub P5INDIRECT_NAME_LOOKUP($root, *@chunks, :$object is copy, :$method) is expor
         }
     }
     $object //= $name;
-    my Mu $thing := $root.exists_key($first) ?? $root{$first} !!
-                    GLOBAL::.exists_key($first) ?? GLOBAL::{$first} !!
+    my Mu $thing := $root.EXISTS-KEY($first) ?? $root{$first} !!
+                    GLOBAL::.EXISTS-KEY($first) ?? GLOBAL::{$first} !!
                     !$method && !$has_sigil ?? (return $name but P5Bareword) !! # check that we do not have args?
                     !$method ?? X::NoSuchSymbol.new(symbol => $name).fail !!
                     $method eq 'isa' || $method eq 'can' ?? Str !!
                     X::AdHoc.new(payload => "Can't locate object method \"$method\" via package \"$object\" (perhaps you forgot to load \"$object\"?)").fail;
     for @parts {
-        unless $thing.WHO.exists_key($_) {
+        unless $thing.WHO.EXISTS-KEY($_) {
             $method eq 'isa' || $method eq 'can' ?? Str !!
             X::AdHoc.new(payload => "Can't locate object method \"$method\" via package \"$object\" (perhaps you forgot to load \"$object\"?)").fail;
         }
