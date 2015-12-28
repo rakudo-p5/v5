@@ -433,7 +433,7 @@ sub P5do(Mu \SELF) is export is hidden-from-backtrace {
     if SELF {
         if SELF.IO.e {
             try {
-                $ret = EVAL slurp SELF;
+                $ret = EVALFILE SELF;
                 CATCH {
                     default { P5warn(CALLER::DYNAMIC::<$!> = .Str) }
                 }
@@ -1291,7 +1291,7 @@ sub P5trans($self is rw, *@changes) is export {
         gather for $s.comb(/ (\w) '..' (\w) | . /, :match) {
             if .[0] {
                 take $_ for ~.[0] .. ~.[1];
-                0;
+                #0;
             } else {
                 take ~$_;
             }
