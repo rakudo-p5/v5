@@ -62,7 +62,7 @@ class Build is Panda::Builder is Panda::Tester {
             my $is_nqp     = $module<is_nqp>;
             my @name_parts = $module<name>.split('::');
             my $basename   = @name_parts.join('/');
-            my $pm         = $is_nqp ?? "src/$basename.pm" !! "src/Perl5/$basename.pm";
+            my $pm         = $is_nqp ?? "lib/$basename.pm" !! "lib/Perl5/$basename.pm";
             my $bc         = ($is_nqp ?? 'lib/' !! 'lib/Perl5/') ~ "{$basename}.pm.{$*VM.precomp-ext}";
             my $dir        = $bc.split('/')[0..(*-2)].join('/');
 
