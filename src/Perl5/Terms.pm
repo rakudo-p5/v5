@@ -276,7 +276,7 @@ sub exists( \a ) is export {
 
 # http://perldoc.perl.org/functions/undef.html
 multi sub undef()         is export { Any              }
-multi sub undef($a is rw) is export { undefine $a; Any }
+multi sub undef($a is rw) is export { $a = ($a ~~ Array|Hash ?? Empty !! Nil); Any }
 
 # http://perldoc.perl.org/functions/system.html
 sub system(*@a) is export { shell(@a).status || '' }
